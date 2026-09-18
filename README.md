@@ -191,16 +191,13 @@ Dự án được quản lý theo mô hình **Project Management Repository** t�
 
 ```
 DrugTime/ (Main Management Repository)
-├── .github/
-│   └── workflows/
-│       └── mobile-ci.yml
 ├── .gitmodules                    # Cấu hình danh sách 4 submodules
-├── backend/                       # [Submodule] -> Duc1445/DrugTime-backend
-├── frontend/                      # [Submodule] -> Duc1445/DrugTime-frontend (mobile + admin)
+├── backend/                       # [Submodule] -> DrugTime-C1SE-07/DrugTime-backend
+├── frontend/                      # [Submodule] -> DrugTime-C1SE-07/DrugTime-frontend (mobile + admin)
 │   ├── mobile/                    # Flutter App (Patient & Family)
 │   └── admin/                     # React + Next.js Admin Dashboard
-├── docs/                          # [Submodule] -> Duc1445/DrugTime-docs (SRS, Proposal, Diagrams)
-├── tests/                         # [Submodule] -> Duc1445/DrugTime-test (E2E / Integration tests)
+├── docs/                          # [Submodule] -> DrugTime-C1SE-07/DrugTime-docs (SRS, Proposal, Diagrams)
+├── tests/                         # [Submodule] -> DrugTime-C1SE-07/DrugTime-test (E2E / Integration tests)
 └── README.md
 ```
 
@@ -208,7 +205,7 @@ DrugTime/ (Main Management Repository)
 
 ```bash
 # Clone toàn bộ repo kèm tất cả submodules:
-git clone --recurse-submodules https://github.com/Duc1445/DrugTime.git
+git clone --recurse-submodules https://github.com/DrugTime-C1SE-07/DrugTime.git
 
 # Cập nhật tất cả submodules lên commit mới nhất của nhánh main:
 git submodule update --remote --merge

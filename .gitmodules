@@ -1,16 +1,16 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/Duc1445/DrugTime-backend.git
+	url = https://github.com/DrugTime-C1SE-07/DrugTime-backend.git
 	branch = main
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/Duc1445/DrugTime-frontend.git
+	url = https://github.com/DrugTime-C1SE-07/DrugTime-frontend.git
 	branch = main
 [submodule "docs"]
 	path = docs
-	url = https://github.com/Duc1445/DrugTime-docs.git
+	url = https://github.com/DrugTime-C1SE-07/DrugTime-docs.git
 	branch = main
 [submodule "tests"]
 	path = tests
-	url = https://github.com/Duc1445/DrugTime-test.git
+	url = https://github.com/DrugTime-C1SE-07/DrugTime-test.git
 	branch = main
