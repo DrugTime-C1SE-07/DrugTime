@@ -1,0 +1,16 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Duc1445/DrugTime-backend.git
+	branch = main
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Duc1445/DrugTime-frontend.git
+	branch = main
+[submodule "docs"]
+	path = docs
+	url = https://github.com/Duc1445/DrugTime-docs.git
+	branch = main
+[submodule "tests"]
+	path = tests
+	url = https://github.com/Duc1445/DrugTime-test.git
+	branch = main

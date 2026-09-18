@@ -185,36 +185,33 @@ npm run dev
 
 ---
 
-## 📁 Cấu trúc dự án
+## 📁 Cấu trúc dự án (Git Submodules)
+
+Dự án được quản lý theo mô hình **Project Management Repository** tích hợp 4 repositories thành phần qua **Git Submodule**:
 
 ```
-DrugTime/
+DrugTime/ (Main Management Repository)
 ├── .github/
 │   └── workflows/
-│       └── mobile-ci.yml          # CI pipeline cho mobile app
-├── mobile/                        # Flutter app (Patient & Family Member)
-│   ├── lib/
-│   ├── android/
-│   ├── ios/
-│   └── pubspec.yaml
-├── backend/                       # Python FastAPI backend
-│   ├── modules/
-│   │   ├── medication/
-│   │   ├── interaction/
-│   │   ├── reminder/
-│   │   ├── partner/
-│   │   ├── admin/
-│   │   └── consent/
-│   ├── main.py
-│   └── requirements.txt
-├── admin/                         # React + Next.js admin dashboard
-│   ├── src/
-│   └── package.json
-├── docs/                          # Tài liệu dự án
-│   ├── DrugTime_SRS.docx
-│   ├── Proposal.docx
-│   └── Diagram.drawio
+│       └── mobile-ci.yml
+├── .gitmodules                    # Cấu hình danh sách 4 submodules
+├── backend/                       # [Submodule] -> Duc1445/DrugTime-backend
+├── frontend/                      # [Submodule] -> Duc1445/DrugTime-frontend (mobile + admin)
+│   ├── mobile/                    # Flutter App (Patient & Family)
+│   └── admin/                     # React + Next.js Admin Dashboard
+├── docs/                          # [Submodule] -> Duc1445/DrugTime-docs (SRS, Proposal, Diagrams)
+├── tests/                         # [Submodule] -> Duc1445/DrugTime-test (E2E / Integration tests)
 └── README.md
+```
+
+### ⚡ Thao tác với Submodules
+
+```bash
+# Clone toàn bộ repo kèm tất cả submodules:
+git clone --recurse-submodules https://github.com/Duc1445/DrugTime.git
+
+# Cập nhật tất cả submodules lên commit mới nhất của nhánh main:
+git submodule update --remote --merge
 ```
 
 ---
