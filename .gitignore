@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
+.env.local
+*.env
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.sqlite3
+
+# Node / Admin
+node_modules/
+.next/
+out/
+dist/
+*.log
+
+# Flutter / Mobile
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.iml
+.idea/
+.vscode/
