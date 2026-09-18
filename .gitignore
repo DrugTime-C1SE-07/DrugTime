@@ -31,3 +31,6 @@ build/
 *.iml
 .idea/
 .vscode/
+
+#docs
+docs/setup_git_submodule.md
