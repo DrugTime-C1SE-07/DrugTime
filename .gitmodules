@@ -14,3 +14,7 @@
 	path = tests
 	url = https://github.com/DrugTime-C1SE-07/DrugTime-test.git
 	branch = main
+[submodule "api_contract"]
+	path = api_contract
+	url = https://github.com/DrugTime-C1SE-07/DrugTime-api_contract.git
+	branch = main
