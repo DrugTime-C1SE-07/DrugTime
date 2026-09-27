@@ -187,11 +187,12 @@ npm run dev
 
 ## 📁 Cấu trúc dự án (Git Submodules)
 
-Dự án được quản lý theo mô hình **Project Management Repository** tích hợp 4 repositories thành phần qua **Git Submodule**:
+Dự án được quản lý theo mô hình **Project Management Repository** tích hợp 5 repositories thành phần qua **Git Submodule**:
 
 ```
 DrugTime/ (Main Management Repository)
-├── .gitmodules                    # Cấu hình danh sách 4 submodules
+├── .gitmodules                    # Cấu hình danh sách 5 submodules
+├── api_contract/                  # [Submodule] -> DrugTime-C1SE-07/DrugTime-api_contract (OpenAPI / API Contracts)
 ├── backend/                       # [Submodule] -> DrugTime-C1SE-07/DrugTime-backend
 ├── frontend/                      # [Submodule] -> DrugTime-C1SE-07/DrugTime-frontend (mobile + admin)
 │   ├── mobile/                    # Flutter App (Patient & Family)
