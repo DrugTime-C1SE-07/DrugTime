@@ -1,0 +1,34 @@
+# Copy vào .github/workflows/agents-check.yml của superproject.
+# Chỉ lấy submodule .agents (không cần quyền đọc các submodule khác).
+# Nếu repo .agents là private: tạo secret AGENTS_REPO_TOKEN (fine-grained, read-only contents) rồi bỏ comment dòng token.
+name: agents-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  agents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Checkout .agents submodule
+        run: |
+          # git config --global url."https://x-access-token:${{ secrets.AGENTS_REPO_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git submodule update --init --depth 1 .agents
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: CORE trong AGENTS.md khớp .agents/core.md
+        run: python .agents/scripts/sync.py --check
+      - name: Doctor (bỏ kiểm tra chỉ có nghĩa trên máy cá nhân)
+        run: python .agents/scripts/doctor.py --ci
+      - name: Artifact work/ hợp lệ, approval không bị sửa sau khi duyệt
+        run: python .agents/scripts/gate.py validate
+      - name: Unit test của script quy trình
+        run: |
+          pip install pytest
+          python -m pytest .agents/scripts/tests -q

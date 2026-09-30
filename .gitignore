@@ -34,3 +34,8 @@ build/
 
 #docs
 docs/setup_git_submodule.md
+
+# .agents
+.claude/skills
+.claude/settings.local.json
+work/*/scratch/
