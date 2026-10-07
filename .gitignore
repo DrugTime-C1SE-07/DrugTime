@@ -34,10 +34,10 @@ build/
 
 #docs
 docs/setup_git_submodule.md
-git.md
+chat_notes
 
 # .agents
 .claude/skills
 .claude/settings.local.json
 work/*/scratch/
-work
+work/
