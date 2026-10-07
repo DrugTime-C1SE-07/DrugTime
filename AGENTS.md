@@ -30,7 +30,7 @@ Nguồn: `.agents/core.md`. Mọi đường dẫn tính từ gốc superproject.
 
 - **Task size S** (xếp ở `01`, tiêu chí trong `wf-requirement`): chỉ có requirement → implement → review. `01` chứa luôn bảng "File sẽ thay đổi" và checklist. Task chạm vùng rủi ro của dự án hoặc đổi contract không được xếp S.
 - Điều phối: `wf-status` (task đang ở đâu), `wf-next` (làm giai đoạn kế tiếp), `wf-handoff` (chuẩn bị bàn giao). Người dùng nói "làm task X" mà không nói giai đoạn thì dùng `wf-next`.
-- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe), `wf-testcase` (bộ test case Excel và Bug Report, cuối giai đoạn test; task size S thì cuối implement).
+- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe).
 - Skill cần dùng mà không có trong `.agents/skills/`: dừng và báo, không tự ứng biến.
 
 ### 2. Cổng duyệt
