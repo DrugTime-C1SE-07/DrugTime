@@ -30,7 +30,7 @@ Nguồn: `.agents/core.md`. Mọi đường dẫn tính từ gốc superproject.
 
 - **Task size S** (xếp ở `01`, tiêu chí trong `wf-requirement`): chỉ có requirement → implement → review. `01` chứa luôn bảng "File sẽ thay đổi" và checklist. Task chạm vùng rủi ro của dự án hoặc đổi contract không được xếp S.
 - Điều phối: `wf-status` (task đang ở đâu), `wf-next` (làm giai đoạn kế tiếp), `wf-handoff` (chuẩn bị bàn giao). Người dùng nói "làm task X" mà không nói giai đoạn thì dùng `wf-next`.
-- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe).
+- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe), `wf-testcase` (bộ test case Excel và Bug Report, cuối giai đoạn test; task size S thì cuối implement).
 - Skill cần dùng mà không có trong `.agents/skills/`: dừng và báo, không tự ứng biến.
 
 ### 2. Cổng duyệt
@@ -102,6 +102,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - client: `frontend`
 - integration-test: `tests`, `backend/tests/integration`, `backend/tests/interaction_scenarios`
 - docs: `docs`
+- testcase-book: `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx`
 
 ### Stack và lệnh
 
@@ -111,6 +112,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - Mobile: `cd frontend/mobile && flutter test`.
 - Admin Web: `cd frontend/admin && npm run lint`. TODO(team): chưa có lệnh test.
 - Test E2E: TODO(team): lệnh chạy trong `tests` (hiện chỉ có `test_smoke.py`).
+- Bộ test case Excel (skill `wf-testcase`): `python .agents/scripts/testcase_xlsx.py validate|build|merge <task-id>`; cần `openpyxl`. File tổng: vai trò `testcase-book`. Project Name trong spec: `DrugTime`.
 - Database: Supabase (PostgreSQL). Reset DB local: `cd backend && supabase db reset`. Role: `api_role` (API), `worker_role` (Worker).
 - Hạ tầng khác: Redis (RQ), FCM (Firebase Admin SDK).
 - `api_contract`: OpenAPI sinh từ backend bằng `backend/scripts/export_openapi.py`. TODO(team): script đang ghi ra `../api-contract/openapi.json` (gạch ngang), trong khi submodule tên `api_contract`; cần sửa một trong hai.
