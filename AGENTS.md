@@ -102,6 +102,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - client: `frontend`
 - integration-test: `tests`, `backend/tests/integration`, `backend/tests/interaction_scenarios`
 - docs: `docs`
+- testcase-book: `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx`
 
 ### Stack và lệnh
 
@@ -111,6 +112,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - Mobile: `cd frontend/mobile && flutter test`.
 - Admin Web: `cd frontend/admin && npm run lint`. TODO(team): chưa có lệnh test.
 - Test E2E: TODO(team): lệnh chạy trong `tests` (hiện chỉ có `test_smoke.py`).
+- Bộ test case Excel (skill `wf-testcase`): `python .agents/scripts/testcase_xlsx.py validate|build|merge <task-id>`; cần `openpyxl`. File tổng: vai trò `testcase-book`. Project Name trong spec: `DrugTime`.
 - Database: Supabase (PostgreSQL). Reset DB local: `cd backend && supabase db reset`. Role: `api_role` (API), `worker_role` (Worker).
 - Hạ tầng khác: Redis (RQ), FCM (Firebase Admin SDK).
 - `api_contract`: OpenAPI sinh từ backend bằng `backend/scripts/export_openapi.py`. TODO(team): script đang ghi ra `../api-contract/openapi.json` (gạch ngang), trong khi submodule tên `api_contract`; cần sửa một trong hai.
