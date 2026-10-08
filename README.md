@@ -309,15 +309,13 @@ main
 
 **Team C1SE.07** — International School, Duy Tan University
 
-| Thành viên | MSSV | Vai trò |
-|---|---|---|
-| Nguyễn Ngọc Phúc | 29219051745 | Team Leader / Scrum Master, Dev, QA |
-| Nguyễn Quang Bảo | 29211158850 | Dev, QA, DevOps |
-| Nguyễn Tấn Đức | 29211156669 | Dev, QA, DevOps |
-| Nguyễn Văn Nguyên | 29211364802 | BA, Dev, QA |
-| Đặng Ngô Ngọc Việt | 29219064788 | Dev, QA, DevOps |
-
-**Mentor**: B.Eng. Nguyễn Trọng Giáp — Kaopiz Da Nang
+| Thành viên  | Vai trò |
+|---|---|
+| Nguyễn Ngọc Phúc | Team Leader / Scrum Master, Dev, QA |
+| Nguyễn Quang Bảo | Dev, QA, DevOps |
+| Nguyễn Tấn Đức | Dev, QA, DevOps |
+| Nguyễn Văn Nguyên | BA, Dev, QA |
+| Đặng Ngô Ngọc Việt | Dev, QA, DevOps |
 
 ---
 
