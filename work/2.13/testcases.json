@@ -1,0 +1,287 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "CATCRUD",
+      "name": "Admin Medication Catalog CRUD",
+      "sheet": "Catalog CRUD",
+      "description": "Kiểm thử CRUD, phân trang, validation và phân quyền quản trị danh mục thuốc.",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-08",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Medium",
+      "remarks": "19 test catalog pass; toàn bộ 380 unit và architecture test pass.",
+      "ep": [
+        {
+          "field": "vai trò",
+          "valid": ["admin đã xác thực"],
+          "invalid": ["không có danh tính", "user is_admin=false"]
+        },
+        {
+          "field": "name",
+          "valid": ["độ dài 1..255"],
+          "invalid": ["rỗng", "dài hơn 255 ký tự"]
+        },
+        {
+          "field": "source/source_ref",
+          "valid": ["cùng có giá trị", "cùng null"],
+          "invalid": ["chỉ có source", "chỉ có source_ref"]
+        },
+        {
+          "field": "med_id",
+          "valid": ["thuốc đang hoạt động"],
+          "invalid": ["không tồn tại hoặc đã xóa mềm"]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền gọi Admin Medication CRUD",
+          "conditions": [
+            {"name": "Có danh tính?", "values": ["No", "Yes", "Yes"]},
+            {"name": "is_admin?", "values": ["-", "No", "Yes"]}
+          ],
+          "actions": [
+            {"name": "401", "rules": [1]},
+            {"name": "403 Admin only", "rules": [2]},
+            {"name": "Cho phép xử lý CRUD", "rules": [3]}
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-CATCRUD-01",
+          "description": "Từ chối người chưa đăng nhập trên toàn bộ endpoint CRUD",
+          "precondition": "Không gửi danh tính xác thực.",
+          "steps": ["Lần lượt gọi POST, GET danh sách, GET chi tiết, PATCH và DELETE /admin/medications."],
+          "data": "med_id=1; name=Panadol",
+          "expected": "Mỗi request trả 401.",
+          "actual": "Năm trường hợp tham số hóa đều trả 401.",
+          "status": "Pass",
+          "comments": "AC1 · Decision Table (R1) · test_admin_endpoints_require_auth_401"
+        },
+        {
+          "id": "TC-CATCRUD-02",
+          "description": "Từ chối user không phải admin trên toàn bộ endpoint CRUD",
+          "precondition": "User đã xác thực với is_admin=false.",
+          "steps": ["Lần lượt gọi năm endpoint Admin Medication CRUD."],
+          "data": "med_id=1; name=Panadol",
+          "expected": "Mỗi request trả 403 và {\"detail\":\"Admin only\"}.",
+          "actual": "Năm trường hợp đều trả 403 và đúng detail.",
+          "status": "Pass",
+          "comments": "AC2 · Decision Table (R2) · test_admin_endpoints_reject_non_admin_403"
+        },
+        {
+          "id": "TC-CATCRUD-03",
+          "description": "Tạo thuốc với payload hợp lệ",
+          "precondition": "Admin đã xác thực; repository trả thuốc id=101.",
+          "steps": ["Gọi POST /admin/medications với đầy đủ thông tin thuốc."],
+          "data": "name=Paracetamol 500mg; source=dav_drugbank; source_ref=VN-12345-20",
+          "expected": "Trả 201 và dữ liệu thuốc id=101.",
+          "actual": "Trả 201; id, name và source_ref đúng.",
+          "status": "Pass",
+          "comments": "AC3 · EP (1,1) · Decision Table (R3) · test_create_medication_success"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-04",
+          "description": "Từ chối tên thuốc rỗng",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications.", "Xác minh repository không được khởi tạo."],
+          "data": "name=(blank)",
+          "expected": "Trả 422; không ghi repository.",
+          "actual": "Trả 422; SqlCatalog không được gọi.",
+          "status": "Pass",
+          "comments": "AC4 · EP (2) · BVA (min-1) · test_create_validation_empty_name_rejected"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-05",
+          "description": "Chấp nhận tên thuốc dài một ký tự",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications."],
+          "data": "name=A",
+          "expected": "Trả 201 nếu repository tạo thành công.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC3 · EP (1) · BVA (min) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-06",
+          "description": "Chấp nhận tên thuốc dài 255 ký tự",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications."],
+          "data": "name=a*255",
+          "expected": "Trả 201 nếu repository tạo thành công.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC3 · EP (1) · BVA (max) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-07",
+          "description": "Từ chối tên thuốc dài 256 ký tự",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications.", "Xác minh repository không ghi dữ liệu."],
+          "data": "name=a*256",
+          "expected": "Trả 422; không ghi repository.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC4 · EP (2) · BVA (max+1) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-08",
+          "description": "Từ chối payload chỉ có source",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications.", "Xác minh repository không được khởi tạo."],
+          "data": "name=Paracetamol 500mg; source=dav_drugbank; source_ref=null",
+          "expected": "Trả 422; không ghi repository.",
+          "actual": "Trả 422; SqlCatalog không được gọi.",
+          "status": "Pass",
+          "comments": "AC4 · EP (3) · test_create_validation_source_pair_enforced"
+        },
+        {
+          "id": "TC-CATCRUD-09",
+          "description": "Từ chối payload chỉ có source_ref",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi POST /admin/medications.", "Xác minh repository không được khởi tạo."],
+          "data": "name=Paracetamol 500mg; source=null; source_ref=REF-001",
+          "expected": "Trả 422; không ghi repository.",
+          "actual": "Trả 422; SqlCatalog không được gọi.",
+          "status": "Pass",
+          "comments": "AC4 · EP (4) · test_create_validation_source_pair_enforced"
+        },
+        {
+          "id": "TC-CATCRUD-10",
+          "description": "Liệt kê thuốc theo từ khóa và phân trang",
+          "precondition": "Admin đã xác thực; repository có một thuốc Amlodipin đang hoạt động.",
+          "steps": ["Gọi GET /admin/medications?q=amlo&skip=0&limit=10.", "Đối chiếu tham số repository."],
+          "data": "q=amlo; skip=0; limit=10",
+          "expected": "Trả 200, total=1, đúng item; repository nhận amlo, 0, 10.",
+          "actual": "Trả đúng dữ liệu và repository nhận đúng tham số.",
+          "status": "Pass",
+          "comments": "AC5 · EP (1) · test_list_medications_pagination_and_query"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-11",
+          "description": "Từ chối limit bằng 0",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi GET /admin/medications?limit=0."],
+          "data": "limit=0",
+          "expected": "Trả 422.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · BVA (min-1) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-12",
+          "description": "Chấp nhận limit bằng 1",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi GET /admin/medications?limit=1."],
+          "data": "limit=1",
+          "expected": "Trả 200 và tối đa một item.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · BVA (min) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-13",
+          "description": "Chấp nhận limit bằng 100",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi GET /admin/medications?limit=100."],
+          "data": "limit=100",
+          "expected": "Trả 200 và tối đa 100 item.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · BVA (max) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-BVA-14",
+          "description": "Từ chối limit bằng 101",
+          "precondition": "Admin đã xác thực.",
+          "steps": ["Gọi GET /admin/medications?limit=101."],
+          "data": "limit=101",
+          "expected": "Trả 422.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · BVA (max+1) · manual"
+        },
+        {
+          "id": "TC-CATCRUD-15",
+          "description": "Lấy chi tiết thuốc đang hoạt động",
+          "precondition": "Admin đã xác thực; thuốc id=42 đang hoạt động.",
+          "steps": ["Gọi GET /admin/medications/42."],
+          "data": "med_id=42",
+          "expected": "Trả 200 với thuốc id=42.",
+          "actual": "Trả 200 với Berberin id=42.",
+          "status": "Pass",
+          "comments": "AC6 · EP (1) · test_get_medication_detail"
+        },
+        {
+          "id": "TC-CATCRUD-16",
+          "description": "Trả 404 khi lấy thuốc không tồn tại",
+          "precondition": "Admin đã xác thực; repository không tìm thấy thuốc.",
+          "steps": ["Gọi GET /admin/medications/999."],
+          "data": "med_id=999",
+          "expected": "Trả 404 với Medication not found.",
+          "actual": "Trả 404 với đúng detail.",
+          "status": "Pass",
+          "comments": "AC6 · EP (2) · test_get_medication_not_found"
+        },
+        {
+          "id": "TC-CATCRUD-17",
+          "description": "Cập nhật thuốc đang hoạt động",
+          "precondition": "Admin đã xác thực; thuốc id=42 đang hoạt động.",
+          "steps": ["Gọi PATCH /admin/medications/42."],
+          "data": "name=Berberin 100mg",
+          "expected": "Trả 200 với tên đã cập nhật.",
+          "actual": "Trả 200 với name=Berberin 100mg.",
+          "status": "Pass",
+          "comments": "AC6 · EP (1) · test_update_medication_success"
+        },
+        {
+          "id": "TC-CATCRUD-18",
+          "description": "Trả 404 khi cập nhật thuốc không tồn tại",
+          "precondition": "Admin đã xác thực; repository không tìm thấy thuốc.",
+          "steps": ["Gọi PATCH /admin/medications/999."],
+          "data": "name=Unknown",
+          "expected": "Trả 404 với Medication not found.",
+          "actual": "Trả 404 với đúng detail.",
+          "status": "Pass",
+          "comments": "AC6 · EP (2) · test_update_medication_not_found"
+        },
+        {
+          "id": "TC-CATCRUD-19",
+          "description": "Xóa mềm thuốc đang hoạt động",
+          "precondition": "Admin đã xác thực; thuốc id=42 đang hoạt động.",
+          "steps": ["Gọi DELETE /admin/medications/42.", "Đối chiếu lời gọi repository."],
+          "data": "med_id=42",
+          "expected": "Trả 204 không body; repository soft_delete id=42.",
+          "actual": "Trả 204 không body; repository nhận id=42.",
+          "status": "Pass",
+          "comments": "AC7 · EP (1) · test_delete_medication_soft_delete"
+        },
+        {
+          "id": "TC-CATCRUD-20",
+          "description": "Trả 404 khi xóa thuốc không tồn tại hoặc đã xóa mềm",
+          "precondition": "Admin đã xác thực; repository báo không xóa được thuốc id=42.",
+          "steps": ["Gọi DELETE /admin/medications/42."],
+          "data": "med_id=42",
+          "expected": "Trả 404 với Medication not found.",
+          "actual": "Trả 404 với đúng detail.",
+          "status": "Pass",
+          "comments": "AC7 · EP (2) · test_delete_medication_soft_delete"
+        },
+        {
+          "id": "TC-CATCRUD-21",
+          "description": "Chạy toàn bộ unit và architecture test backend",
+          "precondition": "Backend ở nhánh feat/2.13 với dependency đã cài.",
+          "steps": ["Chạy pytest tests/unit tests/architecture."],
+          "data": "380 tests",
+          "expected": "Tất cả test pass.",
+          "actual": "380 pass; catalog 19/19 và architecture 11/11 pass.",
+          "status": "Pass",
+          "evidence": "evidence/implement-final-backend.log",
+          "comments": "AC8 · Error Guessing · pytest tests/unit tests/architecture"
+        }
+      ]
+    }
+  ]
+}
