@@ -42,7 +42,7 @@ started_at: 2026-10-08 11:12
 
 | Submodule | Lệnh | Kết quả (pass/fail/skip) | Log |
 |---|---|---|---|
-| `frontend` | `cd frontend/mobile && flutter test` | 372 pass, 0 fail, 0 skip (100%) | `evidence/implement-final-mobile.log` |
+| `frontend` | `cd frontend/mobile && flutter test` | 378 pass, 0 fail, 0 skip (100%) | `evidence/implement-final-mobile.log` |
 | `frontend` | `cd frontend/mobile && flutter analyze` | No issues found! (0 warnings, 0 errors) | Terminal session |
 | `frontend` | `cd frontend/mobile && flutter build apk --debug` | Built app-debug.apk (38.4s) | Terminal session |
 
