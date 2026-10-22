@@ -19,7 +19,7 @@ started_at: 2026-10-22 16:29 +0700
 | P5 | xong phần code/test tự động | Cùng widget test: loading, empty, denied xóa thuốc cũ, network retry, giao diện chỉ đọc. | `evidence/implement-P4-P6.log` |
 | P6 | xong | Cùng widget test: route hợp lệ nhận `patientId`, route sai từ chối mà không gọi API; `test/app/app_shell_test.dart` trong lần chạy hồi quy pass. | `evidence/implement-P4-P6.log`, `evidence/implement-feature-tests.log` |
 | P7 | xong phần implement | `dart format` không đổi; `dart analyze` không có issue; toàn bộ `flutter test --no-pub` 630 pass. Quan sát thiết bị, landscape và trình đọc màn hình chuyển sang giai đoạn test. | `evidence/implement-format.log`, `evidence/implement-analyze.log`, `evidence/implement-final-frontend.log` |
-| P8 | đối chiếu xong, chưa chạy lại backend | Client HTTP test 403/cross-patient pass. Đọc log backend task 3.23: `test_adherence_history_access.py` nằm trong bộ 85 pass, gồm thu hồi quyền ở request kế tiếp và audit denied. Chưa chạy lại vì môi trường hiện không có lệnh Python/Supabase trên PATH; giai đoạn test sẽ đánh giá môi trường DB. | `evidence/implement-P2.log`, `evidence/implement-P8.log`, `../3.23-adherence-family-consent/evidence/test-migration.log` |
+| P8 | đối chiếu xong, chưa chạy lại backend | Client HTTP test 403/cross-patient pass. Đọc log backend task 3.23: `test_adherence_history_access.py` nằm trong bộ 85 pass, gồm thu hồi quyền ở request kế tiếp và audit denied. Giai đoạn test sẽ đánh giá môi trường DB và việc chạy lại backend. | `evidence/implement-P2.log`, `evidence/implement-P8.log`, `../3.23-adherence-family-consent/evidence/test-migration.log` |
 
 ## 2. File đã thay đổi
 
@@ -28,7 +28,7 @@ started_at: 2026-10-22 16:29 +0700
 - `frontend/mobile/test/features/adherence/`: bốn file test mapper, HTTP, controller và widget/route.
 - Không đổi backend, contract, schema hay `pubspec`.
 
-`frontend` đã chuyển khỏi detached HEAD và tạo nhánh `feat/3.24-adherence-family-view` từ `origin/main`; con trỏ superproject chưa bump vì commit frontend chưa được yêu cầu/push. `scope.py --stage implement` lần đầu báo 79 file task 3.23 ngoài phạm vi do nhánh superproject khởi tạo từ task 3.23 thay vì `main`; không phải file mới sửa trong task 3.24. Xem `evidence/implement-scope.log` và mục Phát sinh.
+`frontend` đã chuyển khỏi detached HEAD và tạo nhánh `feat/3.24-adherence-family-view` từ `origin/main`; con trỏ superproject chưa bump vì commit frontend chưa được yêu cầu/push. Nhánh superproject đã được tách từ `main` và giữ nhánh cũ dưới tên `feat/3.24-adherence-family-view-inherited`. `scope.py --stage implement` lần cuối **OK: mọi thay đổi nằm trong phạm vi** — `evidence/implement-scope.log`.
 
 ## 3. Kết quả test cuối
 
@@ -55,10 +55,10 @@ Không có.
 ## 6. Phát sinh
 
 - Sau khi cập nhật `frontend` lên `origin/main`, tab Người thân đã là `FamilyTabScreen` thay vì placeholder như khi lập plan; vẫn chưa có API danh sách bệnh nhân liên kết. Route nhận `patientId` trong plan vẫn phù hợp và không đụng file ngoài bảng đã duyệt.
-- Nhánh superproject `feat/3.24-adherence-family-view` kế thừa commit task 3.23. `scope.py` tính diff từ `origin/main` nên báo 79 file 3.23 `[NGOÀI]`, dù 17 file frontend của 3.24 đều `[OK]`. Cần tách nhánh task từ `main` và giữ nguyên nhánh cũ như bản lưu, rồi chạy lại scope; không sửa artifact 3.23.
+- Nhánh superproject ban đầu kế thừa commit task 3.23 nên scope báo 79 file 3.23 `[NGOÀI]`. Đã giữ nguyên lịch sử cũ ở `feat/3.24-adherence-family-view-inherited`, tạo lại nhánh task từ `main` và cherry-pick hai commit chỉ chứa artifact 3.24. Scope sau đó pass; không sửa artifact 3.23.
 
 ## Bước tiếp theo
 
-- Đang chờ: tách nhánh superproject khỏi lịch sử 3.23, chạy lại scope và hoàn tất artifact.
-- Việc cần làm: commit thư mục `work/3.24-adherence-family-view/` theo yêu cầu người dùng. Sau khi scope đạt, người duyệt xem implement và chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view implement` trong terminal của họ; agent không chạy lệnh duyệt.
-- Cập nhật lần cuối: 2026-10-22 16:53 +0700, Codex.
+- Đang chờ: người duyệt xem code và artifact implement.
+- Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view implement` trong terminal của họ. Sau đó mới chuyển sang giai đoạn test; agent không chạy lệnh duyệt.
+- Cập nhật lần cuối: 2026-10-22 17:00 +0700, Codex.
