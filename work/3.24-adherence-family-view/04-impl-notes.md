@@ -1,9 +1,15 @@
 ---
 task: 3.24-adherence-family-view
 stage: implement
-status: draft
 owner: Ngọc Việt
 started_at: 2026-10-22 16:29 +0700
+status: approved
+approved_by: Ngọc Việt
+approved_at: 2026-10-22 19:49 +0700
+content_hash: sha256:9a7807cb75c161af
+inputs:
+  01-requirement.md: sha256:78a2784681c4911b
+  03-plan.md: sha256:c42bc0a5bb6b51b5
 ---
 
 # 3.24-adherence-family-view · Implement
