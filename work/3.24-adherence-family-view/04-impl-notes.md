@@ -3,16 +3,19 @@ task: 3.24-adherence-family-view
 stage: implement
 owner: Ngọc Việt
 started_at: 2026-10-22 16:29 +0700
-status: approved
-approved_by: Ngọc Việt
-approved_at: 2026-10-22 19:49 +0700
-content_hash: sha256:9a7807cb75c161af
-inputs:
-  01-requirement.md: sha256:78a2784681c4911b
-  03-plan.md: sha256:c42bc0a5bb6b51b5
+status: draft
 ---
 
 # 3.24-adherence-family-view · Implement
+
+## Lượt sửa BUG-FAMADH-20 sau khi reopen implement
+
+- Gate implement đã mở theo thao tác reopen của người dùng. Chỉ sửa hai file nằm trong plan: `adherence_date_picker.dart` và `family_adherence_screen_test.dart`.
+- Nguyên nhân: lịch có 7 cột Expanded nhưng chiều rộng khả dụng ở 320dp sau padding chỉ 288dp, khiến mỗi ô rộng 41.1dp. Bọc phần lịch tuần/tháng bằng `LayoutBuilder` và vùng cuộn ngang, giữ chiều rộng nội dung tối thiểu `7 × AppSizes.tapTarget` (336dp). Khi màn đủ rộng, dùng chiều rộng sẵn có; trên màn hẹp người dùng vuốt phần lịch để xem cột cuối. Không cuộn ngang toàn màn hình.
+- Hồi quy bổ sung kiểm cả lịch tuần và tháng tại 320dp, 375dp, text scale 1.6× bằng `androidTapTargetGuideline`; kiểm chọn ngày 21 và cuộn tới Chủ nhật 18 ở cột cuối vẫn nhận đúng callback.
+- Trước sửa: ca 320dp fail đúng vùng chạm 41.1dp — `evidence/implement-calendar-before.log`. Sau sửa: hai ca vùng chạm pass — `evidence/implement-calendar-after.log`. Lần chạy đầy đủ sau khi bổ sung kiểm chọn cột cuối: **632 pass, 0 fail, 117 giây** — `evidence/implement-calendar-final-frontend.log`.
+- Format: 0 file đổi; analyze: **No issues found** — `evidence/implement-calendar-format.log`, `evidence/implement-calendar-analyze.log`. Scope implement pass, không có file ngoài phạm vi — `evidence/implement-calendar-scope.log`.
+- Không cập nhật kết quả Fail trong báo cáo test/workbook thành Pass ở giai đoạn này. Cần duyệt lại implement trước khi chạy lại giai đoạn test; manual TalkBack/VoiceOver và đối chiếu Figma vẫn cần thực hiện.
 
 ## 1. Tiến độ
 
@@ -36,7 +39,7 @@ inputs:
 
 `frontend` đã chuyển khỏi detached HEAD và tạo nhánh `feat/3.24-adherence-family-view` từ `origin/main`; con trỏ superproject chưa bump vì commit frontend chưa được yêu cầu/push. Nhánh superproject đã được tách từ `main` và giữ nhánh cũ dưới tên `feat/3.24-adherence-family-view-inherited`. `scope.py --stage implement` lần cuối **OK: mọi thay đổi nằm trong phạm vi** — `evidence/implement-scope.log`.
 
-## 3. Kết quả test cuối
+## 3. Kết quả test lượt implement ban đầu (trước reopen)
 
 - `flutter test --no-pub`: **630 pass**, 0 fail — `evidence/implement-final-frontend.log`.
 - `dart analyze` trên feature, router, app, main và test: **No issues found** — `evidence/implement-analyze.log`.
@@ -65,6 +68,6 @@ Không có.
 
 ## Bước tiếp theo
 
-- Đang chờ: người duyệt xem code và artifact implement.
+- Đang chờ: người duyệt xem bản sửa BUG-FAMADH-20 và artifact implement.
 - Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view implement` trong terminal của họ. Sau đó mới chuyển sang giai đoạn test; agent không chạy lệnh duyệt.
-- Cập nhật lần cuối: 2026-10-22 17:00 +0700, Codex.
+- Cập nhật lần cuối: 2026-10-22, Codex.
