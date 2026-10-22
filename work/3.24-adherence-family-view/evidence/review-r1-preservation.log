@@ -1,0 +1,16 @@
+PASS baseline cells/formulas/merges: Android build
+PASS baseline cells/formulas/merges: Đăng nhập người dùng
+PASS baseline cells/formulas/merges: Lịch uống thuốc
+PASS baseline cells/formulas/merges: Tải lịch uống
+PASS baseline cells/formulas/merges: Tương tác thuốc-thuốc
+PASS baseline cells/formulas/merges: Tương tác thuốc-thực phẩm
+PASS baseline cells/formulas/merges: Tra cứu hoạt chất
+PASS baseline cells/formulas/merges: Mã liên kết người thân
+PASS baseline cells/formulas/merges: Chọn thuốc danh mục
+PASS baseline cells/formulas/merges: Hồi quy xác nhận liều
+PASS baseline cells/formulas/merges: Landing page
+PASS baseline cells/formulas/merges: Yêu cầu liên kết người thân
+PASS baseline cells/formulas/merges: Theo dõi người thân (app)
+PASS baseline cells/formulas/merges: Link mời người thân
+PASS baseline cells/formulas/merges: Khung điều hướng app
+PASS: baseline 15 function sheets preserved; FAMADH matches task workbook; 19 total sheets
