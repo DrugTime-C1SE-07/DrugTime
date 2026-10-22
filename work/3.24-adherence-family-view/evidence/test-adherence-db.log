@@ -1,0 +1,70 @@
+............................................................             [100%]
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/integration/test_adherence_history_access.py::test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[unlinked]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[health_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[family_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[sharing_off]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[admin]
+PASSED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self]
+PASSED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[linked]
+PASSED tests/integration/test_adherence_history_access.py::test_family_patient_selector_tamper_does_not_read_other_patient__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[health_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[family_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[sharing_off]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[unlink]
+PASSED tests/integration/test_adherence_history_access.py::test_self_without_health_consent_denied_with_self_audit__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_unknown_patient_returns_same_generic_403_without_fk_audit__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[allowed_insert]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[commit]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[denied_insert]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[permission_read]
+PASSED tests/integration/test_adherence_history_access.py::test_denied_audit_survives_outer_transaction_rollback__AC13
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[missing]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[invalid]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[expired]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[erased]
+PASSED tests/integration/test_adherence_history_api.py::test_patient_history_by_date_medication_groups_and_80_percent__AC1_AC3_AC4
+PASSED tests/integration/test_adherence_history_api.py::test_default_partial_and_inclusive_90_day_filters__AC5
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query0]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query1]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query2]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query3]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query4]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query5]
+PASSED tests/integration/test_adherence_history_api.py::test_bad_queries_are_422_without_health_payload__AC14[query6]
+PASSED tests/integration/test_adherence_history_api.py::test_empty_and_pending_only_have_null_rate__AC8
+PASSED tests/integration/test_adherence_history_api.py::test_unconfirmed_30_120_boundaries_without_writes__AC7[elapsed0-True]
+PASSED tests/integration/test_adherence_history_api.py::test_unconfirmed_30_120_boundaries_without_writes__AC7[elapsed1-True]
+PASSED tests/integration/test_adherence_history_api.py::test_unconfirmed_30_120_boundaries_without_writes__AC7[elapsed2-True]
+PASSED tests/integration/test_adherence_history_api.py::test_unconfirmed_30_120_boundaries_without_writes__AC7[elapsed3-True]
+PASSED tests/integration/test_adherence_history_api.py::test_unconfirmed_30_120_boundaries_without_writes__AC7[elapsed4-False]
+PASSED tests/integration/test_adherence_history_api.py::test_worker_missing_log_120_and_after_changes_rate_without_writes__AC16
+PASSED tests/integration/test_adherence_history_api.py::test_legacy_early_missed_pending_through_deadline_without_rewrite__AC21
+PASSED tests/integration/test_adherence_history_api.py::test_recorded_confirmation_boundaries_and_late_sync_use_taken_at__AC17
+PASSED tests/integration/test_adherence_history_api.py::test_early_confirmation_is_excluded_until_scheduled_time__AC6_AC18
+PASSED tests/integration/test_adherence_history_api.py::test_scheduled_date_across_midnight_and_date_order__AC9
+PASSED tests/integration/test_adherence_history_api.py::test_schedule_versions_stop_soft_delete_as_needed_and_reminder_history__AC10_AC18_AC19
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[-1-None-None-True]
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[0-None-None-True]
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[1-None-None-False]
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[-1-0-None-False]
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[-1-1-None-True]
+PASSED tests/integration/test_adherence_history_api.py::test_occurrence_effective_bounds_and_weekdays__AC18[-1-None-2-False]
+PASSED tests/integration/test_adherence_history_api.py::test_worker_window_notifications_use_strict_120_and_preserve_confirmed__AC22
+PASSED tests/integration/test_adherence_history_api.py::test_api_role_cannot_create_worker_notifications
+PASSED tests/integration/test_adherence_history_api.py::test_wrong_worker_window_has_no_dose_or_notification_writes__AC22[30]
+PASSED tests/integration/test_adherence_history_api.py::test_wrong_worker_window_has_no_dose_or_notification_writes__AC22[60]
+PASSED tests/integration/test_adherence_history_api.py::test_wrong_worker_window_has_no_dose_or_notification_writes__AC22[180]
+PASSED tests/integration/test_adherence_history_api.py::test_late_sync_worker_log_and_retry_keep_one_occurrence__AC15_AC20
+PASSED tests/integration/test_adherence_history_api.py::test_worker_insert_races_with_valid_late_confirmation__AC15_AC20_AC22[worker]
+PASSED tests/integration/test_adherence_history_api.py::test_worker_insert_races_with_valid_late_confirmation__AC15_AC20_AC22[confirmation]
+PASSED tests/integration/test_adherence_history_api.py::test_single_history_select_is_consistent_during_committed_updates__AC3_AC4_AC20
+60 passed, 1 warning in 13.18s

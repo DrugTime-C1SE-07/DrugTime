@@ -11,7 +11,7 @@
       "reviewed_by": "",
       "reviewed_date": "",
       "priority": "High",
-      "remarks": "13 Pass tự động; 6 Pending cần thiết bị/DB và kiểm biên đầy đủ.",
+      "remarks": "16 Pass, 1 Fail vùng chạm lịch 320dp, 3 Pending manual/biên",
       "cases": [
         {
           "id": "TC-FAMADH-01",
@@ -240,10 +240,10 @@
           ],
           "data": "F liên kết A; B không liên kết",
           "expected": "200 + audit allowed với A; 403 + audit denied với B/thiếu quyền.",
-          "actual": "",
-          "status": "Pending",
+          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "status": "Pass",
           "comments": "AC5, AC6 · manual",
-          "evidence": ""
+          "evidence": "evidence/test-adherence-db.log"
         },
         {
           "id": "TC-FAMADH-17",
@@ -255,10 +255,10 @@
           ],
           "data": "Cùng phiên F; A vừa thu hồi",
           "expected": "403 ngay request tiếp theo; có audit denied.",
-          "actual": "",
-          "status": "Pending",
+          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "status": "Pass",
           "comments": "AC5 · manual",
-          "evidence": ""
+          "evidence": "evidence/test-adherence-db.log"
         },
         {
           "id": "TC-FAMADH-18",
@@ -269,10 +269,10 @@
           ],
           "data": "Lỗi insert audit/commit/đọc quyền",
           "expected": "Không trả dữ liệu sức khỏe khi audit/quyền lỗi.",
-          "actual": "",
-          "status": "Pending",
+          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "status": "Pass",
           "comments": "AC5, AC6 · manual",
-          "evidence": ""
+          "evidence": "evidence/test-adherence-db.log"
         },
         {
           "id": "TC-FAMADH-19",
@@ -288,6 +288,23 @@
           "status": "Pending",
           "comments": "AC8 · manual",
           "evidence": ""
+        },
+        {
+          "id": "TC-FAMADH-20",
+          "description": "Kiểm vùng chạm chọn ngày ở 320dp",
+          "precondition": "Flutter test; viewport 320x640; padding ngang 16dp",
+          "steps": [
+            "Chạy evidence/calendar-accessibility-repro.dart từ frontend/mobile bằng flutter test --no-pub.",
+            "Kiểm androidTapTargetGuideline."
+          ],
+          "data": "320dp; ngày 22/10/2026",
+          "expected": "Mọi ô tương tác ít nhất 48x48dp.",
+          "actual": "Ô ngày rộng 41.1dp, cao 52dp; androidTapTargetGuideline thất bại.",
+          "status": "Fail",
+          "severity": "Medium",
+          "root_cause": "Row chia 7 Expanded vào 288dp còn lại sau padding, mỗi ô chỉ rộng khoảng 41.1dp.",
+          "comments": "AC9 · BVA viewport 320dp · calendar meets Android tap target sizes at 320dp",
+          "evidence": "evidence/test-calendar-accessibility.log"
         }
       ]
     }

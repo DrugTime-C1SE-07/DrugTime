@@ -1,0 +1,6 @@
+OpenAPI HTTP 200
+Unauthenticated adherence HTTP 401
+
+supabase_db_DrugTime-backend Up 7 minutes (healthy)
+drugtime-redis Up About a minute
+

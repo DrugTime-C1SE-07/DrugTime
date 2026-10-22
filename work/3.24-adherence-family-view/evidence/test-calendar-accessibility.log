@@ -1,0 +1,54 @@
+00:00 +0: loading D:/Captone/DrugTime/work/3.24-adherence-family-view/scratch/adherence_accessibility_test.dart
+00:00 +0: calendar meets Android tap target sizes at 320dp
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: Tappable objects should be at least Size(48.0, 48.0)
+  Actual: <Instance of 'WidgetTester'>
+   Which: SemanticsNode#6(Rect.fromLTRB(16.0, 72.0, 57.1, 124.0), actions: [focus, tap], flags:
+[isButton, hasEnabledState, isEnabled, isFocusable, hasSelectedState], label: "Thứ 2,
+19/10/2026\nT2\n19", textDirection: ltr): expected tap target size of at least Size(48.0, 48.0), but
+found Size(41.1, 52.0)
+          See also: https://support.google.com/accessibility/android/answer/7101858?hl=en
+          SemanticsNode#7(Rect.fromLTRB(57.1, 72.0, 98.3, 124.0), actions: [focus, tap], flags:
+[isButton, hasEnabledState, isEnabled, isFocusable, hasSelectedState], label: "Thứ 3,
+20/10/2026\nT3\n20", textDirection: ltr): expected tap target size of at least Size(48.0, 48.0), but
+found Size(41.1, 52.0)
+          See also: https://support.google.com/accessibility/android/answer/7101858?hl=en
+          SemanticsNode#8(Rect.fromLTRB(98.3, 72.0, 139.4, 124.0), actions: [focus, tap], flags:
+[isButton, hasEnabledState, isEnabled, isFocusable, hasSelectedState], label: "Thứ 4,
+21/10/2026\nT4\n21", textDirection: ltr): expected tap target size of at least Size(48.0, 48.0), but
+found Size(41.1, 52.0)
+          See also: https://support.google.com/accessibility/android/answer/7101858?hl=en
+          SemanticsNode#9(Rect.fromLTRB(139.4, 72.0, 180.6, 124.0), actions: [focus, tap], flags:
+[isSelected, isButton, hasEnabledState, isEnabled, isFocusable, hasSelectedState], label: "Thứ 5,
+22/10/2026\nT5\n22", textDirection: ltr): expected tap target size of at least Size(48.0, 48.0), but
+found Size(41.1, 52.0)
+          See also: https://support.google.com/accessibility/android/answer/7101858?hl=en
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect.<anonymous closure> (package:matcher/src/expect/expect.dart:155:13)
+<asynchronous suspension>
+<asynchronous suspension>
+#8      expectLater.<anonymous closure> (package:flutter_test/src/widget_tester.dart:508:19)
+<asynchronous suspension>
+#9      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/3.24-adherence-family-view/scratch/adherence_accessibility_test.dart:23:5)
+<asynchronous suspension>
+#10     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#11     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from dart:async and package:stack_trace)
+
+The test description was:
+  calendar meets Android tap target sizes at 320dp
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: calendar meets Android tap target sizes at 320dp [E]
+  Test failed. See exception logs above.
+  The test description was: calendar meets Android tap target sizes at 320dp
+  
+00:01 +0 -1: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/work/3.24-adherence-family-view/scratch/adherence_accessibility_test.dart: calendar meets Android tap target sizes at 320dp
