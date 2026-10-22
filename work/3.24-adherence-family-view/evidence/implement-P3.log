@@ -1,0 +1,6 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_controller_test.dart
+00:00 +0: loads only the selected month bounded by Vietnam today
+00:00 +1: clears data before refresh and on 403
+00:00 +2: changing patient discards late response from previous patient
+00:00 +3: rejects future and out-of-range dates without a request
+00:00 +4: All tests passed!

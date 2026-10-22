@@ -1,0 +1,5 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart
+00:00 +0: parses all statuses, offset times and server rate
+00:00 +1: empty history has null rate and no fabricated groups
+00:00 +2: rejects missing fields, invalid dates and inconsistent dose
+00:00 +3: All tests passed!

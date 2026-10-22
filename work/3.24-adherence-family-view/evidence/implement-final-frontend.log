@@ -1,0 +1,632 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/api/api_client_test.dart: gắn Authorization: Bearer khi có token
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/core/app_assets_test.dart: mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +8: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +9: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +10: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +11: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +12: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +13: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +14: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +15: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +16: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +17: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +18: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +19: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +20: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +21: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +22: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +23: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +24: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +25: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +26: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +27: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +28: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:00 +29: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +30: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +31: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +32: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +33: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +34: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +35: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +36: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +37: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +38: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +39: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +40: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +41: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +42: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +43: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +44: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +45: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:01 +46: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +47: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +48: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +49: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +50: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +51: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +52: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +53: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +54: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +55: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +56: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +57: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +58: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +59: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +60: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +61: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +62: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:03 +63: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +64: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +65: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +66: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +67: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +68: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +69: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +70: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +71: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +72: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +73: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +74: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +75: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +76: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +77: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +78: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +79: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +80: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +81: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +82: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +83: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +84: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +85: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +86: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +87: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +88: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +89: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +90: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +91: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +92: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +93: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +94: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +95: D:/Captone/DrugTime/frontend/mobile/test/core/storage/dose_outbox_test.dart: SqliteDoseOutbox — watchStatus & Lifecycle watchStatus phát sự kiện đúng clientUuid và không bị ảnh hưởng bởi UUID khác
+00:04 +96: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:04 +97: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +98: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +99: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +100: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +101: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +102: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +103: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +104: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +105: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +106: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +107: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +108: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +109: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +110: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +111: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +112: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +113: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +114: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +115: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +116: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:05 +117: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:05 +118: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +119: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +120: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +121: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +122: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +123: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +124: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +125: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +126: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +127: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:06 +128: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:06 +129: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +130: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +131: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +132: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +133: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +134: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +135: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +136: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +137: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +138: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +139: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +140: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +141: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +142: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +143: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +144: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +145: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +146: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +147: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +148: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +149: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +150: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +151: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +152: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +153: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +154: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +155: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +156: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +157: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +158: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +159: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +160: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +161: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:07 +162: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:08 +163: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:08 +164: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:08 +165: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +166: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +167: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +168: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +169: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +170: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +171: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +172: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +173: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +174: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +175: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:09 +176: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:10 +177: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:10 +178: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (a) chưa có phiên → màn Đăng nhập
+00:10 +179: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_screens_layout_test.dart: Đăng nhập không vẽ status bar và home indicator giả
+00:10 +180: D:/Captone/DrugTime/frontend/mobile/test/features/auth/login_screen_test.dart: dòng phụ trợ dưới ô nhập AC1: tab SĐT dùng icon SMS Material, không còn MessageCircleIcon
+00:11 +181: D:/Captone/DrugTime/frontend/mobile/test/features/auth/login_screen_test.dart: dòng phụ trợ dưới ô nhập AC1: tab SĐT dùng icon SMS Material, không còn MessageCircleIcon
+00:11 +182: D:/Captone/DrugTime/frontend/mobile/test/features/auth/login_screen_test.dart: dòng phụ trợ dưới ô nhập AC1: tab SĐT dùng icon SMS Material, không còn MessageCircleIcon
+00:11 +183: D:/Captone/DrugTime/frontend/mobile/test/features/auth/mascot_ui_test.dart: màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)
+00:11 +184: D:/Captone/DrugTime/frontend/mobile/test/features/auth/mascot_ui_test.dart: màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)
+00:11 +185: D:/Captone/DrugTime/frontend/mobile/test/features/auth/mascot_ui_test.dart: màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)
+00:11 +186: D:/Captone/DrugTime/frontend/mobile/test/features/auth/mascot_ui_test.dart: màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)
+00:11 +187: D:/Captone/DrugTime/frontend/mobile/test/features/auth/mascot_ui_test.dart: màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)
+00:12 +188: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +189: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +190: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +191: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +192: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +193: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +194: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +195: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +196: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +197: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +198: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +199: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +200: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +201: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +202: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +203: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +204: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +205: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:12 +206: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:13 +207: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:13 +208: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:13 +209: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:14 +210: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:14 +211: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản
+00:14 +212: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_gate_test.dart: chưa có health_data → màn đồng ý thay cho Trang chủ
+00:14 +213: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_gate_test.dart: chưa có health_data → màn đồng ý thay cho Trang chủ
+00:14 +214: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_gate_test.dart: chưa có health_data → màn đồng ý thay cho Trang chủ
+00:15 +215: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_gate_test.dart: chưa có health_data → màn đồng ý thay cho Trang chủ
+00:15 +216: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ
+00:15 +217: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ
+00:15 +218: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ
+00:15 +219: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ
+00:16 +220: D:/Captone/DrugTime/frontend/mobile/test/features/auth/auth_flow_test.dart: (b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ
+00:16 +221: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:16 +222: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:16 +223: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +224: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +225: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +226: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +227: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +228: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +229: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +230: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +231: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:17 +232: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +233: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +234: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +235: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +236: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +237: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +238: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +239: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +240: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:18 +241: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:19 +242: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +243: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +244: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +245: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +246: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +247: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +248: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +249: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +250: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +251: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +252: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:20 +253: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_revoked_action_test.dart: thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại
+00:21 +254: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:21 +255: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +256: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +257: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +258: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +259: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +260: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +261: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:22 +262: D:/Captone/DrugTime/frontend/mobile/test/features/consent/remote_consent_repository_test.dart: không kết nối được máy chủ → network
+00:22 +263: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) AC19: đã tick ở màn đăng nhập → ghi terms ngầm đúng một lần, trước health_data
+00:23 +264: D:/Captone/DrugTime/frontend/mobile/test/features/consent/consent_screen_test.dart: AC23: điều khoản không phải công tắc màn Quyền riêng tư: không có công tắc terms, có link hai văn bản
+00:23 +265: D:/Captone/DrugTime/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: tắt health_data: hộp xác nhận nêu hệ quả; Hủy thì không gọi API
+00:23 +266: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +267: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +268: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +269: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +270: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +271: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:24 +272: D:/Captone/DrugTime/frontend/mobile/test/features/consent/terms_gate_test.dart: (a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell
+00:25 +273: D:/Captone/DrugTime/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:25 +274: D:/Captone/DrugTime/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:25 +275: D:/Captone/DrugTime/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:25 +276: D:/Captone/DrugTime/frontend/mobile/test/features/family/remote_family_link_code_repository_test.dart: lỗi mạng chuyển thành network failure
+00:26 +277: D:/Captone/DrugTime/frontend/mobile/test/features/family/remote_family_link_code_repository_test.dart: lỗi mạng chuyển thành network failure
+00:26 +278: D:/Captone/DrugTime/frontend/mobile/test/features/family/remote_family_link_code_repository_test.dart: lỗi mạng chuyển thành network failure
+00:26 +279: D:/Captone/DrugTime/frontend/mobile/test/features/family/remote_family_link_code_repository_test.dart: lỗi mạng chuyển thành network failure
+00:26 +280: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:26 +281: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:27 +282: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:27 +283: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:27 +284: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:27 +285: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:27 +286: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:27 +287: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +288: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +289: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +290: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +291: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +292: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +293: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +294: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +295: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:28 +296: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:29 +297: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:29 +298: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:29 +299: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:29 +300: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:29 +301: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:29 +302: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +303: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +304: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +305: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +306: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +307: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +308: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +309: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn
+00:30 +310: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +311: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +312: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +313: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +314: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +315: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +316: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +317: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +318: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +319: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:30 +320: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +321: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +322: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +323: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +324: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +325: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:31 +326: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:32 +327: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:32 +328: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:32 +329: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +330: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +331: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +332: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +333: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +334: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +335: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +336: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +337: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +338: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +339: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +340: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +341: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +342: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +343: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +344: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +345: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +346: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +347: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +348: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +349: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +350: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +351: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:33 +352: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +353: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +354: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +355: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +356: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +357: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +358: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +359: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +360: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +361: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +362: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +363: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +364: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +365: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +366: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +367: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +368: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +369: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +370: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +371: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +372: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:34 +373: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:35 +374: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:35 +375: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +376: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +377: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +378: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +379: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +380: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +381: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +382: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +383: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:35 +384: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:36 +385: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:36 +386: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:36 +387: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_caregiver_repository_test.dart: mất kết nối → network
+00:36 +388: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:36 +389: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:36 +390: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:37 +391: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:37 +392: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:37 +393: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:37 +394: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/remote_family_link_repository_test.dart: AC7: không kết nối được máy chủ → network
+00:37 +395: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:37 +396: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:38 +397: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:38 +398: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+00:38 +399: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+00:38 +400: D:/Captone/DrugTime/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+00:38 +401: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:38 +402: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:38 +403: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:38 +404: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +405: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +406: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +407: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +408: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +409: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +410: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +411: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +412: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +413: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +414: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +415: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +416: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +417: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +418: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +419: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +420: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +421: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +422: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +423: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +424: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +425: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +426: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +427: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +428: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +429: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +430: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +431: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +432: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:39 +433: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:40 +434: D:/Captone/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: A B A: only current generation can update, including stale error
+00:40 +435: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:40 +436: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:40 +437: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:40 +438: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:40 +439: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:40 +440: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +441: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +442: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +443: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +444: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +445: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +446: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +447: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +448: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +449: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +450: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +451: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +452: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +453: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +454: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +455: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +456: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +457: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +458: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +459: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +460: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +461: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +462: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +463: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +464: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +465: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +466: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:41 +467: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:42 +468: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:42 +469: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:42 +470: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:42 +471: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +472: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +473: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +474: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +475: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +476: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +477: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +478: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +479: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +480: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +481: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +482: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +483: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +484: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +485: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +486: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +487: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +488: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +489: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:43 +490: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +491: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +492: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +493: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +494: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +495: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:44 +496: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:45 +497: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:45 +498: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +499: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +500: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +501: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +502: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +503: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +504: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +505: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +506: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +507: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +508: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +509: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:45 +510: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +511: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +512: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +513: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +514: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +515: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:46 +516: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:47 +517: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:47 +518: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:47 +519: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:47 +520: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc
+00:47 +521: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc
+00:47 +522: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +523: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +524: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +525: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +526: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +527: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +528: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +529: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +530: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +531: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +532: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +533: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +534: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +535: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +536: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +537: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +538: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:48 +539: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:49 +540: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:49 +541: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:49 +542: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:49 +543: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:50 +544: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:50 +545: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:50 +546: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:51 +547: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:51 +548: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:51 +549: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:51 +550: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:52 +551: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_avatar_test.dart: six existing assets; pick updates immediately with no network; dismiss preserves
+00:52 +552: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:52 +553: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:53 +554: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:54 +555: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id
+00:54 +556: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +557: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +558: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +559: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +560: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +561: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +562: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +563: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +564: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +565: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +566: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +567: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +568: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +569: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +570: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +571: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +572: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +573: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:54 +574: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:54 +575: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:54 +576: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:55 +577: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:55 +578: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:56 +579: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:56 +580: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:56 +581: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:57 +582: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:57 +583: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:57 +584: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+00:58 +585: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+00:58 +586: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+00:58 +587: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+00:58 +588: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/dose_reminder_screen_test.dart: single screen renders required content and actions
+00:58 +589: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/dose_reminder_screen_test.dart: single screen renders required content and actions
+00:58 +590: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/dose_reminder_screen_test.dart: single screen renders required content and actions
+00:58 +591: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:58 +592: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +593: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +594: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +595: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +596: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +597: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+00:59 +598: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +599: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +600: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +601: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +602: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +603: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +604: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +605: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:00 +606: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:01 +607: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:01 +608: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:01 +609: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi
+01:01 +610: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+01:01 +611: D:/Captone/DrugTime/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+01:01 +612: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày lưu lỗi mạng: báo lỗi, giữ form; lưu lại dùng cùng client_uuid (AC9, AC10)
+01:01 +613: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +614: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +615: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +616: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +617: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +618: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc
+01:02 +619: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày "Khi cần" hiện ô tối đa lần/ngày 1–6, mặc định 3; đổi về theo giờ thì ẩn (AC14f)
+01:03 +620: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày "Khi cần" hiện ô tối đa lần/ngày 1–6, mặc định 3; đổi về theo giờ thì ẩn (AC14f)
+01:03 +621: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày "Khi cần" hiện ô tối đa lần/ngày 1–6, mặc định 3; đổi về theo giờ thì ẩn (AC14f)
+01:03 +622: D:/Captone/DrugTime/frontend/mobile/test/features/reminder/notification_navigation_flow_test.dart: Cold start & notification navigation flow (AC3, AC4, AC7, AC8) Tất cả các thuốc đã ghi nhận: hiện SnackBar thông báo, không push route
+01:03 +623: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày chọn lại tần suất theo giờ thì ẩn ô và không gửi số lần tối đa
+01:03 +624: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày chọn lại tần suất theo giờ thì ẩn ô và không gửi số lần tối đa
+01:03 +625: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày chọn lại tần suất theo giờ thì ẩn ô và không gửi số lần tối đa
+01:04 +626: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày S06 không tải được: thẻ lỗi + Thử lại, không báo "Chưa có thuốc nào"
+01:04 +627: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày sheet danh mục: chưa gõ thì gợi ý, không tìm
+01:04 +628: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: hàng chip S06 không rớt dòng khi phóng chữ 1.5x
+01:04 +629: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: bố cục không vỡ khi phóng to chữ 1.5x
+01:05 +630: All tests passed!

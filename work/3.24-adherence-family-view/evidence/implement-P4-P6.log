@@ -1,0 +1,8 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart
+00:00 +0: shows server summary and four read-only dose states
+00:01 +1: clears patient details before a denied refresh
+00:01 +2: empty response and network retry have distinct states
+00:01 +3: rejects invalid route arguments without fetching
+00:01 +4: opens valid family route with supplied patient
+00:02 +5: fits narrow viewport and large text
+00:02 +6: All tests passed!

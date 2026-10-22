@@ -1,0 +1,8 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/adherence/remote_adherence_repository_test.dart
+00:00 +0: GET sends patient, bounded dates, group and app bearer on each call
+00:00 +1: HTTP 401 maps to AdherenceFailureKind.unauthorized without retry
+00:00 +2: HTTP 403 maps to AdherenceFailureKind.denied without retry
+00:00 +3: HTTP 422 maps to AdherenceFailureKind.invalidRange without retry
+00:00 +4: HTTP 503 maps to AdherenceFailureKind.unavailable without retry
+00:00 +5: rejects a response for another patient
+00:00 +6: All tests passed!

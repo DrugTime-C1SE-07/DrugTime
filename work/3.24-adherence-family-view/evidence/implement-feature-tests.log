@@ -1,0 +1,27 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart: parses all statuses, offset times and server rate
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_controller_test.dart: loads only the selected month bounded by Vietnam today
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart: empty history has null rate and no fabricated groups
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_controller_test.dart: clears data before refresh and on 403
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart: rejects missing fields, invalid dates and inconsistent dose
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_controller_test.dart: changing patient discards late response from previous patient
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/adherence_controller_test.dart: rejects future and out-of-range dates without a request
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +8: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +9: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +10: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +11: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +12: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:00 +13: D:/Captone/DrugTime/frontend/mobile/test/features/adherence/family_adherence_screen_test.dart: shows server summary and four read-only dose states
+00:01 +14: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +15: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +16: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +17: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +18: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:02 +19: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:03 +20: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất
+00:04 +21: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:04 +22: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:05 +23: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC20: Người giám sát trống → Mở tab Người thân về đúng tab
+00:06 +24: D:/Captone/DrugTime/frontend/mobile/test/app/app_shell_test.dart: AC25: không còn route /dev-catalog
+00:06 +25: All tests passed!

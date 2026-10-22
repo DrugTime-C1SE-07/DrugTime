@@ -1,7 +1,12 @@
 ---
 task: 3.24-adherence-family-view
 stage: plan
-status: draft
+status: approved
+approved_by: Ngọc Việt
+approved_at: 2026-10-22 16:28 +0700
+content_hash: sha256:c42bc0a5bb6b51b5
+inputs:
+  01-requirement.md: sha256:78a2784681c4911b
 ---
 
 # 3.24-adherence-family-view · Plan
