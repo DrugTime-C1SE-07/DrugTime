@@ -1,0 +1,4 @@
+00:00 +0: loading D:/Captone/DrugTime/work/3.24-adherence-family-view/evidence/date-boundary-repro.dart
+00:00 +0: all four 90-day boundaries produce bounded queries
+00:00 +1: month navigation locks old and future dates at both ends
+00:02 +2: All tests passed!

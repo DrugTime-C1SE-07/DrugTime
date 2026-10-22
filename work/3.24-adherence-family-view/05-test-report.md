@@ -4,94 +4,71 @@ stage: test
 status: draft
 ---
 
-# 3.24-adherence-family-view · Test
-
-## Cập nhật sau khi khởi động dịch vụ — 2026-10-22
-
-Phần này thay thế kết luận và số liệu Pending của lần chạy trước bên dưới.
-
-- Supabase DB đã healthy trên cổng 54322; đã khởi động container `drugtime-redis`. Backend API chạy tại `http://127.0.0.1:8000`: OpenAPI 200, GET /adherence không token trả 401. Log `evidence/test-backend-start.log`. API dùng database task riêng, không phải DB deploy.
-- Tạo DB local riêng `drugtime_test_323_734f60b8`, chạy các migration schema từ repo; giữ nguyên DB Supabase local có sẵn. Migration tạo role cấp cluster đã có nên không chạy lại file đầu. Log `evidence/test-db-start.log`.
-- `pytest tests/integration/test_adherence_history_access.py tests/integration/test_adherence_history_api.py -q -rA -p no:cacheprovider --tb=short`: **60 pass, 1 warning, 13.18 giây**, không skip. Log `evidence/test-adherence-db.log`. Các ca allowed/denied, cross-patient, rút consent/sharing/unlink request kế tiếp và audit fail-closed đều pass trong phiên này. TC-FAMADH-16/17/18 chuyển Pass.
-- Full backend integration: đã chạy cùng lệnh full suite trên DB riêng, tiến độ có E/F ở các nhóm khác và dừng phát output tại 82% hơn hai phút. Kiểm `pg_stat_activity` thấy các kết nối idle, không chờ lock DB. Đã ngắt tiến trình để tránh chờ không giới hạn; **không có kết quả full-suite hoàn tất**, không suy ra số pass/fail hoặc nguyên nhân sản phẩm khi chưa có traceback. Log thô `evidence/test-backend-full-db.log` giữ tiến độ E/F. Kết quả này chưa chứng minh baseline backend sạch; cần điều tra độc lập sau khi sửa lỗi UI.
-- Test accessibility bổ sung tại `evidence/calendar-accessibility-repro.dart`: **Fail**, log `evidence/test-calendar-accessibility.log`. TC-FAMADH-20 / **BUG-FAMADH-20, Medium**: ô ngày ở viewport 320dp chỉ có vùng chạm 41.1×52dp; yêu cầu Android tối thiểu 48×48dp. Nguyên nhân: Row chia 7 Expanded trên chiều rộng còn 288dp sau padding. AC9 chưa đạt. Không sửa code sản phẩm trong giai đoạn test.
-- Workbook cập nhật: **20 ca = 16 Pass, 1 Fail, 3 Pending**. Pending còn TC-FAMADH-14 (quan sát thiết bị/trình đọc màn hình), 15 (Figma), 19 (đủ biên 90 ngày/lịch tháng). Validate/build/merge đã chạy lại thành công, Bug Report sinh BUG-FAMADH-20; log `evidence/testcase-{validate,build,merge}.log`.
-- Ngoại lệ scope 17 file implement vẫn theo xác nhận người dùng ở phiên trước; giai đoạn này chỉ ghi work và workbook tổng, không sửa code frontend/backend.
-
-**Bước tiếp theo hiện hành:** chưa duyệt test hoặc sang review. Người dùng chạy `python .agents/scripts/gate.py reopen 3.24-adherence-family-view implement` trong terminal để cho phép sửa BUG-FAMADH-20; sau đó agent mới sửa widget/test trong phạm vi plan. Theo wf-test bước 6, agent phải ghi lỗi sản phẩm và yêu cầu reopen implement, không sửa trực tiếp trong giai đoạn test. Backend/DB/Redis đang được giữ chạy cho lần kiểm tiếp.
-
-## Lịch sử lần chạy trước khi DB hoạt động
+# 3.24-adherence-family-view · Test sau sửa vùng chạm
 
 ## 1. Môi trường
 
-- Gate test: OK, 04 đã được người dùng duyệt. Flutter 3.47.5/Dart 3.13.4 trên Windows; nhánh frontend `feat/3.24-adherence-family-view`.
-- Chạy `D:/Captone/flutter/bin/flutter.bat test --no-pub` tại `frontend/mobile`, với safe.directory cho SDK và tắt analytics.
-- Backend dùng Python runtime Codex, dependency sẵn có tại `work/3.23-adherence-family-consent/scratch/python-deps`, PYTHONPATH thêm `backend/src`. Không cài dependency mới.
-- Kiểm kết nối Postgres local `127.0.0.1:54322`: timeout cả trong sandbox và khi cho phép kết nối ngoài sandbox. Không có Docker/Supabase CLI trên PATH; chưa reset DB hoặc khởi động service được. Không kết nối DB deploy/chia sẻ. Log: `evidence/test-backend-environment.log`.
-- Không sửa code sản phẩm hoặc test frontend/backend trong giai đoạn này. Workbook tổng ở docs trên nhánh task tạo từ `origin/main`, giữ dữ liệu các sheet chức năng của workbook trước phiên này.
+- Gate test OK sau khi người dùng duyệt lại 04. Windows, Flutter 3.47.5/Dart 3.13.4; frontend/docs trên nhánh `feat/3.24-adherence-family-view`.
+- Backend dùng Python runtime Codex và dependency hiện có trong scratch task 3.23; DB local riêng `drugtime_test_323_734f60b8` trên 127.0.0.1:54322 đã có migration ứng dụng. Không reset DB Supabase của người dùng, không truy cập môi trường deploy.
+- Đầu phiên Docker đã tắt; chạy nhóm backend lần đầu bị 60 skip (`evidence/test-adherence-after-fix.log`). Đã khởi động Docker Desktop; Docker thoát một lần, sau lần restart kế tiếp database healthy và 60 ca chạy thật pass. Không tính skip là Pass.
+- Không sửa code sản phẩm hoặc test trong frontend/backend ở giai đoạn này. Hai ca biên bổ sung nằm trong `evidence/date-boundary-repro.dart`, chạy từ frontend/mobile để dùng dependency Flutter hiện hữu.
 
 ## 2. Kết quả theo tiêu chí chấp nhận
 
-| AC | Bằng chứng chạy trong phiên | Kết quả |
+| AC | Bằng chứng | Kết quả |
 |---|---|---|
-| AC1 | Widget route hợp lệ/sai, hiển thị context, summary và màn chỉ đọc; HTTP query/token | Pass tự động |
-| AC2 | Mapper bốn trạng thái và offset; widget nhãn trạng thái | Pass tự động; trình đọc màn hình Pending |
-| AC3 | Widget 66.67% và nhãn gồm uống trễ; null rate | Pass |
-| AC4 | Widget groups rỗng, không dựng liều giả | Pass |
-| AC5 | Controller clear trước refresh; widget 200→403 khi resume, thuốc cũ biến mất | Pass phía client; backend PEP/audit Pending |
-| AC6 | Controller A→B, response A đến muộn; repository từ chối sai patient | Pass tự động; backend cross-patient Pending |
-| AC7 | Repository 401/callback, 403, 422, 503; widget network/retry | Pass cho các khẳng định tự động đã có |
-| AC8 | Query tháng giới hạn today; chặn tương lai/quá cũ; mapper offset UTC+7 | Pass phần tự động; bốn biên cửa sổ 90 ngày và điều hướng lịch tháng Pending |
-| AC9 | Widget 320×640, chữ 1.6× không layout exception | Pending phần manual vùng an toàn/landscape/TalkBack/VoiceOver |
-| AC10 | Chưa có phiên quan sát màn chạy so với Figma | Pending |
+| AC1 | Route hợp lệ/sai; query/token; widget context và chỉ đọc | Pass tự động |
+| AC2 | Mapper offset/bốn status và widget nhãn | Pass tự động; trình đọc màn hình cần ca manual AC9 |
+| AC3 | Tỷ lệ 66.67%, nhãn gồm uống trễ; null không hiện 0% | Pass |
+| AC4 | groups=[] không dựng liều giả | Pass |
+| AC5 | Widget clear 200→403; DB thật thu hồi consent/sharing/unlink và audit | Pass tự động |
+| AC6 | A→B loại response A; mapper sai patient; backend cross-patient 403/audit | Pass tự động |
+| AC7 | HTTP 401/callback, 403, 422, 503; network/retry | Pass theo khẳng định test hiện có |
+| AC8 | Bốn biên today−90, today−89, today, today+1; query giới hạn; chuyển tháng và khóa ngày ngoài phạm vi; UTC+7 | Pass tự động |
+| AC9 | Lịch tuần/tháng tại 320/375dp, chữ 1.6× đạt androidTapTargetGuideline 48dp; cuộn tới cột cuối và chọn đúng ngày | Pass tự động; Pending kiểm thiết bị/safe area/landscape/TalkBack/VoiceOver |
+| AC10 | Chưa quan sát màn chạy trên thiết bị để so Figma S09a/S09b | Pending |
 
-Toàn bộ bằng chứng Flutter nằm ở `evidence/test-integration.log`. Không suy ra Pass manual từ widget test.
+## 3. Kịch bản chất lượng
 
-## 3. Kịch bản chất lượng đã phủ
+`test_adherence_history_access.py` chạy trên DB thật: family allowed/audit allowed, thiếu link/consent/tắt chia sẻ và cross-patient 403/audit denied, thu hồi quyền request kế tiếp với cùng token, lỗi audit/commit/đọc quyền fail-closed đều **Pass**. Cùng `test_adherence_history_api.py`: **60 pass, 0 skip**, 17.36 giây — `evidence/test-adherence-after-docker-restart.log`.
 
-| Kịch bản | Test hiện có | Kết quả phiên này |
+Client vẫn xóa dữ liệu trước refresh và sau 403, không hiển thị response bệnh nhân cũ. Không đổi schema, ghi nhận liều hay engine tương tác trong task này.
+
+## 4. Lệnh và kết quả
+
+| Lệnh tại thư mục tương ứng | Kết quả | Log |
 |---|---|---|
-| Không link/consent hoặc đổi patient trái quyền →403 và audit denied | `backend/tests/integration/test_adherence_history_access.py` | Skip: DB không chạy; Pending |
-| Rút consent/tắt sharing/unlink rồi request ngay với cùng token | Cùng file, `test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12` | Skip; Pending |
-| Audit/đọc quyền/commit lỗi → fail closed | Cùng file, `test_audit_permission_and_commit_failure_fail_closed_without_health__AC13` | Skip; Pending |
-| Client xóa dữ liệu cũ khi 403 và loại response sai bệnh nhân | Bộ adherence Flutter | Pass |
+| `flutter test --no-pub test <absolute-path>/evidence/date-boundary-repro.dart` tại frontend/mobile | 633 pass, 1 lỗi script test mới: ép `RawTooltip` thành `IconButton`; cả 632 test sản phẩm pass. Không phải lỗi sản phẩm. | `evidence/test-after-calendar-fix.log` |
+| `flutter test --no-pub <absolute-path>/evidence/date-boundary-repro.dart` sau sửa finder đúng loại widget | 2 pass, 0 fail; đủ bốn biên và khóa điều hướng/ngày | `evidence/test-boundary-after-fixture-fix.log` |
+| `python -m pytest tests/integration/test_adherence_history_access.py tests/integration/test_adherence_history_api.py -q -rA -p no:cacheprovider --tb=short` | 60 pass, 1 warning, 17.36 giây | `evidence/test-adherence-after-docker-restart.log` |
+| `python -m pytest tests/integration -x -q -p no:cacheprovider --tb=short` | 102 pass, 1 error, 1 warning, 24.19 giây; dừng ở lỗi đầu theo `-x` | `evidence/test-backend-first-failure.log` |
 
-Không đổi ghi nhận liều, schema hoặc engine tương tác; không thêm test cho các vùng đó.
+**Giới hạn full backend:** lỗi setup `test_auth_flow.py::test_admin_login_and_refresh__AC7_AC3a`: `relation "auth.users" does not exist`. DB task chỉ có schema ứng dụng, chưa có schema/service Supabase Auth đầy đủ cho toàn bộ suite. Đây là hạn chế môi trường chưa chứng minh lỗi backend sản phẩm. Không sửa fixture, skip hoặc nới khẳng định; không kết luận full suite sạch. Lần full suite trước bị ngắt ở 82% còn ở `evidence/test-backend-full-db.log`.
 
-## 4. Toàn bộ bộ test
-
-- Frontend: `flutter test --no-pub` → **630 pass, 0 fail**, 80 giây. Log `evidence/test-integration.log`.
-- Backend: `python -m pytest tests/integration -q -rs -p no:cacheprovider --tb=short` → **0 pass, 0 fail, 965 skipped, 1 warning**, 17.28 giây. Fixture session skip do Postgres local timeout. Log `evidence/test-backend-integration.log`. Exit 0 không chứng minh backend đạt.
-- Scope test: exit 1, workbook tổng `[OK]`, 17 file frontend từ implement đã duyệt `[NGOÀI]` vì script tính toàn bộ diff nhánh. Không có sửa frontend mới ở giai đoạn test. **Người dùng đã xác nhận “Chấp nhận 17 file implement đã duyệt” trong phiên này.** Không sửa script hoặc che Git state. Log `evidence/test-scope.log`.
+**Scope:** `scope.py ... --stage test` exit 1, workbook `[OK]`, 17 file frontend implement đã duyệt `[NGOÀI]` do script tính toàn bộ diff nhánh. Đây là ngoại lệ người dùng đã chấp nhận ở phiên trước; không có sửa frontend mới trong test. Log `evidence/test-retest-scope.log`.
 
 ## 5. Bộ test case Excel
 
-- Spec `testcases.json`; file riêng `testcases.xlsx`.
-- File tổng: `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx`; đã merge thành công, chưa commit docs vì yêu cầu commit hiện tại chỉ dành cho thư mục work.
-- Validate/build/merge đều exit 0: `evidence/testcase-validate.log`, `evidence/testcase-build.log`, `evidence/testcase-merge.log`.
-- Hai sheet chức năng cũ giữ nguyên toàn bộ giá trị ô, Report dựng lại: `evidence/testcase-preservation.log`.
+- Spec `testcases.json`; file riêng `testcases.xlsx`; file tổng `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx` đã merge. Chưa commit docs theo phạm vi yêu cầu commit hiện tại.
+- **20 ca: 18 Pass, 0 Fail, 2 Pending**. Pending: TC-FAMADH-14 (thiết bị/safe area/landscape/trình đọc màn hình), TC-FAMADH-15 (đối chiếu Figma).
+- TC-FAMADH-19 chuyển Pass nhờ hai ca biên mới. TC-FAMADH-20 chuyển Fail→Pass nhờ hồi quy tuần/tháng 320/375dp; người dùng đã xác nhận “Dùng kết quả hồi quy mới (Pass nếu đạt)” trước khi merge. Giữ log fail cũ `test-calendar-accessibility.log` và bản test tái hiện cũ.
+- Validate/build/merge thành công: `evidence/testcase-retest-validate.log`, `testcase-retest-build.log`, `testcase-retest-merge.log`, `testcase-retest-merge-final.log`. Cảnh báo Fail→Pass ở log merge đã được người dùng quyết định như trên.
+- Hai sheet chức năng cũ giữ nguyên giá trị ô: `evidence/testcase-retest-preservation.log`.
 
-| Chức năng | Tổng | Pass | Fail | Pending |
-|---|---|---|---|---|
-| Người thân xem tuân thủ (FAMADH) | 19 | 13 | 0 | 6 |
+## 5b. Lỗi sản phẩm
 
-Pending cần chạy tiếp: TC-FAMADH-14 (thiết bị/a11y), 15 (Figma), 16 (quyền/audit DB), 17 (thu hồi ngay), 18 (fail closed), 19 (đủ biên 90 ngày/lịch tháng). Các Pass truy về khẳng định của test tự động hiện có, không chứng minh các nhánh chưa được khẳng định.
+**BUG-FAMADH-20 đã sửa và đạt hồi quy**, không còn lỗi Critical/High phát hiện liên quan task. Không kết luận mọi AC đã đạt vì còn hai ca manual Pending. Bug Report hiện không còn dòng Fail mở; lịch sử lỗi giữ trong log và Git.
 
-## 5b. Lỗi sản phẩm tìm thấy
+## 6. Skip và tính ổn định
 
-Không phát hiện lỗi sản phẩm trong các ca đã thực thi. Chưa đủ bằng chứng kết luận mọi AC đạt vì còn 6 Pending.
-
-## 6. Test không ổn định hoặc bị skip
-
-Không thêm retry hoặc nới khẳng định. 965 backend test skip vì cùng fixture yêu cầu DB local. Manual chưa chạy, ghi Pending. Không dùng kết quả backend task 3.23 làm Pass của phiên này.
+60 skip đầu phiên do Docker tắt; lần chạy lại DB thật 60 pass. Không thêm retry vào test. Lỗi script finder đã sửa và chạy lại đúng hai ca, không sửa code sản phẩm. Bộ test sản phẩm không thay đổi sau lần chạy full nên không chạy lại toàn bộ lần nữa. Không dùng kết quả cũ của backend làm Pass của phiên này.
 
 ## 7. Phát sinh
 
-- Ngoại lệ scope của 17 file implement đã được người dùng chấp nhận; giữ log gốc exit 1.
-- Môi trường thiếu DB local hoạt động; không tự thay bằng DB khác. Cần khởi động Supabase/Postgres local và reset sạch trước khi chạy lại integration.
+Full backend integration cần môi trường Supabase Auth đầy đủ để tiếp tục; DB riêng hiện đủ cho nhóm adherence. Ngoại lệ scope 17 file implement và việc cập nhật Fail→Pass workbook đều đã được người dùng chấp thuận. Hai ca manual chưa có thiết bị/phiên kiểm trực quan.
 
 ## Bước tiếp theo
 
-- Đang chờ: người dùng mở lại implement để sửa BUG-FAMADH-20 (AC9: vùng chạm lịch dưới 48dp).
-- Việc cần làm: chạy `python .agents/scripts/gate.py reopen 3.24-adherence-family-view implement` trong terminal người dùng; sau đó agent sửa lỗi và chạy hồi quy. Chưa chuyển review; còn 3 ca Pending như phần cập nhật đầu báo cáo.
+- Đang chờ: người duyệt xem kết quả và giới hạn; thực hiện hoặc quyết định rõ về TC-FAMADH-14/15 cùng giới hạn full backend suite.
+- Chưa bắt đầu review. Nếu chấp nhận báo cáo cùng các giới hạn, người duyệt chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view test` trong terminal của họ. Agent không chạy lệnh duyệt và không coi task hoàn tất trước review/DoD.
 - Cập nhật lần cuối: 2026-10-22, Codex.

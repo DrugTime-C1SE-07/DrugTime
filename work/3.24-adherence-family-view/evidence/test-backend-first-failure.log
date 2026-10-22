@@ -1,0 +1,53 @@
+........................................................................ [  7%]
+..............................E
+=================================== ERRORS ====================================
+__________ ERROR at setup of test_admin_login_and_refresh__AC7_AC3a ___________
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1953: in _exec_single_context
+    self.dialect.do_execute(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.UndefinedTable: relation "auth.users" does not exist
+E   LINE 1: SELECT id FROM auth.users WHERE lower(email) = $1
+E                          ^
+
+The above exception was the direct cause of the following exception:
+tests\integration\test_auth_flow.py:140: in dev_admin
+    user_id = admin_script.ensure_admin(
+scripts\create_dev_admin.py:58: in ensure_admin
+    existing = c.execute(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1458: in execute
+    return meth(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1678: in _execute_clauseelement
+    ret = self._execute_context(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1832: in _execute_context
+    return self._exec_single_context(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1972: in _exec_single_context
+    self._handle_dbapi_exception(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:2342: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1953: in _exec_single_context
+    self.dialect.do_execute(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "auth.users" does not exist
+E   LINE 1: SELECT id FROM auth.users WHERE lower(email) = $1
+E                          ^
+E   [SQL: SELECT id FROM auth.users WHERE lower(email) = %(e)s]
+E   [parameters: {'e': 'it-admin-62b69250d0ea@example.com'}]
+E   (Background on this error at: https://sqlalche.me/e/21/f405)
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR tests/integration/test_auth_flow.py::test_admin_login_and_refresh__AC7_AC3a
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+102 passed, 1 warning, 1 error in 24.19s

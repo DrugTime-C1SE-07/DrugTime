@@ -11,7 +11,7 @@
       "reviewed_by": "",
       "reviewed_date": "",
       "priority": "High",
-      "remarks": "16 Pass, 1 Fail vùng chạm lịch 320dp, 3 Pending manual/biên",
+      "remarks": "BUG-FAMADH-20 sửa và pass hồi quy; biên 90 ngày pass; còn manual Figma và thiết bị.",
       "cases": [
         {
           "id": "TC-FAMADH-01",
@@ -23,10 +23,10 @@
           ],
           "data": "11111111-1111-4111-8111-111111111111; tên Mẹ",
           "expected": "Một request đúng patientId; hiện Mẹ; không có lỗi widget.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC1 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-02",
@@ -37,10 +37,10 @@
           ],
           "data": "patientId=bad-id",
           "expected": "Không gọi API; hiện Chưa thể mở lịch sử của người bệnh này.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC1, AC6 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-03",
@@ -51,10 +51,10 @@
           ],
           "data": "da_uong, uong_tre, bo_lo, cho_xac_nhan; Thuốc A",
           "expected": "Có nhãn bốn trạng thái; không có nút Xác nhận hoặc Sửa.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC1, AC2 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-04",
@@ -65,10 +65,10 @@
           ],
           "data": "taken=1; late=1; missed=1; pending=1; rate=66.67",
           "expected": "Hiện 66.67% và Tỷ lệ tuân thủ (gồm uống trễ).",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC3 · family_adherence_screen_test.dart; adherence_api_mapper_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-05",
@@ -79,10 +79,10 @@
           ],
           "data": "groups=[]; counted=0; adherence_rate=null",
           "expected": "Hiện Chưa có liều được tính và Không có lịch sử trong ngày này.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC3, AC4 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-06",
@@ -94,10 +94,10 @@
           ],
           "data": "response 200 → 403",
           "expected": "Thuốc A biến mất ngay khi tải lại; hiện Không còn quyền xem lịch sử.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC5 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-07",
@@ -109,10 +109,10 @@
           ],
           "data": "A=11111111-1111-4111-8111-111111111111; B=22222222-2222-4222-8222-222222222222",
           "expected": "Chỉ giữ lịch sử B; dữ liệu cũ bị xóa trước request.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC6 · adherence_controller_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-08",
@@ -123,10 +123,10 @@
           ],
           "data": "401;403;422;503",
           "expected": "Failure đúng loại; callback hết phiên chỉ gọi với 401; mỗi ca một request.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC5, AC7 · remote_adherence_repository_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-09",
@@ -138,10 +138,10 @@
           ],
           "data": "AdherenceFailureKind.network",
           "expected": "Hiện Chưa thể tải lịch sử; nhấn Thử lại tạo request mới.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC7 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-10",
@@ -152,10 +152,10 @@
           ],
           "data": "from=2026-10-01;to=2026-10-22;group_by=date; token first-token → second-token",
           "expected": "GET /adherence đúng patient_id, from, to, group_by; bearer cập nhật.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC1, AC8 · remote_adherence_repository_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-11",
@@ -166,10 +166,10 @@
           ],
           "data": "today=2026-10-22; chọn 2026-10-23 và 2026-07-01",
           "expected": "Không phát request.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC8 · adherence_controller_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-12",
@@ -180,10 +180,10 @@
           ],
           "data": "08:00+07:00; taken_at=null; thiếu patient_id; ngày 2026-02-30; patient khác",
           "expected": "UTC đúng; giữ null; dữ liệu sai bị từ chối.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC2, AC6, AC8 · adherence_api_mapper_test.dart; remote_adherence_repository_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-13",
@@ -194,10 +194,10 @@
           ],
           "data": "320×640; textScaleFactor=1.6",
           "expected": "Không có Flutter layout exception.",
-          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-integration.log.",
+          "actual": "Khẳng định tự động đạt trong lần chạy Flutter test; xem evidence/test-after-calendar-fix.log.",
           "status": "Pass",
           "comments": "AC9 · family_adherence_screen_test.dart",
-          "evidence": "evidence/test-integration.log"
+          "evidence": "evidence/test-after-calendar-fix.log"
         },
         {
           "id": "TC-FAMADH-14",
@@ -240,10 +240,10 @@
           ],
           "data": "F liên kết A; B không liên kết",
           "expected": "200 + audit allowed với A; 403 + audit denied với B/thiếu quyền.",
-          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "actual": "60 test API/quyền/audit pass trên DB thật sau khi restart Docker, 17.36 giây; khẳng định tương ứng đạt.",
           "status": "Pass",
           "comments": "AC5, AC6 · manual",
-          "evidence": "evidence/test-adherence-db.log"
+          "evidence": "evidence/test-adherence-after-docker-restart.log"
         },
         {
           "id": "TC-FAMADH-17",
@@ -255,10 +255,10 @@
           ],
           "data": "Cùng phiên F; A vừa thu hồi",
           "expected": "403 ngay request tiếp theo; có audit denied.",
-          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "actual": "60 test API/quyền/audit pass trên DB thật sau khi restart Docker, 17.36 giây; khẳng định tương ứng đạt.",
           "status": "Pass",
           "comments": "AC5 · manual",
-          "evidence": "evidence/test-adherence-db.log"
+          "evidence": "evidence/test-adherence-after-docker-restart.log"
         },
         {
           "id": "TC-FAMADH-18",
@@ -269,10 +269,10 @@
           ],
           "data": "Lỗi insert audit/commit/đọc quyền",
           "expected": "Không trả dữ liệu sức khỏe khi audit/quyền lỗi.",
-          "actual": "Backend DB thật: 60 passed; gồm khẳng định tương ứng trong test_adherence_history_access.py.",
+          "actual": "60 test API/quyền/audit pass trên DB thật sau khi restart Docker, 17.36 giây; khẳng định tương ứng đạt.",
           "status": "Pass",
           "comments": "AC5, AC6 · manual",
-          "evidence": "evidence/test-adherence-db.log"
+          "evidence": "evidence/test-adherence-after-docker-restart.log"
         },
         {
           "id": "TC-FAMADH-19",
@@ -284,10 +284,10 @@
           ],
           "data": "today=2026-10-22; các ngày biên 2026-07-24,2026-07-25,2026-10-22,2026-10-23",
           "expected": "Chỉ today-89 đến today được chọn; query mỗi lần không quá 90 ngày; tương lai bị khóa.",
-          "actual": "",
-          "status": "Pending",
+          "actual": "Hai ca biên bốn ngày và khóa điều hướng tháng đều pass.",
+          "status": "Pass",
           "comments": "AC8 · manual",
-          "evidence": ""
+          "evidence": "evidence/test-boundary-after-fixture-fix.log"
         },
         {
           "id": "TC-FAMADH-20",
@@ -299,12 +299,10 @@
           ],
           "data": "320dp; ngày 22/10/2026",
           "expected": "Mọi ô tương tác ít nhất 48x48dp.",
-          "actual": "Ô ngày rộng 41.1dp, cao 52dp; androidTapTargetGuideline thất bại.",
-          "status": "Fail",
-          "severity": "Medium",
-          "root_cause": "Row chia 7 Expanded vào 288dp còn lại sau padding, mỗi ô chỉ rộng khoảng 41.1dp.",
-          "comments": "AC9 · BVA viewport 320dp · calendar meets Android tap target sizes at 320dp",
-          "evidence": "evidence/test-calendar-accessibility.log"
+          "actual": "Hồi quy tuần/tháng tại 320dp và 375dp, chữ 1.6x đạt androidTapTargetGuideline; chọn ngày cột cuối đúng.",
+          "status": "Pass",
+          "comments": "AC9 · BVA viewport 320dp · calendar meets Android tap target sizes at 320dp; BUG-FAMADH-20 đã sửa, giữ log fail cũ test-calendar-accessibility.log",
+          "evidence": "evidence/test-after-calendar-fix.log"
         }
       ]
     }

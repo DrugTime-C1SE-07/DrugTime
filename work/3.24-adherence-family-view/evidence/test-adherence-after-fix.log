@@ -1,0 +1,37 @@
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss             [100%]
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests\integration\test_adherence_history_access.py:41: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [5] tests\integration\test_adherence_history_access.py:64: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [2] tests\integration\test_adherence_history_access.py:95: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_access.py:117: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [4] tests\integration\test_adherence_history_access.py:130: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_access.py:163: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_access.py:173: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [4] tests\integration\test_adherence_history_access.py:185: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_access.py:230: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [4] tests\integration\test_adherence_history_access.py:253: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:192: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:218: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [7] tests\integration\test_adherence_history_api.py:244: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:264: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [5] tests\integration\test_adherence_history_api.py:277: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:300: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:322: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:345: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:359: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:371: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:385: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [6] tests\integration\test_adherence_history_api.py:428: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:476: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:501: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [3] tests\integration\test_adherence_history_api.py:511: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:524: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [2] tests\integration\test_adherence_history_api.py:547: Local Supabase is not running (connection timeout expired); run `supabase start`
+SKIPPED [1] tests\integration\test_adherence_history_api.py:622: Local Supabase is not running (connection timeout expired); run `supabase start`
+60 skipped, 1 warning in 8.00s
