@@ -1,0 +1,21 @@
+TC-FAMADH-01 Pass Mở route với bệnh nhân hợp lệ | evidence/test-after-calendar-fix.log
+TC-FAMADH-02 Pass Từ chối đối số route sai | evidence/test-after-calendar-fix.log
+TC-FAMADH-03 Pass Hiển thị đủ bốn trạng thái chỉ đọc | evidence/test-after-calendar-fix.log
+TC-FAMADH-04 Pass Giữ tỷ lệ gồm uống trễ từ server | evidence/test-after-calendar-fix.log
+TC-FAMADH-05 Pass Hiển thị dữ liệu rỗng và tỷ lệ null | evidence/test-after-calendar-fix.log
+TC-FAMADH-06 Pass Xóa lịch sử trước refresh và khi bị 403 | evidence/test-after-calendar-fix.log
+TC-FAMADH-07 Pass Loại response cũ khi đổi bệnh nhân | evidence/test-after-calendar-fix.log
+TC-FAMADH-08 Pass Map lỗi API và xử lý hết phiên | evidence/test-after-calendar-fix.log
+TC-FAMADH-09 Pass Thử lại sau lỗi mạng | evidence/test-after-calendar-fix.log
+TC-FAMADH-10 Pass Gửi query và token mới ở mỗi lần đọc | evidence/test-after-calendar-fix.log
+TC-FAMADH-11 Pass Chặn ngày tương lai và ngày quá cũ | evidence/test-after-calendar-fix.log
+TC-FAMADH-12 Pass Đọc thời gian có offset và từ chối response sai | evidence/test-after-calendar-fix.log
+TC-FAMADH-13 Pass Không overflow khi tăng cỡ chữ | evidence/test-after-calendar-fix.log
+TC-FAMADH-14 Pending Kiểm vùng an toàn, landscape và trình đọc màn hình | 
+TC-FAMADH-15 Pending Đối chiếu Figma S09a/S09b | 
+TC-FAMADH-16 Pass Kiểm quyền đọc và audit trên DB thật | evidence/test-adherence-after-docker-restart.log
+TC-FAMADH-17 Pass Thu hồi quyền có hiệu lực request kế tiếp | evidence/test-adherence-after-docker-restart.log
+TC-FAMADH-18 Pass Fail closed khi ghi audit lỗi | evidence/test-adherence-after-docker-restart.log
+TC-FAMADH-19 Pass Kiểm đủ biên 90 ngày và điều hướng lịch tháng | evidence/test-boundary-after-fixture-fix.log
+TC-FAMADH-20 Pass Kiểm vùng chạm chọn ngày ở 320dp | evidence/test-after-calendar-fix.log
+Workbook task/master function cells match

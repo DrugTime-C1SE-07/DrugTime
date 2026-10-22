@@ -1,0 +1,20 @@
+Phạm vi giai đoạn 'implement' của 3.24-adherence-family-view:
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [OK]        frontend/mobile/lib/app/app.dart
+  [OK]        frontend/mobile/lib/app/router.dart
+  [OK]        frontend/mobile/lib/features/adherence/data/models/adherence_api_mapper.dart
+  [OK]        frontend/mobile/lib/features/adherence/data/repositories/remote_adherence_repository.dart
+  [OK]        frontend/mobile/lib/features/adherence/domain/entities/adherence_failure.dart
+  [OK]        frontend/mobile/lib/features/adherence/domain/entities/adherence_history.dart
+  [OK]        frontend/mobile/lib/features/adherence/domain/repositories/adherence_repository.dart
+  [OK]        frontend/mobile/lib/features/adherence/presentation/screens/family_adherence_screen.dart
+  [OK]        frontend/mobile/lib/features/adherence/presentation/state/adherence_controller.dart
+  [OK]        frontend/mobile/lib/features/adherence/presentation/widgets/adherence_date_picker.dart
+  [OK]        frontend/mobile/lib/features/adherence/presentation/widgets/adherence_dose_card.dart
+  [OK]        frontend/mobile/lib/features/adherence/presentation/widgets/adherence_summary_card.dart
+  [OK]        frontend/mobile/lib/main.dart
+  [OK]        frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart
+  [OK]        frontend/mobile/test/features/adherence/adherence_controller_test.dart
+  [OK]        frontend/mobile/test/features/adherence/family_adherence_screen_test.dart
+  [OK]        frontend/mobile/test/features/adherence/remote_adherence_repository_test.dart
+OK: mọi thay đổi nằm trong phạm vi.

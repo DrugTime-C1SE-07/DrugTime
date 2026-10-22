@@ -1,7 +1,14 @@
 ---
 task: 3.24-adherence-family-view
 stage: test
-status: draft
+status: approved
+approved_by: Ngọc Việt
+approved_at: 2026-10-22 21:18 +0700
+content_hash: sha256:d130283967b0b674
+inputs:
+  01-requirement.md: sha256:78a2784681c4911b
+  03-plan.md: sha256:c42bc0a5bb6b51b5
+  04-impl-notes.md: sha256:e5195d96ad85dfb8
 ---
 
 # 3.24-adherence-family-view · Test sau sửa vùng chạm
