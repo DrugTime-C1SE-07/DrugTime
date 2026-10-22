@@ -1,17 +1,22 @@
 ---
 task: 3.24-adherence-family-view
 stage: test
-status: approved
-approved_by: Ngọc Việt
-approved_at: 2026-10-22 21:18 +0700
-content_hash: sha256:d130283967b0b674
-inputs:
-  01-requirement.md: sha256:78a2784681c4911b
-  03-plan.md: sha256:c42bc0a5bb6b51b5
-  04-impl-notes.md: sha256:e5195d96ad85dfb8
+status: draft
 ---
 
 # 3.24-adherence-family-view · Test sau sửa vùng chạm
+
+## Cập nhật sửa review R1 — bảo toàn workbook tổng
+
+- Người dùng đã reopen test; gate test OK. Chỉ sửa workbook tổng và artifact của task, không sửa code sản phẩm.
+- Đã khôi phục workbook từ blob `docs/origin/main` tại commit `dfd422fa9211d4a2c40b740cb772b694779ada0f`, giữ đủ **15 sheet chức năng baseline**. Sao lưu workbook trước sửa trong scratch; không reset checkout docs hoặc xóa nhánh.
+- Dùng bộ ghi `.agents/scripts/testcase_xlsx.py` để ghép ALERT từ spec task 3.20 hiện có, ADHERENCE từ spec đã commit trên nhánh task 3.23 và FAMADH của task này. Trước khi ghép đã đối chiếu toàn bộ ID/status/actual với workbook trước sửa: ALERT 11, ADHERENCE 23, FAMADH 20 ca đều khớp, không ghi đè kết quả tester khác. Sau khôi phục, toàn bộ ô có dữ liệu/công thức và vùng gộp của 15 sheet main + 3 sheet task đều khớp nguồn. Log `evidence/test-workbook-restoration.log`.
+- Sau đó bổ sung TC-FAMADH-21 cho lỗi Medium R2 của review; giữ nguyên kết quả 20 ca cũ. Workbook hiện có **19 sheet = 18 sheet chức năng + Report**, FAMADH **21 ca = 18 Pass, 1 Fail, 2 Pending**. Report được script tạo lại và có BUG-FAMADH-21 mức Medium.
+- Validate/build/merge đều thành công, không có cảnh báo đổi Pass/Fail cũ: `evidence/test-workbook-fix-{validate,build,merge}.log`. Chạy script đọc-only `evidence/verify-master-preservation.py` sau merge: **Pass** toàn bộ 15 sheet baseline và FAMADH khớp workbook riêng, đủ 19 sheet — `evidence/test-workbook-fix-preservation.log`.
+- R1 High đã xử lý trong bản workbook working; cần review lại sau khi test được duyệt. Chưa commit docs theo phạm vi yêu cầu commit hiện tại chỉ dành cho work.
+- R2 Medium còn mở: đã chạy lại script tái hiện **1 pass xác nhận bug tồn tại** (không phải sản phẩm đúng), log `evidence/test-rollover-known-issue.log`. Request từ 01/08 đến 31/07 sau khi chuyển 28/10→29/10/2026 vẫn tái hiện. TC-FAMADH-21 đánh Fail với kỳ vọng from<=to; không sửa code trong test. Có cách tránh là chọn ngày hợp lệ khác.
+- Không chạy lại Flutter/backend toàn bộ vì bản sửa chỉ tác động workbook; số liệu chạy các lượt trước bên dưới được giữ làm lịch sử, không coi là đã chạy lại trong phiên sửa workbook này. Hai ca manual Pending không đổi.
+- Scope test vẫn exit 1 do đúng 17 file implement đã được người dùng chấp nhận ngoại lệ, không có thay đổi frontend mới. Workbook `[OK]`; log `evidence/test-workbook-fix-scope.log`.
 
 ## 1. Môi trường
 
@@ -57,14 +62,14 @@ Client vẫn xóa dữ liệu trước refresh và sau 403, không hiển thị 
 ## 5. Bộ test case Excel
 
 - Spec `testcases.json`; file riêng `testcases.xlsx`; file tổng `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx` đã merge. Chưa commit docs theo phạm vi yêu cầu commit hiện tại.
-- **20 ca: 18 Pass, 0 Fail, 2 Pending**. Pending: TC-FAMADH-14 (thiết bị/safe area/landscape/trình đọc màn hình), TC-FAMADH-15 (đối chiếu Figma).
+- **21 ca: 18 Pass, 1 Fail (Medium R2), 2 Pending**. Pending: TC-FAMADH-14 (thiết bị/safe area/landscape/trình đọc màn hình), TC-FAMADH-15 (đối chiếu Figma). Số liệu 18 Pass là kết quả được bảo toàn từ các lần chạy trước; ca Fail mới được tái hiện trong phiên sửa R1.
 - TC-FAMADH-19 chuyển Pass nhờ hai ca biên mới. TC-FAMADH-20 chuyển Fail→Pass nhờ hồi quy tuần/tháng 320/375dp; người dùng đã xác nhận “Dùng kết quả hồi quy mới (Pass nếu đạt)” trước khi merge. Giữ log fail cũ `test-calendar-accessibility.log` và bản test tái hiện cũ.
 - Validate/build/merge thành công: `evidence/testcase-retest-validate.log`, `testcase-retest-build.log`, `testcase-retest-merge.log`, `testcase-retest-merge-final.log`. Cảnh báo Fail→Pass ở log merge đã được người dùng quyết định như trên.
 - Hai sheet chức năng cũ giữ nguyên giá trị ô: `evidence/testcase-retest-preservation.log`.
 
 ## 5b. Lỗi sản phẩm
 
-**BUG-FAMADH-20 đã sửa và đạt hồi quy**, không còn lỗi Critical/High phát hiện liên quan task. Không kết luận mọi AC đã đạt vì còn hai ca manual Pending. Bug Report hiện không còn dòng Fail mở; lịch sử lỗi giữ trong log và Git.
+**BUG-FAMADH-20 đã sửa và đạt hồi quy** ở lượt trước. **R1 High workbook mất sheet đã khôi phục**, có kiểm tra baseline và cần review lại. **BUG-FAMADH-21 / R2 Medium còn mở** (refresh qua ngày có thể tạo from>to), đã ghi Fail trong workbook với bằng chứng tái hiện mới. Không kết luận mọi AC đã đạt vì còn R2 và hai ca manual Pending.
 
 ## 6. Skip và tính ổn định
 
@@ -76,6 +81,6 @@ Full backend integration cần môi trường Supabase Auth đầy đủ để t
 
 ## Bước tiếp theo
 
-- Đang chờ: người duyệt xem kết quả và giới hạn; thực hiện hoặc quyết định rõ về TC-FAMADH-14/15 cùng giới hạn full backend suite.
-- Chưa bắt đầu review. Nếu chấp nhận báo cáo cùng các giới hạn, người duyệt chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view test` trong terminal của họ. Agent không chạy lệnh duyệt và không coi task hoàn tất trước review/DoD.
+- Đang chờ: người duyệt xem bản sửa R1, lỗi Medium R2 và hai ca manual Pending.
+- Nếu chấp nhận báo cáo cùng các lưu ý, chạy `python .agents/scripts/gate.py approve 3.24-adherence-family-view test` trong terminal người duyệt; sau đó agent mới review lại workbook. Nếu muốn sửa R2 trước review, cần reopen implement theo gate. Không sửa code sản phẩm trong test và không coi task hoàn tất trước review/DoD.
 - Cập nhật lần cuối: 2026-10-22, Codex.

@@ -1,0 +1,20 @@
+Phạm vi giai đoạn 'test' của 3.24-adherence-family-view:
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     frontend/mobile/lib/app/app.dart
+  [NGOÀI]     frontend/mobile/lib/app/router.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/data/models/adherence_api_mapper.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/data/repositories/remote_adherence_repository.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/domain/entities/adherence_failure.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/domain/entities/adherence_history.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/domain/repositories/adherence_repository.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/presentation/screens/family_adherence_screen.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/presentation/state/adherence_controller.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/presentation/widgets/adherence_date_picker.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/presentation/widgets/adherence_dose_card.dart
+  [NGOÀI]     frontend/mobile/lib/features/adherence/presentation/widgets/adherence_summary_card.dart
+  [NGOÀI]     frontend/mobile/lib/main.dart
+  [NGOÀI]     frontend/mobile/test/features/adherence/adherence_api_mapper_test.dart
+  [NGOÀI]     frontend/mobile/test/features/adherence/adherence_controller_test.dart
+  [NGOÀI]     frontend/mobile/test/features/adherence/family_adherence_screen_test.dart
+  [NGOÀI]     frontend/mobile/test/features/adherence/remote_adherence_repository_test.dart
+CHẶN: 17 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

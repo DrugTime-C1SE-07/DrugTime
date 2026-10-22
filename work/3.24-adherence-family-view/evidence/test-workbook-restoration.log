@@ -1,0 +1,26 @@
+Baseline docs/origin/main: dfd422fa9211d4a2c40b740cb772b694779ada0f
+Source cases/status/actual match previous workbook: ALERT 11
+Source cases/status/actual match previous workbook: ADHERENCE 23
+Source cases/status/actual match previous workbook: FAMADH 20
+Merged using testcase_xlsx.apply: ALERT
+Merged using testcase_xlsx.apply: ADHERENCE
+Merged using testcase_xlsx.apply: FAMADH
+Preserved all nonempty cell values/formulas and merged ranges: Android build
+Preserved all nonempty cell values/formulas and merged ranges: Đăng nhập người dùng
+Preserved all nonempty cell values/formulas and merged ranges: Lịch uống thuốc
+Preserved all nonempty cell values/formulas and merged ranges: Tải lịch uống
+Preserved all nonempty cell values/formulas and merged ranges: Tương tác thuốc-thuốc
+Preserved all nonempty cell values/formulas and merged ranges: Tương tác thuốc-thực phẩm
+Preserved all nonempty cell values/formulas and merged ranges: Tra cứu hoạt chất
+Preserved all nonempty cell values/formulas and merged ranges: Mã liên kết người thân
+Preserved all nonempty cell values/formulas and merged ranges: Chọn thuốc danh mục
+Preserved all nonempty cell values/formulas and merged ranges: Hồi quy xác nhận liều
+Preserved all nonempty cell values/formulas and merged ranges: Landing page
+Preserved all nonempty cell values/formulas and merged ranges: Yêu cầu liên kết người thân
+Preserved all nonempty cell values/formulas and merged ranges: Theo dõi người thân (app)
+Preserved all nonempty cell values/formulas and merged ranges: Link mời người thân
+Preserved all nonempty cell values/formulas and merged ranges: Khung điều hướng app
+Preserved all nonempty cell values/formulas and merged ranges: Alert dispatch
+Preserved all nonempty cell values/formulas and merged ranges: Lịch sử tuân thủ
+Preserved all nonempty cell values/formulas and merged ranges: Family adherence view
+PASS: 15 baseline functions + 3 task functions + regenerated Report = 19 sheets

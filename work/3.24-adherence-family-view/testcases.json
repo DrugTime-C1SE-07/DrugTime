@@ -11,7 +11,7 @@
       "reviewed_by": "",
       "reviewed_date": "",
       "priority": "High",
-      "remarks": "BUG-FAMADH-20 sửa và pass hồi quy; biên 90 ngày pass; còn manual Figma và thiết bị.",
+      "remarks": "R1 workbook đã khôi phục baseline; BUG-FAMADH-20 đã sửa; R2/BUG-FAMADH-21 Medium còn mở; 2 manual Pending.",
       "cases": [
         {
           "id": "TC-FAMADH-01",
@@ -303,6 +303,23 @@
           "status": "Pass",
           "comments": "AC9 · BVA viewport 320dp · calendar meets Android tap target sizes at 320dp; BUG-FAMADH-20 đã sửa, giữ log fail cũ test-calendar-accessibility.log",
           "evidence": "evidence/test-after-calendar-fix.log"
+        },
+        {
+          "id": "TC-FAMADH-21",
+          "description": "Giữ khoảng ngày hợp lệ khi refresh qua nửa đêm",
+          "precondition": "Controller mở ngày 28/10/2026 với selectedDate=31/07/2026 (today-89).",
+          "steps": [
+            "Chạy evidence/review-date-rollover-repro.dart bằng flutter test --no-pub từ frontend/mobile.",
+            "Chuyển đồng hồ sang 29/10/2026 và gọi refresh; xem khoảng request mà repository ghi nhận."
+          ],
+          "data": "now 28/10 → 29/10/2026, selectedDate=31/07/2026",
+          "expected": "Chuẩn hóa ngày đang chọn vào cửa sổ mới trước refresh; mọi request có from<=to.",
+          "actual": "Tái hiện request from=01/08/2026, to=31/07/2026. Script tái hiện pass vì khẳng định bug tồn tại; hành vi sản phẩm Fail.",
+          "status": "Fail",
+          "severity": "Medium",
+          "root_cause": "selectedDate không được clamp khi earliestDate thay đổi theo đồng hồ; rangeFrom động nhưng rangeTo dựa tháng cũ.",
+          "comments": "AC8 · Chuyển trạng thái đồng hồ · review R2 · có thể chọn ngày khác để tiếp tục",
+          "evidence": "evidence/test-rollover-known-issue.log"
         }
       ]
     }
