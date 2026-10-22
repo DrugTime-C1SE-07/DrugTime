@@ -1,0 +1,2 @@
+PASS: 63 existing audit rows, grants and triggers preserved
+PASS: all 16 actor identity/role/result combinations; matrix inserts rolled back

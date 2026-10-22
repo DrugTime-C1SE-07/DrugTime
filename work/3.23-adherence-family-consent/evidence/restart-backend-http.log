@@ -1,0 +1,11 @@
+GET /openapi.json
+GET /adherence without Authorization
+HTTP 200`n
+HTTP/1.1 401 Unauthorized
+date: Thu, 22 Oct 2026 06:43:21 GMT
+server: uvicorn
+content-length: 33
+content-type: application/json
+cache-control: no-store
+
+{"detail":"Missing bearer token"}

@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'plan' của 3.23-adherence-family-consent:
+  [NGOÀI]     .agents/README.md
+  [NGOÀI]     .agents/scripts/_lib.py
+  [NGOÀI]     .agents/scripts/gate.py
+  [NGOÀI]     .agents/scripts/guard.py
+  [NGOÀI]     .agents/scripts/scope.py
+  [NGOÀI]     .agents/scripts/tests/test_frontmatter.py
+  [NGOÀI]     .agents/scripts/tests/test_gate.py
+  [NGOÀI]     .agents/scripts/tests/test_guard.py
+  [NGOÀI]     .agents/scripts/tests/test_scope.py
+  [APPROVAL]  adhoc-20261021-scope-approved-stage/04-impl-notes.md: 03-plan.md đã thay đổi sau khi 04-impl-notes.md được duyệt. Cần duyệt lại 04-impl-notes.md.
+CHẶN: 9 file ngoài phạm vi, 1 approval không hợp lệ. Ghi vào mục 'Phát sinh' và hỏi người dùng.

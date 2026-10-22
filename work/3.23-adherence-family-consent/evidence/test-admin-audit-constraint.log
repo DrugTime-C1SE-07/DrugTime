@@ -1,0 +1,1 @@
+('access_logs_actor_identity_check', "CHECK (((actor_role = 'patient'::access_actor_role) = (actor_user_id = patient_user_id)))")

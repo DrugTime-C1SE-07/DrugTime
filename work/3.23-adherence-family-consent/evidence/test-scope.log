@@ -1,0 +1,8 @@
+Phạm vi giai đoạn 'test' của 3.23-adherence-family-consent:
+  [OK]        backend/tests/integration/test_adherence_history_access.py
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     backend/src/drugtime/modules/access/domain/rules.py
+  [NGOÀI]     backend/tests/unit/test_access_authorize.py
+  [NGOÀI]     backend/tests/unit/test_access_rules.py
+  [NGOÀI]     backend/tests/unit/test_contract_adherence.py
+CHẶN: 5 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

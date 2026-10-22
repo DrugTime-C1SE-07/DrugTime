@@ -1,0 +1,7 @@
+Phạm vi giai đoạn 'implement' của 3.23-adherence-family-consent:
+  [OK]        api_contract/openapi.json
+  [OK]        backend/src/drugtime/modules/access/domain/rules.py
+  [OK]        backend/tests/unit/test_access_authorize.py
+  [OK]        backend/tests/unit/test_access_rules.py
+  [OK]        backend/tests/unit/test_contract_adherence.py
+OK: mọi thay đổi nằm trong phạm vi.

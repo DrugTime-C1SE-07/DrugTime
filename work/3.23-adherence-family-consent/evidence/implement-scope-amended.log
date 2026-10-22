@@ -1,0 +1,11 @@
+Phạm vi giai đoạn 'implement' của 3.23-adherence-family-consent:
+  [OK]        api_contract/openapi.json
+  [OK]        backend/src/drugtime/modules/access/domain/rules.py
+  [OK]        backend/supabase/migrations/20261021115000_access_logs_admin_self_denied.sql
+  [OK]        backend/tests/unit/test_access_authorize.py
+  [OK]        backend/tests/unit/test_access_rules.py
+  [OK]        backend/tests/unit/test_contract_adherence.py
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     backend/tests/integration/test_adherence_history_access.py
+  [NGOÀI]     docs/Team1_DTU/01_Proposal_&_Planning/drugtime_quyet_dinh_theo_chuc_nang.md
+CHẶN: 2 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

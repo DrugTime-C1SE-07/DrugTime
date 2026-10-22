@@ -1,0 +1,265 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+__ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self] ___
+
+history_data = HistoryData(db=<sqlalchemy.engine.base.Connection object at 0x000001868ADEB080>, make=Factory(db=<sqlalchemy.engine.ba...4ad8-8ef8-e6aff7aabf5b'), now=datetime.datetime(2026, 10, 19, 13, 1, tzinfo=zoneinfo.ZoneInfo(key='Asia/Ho_Chi_Minh')))
+access = 'self'
+
+    @pytest.mark.parametrize("access", ["self", "linked"])
+    def test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7(history_data, access):
+        data = history_data
+        admin = data.make.user(admin=True)
+        if access == "self":
+            data.patient = admin
+        else:
+            data.make.consent(data.patient, "family_sharing")
+            data.make.link(data.patient, admin)
+        data.log(data.schedule(), "da_uong")
+        before = data.snapshot()
+    
+        response = read_as(data, admin)
+    
+>       assert response.status_code == 403 and response.json() == {"detail": "khong_co_quyen"}
+E       assert (500 == 403)
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests\integration\test_adherence_history_access.py:109: AssertionError
+_ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[linked] __
+
+self = <sqlalchemy.engine.base.Connection object at 0x000001868AE21E80>
+dialect = <sqlalchemy.dialects.postgresql.psycopg.PGDialect_psycopg object at 0x000001868A9C83E0>
+context = <sqlalchemy.dialects.postgresql.psycopg.PGExecutionContext_psycopg object at 0x000001868B31A420>
+statement = <sqlalchemy.dialects.postgresql.psycopg.PGCompiler_psycopg object at 0x000001868B31A270>
+parameters = [{'lid': 32, 'p': UUID('647808e9-4b84-4ca3-9813-bc31c1833b68'), 'f': UUID('c1f093c7-9b6a-42d4-bc9f-e210f9651efd'), 'v': 'test'}]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -> CursorResult[Unpack[TupleAny]]:
+        """continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        evt_handled: bool = False
+        try:
+            if self._has_events or self.engine._has_events:
+                for fn in self.dispatch.before_cursor_execute:
+                    str_statement, effective_parameters = fn(
+                        self,
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                        context.executemany,
+                    )
+    
+            if self._echo:
+                self._log_info(str_statement)
+    
+                stats = context._get_cache_stats()
+    
+                if not self.engine.hide_parameters:
+                    self._log_info(
+                        "[%s] %r",
+                        stats,
+                        sql_util._repr_params(
+                            effective_parameters,
+                            batches=10,
+                            ismulti=context.executemany,
+                        ),
+                    )
+                else:
+                    self._log_info(
+                        "[%s] [SQL parameters hidden due to "
+                        "hide_parameters=True]",
+                        stats,
+                    )
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    "_CoreMultiExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    "_CoreSingleExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+>                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1953: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <psycopg.Cursor [closed] [IDLE] (host=127.0.0.1 port=54322 database=postgres) at 0x1868b2bae10>
+query = "INSERT INTO family_link_consent_confirmations (link_id, patient_user_id, family_user_id, purpose, document_version) VALUES (%(lid)s, %(p)s, %(f)s, 'family_sharing', %(v)s)"
+params = {'lid': 32, 'p': UUID('647808e9-4b84-4ca3-9813-bc31c1833b68'), 'f': UUID('c1f093c7-9b6a-42d4-bc9f-e210f9651efd'), 'v': 'test'}
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           psycopg.errors.UndefinedTable: relation "family_link_consent_confirmations" does not exist
+E           LINE 1: INSERT INTO family_link_consent_confirmations (link_id, pati...
+E                               ^
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\cursor.py:117: UndefinedTable
+
+The above exception was the direct cause of the following exception:
+
+history_data = HistoryData(db=<sqlalchemy.engine.base.Connection object at 0x000001868AE21E80>, make=Factory(db=<sqlalchemy.engine.ba...4ca3-9813-bc31c1833b68'), now=datetime.datetime(2026, 10, 19, 13, 1, tzinfo=zoneinfo.ZoneInfo(key='Asia/Ho_Chi_Minh')))
+access = 'linked'
+
+    @pytest.mark.parametrize("access", ["self", "linked"])
+    def test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7(history_data, access):
+        data = history_data
+        admin = data.make.user(admin=True)
+        if access == "self":
+            data.patient = admin
+        else:
+            data.make.consent(data.patient, "family_sharing")
+>           data.make.link(data.patient, admin)
+
+tests\integration\test_adherence_history_access.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\integration\conftest.py:173: in link
+    self.db.execute(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1458: in execute
+    return meth(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1678: in _execute_clauseelement
+    ret = self._execute_context(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1832: in _execute_context
+    return self._exec_single_context(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1972: in _exec_single_context
+    self._handle_dbapi_exception(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:2342: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:1953: in _exec_single_context
+    self.dialect.do_execute(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <psycopg.Cursor [closed] [IDLE] (host=127.0.0.1 port=54322 database=postgres) at 0x1868b2bae10>
+query = "INSERT INTO family_link_consent_confirmations (link_id, patient_user_id, family_user_id, purpose, document_version) VALUES (%(lid)s, %(p)s, %(f)s, 'family_sharing', %(v)s)"
+params = {'lid': 32, 'p': UUID('647808e9-4b84-4ca3-9813-bc31c1833b68'), 'f': UUID('c1f093c7-9b6a-42d4-bc9f-e210f9651efd'), 'v': 'test'}
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "family_link_consent_confirmations" does not exist
+E           LINE 1: INSERT INTO family_link_consent_confirmations (link_id, pati...
+E                               ^
+E           [SQL: INSERT INTO family_link_consent_confirmations (link_id, patient_user_id, family_user_id, purpose, document_version) VALUES (%(lid)s, %(p)s, %(f)s, 'family_sharing', %(v)s)]
+E           [parameters: {'lid': 32, 'p': UUID('647808e9-4b84-4ca3-9813-bc31c1833b68'), 'f': UUID('c1f093c7-9b6a-42d4-bc9f-e210f9651efd'), 'v': 'test'}]
+E           (Background on this error at: https://sqlalche.me/e/21/f405)
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\cursor.py:117: ProgrammingError
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 failed, 22 deselected, 1 warning in 3.87s

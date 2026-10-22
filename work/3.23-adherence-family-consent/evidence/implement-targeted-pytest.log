@@ -1,0 +1,8 @@
+............................................................             [100%]
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\_pytest\cacheprovider.py:469
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\_pytest\cacheprovider.py:469: PytestCacheWarning: could not create cache path D:\Captone\DrugTime\backend\.pytest_cache\v\cache\nodeids: [WinError 5] Access is denied: 'D:\\Captone\\DrugTime\\backend\\.pytest_cache\\v\\cache'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+60 passed, 1 warning in 5.75s

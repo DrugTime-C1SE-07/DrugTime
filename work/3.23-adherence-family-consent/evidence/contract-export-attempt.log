@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:\Captone\DrugTime\backend\scripts\export_openapi.py", line 14, in <module>
+    from drugtime.main import create_app
+  File "D:\Captone\DrugTime\backend\src\drugtime\main.py", line 3, in <module>
+    from fastapi import FastAPI, Request
+ModuleNotFoundError: No module named 'fastapi'

@@ -1,0 +1,7 @@
+PASS test_allowed_log_failure_fails_request
+PASS test_family_read_appends_allowed
+PASS test_denied_write_appends_denied_and_raises
+PASS test_unknown_patient_raises_forbidden_without_log
+PASS test_admin_read_denied_logged__QD32
+PASS test_admin_self_denied_audited_and_audit_failure_fails_closed__QD32
+SUMMARY passed=6 failed=0 (stdlib runner, not pytest)

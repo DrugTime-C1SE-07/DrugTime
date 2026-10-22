@@ -1,0 +1,16 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+__ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self] ___
+tests\integration\test_adherence_history_access.py:109: in test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7
+    assert response.status_code == 403 and response.json() == {"detail": "khong_co_quyen"}
+E   assert (500 == 403)
+E    +  where 500 = <Response [500 Internal Server Error]>.status_code
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self]
+1 failed, 1 passed, 22 deselected, 1 warning in 3.54s

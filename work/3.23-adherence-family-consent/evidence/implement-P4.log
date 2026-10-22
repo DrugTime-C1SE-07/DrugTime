@@ -1,0 +1,27 @@
+PASS test_allowed_log_failure_fails_request
+PASS test_family_read_appends_allowed
+PASS test_denied_write_appends_denied_and_raises
+PASS test_unknown_patient_raises_forbidden_without_log
+PASS test_admin_read_denied_logged__QD32
+PASS test_admin_self_denied_audited_and_audit_failure_fails_closed__QD32
+SUMMARY passed=6 failed=0 (stdlib runner, not pytest)
+PASS contract_example
+PASS wire_variants
+PASS recorded_pending
+PASS bigint_max
+PASS schema_constraints
+PASS invalid_dose_{'taken_at': None}
+PASS invalid_dose_{'status_source': 'inferred'}
+PASS invalid_dose_{'status': 'cho_xac_nhan'}
+PASS invalid_dose_{'status': 'bo_lo'}
+PASS invalid_dose_{'schedule_id': 0}
+PASS invalid_dose_{'schedule_id': 9223372036854775808}
+PASS invalid_dose_{'unexpected': True}
+PASS invalid_dose_{'scheduled_at': '2026-10-19T08:00:00'}
+PASS invalid_summary_{'adherence_rate': 0}
+PASS invalid_summary_{'adherence_rate': -1}
+PASS invalid_summary_{'total': -1}
+PASS invalid_summary_{'counted': 1}
+PASS invalid_summary_{'adherence_rate': 'bad'}
+PASS invalid_summary_{'unexpected': True}
+SUMMARY contract_checks=19 passed (stdlib runner, not pytest)

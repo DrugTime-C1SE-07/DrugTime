@@ -1,0 +1,100 @@
+........................................................................ [  7%]
+.......................ssssssssssssss................................... [ 14%]
+..............................................F......X.................. [ 22%]
+........................................................................ [ 29%]
+........................................................................ [ 37%]
+........................................................................ [ 44%]
+........................................................................ [ 52%]
+........................................................................ [ 59%]
+........................................................................ [ 67%]
+........................................................................ [ 74%]
+..............ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 82%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 89%]
+sssssssssssssss......................................................... [ 96%]
+.............F...............                                            [100%]
+================================== FAILURES ===================================
+_ test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18 _
+tests\integration\test_dose_confirmation_api.py:170: in test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+    assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E   AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'
+E     
+E     - 2026-10-02T01:00:00Z
+E     + 2026-10-02T01:00:59.999000Z
+E     ?                  +++++++
+_____________ test_profile_get_put_incomplete_complete__AC01_AC04 _____________
+tests\integration\test_profile_api.py:37: in test_profile_get_put_incomplete_complete__AC01_AC04
+    assert response.json() == {
+E   AssertionError: assert {'full_name':...t.local', ...} == {'full_name':...nditions': []}
+E     
+E     Omitting 4 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'email': 'cdade3f3-a65d-403f-9c5b-af2af81ae2c1@test.local'}
+E     Use -v to get more diff
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================================== XPASSES ===================================
+=========================== short test summary info ===========================
+SKIPPED [1] tests\integration\test_auth_flow.py:171: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:209: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:225: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:243: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:255: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:265: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:281: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:292: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:311: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:320: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:329: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:343: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:357: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:369: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:236: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:263: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:278: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:307: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:345: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [18] tests\integration\test_mobile_login.py:373: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:385: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:397: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:417: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [16] tests\integration\test_mobile_login.py:442: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:464: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:477: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:483: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:490: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [20] tests\integration\test_mobile_login.py:507: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [9] tests\integration\test_mobile_login.py:532: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:553: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [14] tests\integration\test_mobile_login.py:592: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:603: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:615: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:628: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:637: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [5] tests\integration\test_mobile_login.py:651: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:671: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [3] tests\integration\test_mobile_login.py:703: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:727: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:747: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:789: Cannot read `supabase status` ([WinError 2] The system cannot find the file specified); run `supabase start`
+XPASS tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_requires_authentication__AC9 - AC9 depends on the shared identity.current_user dependency; the user decided not to modify module identity in task 2.10.
+2 failed, 803 passed, 159 skipped, 1 xpassed, 5859 warnings in 145.37s (0:02:25)

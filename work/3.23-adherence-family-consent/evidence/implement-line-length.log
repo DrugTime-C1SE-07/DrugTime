@@ -1,0 +1,2 @@
+backend/tests/unit/test_contract_adherence.py:60:104:        result = AdherenceHistoryResponse.model_validate(payload).model_dump(mode="json", by_alias=True)
+backend/tests/unit/test_contract_adherence.py:163:102:    rate = next(branch for branch in summary["adherence_rate"]["anyOf"] if branch["type"] == "number")

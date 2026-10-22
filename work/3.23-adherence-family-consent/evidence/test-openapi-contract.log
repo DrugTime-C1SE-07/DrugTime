@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+rootdir: D:\Captone\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 2 items
+
+tests/unit/test_contract_adherence.py::test_contract_query_security_status_headers PASSED [ 50%]
+tests/unit/test_contract_adherence.py::test_response_required_nullable_enums_and_constraints PASSED [100%]
+
+============================== 2 passed in 2.96s ==============================

@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'test' của 3.23-adherence-family-consent:
+  [OK]        backend/tests/integration/test_access_log_actor_identity.py
+  [OK]        backend/tests/integration/test_adherence_history_access.py
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     backend/src/drugtime/modules/access/domain/rules.py
+  [NGOÀI]     backend/supabase/migrations/20261021115000_access_logs_admin_self_denied.sql
+  [NGOÀI]     backend/tests/unit/test_access_authorize.py
+  [NGOÀI]     backend/tests/unit/test_access_rules.py
+  [NGOÀI]     backend/tests/unit/test_contract_adherence.py
+  [NGOÀI]     docs/Team1_DTU/01_Proposal_&_Planning/drugtime_quyet_dinh_theo_chuc_nang.md
+CHẶN: 7 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

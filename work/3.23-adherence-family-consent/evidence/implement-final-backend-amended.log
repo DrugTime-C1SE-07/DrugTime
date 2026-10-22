@@ -1,0 +1,301 @@
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+.............................FFFFFFFFF.................................. [ 29%]
+.....F..FF..................FF.FF.F.FFFFFFF.FFFFFF...................... [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 70%]
+........................................................................ [ 76%]
+........................................................................ [ 82%]
+...........................F....FFF..................................... [ 88%]
+........................................................................ [ 94%]
+.................................................................        [100%]
+================================== FAILURES ===================================
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLink] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'PendingFamilyLink'
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLinkList] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'PendingFamilyLinkList'
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApprovalRequest] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'FamilyLinkApprovalRequest'
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkConsentConfirmation] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'FamilyLinkConsentConfirmation'
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApproval] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'FamilyLinkApproval'
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkRejection] _
+tests\unit\test_contract_family_links.py:51: in test_six_schemas_match_contract_types_required_nullability_and_constraints
+    assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'FamilyLinkRejection'
+_ test_three_operations_match_contract[get-/family/links-listPendingFamilyLinks] _
+tests\unit\test_contract_family_links.py:59: in test_three_operations_match_contract
+    c, a = contract["paths"][path][method], app["paths"][path][method]
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/family/links'
+_ test_three_operations_match_contract[post-/family/links/{link_id}/approve-approveFamilyLink] _
+tests\unit\test_contract_family_links.py:59: in test_three_operations_match_contract
+    c, a = contract["paths"][path][method], app["paths"][path][method]
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/family/links/{link_id}/approve'
+_ test_three_operations_match_contract[post-/family/links/{link_id}/reject-rejectFamilyLink] _
+tests\unit\test_contract_family_links.py:59: in test_three_operations_match_contract
+    c, a = contract["paths"][path][method], app["paths"][path][method]
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/family/links/{link_id}/reject'
+___________ test_operations_match_contract[get-/medications/search] ___________
+tests\unit\test_contract_medication.py:85: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+tests\unit\test_contract_medication.py:119: in test_catalog_search_query_params_match_contract
+    assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+______________ test_catalog_search_operation_ids_match_contract _______________
+tests\unit\test_contract_medication.py:126: in test_catalog_search_operation_ids_match_contract
+    assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+_____________ test_operations_match_contract[get-/notifications] ______________
+tests\unit\test_contract_notification.py:29: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications'
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+tests\unit\test_contract_notification.py:29: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications/{id}'
+________________ test_notification_query_params_match_contract ________________
+tests\unit\test_contract_notification.py:51: in test_notification_query_params_match_contract
+    c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications'
+________ test_contract_audit_passes_and_detects_broken_contract_guards ________
+tests\unit\test_contract_openapi_semantics.py:126: in test_contract_audit_passes_and_detects_broken_contract_guards
+    assert _audit_spec(contract) == set()
+E   AssertionError: assert {'missing-bearer-security'} == set()
+E     
+E     Extra items in the left set:
+E     'missing-bearer-security'
+E     Use -v to get more diff
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+tests\unit\test_contract_openapi_semantics.py:199: in test_interaction_contract_keeps_composition_versions_scale_and_q1
+    assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E   AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+tests\unit\test_contract_openapi_semantics.py:240: in test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+    profile_get = _operation(contract, "get", "/profile")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\unit\test_contract_openapi_semantics.py:63: in _operation
+    return spec["paths"][path][method]
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_____ test_profile_operation_inventory_matches_contract[/profile-get-200] _____
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_____ test_profile_operation_inventory_matches_contract[/profile-put-204] _____
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+___ test_profile_operation_inventory_matches_contract[/conditions-get-200] ____
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/conditions'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions-post-201] _
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200] _
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204] _
+tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+__ test_request_and_success_response_shapes_match_contract[/profile-get-200] __
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+__ test_request_and_success_response_shapes_match_contract[/profile-put-204] __
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_ test_request_and_success_response_shapes_match_contract[/conditions-get-200] _
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/conditions'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201] _
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200] _
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204] _
+tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+_____ test_scan_skips_occurrences_through_exact_120_and_marks_only_after ______
+tests\unit\test_missed_dose_window.py:79: in test_scan_skips_occurrences_through_exact_120_and_marks_only_after
+    alerts = scan(object(), **args)
+             ^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: in __init__
+    self._c = uow.connection
+              ^^^^^^^^^^^^^^
+E   AttributeError: 'object' object has no attribute 'connection'
+_____ test_worker_does_not_overwrite_confirmed_or_duplicate_notifications _____
+tests\unit\test_missed_dose_window.py:116: in test_worker_does_not_overwrite_confirmed_or_duplicate_notifications
+    assert scan(object(), **args) == []
+           ^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: in __init__
+    self._c = uow.connection
+              ^^^^^^^^^^^^^^
+E   AttributeError: 'object' object has no attribute 'connection'
+____________ test_notifications_are_sent_only_after_commit[False] _____________
+tests\unit\test_missed_dose_window.py:140: in test_notifications_are_sent_only_after_commit
+    assert scan_and_notify(transaction, notifier, **args) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:98: in scan_and_notify
+    alerts = scan(uow, **ports)
+             ^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: in __init__
+    self._c = uow.connection
+              ^^^^^^^^^^^^^^
+E   AttributeError: 'object' object has no attribute 'connection'
+_____________ test_notifications_are_sent_only_after_commit[True] _____________
+tests\unit\test_missed_dose_window.py:136: in test_notifications_are_sent_only_after_commit
+    scan_and_notify(transaction, notifier, **args)
+src\drugtime\modules\adherence\application\scan_missed_doses.py:98: in scan_and_notify
+    alerts = scan(uow, **ports)
+             ^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: in __init__
+    self._c = uow.connection
+              ^^^^^^^^^^^^^^
+E   AttributeError: 'object' object has no attribute 'connection'
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/unit/test_identity_auth.py::test_mobile_verify_auto_provisions_new_user_and_flags_incomplete_profile
+tests/unit/test_identity_auth.py::test_admin_session_expires_after_20_minutes
+tests/unit/test_identity_auth.py::test_mobile_session_targets_10_days
+tests/unit/test_identity_auth.py::test_mobile_verify_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_admin_login_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\jwt\api_jwt.py:149: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\jwt\api_jwt.py:370: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    decoded = self.decode_complete(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLink]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLinkList]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApprovalRequest]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkConsentConfirmation]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApproval]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkRejection]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[get-/family/links-listPendingFamilyLinks]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[post-/family/links/{link_id}/approve-approveFamilyLink]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[post-/family/links/{link_id}/reject-rejectFamilyLink]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+FAILED tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards
+FAILED tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_missed_dose_window.py::test_scan_skips_occurrences_through_exact_120_and_marks_only_after
+FAILED tests/unit/test_missed_dose_window.py::test_worker_does_not_overwrite_confirmed_or_duplicate_notifications
+FAILED tests/unit/test_missed_dose_window.py::test_notifications_are_sent_only_after_commit[False]
+FAILED tests/unit/test_missed_dose_window.py::test_notifications_are_sent_only_after_commit[True]
+34 failed, 1183 passed, 8 warnings in 66.04s (0:01:06)

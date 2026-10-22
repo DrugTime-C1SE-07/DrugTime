@@ -1,0 +1,453 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "ADHERENCE",
+      "name": "Lịch sử tuân thủ theo consent",
+      "sheet": "Lịch sử tuân thủ",
+      "description": "GET /adherence theo quyền bệnh nhân, người thân, consent và audit.",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-10-21",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Critical",
+      "remarks": "23 Pass sau migration; BUG-ADHERENCE-14 đã qua kiểm thử hồi quy, còn chờ review/PR.",
+      "ep": [
+        {
+          "field": "patient_id và vai trò",
+          "valid": [
+            "Bỏ trống hoặc chính bệnh nhân",
+            "Người thân liên kết active với consent đầy đủ"
+          ],
+          "invalid": [
+            "Người thân không liên kết",
+            "Liên kết tắt chia sẻ",
+            "Thiếu health_data",
+            "Thiếu family_sharing",
+            "Đổi sang bệnh nhân khác",
+            "Thiếu hoặc sai token",
+            "UUID sai định dạng",
+            "Admin dù tự gọi hoặc có liên kết"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền đọc lịch sử",
+          "conditions": [
+            {
+              "name": "Vai trò",
+              "values": [
+                "patient",
+                "family",
+                "family",
+                "family",
+                "family",
+                "family",
+                "admin"
+              ]
+            },
+            {
+              "name": "Liên kết active và bật chia sẻ",
+              "values": [
+                "-",
+                "Yes",
+                "No",
+                "No",
+                "Yes",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "health_data",
+              "values": [
+                "Yes",
+                "Yes",
+                "Yes",
+                "Yes",
+                "No",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "family_sharing",
+              "values": [
+                "-",
+                "Yes",
+                "Yes",
+                "Yes",
+                "Yes",
+                "No",
+                "Yes"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "200 + allowed",
+              "rules": [
+                1,
+                2
+              ]
+            },
+            {
+              "name": "403 + denied",
+              "rules": [
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-ADHERENCE-01",
+          "description": "Xem lịch sử của chính bệnh nhân",
+          "precondition": "Bệnh nhân P có consent health_data; có lịch uống và một liều đã uống.",
+          "steps": [
+            "Đăng nhập bằng tài khoản P.",
+            "Gửi GET /adherence?patient_id=P với bearer token của P.",
+            "Kiểm response và access_logs."
+          ],
+          "data": "P; ngày 2026-10-19; liều 08:00 da_uong",
+          "expected": "200; patient_id=P; có liều đã uống; access_logs có allowed, actor_role=patient, data_scope=lich_su_tuan_thu.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC2 · EP (1) · Decision Table (R1) · test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2"
+        },
+        {
+          "id": "TC-ADHERENCE-02",
+          "description": "Xem lịch sử bệnh nhân từ người thân được chia sẻ",
+          "precondition": "P có health_data và family_sharing; F có caregiver_link active, sharing_enabled=true; P có một liều đã uống.",
+          "steps": [
+            "Đăng nhập bằng tài khoản F.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm nhóm liều và access_logs."
+          ],
+          "data": "P; F; from=2026-10-19; to=2026-10-19",
+          "expected": "200; patient_id=P; nhóm và tổng hợp đúng liều của P; access_logs có allowed, actor_role=family.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC1 · EP (2) · Decision Table (R2) · test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2"
+        },
+        {
+          "id": "TC-ADHERENCE-03",
+          "description": "Từ chối người thân không có liên kết",
+          "precondition": "P có consent; F không có caregiver_link với P; P có liều đã uống.",
+          "steps": [
+            "Đăng nhập F.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm response và access_logs."
+          ],
+          "data": "P; F không liên kết",
+          "expected": "403 {\"detail\":\"khong_co_quyen\"}; không có lịch sử; access_logs có denied cho P.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC3 · EP (3) · Decision Table (R3) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11"
+        },
+        {
+          "id": "TC-ADHERENCE-04",
+          "description": "Từ chối khi tắt công tắc chia sẻ",
+          "precondition": "F có link active tới P; P có hai consent; sharing_enabled=false.",
+          "steps": [
+            "Đăng nhập F.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm access_logs."
+          ],
+          "data": "sharing_enabled=false",
+          "expected": "403 khong_co_quyen; không có lịch sử; access_logs có denied.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC3 · EP (4) · Decision Table (R4) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11"
+        },
+        {
+          "id": "TC-ADHERENCE-05",
+          "description": "Từ chối khi thiếu consent sức khỏe",
+          "precondition": "F có link active và sharing_enabled=true; P không còn health_data.",
+          "steps": [
+            "Đăng nhập F.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm access_logs."
+          ],
+          "data": "health_data=thu_hoi",
+          "expected": "403 khong_co_quyen; không có lịch sử; access_logs có denied.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC4 · EP (5) · Decision Table (R5) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11"
+        },
+        {
+          "id": "TC-ADHERENCE-06",
+          "description": "Từ chối khi thiếu consent chia sẻ gia đình",
+          "precondition": "F có link active và sharing_enabled=true; P không còn family_sharing.",
+          "steps": [
+            "Đăng nhập F.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm access_logs."
+          ],
+          "data": "family_sharing=thu_hoi",
+          "expected": "403 khong_co_quyen; không có lịch sử; access_logs có denied.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC4 · EP (6) · Decision Table (R6) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11"
+        },
+        {
+          "id": "TC-ADHERENCE-07",
+          "description": "Từ chối ngay sau khi rút consent với cùng token",
+          "precondition": "F đang được phép đọc P; lưu bearer token của F.",
+          "steps": [
+            "Gửi GET /adherence?patient_id=P và xác nhận 200.",
+            "Rút health_data hoặc family_sharing của P.",
+            "Gửi lại cùng request với token cũ.",
+            "Kiểm access_logs."
+          ],
+          "data": "P; F; token không đổi",
+          "expected": "Request thứ hai 403 khong_co_quyen; access_logs có allowed rồi denied, không trả lịch sử.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC5 · Decision Table (R5,R6) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12"
+        },
+        {
+          "id": "TC-ADHERENCE-08",
+          "description": "Từ chối ngay sau khi hủy liên kết hoặc tắt chia sẻ",
+          "precondition": "F đang được phép đọc P; lưu bearer token của F.",
+          "steps": [
+            "Gửi GET /adherence?patient_id=P và xác nhận 200.",
+            "Hủy caregiver_link hoặc tắt sharing_enabled.",
+            "Gửi lại với token cũ.",
+            "Kiểm access_logs."
+          ],
+          "data": "P; F; token không đổi",
+          "expected": "Request thứ hai 403 khong_co_quyen; access_logs có allowed rồi denied.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC5 · Decision Table (R3,R4) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12"
+        },
+        {
+          "id": "TC-ADHERENCE-09",
+          "description": "Từ chối đổi patient_id sang bệnh nhân khác",
+          "precondition": "F có quyền với P nhưng không có quyền với Q; Q có lịch sử liều.",
+          "steps": [
+            "Đăng nhập F.",
+            "Gửi GET /adherence?patient_id=P và xác nhận 200.",
+            "Đổi patient_id=Q rồi gửi lại.",
+            "Kiểm access_logs của Q."
+          ],
+          "data": "P; Q; F chỉ liên kết P",
+          "expected": "Request Q trả 403 khong_co_quyen; không có lịch sử Q; access_logs Q có denied.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC6 · EP (7) · test_family_patient_selector_tamper_does_not_read_other_patient__AC11"
+        },
+        {
+          "id": "TC-ADHERENCE-10",
+          "description": "Không trả lịch sử khi ghi audit allowed thất bại",
+          "precondition": "P có consent và lịch sử; DB api_role bị giả lập lỗi INSERT access_logs.",
+          "steps": [
+            "Gửi GET /adherence bằng token P.",
+            "Kiểm response, audit và dữ liệu liều."
+          ],
+          "data": "Lỗi INSERT access_logs",
+          "expected": "500; no-store; không có lịch sử trong response và không làm thay đổi dose_logs.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC7 · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13"
+        },
+        {
+          "id": "TC-ADHERENCE-11",
+          "description": "Giữ log denied sau khi request rollback",
+          "precondition": "P đã rút health_data; request bị từ chối và transaction chính rollback.",
+          "steps": [
+            "Gửi GET /adherence bằng token P.",
+            "Kiểm response.",
+            "Đọc access_logs bằng kết nối quản trị."
+          ],
+          "data": "health_data=thu_hoi",
+          "expected": "403 consent_revoked; access_logs vẫn có denied cho scope lich_su_tuan_thu.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC7 · test_denied_audit_survives_outer_transaction_rollback__AC13"
+        },
+        {
+          "id": "TC-ADHERENCE-12",
+          "description": "Từ chối khi thiếu hoặc sai bearer token",
+          "precondition": "P có lịch sử liều.",
+          "steps": [
+            "Gửi GET /adherence không có Authorization.",
+            "Gửi lại với Authorization: Bearer invalid-token.",
+            "Kiểm response và access_logs."
+          ],
+          "data": "Authorization=(blank) hoặc Bearer invalid-token",
+          "expected": "401; response không chứa lịch sử; Cache-Control=no-store; không có allowed log.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC8 · EP (8) · test_authentication_401_and_no_store_without_health_payload__AC14"
+        },
+        {
+          "id": "TC-ADHERENCE-13",
+          "description": "Từ chối patient_id sai định dạng",
+          "precondition": "P có lịch sử liều và token hợp lệ.",
+          "steps": [
+            "Gửi GET /adherence?patient_id=invalid-uuid bằng token P.",
+            "Kiểm response."
+          ],
+          "data": "patient_id=invalid-uuid",
+          "expected": "422; response không chứa lịch sử; Cache-Control=no-store.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC8 · EP (9) · test_bad_queries_are_422_without_health_payload__AC14"
+        },
+        {
+          "id": "TC-ADHERENCE-14",
+          "description": "Từ chối admin xem lịch sử của chính mình",
+          "precondition": "Admin A có health_data và một liều đã uống.",
+          "steps": [
+            "Đăng nhập A.",
+            "Gửi GET /adherence?patient_id=A.",
+            "Kiểm response, access_logs và dose_logs."
+          ],
+          "data": "A có system_role=admin",
+          "expected": "403 khong_co_quyen; không lộ liều; access_logs denied actor_role=admin; dose_logs không đổi.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC3, AC7 · Decision Table (R7) · test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7"
+        },
+        {
+          "id": "TC-ADHERENCE-15",
+          "description": "Từ chối admin có liên kết người thân",
+          "precondition": "P có hai consent và một liều; admin A có caregiver_link active, sharing_enabled=true với P.",
+          "steps": [
+            "Đăng nhập A.",
+            "Gửi GET /adherence?patient_id=P.",
+            "Kiểm response, access_logs và dose_logs."
+          ],
+          "data": "P; A có system_role=admin",
+          "expected": "403 khong_co_quyen; không lộ liều; access_logs denied actor_role=admin; dose_logs không đổi.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC3, AC6, AC7 · Decision Table (R7) · test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7"
+        },
+        {
+          "id": "TC-ADHERENCE-16",
+          "description": "Kiểm nhóm ngày, nhóm thuốc và tỷ lệ tuân thủ",
+          "precondition": "P có 5 liều: 3 da_uong, 1 uong_tre, 1 bo_lo.",
+          "steps": [
+            "Gửi GET /adherence?group_by=date&from=2026-10-19&to=2026-10-19.",
+            "Gửi lại với group_by=medication.",
+            "So sánh summary và nhóm."
+          ],
+          "data": "2026-10-19; 5 liều, 2 thuốc",
+          "expected": "200; summary total=5, taken=3, late=1, missed=1, pending=0, adherence_rate=80; nhóm và timezone Asia/Ho_Chi_Minh đúng contract.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC1, AC9 · test_patient_history_by_date_medication_groups_and_80_percent__AC1_AC3_AC4"
+        },
+        {
+          "id": "TC-ADHERENCE-17",
+          "description": "Kiểm khoảng ngày một ngày",
+          "precondition": "P có lịch dùng thuốc bắt đầu 2026-10-19.",
+          "steps": [
+            "Gửi GET /adherence?from=2026-10-19&to=2026-10-19.",
+            "Kiểm summary và nhóm."
+          ],
+          "data": "from=2026-10-19; to=2026-10-19",
+          "expected": "200; khoảng một ngày được chấp nhận và chỉ có liều ngày 2026-10-19.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC9 · BVA (min) · test_default_partial_and_inclusive_90_day_filters__AC5"
+        },
+        {
+          "id": "TC-ADHERENCE-18",
+          "description": "Kiểm khoảng ngày tối đa 90 ngày",
+          "precondition": "P có lịch từ 2026-07-22 đến 2026-10-19.",
+          "steps": [
+            "Gửi GET /adherence với khoảng đúng 90 ngày.",
+            "Kiểm số ngày và response."
+          ],
+          "data": "from=2026-07-22; to=2026-10-19",
+          "expected": "200; khoảng 90 ngày được chấp nhận.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC9 · BVA (max) · test_default_partial_and_inclusive_90_day_filters__AC5"
+        },
+        {
+          "id": "TC-ADHERENCE-19",
+          "description": "Từ chối khoảng ngày 91 ngày",
+          "precondition": "P có lịch từ 2026-07-21 đến 2026-10-19.",
+          "steps": [
+            "Gửi GET /adherence với khoảng 91 ngày.",
+            "Kiểm response."
+          ],
+          "data": "from=2026-07-21; to=2026-10-19",
+          "expected": "422 {\"detail\":\"adherence_range_too_large\"}; không có lịch sử.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC9 · BVA (max+1) · test_default_partial_and_inclusive_90_day_filters__AC5"
+        },
+        {
+          "id": "TC-ADHERENCE-20",
+          "description": "Đối chiếu contract với OpenAPI runtime",
+          "precondition": "Có api_contract/openapi.json đã duyệt và app FastAPI khởi tạo được.",
+          "steps": [
+            "Sinh OpenAPI từ create_app().openapi().",
+            "So path GET /adherence, query, auth, status, schema và no-store với contract."
+          ],
+          "data": "GET /adherence; patient_id, from, to, group_by",
+          "expected": "Path, query, bảo mật, mã lỗi, cấu trúc response và Cache-Control no-store khớp contract.",
+          "status": "Pass",
+          "actual": "Hai test OpenAPI runtime/schema PASSED; evidence/test-openapi-after-migration.log.",
+          "comments": "AC9 · test_contract_query_security_status_headers · test_response_required_nullable_enums_and_constraints"
+        },
+        {
+          "id": "TC-ADHERENCE-21",
+          "description": "Từ chối khoảng ngày đảo ngược",
+          "precondition": "P có token hợp lệ và lịch sử liều.",
+          "steps": [
+            "Gửi GET /adherence?from=2026-10-19&to=2026-10-18 bằng token P.",
+            "Kiểm response không chứa lịch sử."
+          ],
+          "data": "from=2026-10-19; to=2026-10-18",
+          "expected": "422; không có lịch sử trong response; Cache-Control=no-store.",
+          "status": "Pass",
+          "actual": "Test tương ứng trong Comments PASSED sau migration; evidence/test-migration.log.",
+          "comments": "AC9 · BVA (min-1) · test_bad_queries_are_422_without_health_payload__AC14"
+        },
+        {
+          "id": "TC-ADHERENCE-22",
+          "description": "Kiểm ràng buộc actor identity sau migration",
+          "precondition": "DB local có migration admin-self; hai user A và B; kết nối api_role.",
+          "steps": [
+            "Lần lượt INSERT access_logs với actor A, patient A hoặc B, vai patient/family/admin/khong_co_quyen, result allowed/denied.",
+            "Kiểm INSERT thành công hoặc SQLSTATE 23514 theo từng tổ hợp.",
+            "Rollback từng lần; xác nhận không còn dòng thử."
+          ],
+          "data": "16 tổ hợp: self/other × 4 role × allowed/denied",
+          "expected": "Self patient allowed/denied và self admin denied được chấp nhận; self admin allowed, self family/no-access và other patient bị chặn. Other family/admin giữ allowed/denied; other no-access chỉ denied. Không lưu dòng sau rollback.",
+          "status": "Pass",
+          "actual": "16 ca matrix PASSED; evidence/test-migration.log.",
+          "comments": "AC3, AC7 · Decision Table (R7) · test_access_log_actor_identity_matrix__AC3_AC7"
+        },
+        {
+          "id": "TC-ADHERENCE-23",
+          "description": "Chặn sửa xóa và truncate audit sau migration",
+          "precondition": "DB local có migration admin-self và một dòng audit; có kết nối api_role, worker_role và postgres.",
+          "steps": [
+            "Thử UPDATE, DELETE, TRUNCATE access_logs lần lượt bằng từng role.",
+            "Rollback từng transaction thử.",
+            "Đọc lại audit bằng kết nối quản trị."
+          ],
+          "data": "api_role/worker_role/postgres × UPDATE/DELETE/TRUNCATE = 9 ca",
+          "expected": "Role ứng dụng bị từ chối SQLSTATE 42501; postgres bị trigger từ chối P0001; audit không đổi.",
+          "status": "Pass",
+          "actual": "9 ca append-only PASSED; evidence/test-migration.log.",
+          "comments": "AC7 · CD3 · test_access_logs_remain_append_only_after_actor_identity_migration__AC7"
+        }
+      ]
+    }
+  ]
+}

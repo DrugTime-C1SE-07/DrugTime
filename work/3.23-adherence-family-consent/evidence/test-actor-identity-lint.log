@@ -1,0 +1,30 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\integration\test_access_log_actor_identity.py:3:1
+  |
+1 |   """AC3/AC7: admin-self denied audit, actor identity and append-only on real PostgreSQL."""
+2 |
+3 | / import pytest
+4 | | from sqlalchemy import text
+5 | | from sqlalchemy.exc import DBAPIError, IntegrityError
+  | |_____________________________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | INSERT = text(
+  |
+
+E501 Line too long (105 > 100)
+  --> tests\integration\test_access_log_actor_identity.py:35:101
+   |
+33 |     ],
+34 | )
+35 | def test_access_log_actor_identity_matrix__AC3_AC7(db, make, role_engines, same, role, result, accepted):
+   |                                                                                                     ^^^^^
+36 |     actor, other = make.user(), make.user()
+37 |     values = {"a": actor, "p": actor if same else other, "r": role, "result": result}
+   |
+
+Found 2 errors.
+[*] 1 fixable with `--fix`.
+All checks passed!

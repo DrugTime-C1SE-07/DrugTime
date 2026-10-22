@@ -1,0 +1,64 @@
+............F.........................................................ss [  7%]
+ssssssssssss............................................................ [ 15%]
+.....................F......X........................................... [ 22%]
+........................................................................ [ 30%]
+........................................................................ [ 38%]
+........................................................................ [ 45%]
+........................................................................ [ 53%]
+........................................................................ [ 61%]
+........................................................................ [ 68%]
+.............................................................sssssssssss [ 76%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 84%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.......... [ 91%]
+............................................................F........... [ 99%]
+....                                                                     [100%]
+================================== FAILURES ===================================
+__ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self] ___
+tests\integration\test_adherence_history_access.py:109: in test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7
+    assert response.status_code == 403 and response.json() == {"detail": "khong_co_quyen"}
+E   assert (500 == 403)
+E    +  where 500 = <Response [500 Internal Server Error]>.status_code
+_ test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18 _
+tests\integration\test_dose_confirmation_api.py:170: in test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+    assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E   AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'
+E     
+E     - 2026-10-02T01:00:00Z
+E     + 2026-10-02T01:00:59.999000Z
+E     ?                  +++++++
+_____________ test_profile_get_put_incomplete_complete__AC01_AC04 _____________
+tests\integration\test_profile_api.py:37: in test_profile_get_put_incomplete_complete__AC01_AC04
+    assert response.json() == {
+E   AssertionError: assert {'full_name':...t.local', ...} == {'full_name':...nditions': []}
+E     
+E     Omitting 4 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'email': '4f91d13d-48c7-492b-9c07-569dfe5f2cab@test.local'}
+E     Use -v to get more diff
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\Captone\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self]
+FAILED tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+FAILED tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04
+3 failed, 777 passed, 159 skipped, 1 xpassed, 5859 warnings in 150.55s (0:02:30)

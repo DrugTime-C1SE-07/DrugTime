@@ -1,0 +1,10 @@
+Phạm vi giai đoạn 'plan' của 3.23-adherence-family-consent:
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     backend/src/drugtime/modules/access/domain/rules.py
+  [NGOÀI]     backend/tests/integration/test_adherence_history_access.py
+  [NGOÀI]     backend/tests/unit/test_access_authorize.py
+  [NGOÀI]     backend/tests/unit/test_access_rules.py
+  [NGOÀI]     backend/tests/unit/test_contract_adherence.py
+  [NGOÀI]     docs/Team1_DTU/01_Proposal_&_Planning/drugtime_quyet_dinh_theo_chuc_nang.md
+  [NGOÀI]     docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+CHẶN: 8 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

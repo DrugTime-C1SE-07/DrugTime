@@ -1,0 +1,890 @@
+E501 Line too long (105 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:231:101
+    |
+229 |         else:
+230 |             r_tot = uow.connection.execute(
+231 |                 text("SELECT count(*) AS total FROM notifications WHERE user_id = :u AND is_read = :ir"),
+    |                                                                                                     ^^^^^
+232 |                 {"u": user_id, "ir": is_read},
+233 |             ).first()
+    |
+
+E501 Line too long (109 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:234:101
+    |
+232 |                 {"u": user_id, "ir": is_read},
+233 |             ).first()
+234 |         total = int(getattr(r_tot, "total", None) if hasattr(r_tot, "total") else (r_tot[0] if r_tot else 0))
+    |                                                                                                     ^^^^^^^^^
+235 |
+236 |         # 2. Unread count
+    |
+
+E501 Line too long (104 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:238:101
+    |
+236 |         # 2. Unread count
+237 |         r_un = uow.connection.execute(
+238 |             text("SELECT count(*) AS unread FROM notifications WHERE user_id = :u AND is_read = false"),
+    |                                                                                                     ^^^^
+239 |             {"u": user_id},
+240 |         ).first()
+    |
+
+E501 Line too long (108 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:241:101
+    |
+239 |             {"u": user_id},
+240 |         ).first()
+241 |         unread = int(getattr(r_un, "unread", None) if hasattr(r_un, "unread") else (r_un[0] if r_un else 0))
+    |                                                                                                     ^^^^^^^^
+242 |
+243 |         # 3. Items
+    |
+
+E501 Line too long (108 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:246:101
+    |
+244 |         if is_read is None:
+245 |             query = text("""
+246 |                 SELECT n.id, n.user_id, n.about_patient_user_id, n.type, n.content, n.is_read, n.created_at,
+    |                                                                                                     ^^^^^^^^
+247 |                        u.full_name AS about_patient_name
+248 |                 FROM notifications n
+    |
+
+E501 Line too long (108 > 100)
+   --> src\drugtime\modules\adherence\adapters\outbound\sql_adherence.py:260:101
+    |
+258 |         else:
+259 |             query = text("""
+260 |                 SELECT n.id, n.user_id, n.about_patient_user_id, n.type, n.content, n.is_read, n.created_at,
+    |                                                                                                     ^^^^^^^^
+261 |                        u.full_name AS about_patient_name
+262 |                 FROM notifications n
+    |
+
+E501 Line too long (101 > 100)
+  --> src\drugtime\modules\adherence\application\scan_missed_doses.py:56:101
+   |
+54 |             continue  # đã xác nhận, hoặc đã đánh dấu ở lượt quét trước
+55 |
+56 |         patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+   |                                                                                                     ^
+57 |         if patient_name:
+58 |             content = f"Bác {patient_name} chưa ghi nhận liều thuốc đúng giờ"
+   |
+
+E501 Line too long (104 > 100)
+  --> src\drugtime\modules\adherence\application\scan_missed_doses.py:76:101
+   |
+74 |                 created[recipient_id] = nid
+75 |
+76 |         # Người thân chỉ dùng iOS vẫn có dòng notifications và thấy khi mở app (DM3, C-06, C-07, BS-03).
+   |                                                                                                     ^^^^
+77 |         for recipient_id, token in tokens.android_tokens(uow, list(created)):
+78 |             alerts.append(
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:1
+  |
+1 |   """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+2 |
+3 | / from datetime import datetime
+4 | | from typing import Any
+  | |______________________^
+5 |   """Schemas của catalog module:
+6 |   1. Response của /catalog/medications (Mobile K04, khớp api_contract/openapi.json).
+  |
+help: Organize imports
+  |
+4 | from typing import Any
+5 +
+6 | """Schemas của catalog module:
+  |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 |   """
+ 9 |
+10 | / from datetime import datetime
+11 | | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 | |
+13 | | from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | | from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Organize imports
+   |
+10 | from datetime import datetime
+11 +
+12 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+--------------------------------------------------------------------------------
+21 | )
+   -
+22 |
+   |
+
+F811 [*] Redefinition of unused `datetime` from line 3
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:22
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   |                      ^^^^^^^^ `datetime` redefined here
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+  ::: src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:22
+   |
+ 1 | """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+ 2 |
+ 3 | from datetime import datetime
+   |                      -------- previous definition of `datetime` here
+ 4 | from typing import Any
+ 5 | """Schemas của catalog module:
+   |
+help: Remove definition: `datetime`
+   |
+9  |
+   - from datetime import datetime
+10 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:11:1
+   |
+10 | from datetime import datetime
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:13:1
+   |
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+14 | from drugtime.modules.catalog.domain.sync_run import (
+15 |     CatalogSyncRun,
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:14:1
+   |
+13 |   from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | / from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Move module level imports to top of file
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:101:101
+    |
+ 99 |     @model_validator(mode="after")
+100 |     def _source_pair(self) -> "MedicationBase":
+101 |         """source và source_ref phải cùng có giá trị hoặc cùng NULL (CHECK (source IS NULL)=(source_ref IS NULL))."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+102 |         if (self.source is None) != (self.source_ref is None):
+103 |             raise ValueError("source and source_ref must both be null or both set")
+    |
+
+E501 Line too long (104 > 100)
+  --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:82:101
+   |
+80 |                     VALUES
+81 |                       (:name, :raw_active_ingredient, :strength_text, :dosage_form,
+82 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+   |                                                                                                     ^^^^
+83 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+84 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+   |
+
+E501 Line too long (117 > 100)
+  --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:84:101
+   |
+82 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+83 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+84 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+   |                                                                                                     ^^^^^^^^^^^^^^^^^
+85 |                 """),
+86 |                 data,
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\fetchers.py:3:1
+  |
+1 |   """Network-only clients for catalog sources."""
+2 |
+3 | / from collections.abc import Iterator
+4 | |
+5 | | import httpx
+  | |____________^
+help: Organize imports
+  |
+6 |
+  -
+7 | DAV_PUBLIC_API = (
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\normalize.py:3:1
+  |
+1 |   """Pure normalization of external medication records."""
+2 |
+3 | / import re
+4 | | import unicodedata
+5 | | from dataclasses import dataclass
+  | |_________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | _SPACE = re.compile(r"\s+")
+  |
+
+E501 Line too long (102 > 100)
+  --> src\drugtime\modules\catalog\normalize.py:34:101
+   |
+32 | def normalize_record(record: dict[str, object]) -> NormalizedMedication:
+33 |     """Normalize a canonical raw record produced by a source parser."""
+34 |     values = {name: normalize_text(record.get(name)) for name in NormalizedMedication.__annotations__}
+   |                                                                                                     ^^
+35 |     source_ref = values.get("source_ref")
+36 |     name = values.get("name")
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\consent\adapters\outbound\job_queue.py:3:1
+  |
+1 |   """Celery producer for consent background tasks."""
+2 |
+3 | / from uuid import UUID
+4 | |
+5 | | from drugtime.shared.celery import celery_app
+  | |_____________________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | ERASURE_TASK = "consent.erasure"
+  |
+
+F821 Undefined name `health`
+  --> src\drugtime\runtime\job_runner.py:50:5
+   |
+49 | def record_worker_heartbeat(instance_id: str | None = None) -> None:
+50 |     health.record_heartbeat(instance_id or socket.gethostname())
+   |     ^^^^^^
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\worker.py:3:1
+  |
+1 |   """Composition root for the Celery worker and Celery Beat."""
+2 |
+3 | / import os
+4 | | from pathlib import Path
+5 | |
+6 | | from dotenv import load_dotenv
+  | |______________________________^
+help: Organize imports
+  |
+7 |
+  -
+8 | BACKEND_ROOT = Path(__file__).resolve().parents[2]
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\worker.py:19:1
+   |
+17 |       load_dotenv(BACKEND_ROOT / ".env")
+18 |
+19 | / from drugtime.modules.catalog import tasks as catalog_tasks  # noqa: E402,F401
+20 | | from drugtime.runtime import job_runner  # noqa: E402
+21 | | from drugtime.shared.celery import celery_app  # noqa: E402
+22 | | from drugtime.shared.config import get_settings  # noqa: E402
+   | |_______________________________________________^
+help: Organize imports
+   |
+23 |
+   -
+24 | celery_app.conf.beat_schedule = {
+   |
+
+E501 Line too long (104 > 100)
+  --> tests\integration\conftest.py:42:101
+   |
+40 |     if make_url(ADMIN_URL).host not in _LOCAL_HOSTS:
+41 |         pytest.exit("Integration tests only run against a local database", returncode=2)
+42 |     engine = create_engine(ADMIN_URL, isolation_level="AUTOCOMMIT", connect_args={"connect_timeout": 2})
+   |                                                                                                     ^^^^
+43 |     try:
+44 |         with engine.connect() as c:
+   |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\conftest.py:150:101
+    |
+148 |                 text(
+149 |                     "INSERT INTO caregiver_links "
+150 |                     "(patient_user_id, family_user_id, status, sharing_enabled, revoked_at, rejected_at) "
+    |                                                                                                     ^^^^^^
+151 |                     "VALUES (:p, :f, CAST(:st AS link_status), :s, "
+152 |                     "CASE WHEN :is_revoked THEN now() END, "
+    |
+
+E501 Line too long (108 > 100)
+   --> tests\integration\conftest.py:224:101
+    |
+222 |             text(
+223 |                 f"SELECT id, link_id, patient_user_id, family_user_id, purpose, "
+224 |                 f"document_version, confirmed_at FROM family_link_consent_confirmations {where} ORDER BY id"
+    |                                                                                                     ^^^^^^^^
+225 |             ),
+226 |             params,
+    |
+
+F401 [*] `datetime.UTC` imported but unused
+ --> tests\integration\test_alert_dispatch_api.py:3:22
+  |
+1 | from collections.abc import Iterator
+2 | from contextlib import contextmanager
+3 | from datetime import UTC, datetime
+  |                      ^^^
+4 | from socket import create_connection
+5 | from time import perf_counter
+  |
+help: Remove unused import
+  |
+2 | from contextlib import contextmanager
+  - from datetime import UTC, datetime
+3 | from socket import create_connection
+  |
+
+F401 [*] `datetime.datetime` imported but unused
+ --> tests\integration\test_alert_dispatch_api.py:3:27
+  |
+1 | from collections.abc import Iterator
+2 | from contextlib import contextmanager
+3 | from datetime import UTC, datetime
+  |                           ^^^^^^^^
+4 | from socket import create_connection
+5 | from time import perf_counter
+  |
+help: Remove unused import
+  |
+2 | from contextlib import contextmanager
+  - from datetime import UTC, datetime
+3 | from socket import create_connection
+  |
+
+E501 Line too long (102 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:121:101
+    |
+121 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+    |                                                                                                     ^^
+122 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+123 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:122:101
+    |
+121 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+122 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+    |                                                                                                     ^^^^^^
+123 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+124 |     dose_log_id = 998877
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:123:101
+    |
+121 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+122 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+123 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+124 |     dose_log_id = 998877
+    |
+
+E501 Line too long (113 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:191:101
+    |
+190 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+191 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+    |                                                                                                     ^^^^^^^^^^^^^
+192 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+193 |     dose_log_id = 998879
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:192:101
+    |
+190 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+191 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+192 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+193 |     dose_log_id = 998879
+    |
+
+E501 Line too long (103 > 100)
+ --> tests\integration\test_family_links_access.py:1:101
+  |
+1 | """Kiểm tra tích hợp phân quyền y tế qua PEP, thu hồi quyền tức thì và truy vấn người thân (task 3.16).
+  |                                                                                                     ^^^
+2 |
+3 | Bao phủ kịch bản I10, I11, I12 theo AC6, AC7, AC10, AC11.
+  |
+
+E501 Line too long (103 > 100)
+  --> tests\integration\test_family_links_access.py:29:101
+   |
+27 | def _create_user_medication(db, patient_id: UUID, med_id: int) -> int:
+28 |     rx_id = db.execute(
+29 |         text("INSERT INTO prescriptions (user_id, entry_source) VALUES (:u, 'mac_dinh') RETURNING id"),
+   |                                                                                                     ^^^
+30 |         {"u": patient_id},
+31 |     ).scalar_one()
+   |
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:55:5
+   |
+53 |     family = make.user()
+54 |     # Tạo link active có bằng chứng evidence nhưng sharing_enabled=False
+55 |     link_id = make.link(patient, family, status="active", sharing=False)
+   |     ^^^^^^^
+56 |     med_id = make.catalog_medication()
+57 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+   |
+54 |     # Tạo link active có bằng chứng evidence nhưng sharing_enabled=False
+   -     link_id = make.link(patient, family, status="active", sharing=False)
+55 +     make.link(patient, family, status="active", sharing=False)
+56 |     med_id = make.catalog_medication()
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:77:5
+   |
+75 |     family = make.user()
+76 |     # Tạo link active có bằng chứng evidence và sharing_enabled=True
+77 |     link_id = make.link(patient, family, status="active", sharing=True)
+   |     ^^^^^^^
+78 |     med_id = make.catalog_medication()
+79 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+   |
+76 |     # Tạo link active có bằng chứng evidence và sharing_enabled=True
+   -     link_id = make.link(patient, family, status="active", sharing=True)
+77 +     make.link(patient, family, status="active", sharing=True)
+78 |     med_id = make.catalog_medication()
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+E741 Ambiguous variable name: `l`
+   --> tests\integration\test_family_links_access.py:182:32
+    |
+180 |     # Khẳng định access_logs ghi nhận 1 allowed và 1 denied
+181 |     logs = make.access_logs(patient)
+182 |     results = [l["result"] for l in logs]
+    |                                ^
+183 |     assert results == ["allowed", "denied"]
+    |
+
+E501 Line too long (101 > 100)
+  --> tests\integration\test_family_links_concurrency.py:18:101
+   |
+16 |     return db.execute(
+17 |         text(
+18 |             "INSERT INTO caregiver_links (patient_user_id, family_user_id, status, sharing_enabled) "
+   |                                                                                                     ^
+19 |             "VALUES (:p, :f, 'pending', false) RETURNING id"
+20 |         ),
+   |
+
+B023 Function definition does not bind loop variable `access_facts`
+  --> tests\unit\test_access_authorize.py:97:17
+   |
+95 |             authorize(
+96 |                 object(),
+97 |                 access_facts,
+   |                 ^^^^^^^^^^^^
+98 |                 log,
+99 |                 caller_id=P,
+   |
+
+B023 Function definition does not bind loop variable `log`
+   --> tests\unit\test_access_authorize.py:98:17
+    |
+ 96 |                 object(),
+ 97 |                 access_facts,
+ 98 |                 log,
+    |                 ^^^
+ 99 |                 caller_id=P,
+100 |                 caller_is_admin=True,
+    |
+
+B023 Function definition does not bind loop variable `scope`
+   --> tests\unit\test_access_authorize.py:102:23
+    |
+100 |                 caller_is_admin=True,
+101 |                 patient_id=P,
+102 |                 scope=scope,
+    |                       ^^^^^
+103 |                 audit_self=True,
+104 |             )
+    |
+
+B007 Loop control variable `r_id` not used within loop body
+  --> tests\unit\test_alert_dispatch.py:53:13
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+53 |         for r_id, p_id, k, c, nid in self.created:
+   |             ^^^^
+54 |             if k == dedupe_key:
+55 |                 return None  # conflict / already exists
+   |
+help: Rename unused `r_id` to `_r_id`
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+53 +         for _r_id, p_id, k, c, nid in self.created:
+54 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `p_id` not used within loop body
+  --> tests\unit\test_alert_dispatch.py:53:19
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+53 |         for r_id, p_id, k, c, nid in self.created:
+   |                   ^^^^
+54 |             if k == dedupe_key:
+55 |                 return None  # conflict / already exists
+   |
+help: Rename unused `p_id` to `_p_id`
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+53 +         for r_id, _p_id, k, c, nid in self.created:
+54 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `c` not used within loop body
+  --> tests\unit\test_alert_dispatch.py:53:28
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+53 |         for r_id, p_id, k, c, nid in self.created:
+   |                            ^
+54 |             if k == dedupe_key:
+55 |                 return None  # conflict / already exists
+   |
+help: Rename unused `c` to `_c`
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+53 +         for r_id, p_id, k, _c, nid in self.created:
+54 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `nid` not used within loop body
+  --> tests\unit\test_alert_dispatch.py:53:31
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+53 |         for r_id, p_id, k, c, nid in self.created:
+   |                               ^^^
+54 |             if k == dedupe_key:
+55 |                 return None  # conflict / already exists
+   |
+help: Rename unused `nid` to `_nid`
+   |
+52 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+53 +         for r_id, p_id, k, c, _nid in self.created:
+54 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+E501 Line too long (108 > 100)
+  --> tests\unit\test_alert_dispatch.py:82:101
+   |
+81 | def test_dispatch_creates_alert_for_android_caregiver():
+82 |     # AC1: Bệnh nhân bỏ lỡ liều, người thân có liên kết & token Android -> tạo notification & gửi push Alert
+   |                                                                                                     ^^^^^^^^
+83 |     patient_id = uuid4()
+84 |     caregiver_id = uuid4()
+   |
+
+E501 Line too long (118 > 100)
+   --> tests\unit\test_alert_dispatch.py:115:101
+    |
+114 | def test_dispatch_skips_push_for_ios_caregiver_but_creates_notification_row():
+115 |     # AC2: Người thân chỉ dùng iOS (không có token trong android_tokens) -> có dòng notifications, KHÔNG có Alert push
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^
+116 |     patient_id = uuid4()
+117 |     caregiver_id = uuid4()
+    |
+
+E501 Line too long (110 > 100)
+   --> tests\unit\test_alert_dispatch.py:154:101
+    |
+152 |     notifications = FakeNotifications()
+153 |     # Giả sử đã có một bản ghi với dedupe_key này
+154 |     notifications.created.append((caregiver_id, patient_id, "bo_lo:999:" + str(caregiver_id), "content", 101))
+    |                                                                                                     ^^^^^^^^^^
+155 |
+156 |     alerts = scan(
+    |
+
+E501 Line too long (127 > 100)
+   --> tests\unit\test_alert_dispatch.py:176:101
+    |
+175 | def test_dispatch_respects_revoked_consent_and_sharing_switch():
+176 |     # AC4: Người thân đã bị thu hồi quyền hoặc rút consent -> access.caregivers_of trả rỗng -> không tạo notification hay alert
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+177 |     patient_id = uuid4()
+178 |     scheduled_at = datetime(2026, 10, 13, 8, 0, tzinfo=UTC)
+    |
+
+E501 Line too long (118 > 100)
+   --> tests\unit\test_alert_dispatch.py:202:101
+    |
+201 | def test_alert_payload_hides_medication_details_and_names_patient():
+202 |     # AC5: Nội dung push tuyệt đối không có tên thuốc, liều lượng, giờ uống cụ thể (CD6, QD-26), chỉ nêu tên bệnh nhân
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^
+203 |     alert = Alert(
+204 |         notification_id=105,
+    |
+
+E501 Line too long (109 > 100)
+   --> tests\unit\test_alert_dispatch.py:215:101
+    |
+213 |     assert payload["message"]["token"] == "fcm_token_xyz"
+214 |     assert payload["message"]["notification"]["title"] == "DrugTime"
+215 |     assert payload["message"]["notification"]["body"] == "Bác Nguyễn Văn A chưa ghi nhận liều thuốc đúng giờ"
+    |                                                                                                     ^^^^^^^^^
+216 |     assert payload["message"]["data"]["notification_id"] == "105"
+    |
+
+B007 Loop control variable `r_id` not used within loop body
+  --> tests\unit\test_alert_timing_and_naming.py:55:13
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+55 |         for r_id, p_id, k, c, nid in self.created:
+   |             ^^^^
+56 |             if k == dedupe_key:
+57 |                 return None  # conflict / already exists
+   |
+help: Rename unused `r_id` to `_r_id`
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+55 +         for _r_id, p_id, k, c, nid in self.created:
+56 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `p_id` not used within loop body
+  --> tests\unit\test_alert_timing_and_naming.py:55:19
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+55 |         for r_id, p_id, k, c, nid in self.created:
+   |                   ^^^^
+56 |             if k == dedupe_key:
+57 |                 return None  # conflict / already exists
+   |
+help: Rename unused `p_id` to `_p_id`
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+55 +         for r_id, _p_id, k, c, nid in self.created:
+56 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `c` not used within loop body
+  --> tests\unit\test_alert_timing_and_naming.py:55:28
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+55 |         for r_id, p_id, k, c, nid in self.created:
+   |                            ^
+56 |             if k == dedupe_key:
+57 |                 return None  # conflict / already exists
+   |
+help: Rename unused `c` to `_c`
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+55 +         for r_id, p_id, k, _c, nid in self.created:
+56 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B007 Loop control variable `nid` not used within loop body
+  --> tests\unit\test_alert_timing_and_naming.py:55:31
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+55 |         for r_id, p_id, k, c, nid in self.created:
+   |                               ^^^
+56 |             if k == dedupe_key:
+57 |                 return None  # conflict / already exists
+   |
+help: Rename unused `nid` to `_nid`
+   |
+54 |     def create_missed_alert(self, uow, recipient_id, patient_id, dedupe_key, content=None):
+   -         for r_id, p_id, k, c, nid in self.created:
+55 +         for r_id, p_id, k, c, _nid in self.created:
+56 |             if k == dedupe_key:
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+E501 Line too long (125 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:100:101
+    |
+ 99 | def test_alert_timing_under_2_seconds_batch_sizes():
+100 |     """AC1: Toàn trình quét và phát sinh thông báo đạt SLO p95 < 2s (QD-25, NFR05) cho các kích thước mẻ (1, 10, 50 liều)."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+101 |     batch_sizes = [1, 10, 50]
+102 |     now = datetime(2026, 10, 14, 12, 0, tzinfo=UTC)
+    |
+
+E501 Line too long (111 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:118:101
+    |
+116 |             c_id = uuid4()
+117 |             sch_id = i + 1
+118 |             occurrences.append(SimpleNamespace(patient_id=p_id, schedule_id=sch_id, scheduled_at=scheduled_at))
+    |                                                                                                     ^^^^^^^^^^^
+119 |             missed_map[(sch_id, scheduled_at)] = 1000 + i
+120 |             caregivers_map[p_id] = [c_id]
+    |
+
+E501 Line too long (153 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:158:101
+    |
+157 | …
+158 | …sults[1]:.5f}s, 10 items = {timing_results[10]:.5f}s, 50 items = {timing_results[50]:.5f}s")
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+E501 Line too long (116 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:162:101
+    |
+161 | def test_alert_explicitly_names_patient_vietnamese():
+162 |     """AC2: Alert phải nêu đích danh tên bệnh nhân theo mẫu 'Bác [Tên] chưa ghi nhận liều thuốc đúng giờ' (PB20)."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^
+163 |     vietnamese_names = [
+164 |         "Nguyễn Văn An",
+    |
+
+E501 Line too long (128 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:209:101
+    |
+208 | def test_alert_fallback_when_patient_name_empty_or_none():
+209 |     """AC3: Khi tên bệnh nhân là None hoặc rỗng, fallback về nội dung chung an toàn, không ném exception hay hiện 'Bác None'."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+210 |     test_cases = [None, ""]
+    |
+
+E501 Line too long (135 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:246:101
+    |
+245 | …_cd6():
+246 | …tế (CD6, QD-26): không chứa tên thuốc, hàm lượng, dạng dùng hay giờ uống cụ thể."""
+    |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+247 | …
+248 | …
+    |
+
+E501 Line too long (102 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:280:101
+    |
+278 |         f"{alert.title} {alert.body} "
+279 |         f"{notifications.created[0][3]} "
+280 |         f"{payload['message']['notification']['title']} {payload['message']['notification']['body']} "
+    |                                                                                                     ^^
+281 |         f"{str(payload['message']['data'])}"
+282 |     ).lower()
+    |
+
+E501 Line too long (143 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:289:101
+    |
+288 | …():
+289 | …roid nhận push FCM, iOS không push APNs nhưng nhận thông báo DB (C-06, C-07, BS-03)."""
+    |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+290 | …
+291 | …
+    |
+
+E501 Line too long (130 > 100)
+   --> tests\unit\test_alert_timing_and_naming.py:337:101
+    |
+336 | def test_alert_no_false_alerts_if_dose_already_confirmed():
+337 |     """AC7: Chống cảnh báo sai (false alert): nếu bệnh nhân đã xác nhận liều trước khi quét, không gửi cảnh báo cho người thân."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+338 |     patient_id = uuid4()
+339 |     caregiver_id = uuid4()
+    |
+
+E501 Line too long (103 > 100)
+ --> tests\unit\test_contract_notification.py:1:101
+  |
+1 | """Đối chiếu OpenAPI sinh từ app với hợp đồng api_contract/openapi.json cho /notifications (task 3.20).
+  |                                                                                                     ^^^
+2 |
+3 | Hợp đồng là nguồn chuẩn. Lệch nhau thì sửa code, hoặc sửa hợp đồng kèm lý do.
+  |
+
+F841 Local variable `c_params` is assigned to but never used
+  --> tests\unit\test_contract_notification.py:51:5
+   |
+49 | def test_notification_query_params_match_contract(specs):
+50 |     contract, app = specs
+51 |     c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+   |     ^^^^^^^^
+52 |     a_params = {p["name"]: p for p in app["paths"]["/notifications"]["get"]["parameters"]}
+   |
+help: Remove assignment to unused variable `c_params`
+   |
+50 |     contract, app = specs
+   -     c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+51 +     {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+52 |     a_params = {p["name"]: p for p in app["paths"]["/notifications"]["get"]["parameters"]}
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 69 errors.
+[*] 10 fixable with `--fix` (11 unsafe fixes available with `--fix --unsafe-fixes`).

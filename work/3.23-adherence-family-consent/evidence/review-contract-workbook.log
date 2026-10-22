@@ -1,0 +1,25 @@
+PASS: contract matches approved state fingerprint (file-NUL prefix from approval implementation)
+TC-ADHERENCE-01 200; patient_id=P; có liều đã uống; access_logs có allowed, actor_role=patient, data_scope=lich_su_tuan_thu. AC2 · EP (1) · Decision Table (R1) · test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2
+TC-ADHERENCE-02 200; patient_id=P; nhóm và tổng hợp đúng liều của P; access_logs có allowed, actor_role=family. AC1 · EP (2) · Decision Table (R2) · test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2
+TC-ADHERENCE-03 403 {"detail":"khong_co_quyen"}; không có lịch sử; access_logs có denied cho P. AC3 · EP (3) · Decision Table (R3) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11
+TC-ADHERENCE-04 403 khong_co_quyen; không có lịch sử; access_logs có denied. AC3 · EP (4) · Decision Table (R4) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11
+TC-ADHERENCE-05 403 khong_co_quyen; không có lịch sử; access_logs có denied. AC4 · EP (5) · Decision Table (R5) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11
+TC-ADHERENCE-06 403 khong_co_quyen; không có lịch sử; access_logs có denied. AC4 · EP (6) · Decision Table (R6) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11
+TC-ADHERENCE-07 Request thứ hai 403 khong_co_quyen; access_logs có allowed rồi denied, không trả lịch sử. AC5 · Decision Table (R5,R6) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12
+TC-ADHERENCE-08 Request thứ hai 403 khong_co_quyen; access_logs có allowed rồi denied. AC5 · Decision Table (R3,R4) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12
+TC-ADHERENCE-09 Request Q trả 403 khong_co_quyen; không có lịch sử Q; access_logs Q có denied. AC6 · EP (7) · test_family_patient_selector_tamper_does_not_read_other_patient__AC11
+TC-ADHERENCE-10 500; no-store; không có lịch sử trong response và không làm thay đổi dose_logs. AC7 · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13
+TC-ADHERENCE-11 403 consent_revoked; access_logs vẫn có denied cho scope lich_su_tuan_thu. AC7 · test_denied_audit_survives_outer_transaction_rollback__AC13
+TC-ADHERENCE-12 401; response không chứa lịch sử; Cache-Control=no-store; không có allowed log. AC8 · EP (8) · test_authentication_401_and_no_store_without_health_payload__AC14
+TC-ADHERENCE-13 422; response không chứa lịch sử; Cache-Control=no-store. AC8 · EP (9) · test_bad_queries_are_422_without_health_payload__AC14
+TC-ADHERENCE-14 403 khong_co_quyen; không lộ liều; access_logs denied actor_role=admin; dose_logs không đổi. AC3, AC7 · Decision Table (R7) · test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7
+TC-ADHERENCE-15 403 khong_co_quyen; không lộ liều; access_logs denied actor_role=admin; dose_logs không đổi. AC3, AC6, AC7 · Decision Table (R7) · test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7
+TC-ADHERENCE-16 200; summary total=5, taken=3, late=1, missed=1, pending=0, adherence_rate=80; nhóm và timezone Asia/Ho_Chi_Minh đúng contract. AC1, AC9 · test_patient_history_by_date_medication_groups_and_80_percent__AC1_AC3_AC4
+TC-ADHERENCE-17 200; khoảng một ngày được chấp nhận và chỉ có liều ngày 2026-10-19. AC9 · BVA (min) · test_default_partial_and_inclusive_90_day_filters__AC5
+TC-ADHERENCE-18 200; khoảng 90 ngày được chấp nhận. AC9 · BVA (max) · test_default_partial_and_inclusive_90_day_filters__AC5
+TC-ADHERENCE-19 422 {"detail":"adherence_range_too_large"}; không có lịch sử. AC9 · BVA (max+1) · test_default_partial_and_inclusive_90_day_filters__AC5
+TC-ADHERENCE-20 Path, query, bảo mật, mã lỗi, cấu trúc response và Cache-Control no-store khớp contract. AC9 · test_contract_query_security_status_headers · test_response_required_nullable_enums_and_constraints
+TC-ADHERENCE-21 422; không có lịch sử trong response; Cache-Control=no-store. AC9 · BVA (min-1) · test_bad_queries_are_422_without_health_payload__AC14
+TC-ADHERENCE-22 Self patient allowed/denied và self admin denied được chấp nhận; self admin allowed, self family/no-access và other patient bị chặn. Other family/admin giữ allowed/denied; other no-access chỉ denied. Không lưu dòng sau rollback. AC3, AC7 · Decision Table (R7) · test_access_log_actor_identity_matrix__AC3_AC7
+TC-ADHERENCE-23 Role ứng dụng bị từ chối SQLSTATE 42501; postgres bị trigger từ chối P0001; audit không đổi. AC7 · CD3 · test_access_logs_remain_append_only_after_actor_identity_migration__AC7
+PASS: all 23 master workbook expected/actual/status cells match spec

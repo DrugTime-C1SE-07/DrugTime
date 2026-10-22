@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "backend/tests/unit/test_access_rules.py", line 77, in test_admin_self_and_linked_denied_every_action__QD32
+    assert (d.allowed, d.log_role, d.reason) == (False, ActorRole.ADMIN, "khong_co_quyen")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

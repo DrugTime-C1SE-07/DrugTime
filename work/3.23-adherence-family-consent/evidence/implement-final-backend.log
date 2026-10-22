@@ -1,0 +1,1076 @@
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+.............................FFFFFFFFF.................................. [ 29%]
+.....F..FF..................FF.FF.F.FFFFFFF.FFFFFF...................... [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 70%]
+........................................................................ [ 76%]
+........................................................................ [ 82%]
+...........................F....FFF......F.............................. [ 88%]
+........................................................................ [ 94%]
+.................................................................        [100%]
+================================== FAILURES ===================================
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLink] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'PendingFamilyLink'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'PendingFamilyLink'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLinkList] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'PendingFamilyLinkList'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'PendingFamilyLinkList'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApprovalRequest] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'FamilyLinkApprovalRequest'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'FamilyLinkApprovalRequest'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkConsentConfirmation] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'FamilyLinkConsentConfirmation'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'FamilyLinkConsentConfirmation'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApproval] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'FamilyLinkApproval'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'FamilyLinkApproval'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkRejection] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+name = 'FamilyLinkRejection'
+
+    @pytest.mark.parametrize("name", SCHEMAS)
+    def test_six_schemas_match_contract_types_required_nullability_and_constraints(specs, name):
+        contract, app = specs
+>       assert canonical(contract, contract["components"]["schemas"][name]) == canonical(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            app, app["components"]["schemas"][name]
+        )
+E       KeyError: 'FamilyLinkRejection'
+
+tests\unit\test_contract_family_links.py:51: KeyError
+_ test_three_operations_match_contract[get-/family/links-listPendingFamilyLinks] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/family/links', operation = 'listPendingFamilyLinks'
+
+    @pytest.mark.parametrize("method,path,operation", OPERATIONS)
+    def test_three_operations_match_contract(specs, method, path, operation):
+        contract, app = specs
+>       c, a = contract["paths"][path][method], app["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/family/links'
+
+tests\unit\test_contract_family_links.py:59: KeyError
+_ test_three_operations_match_contract[post-/family/links/{link_id}/approve-approveFamilyLink] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'post', path = '/family/links/{link_id}/approve'
+operation = 'approveFamilyLink'
+
+    @pytest.mark.parametrize("method,path,operation", OPERATIONS)
+    def test_three_operations_match_contract(specs, method, path, operation):
+        contract, app = specs
+>       c, a = contract["paths"][path][method], app["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/family/links/{link_id}/approve'
+
+tests\unit\test_contract_family_links.py:59: KeyError
+_ test_three_operations_match_contract[post-/family/links/{link_id}/reject-rejectFamilyLink] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'post', path = '/family/links/{link_id}/reject'
+operation = 'rejectFamilyLink'
+
+    @pytest.mark.parametrize("method,path,operation", OPERATIONS)
+    def test_three_operations_match_contract(specs, method, path, operation):
+        contract, app = specs
+>       c, a = contract["paths"][path][method], app["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/family/links/{link_id}/reject'
+
+tests\unit\test_contract_family_links.py:59: KeyError
+___________ test_operations_match_contract[get-/medications/search] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications/search'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:85: KeyError
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+path = '/medications/search'
+
+    @pytest.mark.parametrize("path", ["/catalog/medications", "/medications/search"])
+    def test_catalog_search_query_params_match_contract(specs, path):
+        contract, app = specs
+>       assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:119: KeyError
+______________ test_catalog_search_operation_ids_match_contract _______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_catalog_search_operation_ids_match_contract(specs):
+        contract, app = specs
+        paths = ("/catalog/medications", "/medications/search")
+        actual = [app["paths"][path]["get"]["operationId"] for path in paths]
+>       assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:126: KeyError
+_____________ test_operations_match_contract[get-/notifications] ______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:29: KeyError
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:29: KeyError
+________________ test_notification_query_params_match_contract ________________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_notification_query_params_match_contract(specs):
+        contract, app = specs
+>       c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:51: KeyError
+________ test_contract_audit_passes_and_detects_broken_contract_guards ________
+
+    def test_contract_audit_passes_and_detects_broken_contract_guards():
+        contract = _read_contract()
+>       assert _audit_spec(contract) == set()
+E       AssertionError: assert {'missing-bearer-security'} == set()
+E         
+E         Extra items in the left set:
+E         'missing-bearer-security'
+E         Use -v to get more diff
+
+tests\unit\test_contract_openapi_semantics.py:126: AssertionError
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+
+    def test_interaction_contract_keeps_composition_versions_scale_and_q1():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        create = schemas["DrugInteractionCreate"]
+        assert len(create["oneOf"]) == 2
+        assert create["oneOf"][0]["required"] == ["ingredient_b_id"]
+        assert create["oneOf"][1]["required"] == ["ingredient_b_external_name"]
+        assert create["additionalProperties"] is False
+        assert "verification_status" not in create["properties"]
+    
+        update = schemas["DrugInteractionUpdate"]
+        assert update["minProperties"] == 2
+        assert update["properties"]["expected_version"]["minimum"] == 1
+        severity = schemas["InteractionSeverity"]
+        assert (severity["minimum"], severity["maximum"]) == (1, 4)
+        for label in (
+            "c\u1ea7n theo d\xf5i",
+            "c\u1ea7n th\u1eadn tr\u1ecdng",
+            "c\xe2n nh\u1eafc l\u1ee3i \xedch/nguy c\u01a1",
+            "ph\u1ed1i h\u1ee3p nguy hi\u1ec3m",
+        ):
+            assert label in severity["description"]
+    
+        for path in ("/admin/drug-interactions", "/admin/drug-food-interactions"):
+            description = _operation(contract, "post", path)["description"].lower()
+            assert "hi\u1ec7u l\u1ef1c ngay" in description
+>           assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E           AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+
+tests\unit\test_contract_openapi_semantics.py:199: AssertionError
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+
+    def test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+>       profile_get = _operation(contract, "get", "/profile")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_contract_openapi_semantics.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+spec = {'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend A...m\u1eadt kh\u1ea9u, ho\u1eb7c t\xe0i kho\u1ea3n kh\xf4ng t\u1ed3n t\u1ea1i, \u0111\u1ec1u tr\u1ea3 c\xf9ng m\u1ed9t 401 \u0111\u1ec3 kh\xf4ng l\u1ed9 email n\xe0o \u0111\xe3 c\xf3 t\xe0i kho\u1ea3n.', ...}}, ...}, ...}
+method = 'get', path = '/profile'
+
+    def _operation(spec: dict[str, Any], method: str, path: str) -> dict[str, Any]:
+>       return spec["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_openapi_semantics.py:63: KeyError
+_____ test_profile_operation_inventory_matches_contract[/profile-get-200] _____
+
+path = '/profile', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_____ test_profile_operation_inventory_matches_contract[/profile-put-204] _____
+
+path = '/profile', method = 'put', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:23: KeyError
+___ test_profile_operation_inventory_matches_contract[/conditions-get-200] ____
+
+path = '/conditions', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/conditions'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions-post-201] _
+
+path = '/profile/conditions', method = 'post', success = 201
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200] _
+
+path = '/profile/conditions/{id}', method = 'patch', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204] _
+
+path = '/profile/conditions/{id}', method = 'delete', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:23: KeyError
+__ test_request_and_success_response_shapes_match_contract[/profile-get-200] __
+
+path = '/profile', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:96: KeyError
+__ test_request_and_success_response_shapes_match_contract[/profile-put-204] __
+
+path = '/profile', method = 'put', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/conditions-get-200] _
+
+path = '/conditions', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/conditions'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201] _
+
+path = '/profile/conditions', method = 'post', success = 201
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200] _
+
+path = '/profile/conditions/{id}', method = 'patch', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204] _
+
+path = '/profile/conditions/{id}', method = 'delete', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_____ test_scan_skips_occurrences_through_exact_120_and_marks_only_after ______
+
+    def test_scan_skips_occurrences_through_exact_120_and_marks_only_after():
+        expired = occurrence(120, 1, 4)
+        args = ports([occurrence(30), occurrence(60), occurrence(120), expired])
+>       alerts = scan(object(), **args)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_missed_dose_window.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <drugtime.modules.identity.adapters.outbound.sql_users.SqlUsers object at 0x0000028857B78EC0>
+uow = <object object at 0x000002885718B4A0>
+
+    def __init__(self, uow: UnitOfWork) -> None:
+>       self._c = uow.connection
+                  ^^^^^^^^^^^^^^
+E       AttributeError: 'object' object has no attribute 'connection'
+
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: AttributeError
+_____ test_worker_does_not_overwrite_confirmed_or_duplicate_notifications _____
+
+    def test_worker_does_not_overwrite_confirmed_or_duplicate_notifications():
+        args = ports([occurrence(121)])
+        args["dose_logs"].mark_missed.return_value = None  # SQL port reports existing confirmed/missed.
+        assert scan(object(), **args) == []
+        args["notifications"].create_missed_alert.assert_not_called()
+        assert not args["dose_logs"].upsert_confirmation.called
+    
+        args = ports([occurrence(121)])
+        args["notifications"].create_missed_alert.return_value = None
+        args["tokens"].android_tokens.return_value = []
+>       assert scan(object(), **args) == []
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_missed_dose_window.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <drugtime.modules.identity.adapters.outbound.sql_users.SqlUsers object at 0x0000028857B7A330>
+uow = <object object at 0x000002885718B980>
+
+    def __init__(self, uow: UnitOfWork) -> None:
+>       self._c = uow.connection
+                  ^^^^^^^^^^^^^^
+E       AttributeError: 'object' object has no attribute 'connection'
+
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: AttributeError
+____________ test_notifications_are_sent_only_after_commit[False] _____________
+
+commit_failure = False
+
+    @pytest.mark.parametrize("commit_failure", [False, True])
+    def test_notifications_are_sent_only_after_commit(commit_failure):
+        events = []
+    
+        @contextmanager
+        def transaction():
+            events.append("begin")
+            yield object()
+            if commit_failure:
+                raise RuntimeError("commit failed")
+            events.append("commit")
+    
+        notifier = Mock(send=Mock(side_effect=lambda alerts: events.append("send")))
+        args = ports([occurrence(121)])
+        if commit_failure:
+            with pytest.raises(RuntimeError, match="commit failed"):
+                scan_and_notify(transaction, notifier, **args)
+            assert events == ["begin"]
+            notifier.send.assert_not_called()
+        else:
+>           assert scan_and_notify(transaction, notifier, **args) == 1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_missed_dose_window.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\drugtime\modules\adherence\application\scan_missed_doses.py:98: in scan_and_notify
+    alerts = scan(uow, **ports)
+             ^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <drugtime.modules.identity.adapters.outbound.sql_users.SqlUsers object at 0x0000028857B780E0>
+uow = <object object at 0x000002885718BD90>
+
+    def __init__(self, uow: UnitOfWork) -> None:
+>       self._c = uow.connection
+                  ^^^^^^^^^^^^^^
+E       AttributeError: 'object' object has no attribute 'connection'
+
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: AttributeError
+_____________ test_notifications_are_sent_only_after_commit[True] _____________
+
+commit_failure = True
+
+    @pytest.mark.parametrize("commit_failure", [False, True])
+    def test_notifications_are_sent_only_after_commit(commit_failure):
+        events = []
+    
+        @contextmanager
+        def transaction():
+            events.append("begin")
+            yield object()
+            if commit_failure:
+                raise RuntimeError("commit failed")
+            events.append("commit")
+    
+        notifier = Mock(send=Mock(side_effect=lambda alerts: events.append("send")))
+        args = ports([occurrence(121)])
+        if commit_failure:
+            with pytest.raises(RuntimeError, match="commit failed"):
+>               scan_and_notify(transaction, notifier, **args)
+
+tests\unit\test_missed_dose_window.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\drugtime\modules\adherence\application\scan_missed_doses.py:98: in scan_and_notify
+    alerts = scan(uow, **ports)
+             ^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\application\scan_missed_doses.py:56: in scan
+    patient_name = patient_names.get_patient_name(uow, occ.patient_id) if patient_names else None
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\adherence\adapters\outbound\other_modules.py:61: in get_patient_name
+    return identity.user_name(uow, patient_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\modules\identity\api.py:87: in user_name
+    return SqlUsers(uow).user_name(user_id)
+           ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <drugtime.modules.identity.adapters.outbound.sql_users.SqlUsers object at 0x0000028858FDA420>
+uow = <object object at 0x000002885718B400>
+
+    def __init__(self, uow: UnitOfWork) -> None:
+>       self._c = uow.connection
+                  ^^^^^^^^^^^^^^
+E       AttributeError: 'object' object has no attribute 'connection'
+
+src\drugtime\modules\identity\adapters\outbound\sql_users.py:14: AttributeError
+_____________ test_notifications_endpoints_require_authentication _____________
+
+self = <sqlalchemy.engine.base.Connection object at 0x000002885924CC50>
+engine = Engine(postgresql+psycopg://api_role.wqiyhmtgxukjnqxprkzn:***@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require)
+connection = None, _has_events = None, _allow_revalidate = True
+_allow_autobegin = True
+
+    def __init__(
+        self,
+        engine: Engine,
+        connection: Optional[PoolProxiedConnection] = None,
+        _has_events: Optional[bool] = None,
+        _allow_revalidate: bool = True,
+        _allow_autobegin: bool = True,
+    ):
+        """Construct a new Connection."""
+        self.engine = engine
+        self.dialect = dialect = engine.dialect
+    
+        if connection is None:
+            try:
+>               self._dbapi_connection = engine.raw_connection()
+                                         ^^^^^^^^^^^^^^^^^^^^^^^
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:3294: in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:445: in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:1317: in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:709: in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\impl.py:176: in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\util\langhelpers.py:166: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\impl.py:174: in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:386: in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:671: in __init__
+    self.__connect()
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:916: in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\util\langhelpers.py:166: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:912: in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\create.py:645: in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:869: in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'psycopg.Connection'>
+conninfo = 'host=aws-0-ap-southeast-1.pooler.supabase.com dbname=postgres user=api_role.wqiyhmtgxukjnqxprkzn password=240605nvn port=5432 sslmode=require hostaddr=52.74.252.201'
+autocommit = False, prepare_threshold = 5
+context = <psycopg.adapt.AdaptersMap object at 0x0000028859390EC0>
+row_factory = None, cursor_factory = None
+kwargs = {'host': 'aws-0-ap-southeast-1.pooler.supabase.com', 'dbname': 'postgres', 'user': 'api_role.wqiyhmtgxukjnqxprkzn', 'password': '240605nvn', ...}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -> Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+                raise last_ex.with_traceback(None)
+    
+            # Create a new exception with the same type as the last one, containing
+            # all attempt errors while preserving backward compatibility.
+            lines = [str(last_ex)]
+            lines.append("Multiple connection attempts failed. All failures were:")
+            lines.extend((f"- {descr}: {error}" for error, descr in conn_errors))
+            new_ex = type(last_ex)("\n".join(lines), pgconn=last_ex.pgconn)
+>           raise new_ex.with_traceback(None)
+E           psycopg.OperationalError: connection failed: connection to server at "52.74.252.201", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           Multiple connection attempts failed. All failures were:
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '54.255.219.82': connection failed: connection to server at "54.255.219.82", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '52.77.146.31': connection failed: connection to server at "52.77.146.31", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '52.74.252.201': connection failed: connection to server at "52.74.252.201", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\connection.py:134: OperationalError
+
+The above exception was the direct cause of the following exception:
+
+    def test_notifications_endpoints_require_authentication():
+        # AC6/AC7: Kh\xf4ng c\xf3 token authentication tr\u1ea3 v\u1ec1 401
+        unauth_client = TestClient(create_app())
+>       assert unauth_client.get("/notifications").status_code == 401
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_notification_http.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_client.py:1053: in get
+    return self.request(
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\testclient.py:518: in request
+    return super().request(
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_client.py:928: in send
+    raise exc
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_client.py:922: in send
+    response.read()
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_models.py:881: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_models.py:897: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_models.py:951: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\httpx\_client.py:153: in __iter__
+    for chunk in self._stream:
+                 ^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\testclient.py:399: in close_app
+    raise exception
+..\work\3.23-adherence-family-consent\scratch\python-deps\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\errors.py:186: in __call__
+    raise exc
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\base.py:203: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\drugtime\main.py:85: in adherence_no_store
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\base.py:179: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\routing.py:678: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:1839: in handle
+    await self.original_router.handle(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:2894: in handle
+    await included_router._handle_selected(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:1865: in _handle_selected
+    await original_route.handle(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:1328: in handle
+    await effective_context.app(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\routing.py:511: in app
+    solved_result = await solve_dependencies(
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\dependencies\utils.py:684: in solve_dependencies
+    solved = await _solve_generator(
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\dependencies\utils.py:590: in _solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:659: in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:210: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\concurrency.py:37: in contextmanager_in_threadpool
+    raise e
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\concurrency.py:29: in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+..\work\3.23-adherence-family-consent\scratch\python-deps\anyio\_backends\_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\anyio\_backends\_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src\drugtime\shared\db.py:34: in get_uow
+    with unit_of_work() as uow:
+         ^^^^^^^^^^^^^^
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src\drugtime\shared\db.py:28: in unit_of_work
+    with get_engine().begin() as conn:  # commit khi tho\xe1t b\xecnh th\u01b0\u1eddng, rollback khi c\xf3 l\u1ed7i
+         ^^^^^^^^^^^^^^^^^^^^
+C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:3234: in begin
+    with self.connect() as conn:
+         ^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:3270: in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:151: in __init__
+    Connection._handle_dbapi_exception_noconnection(
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:2427: in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:149: in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\base.py:3294: in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:445: in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:1317: in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:709: in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\impl.py:176: in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\util\langhelpers.py:166: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\impl.py:174: in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:386: in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:671: in __init__
+    self.__connect()
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:916: in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\util\langhelpers.py:166: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\pool\base.py:912: in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\create.py:645: in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\work\3.23-adherence-family-consent\scratch\python-deps\sqlalchemy\engine\default.py:869: in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'psycopg.Connection'>
+conninfo = 'host=aws-0-ap-southeast-1.pooler.supabase.com dbname=postgres user=api_role.wqiyhmtgxukjnqxprkzn password=240605nvn port=5432 sslmode=require hostaddr=52.74.252.201'
+autocommit = False, prepare_threshold = 5
+context = <psycopg.adapt.AdaptersMap object at 0x0000028859390EC0>
+row_factory = None, cursor_factory = None
+kwargs = {'host': 'aws-0-ap-southeast-1.pooler.supabase.com', 'dbname': 'postgres', 'user': 'api_role.wqiyhmtgxukjnqxprkzn', 'password': '240605nvn', ...}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -> Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+                raise last_ex.with_traceback(None)
+    
+            # Create a new exception with the same type as the last one, containing
+            # all attempt errors while preserving backward compatibility.
+            lines = [str(last_ex)]
+            lines.append("Multiple connection attempts failed. All failures were:")
+            lines.extend((f"- {descr}: {error}" for error, descr in conn_errors))
+            new_ex = type(last_ex)("\n".join(lines), pgconn=last_ex.pgconn)
+>           raise new_ex.with_traceback(None)
+E           sqlalchemy.exc.OperationalError: (psycopg.OperationalError) connection failed: connection to server at "52.74.252.201", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           Multiple connection attempts failed. All failures were:
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '54.255.219.82': connection failed: connection to server at "54.255.219.82", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '52.77.146.31': connection failed: connection to server at "52.77.146.31", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           - host: 'aws-0-ap-southeast-1.pooler.supabase.com', port: 5432, hostaddr: '52.74.252.201': connection failed: connection to server at "52.74.252.201", port 5432 failed: Permission denied (0x0000271D/10013)
+E           	Is the server running on that host and accepting TCP/IP connections?
+E           (Background on this error at: https://sqlalche.me/e/21/e3q8)
+
+..\work\3.23-adherence-family-consent\scratch\python-deps\psycopg\connection.py:134: OperationalError
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/unit/test_identity_auth.py::test_mobile_verify_auto_provisions_new_user_and_flags_incomplete_profile
+tests/unit/test_identity_auth.py::test_admin_session_expires_after_20_minutes
+tests/unit/test_identity_auth.py::test_mobile_session_targets_10_days
+tests/unit/test_identity_auth.py::test_mobile_verify_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_admin_login_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\jwt\api_jwt.py:149: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\jwt\api_jwt.py:370: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    decoded = self.decode_complete(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLink]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[PendingFamilyLinkList]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApprovalRequest]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkConsentConfirmation]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkApproval]
+FAILED tests/unit/test_contract_family_links.py::test_six_schemas_match_contract_types_required_nullability_and_constraints[FamilyLinkRejection]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[get-/family/links-listPendingFamilyLinks]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[post-/family/links/{link_id}/approve-approveFamilyLink]
+FAILED tests/unit/test_contract_family_links.py::test_three_operations_match_contract[post-/family/links/{link_id}/reject-rejectFamilyLink]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+FAILED tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards
+FAILED tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_missed_dose_window.py::test_scan_skips_occurrences_through_exact_120_and_marks_only_after
+FAILED tests/unit/test_missed_dose_window.py::test_worker_does_not_overwrite_confirmed_or_duplicate_notifications
+FAILED tests/unit/test_missed_dose_window.py::test_notifications_are_sent_only_after_commit[False]
+FAILED tests/unit/test_missed_dose_window.py::test_notifications_are_sent_only_after_commit[True]
+FAILED tests/unit/test_notification_http.py::test_notifications_endpoints_require_authentication
+35 failed, 1182 passed, 8 warnings in 40.98s

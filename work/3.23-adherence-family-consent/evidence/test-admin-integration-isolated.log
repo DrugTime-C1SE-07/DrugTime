@@ -1,0 +1,33 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+__ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self] ___
+
+history_data = HistoryData(db=<sqlalchemy.engine.base.Connection object at 0x000001446AF075C0>, make=Factory(db=<sqlalchemy.engine.ba...487f-971d-1de5f3522816'), now=datetime.datetime(2026, 10, 19, 13, 1, tzinfo=zoneinfo.ZoneInfo(key='Asia/Ho_Chi_Minh')))
+access = 'self'
+
+    @pytest.mark.parametrize("access", ["self", "linked"])
+    def test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7(history_data, access):
+        data = history_data
+        admin = data.make.user(admin=True)
+        if access == "self":
+            data.patient = admin
+        else:
+            data.make.consent(data.patient, "family_sharing")
+            data.make.link(data.patient, admin)
+        data.log(data.schedule(), "da_uong")
+        before = data.snapshot()
+    
+        response = read_as(data, admin)
+    
+>       assert response.status_code == 403 and response.json() == {"detail": "khong_co_quyen"}
+E       assert (500 == 403)
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests\integration\test_adherence_history_access.py:109: AssertionError
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 failed, 1 passed, 22 deselected, 1 warning in 5.34s

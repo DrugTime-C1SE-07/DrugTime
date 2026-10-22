@@ -1,0 +1,59 @@
+......F.................                                                 [100%]
+================================== FAILURES ===================================
+__ test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self] ___
+
+history_data = HistoryData(db=<sqlalchemy.engine.base.Connection object at 0x000001C4D56B6900>, make=Factory(db=<sqlalchemy.engine.ba...4df8-89cb-e87f80d8aa61'), now=datetime.datetime(2026, 10, 19, 13, 1, tzinfo=zoneinfo.ZoneInfo(key='Asia/Ho_Chi_Minh')))
+access = 'self'
+
+    @pytest.mark.parametrize("access", ["self", "linked"])
+    def test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7(history_data, access):
+        data = history_data
+        admin = data.make.user(admin=True)
+        if access == "self":
+            data.patient = admin
+        else:
+            data.make.consent(data.patient, "family_sharing")
+            data.make.link(data.patient, admin)
+        data.log(data.schedule(), "da_uong")
+        before = data.snapshot()
+    
+        response = read_as(data, admin)
+    
+>       assert response.status_code == 403 and response.json() == {"detail": "khong_co_quyen"}
+E       assert (500 == 403)
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests\integration\test_adherence_history_access.py:109: AssertionError
+============================== warnings summary ===============================
+..\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\3.23-adherence-family-consent\scratch\python-deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/integration/test_adherence_history_access.py::test_self_and_family_success_are_audited_with_minimal_metadata__AC1_AC2
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[unlinked]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[health_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[family_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[sharing_off]
+PASSED tests/integration/test_adherence_history_access.py::test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[admin]
+PASSED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[linked]
+PASSED tests/integration/test_adherence_history_access.py::test_family_patient_selector_tamper_does_not_read_other_patient__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[health_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[family_consent]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[sharing_off]
+PASSED tests/integration/test_adherence_history_access.py::test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[unlink]
+PASSED tests/integration/test_adherence_history_access.py::test_self_without_health_consent_denied_with_self_audit__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_unknown_patient_returns_same_generic_403_without_fk_audit__AC11
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[allowed_insert]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[commit]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[denied_insert]
+PASSED tests/integration/test_adherence_history_access.py::test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[permission_read]
+PASSED tests/integration/test_adherence_history_access.py::test_denied_audit_survives_outer_transaction_rollback__AC13
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[missing]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[invalid]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[expired]
+PASSED tests/integration/test_adherence_history_access.py::test_authentication_401_and_no_store_without_health_payload__AC14[erased]
+FAILED tests/integration/test_adherence_history_access.py::test_admin_self_and_linked_history_denied_and_audited__AC3_AC6_AC7[self]
+1 failed, 23 passed, 1 warning in 10.50s
