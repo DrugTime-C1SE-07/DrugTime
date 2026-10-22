@@ -1,7 +1,15 @@
 ---
 task: 3.24-adherence-family-view
 stage: review
-status: draft
+status: approved
+approved_by: Ngọc Việt
+approved_at: 2026-10-22 21:29 +0700
+content_hash: sha256:e65bee39e50a0efc
+inputs:
+  01-requirement.md: sha256:78a2784681c4911b
+  03-plan.md: sha256:c42bc0a5bb6b51b5
+  04-impl-notes.md: sha256:e5195d96ad85dfb8
+  05-test-report.md: sha256:bc0dd9c7afaf3184
 ---
 
 # 3.24-adherence-family-view · Review
