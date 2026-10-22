@@ -2,7 +2,7 @@
 
 **Task:** Backend `GET /adherence?patient_id=` scoped by consent  
 **Cập nhật:** 2026-10-22  
-**Trạng thái:** Các artifact requirement, contract, plan, implement, test và review đều đã được duyệt. Đã tạo commit local cho contract, backend, workbook và superproject artifacts; chưa push/tạo PR. Issue đang tạm bỏ qua theo yêu cầu.
+**Trạng thái:** Các artifact requirement, contract, plan, implement, test và review đều đã được duyệt. Đã commit và push contract, backend, workbook cùng artifact/con trỏ superproject trên các nhánh task. Chưa tạo PR; issue đang tạm bỏ qua theo yêu cầu.
 
 ## Tóm tắt
 
@@ -74,6 +74,7 @@ Lần chạy cuối: **1183 passed, 34 failed, 8 warnings** (`evidence/implement
 3. Cô lập đúng thay đổi task khỏi phần kế thừa trước khi tạo PR.
 4. Tạo/commit/push PR theo yêu cầu của người dùng; migration chạy trước app; cần ít nhất một reviewer khác approve để đạt Definition of Done.
 
-**Commit local:** api_contract `382fb13`, backend `e37deaf`, docs `ee39931`; superproject artifacts sẽ được ghi ở commit riêng. Chưa push, tạo PR/issue, deploy migration hoặc xác minh production.  
+**Commit đã push:** api_contract `382fb13`, backend `e37deaf`, docs `ee39931`, superproject artifact `b925012` và con trỏ `0f629e5`. Chưa tạo PR/issue, deploy migration hoặc xác minh production.  
 **Rủi ro cần nhớ:** 2 integration fail và 34 unit fail chưa được đối chiếu baseline sạch; không thể khẳng định tất cả đều là lỗi có sẵn.
+
 
