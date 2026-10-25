@@ -1,0 +1,15 @@
+OK   5.17 (cần 4.5) chữ trắng / sidebar & accent đầu
+OK   6.70 (cần 4.5) chữ trắng / accent cuối
+OK   8.72 (cần 4.5) chữ trắng / sidebar cuối
+OK   4.86 (cần 4.5) chữ phụ #f5f8ff / #2563eb
+OK   6.70 (cần 4.5) menu active #1d4ed8 / trắng
+OK  17.74 (cần 4.5) text / trắng
+OK   5.98 (cần 4.5) muted / trắng
+OK   5.61 (cần 4.5) muted / shell
+OK   9.10 (cần 4.5) secondary / chip
+OK   4.27 (cần 3.0) icon topbar #6b7280 / chip (non-text)
+OK   5.17 (cần 4.5) primary link / trắng
+OK   5.17 (cần 3.0) focus ring #2563eb / trắng
+OK?  6.73 (can 4.5) chu trang / lop phu toi 22% tren #2563eb
+OK?  8.30 (can 4.5) chu trang / lop phu toi 22% tren #1d4ed8
+OK? 10.20 (can 4.5) chu trang / lop phu toi 22% tren #1e40af

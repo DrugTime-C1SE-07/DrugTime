@@ -1,0 +1,10 @@
+318371 bytes written to file D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\evidence\login-before-1440.png
+54693 bytes written to file D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\evidence\login-before-375.png
+318371 bytes written to file D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\scratch\login-repeat-1440.png
+54693 bytes written to file D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\scratch\login-repeat-375.png
+D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\scratch\imgdiff.py:8: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  n = sum(1 for px in d.getdata() if px != (0, 0, 0))
+diff_pixels=0 bbox=None
+D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\scratch\imgdiff.py:8: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  n = sum(1 for px in d.getdata() if px != (0, 0, 0))
+diff_pixels=0 bbox=None

@@ -1,0 +1,279 @@
+[
+  {
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": [
+      {
+        "sel": ".dashboard-header h1",
+        "fs": "26px",
+        "fw": "700",
+        "lh": "31.2px",
+        "w": 230,
+        "h": 31,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-breadcrumb",
+        "fs": "12px",
+        "fw": "500",
+        "lh": "16px",
+        "w": 230,
+        "h": 16,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-action",
+        "fs": "13px",
+        "fw": "600",
+        "lh": "18px",
+        "w": 137,
+        "h": 42,
+        "pad": "0px 14px"
+      },
+      {
+        "sel": ".dashboard-kpi",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 351,
+        "h": 166,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__icon",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 36,
+        "h": 36,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__label span",
+        "fs": "11px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 95,
+        "h": 15,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__label strong",
+        "fs": "14px",
+        "fw": "600",
+        "lh": "18.2px",
+        "w": 95,
+        "h": 18,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__pill",
+        "fs": "12px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 122,
+        "h": 25,
+        "pad": "4px 10px"
+      },
+      {
+        "sel": ".dashboard-kpi__metric strong",
+        "fs": "36px",
+        "fw": "700",
+        "lh": "36px",
+        "w": 108,
+        "h": 36,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__metric span",
+        "fs": "14px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 65,
+        "h": 19,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__footer",
+        "fs": "12.5px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 351,
+        "h": 43,
+        "pad": "10px 18px"
+      },
+      {
+        "sel": ".dashboard-kpi__footer span",
+        "fs": "12.5px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 154,
+        "h": 17,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-kpi__footer strong",
+        "fs": "12.5px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 114,
+        "h": 17,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-title-row h2",
+        "fs": "18px",
+        "fw": "700",
+        "lh": "19.8px",
+        "w": 169,
+        "h": 20,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-panel__header p",
+        "fs": "13px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 399,
+        "h": 18,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-tabs button",
+        "fs": "13px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 92,
+        "h": 30,
+        "pad": "1px 6px"
+      },
+      {
+        "sel": ".dashboard-sync__stats",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 688,
+        "h": 65,
+        "pad": "12px 16px"
+      },
+      {
+        "sel": ".dashboard-sync__stats span",
+        "fs": "12px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 211,
+        "h": 17,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-sync__stats strong",
+        "fs": "20px",
+        "fw": "700",
+        "lh": "20px",
+        "w": 211,
+        "h": 20,
+        "pad": "0px"
+      },
+      {
+        "sel": ".quality-ring",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 150,
+        "h": 150,
+        "pad": "0px"
+      },
+      {
+        "sel": ".quality-ring span",
+        "fs": "30px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 87,
+        "h": 41,
+        "pad": "0px"
+      },
+      {
+        "sel": ".quality-item",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 308,
+        "h": 53,
+        "pad": "10px 12px"
+      },
+      {
+        "sel": ".quality-item strong",
+        "fs": "13px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 225,
+        "h": 18,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-workers h2",
+        "fs": "18px",
+        "fw": "700",
+        "lh": "19.8px",
+        "w": 263,
+        "h": 20,
+        "pad": "0px"
+      },
+      {
+        "sel": ".workers-table__head",
+        "fs": "11px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 1048,
+        "h": 40,
+        "pad": "0px 20px"
+      },
+      {
+        "sel": ".workers-table__row",
+        "fs": "13px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 1048,
+        "h": 56,
+        "pad": "0px 20px"
+      },
+      {
+        "sel": ".workers-table__row strong",
+        "fs": "14px",
+        "fw": "600",
+        "lh": "normal",
+        "w": 282,
+        "h": 19,
+        "pad": "0px"
+      },
+      {
+        "sel": ".worker-status",
+        "fs": "12px",
+        "fw": "700",
+        "lh": "normal",
+        "w": 111,
+        "h": 26,
+        "pad": "0px 10px"
+      },
+      {
+        "sel": ".dashboard-chart",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 688,
+        "h": 237,
+        "pad": "0px"
+      },
+      {
+        "sel": ".dashboard-main-grid",
+        "fs": "16px",
+        "fw": "400",
+        "lh": "normal",
+        "w": 1084,
+        "h": 470,
+        "pad": "0px"
+      }
+    ]
+  }
+]

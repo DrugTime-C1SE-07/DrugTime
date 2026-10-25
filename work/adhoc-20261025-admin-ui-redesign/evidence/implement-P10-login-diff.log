@@ -1,0 +1,67 @@
+login-before-1440 vs login-after-1440 (Chrome CLI):
+diff_pixels=0 bbox=None
+login-before-375 vs login-after-375 (Chrome CLI):
+diff_pixels=0 bbox=None
+CDP: login truc tiep vs login sau khi logout tu dashboard (1440):
+diff_pixels=0 bbox=None
+ M admin/app/dashboard/layout.tsx
+ D mobile/.env.example
+?? admin/app/dashboard/dashboard-theme.css
+---
+ admin/app/dashboard/layout.tsx | 32 ++++++++++++++++++++++----------
+ mobile/.env.example            | 15 ---------------
+ 2 files changed, 22 insertions(+), 25 deletions(-)
+---
+diff --git a/admin/app/dashboard/layout.tsx b/admin/app/dashboard/layout.tsx
+index b465ebe9..88ebaef7 100644
+--- a/admin/app/dashboard/layout.tsx
++++ b/admin/app/dashboard/layout.tsx
+@@ -1,3 +1,4 @@
++import { Open_Sans } from "next/font/google";
+ import { cookies } from "next/headers";
+ import type { ReactNode } from "react";
+ 
+@@ -6,6 +7,14 @@ import Sidebar from "../../components/layout/Sidebar";
+ import Topbar from "../../components/layout/Topbar";
+ import { ToastProvider } from "../../components/ui/Toast";
+ import { SESSION_COOKIE, readExpiry } from "../../lib/auth/session";
++import "./dashboard-theme.css";
++
++const openSans = Open_Sans({
++  subsets: ["latin", "vietnamese"],
++  weight: ["400", "600", "700"],
++  display: "swap",
++  variable: "--font-open-sans",
++});
+ 
+ export default function DashboardLayout({
+   children,
+@@ -16,15 +25,18 @@ export default function DashboardLayout({
+   const expiresAt = readExpiry(cookies().get(SESSION_COOKIE)?.value);
+ 
+   return (
+-    <ToastProvider>
+-      <div className="admin-shell">
+-        <SessionKeepAlive expiresAt={expiresAt} />
+-        <Sidebar />
+-        <main className="admin-shell__content">
+-          <Topbar />
+-          <div className="admin-shell__body">{children}</div>
+-        </main>
+-      </div>
+-    </ToastProvider>
++    // Theme chỉ áp trong .admin-theme để trang Login (dùng chung globals.css) không đổi; bọc ngoài ToastProvider để toast cũng nhận theme.
++    <div className={`admin-theme ${openSans.variable}`}>
++      <ToastProvider>
++        <div className="admin-shell">
++          <SessionKeepAlive expiresAt={expiresAt} />
++          <Sidebar />
++          <main className="admin-shell__content">
++            <Topbar />
++            <div className="admin-shell__body">{children}</div>
++          </main>
++        </div>
++      </ToastProvider>
++    </div>
+   );
+ }

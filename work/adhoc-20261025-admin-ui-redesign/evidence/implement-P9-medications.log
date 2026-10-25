@@ -1,0 +1,107 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-behavior-medications-end.png",
+    "path": "/dashboard/medications",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": [
+      {
+        "name": "bảng có dữ liệu ban đầu",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "tìm kiếm 'Warfarin' lọc bảng",
+        "ok": true,
+        "detail": {
+          "rows": 1
+        }
+      },
+      {
+        "name": "xóa từ khóa trả lại bảng",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "lọc chất lượng = Thiếu thông tin",
+        "ok": true,
+        "detail": {
+          "rows": 2
+        }
+      },
+      {
+        "name": "đặt lại bộ lọc",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "sang trang sau đổi dòng đầu",
+        "ok": true,
+        "detail": {
+          "before": "Coumadin 5mg△",
+          "after": "Pyme AZI 500"
+        }
+      },
+      {
+        "name": "về trang đầu",
+        "ok": true,
+        "detail": {
+          "first": "Coumadin 5mg△"
+        }
+      },
+      {
+        "name": "mở form thêm thuốc",
+        "ok": true,
+        "detail": "Thêm thuốc mới vào danh mục"
+      },
+      {
+        "name": "đóng form bằng Hủy bỏ",
+        "ok": true
+      },
+      {
+        "name": "mở form sửa",
+        "ok": true,
+        "detail": "Chỉnh sửa thuốc: Coumadin 5mg"
+      },
+      {
+        "name": "mở modal chi tiết",
+        "ok": true,
+        "detail": "Chi tiết bản ghi biệt dược"
+      },
+      {
+        "name": "đóng modal chi tiết",
+        "ok": true
+      },
+      {
+        "name": "duyệt nhanh (Duyệt Lexomil 6mg)",
+        "ok": true,
+        "detail": [
+          "Đã duyệt thuốc thành công"
+        ]
+      },
+      {
+        "name": "xóa mềm Coumadin 5mg",
+        "ok": true,
+        "detail": {
+          "toasts": [
+            "Đã duyệt thuốc thành công",
+            "Đã xóa thuốc"
+          ]
+        }
+      },
+      {
+        "name": "hoàn tác xóa mềm",
+        "ok": true,
+        "detail": {
+          "hadUndo": true
+        }
+      }
+    ]
+  }
+]

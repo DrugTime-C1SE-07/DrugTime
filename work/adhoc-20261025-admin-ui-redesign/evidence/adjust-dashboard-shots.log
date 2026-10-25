@@ -1,0 +1,30 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-1440.png",
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-scrolled-1440.png",
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": 560
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-768.png",
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-375.png",
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  }
+]
