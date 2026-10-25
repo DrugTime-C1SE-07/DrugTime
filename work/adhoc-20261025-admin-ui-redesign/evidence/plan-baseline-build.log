@@ -1,0 +1,43 @@
+
+> drugtime-admin@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/13) ...
+   Generating static pages (3/13) 
+   Generating static pages (6/13) 
+   Generating static pages (9/13) 
+ ✓ Generating static pages (13/13)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    149 B          87.4 kB
+├ ○ /_not-found                          873 B          88.1 kB
+├ ƒ /api/session/login                   0 B                0 B
+├ ƒ /api/session/logout                  0 B                0 B
+├ ƒ /api/session/refresh                 0 B                0 B
+├ ○ /auth/login                          7.41 kB        94.7 kB
+├ ƒ /dashboard                           149 B          87.4 kB
+├ ƒ /dashboard/interactions              10.5 kB         106 kB
+├ ƒ /dashboard/medications               13.1 kB         118 kB
+├ ƒ /dashboard/ocr-review                149 B          87.4 kB
+└ ƒ /dashboard/scraper-logs              149 B          87.4 kB
++ First Load JS shared by all            87.3 kB
+  ├ chunks/117-63f512de3129adce.js       31.7 kB
+  ├ chunks/fd9d1056-f645e3cd7ccf8003.js  53.6 kB
+  └ other shared chunks (total)          1.89 kB
+
+
+ƒ Middleware                             26.7 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+exit=0
