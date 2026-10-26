@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "documentScrolls": true,
+      "innerVerticalScrollers": [],
+      "sidebarRect": [
+        0,
+        0,
+        248,
+        900
+      ],
+      "viewport": [
+        1440,
+        900
+      ],
+      "contentRightGap": 10,
+      "topbarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "sidebarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "scrollY": 315,
+      "htmlScrollbarColor": "rgb(182, 196, 218) rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "documentScrolls": true,
+      "innerVerticalScrollers": [],
+      "sidebarRect": [
+        0,
+        0,
+        248,
+        900
+      ],
+      "viewport": [
+        1440,
+        900
+      ],
+      "contentRightGap": 10,
+      "topbarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "sidebarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "scrollY": 268,
+      "htmlScrollbarColor": "rgb(182, 196, 218) rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "documentScrolls": true,
+      "innerVerticalScrollers": [],
+      "sidebarRect": [
+        0,
+        0,
+        248,
+        900
+      ],
+      "viewport": [
+        1440,
+        900
+      ],
+      "contentRightGap": 10,
+      "topbarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "sidebarTop": {
+        "before": 0,
+        "after": 0
+      },
+      "scrollY": 322,
+      "htmlScrollbarColor": "rgb(182, 196, 218) rgba(0, 0, 0, 0)"
+    }
+  }
+]

@@ -5,8 +5,8 @@ owner: Ngọc Việt
 started_at: 2026-10-25 15:18
 status: approved
 approved_by: Ngọc Việt
-approved_at: 2026-10-25 16:02 +0700
-content_hash: sha256:5a954b91ef7e6181
+approved_at: 2026-10-26 14:47 +0700
+content_hash: sha256:c11493562de82dc7
 inputs:
   01-requirement.md: sha256:ffdb8e4c5877f6b5
   03-plan.md: sha256:a4322237aa7fbdfd
@@ -32,13 +32,14 @@ Chụp ảnh và kiểm hành vi dùng Chrome headless qua CDP (`scratch/cdp-sho
 | P10 | xong | So pixel Login trước và sau bằng cùng công cụ Chrome CLI: 1440 → `diff_pixels=0`, 375 → `diff_pixels=0`. Thêm một kiểm: vào dashboard, bấm Đăng xuất, về `/auth/login`; ảnh lúc đó giống hệt Login mở trực tiếp (`diff_pixels=0`), nên stylesheet theme còn nạp sau khi điều hướng client cũng không ảnh hưởng Login. `git -C frontend diff --stat` chỉ có `layout.tsx`, file CSS mới là untracked, cộng thay đổi `mobile/.env.example` có sẵn. | `evidence/implement-P10-login-diff.log`, `evidence/login-after-*.png`, `evidence/login-cdp-*.png` |
 | P11 | xong | `npm run lint` exit 0. `npm run build` exit 0, đủ 11 route; `/auth/login` vẫn 7.41 kB như baseline. `scope.py --stage implement`: 2 file của task `[OK]`; 37 file `[NGOÀI]` trùng với danh sách có sẵn từ `requirement-scope.log` (bớt `Test_Cases.xlsx`, file này giờ được tính `[OK]` theo vai trò testcase-book). Không có file mới ngoài phạm vi. Chạy lại sau vòng tinh chỉnh (P12): kết quả như trên. | `evidence/implement-final-frontend-lint.log`, `evidence/implement-final-frontend-build.log`, `evidence/implement-scope.log` |
 | P12 | xong | **Vòng tinh chỉnh sau reopen (2026-10-25)**: người dùng thấy trang Tổng quan "to quá cỡ". Thêm khối "Thang cỡ trang Tổng quan" vào `dashboard-theme.css`, đưa về cùng mật độ với hai trang bảng. Đo bằng `scratch/measure-dashboard.js` ở 1440px, trước → sau: H1 42→26px; số KPI 58→36px; card KPI cao 248→166px; footer KPI 68→43px; pill 35→25px; H2 24→18px; tab 16→13px (cao 36→30); ô thống kê 85→65px; vòng chất lượng 188→150px (chữ 42→30px); mục chất lượng 83→53px; bảng workers: header 58→40px, dòng 88→56px; badge trạng thái 46→26px; lưới chính 639→470px. Ở ≤ 900px, H1 24px thay cho 32px của `globals.css`. Ảnh 1440/768/375: `overflowX = 0`, `consoleErrors: []`. Login so với baseline: 1440 và 375 đều `diff_pixels=0`. Lint, build và scope chạy lại đều như P11. | `evidence/adjust-measure-before.log`, `evidence/adjust-measure-after.log`, `evidence/adjust-dashboard-shots.log`, `evidence/adjust-login-diff.log`, `evidence/impl-dashboard-{1440,scrolled-1440,768,375}.png` |
+| P13 | xong | **Vòng 2 sau reopen (2026-10-26)**: người dùng thấy khung có viền ngoài (khung trắng cách mép 20px trên nền gradient) và thanh cuộn hệ thống xấu (nội dung cuộn lồng trong khung). Đã sửa trong `dashboard-theme.css`, thay phần khung của P4: (1) **Tràn màn hình**: bỏ khung `::before` và nền gradient ngoài; nền `--color-shell`; sidebar `fixed` ở `0,0`, cao `100dvh`, bo cong `0 36px 36px 0`. (2) **Một vùng cuộn**: `.admin-shell`/`.admin-shell__content` không còn tự cuộn, cả trang cuộn bằng document; topbar `position: sticky` với nền mờ; `scroll-padding-top: 84px` để focus không bị topbar che. (3) **Thanh cuộn mảnh**: `scrollbar-width: thin` + `scrollbar-color #b6c4da`, fallback `::-webkit-scrollbar`; phạm vi `html:has(.admin-theme)` nên Login giữ thanh cuộn mặc định. (4) **Bảng**: thu `min-width` và cột tối thiểu của bảng thuốc (1170→920px) và bảng tương tác (960→900px), nên cột "Thao tác" không còn bị cắt (lỗi có từ layout cũ, thấy trong ảnh người dùng gửi). **Kết quả đo**: 3 trang ở 1440px không có vùng cuộn dọc lồng (`innerVerticalScrollers: []`); sidebar `0,0,248×900`; sau khi cuộn khoảng 300px, topbar và sidebar vẫn `top = 0`. Bảng ở 1440 và 1280px có `scrollWidth = clientWidth`. Lăn chuột thật qua CDP: không mở modal thì cuộn tới scrollY 268; mở modal thì scrollY 0, nghĩa là `Modal.tsx` khóa cuộn đúng. Focus sau khi cuộn: nút trong bảng có top 141px, dưới topbar (68px), không bị che. 22 ảnh có hiển thị thanh cuộn: `overflowX ≤ 0`, 0 lỗi console. Hành vi: thuốc 15/15, tương tác 12/12. Tab focus như P8. Login so với baseline: 1440 và 375 đều `diff_pixels=0`. Lint, build exit 0, `/auth/login` 7.41 kB; scope: 2 file `[OK]`, danh sách `[NGOÀI]` không đổi. | `evidence/adjust2-scroll-structure.log`, `evidence/adjust2-table-width.log`, `evidence/adjust2-modal-scroll-lock.log`, `evidence/adjust2-modal-lock-focus.log`, `evidence/adjust2-shots.log`, `evidence/adjust2-behavior-*.log`, `evidence/adjust2-focus.log`, `evidence/adjust2-login-diff.log`, `evidence/impl-*.png` |
 
 ## 2. File đã thay đổi
 
 | Submodule | Nhánh | File |
 |---|---|---|
 | frontend | `feat/adhoc-20261025-admin-ui-redesign` | `admin/app/dashboard/layout.tsx` (sửa) |
-| frontend | `feat/adhoc-20261025-admin-ui-redesign` | `admin/app/dashboard/dashboard-theme.css` (thêm, 974 dòng) |
+| frontend | `feat/adhoc-20261025-admin-ui-redesign` | `admin/app/dashboard/dashboard-theme.css` (thêm, 1022 dòng) |
 
 Kết quả `python .agents/scripts/scope.py adhoc-20261025-admin-ui-redesign --stage implement`: 2 file của task `[OK]`. Script vẫn exit 1 vì 37 file có sẵn từ trước task (`.claude/rules/**`, `AGENTS.md`, 3 file `docs/**`, `frontend/mobile/.env.example`, `graphify-out/**`), xem mục 6. Log: `evidence/implement-scope.log`.
 
@@ -64,13 +65,14 @@ Không có.
 ## 5. Ghi chú cho người review
 
 - **Q1 của plan, đổi cách kiểm:** người dùng xác nhận giả định mặc định ngày 2026-10-25. Khi chạy thực tế thì không làm được: Docker không chạy nên không bật được Supabase và backend, và `backend/supabase` không có file seed nào có admin. Người dùng cũng không tự đăng nhập được vì form Login cần backend. Agent hỏi và người dùng chọn phương án "cookie test local": JWT không ký, chỉ có `exp`, đặt trên `localhost:3100`. Cách này chạy được vì `middleware.ts` chỉ đọc `exp` và các trang dashboard hiện chỉ dùng dữ liệu tĩnh. Token chỉ tồn tại trong trình duyệt test và script `scratch/`, không có trong code app.
+- **Ghi chú P13:** khung bo góc và cách cuộn bên trong khung mô tả ở P4 và P7 đã được thay bằng layout tràn màn hình (xem P13). Bài học stacking ở P7 vẫn còn đúng: vùng nội dung không có z-index riêng.
 - **Lỗi đã gặp và sửa trong P7 (stacking):** ban đầu `.admin-shell__content` có `z-index: 1`, tạo stacking context riêng nên modal (z-index 1000) bị sidebar (z-index 20) đè lên. Cách sửa: `.admin-shell { isolation: isolate }`, khung trắng `::before` dùng `z-index: -1`, bỏ z-index của content. Đã kiểm lại bằng chuỗi computed style và ảnh `impl-modal-*`.
 - **Tương phản (P8):** chữ phụ `#e0eaff` trên `#2563eb` chỉ đạt 4.28:1 và focus ring rgba 55% chỉ đạt 2.56:1. Đã đổi sang `#f5f8ff` (4.86:1) và outline primary đặc (5.17:1). Các mảng nền trắng trong suốt (0.14–0.2) trên nền xanh làm chữ trắng tụt khoảng 4:1, nên đổi thành lớp phủ tối `--dt-on-accent-surface: rgba(15,23,80,.22)` (≥ 6.7:1).
 - **Ngoài phần style "theo ảnh", có thêm 2 chỉnh layout trong file theme**, vẫn nằm trong file đã duyệt:
   - (a) `.interactions-header__actions` không có CSS trong `globals.css` nên 2 nút xếp dọc; theme xếp lại thành hàng ngang.
   - (b) ở ≤ 900px, layout cũ để sidebar `position: fixed` rộng 260px, nên trên 375px phần nội dung chỉ còn khoảng 115px. Theme chuyển sidebar thành thanh trên cùng, nav cuộn ngang. Cả hai sửa lỗi layout có sẵn, không đổi markup.
 - **Giới hạn còn lại:** ở 375px, nav sidebar cuộn ngang nên mục đang chọn có thể nằm ngoài vùng nhìn thấy (vd. "Quy tắc tương tác"). Vẫn dùng được nhưng chưa tự cuộn tới mục active, vì muốn vậy phải thêm JS, ngoài phạm vi "chỉ giao diện". Nhãn trong 4 thẻ stats của trang thuốc và tương tác vẫn xuống dòng ở 1440px; hiện tượng này có từ layout cũ, theme không đổi grid đó.
-- `dashboard-theme.css` dài 974 dòng, vượt ngưỡng mềm 800 dòng của quy ước code. Tôi giữ một file vì plan đã duyệt chỉ cho phép đúng file này. File chia theo khối có tiêu đề (token, khung, sidebar, topbar, thang cỡ Tổng quan, bảng, modal, responsive). Nếu reviewer muốn tách (vd. `dashboard-theme.overview.css`) thì cần reopen plan để thêm file vào bảng phạm vi.
+- `dashboard-theme.css` dài 1022 dòng, vượt ngưỡng mềm 800 dòng của quy ước code. Tôi giữ một file vì plan đã duyệt chỉ cho phép đúng file này. File chia theo khối có tiêu đề (token, khung, sidebar, topbar, thang cỡ Tổng quan, bảng, modal, responsive). Nếu reviewer muốn tách (vd. `dashboard-theme.overview.css`) thì cần reopen plan để thêm file vào bảng phạm vi.
 - Dev server khi đang HMR từng log `Module not found: './dashboard-theme.css'`, trong khoảng vài giây giữa lúc sửa `layout.tsx` và lúc tạo file CSS. Các lần chạy CDP sau đó trên trình duyệt sạch đều có `consoleErrors: []`.
 - Cấu hình chạy preview nằm ở `D:\Captone\.claude\launch.json`, ngoài repo.
 
@@ -82,4 +84,4 @@ Không có.
 
 - Đang chờ: người duyệt.
 - Việc cần làm: người duyệt xem ảnh trong `evidence/` rồi chạy `python .agents/scripts/gate.py approve adhoc-20261025-admin-ui-redesign implement`; sau đó agent làm giai đoạn test (`wf-test`). Chưa commit code trong `frontend` và artifact `04`.
-- Cập nhật lần cuối: 2026-10-25 16:05, Claude Code (sau vòng tinh chỉnh P12)
+- Cập nhật lần cuối: 2026-10-26, Claude Code (sau vòng 2, P13)

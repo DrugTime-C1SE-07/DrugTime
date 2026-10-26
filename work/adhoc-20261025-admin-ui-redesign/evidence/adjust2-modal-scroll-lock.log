@@ -1,0 +1,24 @@
+[
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "scrollY": 268,
+      "modalOpen": false,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    }
+  },
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "scrollY": 0,
+      "modalOpen": true,
+      "bodyOverflow": "hidden",
+      "htmlOverflow": "visible"
+    }
+  }
+]
