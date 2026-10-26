@@ -33,5 +33,12 @@
     "head": "test/3.25-family-adherence-history-tests",
     "submodule_sha": "1809e2fe16a785a179b5149e6d90911b90544c09",
     "draft": true
+  },
+  "DrugTime": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime/pull/43",
+    "base": "main",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": null,
+    "draft": true
   }
 }
