@@ -1,0 +1,3 @@
+Restored GET /adherence and seven schemas from 382fb13; all other contract values preserved.
+Schemas: AdherenceSummary, AdherenceDose, AdherenceDateGroup, AdherenceMedicationGroup, AdherenceByDateResponse, AdherenceByMedicationResponse, AdherenceHistoryResponse
+Resolved local references: 16

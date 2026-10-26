@@ -1,0 +1,72 @@
+$kind: collection
+name: DrugTime Adherence
+description: 'PB21 · GET /adherence. Nguồn chuẩn: api_contract/openapi.json; khôi phục từ 382fb13. Chỉ chạy API
+  local với dữ liệu test. Kiểm audit/thu hồi/idempotency bằng pytest PostgreSQL thật.'
+auth:
+  type: bearer
+  credentials:
+  - key: token
+    value: '{{family_access_token}}'
+scripts:
+- type: http:beforeRequest
+  language: text/javascript
+  code: |-
+    const base = pm.variables.get("base_url");
+    if (!/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(base || "")) throw new Error("Chỉ chạy collection này với HTTP loopback local");
+- type: http:afterResponse
+  language: text/javascript
+  code: |
+    pm.test("Không cache response sức khỏe", () => pm.expect(pm.response.headers.get("Cache-Control")).to.eql("no-store"));
+    pm.test("Response là JSON", () => pm.expect(pm.response.headers.get("Content-Type")).to.include("application/json"));
+    const body = pm.response.json();
+    if (pm.response.code === 200) {
+      const expected = ["patient_id", "from", "to", "timezone", "as_of", "summary", "group_by", "groups"];
+      pm.test("Đúng patient và các field contract", () => {
+        pm.expect(Object.keys(body).sort()).to.eql(expected.slice().sort());
+        pm.expect(body.patient_id).to.eql(pm.variables.get("patient_id"));
+        pm.expect(body.timezone).to.eql("Asia/Ho_Chi_Minh");
+        pm.expect(body.as_of).to.match(/\+07:00$/);
+      });
+      function checkSummary(s) {
+        pm.expect(Object.keys(s).sort()).to.eql(["total", "taken", "late", "missed", "pending", "counted", "adherence_rate"].slice().sort());
+        for (const k of ["total", "taken", "late", "missed", "pending", "counted"]) {
+          pm.expect(Number.isInteger(s[k]) && s[k] >= 0).to.eql(true);
+        }
+        pm.expect(s.total).to.eql(s.taken+s.late+s.missed+s.pending);
+        pm.expect(s.counted).to.eql(s.total-s.pending);
+        if (s.counted === 0) pm.expect(s.adherence_rate).to.eql(null);
+        else pm.expect(s.adherence_rate).to.eql(Math.round(10000*(s.taken+s.late)/s.counted)/100);
+      }
+      pm.test("Tỷ lệ, nhóm và liều tuân contract", () => {
+        checkSummary(body.summary);
+        pm.expect(body.groups).to.be.an("array");
+        const seen = new Set();
+        let total=0;
+        for (const g of body.groups) {
+          pm.expect(Object.keys(g).sort()).to.eql((body.group_by === "date" ? ["date", "summary", "doses"] : ["medication_id", "medication_name", "summary", "doses"]).slice().sort());
+          checkSummary(g.summary);
+          pm.expect(g.doses.length).to.be.above(0);
+          pm.expect(g.summary.total).to.eql(g.doses.length);
+          total+=g.summary.total;
+          for (const d of g.doses) {
+            pm.expect(Object.keys(d).sort()).to.eql(["medication_id", "medication_name", "schedule_id", "scheduled_at", "taken_at", "status", "status_source"].slice().sort());
+            pm.expect(["da_uong","uong_tre","bo_lo","cho_xac_nhan"]).to.include(d.status);
+            pm.expect(["recorded","inferred"]).to.include(d.status_source);
+            pm.expect(d.scheduled_at).to.match(/\+07:00$/);
+            if (["da_uong","uong_tre"].includes(d.status)) {
+              pm.expect(d.status_source).to.eql("recorded");
+              pm.expect(d.taken_at).to.be.a("string").and.match(/\+07:00$/);
+            } else pm.expect(d.taken_at).to.eql(null);
+            if (d.status === "cho_xac_nhan") pm.expect(d.status_source).to.eql("inferred");
+            const key=String(d.schedule_id)+"/"+d.scheduled_at;
+            pm.expect(seen.has(key)).to.eql(false); seen.add(key);
+          }
+        }
+        pm.expect(body.summary.total).to.eql(total);
+      });
+    } else {
+      pm.test("Lỗi không kèm lịch sử sức khỏe", () => {
+        pm.expect(body).to.have.property("detail");
+        for (const k of ["groups","summary","patient_id"]) pm.expect(body).not.to.have.property(k);
+      });
+    }

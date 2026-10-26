@@ -1,0 +1,38 @@
+test-baseline.log: credential-pattern redactions=0
+test-db-reset.log: credential-pattern redactions=0
+test-final-check.log: credential-pattern redactions=0
+test-final-gate.log: credential-pattern redactions=0
+test-gate.log: credential-pattern redactions=0
+test-history.log: credential-pattern redactions=0
+test-history.xml: credential-pattern redactions=0
+test-integration.log: credential-pattern redactions=0
+test-integration.xml: credential-pattern redactions=0
+test-mobile.log: credential-pattern redactions=0
+test-scope-before-commit.log: credential-pattern redactions=0
+test-scope.log: credential-pattern redactions=0
+test-supabase-start.log: credential-pattern redactions=0
+test-unit.log: credential-pattern redactions=0
+test-unit.xml: credential-pattern redactions=0
+testcase-verify.log: credential-pattern redactions=0
+testcase-xlsx.log: credential-pattern redactions=0
+test-unit: JUnit {"error": 1, "success": 1333, "failure": 32}
+test-history: JUnit {"failure": 31, "success": 29}
+test-integration: JUnit {"success": 1053, "failure": 49}
+Full integration: pytest reports 1052 passed + 1 XPASS; JUnit success=1053 includes that XPASS.
+.
+## test/3.25-family-adherence-history-tests
+ M backend
+ M docs
+ M frontend
+ M tests
+backend
+## test/3.25-family-adherence-history-tests
+frontend
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+tests
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+docs
+## test/3.25-family-adherence-history-tests
+ M Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+api_contract
+## main...origin/main

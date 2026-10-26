@@ -1,0 +1,2 @@
+Removed only the workflow created by this turn's spec generator; it pointed at a temporary scratch spec. Existing .postman/resources.yaml unchanged.
+PASS: console proves 75 assertions / 0 failures across 9 runs / 14 requests.

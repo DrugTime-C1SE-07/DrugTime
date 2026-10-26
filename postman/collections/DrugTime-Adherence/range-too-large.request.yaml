@@ -1,0 +1,24 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/adherence?patient_id={{patient_id}}&from=2026-01-01&to=2026-04-01&group_by=date'
+headers:
+- key: Accept
+  value: application/json
+name: Từ chối khoảng hơn 90 ngày
+order: 6000
+queryParams:
+- key: patient_id
+  value: '{{patient_id}}'
+- key: from
+  value: '2026-01-01'
+- key: to
+  value: '2026-04-01'
+- key: group_by
+  value: date
+scripts:
+- type: afterResponse
+  language: text/javascript
+  code: |-
+    pm.test("HTTP 422", () => pm.response.to.have.status(422));
+    pm.test("Mã khoảng ngày theo contract", () => pm.expect(pm.response.json().detail).to.eql("adherence_range_too_large"));
+examples: ./.resources/range-too-large.resources/examples

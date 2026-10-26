@@ -1,0 +1,916 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "FADH",
+      "name": "Lịch sử tuân thủ cho người thân",
+      "sheet": "Lịch sử tuân thủ người thân",
+      "description": "PB21: lịch sử, quyền truy cập, thu hồi, audit, tỷ lệ và dữ liệu phiên.",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-24",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "P7: history integration 66 Pass/2 Fail; BUG-3.25-01 còn mở. Runner unit 19 Pass; host HTTP/DB/audit đạt. Android linked/revoke/cross_patient có Pass, revoke hai lần Pass sau handshake Fail đầu chưa rõ nguyên nhân. OS/cache bền/selector UI và AC8 còn Pending; BUG-3.25-02 giữ widget retest trước.",
+      "ep": [
+        {
+          "field": "Quyền người thân",
+          "valid": [
+            "Link active + sharing + hai consent"
+          ],
+          "invalid": [
+            "Không liên kết hoặc patient khác",
+            "Thiếu health_data",
+            "Thiếu family_sharing",
+            "Sharing tắt"
+          ]
+        },
+        {
+          "field": "Mẫu số tỷ lệ",
+          "valid": [
+            "Liều xác nhận hợp lệ hoặc chưa xác nhận đã quá +120",
+            "Không có liều đủ điều kiện"
+          ],
+          "invalid": []
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền xem lịch sử PB21",
+          "conditions": [
+            {
+              "name": "Link active",
+              "values": [
+                "Yes",
+                "No",
+                "Yes",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "health_data",
+              "values": [
+                "Yes",
+                "Yes",
+                "No",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "family_sharing",
+              "values": [
+                "Yes",
+                "Yes",
+                "Yes",
+                "No",
+                "Yes"
+              ]
+            },
+            {
+              "name": "sharing_enabled",
+              "values": [
+                "Yes",
+                "Yes",
+                "Yes",
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "200 + allowed",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "403 + denied",
+              "rules": [
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-FADH-01",
+          "description": "Xem cùng lịch sử bằng patient và người thân",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "2026-10-19 08:00 +07; status=da_uong",
+          "expected": "200; payload đúng contract, hai response giống nhau; mỗi caller có allowed; audit không chứa nội dung thuốc/liều.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC1,AC9 · Decision Table (R1) · EP (1) · test_self_and_family_success_are_audited · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-02",
+          "description": "Chặn người thân chưa liên kết",
+          "precondition": "Supabase local; patient P tồn tại, có health_data và liều; family F là user khác, không có caregiver_link tới P. Không dựng liên kết active trong ca này.",
+          "steps": [
+            "Dựng P và liều bằng history_data; tạo F bằng make.user(), không gọi family_of/link.",
+            "GET /adherence?patient_id=P bằng bearer mobile của F.",
+            "Kiểm 403 {detail: khong_co_quyen}, Cache-Control: no-store; không có lịch sử trong body.",
+            "Đọc access_logs của P: actor F, result denied; so dose_logs trước/sau không đổi."
+          ],
+          "data": "case=unlinked; patient_id=P",
+          "expected": "403 {detail: khong_co_quyen}; Cache-Control: no-store; có denied và dose_logs không đổi.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Decision Table (R2) · EP (4) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[unlinked] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-03",
+          "description": "Chặn khi thiếu consent sức khỏe",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực. Thu hồi health_data của P",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "case=health_consent; patient_id=P",
+          "expected": "403 {detail: khong_co_quyen}; Cache-Control: no-store; có denied và dose_logs không đổi.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Decision Table (R3) · EP (5) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[health_consent] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-04",
+          "description": "Chặn khi thiếu consent chia sẻ",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực. Thu hồi family_sharing của P",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "case=family_consent; patient_id=P",
+          "expected": "403 {detail: khong_co_quyen}; Cache-Control: no-store; có denied và dose_logs không đổi.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Decision Table (R4) · EP (6) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[family_consent] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-05",
+          "description": "Chặn khi bệnh nhân tắt chia sẻ",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực. Đặt sharing_enabled=false",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "case=sharing_off; patient_id=P",
+          "expected": "403 {detail: khong_co_quyen}; Cache-Control: no-store; có denied và dose_logs không đổi.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Decision Table (R5) · EP (7) · test_unlinked_missing_consents_sharing_off_admin_denied_and_audited__AC11[sharing_off] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-06",
+          "description": "Chặn sửa patient_id sang bệnh nhân khác",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực. Thêm patient Q không liên kết với F.",
+          "steps": [
+            "Dựng P có liều; family F liên kết active, sharing bật và hai consent của P còn hiệu lực; tạo patient Q không liên kết với F.",
+            "GET /adherence?patient_id=P bằng token F, kiểm 200 và allowed của P theo contract chuẩn.",
+            "Giữ nguyên token F, sửa query thành patient_id=Q rồi GET /adherence.",
+            "Kiểm request Q trả 403 {detail: khong_co_quyen}, không có dữ liệu P/Q; access_logs Q có denied actor F; P chỉ có allowed từ request đầu."
+          ],
+          "data": "patient_id=Q",
+          "expected": "403; denied cho Q; không trả dữ liệu Q; request P trước đó có allowed.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · EP (4) · kiểm truy cập chéo · test_family_patient_selector_tamper · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-07",
+          "description": "Mất quyền ngay sau thay đổi health_consent",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Giữ nguyên token; thực hiện health_consent.",
+            "Gửi GET /adherence ngay bằng cùng token và kiểm denied."
+          ],
+          "data": "change=health_consent; cùng bearer session",
+          "expected": "Request đầu 200, request kế tiếp 403 {detail: khong_co_quyen}; audit lần lượt allowed, denied.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC5 · Chuyển trạng thái (allowed → denied) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[health_consent] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-08",
+          "description": "Mất quyền ngay sau thay đổi family_consent",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Giữ nguyên token; thực hiện family_consent.",
+            "Gửi GET /adherence ngay bằng cùng token và kiểm denied."
+          ],
+          "data": "change=family_consent; cùng bearer session",
+          "expected": "Request đầu 200, request kế tiếp 403 {detail: khong_co_quyen}; audit lần lượt allowed, denied.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC5 · Chuyển trạng thái (allowed → denied) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[family_consent] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-09",
+          "description": "Mất quyền ngay sau thay đổi sharing_off",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Giữ nguyên token; thực hiện sharing_off.",
+            "Gửi GET /adherence ngay bằng cùng token và kiểm denied."
+          ],
+          "data": "change=sharing_off; cùng bearer session",
+          "expected": "Request đầu 200, request kế tiếp 403 {detail: khong_co_quyen}; audit lần lượt allowed, denied.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC5 · Chuyển trạng thái (allowed → denied) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[sharing_off] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-10",
+          "description": "Mất quyền ngay sau thay đổi unlink",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Giữ nguyên token; thực hiện unlink.",
+            "Gửi GET /adherence ngay bằng cùng token và kiểm denied."
+          ],
+          "data": "change=unlink; cùng bearer session",
+          "expected": "Request đầu 200, request kế tiếp 403 {detail: khong_co_quyen}; audit lần lượt allowed, denied.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC5 · Chuyển trạng thái (allowed → denied) · test_revoke_sharing_off_unlink_denies_immediate_next_request_same_token__AC12[unlink] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-11",
+          "description": "Chặn lịch sử khi lỗi allowed_insert",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gắn fault injection allowed_insert theo test access.",
+            "GET /adherence, kiểm status/body, log, SQL history read và snapshot DB."
+          ],
+          "data": "failure=allowed_insert",
+          "expected": "500 {detail: Internal server error}; no-store; không trả dữ liệu sức khỏe; không thay dose_logs; lỗi quyền/audit trước đọc thì không SELECT lịch sử.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC7 · Đoán lỗi (fail-closed) · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[allowed_insert] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-12",
+          "description": "Chặn lịch sử khi lỗi commit",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gắn fault injection commit theo test access.",
+            "GET /adherence, kiểm status/body, log, SQL history read và snapshot DB."
+          ],
+          "data": "failure=commit",
+          "expected": "500 {detail: Internal server error}; no-store; không trả dữ liệu sức khỏe; không thay dose_logs; lỗi quyền/audit trước đọc thì không SELECT lịch sử.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC7 · Đoán lỗi (fail-closed) · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[commit] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-13",
+          "description": "Chặn lịch sử khi lỗi denied_insert",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gắn fault injection denied_insert theo test access.",
+            "GET /adherence, kiểm status/body, log, SQL history read và snapshot DB."
+          ],
+          "data": "failure=denied_insert",
+          "expected": "500 {detail: Internal server error}; no-store; không trả dữ liệu sức khỏe; không thay dose_logs; lỗi quyền/audit trước đọc thì không SELECT lịch sử.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC7 · Đoán lỗi (fail-closed) · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[denied_insert] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-14",
+          "description": "Chặn lịch sử khi lỗi permission_read",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gắn fault injection permission_read theo test access.",
+            "GET /adherence, kiểm status/body, log, SQL history read và snapshot DB."
+          ],
+          "data": "failure=permission_read",
+          "expected": "500 {detail: Internal server error}; no-store; không trả dữ liệu sức khỏe; không thay dose_logs; lỗi quyền/audit trước đọc thì không SELECT lịch sử.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC7 · Đoán lỗi (fail-closed) · test_audit_permission_and_commit_failure_fail_closed_without_health__AC13[permission_read] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-15",
+          "description": "Giữ denied audit sau rollback nghiệp vụ",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực. Thu hồi health_data.",
+          "steps": [
+            "Gắn context theo dõi rollback như test.",
+            "GET /adherence bằng patient P.",
+            "Sau rollback đọc access_logs bằng kết nối DB riêng."
+          ],
+          "data": "health_data=thu_hoi",
+          "expected": "403; outer transaction đã rollback; denied consent_revoked còn bền.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC7 · Đoán lỗi (rollback) · test_denied_audit_survives_outer_transaction_rollback · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-16",
+          "description": "Từ chối phiên missing",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chuẩn bị auth theo kind của test (không in token).",
+            "GET /adherence.",
+            "Kiểm 401, no-store, body chỉ có detail và không ghi allowed."
+          ],
+          "data": "kind=missing",
+          "expected": "401; no-store; không trả dữ liệu sức khỏe; không có access_logs.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Đoán lỗi (xác thực) · test_authentication_401_and_no_store_without_health_payload__AC14[missing] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-17",
+          "description": "Từ chối phiên invalid",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chuẩn bị auth theo kind của test (không in token).",
+            "GET /adherence.",
+            "Kiểm 401, no-store, body chỉ có detail và không ghi allowed."
+          ],
+          "data": "kind=invalid",
+          "expected": "401; no-store; không trả dữ liệu sức khỏe; không có access_logs.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Đoán lỗi (xác thực) · test_authentication_401_and_no_store_without_health_payload__AC14[invalid] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-18",
+          "description": "Từ chối phiên expired",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chuẩn bị auth theo kind của test (không in token).",
+            "GET /adherence.",
+            "Kiểm 401, no-store, body chỉ có detail và không ghi allowed."
+          ],
+          "data": "kind=expired",
+          "expected": "401; no-store; không trả dữ liệu sức khỏe; không có access_logs.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Đoán lỗi (xác thực) · test_authentication_401_and_no_store_without_health_payload__AC14[expired] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-19",
+          "description": "Từ chối phiên erased",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chuẩn bị auth theo kind của test (không in token).",
+            "GET /adherence.",
+            "Kiểm 401, no-store, body chỉ có detail và không ghi allowed."
+          ],
+          "data": "kind=erased",
+          "expected": "401; no-store; không trả dữ liệu sức khỏe; không có access_logs.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC4 · Đoán lỗi (xác thực) · test_authentication_401_and_no_store_without_health_payload__AC14[erased] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-20",
+          "description": "Tính ngay xác nhận tại -30 phút",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay0, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=-30 phút; status=da_uong",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "Hai ca unit và hai ca family API/DB (date/medication) Fail: xác nhận -30 được nhận, dose_log tồn tại và audit allowed nhưng lịch sử total/taken/counted=0, rate=null thay vì 1/100. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Fail",
+          "comments": "PB21 · AC2,AC3 · BVA (-30 phút) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay0- · evidence/test-contract-unit.log/xml · test_family_early_confirmation_counts_immediately__AC3 · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml",
+          "severity": "Medium",
+          "root_cause": "BUG-3.25-01: domain build_history và SQL reader lọc scheduled_at <= as_of; đã tái hiện ở family API/DB, không chỉ unit. Contract gốc giữ quy tắc loại liều chưa đến giờ, khác ngoại lệ AC3 được người dùng chốt.",
+          "evidence": "evidence/test-contract-history-final.log"
+        },
+        {
+          "id": "TC-FADH-21",
+          "description": "Tính ngay xác nhận tại 0 phút",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay1, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=0 phút; status=da_uong",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (0 phút) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay1- · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-22",
+          "description": "Tính ngay xác nhận tại +30 phút",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay2, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=+30 phút; status=da_uong",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (+30 phút) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay2- · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-23",
+          "description": "Tính ngay xác nhận tại +30 phút +1µs",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay3, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=+30 phút +1µs; status=uong_tre",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (+30 phút +1µs) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay3- · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-24",
+          "description": "Tính ngay xác nhận tại +119 phút 59 giây",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay4, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=+119 phút 59 giây; status=uong_tre",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (+119 phút 59 giây) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay4- · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-25",
+          "description": "Tính ngay xác nhận tại +120 phút",
+          "precondition": "Unit application: access Mock cho phép, reader trả một HistoryRow; chưa chứng minh PEP/DB.",
+          "steps": [
+            "Chạy test tại backend/tests/unit/test_get_adherence_history.py với delay5, cả group_by=date và medication.",
+            "Quan sát ở đúng taken_at; kiểm summary, nhóm và một dose."
+          ],
+          "data": "scheduled_at=08:00 +07; delay=+120 phút; status=uong_tre",
+          "expected": "total=1, counted=1, rate=100.00; taken/late đúng trạng thái; đúng một liều ngay khi xác nhận.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (+120 phút) · EP (2) · test_confirmed_before_deadline_counts_immediately__AC3[delay5- · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-26",
+          "description": "Chuyển pending tại +120 thành missed ngay sau hạn",
+          "precondition": "Unit: một liều taken và một liều chưa xác nhận; thử cả status=None và bo_lo cũ.",
+          "steps": [
+            "Chạy backend/tests/unit/test_get_adherence_history.py::test_unconfirmed_pending_at_deadline_then_missed__AC3.",
+            "So summary tại +120 và +120+1µs, hai kiểu nhóm."
+          ],
+          "data": "scheduled=08:00; as_of=10:00 và 10:00:00.000001 +07",
+          "expected": "Tại hạn pending=1,counted=1,rate=100; sau hạn missed=1,counted=2,rate=50; không nhân đôi liều.",
+          "actual": "4 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (max,max+1) · Chuyển trạng thái (pending → missed) · test_unconfirmed_pending_at_deadline_then_missed__AC3 · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-27",
+          "description": "Trả tỷ lệ null khi không có mẫu số",
+          "precondition": "Unit: không có liều hoặc chỉ có pending.",
+          "steps": [
+            "Chạy backend/tests/unit/test_get_adherence_history.py::test_no_eligible_dose_has_null_rate__AC3.",
+            "Kiểm date và medication, có/không có pending."
+          ],
+          "data": "as_of=10:00 +07; counted=0",
+          "expected": "adherence_rate=None; trường hợp rỗng không có nhóm, pending không vào mẫu số.",
+          "actual": "4 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC3 · EP (3) · test_no_eligible_dose_has_null_rate__AC3 · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-28",
+          "description": "Không tăng tỷ lệ khi thực uống sau hạn",
+          "precondition": "Unit: tạo DoseConfirmation tại +120+1µs.",
+          "steps": [
+            "Chạy backend/tests/unit/test_get_adherence_history.py::test_after_deadline_confirmation_does_not_raise_rate__AC3.",
+            "So lịch sử trước và sau xác nhận, cả hai kiểu nhóm."
+          ],
+          "data": "taken_at=10:00:00.000001 +07 cho lịch 08:00",
+          "expected": "status=bo_lo; counted=1, rate=0.00 trước và sau.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC3 · BVA (max+1) · Chuyển trạng thái (missed không trở thành tuân thủ) · test_after_deadline_confirmation_does_not_raise_rate__AC3 · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-29",
+          "description": "Tính xác nhận hợp lệ được đồng bộ sau hạn",
+          "precondition": "Unit: thực uống +90 nhưng sync +121 phút.",
+          "steps": [
+            "Chạy backend/tests/unit/test_get_adherence_history.py::test_valid_confirmation_synced_after_deadline_still_counts__AC3.",
+            "Kiểm status, taken_at và tỷ lệ."
+          ],
+          "data": "scheduled=08:00; taken=09:30; synced=10:01 +07",
+          "expected": "uong_tre; total=late=counted=1, rate=100.00; taken_at=09:30.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC3 · Chuyển trạng thái (đồng bộ muộn) · test_valid_confirmation_synced_after_deadline_still_counts__AC3 · evidence/test-contract-unit.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-30",
+          "description": "Phân nhóm và tính tỷ lệ 80% trên DB thật",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "3 taken,1 late,1 missed; hai thuốc trùng tên khác ID",
+          "expected": "Hai kiểu nhóm có tổng 5, counted=5,rate=80; ID thuốc không bị gộp nhầm; no-store, allowed và DB không đổi.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC1,AC2,AC3 · EP (1) · test_patient_history_by_date_medication_groups_and_80_percent · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-31",
+          "description": "Giữ đúng ngày Việt Nam qua nửa đêm",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "Lịch và xác nhận hai phía 00:00 Asia/Ho_Chi_Minh",
+          "expected": "Nhóm theo ngày scheduled_at ở Việt Nam, thứ tự ngày đúng, không nhân đôi liều.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC2 · BVA (ngày) · test_scheduled_date_across_midnight · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-32",
+          "description": "Chấp nhận khoảng ngày 90 và chặn 91 ngày",
+          "precondition": "Unit resolve_range; không có DB.",
+          "steps": [
+            "Chạy tests/unit/test_adherence_history.py::test_inclusive_90_allowed_91_rejected."
+          ],
+          "data": "Khoảng bao gồm hai đầu dài 90 và 91 ngày",
+          "expected": "90 được chấp nhận; 91 bị từ chối.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. Unit; chưa thay bằng chứng API/DB.",
+          "status": "Pass",
+          "comments": "PB21 · AC2 · BVA (max,max+1) · test_inclusive_90_allowed_91_rejected · evidence/test-contract-unit.log/xml"
+        },
+        {
+          "id": "TC-FADH-33",
+          "description": "Không tạo trùng khi sync lại cùng client_uuid",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chạy backend/tests/integration/test_adherence_history_api.py::test_late_sync_worker_log_and_retry_keep_one_occurrence__AC15_AC20.",
+            "Kiểm một occurrence, client_uuid và status sau Worker + retry."
+          ],
+          "data": "taken +90; sync sau +120; cùng client_uuid hai lần",
+          "expected": "Một dose_log và một occurrence; giữ xác nhận hợp lệ; lịch sử phản ánh liều trễ.",
+          "actual": "1 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · Đoán lỗi (idempotency) · test_late_sync_worker_log_and_retry_keep_one_occurrence · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-34",
+          "description": "Giữ xác nhận khi Worker chạy đua",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Chạy backend/tests/integration/test_adherence_history_api.py::test_worker_insert_races_with_valid_late_confirmation__AC15_AC20_AC22.",
+            "Thử worker/confirmation ghi trước; kiểm một liều và trạng thái cuối."
+          ],
+          "data": "first_writer=worker/confirmation; taken hợp lệ +90",
+          "expected": "Một occurrence/dose_log; uong_tre; không ghi đè xác nhận hợp lệ.",
+          "actual": "2 ca Pass trong lần chạy sau khôi phục contract, 25/10/2026. FastAPI TestClient + PostgreSQL local thật; đã vượt assertion contract và kiểm hiệu ứng DB/audit của test. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · Đoán lỗi (race) · test_worker_insert_races_with_valid_late_confirmation · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-35",
+          "description": "Kiểm biên xác nhận ngay trước −30 phút",
+          "precondition": "Supabase local; patient P có health_data và lịch schedule_id=S ngày 19/10/2026 lúc 08:00 +07; chưa có dose_log cho occurrence; đồng hồ test cố định sau taken_at; dùng bearer của P để xác nhận, không dùng family F.",
+          "steps": [
+            "Ghi số dose_logs của (S, 2026-10-19T08:00:00+07:00) trước khi gọi API.",
+            "POST /doses/batch bằng bearer P với JSON array gồm một item: client_uuid=UUID v4 mới, schedule_id=S, scheduled_at=2026-10-19T08:00:00+07:00, taken_at=2026-10-19T07:29:59.999999+07:00.",
+            "Kiểm item bị từ chối theo cửa sổ QD-03; đối chiếu response với contract chuẩn khi có.",
+            "Đọc DB: không có xác nhận hợp lệ mới, số dose_logs của occurrence không tăng. GET lịch sử một mình không thay thế thao tác POST xác nhận này."
+          ],
+          "data": "scheduled=08:00; taken=07:29:59.999999 +07",
+          "expected": "Bị từ chối theo cửa sổ xác nhận QD-03; không tạo xác nhận hợp lệ.",
+          "actual": "Hai cách nhóm date/medication Pass trên API/DB thật. POST batch trả 200, item failed=1/taken_at_too_early; không tạo dose_log; family GET trả lịch sử rỗng, audit allowed. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (min-1) · test_family_confirmation_adjacent_boundaries__AC2_AC3[before-early-window] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-36",
+          "description": "Kiểm biên ngay trước +30 phút",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Tạo patient/family và lịch 08:00 qua fixture history_data.",
+            "Dùng bearer P POST /doses/batch: client_uuid mới, schedule_id=S, scheduled_at=08:00, taken_at=08:29:59.999999 +07; đồng hồ test bằng taken_at; kiểm item synced/da_uong.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "scheduled=08:00; taken=08:29:59.999999 +07",
+          "expected": "da_uong; tỷ lệ có liều hợp lệ ngay khi xác nhận.",
+          "actual": "Hai cách nhóm date/medication Pass trên API/DB thật. POST xác nhận 08:29:59.999999 hợp lệ; family GET có một da_uong, counted=1/rate=100 ngay, audit allowed; GET không đổi dose_log. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC2,AC3 · BVA (+30-1) · test_family_confirmation_adjacent_boundaries__AC2_AC3[before-on-time-deadline] · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-37",
+          "description": "Loại liều hủy và biểu diễn xung đột/đối soát",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Đối chiếu contract 3.23 với QD-42.",
+            "Khi schema hỗ trợ, tạo liều hủy/xung đột/đối soát theo fixture thật.",
+            "Gọi GET /adherence?patient_id=P&from=2026-10-19&to=2026-10-19 bằng app session của F.",
+            "Đối chiếu response, dose_logs và access_logs bằng assertion của test nêu ở Comments."
+          ],
+          "data": "Liều hủy; liều xung đột; liều đối soát",
+          "expected": "Loại liều hủy; nhãn tạm thời, tính lại và thời điểm/phiên bản cập nhật theo QD-42 được đặc tả và kiểm chứng.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC8 · Chuyển trạng thái (đối soát) · Pending: dữ liệu/field đối soát chưa được đặc tả; không tạo oracle giả."
+        },
+        {
+          "id": "TC-FADH-38",
+          "description": "Kiểm tỷ lệ đúng giờ riêng theo QD-42",
+          "precondition": "DB Supabase local reset sạch; dùng fixture history_data; patient P có health_data; family F liên kết active, sharing=true và family_sharing của P còn hiệu lực.",
+          "steps": [
+            "Đọc định nghĩa tử số/mẫu số và field trong contract 3.23.",
+            "Tạo liều đúng giờ, trễ, pending và missed; GET /adherence.",
+            "So tỷ lệ với công thức đã chốt."
+          ],
+          "data": "1 taken,1 late,1 missed,1 pending",
+          "expected": "Có công thức và response biểu diễn tỷ lệ đúng giờ riêng đã được chủ sở hữu chốt.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC8 · EP (2,3) · Pending: Contract /adherence đã khôi phục nhưng chưa biểu diễn tỷ lệ đúng giờ riêng; không suy ra công thức."
+        },
+        {
+          "id": "TC-FADH-39",
+          "description": "Xóa dữ liệu phiên khi đổi bệnh nhân",
+          "precondition": "Thiết bị Android test package riêng; production UI 3.24 đã có; family F đã mở lịch sử P bằng local API/DB.",
+          "steps": [
+            "Mở app test và chọn P trong Người thân.",
+            "Mở lịch sử, xác nhận có liều.",
+            "Thực hiện đổi bệnh nhân.",
+            "Kiểm không hiển thị dữ liệu cũ, không lưu bền, response cũ không phục hồi dữ liệu."
+          ],
+          "data": "P có liều 08:00; Q không có dữ liệu của P; sự kiện=đổi bệnh nhân",
+          "expected": "Dữ liệu sức khỏe cũ bị xóa khỏi RAM/UI; không có cache bền; không phục hồi bởi response đến muộn.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC6 · Chuyển trạng thái (session) · manual · Pending: Android emulator-5580 đã chạy production route với local API/DB thật: linked Pass, revoke hai lần Pass, cross_patient Pass; chưa kiểm thao tác selector UI chính và cache bền. Lượt đầu revoke có handshake Fail chưa xác định nguyên nhân, giữ log đỏ. evidence/test-p7-android.log; evidence/test-p7-android-revoke-diagnostic.log; evidence/test-p7-android-final.log"
+        },
+        {
+          "id": "TC-FADH-40",
+          "description": "Xóa dữ liệu phiên khi mất mạng",
+          "precondition": "Widget test production FamilyAdherenceScreen/DrugTimeApp; repository cấp fixture thuốc giả; đã kiểm Thuốc A hiện trước trigger. Không phải Android/API thật.",
+          "steps": [
+            "Chạy family_adherence_screen_test.dart bằng flutter test.",
+            "Load lịch sử, kiểm Thuốc A đang hiện.",
+            "Emit false qua ConnectivityMonitor do app đăng ký; pump UI.",
+            "Kiểm không còn text Thuốc A, kể cả offstage.",
+            "Emit true để online lại; kiểm có request mới và chưa hiện dữ liệu cũ.",
+            "Hoàn tất request mới bằng denied; kiểm thông báo Không còn quyền xem lịch sử."
+          ],
+          "data": "Fixture thuốc giả Thuốc A; ngày VN hiện tại của route app.",
+          "expected": "Sau mất mạng, dữ liệu sức khỏe cũ biến mất ngay khỏi UI, kể cả offstage.",
+          "actual": "Pass trên frontend 46275fa: offline xóa toàn bộ Text Thuốc A kể cả offstage; online lại tạo GET mới, chưa hiển thị dữ liệu cũ; phản hồi denied hiện Không còn quyền xem lịch sử. Widget test, chưa xác minh lifecycle Android/API thật.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Chuyển trạng thái (session) · unit/widget · AC6 QD-29: offline removes health data · BUG-3.25-02 đã xác nhận fix ở widget; native OS Pending · evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-41",
+          "description": "Xóa dữ liệu phiên khi đưa app vào nền",
+          "precondition": "Widget test production FamilyAdherenceScreen/DrugTimeApp; repository cấp fixture thuốc giả; đã kiểm Thuốc A hiện trước trigger. Không phải Android/API thật.",
+          "steps": [
+            "Chạy family_adherence_screen_test.dart bằng flutter test.",
+            "Load lịch sử, kiểm Thuốc A đang hiện.",
+            "Phát inactive → hidden → paused rồi pump một frame.",
+            "Kiểm không còn text Thuốc A, kể cả offstage.",
+            "Resume để bắt đầu request mới, đưa app về paused và hoàn tất response cũ; kiểm không có Thuốc A.",
+            "Refresh trong paused; kiểm không phát sinh GET.",
+            "Resume lần nữa; kiểm có request mới, trả denied và kiểm thông báo Không còn quyền xem lịch sử."
+          ],
+          "data": "Fixture thuốc giả Thuốc A; screen clock 22/10/2026; lifecycle inactive/hidden/paused.",
+          "expected": "Sau vào nền, dữ liệu sức khỏe cũ biến mất ngay khỏi UI, kể cả offstage.",
+          "actual": "Pass trên frontend 46275fa: inactive/hidden/paused xóa toàn bộ Text Thuốc A kể cả offstage; response thành công tới muộn không khôi phục dữ liệu; refresh khi paused không gọi thêm GET; resumed gọi lại và denied không hiện dữ liệu cũ. Widget test, chưa xác minh lifecycle Android thật.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Chuyển trạng thái (session) · unit/widget · AC6 QD-29: background removes health data · BUG-3.25-02 đã xác nhận fix ở widget; native OS Pending · evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-42",
+          "description": "Xóa dữ liệu phiên khi đăng xuất",
+          "precondition": "Thiết bị Android test package riêng; production UI 3.24 đã có; family F đã mở lịch sử P bằng local API/DB.",
+          "steps": [
+            "Mở app test và chọn P trong Người thân.",
+            "Mở lịch sử, xác nhận có liều.",
+            "Thực hiện đăng xuất.",
+            "Kiểm không hiển thị dữ liệu cũ, không lưu bền, response cũ không phục hồi dữ liệu."
+          ],
+          "data": "P có liều 08:00; Q không có dữ liệu của P; sự kiện=đăng xuất",
+          "expected": "Dữ liệu sức khỏe cũ bị xóa khỏi RAM/UI; không có cache bền; không phục hồi bởi response đến muộn.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC6 · Chuyển trạng thái (session) · manual · Pending: Android emulator-5580 đã chạy production route với local API/DB thật: linked Pass, revoke hai lần Pass, cross_patient Pass; chưa kiểm logout trên Android. Lượt đầu revoke có handshake Fail chưa xác định nguyên nhân, giữ log đỏ. evidence/test-p7-android.log; evidence/test-p7-android-revoke-diagnostic.log; evidence/test-p7-android-final.log"
+        },
+        {
+          "id": "TC-FADH-43",
+          "description": "Xóa dữ liệu phiên khi nhận 403",
+          "precondition": "Thiết bị Android test package riêng; production UI 3.24 đã có; family F đã mở lịch sử P bằng local API/DB.",
+          "steps": [
+            "Mở app test và chọn P trong Người thân.",
+            "Mở lịch sử, xác nhận có liều.",
+            "Thực hiện nhận 403.",
+            "Kiểm không hiển thị dữ liệu cũ, không lưu bền, response cũ không phục hồi dữ liệu."
+          ],
+          "data": "P có liều 08:00; Q không có dữ liệu của P; sự kiện=nhận 403",
+          "expected": "Dữ liệu sức khỏe cũ bị xóa khỏi RAM/UI; không có cache bền; không phục hồi bởi response đến muộn.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC6 · Chuyển trạng thái (session) · manual · Pending: Android emulator-5580 đã chạy production route với local API/DB thật: linked Pass, revoke hai lần Pass, cross_patient Pass; đã kiểm 403 trên route; chưa kiểm toàn bộ cache bền/response tới muộn trên thiết bị. Lượt đầu revoke có handshake Fail chưa xác định nguyên nhân, giữ log đỏ. evidence/test-p7-android.log; evidence/test-p7-android-revoke-diagnostic.log; evidence/test-p7-android-final.log"
+        },
+        {
+          "id": "TC-FADH-44",
+          "description": "Chỉ xem lịch sử trên Mobile và chạy E2E thu hồi",
+          "precondition": "UI 3.24 và Android test package riêng cùng local API/DB.",
+          "steps": [
+            "Chọn P; mở lịch sử; tìm thao tác sửa lịch/xác nhận hộ.",
+            "Bệnh nhân thu hồi quyền; refresh lịch sử bằng cùng phiên.",
+            "Đổi sang Q và kiểm không còn dữ liệu P."
+          ],
+          "data": "Family F; linked P; unlinked Q",
+          "expected": "Không có thao tác ghi hộ; request sau thu hồi 403, không còn dữ liệu cũ; DB có denied.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "PB21 · AC1,AC4,AC5,AC6 · manual/E2E · Pending: Android emulator-5580 đã chạy production route với local API/DB thật: linked Pass, revoke hai lần Pass, cross_patient Pass; đã kiểm route read-only/revoke/cross-patient; chưa kiểm chọn patient từ UI chính. Lượt đầu revoke có handshake Fail chưa xác định nguyên nhân, giữ log đỏ. evidence/test-p7-android.log; evidence/test-p7-android-revoke-diagnostic.log; evidence/test-p7-android-final.log"
+        },
+        {
+          "id": "TC-FADH-45",
+          "description": "Truy vết PB21 và gộp test case tổng",
+          "precondition": "Báo cáo test và workbook đã được dựng bằng script chuẩn.",
+          "steps": [
+            "Đối chiếu AC1–AC9 với test, XML và log.",
+            "Chạy testcase_xlsx.py validate/build/merge 3.25.",
+            "So sheet cũ và đếm trạng thái/Bug Report; đọc báo cáo để phân biệt lỗi với Pending."
+          ],
+          "data": "PB21; code FADH; task 3.25",
+          "expected": "Mỗi AC có ca; một sheet FADH; các sheet chức năng cũ giữ nguyên; Fail có bug, Pending không được báo Pass.",
+          "actual": "Đối chiếu evidence P7: history integration 66 Pass/2 Fail; 19 host-runner unit Pass; ba scenario host HTTP/PEP/DB đạt; Android linked Pass, revoke hai lần Pass và cross_patient Pass. Lượt đầu revoke handshake Fail chưa rõ nguyên nhân được giữ riêng. Giữ 53 ID với 46 Pass/1 Fail/6 Pending; dựng/gộp bằng script chuẩn, 20 sheet khác giữ nguyên. Không nghiệm thu toàn PB21/OS/selector/AC8. evidence/test-p7-final-verify.log; evidence/test-p7-android-final.log.",
+          "status": "Pass",
+          "comments": "PB21 · AC9 · manual (đối chiếu artifact) · evidence/test-contract-workbook-verify.log · evidence/test-contract-testcase-xlsx.log · Lượt P7 evidence/test-p7-final-verify.log"
+        },
+        {
+          "id": "TC-FADH-46",
+          "description": "Gọi lại GET với patient và bearer hiện tại sau từ chối; không trả cache khi lỗi mạng",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "Mock HTTP: GET thành công, GET 403 rồi GET lại với bearer mới; nhánh khác thành công rồi ném ClientException.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "Mock HTTP: GET thành công, GET 403 rồi GET lại với bearer mới; nhánh khác thành công rồi ném ClientException.",
+          "expected": "Mỗi lần fetch gửi GET mới với patient_id/date/group_by và bearer hiện tại; 403/network truyền failure, không trả lịch sử cũ.",
+          "actual": "2 test Pass trong phiên 25/10/2026; AC4: refetches the selected patient and current bearer after a denial; AC6: a network failure after success never returns cached history. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC4,AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-47",
+          "description": "Từ chối response thuộc patient khác ở repository và controller",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "Request Q nhưng HTTP/reader cấp response P; UUID P và Q khác nhau.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "Request Q nhưng HTTP/reader cấp response P; UUID P và Q khác nhau.",
+          "expected": "Repository ném invalidResponse; controller không giữ history P.",
+          "actual": "2 test Pass trong phiên 25/10/2026; AC4: a response for P cannot satisfy a request for Q; AC4: the controller also rejects a mismatched patient from its reader. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC4,AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-48",
+          "description": "Hủy response cũ khi refresh, đổi patient hoặc clear controller",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "Completer điều khiển thứ tự: load P; hai refresh cạnh tranh hoặc đổi sang Q hoặc clear; hoàn tất response cũ sau failure/response mới.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "Completer điều khiển thứ tự: load P; hai refresh cạnh tranh hoặc đổi sang Q hoặc clear; hoàn tất response cũ sau failure/response mới.",
+          "expected": "history bị clear ngay; denied/network/unauthorized đúng failure; response cũ không phục hồi dữ liệu; clear không tự fetch.",
+          "actual": "5 test Pass trong phiên 25/10/2026; AC6: refresh clears RAM before AdherenceFailureKind.denied and accepts no stale success; AC6: refresh clears RAM before AdherenceFailureKind.network and accepts no stale success; AC6: refresh clears RAM before AdherenceFailureKind.unauthorized and accepts no stale success; AC6: switching patient clears visible history and rejects the old result; AC6: clear invalidates an in-flight read without an automatic refetch. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-49",
+          "description": "Xóa dữ liệu widget khi đổi patient hoặc refresh gặp 403/network",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "Widget production đã load Thuốc A; đổi patientId sang Q hoặc refresh rồi trả denied/network.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "Widget production đã load Thuốc A; đổi patientId sang Q hoặc refresh rồi trả denied/network.",
+          "expected": "Không còn Thuốc A trước khi Q hoàn tất hoặc ngay khi refresh; hiện thông báo lỗi tương ứng, không giữ dữ liệu P.",
+          "actual": "3 test Pass trong phiên 25/10/2026; AC6: changing to Q removes P before the Q read completes; AC6: refresh AdherenceFailureKind.denied clears the previously displayed patient; AC6: refresh AdherenceFailureKind.network clears the previously displayed patient. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-50",
+          "description": "Xóa dữ liệu route người thân khi đăng xuất khỏi app",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "DrugTimeApp có session family giả, mở named route lịch sử và load fixture hôm nay; gọi auth.signOut() rồi pump UI.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "DrugTimeApp có session family giả, mở named route lịch sử và load fixture hôm nay; gọi auth.signOut() rồi pump UI.",
+          "expected": "Không còn Thuốc A, kể cả offstage, sau logout trong widget test.",
+          "actual": "1 test Pass trong phiên 25/10/2026; AC6 QD-29: logout removes health data from the actual app. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-51",
+          "description": "Hiển thị lịch sử người thân chỉ đọc",
+          "precondition": "Production repository/controller/widget ở frontend b24ee68; unit/widget dùng mock HTTP/repository và fixture thuốc giả, không chứng minh DB/Android.",
+          "steps": [
+            "Chạy flutter test --no-pub --reporter json; lọc file family_adherence_* tại test/features/family.",
+            "Mở FamilyAdherenceScreen với fixture history; không gọi backend thật.",
+            "Đối chiếu assertion và testDone của đúng test, không tính file adherence cùng tên."
+          ],
+          "data": "Mở FamilyAdherenceScreen với fixture history; không gọi backend thật.",
+          "expected": "Hiện dữ liệu và 66.67%; không có nút Xác nhận/Sửa hoặc TextField.",
+          "actual": "1 test Pass trong phiên 25/10/2026; AC6: the family view has data and no dose or schedule writes. evidence/test-contract-mobile.jsonl. Đã chạy lại nhóm 16 test trong lượt cập nhật contract: 14 Pass/2 Fail; evidence/test-contract-mobile.jsonl. Retest frontend 46275fa: nhóm family history 17 Pass/0 Fail/0 Skip; evidence/test-bug02-family-mobile.jsonl.",
+          "status": "Pass",
+          "comments": "PB21 · AC6 · Đoán lỗi/Chuyển trạng thái · unit/widget · evidence/test-contract-mobile.jsonl · Retest evidence/test-bug02-family-mobile.jsonl",
+          "evidence": "evidence/test-bug02-family-mobile.jsonl"
+        },
+        {
+          "id": "TC-FADH-52",
+          "description": "Tính ngay liều xác nhận và chuyển pending sau +120 qua family API",
+          "precondition": "Supabase local; history_data; P có hai lịch 08:00; F linked active/sharing và đủ consent.",
+          "steps": [
+            "P xác nhận lịch thứ nhất lúc 08:10, lịch thứ hai chưa xác nhận.",
+            "F GET /adherence cho P tại 08:10 và đúng 10:00, với cả group_by=date/medication.",
+            "Dời đồng hồ tới 10:00:00.000001, GET lại với cùng bearer; đối chiếu audit và dose_logs."
+          ],
+          "data": "scheduled=2026-10-19 08:00 +07; taken=08:10; as_of=08:10/10:00/10:00+1µs.",
+          "expected": "Hai lần đầu total=2/taken=1/pending=1/counted=1/rate=100; sau +120 total=2/taken=1/missed=1/counted=2/rate=50. Mỗi GET có family allowed; không ghi dose_log.",
+          "actual": "Hai ca date/medication Pass qua API/DB thật, có assertion summary/audit/dose_logs. Lượt P7 chạy lại toàn backend integration: nhóm history API/PEP 66 Pass/2 Fail, TC20 vẫn Fail ở hai grouping; các ca khác trong nhóm này giữ kết quả. evidence/test-p7-integration.log/xml.",
+          "status": "Pass",
+          "comments": "PB21 · AC1,AC2,AC3 · BVA (max,max+1)/Chuyển trạng thái · test_family_history_rate_transitions__AC1_AC2_AC3 · evidence/test-contract-history-final.log/xml · Retest evidence/test-p7-integration.log/xml"
+        },
+        {
+          "id": "TC-FADH-53",
+          "description": "Chạy collection Postman và thu hồi quyền ngay request kế tiếp",
+          "precondition": "FastAPI loopback chạy bằng api_role; Supabase local; dữ liệu test P/F/Q và app session mobile runtime, không ghi token vào Git.",
+          "steps": [
+            "Chạy sáu request trong collection DrugTime-Adherence bằng environment runtime: date/medication, thiếu bearer, Q không liên kết, group sai, quá 90 ngày.",
+            "Với từng fixture mới, F GET P 200; commit thu hồi health_data/family_sharing/sharing/unlink.",
+            "Giữ nguyên bearer và GET P bằng request Chặn truy cập không có quyền; kiểm 403, audit allowed→denied và dose_logs không đổi."
+          ],
+          "data": "from=to=2026-10-19; fixture thuốc giả; 6 request đầu + 4 cặp before/after = 14 request.",
+          "expected": "14 request đúng status; 75 assertion Pass; 4 request ngay sau thu hồi 403 khong_co_quyen cùng bearer; audit DB đúng actor/scope; dose_logs không đổi.",
+          "actual": "9 lượt collection CLI exit 0: tổng 14 request/75 assertion Pass; kiểm DB ở 5 kịch bản Pass; report-events tắt, file bearer tạm đã xóa.",
+          "status": "Pass",
+          "comments": "PB21 · AC1,AC4,AC5,AC9 · Decision Table (R1–R5)/Chuyển trạng thái · evidence/test-postman-live.log · evidence/test-postman-live-summary.json"
+        }
+      ]
+    }
+  ]
+}

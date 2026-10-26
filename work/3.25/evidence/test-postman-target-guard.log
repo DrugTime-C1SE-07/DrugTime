@@ -1,0 +1,45 @@
+Guard CLI exit 1 local HTTP hits 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  1⠄ Error in unknown-script
+  GET http://127.0.0.1:63993/unexpected-path/adherence?patient_id=11111111-1111-4111-8111-111111111111&from=2026-10-19&to=2026-10-19&group_by=date 
+-------------------------------------------------
+|                         | executed |   failed |
+--------------------------+----------+-----------
+|              iterations |        1 |        0 |
+--------------------------+----------+-----------
+|                requests |        1 |        1 |
+--------------------------+----------+-----------
+|            test-scripts |        0 |        0 |
+--------------------------+----------+-----------
+|      prerequest-scripts |        0 |        0 |
+--------------------------+----------+-----------
+|              assertions |        0 |        0 |
+-------------------------------------------------
+| total run duration: 310 ms                    |
+-------------------------------------------------
+| total data received: 0 B (approx)             |
+-------------------------------------------------
+
+  #  failure  detail                                          
+                                                              
+ 1.  Error                                                    
+              Chỉ chạy collection này với HTTP loopback local 
+              at script                                       
+              inside "Xem lịch sử theo ngày"                  
+                                                              
+ 2.  Error                                                    
+              Chỉ chạy collection này với HTTP loopback local 
+              at request                                      
+              inside "Xem lịch sử theo ngày"                  
+
+
+PASS: inherited collection pre-request guard blocks a malformed target before HTTP. No token used.

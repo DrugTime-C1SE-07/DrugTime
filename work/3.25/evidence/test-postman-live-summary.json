@@ -1,0 +1,48 @@
+{
+  "target": "loopback FastAPI + local PostgreSQL/api_role",
+  "runs": [
+    {
+      "phase": "contract-smoke-six-requests",
+      "exit_code": 0
+    },
+    {
+      "phase": "health_consent-before",
+      "exit_code": 0
+    },
+    {
+      "phase": "health_consent-next-request-same-bearer",
+      "exit_code": 0
+    },
+    {
+      "phase": "family_consent-before",
+      "exit_code": 0
+    },
+    {
+      "phase": "family_consent-next-request-same-bearer",
+      "exit_code": 0
+    },
+    {
+      "phase": "sharing_off-before",
+      "exit_code": 0
+    },
+    {
+      "phase": "sharing_off-next-request-same-bearer",
+      "exit_code": 0
+    },
+    {
+      "phase": "unlink-before",
+      "exit_code": 0
+    },
+    {
+      "phase": "unlink-next-request-same-bearer",
+      "exit_code": 0
+    }
+  ],
+  "requests": 14,
+  "db_scenarios": 5,
+  "all_pass": true,
+  "mock": false,
+  "report_events": false,
+  "assertions": 75,
+  "failed_assertions": 0
+}

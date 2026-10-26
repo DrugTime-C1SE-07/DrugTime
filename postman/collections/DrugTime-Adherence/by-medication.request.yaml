@@ -1,0 +1,24 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/adherence?patient_id={{patient_id}}&from={{from_date}}&to={{to_date}}&group_by=medication'
+headers:
+- key: Accept
+  value: application/json
+name: Xem lịch sử theo thuốc
+order: 2000
+queryParams:
+- key: patient_id
+  value: '{{patient_id}}'
+- key: from
+  value: '{{from_date}}'
+- key: to
+  value: '{{to_date}}'
+- key: group_by
+  value: medication
+scripts:
+- type: afterResponse
+  language: text/javascript
+  code: |-
+    pm.test("HTTP 200", () => pm.response.to.have.status(200));
+    pm.test("Nhóm medication", () => pm.expect(pm.response.json().group_by).to.eql("medication"));
+examples: ./.resources/by-medication.resources/examples

@@ -1,0 +1,33 @@
+.
+## test/3.25-family-adherence-history-tests
+ M backend
+ M docs
+ M frontend
+ M tests
+c70ab134333f45c1b153564aa3e87d1eef827864
+
+backend
+## test/3.25-family-adherence-history-tests
+ M tests/unit/test_get_adherence_history.py
+d88af5c7606979f7689e5570c4ad6a5d79f673c2
+
+frontend
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+f9ff26350e65f790ae60e26f0da7c23acb7aa4a8
+
+api_contract
+## main...origin/main
+aaf5eee8e7212fbbd0a53e772c404325698fa76d
+
+tests
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+ac207f40cd2f78508a79b12150e83569b939cf4c
+
+docs
+## test/3.25-family-adherence-history-tests
+ M Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+b8d7bea4d5b97f468fcdff7d114ad366dae16e36
+
+contract /adherence: False
+adherence schemas: []
+production UI files: []

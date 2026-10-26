@@ -1,0 +1,44 @@
+{
+  "DrugTime-api_contract": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime-api_contract/pull/15",
+    "base": "main",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": "67df99067c5b67398d43552c17542a66f7aa0b1a",
+    "draft": true
+  },
+  "DrugTime-backend": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime-backend/pull/41",
+    "base": "test/3.15-redeem-flow-tests",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": "d2d3e4c15b226b0dd56a06632f22f748b0431b05",
+    "draft": true
+  },
+  "DrugTime-frontend": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime-frontend/pull/45",
+    "base": "main",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": "46275fa7aa07df0abf2f5db0dde51882b99249a1",
+    "draft": true
+  },
+  "DrugTime-test": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime-test/pull/2",
+    "base": "test/3.15-redeem-flow-tests",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": "17baaf69282e0dc712aa26f200c65a1acb5fdb67",
+    "draft": true
+  },
+  "DrugTime-docs": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime-docs/pull/19",
+    "base": "test/3.15-redeem-flow-tests",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": "1809e2fe16a785a179b5149e6d90911b90544c09",
+    "draft": true
+  },
+  "DrugTime": {
+    "url": "https://github.com/DrugTime-C1SE-07/DrugTime/pull/43",
+    "base": "main",
+    "head": "test/3.25-family-adherence-history-tests",
+    "submodule_sha": null,
+    "draft": true
+  }
+}

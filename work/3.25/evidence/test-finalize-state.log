@@ -1,0 +1,30 @@
+warning: could not open directory '.pytest_cache/': Permission denied
+ M api_contract
+ M backend
+ M docs
+ M frontend
+ M tests
+backend
+49f2f114e323af660c5d797c7af910cf6400872d
+## test/3.25-family-adherence-history-tests
+frontend
+a147ed4b611220e321e6f3e31f22394b8b627885
+## test/3.25-family-adherence-history-tests...origin/main [ahead 1]
+api_contract
+585e99cf516c8b01706c0591dc8186985cff59d5
+## main...origin/main
+tests
+ac207f40cd2f78508a79b12150e83569b939cf4c
+warning: could not open directory '.pytest_cache/': Permission denied
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+docs
+3077e2e18c0c6e79827261faf06c80aa945eb98f
+## test/3.25-family-adherence-history-tests
+ M Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          CFD0CD7F32898663EA90AB297FAD05B6ED5D30639B9D3D88D96B7E3F17E4933C       D:\DrugTime\source\DrugTime\work…
+SHA256          52D3D8EBAA884AE28C31748F63351CAFF059FB61684C32BE0B75E5C2832CC955       D:\DrugTime\source\DrugTime\work…
+SHA256          3079A8A649346EACB9E52E560A09A5E708C983F050CB008A920336DD0A6AF2D9       D:\DrugTime\source\DrugTime\work…
+

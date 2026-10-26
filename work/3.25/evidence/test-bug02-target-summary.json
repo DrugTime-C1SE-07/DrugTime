@@ -1,0 +1,98 @@
+{
+  "frontend": "46275fa",
+  "target": {
+    "counts": {
+      "Pass": 17
+    },
+    "done": [
+      {
+        "success": true,
+        "type": "done",
+        "time": 12458
+      }
+    ],
+    "cases": [
+      {
+        "name": "AC4: refetches the selected patient and current bearer after a denial",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.denied and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.network and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: a network failure after success never returns cached history",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.unauthorized and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC4: a response for P cannot satisfy a request for Q",
+        "result": "success"
+      },
+      {
+        "name": "AC6: switching patient clears visible history and rejects the old result",
+        "result": "success"
+      },
+      {
+        "name": "AC6: clear invalidates an in-flight read without an automatic refetch",
+        "result": "success"
+      },
+      {
+        "name": "AC4: the controller also rejects a mismatched patient from its reader",
+        "result": "success"
+      },
+      {
+        "name": "AC6: the family view has data and no dose or schedule writes",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.denied clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.network clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "AC6: changing to Q removes P before the Q read completes",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: background removes family health data immediately",
+        "result": "success"
+      },
+      {
+        "name": "AC6: unavailable history rejects late reads and reloads on return",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: offline removes health data from the actual app",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: logout removes health data from the actual app",
+        "result": "success"
+      }
+    ],
+    "errors": []
+  },
+  "master_conflicts": [
+    {
+      "id": "TC-FADH-40",
+      "master": "Fail",
+      "retest": "Pass"
+    },
+    {
+      "id": "TC-FADH-41",
+      "master": "Fail",
+      "retest": "Pass"
+    }
+  ]
+}

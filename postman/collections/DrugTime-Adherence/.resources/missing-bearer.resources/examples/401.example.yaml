@@ -1,0 +1,19 @@
+$kind: http-example
+name: 401 · Từ chối khi thiếu bearer
+request:
+  url: '{{base_url}}/adherence'
+  method: GET
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+  - key: Content-Type
+    value: application/json
+  - key: Cache-Control
+    value: no-store
+  body:
+    type: json
+    content: |-
+      {
+        "detail": "Missing bearer token"
+      }

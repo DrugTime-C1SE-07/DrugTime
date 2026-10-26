@@ -1,0 +1,24 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/adherence?patient_id={{denied_patient_id}}&from={{from_date}}&to={{to_date}}&group_by=date'
+headers:
+- key: Accept
+  value: application/json
+name: Chặn truy cập không có quyền
+order: 4000
+queryParams:
+- key: patient_id
+  value: '{{denied_patient_id}}'
+- key: from
+  value: '{{from_date}}'
+- key: to
+  value: '{{to_date}}'
+- key: group_by
+  value: date
+scripts:
+- type: afterResponse
+  language: text/javascript
+  code: |-
+    pm.test("HTTP 403", () => pm.response.to.have.status(403));
+    pm.test("Mã từ chối theo contract", () => pm.expect(pm.response.json().detail).to.eql("khong_co_quyen"));
+examples: ./.resources/cross-patient.resources/examples

@@ -1,0 +1,3209 @@
+{
+  "test-bug02-family-mobile": {
+    "counts": {
+      "Pass": 17
+    },
+    "done": [
+      {
+        "success": true,
+        "type": "done",
+        "time": 12458
+      }
+    ],
+    "cases": [
+      {
+        "name": "AC4: refetches the selected patient and current bearer after a denial",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.denied and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.network and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: a network failure after success never returns cached history",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.unauthorized and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC4: a response for P cannot satisfy a request for Q",
+        "result": "success"
+      },
+      {
+        "name": "AC6: switching patient clears visible history and rejects the old result",
+        "result": "success"
+      },
+      {
+        "name": "AC6: clear invalidates an in-flight read without an automatic refetch",
+        "result": "success"
+      },
+      {
+        "name": "AC4: the controller also rejects a mismatched patient from its reader",
+        "result": "success"
+      },
+      {
+        "name": "AC6: the family view has data and no dose or schedule writes",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.denied clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.network clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "AC6: changing to Q removes P before the Q read completes",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: background removes family health data immediately",
+        "result": "success"
+      },
+      {
+        "name": "AC6: unavailable history rejects late reads and reloads on return",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: offline removes health data from the actual app",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: logout removes health data from the actual app",
+        "result": "success"
+      }
+    ],
+    "errors": []
+  },
+  "test-bug02-mobile-full": {
+    "counts": {
+      "Pass": 770,
+      "Skip": 1,
+      "Fail": 1
+    },
+    "done": [
+      {
+        "success": false,
+        "type": "done",
+        "time": 92359
+      }
+    ],
+    "cases": [
+      {
+        "name": "clock captures Vietnam launch date at 14:00 across month/year/timezone",
+        "result": "success"
+      },
+      {
+        "name": "identity, clock and memory dependencies are per epoch; signout clears auth",
+        "result": "success"
+      },
+      {
+        "name": "late 401 from A cannot clear active account B",
+        "result": "success"
+      },
+      {
+        "name": "DELETE JSON keeps body and bearer, accepts only confirmed 204",
+        "result": "success"
+      },
+      {
+        "name": "gắn Authorization: Bearer khi có token",
+        "result": "success"
+      },
+      {
+        "name": "không gắn header khi chưa đăng nhập (token null)",
+        "result": "success"
+      },
+      {
+        "name": "401 gọi onUnauthorized rồi ném ApiException 401",
+        "result": "success"
+      },
+      {
+        "name": "lỗi khác 401 không gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "getJson gửi GET kèm query đã mã hoá và giải mã JSON",
+        "result": "success"
+      },
+      {
+        "name": "patchJson gửi PATCH với body JSON",
+        "result": "success"
+      },
+      {
+        "name": "delete nhận 204 trả null",
+        "result": "success"
+      },
+      {
+        "name": "putJson gửi PUT đúng body và Bearer, chấp nhận 204",
+        "result": "success"
+      },
+      {
+        "name": "post gửi POST không body, không Content-Type, kèm Bearer",
+        "result": "success"
+      },
+      {
+        "name": "postJson với body null vẫn gửi \"null\" (lý do cần post)",
+        "result": "success"
+      },
+      {
+        "name": "post: lỗi 409 ném ApiException kèm mã và body",
+        "result": "success"
+      },
+      {
+        "name": "GET nhận 401 gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "POST nhận 401 gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "PUT nhận 401 gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "PATCH nhận 401 gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "DELETE nhận 401 gọi onUnauthorized",
+        "result": "success"
+      },
+      {
+        "name": "429 kèm Retry-After số giây → retryAfter",
+        "result": "success"
+      },
+      {
+        "name": "preview requires both debug build and request",
+        "result": "success"
+      },
+      {
+        "name": "429 không có Retry-After → retryAfter null",
+        "result": "success"
+      },
+      {
+        "name": "Retry-After dạng ngày giờ hoặc không dương → retryAfter null",
+        "result": "success"
+      },
+      {
+        "name": "mọi ảnh trong AppAssets đều được khai báo trong pubspec và đọc được",
+        "result": "success"
+      },
+      {
+        "name": "optional Firebase configuration missing native configuration disables push without failing startup",
+        "result": "success"
+      },
+      {
+        "name": "optional Firebase configuration unrelated initialization errors are reported",
+        "result": "success"
+      },
+      {
+        "name": "positive int64 boundary and malformed payload",
+        "result": "success"
+      },
+      {
+        "name": "refresh sends previous token atomically; late old-installation event cannot register for B",
+        "result": "success"
+      },
+      {
+        "name": "foreground only displays valid ID; stale callback ignored after logout",
+        "result": "success"
+      },
+      {
+        "name": "iOS does not touch Firebase or foreground Android path",
+        "result": "success"
+      },
+      {
+        "name": "delayed PUT settles before logout DELETE with old bearer; late refresh ignored",
+        "result": "success"
+      },
+      {
+        "name": "failed DELETE retains cleanup; retry and restart rotate before new registration",
+        "result": "success"
+      },
+      {
+        "name": "401 rotates the old installation without claiming token or recursive DELETE",
+        "result": "success"
+      },
+      {
+        "name": "409 rotates the old installation without claiming token or recursive DELETE",
+        "result": "success"
+      },
+      {
+        "name": "deleteToken failure survives restart and blocks a new user PUT",
+        "result": "success"
+      },
+      {
+        "name": "notificationIdFor (AC1..AC4) AC1: returns deterministic IDs matching Python test vectors",
+        "result": "success"
+      },
+      {
+        "name": "notificationIdFor (AC1..AC4) AC2: produces distinct IDs for different schedules or times",
+        "result": "success"
+      },
+      {
+        "name": "notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs",
+        "result": "success"
+      },
+      {
+        "name": "notificationIdFor (AC1..AC4) AC4: throws ArgumentError for non-UTC scheduledAt",
+        "result": "success"
+      },
+      {
+        "name": "NotificationPayload (AC5) round-trips valid data correctly",
+        "result": "success"
+      },
+      {
+        "name": "NotificationPayload (AC5) throws ArgumentError if constructed with non-UTC scheduledAt",
+        "result": "success"
+      },
+      {
+        "name": "NotificationPayload (AC5) returns null for corrupt, empty, or invalid input safely",
+        "result": "success"
+      },
+      {
+        "name": "detectIdCollisions (AC6) returns occurrences unchanged when no ID collisions",
+        "result": "success"
+      },
+      {
+        "name": "detectIdCollisions (AC6) detects duplicate ID, logs warning, skips duplicate, keeps original scheduledAt",
+        "result": "success"
+      },
+      {
+        "name": "family namespace handles taps and clears family without replacing reminder handler",
+        "result": "success"
+      },
+      {
+        "name": "NotificationService.init (AC7 & AC8) AC7: initializes Asia/Ho_Chi_Minh and configures Android & Darwin channels",
+        "result": "success"
+      },
+      {
+        "name": "NotificationService.init (AC7 & AC8) AC8: is idempotent when called repeatedly",
+        "result": "success"
+      },
+      {
+        "name": "NotificationService actions (AC9) AC9: forwards parsed NotificationPayload when action is received",
+        "result": "success"
+      },
+      {
+        "name": "NotificationService actions (AC9) AC9: ignores corrupt or invalid payload safely without throwing",
+        "result": "success"
+      },
+      {
+        "name": "không kết nối được máy chủ ném ApiException tạm thời",
+        "result": "success"
+      },
+      {
+        "name": "Static source code checks (AC10) AC10: notification files do not reference forbidden APIs",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC1: schedules N future occurrences via zonedSchedule with exactAllowWhileIdle, correct ID, payload, Vietnam timezone, channel and action button",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC2: skips occurrences scheduled in the past or at current clock time (scheduledAt <= now)",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC3: detects hash ID collisions, drops second colliding occurrence with log, keeps original scheduledAt",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC7: falls back to inexactAllowWhileIdle and logs warning when exact alarm throws exception",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.cancelOccurrence (AC4) AC4: cancels exact notification ID idempotently",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.cancelAllForSchedule (AC5) AC5: cancels only matching pending requests, ignores corrupt payloads",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.handleNotificationResponse (AC6) AC6: invokes onTakeDose callback and cancels notification",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.handleNotificationResponse (AC6) AC6: safely ignores corrupt payload or other action without error",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.snooze (AC5, AC8) schedules snooze notification at remindAt with fullScreenIntent, category alarm, correct id and payload",
+        "result": "success"
+      },
+      {
+        "name": "ReminderNotificationScheduler.snooze (AC5, AC8) falls back to inexactAllowWhileIdle on snooze if exact alarm throws",
+        "result": "success"
+      },
+      {
+        "name": "Static source code checks (AC8) AC8: scheduler source does not reference forbidden APIs",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC1: generates daily occurrences at 01:00Z for 08:00 VN schedule across 3 days",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC2: filters by selected days of week (1, 3, 5) evaluated in VN calendar dates",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC3: handles midnight boundary and filters days_of_week in VN calendar date",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC4: respects window boundaries (inclusive from, exclusive to)",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC5: enforces effective_from and ended_at instant validity (BQ-013)",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC6: handles open-ended schedule when ended_at is null",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC7: sorts stably by medicationScheduleId when scheduled_at matches",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC8: sorts occurrences chronologically for multiple intake times",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC9: excludes schedules with reminder_enabled false",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC10: verifies timezone independence (grep static check and behavior consistency)",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC11: throws ArgumentError for non-UTC dates and returns empty for to <= from",
+        "result": "success"
+      },
+      {
+        "name": "generateOccurrences (SCRUM-60 / Task 2.07) AC12: returns empty list when schedules is empty",
+        "result": "success"
+      },
+      {
+        "name": "bootstrap uses only the explicitly selected source, no external work",
+        "result": "success"
+      },
+      {
+        "name": "cold start waits for consent, then HTTP detail determines patient; background clears it",
+        "result": "success"
+      },
+      {
+        "name": "DefaultKeyguardPlatform isKeyguardLocked calls native channel and returns boolean",
+        "result": "success"
+      },
+      {
+        "name": "DefaultKeyguardPlatform isKeyguardLocked returns false on platform exception",
+        "result": "success"
+      },
+      {
+        "name": "DefaultKeyguardPlatform requestDismissKeyguard calls native channel and returns result",
+        "result": "success"
+      },
+      {
+        "name": "DefaultKeyguardPlatform requestDismissKeyguard returns false on platform exception",
+        "result": "success"
+      },
+      {
+        "name": "tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu",
+        "result": "success"
+      },
+      {
+        "name": "AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev",
+        "result": "success"
+      },
+      {
+        "name": "AC25: menu cài đặt của Hồ sơ chỉ còn Đăng xuất",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule converts to and from database map",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule keeps optional display fields nullable",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule is inactive when reminder is disabled",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule is inactive when schedule has ended",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule supports boundary days of week from 1 to 7",
+        "result": "success"
+      },
+      {
+        "name": "LocalMedicationSchedule stores DateTime values as UTC ISO strings",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog converts to and from database map",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog supports missed dose without takenAt",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog supports late dose status",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog supports failed sync state with error message",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog supports synced state with server id and syncedAt",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog throws when database map has unknown dose status",
+        "result": "success"
+      },
+      {
+        "name": "LocalDoseLog throws when database map has unknown sync state",
+        "result": "success"
+      },
+      {
+        "name": "createClientUuid creates an RFC 4122 version 4 UUID string",
+        "result": "success"
+      },
+      {
+        "name": "createClientUuid creates unique UUIDs across many attempts",
+        "result": "success"
+      },
+      {
+        "name": "syncSchedulesFromServer replaces local schedules and records sync time",
+        "result": "success"
+      },
+      {
+        "name": "syncSchedulesFromServer supports empty server response",
+        "result": "success"
+      },
+      {
+        "name": "syncSchedulesFromServer does not write local data when remote fails",
+        "result": "success"
+      },
+      {
+        "name": "syncSchedulesFromServer does not record sync time when replace fails",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — enqueue & Idempotency enqueue tạo bản ghi mới với trạng thái pending_upload",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — enqueue & Idempotency enqueue lần 2 cho cùng lượt uống bảo toàn nguyên vẹn taken_at và client_uuid",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — enqueue & Idempotency enqueue song song (Future.wait) trên cùng kết nối chỉ tạo duy nhất 1 dòng",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — enqueue & Idempotency enqueue chuẩn hóa múi giờ sang UTC chống trùng lặp chuỗi",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — enqueue & Idempotency Đua lệnh đa kết nối (Multi-connection isolate simulation)",
+        "result": "success"
+      },
+      {
+        "name": "tab Người thân là FamilyTabScreen",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed markSynced cập nhật id, synced_at và phát stream synced",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed markSynced với serverId null không làm mất id đã có (COALESCE)",
+        "result": "success"
+      },
+      {
+        "name": "start syncs pending dose logs immediately when already online",
+        "result": "success"
+      },
+      {
+        "name": "syncs pending dose logs when connectivity comes back",
+        "result": "success"
+      },
+      {
+        "name": "retries transient upload failures with bounded backoff",
+        "result": "success"
+      },
+      {
+        "name": "keeps transient failures pending after max attempts",
+        "result": "success"
+      },
+      {
+        "name": "parses all statuses, offset times and server rate",
+        "result": "success"
+      },
+      {
+        "name": "does not retry non-transient failures",
+        "result": "success"
+      },
+      {
+        "name": "empty history has null rate and no fabricated groups",
+        "result": "success"
+      },
+      {
+        "name": "keeps top-level unauthorized batch pending",
+        "result": "success"
+      },
+      {
+        "name": "does not upload a record again after it is marked synced",
+        "result": "success"
+      },
+      {
+        "name": "rejects missing fields, invalid dates and inconsistent dose",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed markSynced lần 2 không phát lại sự kiện lặp",
+        "result": "success"
+      },
+      {
+        "name": "syncs successful dose results without rolling back failed item",
+        "result": "success"
+      },
+      {
+        "name": "keeps dose logs pending when batch response omits their client uuid",
+        "result": "success"
+      },
+      {
+        "name": "does not treat empty batch response as full success",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed Bản ghi đã synced không bị markFailed ghi đè",
+        "result": "success"
+      },
+      {
+        "name": "ignores response item whose client uuid was not uploaded in batch",
+        "result": "success"
+      },
+      {
+        "name": "does not re-upload dose log after item-level failed state",
+        "result": "success"
+      },
+      {
+        "name": "preserves client uuid when the same scheduled dose is upserted locally",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed Bản ghi failed có thể chuyển sang synced khi server nhận thành công",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — markSynced & markFailed markSynced và markFailed với clientUuid không tồn tại không lỗi và không phát stream",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — watchStatus & Lifecycle watchStatus emit null cho UUID chưa từng tồn tại",
+        "result": "success"
+      },
+      {
+        "name": "loads only the selected month bounded by Vietnam today",
+        "result": "success"
+      },
+      {
+        "name": "DoseApiRemoteDataSource posts backend batch payload and parses json",
+        "result": "success"
+      },
+      {
+        "name": "clears data before refresh and on 403",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — watchStatus & Lifecycle watchStatus phát sự kiện đúng clientUuid và không bị ảnh hưởng bởi UUID khác",
+        "result": "success"
+      },
+      {
+        "name": "changing patient discards late response from previous patient",
+        "result": "success"
+      },
+      {
+        "name": "DoseApiRemoteDataSource parses contract batch item success and failure",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — watchStatus & Lifecycle dispose an toàn, gọi 2 lần không lỗi",
+        "result": "success"
+      },
+      {
+        "name": "rejects future and out-of-range dates without a request",
+        "result": "success"
+      },
+      {
+        "name": "SqliteDoseOutbox — SyncEngine Integration DoseOutboxSyncEngine cập nhật trạng thái outbox và phát stream synced",
+        "result": "success"
+      },
+      {
+        "name": "GET sends patient, bounded dates, group and app bearer on each call",
+        "result": "success"
+      },
+      {
+        "name": "HTTP 401 maps to AdherenceFailureKind.unauthorized without retry",
+        "result": "success"
+      },
+      {
+        "name": "HTTP 403 maps to AdherenceFailureKind.denied without retry",
+        "result": "success"
+      },
+      {
+        "name": "HTTP 422 maps to AdherenceFailureKind.invalidRange without retry",
+        "result": "success"
+      },
+      {
+        "name": "HTTP 503 maps to AdherenceFailureKind.unavailable without retry",
+        "result": "success"
+      },
+      {
+        "name": "rejects a response for another patient",
+        "result": "success"
+      },
+      {
+        "name": "AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ",
+        "result": "success"
+      },
+      {
+        "name": "launch-date mixed fixture covers 24+ doses and seven days across month/year boundaries",
+        "result": "success"
+      },
+      {
+        "name": "exact preset day counts/rates/null, both groupings agree",
+        "result": "success"
+      },
+      {
+        "name": "mixed has distinct names/IDs, same-time occurrences, midnight and prior month",
+        "result": "success"
+      },
+      {
+        "name": "memory repository validates range and typed failures",
+        "result": "success"
+      },
+      {
+        "name": "loading has no timer and close completes pending safely",
+        "result": "success"
+      },
+      {
+        "name": "AC20: Người giám sát trống → Mở tab Người thân về đúng tab",
+        "result": "success"
+      },
+      {
+        "name": "AC25: không còn route /dev-catalog",
+        "result": "success"
+      },
+      {
+        "name": "same-name medications stay separate by ID with every scheduled dose",
+        "result": "success"
+      },
+      {
+        "name": "parses date, counts and four statuses without dropping doses",
+        "result": "success"
+      },
+      {
+        "name": "parses medication, counts and four statuses without dropping doses",
+        "result": "success"
+      },
+      {
+        "name": "empty and pending-only retain null rate",
+        "result": "success"
+      },
+      {
+        "name": "rejects unknown status, missing timezone, invalid counts and duplicates",
+        "result": "success"
+      },
+      {
+        "name": "week and month tap targets are 48dp at 320.0dp",
+        "result": "success"
+      },
+      {
+        "name": "today is selected, same-month day is inline, crossing month reloads",
+        "result": "success"
+      },
+      {
+        "name": "mode back preserves chosen day and reloads date groups",
+        "result": "success"
+      },
+      {
+        "name": "old account completion cannot replace new account data",
+        "result": "success"
+      },
+      {
+        "name": "completion after dispose does not notify or restore data",
+        "result": "success"
+      },
+      {
+        "name": "default range, switch mode keeps month, no future month",
+        "result": "success"
+      },
+      {
+        "name": "latest read wins, data clears before next request and old error ignored",
+        "result": "success"
+      },
+      {
+        "name": "content changes do not replay on group toggles",
+        "result": "success"
+      },
+      {
+        "name": "revocation and account switch invalidate old completions",
+        "result": "success"
+      },
+      {
+        "name": "forbidden clears data, later successful reload and independent expansion",
+        "result": "success"
+      },
+      {
+        "name": "week and month tap targets are 48dp at 375.0dp",
+        "result": "success"
+      },
+      {
+        "name": "Vietnam date and periods do not depend on device timezone",
+        "result": "success"
+      },
+      {
+        "name": "formats rates without multiplying and marks missing/pending correctly",
+        "result": "success"
+      },
+      {
+        "name": "Monday weeks cross month and year without losing any day",
+        "result": "success"
+      },
+      {
+        "name": "actual intake crossing midnight includes actual date",
+        "result": "success"
+      },
+      {
+        "name": "shows server summary and four read-only dose states",
+        "result": "success"
+      },
+      {
+        "name": "live_repository_reads_both_groupings_and_observes_revoke",
+        "result": "Skip"
+      },
+      {
+        "name": "clears patient details before a denied refresh",
+        "result": "success"
+      },
+      {
+        "name": "empty response and network retry have distinct states",
+        "result": "success"
+      },
+      {
+        "name": "rejects invalid route arguments without fetching",
+        "result": "success"
+      },
+      {
+        "name": "opens valid family route with supplied patient",
+        "result": "success"
+      },
+      {
+        "name": "fits narrow viewport and large text",
+        "result": "success"
+      },
+      {
+        "name": "reduced motion displays the destination immediately with stable percentage semantics",
+        "result": "success"
+      },
+      {
+        "name": "enabling reduced motion during sheet entrance completes immediately",
+        "result": "success"
+      },
+      {
+        "name": "day defaults to today and week selection updates inline",
+        "result": "success"
+      },
+      {
+        "name": "incoming content settles within 500ms and does not replay on expansion",
+        "result": "success"
+      },
+      {
+        "name": "logout clears the first frame during content motion",
+        "result": "success"
+      },
+      {
+        "name": "large text stays in one line and scrolls to final label with affordance",
+        "result": "success"
+      },
+      {
+        "name": "info opens, explains short labels, closes and restores opener focus",
+        "result": "success"
+      },
+      {
+        "name": "320.0 dp, text 1.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "revoke and changed account remove incoming content on the first frame",
+        "result": "success"
+      },
+      {
+        "name": "revoke removes information at first frame and only closes owned sheet",
+        "result": "success"
+      },
+      {
+        "name": "integrated five tabs, compact history, no welcome/picker; children preserve day",
+        "result": "success"
+      },
+      {
+        "name": "GET carries explicit selectors and fresh bearer; no patient selector or writes",
+        "result": "success"
+      },
+      {
+        "name": "maps 401 safely and invokes unauthorized handler",
+        "result": "success"
+      },
+      {
+        "name": "maps 403 safely and invokes unauthorized handler",
+        "result": "success"
+      },
+      {
+        "name": "maps 422 safely and invokes unauthorized handler",
+        "result": "success"
+      },
+      {
+        "name": "maps 500 safely and invokes unauthorized handler",
+        "result": "success"
+      },
+      {
+        "name": "maps 200 safely and invokes unauthorized handler",
+        "result": "success"
+      },
+      {
+        "name": "network and consent errors remain failures",
+        "result": "success"
+      },
+      {
+        "name": "route clear during navigation does not retain the outgoing day or child",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(320.0, 1000.0) text 1.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "320.0 dp, text 2.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "logout clears the first frame during route motion",
+        "result": "success"
+      },
+      {
+        "name": "requestMobileOtp gửi POST JSON tới /auth/mobile/otp",
+        "result": "success"
+      },
+      {
+        "name": "verifyMobileOtp trả JSON phiên khi 200",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile gửi bearer và body theo contract",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 401 → AuthErrorKind.invalidCredentials",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 403 → AuthErrorKind.adminMustUseWeb",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 422 → AuthErrorKind.invalidInput",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 422 → AuthErrorKind.invalidInput",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 429 → AuthErrorKind.rateLimited",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 503 → AuthErrorKind.unavailable",
+        "result": "success"
+      },
+      {
+        "name": "calendar selection updates card, CTA and Back preserve day",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP 500 → AuthErrorKind.unavailable",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP body không phải JSON vẫn phân loại theo mã",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP lỗi mạng → network",
+        "result": "success"
+      },
+      {
+        "name": "phân loại lỗi theo mã HTTP quá thời gian chờ → network",
+        "result": "success"
+      },
+      {
+        "name": "expanded group animates its height, clear removes rows immediately",
+        "result": "success"
+      },
+      {
+        "name": "shimmer stops when hidden, inactive, reduced, or removed",
+        "result": "success"
+      },
+      {
+        "name": "cleanup failure preserves old session and successful retry clears it",
+        "result": "success"
+      },
+      {
+        "name": "401 clears session before expired token cleanup and never calls pre-logout DELETE hook",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.invalidCredentials  → \"Mã OTP không đúng hoặc đã hết hạn\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.adminMustUseWeb admin_must_use_web → \"Tài khoản quản trị vui lòng đăng nhập trên trang quản trị\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.invalidInput invalid_phone → \"Số điện thoại không hợp lệ\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.invalidInput  → \"Thông tin chưa hợp lệ, vui lòng kiểm tra lại\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.rateLimited rate_limited → \"Bạn thao tác quá nhanh, vui lòng thử lại sau ít phút\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.unavailable auth_provider_unavailable → \"Hệ thống đang bận, vui lòng thử lại sau\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã verify AuthErrorKind.network  → \"Không kết nối được máy chủ, vui lòng kiểm tra mạng\"",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã request OTP 429 → thông điệp thử lại sau",
+        "result": "success"
+      },
+      {
+        "name": "thông điệp lỗi theo mã lỗi không phải AuthApiException không lộ nội dung",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile người mới: needsProfile = true",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile họ tên rỗng → báo lỗi tại chỗ, không gọi repo",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile thiếu ngày sinh → báo lỗi tại chỗ, không gọi repo",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile ngày sinh tương lai → báo lỗi tại chỗ, không gọi repo",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile thiếu giới tính → báo lỗi tại chỗ, không gọi repo",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile giới tính lạ → báo lỗi tại chỗ, không gọi repo",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile hợp lệ → gọi repo với họ tên đã trim, needsProfile = false",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile API trả 401 → xóa phiên, báo hết phiên",
+        "result": "success"
+      },
+      {
+        "name": "handleUnauthorized xóa phiên và báo listener",
+        "result": "success"
+      },
+      {
+        "name": "termsAccepted mặc định false; setTermsAccepted đổi giá trị và báo listener",
+        "result": "success"
+      },
+      {
+        "name": "termsAccepted signOut đặt lại false",
+        "result": "success"
+      },
+      {
+        "name": "termsAccepted handleUnauthorized (401) đặt lại false",
+        "result": "success"
+      },
+      {
+        "name": "375.0 dp, text 1.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "401 clears the first frame during content motion",
+        "result": "success"
+      },
+      {
+        "name": "double calendar tap opens once; month reload keeps its page",
+        "result": "success"
+      },
+      {
+        "name": "future day cannot be selected in week or month",
+        "result": "success"
+      },
+      {
+        "name": "375.0 dp, text 2.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "preview family routes use memory UI, logout clears history and restart resets",
+        "result": "success"
+      },
+      {
+        "name": "401 clears the first frame during route motion",
+        "result": "success"
+      },
+      {
+        "name": "medication menu opens collapsed groups and Back reloads date",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(320.0, 1000.0) text 2.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "430.0 dp, text 1.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "error differs from empty; retry and loading do not show old summary",
+        "result": "success"
+      },
+      {
+        "name": "consent clears the first frame during content motion",
+        "result": "success"
+      },
+      {
+        "name": "(a) chưa có phiên → màn Đăng nhập",
+        "result": "success"
+      },
+      {
+        "name": "day rate uses its group instead of overall month; pending stays provisional",
+        "result": "success"
+      },
+      {
+        "name": "Đăng nhập không vẽ status bar và home indicator giả",
+        "result": "success"
+      },
+      {
+        "name": "late and pending at 100 percent do not claim completion",
+        "result": "success"
+      },
+      {
+        "name": "Đăng nhập nội dung nằm giữa status bar và thanh điều hướng của hệ điều hành",
+        "result": "success"
+      },
+      {
+        "name": "(h) màn Đăng nhập chưa tick điều khoản → không gửi OTP",
+        "result": "success"
+      },
+      {
+        "name": "dòng phụ trợ dưới ô nhập AC1: tab SĐT dùng icon SMS Material, không còn MessageCircleIcon",
+        "result": "success"
+      },
+      {
+        "name": "Đăng nhập icon status bar màu tối trên nền sáng",
+        "result": "success"
+      },
+      {
+        "name": "430.0 dp, text 2.0, long cards, week/month/menu are accessible",
+        "result": "success"
+      },
+      {
+        "name": "Đăng nhập màn rộng không tự chuyển sang khung mockup 375x812",
+        "result": "success"
+      },
+      {
+        "name": "Đăng nhập khung mockup chỉ hiện khi bật enableFramePreview",
+        "result": "success"
+      },
+      {
+        "name": "consent clears the first frame during route motion",
+        "result": "success"
+      },
+      {
+        "name": "dòng phụ trợ dưới ô nhập AC2: tab Email dùng icon thư, câu chữ giữ nguyên",
+        "result": "success"
+      },
+      {
+        "name": "dòng phụ trợ dưới ô nhập AC4: cỡ chữ 2.0, dòng phụ trợ đủ cao, không bị cắt",
+        "result": "success"
+      },
+      {
+        "name": "Xác thực OTP không vẽ status bar và home indicator giả",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC5: có đúng một ô tick, mặc định chưa tick",
+        "result": "success"
+      },
+      {
+        "name": "verifyOtp lưu phiên vào store",
+        "result": "success"
+      },
+      {
+        "name": "Xác thực OTP nội dung nằm giữa status bar và thanh điều hướng của hệ điều hành",
+        "result": "success"
+      },
+      {
+        "name": "repo mới đọc lại phiên đã lưu (mở lại app)",
+        "result": "success"
+      },
+      {
+        "name": "phiên hết hạn bị xóa và trả null",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile gửi token đang lưu và cập nhật cờ profileComplete",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile lỗi thì phiên giữ nguyên profileComplete=false",
+        "result": "success"
+      },
+      {
+        "name": "completeProfile khi chưa đăng nhập → invalidCredentials, không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "signOut xóa store",
+        "result": "success"
+      },
+      {
+        "name": "toJson/fromJson giữ nguyên mọi field (định dạng lưu)",
+        "result": "success"
+      },
+      {
+        "name": "landscape day and month remain scrollable without overflow",
+        "result": "success"
+      },
+      {
+        "name": "Xác thực OTP icon status bar màu tối trên nền sáng",
+        "result": "success"
+      },
+      {
+        "name": "403 clears the first frame during content motion",
+        "result": "success"
+      },
+      {
+        "name": "Xác thực OTP màn rộng không tự chuyển sang khung mockup 375x812",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC6: SĐT hợp lệ, chưa tick → không gửi OTP, có lỗi yêu cầu đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "Xác thực OTP khung mockup chỉ hiện khi bật enableFramePreview",
+        "result": "success"
+      },
+      {
+        "name": "màn chờ đọc phiên hiện mascot-hello và vòng xoay (AC20)",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(375.0, 1000.0) text 1.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "màn Đăng nhập dùng mascot-hello thay cho logo vẽ bằng code (AC21)",
+        "result": "success"
+      },
+      {
+        "name": "màn Hoàn thiện hồ sơ có mascot-thinking phía trên form (AC22)",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC7: đã tick → gửi OTP một lần và sang màn OTP",
+        "result": "success"
+      },
+      {
+        "name": "load đọc trạng thái từ repository",
+        "result": "success"
+      },
+      {
+        "name": "load lỗi: giữ loadError, chưa isLoaded",
+        "result": "success"
+      },
+      {
+        "name": "grant và withdraw cập nhật đúng mục đích, mục khác giữ nguyên",
+        "result": "success"
+      },
+      {
+        "name": "ghi lỗi: ném ConsentFailure, trạng thái không đổi",
+        "result": "success"
+      },
+      {
+        "name": "clear bỏ trạng thái của người dùng trước",
+        "result": "success"
+      },
+      {
+        "name": "needsTerms chưa đồng ý điều khoản → true",
+        "result": "success"
+      },
+      {
+        "name": "needsTerms đã đồng ý bản hiện hành → false",
+        "result": "success"
+      },
+      {
+        "name": "needsTerms đã đồng ý bản cũ → true; đồng ý lại → false",
+        "result": "success"
+      },
+      {
+        "name": "needsTerms chưa tải → true",
+        "result": "success"
+      },
+      {
+        "name": "(i) AC19: tick → OTP đúng → ghi terms một lần, không hỏi lại điều khoản",
+        "result": "success"
+      },
+      {
+        "name": "403 clears the first frame during route motion",
+        "result": "success"
+      },
+      {
+        "name": "màn nhỏ 360x640, chữ phóng to 1.5x: không tràn bố cục, cuộn tới nút chính Đăng nhập (AC21)",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản bố cục: ô tick thẳng mép trái ô nhập, dòng lỗi căn giữa và cỡ chữ bằng dòng đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản chạm khoảng trống cạnh ô tick cũng đổi trạng thái (cả dòng là vùng chạm)",
+        "result": "success"
+      },
+      {
+        "name": "màn nhỏ 360x640, chữ phóng to 1.5x: không tràn bố cục, cuộn tới nút chính Hoàn thiện hồ sơ (AC22)",
+        "result": "success"
+      },
+      {
+        "name": "câu mới mời đồng ý, không còn giả định đã từng đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản tick sau khi báo lỗi thì lỗi biến mất",
+        "result": "success"
+      },
+      {
+        "name": "background clears the first frame during content motion",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC8: bấm \"Điều khoản dịch vụ\" mở văn bản có phiên bản; quay lại giữ tick và số",
+        "result": "success"
+      },
+      {
+        "name": "Điều khoản dịch vụ phiên bản trùng phiên bản app gửi khi đồng ý, đủ mục",
+        "result": "success"
+      },
+      {
+        "name": "Điều khoản dịch vụ không còn placeholder hay ghi chú nội bộ",
+        "result": "success"
+      },
+      {
+        "name": "(b) OTP đúng, người mới → màn hồ sơ → lưu → Trang chủ",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC8: bấm \"Chính sách quyền riêng tư\" mở văn bản có phiên bản; quay lại giữ tick và số",
+        "result": "success"
+      },
+      {
+        "name": "background clears the first frame during route motion",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(375.0, 1000.0) text 2.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "chưa có health_data → màn đồng ý thay cho Trang chủ",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC9: đổi tab Email rồi quay lại vẫn tick",
+        "result": "success"
+      },
+      {
+        "name": "(b2) hồ sơ thiếu giới tính → báo lỗi, ở lại màn hồ sơ",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản AC10: chạm chữ thường đổi tick; chạm link không đổi",
+        "result": "success"
+      },
+      {
+        "name": "(c) phiên đã lưu, có hồ sơ → vào thẳng Trang chủ",
+        "result": "success"
+      },
+      {
+        "name": "(d) phiên đã lưu, chưa có hồ sơ → màn hồ sơ",
+        "result": "success"
+      },
+      {
+        "name": "ô tick điều khoản chạy độc lập (không có AuthScope): chưa tick vẫn chặn gửi OTP",
+        "result": "success"
+      },
+      {
+        "name": "(d2) phiên đã hết hạn → màn Đăng nhập",
+        "result": "success"
+      },
+      {
+        "name": "hidden tab no GET; resume with month refetches safely",
+        "result": "success"
+      },
+      {
+        "name": "AC16b: TrustCard không còn câu hứa sai",
+        "result": "success"
+      },
+      {
+        "name": "ba mục đích, mỗi mục một công tắc mặc định tắt, không có nút đồng ý tất cả",
+        "result": "success"
+      },
+      {
+        "name": "Điều khoản dịch vụ hiển thị tiêu đề, phiên bản và mọi heading (cuộn được)",
+        "result": "success"
+      },
+      {
+        "name": "đã có health_data → vào AppShell như cũ",
+        "result": "success"
+      },
+      {
+        "name": "Điều khoản dịch vụ cỡ chữ 2.0: không tràn",
+        "result": "success"
+      },
+      {
+        "name": "Chính sách quyền riêng tư phiên bản trùng phiên bản app gửi khi đồng ý, đủ mục",
+        "result": "success"
+      },
+      {
+        "name": "Chính sách quyền riêng tư không còn placeholder hay ghi chú nội bộ",
+        "result": "success"
+      },
+      {
+        "name": "withdraw consent removes month and delayed payload",
+        "result": "success"
+      },
+      {
+        "name": "chưa bật health_data thì không tiếp tục được và không gọi API ghi",
+        "result": "success"
+      },
+      {
+        "name": "Chính sách quyền riêng tư hiển thị tiêu đề, phiên bản và mọi heading (cuộn được)",
+        "result": "success"
+      },
+      {
+        "name": "không tải được consent (mất mạng) → vẫn vào AppShell",
+        "result": "success"
+      },
+      {
+        "name": "(e) Đăng xuất → màn Đăng nhập, phiên bị xóa",
+        "result": "success"
+      },
+      {
+        "name": "Chính sách quyền riêng tư cỡ chữ 2.0: không tràn",
+        "result": "success"
+      },
+      {
+        "name": "liên hệ dùng đúng email đã chốt; mục trẻ em theo lựa chọn 16 tuổi",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(430.0, 1000.0) text 1.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "không truyền repository: mặc định đã đồng ý health_data, vào thẳng AppShell",
+        "result": "success"
+      },
+      {
+        "name": "logout removes month without stale response",
+        "result": "success"
+      },
+      {
+        "name": "(f) API báo 401 (handleUnauthorized) → màn Đăng nhập",
+        "result": "success"
+      },
+      {
+        "name": "(g) OTP sai → thông báo lỗi, vẫn ở màn OTP",
+        "result": "success"
+      },
+      {
+        "name": "fetchAll đọc đủ bốn mục đích của GET /consents",
+        "result": "success"
+      },
+      {
+        "name": "401 removes month without stale response",
+        "result": "success"
+      },
+      {
+        "name": "grant gửi POST /consents với một mục đích và phiên bản văn bản; 201 và 200 đều ok",
+        "result": "success"
+      },
+      {
+        "name": "AC22: server trả mục đích app chưa biết → bỏ qua, không lỗi",
+        "result": "success"
+      },
+      {
+        "name": "thẻ lỗi ở danh sách thuốc có nút mở màn đồng ý; đồng ý xong thì tải lại",
+        "result": "success"
+      },
+      {
+        "name": "grant(terms) gửi purpose terms và phiên bản điều khoản",
+        "result": "success"
+      },
+      {
+        "name": "withdraw gửi POST /consents/{purpose}/withdraw và trả not_granted",
+        "result": "success"
+      },
+      {
+        "name": "map lỗi: 422 outdated, 503 mạng, 401 phiên hết hạn, 422 field",
+        "result": "success"
+      },
+      {
+        "name": "chỉ bật health_data: grant đúng một lần rồi vào AppShell",
+        "result": "success"
+      },
+      {
+        "name": "422 consent_not_withdrawable → unknown",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.denied and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.network and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh clears RAM before AdherenceFailureKind.unauthorized and accepts no stale success",
+        "result": "success"
+      },
+      {
+        "name": "AC6: switching patient clears visible history and rejects the old result",
+        "result": "success"
+      },
+      {
+        "name": "AC6: clear invalidates an in-flight read without an automatic refetch",
+        "result": "success"
+      },
+      {
+        "name": "AC4: the controller also rejects a mismatched patient from its reader",
+        "result": "success"
+      },
+      {
+        "name": "SnackBar lỗi consent_revoked có nút \"Đồng ý\" mở màn đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "bật health_data và ai_meal: mỗi mục đang bật grant đúng một lần",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(430.0, 1000.0) text 2.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "hidden tab no GET; resume with medication refetches safely",
+        "result": "success"
+      },
+      {
+        "name": "lỗi khác không có nút đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "AC4: refetches the selected patient and current bearer after a denial",
+        "result": "success"
+      },
+      {
+        "name": "AC6: a network failure after success never returns cached history",
+        "result": "success"
+      },
+      {
+        "name": "hiện trạng thái hiện tại của ba mục đích",
+        "result": "success"
+      },
+      {
+        "name": "AC4: a response for P cannot satisfy a request for Q",
+        "result": "success"
+      },
+      {
+        "name": "không kết nối được máy chủ → network",
+        "result": "success"
+      },
+      {
+        "name": "lỗi mạng: ở lại màn, báo lỗi; bấm lại chỉ gửi mục chưa thành công",
+        "result": "success"
+      },
+      {
+        "name": "withdraw consent removes medication and delayed payload",
+        "result": "success"
+      },
+      {
+        "name": "tắt health_data: hộp xác nhận nêu hệ quả; Hủy thì không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "(a) AC19: đã tick ở màn đăng nhập → ghi terms ngầm đúng một lần, trước health_data",
+        "result": "success"
+      },
+      {
+        "name": "sau khi đồng ý thì tải lại danh sách thuốc (lần trước bị 403)",
+        "result": "success"
+      },
+      {
+        "name": "tắt health_data và xác nhận: gọi withdraw, công tắc tắt",
+        "result": "success"
+      },
+      {
+        "name": "AC23: điều khoản không phải công tắc màn đồng ý: server có terms nhưng không có công tắc terms",
+        "result": "success"
+      },
+      {
+        "name": "logout removes medication without stale response",
+        "result": "success"
+      },
+      {
+        "name": "late PATCH from another detail is ignored (failure: false)",
+        "result": "success"
+      },
+      {
+        "name": "late PATCH from another detail is ignored (failure: true)",
+        "result": "success"
+      },
+      {
+        "name": "PATCH waits for server, failure preserves unread, success GET confirms badge",
+        "result": "success"
+      },
+      {
+        "name": "background/offline/session clear discards late responses and badge",
+        "result": "success"
+      },
+      {
+        "name": "revoked and badge failure never present previously confirmed count",
+        "result": "success"
+      },
+      {
+        "name": "rút lỗi mạng: công tắc trở về trạng thái cũ và có thông báo",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(812.0, 375.0) text 1.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "bật mục tùy chọn: gọi grant ngay, không hỏi xác nhận",
+        "result": "success"
+      },
+      {
+        "name": "AC23: điều khoản không phải công tắc màn Quyền riêng tư: không có công tắc terms, có link hai văn bản",
+        "result": "success"
+      },
+      {
+        "name": "không tải được: báo lỗi và có nút thử lại",
+        "result": "success"
+      },
+      {
+        "name": "401 removes medication without stale response",
+        "result": "success"
+      },
+      {
+        "name": "load publishes server value and reports loading",
+        "result": "success"
+      },
+      {
+        "name": "failure exposes only failure kind and retry fetches fresh server value",
+        "result": "success"
+      },
+      {
+        "name": "(a) đã tick, đã có health_data → ghi terms rồi vào thẳng AppShell",
+        "result": "success"
+      },
+      {
+        "name": "forbidden read clears and closes medication page",
+        "result": "success"
+      },
+      {
+        "name": "AC6: the family view has data and no dose or schedule writes",
+        "result": "success"
+      },
+      {
+        "name": "iOS inbox has support note, patient, medicine, VN day and read status",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.denied clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "đã tick nhưng server đã có terms bản hiện hành → không ghi gì",
+        "result": "success"
+      },
+      {
+        "name": "revocation removes only history route under another route",
+        "result": "success"
+      },
+      {
+        "name": "maps offset/time, nullable legacy and correct bearer/path/PATCH body",
+        "result": "success"
+      },
+      {
+        "name": "maps HTTP 401 without returning health data",
+        "result": "success"
+      },
+      {
+        "name": "maps HTTP 403 without returning health data",
+        "result": "success"
+      },
+      {
+        "name": "maps HTTP 404 without returning health data",
+        "result": "success"
+      },
+      {
+        "name": "maps HTTP 503 without returning health data",
+        "result": "success"
+      },
+      {
+        "name": "rejects missing field, offset, invalid patient and mismatched ID",
+        "result": "success"
+      },
+      {
+        "name": "AC6: refresh AdherenceFailureKind.network clears the previously displayed patient",
+        "result": "success"
+      },
+      {
+        "name": "detail is read only, legacy fallback and server confirmed mark-read",
+        "result": "success"
+      },
+      {
+        "name": "demo Size(812.0, 375.0) text 2.0 keeps toolbar, dates and long content usable",
+        "result": "success"
+      },
+      {
+        "name": "AC6: changing to Q removes P before the Q read completes",
+        "result": "success"
+      },
+      {
+        "name": "GET gửi bearer token và giữ nguyên code cùng qr_payload",
+        "result": "success"
+      },
+      {
+        "name": "401, 403, 503 chuyển thành failure ổn định và 401 báo auth handler",
+        "result": "success"
+      },
+      {
+        "name": "response thiếu trường không được trả thành dữ liệu",
+        "result": "success"
+      },
+      {
+        "name": "(b) AC20: có phiên, chưa đồng ý điều khoản → màn điều khoản; chưa tick không đi tiếp",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: background removes family health data immediately",
+        "result": "success"
+      },
+      {
+        "name": "(b) chưa có cả terms lẫn health_data → điều khoản trước, rồi màn đồng ý",
+        "result": "success"
+      },
+      {
+        "name": "AC6: unavailable history rejects late reads and reloads on return",
+        "result": "success"
+      },
+      {
+        "name": "hiển thị đúng code và QR dùng nguyên payload API",
+        "result": "success"
+      },
+      {
+        "name": "lỗi không lộ body và nút thử lại tải lại mã từ server",
+        "result": "success"
+      },
+      {
+        "name": "(c) AC21: đã đồng ý điều khoản bản cũ → hỏi lại",
+        "result": "success"
+      },
+      {
+        "name": "(d) ghi terms ngầm lỗi mạng → hiện màn điều khoản",
+        "result": "success"
+      },
+      {
+        "name": "lỗi mạng chuyển thành network failure",
+        "result": "success"
+      },
+      {
+        "name": "(e) không tải được consent → vẫn vào AppShell như cũ",
+        "result": "success"
+      },
+      {
+        "name": "đồng ý ở màn điều khoản lỗi → báo lỗi, ở lại màn",
+        "result": "success"
+      },
+      {
+        "name": "màn điều khoản: link mở văn bản, quay lại giữ tick",
+        "result": "success"
+      },
+      {
+        "name": "AC20: hiện tên, ngày chấp thuận giờ Việt Nam, công tắc; tên null và liên kết cũ",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: offline removes health data from the actual app",
+        "result": "success"
+      },
+      {
+        "name": "alert entry displays server unread count and removes it after clear",
+        "result": "error"
+      },
+      {
+        "name": "linkCodeFromQrPayload AC1: drugtime://link?code=<mã> → mã",
+        "result": "success"
+      },
+      {
+        "name": "linkCodeFromQrPayload AC2: mọi chuỗi khác định dạng contract 3.10 → null",
+        "result": "success"
+      },
+      {
+        "name": "normalizeLinkCodeInput / extractLinkCode AC3: chữ thường, khoảng trắng, gạch nối được chuẩn hóa",
+        "result": "success"
+      },
+      {
+        "name": "normalizeLinkCodeInput / extractLinkCode AC3: dán chuỗi QR hoặc link mời → tách mã",
+        "result": "success"
+      },
+      {
+        "name": "normalizeLinkCodeInput / extractLinkCode AC3: 9 ký tự hoặc ký tự ngoài bảng mã → null",
+        "result": "success"
+      },
+      {
+        "name": "AC22: inviteLinkFor ghép link mời và đọc ngược ra đúng mã",
+        "result": "success"
+      },
+      {
+        "name": "linkCodeFromInviteUri AC15: mã ở fragment #code=",
+        "result": "success"
+      },
+      {
+        "name": "linkCodeFromInviteUri AC15: mã ở query ?code= (đường \"Mở bằng ứng dụng\" của landing)",
+        "result": "success"
+      },
+      {
+        "name": "linkCodeFromInviteUri AC15: host so không phân biệt hoa thường",
+        "result": "success"
+      },
+      {
+        "name": "linkCodeFromInviteUri AC15: sai host, path, scheme, thiếu code, sai pattern → null",
+        "result": "success"
+      },
+      {
+        "name": "AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm",
+        "result": "success"
+      },
+      {
+        "name": "AC20: rỗng thì hiện trạng thái trống; nút đóng màn với openFamilyTab",
+        "result": "success"
+      },
+      {
+        "name": "AC3 BVA: 11 ký tự bị cắt còn 10, 10 ký tự bật nút",
+        "result": "success"
+      },
+      {
+        "name": "AC16: không có yêu cầu thì không hiện mục, các thẻ cũ vẫn còn",
+        "result": "success"
+      },
+      {
+        "name": "AC3: dán chuỗi QR hoặc link mời thì ô được điền đúng mã",
+        "result": "success"
+      },
+      {
+        "name": "AC16: hiện tên, giờ Việt Nam, tên null dùng tên thay thế",
+        "result": "success"
+      },
+      {
+        "name": "AC20, AC22: kéo xuống và mở lại màn đều gọi lại API (không cache)",
+        "result": "success"
+      },
+      {
+        "name": "AC3: mã chưa hợp lệ thì không gửi",
+        "result": "success"
+      },
+      {
+        "name": "AC3, AC4: mã gõ có khoảng trắng/gạch nối được chuẩn hóa trước khi gửi",
+        "result": "success"
+      },
+      {
+        "name": "AC5: gọi submit nhiều lần khi request đầu chưa xong chỉ gửi một lần",
+        "result": "success"
+      },
+      {
+        "name": "AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã",
+        "result": "success"
+      },
+      {
+        "name": "AC7: lỗi mạng rồi gửi lại dùng cùng client_uuid; sửa mã thì client_uuid mới",
+        "result": "success"
+      },
+      {
+        "name": "AC7: sau phản hồi 4xx dứt khoát, lần gửi sau dùng client_uuid mới",
+        "result": "success"
+      },
+      {
+        "name": "AC6: ánh xạ lỗi của repository sang lỗi hiển thị",
+        "result": "success"
+      },
+      {
+        "name": "AC8: 401 không hiện lỗi về mã",
+        "result": "success"
+      },
+      {
+        "name": "AC21: 409 pending và các status khi gửi lại",
+        "result": "success"
+      },
+      {
+        "name": "AC21: gạt công tắc sang true gọi API và hiện giá trị server",
+        "result": "success"
+      },
+      {
+        "name": "AC3: 9 ký tự hoặc ký tự ngoài bảng mã → lỗi dưới ô, nút tắt, không gọi",
+        "result": "success"
+      },
+      {
+        "name": "AC6 QD-29: logout removes health data from the actual app",
+        "result": "success"
+      },
+      {
+        "name": "AC21: gạt công tắc sang false gọi API và hiện giá trị server",
+        "result": "success"
+      },
+      {
+        "name": "AC6: mỗi lỗi có câu riêng theo bảng của requirement",
+        "result": "success"
+      },
+      {
+        "name": "AC20: lỗi 429 kèm thời gian còn lại khi biết",
+        "result": "success"
+      },
+      {
+        "name": "formatRetryAfter",
+        "result": "success"
+      },
+      {
+        "name": "AC3: lỗi định dạng dưới ô nhập",
+        "result": "success"
+      },
+      {
+        "name": "AC20: 429 khóa gửi theo Retry-After, hết hạn thì mở lại và không tự gửi",
+        "result": "success"
+      },
+      {
+        "name": "AC16: kéo xuống thì tải lại từ server",
+        "result": "success"
+      },
+      {
+        "name": "AC11: Quét mã QR mở màn quét",
+        "result": "success"
+      },
+      {
+        "name": "AC20 (M2): sửa mã khi đang bị khóa vẫn giữ câu báo và đếm ngược",
+        "result": "success"
+      },
+      {
+        "name": "AC20 (M2): cooldown chỉ áp cho patient cũ, sửa mã thì mở lại",
+        "result": "success"
+      },
+      {
+        "name": "AC20: 429 không có Retry-After vẫn báo lỗi, không khóa nút",
+        "result": "success"
+      },
+      {
+        "name": "AC21: đang gửi thì khóa công tắc và nút hủy",
+        "result": "success"
+      },
+      {
+        "name": "AC4: gửi thành công → màn Đang chờ xác nhận, không có nút hủy",
+        "result": "success"
+      },
+      {
+        "name": "AC21: lỗi mạng thì công tắc giữ giá trị cũ và báo lỗi",
+        "result": "success"
+      },
+      {
+        "name": "AC17: bước xác nhận: chưa tick thì nút Chấp thuận bị khóa",
+        "result": "success"
+      },
+      {
+        "name": "AC5: bấm Gửi 3 lần khi request đầu chưa xong → 1 lần gọi, có chỉ báo",
+        "result": "success"
+      },
+      {
+        "name": "AC21: hủy liên kết có xác nhận; giữ liên kết thì không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "AC11: Nhập mã mở màn nhập mã",
+        "result": "success"
+      },
+      {
+        "name": "AC17: hủy ở bước xác nhận thì không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "AC6: mỗi lỗi hiện đúng câu, ở lại màn, giữ mã",
+        "result": "success"
+      },
+      {
+        "name": "listPendingRequests: GET /family/links?status=pending, tên null giữ null",
+        "result": "success"
+      },
+      {
+        "name": "approve: POST đủ ba field, consent_confirmed luôn true",
+        "result": "success"
+      },
+      {
+        "name": "reject: POST không body, không Content-Type",
+        "result": "success"
+      },
+      {
+        "name": "AC19: chưa bật family_sharing: có dải nhắc, không bật được nhưng tắt được",
+        "result": "success"
+      },
+      {
+        "name": "revoke: POST không body, không Content-Type",
+        "result": "success"
+      },
+      {
+        "name": "listCaregivers: GET /family/caregivers không query, approved_at null giữ null",
+        "result": "success"
+      },
+      {
+        "name": "setSharing(true): PATCH {sharing_enabled}, trả trạng thái server",
+        "result": "success"
+      },
+      {
+        "name": "Mã liên kết của tôi mở màn QR của 3.11",
+        "result": "success"
+      },
+      {
+        "name": "setSharing(false): PATCH {sharing_enabled}, trả trạng thái server",
+        "result": "success"
+      },
+      {
+        "name": "403 {\"detail\":\"khong_co_quyen\"} → forbidden",
+        "result": "success"
+      },
+      {
+        "name": "403 {\"detail\":\"consent_revoked\"} → consentRequired",
+        "result": "success"
+      },
+      {
+        "name": "AC22: bật chia sẻ lỗi consentRequired",
+        "result": "success"
+      },
+      {
+        "name": "404 {\"detail\":\"family_link_not_found\"} → notFound",
+        "result": "success"
+      },
+      {
+        "name": "409 {\"detail\":\"invalid_link_transition\"} → conflict",
+        "result": "success"
+      },
+      {
+        "name": "409 {\"detail\":\"family_link_not_active\"} → conflict",
+        "result": "success"
+      },
+      {
+        "name": "409 {\"detail\":\"link_approval_conflict\"} → conflict",
+        "result": "success"
+      },
+      {
+        "name": "AC7: lỗi mạng → Thử lại gửi cùng client_uuid; sửa mã thì client_uuid mới",
+        "result": "success"
+      },
+      {
+        "name": "409 {\"detail\":\"consent_confirmation_missing\"} → confirmationMissing",
+        "result": "success"
+      },
+      {
+        "name": "422 {\"detail\":\"consent_document_outdated\"} → documentOutdated",
+        "result": "success"
+      },
+      {
+        "name": "422 {\"detail\":[{\"loc\":[\"body\"],\"msg\":\"x\",\"type\":\"missing\"}]} → invalid",
+        "result": "success"
+      },
+      {
+        "name": "AC4, AC9: POST /family/link-requests, body đúng hai field, có Bearer; 201 → pending",
+        "result": "success"
+      },
+      {
+        "name": "AC17: chấp thuận gửi đúng người thân và phiên bản, mục biến mất, hỏi bật chia sẻ",
+        "result": "success"
+      },
+      {
+        "name": "AC22: bật chia sẻ lỗi conflict",
+        "result": "success"
+      },
+      {
+        "name": "401 {\"detail\":\"Invalid bearer token\"} → unauthorized",
+        "result": "success"
+      },
+      {
+        "name": "503 {\"detail\":\"service_unavailable\"} → network",
+        "result": "success"
+      },
+      {
+        "name": "500 \"boom\" → network",
+        "result": "success"
+      },
+      {
+        "name": "AC21: 200 gửi lại trả trạng thái hiện tại; giá trị lạ → unknown",
+        "result": "success"
+      },
+      {
+        "name": "418 \"teapot\" → unknown",
+        "result": "success"
+      },
+      {
+        "name": "body 2xx sai contract → unknown",
+        "result": "success"
+      },
+      {
+        "name": "AC6, AC9: mọi cặp (mã trạng thái, detail) của contract",
+        "result": "success"
+      },
+      {
+        "name": "AC22: bật chia sẻ lỗi notFound",
+        "result": "success"
+      },
+      {
+        "name": "AC20: 429 đọc Retry-After theo từng detail; thiếu header thì retryAfter null",
+        "result": "success"
+      },
+      {
+        "name": "AC8: 401 gọi onUnauthorized và trả unauthorized",
+        "result": "success"
+      },
+      {
+        "name": "AC20: 429 + 900 giây → câu kèm 15:00, nút tắt, hết giờ mở lại và không tự gửi",
+        "result": "success"
+      },
+      {
+        "name": "AC7: 503, 500 → network",
+        "result": "success"
+      },
+      {
+        "name": "AC9: detail lạ, body không phải JSON, body 2xx sai contract → unknown",
+        "result": "success"
+      },
+      {
+        "name": "AC22: bật chia sẻ lỗi confirmationMissing",
+        "result": "success"
+      },
+      {
+        "name": "AC20 (M2): đang bị khóa mà sửa mã thì câu báo và thời gian vẫn hiện",
+        "result": "success"
+      },
+      {
+        "name": "AC17: chọn Bật chia sẻ gọi API bật chia sẻ",
+        "result": "success"
+      },
+      {
+        "name": "AC22: bật chia sẻ lỗi network",
+        "result": "success"
+      },
+      {
+        "name": "AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi",
+        "result": "success"
+      },
+      {
+        "name": "AC22: tải lần đầu lỗi thì báo lỗi và cho thử lại",
+        "result": "success"
+      },
+      {
+        "name": "AC20: 429 không có Retry-After → câu không có thời gian",
+        "result": "success"
+      },
+      {
+        "name": "AC21: 409 pending → màn chờ",
+        "result": "success"
+      },
+      {
+        "name": "AC18: từ chối có xác nhận; hủy thì không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "AC19: chưa bật family_sharing thì có dải nhắc mở Quyền riêng tư",
+        "result": "success"
+      },
+      {
+        "name": "AC21: gửi lại nhận active → đã chấp thuận; rejected → ở lại; lạ → màn chờ",
+        "result": "success"
+      },
+      {
+        "name": "AC19: đã bật family_sharing thì không có dải nhắc",
+        "result": "success"
+      },
+      {
+        "name": "AC16: mở với mã từ link → điền sẵn, chưa gửi; link sai → thông báo, ô trống",
+        "result": "success"
+      },
+      {
+        "name": "AC2: QR không phải mã DrugTime → báo lỗi, không gọi repository",
+        "result": "success"
+      },
+      {
+        "name": "mất kết nối → network",
+        "result": "success"
+      },
+      {
+        "name": "AC22: chấp thuận lỗi consentRequired → báo lỗi và tải lại danh sách",
+        "result": "success"
+      },
+      {
+        "name": "AC13: gửi không đụng tới secure storage hay SQLite",
+        "result": "success"
+      },
+      {
+        "name": "AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã",
+        "result": "success"
+      },
+      {
+        "name": "AC7: không kết nối được máy chủ → network",
+        "result": "success"
+      },
+      {
+        "name": "AC13: toString của lỗi không chứa mã hay body",
+        "result": "success"
+      },
+      {
+        "name": "AC22: chấp thuận lỗi conflict → báo lỗi và tải lại danh sách",
+        "result": "success"
+      },
+      {
+        "name": "AC22: chấp thuận lỗi notFound → báo lỗi và tải lại danh sách",
+        "result": "success"
+      },
+      {
+        "name": "AC5: cùng QR hợp lệ đọc 5 lần → sang màn nhập mã, gửi đúng một lần",
+        "result": "success"
+      },
+      {
+        "name": "AC15, AC16: link sai → màn nhập mã trống kèm \"Link mời không hợp lệ\"",
+        "result": "success"
+      },
+      {
+        "name": "AC22: chấp thuận lỗi documentOutdated → báo lỗi và tải lại danh sách",
+        "result": "success"
+      },
+      {
+        "name": "AC11: từ màn quét có lối sang Nhập mã",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) thuốc theo giờ 08:00/20:00, sau ăn, tồn 30",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) 1 và 3 giờ → once/thrice; 5 giờ → custom",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) as_needed → asNeeded, maxDosesPerDay = doses_per_day, không có giờ",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) đã ngừng: status, endedOn; tần suất lấy theo doses_per_day vì không còn lịch mở",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) active_ingredient/dosage_form null, liều 0.5, cách uống null",
+        "result": "success"
+      },
+      {
+        "name": "response → entity (AC7) danh sách đọc items; danh mục map đơn vị theo dạng bào chế",
+        "result": "success"
+      },
+      {
+        "name": "entity → POST body theo giờ: intake_times đã sắp xếp, không có max_doses_per_day",
+        "result": "success"
+      },
+      {
+        "name": "entity → POST body khi cần: max_doses_per_day, không có intake_times; không có tồn kho thì bỏ field",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) chỉ đổi liều thì chỉ gửi quantity_per_dose",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) không đổi gì → rỗng",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) đổi giờ → intake_times; đổi cách uống → intake_timing",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) chuyển sang khi cần gửi dosing_mode + max_doses_per_day",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) chuyển sang theo giờ gửi dosing_mode + intake_times",
+        "result": "success"
+      },
+      {
+        "name": "entity → PATCH body (AC13) khi cần đổi số lần tối đa → chỉ max_doses_per_day",
+        "result": "success"
+      },
+      {
+        "name": "lỗi HTTP → MedicationFailure (AC10, AC11) mạng và 5xx",
+        "result": "success"
+      },
+      {
+        "name": "lỗi HTTP → MedicationFailure (AC10, AC11) 401, 403, 404",
+        "result": "success"
+      },
+      {
+        "name": "lỗi HTTP → MedicationFailure (AC10, AC11) 422 theo mã nghiệp vụ và mảng lỗi field",
+        "result": "success"
+      },
+      {
+        "name": "lỗi HTTP → MedicationFailure (AC10, AC11) mã khác → unknown",
+        "result": "success"
+      },
+      {
+        "name": "AC10: bị từ chối quyền → giải thích, Nhập mã, xin lại; không có Cài đặt",
+        "result": "success"
+      },
+      {
+        "name": "AC22: chấp thuận lỗi network → báo lỗi và tải lại danh sách",
+        "result": "success"
+      },
+      {
+        "name": "load lỗi đặt loadError và giữ danh sách cũ",
+        "result": "success"
+      },
+      {
+        "name": "AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã",
+        "result": "success"
+      },
+      {
+        "name": "thao tác thành công tải lại danh sách từ repository",
+        "result": "success"
+      },
+      {
+        "name": "thao tác lỗi ném MedicationFailure, danh sách không đổi, không tải lại",
+        "result": "success"
+      },
+      {
+        "name": "AC10 (M1): app resumed khi hộp thoại quyền còn mở → không xin quyền lần hai",
+        "result": "success"
+      },
+      {
+        "name": "add cùng clientUuid hai lần chỉ có một thuốc (AC9)",
+        "result": "success"
+      },
+      {
+        "name": "clear bỏ dữ liệu và lỗi (đăng xuất)",
+        "result": "success"
+      },
+      {
+        "name": "AC10 (M1): xin quyền lỗi nền tảng → màn từ chối có Nhập mã, không kẹt vòng xoay",
+        "result": "success"
+      },
+      {
+        "name": "AC22: Chia sẻ gửi đúng một chuỗi chứa link, không có tên",
+        "result": "success"
+      },
+      {
+        "name": "AC10 (M1): chỉ kiểm lại quyền khi quay về từ Cài đặt đã mở",
+        "result": "success"
+      },
+      {
+        "name": "AC22: đang gửi thì khóa hai nút, bấm lại không gửi thêm",
+        "result": "success"
+      },
+      {
+        "name": "AC22: Sao chép link ghi đúng link vào clipboard",
+        "result": "success"
+      },
+      {
+        "name": "AC10: bị từ chối vĩnh viễn → có Mở Cài đặt và Nhập mã",
+        "result": "success"
+      },
+      {
+        "name": "empty whitespace, debounce 299/300ms and trimmed final query",
+        "result": "success"
+      },
+      {
+        "name": "đăng xuất xóa link mời đang chờ",
+        "result": "success"
+      },
+      {
+        "name": "AC23: chưa đồng ý family_sharing → cảnh báo, mở được Quyền riêng tư, vẫn chia sẻ",
+        "result": "success"
+      },
+      {
+        "name": "A B A: only current generation can update, including stale error",
+        "result": "success"
+      },
+      {
+        "name": "AC23: đã đồng ý family_sharing → không cảnh báo",
+        "result": "success"
+      },
+      {
+        "name": "DoseTime định dạng 24h và sắp xếp theo giờ trong ngày",
+        "result": "success"
+      },
+      {
+        "name": "clear invalidates request and dispose cancels timer or ignores response",
+        "result": "success"
+      },
+      {
+        "name": "Chỉ thuốc đang dùng và tồn kho ≤ ngưỡng mới là sắp hết",
+        "result": "success"
+      },
+      {
+        "name": "Tần suất \"Khi cần\" không có giờ nhắc mặc định",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Viên nén bao phim\" → viên",
+        "result": "success"
+      },
+      {
+        "name": "AC23: tải mã lỗi → thông báo + Thử lại, không có link hay nút chia sẻ",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Viên nang cứng\" → viên",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Nang mềm\" → viên",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc cốm sủi bọt (gói)\" → gói",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc bột uống\" → gói",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Ống tiêm\" → ống",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Dung dịch uống\" → ml",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Siro\" → ml",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc bột pha hỗn dịch uống\" → ml",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Nhũ dịch\" → ml",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Lọ 100 viên\" → lọ",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Chai\" → lọ",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Dung dịch uống (lọ 60 ml)\" → ml",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Kem bôi da\" → lần bôi",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Gel\" → lần bôi",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc mỡ\" → lần bôi",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc xịt mũi\" → nhát xịt",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Thuốc nhỏ mắt\" → giọt",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"VIÊN NÉN\" → viên",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"vien nen\" → viên",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"Miếng dán\" → liều",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế \"\" → liều",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế null → liều",
+        "result": "success"
+      },
+      {
+        "name": "doseUnitFor suy đơn vị từ dạng bào chế so theo cả từ: \"lo\" không khớp trong \"lop\", \"mo\" không khớp trong \"mot\"",
+        "result": "success"
+      },
+      {
+        "name": "Tần suất theo số giờ; 4–6 giờ là custom và không có trong danh sách chọn",
+        "result": "success"
+      },
+      {
+        "name": "Định dạng liều số lẻ và nhãn tần suất custom",
+        "result": "success"
+      },
+      {
+        "name": "trimmed Unicode limit 100 allowed, 101 blocked: á",
+        "result": "success"
+      },
+      {
+        "name": "trimmed Unicode limit 100 allowed, 101 blocked: 😀",
+        "result": "success"
+      },
+      {
+        "name": "network retry uses current query once and clears old error",
+        "result": "success"
+      },
+      {
+        "name": "failure MedicationFailureKind.validation is not empty success",
+        "result": "success"
+      },
+      {
+        "name": "failure MedicationFailureKind.unauthorized is not empty success",
+        "result": "success"
+      },
+      {
+        "name": "fetchAll đọc items của GET /medications",
+        "result": "success"
+      },
+      {
+        "name": "nullable profile and all gender aliases",
+        "result": "success"
+      },
+      {
+        "name": "add gửi POST /medications với client_uuid và Bearer (AC8)",
+        "result": "success"
+      },
+      {
+        "name": "PUT sends editable fields and preserves calendar date",
+        "result": "success"
+      },
+      {
+        "name": "Vietnam midnight boundary, blank name and future DOB",
+        "result": "success"
+      },
+      {
+        "name": "omitted metadata unchanged, null clears; preserve int64 IDs",
+        "result": "success"
+      },
+      {
+        "name": "errors never expose raw payload and distinguish consent",
+        "result": "success"
+      },
+      {
+        "name": "strength, missing fields and same name distinct ids keep original item",
+        "result": "success"
+      },
+      {
+        "name": "gửi lại sau lỗi mạng dùng cùng client_uuid; server trả 200 thuốc cũ (AC9)",
+        "result": "success"
+      },
+      {
+        "name": "setStopped gửi PATCH {\"stopped\": true/false} (AC12, AC14e)",
+        "result": "success"
+      },
+      {
+        "name": "update chỉ gửi field đổi; không đổi gì thì không gọi API (AC13)",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 360.0, đang chọn Tất cả",
+        "result": "success"
+      },
+      {
+        "name": "delete: 204 thành công; 404 khi gửi lại cũng coi là đã xoá; 403 ném lỗi (AC14e)",
+        "result": "success"
+      },
+      {
+        "name": "searchCatalog: chuỗi rỗng không gọi API; có chữ thì gửi q",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search GET trim, server order, nullable and exact ids",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search 401 throws failure rather than empty success",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search 422 throws failure rather than empty success",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 360.0, đang chọn Đang dùng",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search 408 throws failure rather than empty success",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search 500 throws failure rather than empty success",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search 503 throws failure rather than empty success",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 360.0, đang chọn Đã ngừng",
+        "result": "success"
+      },
+      {
+        "name": "small screen large text with keyboard: states scroll and retry remains reachable",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 375.0, đang chọn Tất cả",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 375.0, đang chọn Đang dùng",
+        "result": "success"
+      },
+      {
+        "name": "ba chip nằm một hàng ở cỡ chữ 1.0 rộng 375.0, đang chọn Đã ngừng",
+        "result": "success"
+      },
+      {
+        "name": "phóng chữ 1.5x: ba chip vẫn một hàng, không cắt chữ, không overflow",
+        "result": "success"
+      },
+      {
+        "name": "vùng chạm mỗi chip cao ít nhất 44",
+        "result": "success"
+      },
+      {
+        "name": "nhấn chip gọi onChanged với đúng bộ lọc",
+        "result": "success"
+      },
+      {
+        "name": "chip đang chọn được đánh dấu selected cho trình đọc màn hình",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.a — Debounce tìm kiếm danh mục thuốc gõ nhanh liên tiếp nhiều ký tự chỉ gọi API đúng 1 lần sau 300ms",
+        "result": "success"
+      },
+      {
+        "name": "3.05 search socket failure is network error",
+        "result": "success"
+      },
+      {
+        "name": "401 gọi onUnauthorized và ném unauthorized (AC11)",
+        "result": "success"
+      },
+      {
+        "name": "422 mã nghiệp vụ được dịch (AC10)",
+        "result": "success"
+      },
+      {
+        "name": "Medication mẫu dùng trong test có catalogId số như server",
+        "result": "success"
+      },
+      {
+        "name": "load, serialize submit, update and refetch only after ACK",
+        "result": "success"
+      },
+      {
+        "name": "clear rejects delayed read and resets avatar/catalog",
+        "result": "success"
+      },
+      {
+        "name": "clear rejects delayed write and does not refetch old account",
+        "result": "success"
+      },
+      {
+        "name": "403 removes profile and blocks writes; consent can reload",
+        "result": "success"
+      },
+      {
+        "name": "revoke clears data and invalidates pending response",
+        "result": "success"
+      },
+      {
+        "name": "catalog pages keep selected profile conditions",
+        "result": "success"
+      },
+      {
+        "name": "network loss after POST reconciles without duplicate write",
+        "result": "success"
+      },
+      {
+        "name": "duplicate remains an explicit error even after refresh",
+        "result": "success"
+      },
+      {
+        "name": "write ACK followed by failed refresh does not retry write",
+        "result": "success"
+      },
+      {
+        "name": "PATCH omission and delete 404 reconcile by link ID",
+        "result": "success"
+      },
+      {
+        "name": "network error does not discard profile and no write success",
+        "result": "success"
+      },
+      {
+        "name": "unsupported runtime has no sample fallback",
+        "result": "success"
+      },
+      {
+        "name": "dispose prevents pending callbacks from notifying",
+        "result": "success"
+      },
+      {
+        "name": "S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.a — Debounce tìm kiếm danh mục thuốc gõ chậm hơn debounce gọi repository nhiều lần theo đúng số lần",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.a — Debounce tìm kiếm danh mục thuốc xóa hết ô tìm trong lúc đang debounce huỷ timer và không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.a — Debounce tìm kiếm danh mục thuốc sau khi có kết quả, xóa hết ô tìm kiếm đặt lại danh sách rỗng và không gọi thêm API",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) trạng thái ban đầu rỗng hiện hướng dẫn và không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) trạng thái đang tải hiển thị CircularProgressIndicator",
+        "result": "success"
+      },
+      {
+        "name": "preview repository provides and locally edits demo profile data",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) trạng thái rỗng không có kết quả hiển thị thông báo không tìm thấy",
+        "result": "success"
+      },
+      {
+        "name": "preview mode is opt-in and normal mode keeps remote API repository",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) từ khoá vượt quá 100 ký tự hiển thị cảnh báo và không gọi API",
+        "result": "success"
+      },
+      {
+        "name": "S06a · Xem chi tiết thuốc tạm ngừng thuốc và chuyển trạng thái",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) lỗi mạng (offline) hiển thị Chưa tìm được + thông báo lỗi mạng + nút Thử lại",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline) lỗi unauthorized không hiển thị nút Thử lại",
+        "result": "success"
+      },
+      {
+        "name": "app clears profile/avatar and delayed response on logout",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế hiển thị đầy đủ mọi trường dữ liệu: tên, dạng bào chế, hoạt chất, hàm lượng, liều, tần suất, giờ, tồn kho",
+        "result": "success"
+      },
+      {
+        "name": "app clears profile/avatar and delayed response on 401",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế trường hoạt chất trống hiển thị Chưa có thông tin",
+        "result": "success"
+      },
+      {
+        "name": "S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế trường tồn kho null hiển thị Chưa theo dõi",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế tồn kho sắp hết (<= 5) hiển thị cảnh báo Sắp hết thuốc",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế thuốc Khi cần hiển thị tối đa lần/ngày và nhắc nhở không có giờ cố định",
+        "result": "success"
+      },
+      {
+        "name": "app consent withdrawal clears form without waiting for next HTTP response",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế thuốc đã ngừng hiển thị badge Đã ngừng và nút Tiếp tục dùng thuốc này",
+        "result": "success"
+      },
+      {
+        "name": "six existing assets; pick updates immediately with no network; dismiss preserves",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi AC12: có thuốc → có nút \"Thêm\" ở header, không có empty-state",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế thao tác tạm ngừng thuốc hỏi xác nhận; huỷ thì giữ nguyên",
+        "result": "success"
+      },
+      {
+        "name": "S06b · Sửa chi tiết thuốc (Figma Prototype) chỉnh sửa cách uống và lưu thành công",
+        "result": "success"
+      },
+      {
+        "name": "save snackbar floats above save footer and system navigation",
+        "result": "success"
+      },
+      {
+        "name": "Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế thao tác tạm ngừng thuốc gặp lỗi mạng hiển thị SnackBar lỗi và giữ nguyên trạng thái",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi AC13: tìm không khớp → chỉ nút \"Thêm thuốc mới\" ở giữa",
+        "result": "success"
+      },
+      {
+        "name": "save button stays fixed while scrolling to email",
+        "result": "success"
+      },
+      {
+        "name": "six operations, nullable GET, no patient selector, 204 writes",
+        "result": "success"
+      },
+      {
+        "name": "status 401 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "confirm single enqueues occurrence and updates state",
+        "result": "success"
+      },
+      {
+        "name": "double confirm while saving calls outbox once",
+        "result": "success"
+      },
+      {
+        "name": "status 403 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "pending confirmation blocks snooze and skip",
+        "result": "success"
+      },
+      {
+        "name": "outbox failure keeps item retryable",
+        "result": "success"
+      },
+      {
+        "name": "confirm one item does not change siblings",
+        "result": "success"
+      },
+      {
+        "name": "status 404 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "confirm group enqueues every occurrence",
+        "result": "success"
+      },
+      {
+        "name": "partial group failure retries only unconfirmed items",
+        "result": "success"
+      },
+      {
+        "name": "snooze schedules each original occurrence ten minutes later",
+        "result": "success"
+      },
+      {
+        "name": "status 409 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "skip returns result without enqueue",
+        "result": "success"
+      },
+      {
+        "name": "status 422 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "status 500 maps safely",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi AC14: rỗng do tải lỗi → thẻ lỗi và nút \"Thêm\" ở header",
+        "result": "success"
+      },
+      {
+        "name": "consent revoked response",
+        "result": "success"
+      },
+      {
+        "name": "malformed shape becomes safe failure",
+        "result": "success"
+      },
+      {
+        "name": "logout waits, reports cleanup failure and permits retry with old session",
+        "result": "success"
+      },
+      {
+        "name": "S06b · Sửa chi tiết thuốc (Figma Prototype) xoá thuốc khỏi danh sách có xác nhận",
+        "result": "success"
+      },
+      {
+        "name": "form validates name, keeps draft on error and shows success only after ACK",
+        "result": "success"
+      },
+      {
+        "name": "layout Size(375.0, 812.0) text 1.0 with keyboard, save reachable",
+        "result": "success"
+      },
+      {
+        "name": "S06 · Thuốc của tôi tìm theo hoạt chất và báo khi không có kết quả",
+        "result": "success"
+      },
+      {
+        "name": "partial save keeps inline warning instead of success snackbar",
+        "result": "success"
+      },
+      {
+        "name": "layout Size(375.0, 812.0) text 2.0 with keyboard, save reachable",
+        "result": "success"
+      },
+      {
+        "name": "email loads from profile and is saved as the login email",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: ngừng, dùng lại, xoá, sửa Ngừng rồi Tiếp tục dùng gọi setStopped(true/false) (AC12, AC14e)",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) cold start buffers launch payload in pendingPayload and consumes it",
+        "result": "success"
+      },
+      {
+        "name": "layout Size(320.0, 640.0) text 1.0 with keyboard, save reachable",
+        "result": "success"
+      },
+      {
+        "name": "LockscreenPrivacyGate (AC6, NT-02) renders child directly when device is unlocked",
+        "result": "success"
+      },
+      {
+        "name": "layout Size(320.0, 640.0) text 2.0 with keyboard, save reachable",
+        "result": "success"
+      },
+      {
+        "name": "profile only loads when tab is activated, opens personal route",
+        "result": "success"
+      },
+      {
+        "name": "single screen renders required content and actions",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: ngừng, dùng lại, xoá, sửa Xoá: gọi delete; lỗi 403 thì báo và thuốc vẫn còn (AC10, AC14e)",
+        "result": "success"
+      },
+      {
+        "name": "LockscreenPrivacyGate (AC6, NT-02) shows Privacy Mask and hides child/medication details when device is locked",
+        "result": "success"
+      },
+      {
+        "name": "AC20: Người giám sát mở màn người giám sát, không còn Sắp ra mắt",
+        "result": "success"
+      },
+      {
+        "name": "capture in-scope screens for visual review",
+        "result": "success"
+      },
+      {
+        "name": "profile shows the six Figma menu rows in design order",
+        "result": "success"
+      },
+      {
+        "name": "LockscreenPrivacyGate (AC6, NT-02) tapping unlock button calls requestDismissKeyguard and reveals child upon success",
+        "result": "success"
+      },
+      {
+        "name": "multiple screen expands and collapses all medicines",
+        "result": "success"
+      },
+      {
+        "name": "LockscreenPrivacyGate (AC6, NT-02) re-checks lock status when application resumes from background",
+        "result": "success"
+      },
+      {
+        "name": "confirm one medicine leaves sibling pending",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id",
+        "result": "success"
+      },
+      {
+        "name": "partial group failure shows retry and does not duplicate success",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)",
+        "result": "success"
+      },
+      {
+        "name": "local error remains on screen and allows retry",
+        "result": "success"
+      },
+      {
+        "name": "medical catalog adds, edits metadata and confirms delete",
+        "result": "success"
+      },
+      {
+        "name": "single success remains visible and closes explicitly",
+        "result": "success"
+      },
+      {
+        "name": "403 removes sensitive form and offers consent action",
+        "result": "success"
+      },
+      {
+        "name": "group success remains visible and prevents repeat enqueue",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới 3.05: chọn đúng item cùng tên, thiếu thông tin giữ trường trống không tự lưu",
+        "result": "success"
+      },
+      {
+        "name": "snooze returns result and does not enqueue",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: ngừng, dùng lại, xoá, sửa Thuốc \"Khi cần\" hiện ô tối đa lần/ngày ở màn sửa (AC14f)",
+        "result": "success"
+      },
+      {
+        "name": "skip returns result without enqueue",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) lịch không còn tồn tại: hiện SnackBar thông báo, không push route lỗi",
+        "result": "success"
+      },
+      {
+        "name": "pending confirmation disables snooze and skip",
+        "result": "success"
+      },
+      {
+        "name": "route with invalid arguments renders safe error",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới bắt chọn thuốc trước khi lưu",
+        "result": "success"
+      },
+      {
+        "name": "screen has no overflow at 1.5 text scale",
+        "result": "success"
+      },
+      {
+        "name": "multiple screen shows stacked card with badge and expand prompt",
+        "result": "success"
+      },
+      {
+        "name": "expanded mode toggles selection and confirms only selected",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 1 thuốc: tra lịch và mở màn hình S09e với đầy đủ thông tin thuốc",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 3 thuốc cùng giờ: gom thành nhóm và mở màn hình S09e-2 (nhiều thuốc)",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) 3 thuốc nhưng 1 thuốc đã có trong local_dose_logs: chỉ hiện 2 thuốc còn lại",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới cảnh báo khi chọn thuốc đã có trong danh sách",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) Tất cả các thuốc đã ghi nhận: hiện SnackBar thông báo, không push route",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) corrupt or empty payload in notification is safely ignored (AC7)",
+        "result": "success"
+      },
+      {
+        "name": "Cold start & notification navigation flow (AC3, AC4, AC7, AC8) requestFullScreenIntentPermission delegates to platform (AC8)",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới nhấn Lưu hai lần liên tiếp chỉ thêm một thuốc",
+        "result": "success"
+      },
+      {
+        "name": "S07 · Thêm thuốc mới hỏi xác nhận trước khi bỏ thông tin đã nhập",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày lưu lỗi mạng: báo lỗi, giữ form; lưu lại dùng cùng client_uuid (AC9, AC10)",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày lỗi danh mục 422 hiện câu tiếng Việt tương ứng (AC10)",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày \"Khi cần\" hiện ô tối đa lần/ngày 1–6, mặc định 3; đổi về theo giờ thì ẩn (AC14f)",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày chọn lại tần suất theo giờ thì ẩn ô và không gửi số lần tối đa",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày S06 không tải được: thẻ lỗi + Thử lại, không báo \"Chưa có thuốc nào\"",
+        "result": "success"
+      },
+      {
+        "name": "Nối API: lỗi, client_uuid, tối đa lần/ngày sheet danh mục: chưa gõ thì gợi ý, không tìm",
+        "result": "success"
+      },
+      {
+        "name": "hàng chip S06 không rớt dòng khi phóng chữ 1.5x",
+        "result": "success"
+      },
+      {
+        "name": "bố cục không vỡ khi phóng to chữ 1.5x",
+        "result": "success"
+      }
+    ],
+    "errors": [
+      {
+        "testID": 659,
+        "error": "Test failed. See exception logs above.\nThe test description was: alert entry displays server unread count and removes it after clear",
+        "stackTrace": "",
+        "isFailure": false,
+        "type": "error",
+        "time": 57786
+      }
+    ]
+  },
+  "backend_history_unit_contract": {
+    "counts": {
+      "Pass": 113,
+      "Fail": 2
+    },
+    "failures": [
+      "test_confirmed_before_deadline_counts_immediately__AC3[delay0-da_uong-counts0-date]",
+      "test_confirmed_before_deadline_counts_immediately__AC3[delay0-da_uong-counts0-medication]"
+    ]
+  }
+}

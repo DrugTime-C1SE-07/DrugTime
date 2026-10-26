@@ -1,0 +1,13 @@
+﻿..\node_modules\.bin\supabase.cmd : Stopped services: [supabase_imgproxy_DrugTime-backend 
+supabase_pg_meta_DrugTime-backend supabase_studio_DrugTime-backend supabase_edge_runtime_DrugTime-backend 
+supabase_analytics_DrugTime-backend supabase_pooler_DrugTime-backend]
+At line:2 char:1
++ ..\node_modules\.bin\supabase.cmd start 2>&1 | Tee-Object ../work/3.2 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Stopped service...ugTime-backend]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Supabase local started; endpoint/key JSON redacted.
+A new version of Supabase CLI is available: v2.122.0 (currently installed v2.121.0)
+We recommend updating regularly for new features and bug fixes: 
+https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli

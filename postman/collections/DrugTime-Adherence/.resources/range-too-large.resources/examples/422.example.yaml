@@ -1,0 +1,19 @@
+$kind: http-example
+name: 422 · Từ chối khoảng hơn 90 ngày
+request:
+  url: '{{base_url}}/adherence'
+  method: GET
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity
+  headers:
+  - key: Content-Type
+    value: application/json
+  - key: Cache-Control
+    value: no-store
+  body:
+    type: json
+    content: |-
+      {
+        "detail": "adherence_range_too_large"
+      }
