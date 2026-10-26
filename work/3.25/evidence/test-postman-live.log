@@ -1,0 +1,404 @@
+PHASE contract-smoke-six-requests exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=4801b893-1d8c-4b0d-a4f4-4bdcca40315f&from=2026-10-19&to=2026-10-19&group_by=date [200 OK, 784 B, 326 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm date
+
+Root Xem lịch sử theo thuốc
+
+  GET http://127.0.0.1:63764/adherence?patient_id=4801b893-1d8c-4b0d-a4f4-4bdcca40315f&from=2026-10-19&to=2026-10-19&group_by=medication [200 OK, 831 B, 38 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm medication
+
+Root Từ chối khi thiếu bearer
+
+  GET http://127.0.0.1:63764/adherence?patient_id=4801b893-1d8c-4b0d-a4f4-4bdcca40315f&from=2026-10-19&to=2026-10-19&group_by=date [401 Unauthorized, 193 B, 7 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 401
+
+Root Chặn truy cập không có quyền
+
+  GET http://127.0.0.1:63764/adherence?patient_id=637ad9a3-4072-4314-8883-0799fe69926a&from=2026-10-19&to=2026-10-19&group_by=date [403 Forbidden, 184 B, 45 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 403
+  Pass  Mã từ chối theo contract
+
+Root Từ chối cách nhóm sai
+
+  GET http://127.0.0.1:63764/adherence?patient_id=4801b893-1d8c-4b0d-a4f4-4bdcca40315f&from=2026-10-19&to=2026-10-19&group_by=unsupported [422 Unprocessable Content, 338 B, 11 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 422
+  Pass  Validation chỉ rõ query group_by
+
+Root Từ chối khoảng hơn 90 ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=4801b893-1d8c-4b0d-a4f4-4bdcca40315f&from=2026-01-01&to=2026-04-01&group_by=date [422 Unprocessable Content, 207 B, 14 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 422
+  Pass  Mã khoảng ngày theo contract
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                   6 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                   6 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                   0 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                  31 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 1106 ms                                         |
+-----------------------------------------------------------------------
+| total data received: 1.54 KB (approx)                               |
+-----------------------------------------------------------------------
+| average response time: 73 ms [min: 7 ms, max: 326 ms, s.d.: 113 ms] |
+-----------------------------------------------------------------------
+
+A new version of Postman CLI is available (v1.76.0). Refer https://go.pstmn.io/cli-release-notes for changelogs.
+To update your Postman CLI, run:
+
+postman update
+
+
+PASS DB smoke: two allowed, one cross-patient denied, dose_logs unchanged.
+PHASE health_consent-before exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=3748df83-0f81-4914-9d70-e173e6389954&from=2026-10-19&to=2026-10-19&group_by=date [200 OK, 784 B, 51 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm date
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  6 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 364 ms                                        |
+---------------------------------------------------------------------
+| total data received: 633 B (approx)                               |
+---------------------------------------------------------------------
+| average response time: 51 ms [min: 51 ms, max: 51 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PHASE health_consent-next-request-same-bearer exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Chặn truy cập không có quyền
+
+  GET http://127.0.0.1:63764/adherence?patient_id=3748df83-0f81-4914-9d70-e173e6389954&from=2026-10-19&to=2026-10-19&group_by=date [403 Forbidden, 184 B, 55 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 403
+  Pass  Mã từ chối theo contract
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  5 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 358 ms                                        |
+---------------------------------------------------------------------
+| total data received: 27 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 55 ms [min: 55 ms, max: 55 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PASS DB health_consent: allowed then denied with same bearer; dose_logs unchanged.
+PHASE family_consent-before exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=e2d5c168-e9f0-4995-8a8a-62f83adcae67&from=2026-10-19&to=2026-10-19&group_by=date [200 OK, 784 B, 58 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm date
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  6 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 342 ms                                        |
+---------------------------------------------------------------------
+| total data received: 633 B (approx)                               |
+---------------------------------------------------------------------
+| average response time: 58 ms [min: 58 ms, max: 58 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PHASE family_consent-next-request-same-bearer exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Chặn truy cập không có quyền
+
+  GET http://127.0.0.1:63764/adherence?patient_id=e2d5c168-e9f0-4995-8a8a-62f83adcae67&from=2026-10-19&to=2026-10-19&group_by=date [403 Forbidden, 184 B, 57 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 403
+  Pass  Mã từ chối theo contract
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  5 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 406 ms                                        |
+---------------------------------------------------------------------
+| total data received: 27 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 57 ms [min: 57 ms, max: 57 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PASS DB family_consent: allowed then denied with same bearer; dose_logs unchanged.
+PHASE sharing_off-before exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=f1796a1e-5120-43a4-b892-96e26eb6684e&from=2026-10-19&to=2026-10-19&group_by=date [200 OK, 784 B, 49 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm date
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  6 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 356 ms                                        |
+---------------------------------------------------------------------
+| total data received: 633 B (approx)                               |
+---------------------------------------------------------------------
+| average response time: 49 ms [min: 49 ms, max: 49 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PHASE sharing_off-next-request-same-bearer exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Chặn truy cập không có quyền
+
+  GET http://127.0.0.1:63764/adherence?patient_id=f1796a1e-5120-43a4-b892-96e26eb6684e&from=2026-10-19&to=2026-10-19&group_by=date [403 Forbidden, 184 B, 50 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 403
+  Pass  Mã từ chối theo contract
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  5 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 354 ms                                        |
+---------------------------------------------------------------------
+| total data received: 27 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 50 ms [min: 50 ms, max: 50 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PASS DB sharing_off: allowed then denied with same bearer; dose_logs unchanged.
+PHASE unlink-before exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Xem lịch sử theo ngày
+
+  GET http://127.0.0.1:63764/adherence?patient_id=b578de28-db40-429c-91b0-50d7af72dcea&from=2026-10-19&to=2026-10-19&group_by=date [200 OK, 784 B, 65 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Đúng patient và các field contract
+  Pass  Tỷ lệ, nhóm và liều tuân contract
+  Pass  HTTP 200
+  Pass  Nhóm date
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  6 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 381 ms                                        |
+---------------------------------------------------------------------
+| total data received: 633 B (approx)                               |
+---------------------------------------------------------------------
+| average response time: 65 ms [min: 65 ms, max: 65 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PHASE unlink-next-request-same-bearer exit 0
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+DrugTime Adherence
+
+Root Chặn truy cập không có quyền
+
+  GET http://127.0.0.1:63764/adherence?patient_id=b578de28-db40-429c-91b0-50d7af72dcea&from=2026-10-19&to=2026-10-19&group_by=date [403 Forbidden, 184 B, 56 ms]
+  Pass  Không cache response sức khỏe
+  Pass  Response là JSON
+  Pass  Lỗi không kèm lịch sử sức khỏe
+  Pass  HTTP 403
+  Pass  Mã từ chối theo contract
+
+---------------------------------------------------------------------
+|                         |           executed |             failed |
+--------------------------+--------------------+---------------------
+|              iterations |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|                requests |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|            test-scripts |                  1 |                  0 |
+--------------------------+--------------------+---------------------
+|      prerequest-scripts |                  0 |                  0 |
+--------------------------+--------------------+---------------------
+|              assertions |                  5 |                  0 |
+---------------------------------------------------------------------
+| total run duration: 373 ms                                        |
+---------------------------------------------------------------------
+| total data received: 27 B (approx)                                |
+---------------------------------------------------------------------
+| average response time: 56 ms [min: 56 ms, max: 56 ms, s.d.: 0 us] |
+---------------------------------------------------------------------
+
+PASS DB unlink: allowed then denied with same bearer; dose_logs unchanged.
+PASS: 14 saved requests; local real API/DB; no Postman workspace events. Runtime bearer file removed on exit.

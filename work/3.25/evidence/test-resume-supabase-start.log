@@ -1,0 +1,13 @@
+..\node_modules\.bin\supabase.cmd : Stopped services: [supabase_imgproxy_DrugTime-backend 
+supabase_pg_meta_DrugTime-backend supabase_studio_DrugTime-backend supabase_edge_runtime_DrugTime-backend 
+supabase_analytics_DrugTime-backend supabase_pooler_DrugTime-backend]
+At line:2 char:1
++ ..\node_modules\.bin\supabase.cmd start 2>&1 | Tee-Object ../work/3.2 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Stopped service...ugTime-backend]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+{"DB_URL":"postgresql://postgres:[REDACTED]@127.0.0.1:54322/postgres","API_URL":"http://127.0.0.1:54321","REST_URL":"http://127.0.0.1:54321/rest/v1","GRAPHQL_URL":"http://127.0.0.1:54321/graphql/v1","PUBLISHABLE_KEY":"[REDACTED]","SECRET_KEY":"[REDACTED]","JWT_SECRET":"[REDACTED]","ANON_KEY":"[REDACTED]","SERVICE_ROLE_KEY":"[REDACTED]","MAILPIT_URL":"http://127.0.0.1:54324","INBUCKET_URL":"http://127.0.0.1:54324","STORAGE_S3_URL":"http://127.0.0.1:54321/storage/v1/s3","S3_PROTOCOL_ACCESS_KEY_ID":"625729a08b95bf1b7ff351a663f3a23c","S3_PROTOCOL_ACCESS_KEY_SECRET":"850181e4652dd023b7a98c58ae0d2d34bd487ee0cc3254aed6eda37307425907","S3_PROTOCOL_REGION":"local","message":""}
+A new version of Supabase CLI is available: v2.122.0 (currently installed v2.121.0)
+We recommend updating regularly for new features and bug fixes: 
+https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli

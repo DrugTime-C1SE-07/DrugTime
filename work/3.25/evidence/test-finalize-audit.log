@@ -1,0 +1,30 @@
+history {'Fail': 31, 'Pass': 29} seconds 13.962
+Failure classes {'tests.integration.test_adherence_history_api': 25, 'tests.integration.test_adherence_history_access': 6}
+unit {'Error': 1, 'Pass': 1333, 'Fail': 32} seconds 172.567
+Failure classes {'': 1, 'tests.unit.test_contract_device_tokens': 2, 'tests.unit.test_contract_medication': 3, 'tests.unit.test_contract_notification': 4, 'tests.unit.test_contract_openapi_semantics': 3, 'tests.unit.test_contract_profile': 12, 'tests.unit.test_get_adherence_history': 2, 'tests.unit.test_profile_http': 6}
+integration {'Pass': 1053, 'Fail': 49} seconds 540.504
+Failure classes {'tests.integration.test_adherence_history_access': 6, 'tests.integration.test_adherence_history_api': 25, 'tests.integration.test_alert_dispatch_api': 3, 'tests.integration.test_dose_confirmation_api': 1, 'tests.integration.test_migration_notification_snapshot': 1, 'tests.integration.test_mobile_login': 10, 'tests.integration.test_notification_access': 1, 'tests.integration.test_notification_snapshot_flow': 1, 'tests.integration.test_profile_api': 1}
+Flutter {'Pass': 767, 'Skip': 1, 'Fail': 3} seconds 175.507
+Skip live_repository_reads_both_groupings_and_observes_revoke
+Pass AC6: refresh clears RAM before AdherenceFailureKind.denied and accepts no stale success
+Pass AC6: refresh clears RAM before AdherenceFailureKind.network and accepts no stale success
+Pass AC6: refresh clears RAM before AdherenceFailureKind.unauthorized and accepts no stale success
+Pass AC6: switching patient clears visible history and rejects the old result
+Pass AC6: clear invalidates an in-flight read without an automatic refetch
+Pass AC4: the controller also rejects a mismatched patient from its reader
+Pass AC4: refetches the selected patient and current bearer after a denial
+Pass AC6: a network failure after success never returns cached history
+Pass AC4: a response for P cannot satisfy a request for Q
+Pass AC6: the family view has data and no dose or schedule writes
+Pass AC6: refresh AdherenceFailureKind.denied clears the previously displayed patient
+Pass AC6: refresh AdherenceFailureKind.network clears the previously displayed patient
+Pass AC6: changing to Q removes P before the Q read completes
+Fail AC6 QD-29: background removes family health data immediately
+Fail AC6 QD-29: offline removes health data from the actual app
+Fail alert entry displays server unread count and removes it after clear
+Pass AC6 QD-29: logout removes health data from the actual app
+Canonical adherence path False
+SHA256 family_adherence_controller_test.dart 5cd6b0dd173d234e7091ce095e22d4525a9fbfd4f7acb7b53f2ee37902a2b57a
+SHA256 family_adherence_repository_test.dart 3a7599e7a30ed7556170ada401f1fbf200045b70cbd69ddc05c3d258eeea0d47
+SHA256 family_adherence_screen_test.dart fca3eaabf4a4b0f70856284a28334131891cc0d1d541305f5d5101a520c52bda
+Workbook cases {'Pending': 18, 'Pass': 30, 'Fail': 3}

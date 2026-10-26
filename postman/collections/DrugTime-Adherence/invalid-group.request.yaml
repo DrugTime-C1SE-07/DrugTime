@@ -1,0 +1,23 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/adherence?patient_id={{patient_id}}&from={{from_date}}&to={{to_date}}&group_by=unsupported'
+headers:
+- key: Accept
+  value: application/json
+name: Từ chối cách nhóm sai
+order: 5000
+queryParams:
+- key: patient_id
+  value: '{{patient_id}}'
+- key: from
+  value: '{{from_date}}'
+- key: to
+  value: '{{to_date}}'
+- key: group_by
+  value: unsupported
+scripts:
+- type: afterResponse
+  language: text/javascript
+  code: |-
+    pm.test("HTTP 422", () => pm.response.to.have.status(422));
+    pm.test("Validation chỉ rõ query group_by", () => pm.expect(pm.response.json().detail.some(e => e.loc.includes("group_by"))).to.eql(true));

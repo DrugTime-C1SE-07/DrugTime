@@ -1,0 +1,27 @@
+name: Adherence local
+values:
+- key: base_url
+  value: http://127.0.0.1:8000
+  enabled: true
+  type: default
+- key: patient_id
+  value: ''
+  enabled: true
+  type: default
+- key: denied_patient_id
+  value: ''
+  enabled: true
+  type: default
+- key: from_date
+  value: '2026-10-19'
+  enabled: true
+  type: default
+- key: to_date
+  value: '2026-10-19'
+  enabled: true
+  type: default
+- key: family_access_token
+  value: ''
+  enabled: true
+  type: secret
+  description: App session mobile; cấp tại runtime, không ghi token vào file Git.

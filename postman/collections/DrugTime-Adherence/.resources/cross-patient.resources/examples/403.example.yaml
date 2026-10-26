@@ -1,0 +1,19 @@
+$kind: http-example
+name: 403 · Chặn truy cập không có quyền
+request:
+  url: '{{base_url}}/adherence'
+  method: GET
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+  - key: Content-Type
+    value: application/json
+  - key: Cache-Control
+    value: no-store
+  body:
+    type: json
+    content: |-
+      {
+        "detail": "khong_co_quyen"
+      }

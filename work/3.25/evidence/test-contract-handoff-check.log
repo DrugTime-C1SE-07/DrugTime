@@ -1,0 +1,31 @@
+PASS: 53 cases/44-3-6, evidence references, unchanged other contract content, six requests/five examples, clean runtime bearer, no JWT in Postman, diff whitespace clean and report draft.
+.
+## test/3.25-family-adherence-history-tests
+ M api_contract
+ M backend
+ M docs
+ M frontend
+ M tests
+?? postman/README.md
+?? postman/collections/
+?? "postman/environments/Adherence local.environment.yaml"
+
+backend
+## test/3.25-family-adherence-history-tests
+ M tests/integration/test_adherence_history_api.py
+
+frontend
+## test/3.25-family-adherence-history-tests...origin/main [ahead 1]
+
+api_contract
+## test/3.25-family-adherence-history-tests
+ M openapi.json
+
+tests
+## test/3.15-redeem-flow-tests...origin/test/3.15-redeem-flow-tests
+
+docs
+## test/3.25-family-adherence-history-tests
+ M Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+
+1 file already formatted

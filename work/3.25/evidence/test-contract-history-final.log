@@ -1,0 +1,36 @@
+......................................FF............................     [100%]
+================================== FAILURES ===================================
+________ test_family_early_confirmation_counts_immediately__AC3[date] _________
+backend\tests\integration\test_adherence_history_api.py:743: in test_family_early_confirmation_counts_immediately__AC3
+    assert body["summary"] == dict(
+E   AssertionError: assert {'total': 0, ...ssed': 0, ...} == {'total': 1, ...ssed': 0, ...}
+E     
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'adherence_rate': None} != {'adherence_rate': 100}
+E     {'taken': 0} != {'taken': 1}
+E     {'total': 0} != {'total': 1}
+E     {'counted': 0} != {'counted': 1}
+E     Use -v to get more diff
+_____ test_family_early_confirmation_counts_immediately__AC3[medication] ______
+backend\tests\integration\test_adherence_history_api.py:743: in test_family_early_confirmation_counts_immediately__AC3
+    assert body["summary"] == dict(
+E   AssertionError: assert {'total': 0, ...ssed': 0, ...} == {'total': 1, ...ssed': 0, ...}
+E     
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'adherence_rate': None} != {'adherence_rate': 100}
+E     {'taken': 0} != {'taken': 1}
+E     {'total': 0} != {'total': 1}
+E     {'counted': 0} != {'counted': 1}
+E     Use -v to get more diff
+============================== warnings summary ===============================
+backend\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED backend\tests\integration\test_adherence_history_api.py::test_family_early_confirmation_counts_immediately__AC3[date]
+FAILED backend\tests\integration\test_adherence_history_api.py::test_family_early_confirmation_counts_immediately__AC3[medication]
+2 failed, 66 passed, 1 warning in 16.16s

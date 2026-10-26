@@ -1,0 +1,24 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/adherence?patient_id={{patient_id}}&from={{from_date}}&to={{to_date}}&group_by=date'
+headers:
+- key: Accept
+  value: application/json
+name: Từ chối khi thiếu bearer
+order: 3000
+queryParams:
+- key: patient_id
+  value: '{{patient_id}}'
+- key: from
+  value: '{{from_date}}'
+- key: to
+  value: '{{to_date}}'
+- key: group_by
+  value: date
+auth:
+  type: noauth
+scripts:
+- type: afterResponse
+  language: text/javascript
+  code: pm.test("HTTP 401", () => pm.response.to.have.status(401));
+examples: ./.resources/missing-bearer.resources/examples

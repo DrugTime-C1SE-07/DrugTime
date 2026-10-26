@@ -1,0 +1,9 @@
+Artifact-tool recalculation totals [[44],[3],[6],[53]]
+Disposable Pending to Pass changes totals to 45/3/5/53 and restores 44/3/6/53; no file exported.
+Rendered Lịch sử tuân thủ người thân A9:I18
+Rendered Lịch sử tuân thủ người thân A43:I44
+Rendered Lịch sử tuân thủ người thân A60:I61
+Rendered Lịch sử tuân thủ người thân F63:I67
+Rendered Report A1:I11
+{"kind":"region","sheet":"Lịch sử tuân thủ người thân","address":"G64:H67","rows":4,"cols":2,"nonEmpty":8,"text":8,"maxTextLength":7,"preview":[["Pass","44"],["Fail","3"],["Pending","6"],["Total","53"]],"previewAddress":"G64:H67","previewRows":4,"previewCols":2}
+Read-only artifact-tool verification. Native Excel not exercised; canonical workbooks unchanged.

@@ -1,0 +1,5 @@
+PASS: 20 other function sheets retain values/formulas/styles/formats/merges/panes/chart-image counts.
+work\3.25\testcases.xlsx {'Pending': 18, 'Pass': 30, 'Fail': 3} Bug rows: ['BUG-FADH-20', 'BUG-FADH-40', 'BUG-FADH-41']
+docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx {'Pending': 18, 'Pass': 30, 'Fail': 3} Bug rows: ['BUG-FADH-20', 'BUG-FADH-40', 'BUG-FADH-41']
+PASS: R4 steps, 51 IDs/results, three bug rows for two product defects, formula text, no stored error cells.
+LIMIT: Python structural checks do not establish native Excel calculation or layout.

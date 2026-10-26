@@ -1,0 +1,20 @@
+Phạm vi giai đoạn 'test' của 3.25:
+  [OK]        backend/tests/integration/test_adherence_history_api.py
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     .postman/workflows.yaml
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     postman/README.md
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/by-date.resources/examples/200.example.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/by-medication.resources/examples/200.example.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/cross-patient.resources/examples/403.example.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/definition.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/missing-bearer.resources/examples/401.example.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/.resources/range-too-large.resources/examples/422.example.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/by-date.request.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/by-medication.request.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/cross-patient.request.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/invalid-group.request.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/missing-bearer.request.yaml
+  [NGOÀI]     postman/collections/DrugTime-Adherence/range-too-large.request.yaml
+  [NGOÀI]     postman/environments/Adherence local.environment.yaml
+CHẶN: 16 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.
