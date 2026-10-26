@@ -1,0 +1,58 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-768.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-medications-768.png",
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-interactions-768.png",
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-ocr-review-768.png",
+    "path": "/dashboard/ocr-review",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-375.png",
+    "path": "/dashboard",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-medications-375.png",
+    "path": "/dashboard/medications",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-interactions-375.png",
+    "path": "/dashboard/interactions",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-ocr-review-375.png",
+    "path": "/dashboard/ocr-review",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  }
+]

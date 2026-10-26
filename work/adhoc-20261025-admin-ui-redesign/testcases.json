@@ -1,0 +1,336 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "ADMINUI",
+      "name": "Giao diện Admin Web (theme dashboard)",
+      "sheet": "Giao diện Admin Web",
+      "description": "Thiết kế lại giao diện khu /dashboard của Admin Web theo phong cách sky dashboard; không đổi logic, dữ liệu và trang Login",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-10-26",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Medium",
+      "remarks": "Kiểm tự động bằng Chrome headless (CDP) trên dev server với cookie phiên test ở localhost, dữ liệu dashboard là dữ liệu tĩnh của frontend. Chưa kiểm đăng nhập thật qua backend và chưa kiểm trên Firefox/Safari (Pending).",
+      "ep": [
+        {
+          "field": "Độ rộng viewport",
+          "valid": ["≥ 1281px (desktop rộng, vd 1440)", "901–1280px (desktop hẹp, vd 1280)", "≤ 900px (tablet/mobile, vd 768, 375)"],
+          "invalid": []
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Trang nào nhận theme mới",
+          "conditions": [
+            {"name": "Route thuộc /dashboard?", "values": ["No", "Yes"]},
+            {"name": "Có phiên đăng nhập hợp lệ?", "values": ["-", "Yes"]}
+          ],
+          "actions": [
+            {"name": "Giao diện Login cũ, không có .admin-theme", "rules": [1]},
+            {"name": "Theme mới (.admin-theme)", "rules": [2]}
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-ADMINUI-01",
+          "description": "Hiển thị trang Tổng quan với theme mới ở desktop",
+          "precondition": "Đã đăng nhập admin; viewport 1440×900",
+          "steps": ["Mở /dashboard", "Quan sát sidebar, topbar, card KPI, panel, bảng workers"],
+          "data": "Viewport 1440×900",
+          "expected": "Sidebar gradient xanh sát mép trái, bo cong cạnh phải, mục \"Tổng quan dữ liệu\" là pill trắng; nội dung tràn màn hình trên nền xanh nhạt; card trắng bóng mềm; KPI đầu nền gradient chữ trắng; font Open Sans; không cuộn ngang",
+          "actual": "Đúng như mong đợi; overflowX ≤ 0; 0 lỗi console (impl-dashboard-1440.png)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · Decision Table (R2) · evidence/test-pages.log"
+        },
+        {
+          "id": "TC-ADMINUI-02",
+          "description": "Hiển thị trang Danh mục thuốc với theme mới, đủ cột bảng",
+          "precondition": "Đã đăng nhập admin; viewport 1440×900",
+          "steps": ["Mở /dashboard/medications", "Quan sát stats, bộ lọc, bảng 7 cột"],
+          "data": "Viewport 1440×900",
+          "expected": "Card stats và bộ lọc dạng chip; bảng hiện đủ 7 cột kể cả \"THAO TÁC\" với 3 nút sửa/xem/xóa; badge \"Đã xác thực\" xanh lá có chữ",
+          "actual": "Đúng; .medication-table-scroll scrollWidth = clientWidth = 1118 (impl-medications-1440.png)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · evidence/test-pages.log, evidence/test-table-width.log"
+        },
+        {
+          "id": "TC-ADMINUI-03",
+          "description": "Hiển thị trang Quy tắc tương tác với theme mới, nút header nằm ngang",
+          "precondition": "Đã đăng nhập admin; viewport 1440×900",
+          "steps": ["Mở /dashboard/interactions", "Quan sát header, stats, bảng"],
+          "data": "Viewport 1440×900",
+          "expected": "Nút \"Xuất ma trận đối soát\" và \"Thêm quy tắc mới\" nằm cùng hàng; badge \"Chống chỉ định\" màu đỏ có chữ; bảng vừa card",
+          "actual": "Đúng; .interaction-frame3-table-scroll scrollWidth = clientWidth = 1118 (impl-interactions-1440.png)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · evidence/test-pages.log, evidence/test-table-width.log"
+        },
+        {
+          "id": "TC-ADMINUI-04",
+          "description": "Hiển thị hai trang placeholder Đối soát OCR và Nhật ký với theme mới",
+          "precondition": "Đã đăng nhập admin; viewport 1440×900",
+          "steps": ["Mở /dashboard/ocr-review", "Mở /dashboard/scraper-logs"],
+          "data": "Viewport 1440×900",
+          "expected": "Khung placeholder là card trắng bo góc trong layout mới; mục sidebar tương ứng là pill trắng",
+          "actual": "Đúng ở cả hai trang (impl-ocr-review-1440.png, impl-scraper-logs-1440.png)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · evidence/test-pages.log"
+        },
+        {
+          "id": "TC-ADMINUI-05",
+          "description": "Giữ nguyên giao diện trang Login ở desktop",
+          "precondition": "Chưa đăng nhập; có ảnh baseline login-before-1440.png chụp trước khi sửa",
+          "steps": ["Mở /auth/login ở 1440×900 bằng Chrome headless", "So pixel với ảnh baseline"],
+          "data": "Viewport 1440×900",
+          "expected": "0 pixel khác so với baseline",
+          "actual": "diff_pixels=0",
+          "status": "Pass",
+          "comments": "AC2 · EP (1) · Decision Table (R1) · evidence/test-login-diff.log"
+        },
+        {
+          "id": "TC-ADMINUI-06",
+          "description": "Giữ nguyên giao diện trang Login ở mobile",
+          "precondition": "Chưa đăng nhập; có ảnh baseline login-before-375.png",
+          "steps": ["Mở /auth/login ở 375×812 bằng Chrome headless", "So pixel với ảnh baseline"],
+          "data": "Viewport 375×812",
+          "expected": "0 pixel khác so với baseline",
+          "actual": "diff_pixels=0",
+          "status": "Pass",
+          "comments": "AC2 · EP (3) · Decision Table (R1) · evidence/test-login-diff.log"
+        },
+        {
+          "id": "TC-ADMINUI-07",
+          "description": "Đăng xuất từ dashboard rồi xem Login, theme không rò sang",
+          "precondition": "Đang ở /dashboard (stylesheet theme đã nạp)",
+          "steps": ["Bấm nút \"Đăng xuất\" trên topbar", "Chờ chuyển về /auth/login", "So pixel với Login mở trực tiếp"],
+          "data": "Viewport 1440×900",
+          "expected": "Về /auth/login; giao diện giống hệt Login mở trực tiếp",
+          "actual": "path /auth/login; diff_pixels=0 (login-cdp-after-logout-1440.png vs login-cdp-direct-1440.png)",
+          "status": "Pass",
+          "comments": "AC2 · Error guessing (CSS còn nạp sau điều hướng client) · evidence/test-login-logout.log, evidence/test-login-diff.log"
+        },
+        {
+          "id": "TC-ADMINUI-08",
+          "description": "Kiểm diff chỉ đổi phần trình bày, không đổi logic hay dữ liệu",
+          "precondition": "Nhánh frontend feat/adhoc-20261025-admin-ui-redesign",
+          "steps": ["git -C frontend diff --stat origin/main..HEAD", "Đọc diff layout.tsx", "Liệt kê thay đổi trong components, app/auth, lib, globals.css"],
+          "data": "origin/main..HEAD (24c36415, 122e3577)",
+          "expected": "Chỉ dashboard-theme.css (mới) và layout.tsx (font, thẻ bao, import CSS); không file logic hay Login nào bị đổi",
+          "actual": "Đúng 2 file; danh sách file trong components/app/auth/lib/globals.css rỗng",
+          "status": "Pass",
+          "comments": "AC3 · manual · evidence/test-diff.log"
+        },
+        {
+          "id": "TC-ADMINUI-09",
+          "description": "Tìm kiếm, lọc và đặt lại bộ lọc trên Danh mục thuốc",
+          "precondition": "Đã đăng nhập; /dashboard/medications có 23 bản ghi mẫu, 10 dòng/trang",
+          "steps": ["Gõ \"Warfarin\" vào ô tìm kiếm", "Xóa từ khóa", "Chọn \"Chất lượng: Thiếu thông tin\"", "Bấm \"Đặt lại\""],
+          "data": "Từ khóa: Warfarin; Chất lượng: Thiếu thông tin",
+          "expected": "Tìm kiếm còn 1 dòng; xóa từ khóa về 10 dòng; lọc còn 2 dòng; đặt lại về 10 dòng và select về \"Tất cả\"",
+          "actual": "1 → 10 → 2 → 10 dòng; 0 lỗi console",
+          "status": "Pass",
+          "comments": "AC4 · scratch/behavior-medications.js · evidence/test-behavior-medications.log"
+        },
+        {
+          "id": "TC-ADMINUI-10",
+          "description": "Chuyển trang trong bảng Danh mục thuốc",
+          "precondition": "Đang ở trang 1 của bảng thuốc",
+          "steps": ["Bấm \"Trang sau\"", "Bấm \"Trang đầu\""],
+          "data": "(none)",
+          "expected": "Trang 2 có dòng đầu khác trang 1; về trang đầu thì dòng đầu là \"Coumadin 5mg\"",
+          "actual": "Coumadin 5mg → Pyme AZI 500 → Coumadin 5mg",
+          "status": "Pass",
+          "comments": "AC4 · evidence/test-behavior-medications.log"
+        },
+        {
+          "id": "TC-ADMINUI-11",
+          "description": "Mở và đóng form thêm, form sửa, modal chi tiết thuốc",
+          "precondition": "Đang ở /dashboard/medications",
+          "steps": ["Bấm \"Thêm thuốc mới\" rồi \"Hủy bỏ\"", "Bấm nút sửa của Coumadin 5mg rồi đóng", "Bấm nút xem chi tiết rồi đóng"],
+          "data": "Coumadin 5mg",
+          "expected": "Mở đúng modal \"Thêm thuốc mới vào danh mục\", \"Chỉnh sửa thuốc: Coumadin 5mg\", \"Chi tiết bản ghi biệt dược\"; đóng xong không còn modal",
+          "actual": "Đúng cả 3 modal, đóng được",
+          "status": "Pass",
+          "comments": "AC4 · evidence/test-behavior-medications.log"
+        },
+        {
+          "id": "TC-ADMINUI-12",
+          "description": "Duyệt nhanh thuốc cần duyệt",
+          "precondition": "Trang 1 có dòng \"Lexomil 6mg\" trạng thái Cần duyệt",
+          "steps": ["Bấm nút duyệt của Lexomil 6mg"],
+          "data": "Lexomil 6mg",
+          "expected": "Hiện toast \"Đã duyệt thuốc thành công\" với style mới",
+          "actual": "Toast \"Đã duyệt thuốc thành công\"",
+          "status": "Pass",
+          "comments": "AC4 · evidence/test-behavior-medications.log"
+        },
+        {
+          "id": "TC-ADMINUI-13",
+          "description": "Xóa mềm thuốc rồi hoàn tác",
+          "precondition": "Trang 1 có Coumadin 5mg",
+          "steps": ["Bấm xóa Coumadin 5mg", "Xác nhận trong hộp thoại", "Bấm nút hoàn tác trên toast"],
+          "data": "Coumadin 5mg",
+          "expected": "Dòng biến mất và có toast \"Đã xóa thuốc\" kèm nút hoàn tác; hoàn tác thì dòng quay lại",
+          "actual": "Đúng; toast \"Đã xóa thuốc\", hoàn tác khôi phục dòng",
+          "status": "Pass",
+          "comments": "AC4 · evidence/test-behavior-medications.log"
+        },
+        {
+          "id": "TC-ADMINUI-14",
+          "description": "Tìm kiếm, lọc mức độ, đặt lại và chuyển trang trên Quy tắc tương tác",
+          "precondition": "Đã đăng nhập; /dashboard/interactions có dữ liệu mẫu",
+          "steps": ["Gõ \"Warfarin\"", "Xóa từ khóa", "Chọn mức độ đầu tiên (Chống chỉ định)", "Bấm \"Đặt lại\"", "Bấm \"Trang sau\""],
+          "data": "Từ khóa: Warfarin; Mức độ: Chống chỉ định",
+          "expected": "1 dòng → 10 → 5 → 10; trang sau dòng đầu khác trang 1",
+          "actual": "1 → 10 → 5 → 10; Warfarin ⇄ Aspirin / NSAIDs → Levothyroxine ⇄ Canxi Carbonate / Sắt Sulfat",
+          "status": "Pass",
+          "comments": "AC4 · scratch/behavior-interactions.js · evidence/test-behavior-interactions.log"
+        },
+        {
+          "id": "TC-ADMINUI-15",
+          "description": "Mở form thêm, form hiệu chỉnh và hủy xóa mềm quy tắc tương tác",
+          "precondition": "Đang ở /dashboard/interactions",
+          "steps": ["Bấm \"Thêm quy tắc mới\" rồi \"Hủy bỏ\"", "Bấm \"Hiệu chỉnh\" dòng đầu rồi đóng", "Bấm xóa dòng đầu rồi \"Hủy\""],
+          "data": "RULE-INT-0418",
+          "expected": "Modal \"Thêm mới quy tắc tương tác thuốc\", \"Hiệu chỉnh quy tắc tương tác: RULE-INT-0418\", \"Xác nhận xóa quy tắc tương tác\" mở và đóng được; hủy xóa giữ nguyên 10 dòng",
+          "actual": "Đúng cả 3 modal; bảng giữ 10 dòng",
+          "status": "Pass",
+          "comments": "AC4 · evidence/test-behavior-interactions.log"
+        },
+        {
+          "id": "TC-ADMINUI-16",
+          "description": "Di chuyển bằng phím Tab, viền focus nhìn rõ",
+          "precondition": "Đang ở /dashboard và /dashboard/medications",
+          "steps": ["Bấm Tab 2, 6, 9, 12 lần trên /dashboard", "Bấm Tab 14 lần trên /dashboard/medications", "Đọc :focus-visible và outline của phần tử đang focus"],
+          "data": "Phím Tab (CDP Input.dispatchKeyEvent)",
+          "expected": "Link sidebar outline trắng 2px; nút outline 3px #2563eb; select hiện viền và vòng sáng của ô lọc",
+          "actual": "Đúng cả 5 lần; :focus-visible = true",
+          "status": "Pass",
+          "comments": "AC5 · evidence/test-focus.log"
+        },
+        {
+          "id": "TC-ADMINUI-17",
+          "description": "Đạt tương phản màu WCAG cho các cặp chữ/nền mới",
+          "precondition": "Bảng màu theme cuối cùng",
+          "steps": ["Chạy scratch/contrast.py"],
+          "data": "12 cặp màu (chữ trắng trên nền xanh, chữ phụ, link, focus ring...)",
+          "expected": "Chữ thường ≥ 4.5:1; thành phần không phải chữ ≥ 3:1",
+          "actual": "12/12 đạt, thấp nhất 4.27:1 cho icon (ngưỡng 3:1) và 4.86:1 cho chữ phụ",
+          "status": "Pass",
+          "comments": "AC5 · evidence/test-contrast.log"
+        },
+        {
+          "id": "TC-ADMINUI-18",
+          "description": "Hiển thị các trang dashboard ở tablet 768px",
+          "precondition": "Đã đăng nhập",
+          "steps": ["Mở 4 trang dashboard ở 768×1024", "Đo scrollWidth − innerWidth"],
+          "data": "Viewport 768×1024",
+          "expected": "Không cuộn ngang toàn trang; sidebar thành thanh trên, menu cuộn ngang",
+          "actual": "overflowX = 0 ở cả 4 trang",
+          "status": "Pass",
+          "comments": "AC6 · EP (3) · evidence/test-responsive.log"
+        },
+        {
+          "id": "TC-ADMINUI-19",
+          "description": "Hiển thị các trang dashboard ở mobile 375px",
+          "precondition": "Đã đăng nhập",
+          "steps": ["Mở 4 trang dashboard ở 375×812", "Đo scrollWidth − innerWidth"],
+          "data": "Viewport 375×812",
+          "expected": "Không cuộn ngang toàn trang; topbar xuống dòng gọn, không tràn mép",
+          "actual": "overflowX = 0 ở cả 4 trang",
+          "status": "Pass",
+          "comments": "AC6 · EP (3) · evidence/test-responsive.log"
+        },
+        {
+          "id": "TC-ADMINUI-20",
+          "description": "Tắt chuyển động khi bật prefers-reduced-motion",
+          "precondition": "Đang ở /dashboard",
+          "steps": ["Giả lập prefers-reduced-motion: reduce", "Đọc transition-duration của link sidebar và card KPI", "Tắt giả lập và đọc lại"],
+          "data": "reduce / no-preference",
+          "expected": "Khi reduce gần 0s; khi tắt là thời gian bình thường",
+          "actual": "reduce: 1e-05s, 1e-05s; no-preference: 0.18s, 0.2s",
+          "status": "Pass",
+          "comments": "AC7 · evidence/test-focus-motion.log"
+        },
+        {
+          "id": "TC-ADMINUI-21",
+          "description": "Chạy lint và build production của Admin Web",
+          "precondition": "frontend ở commit 122e3577",
+          "steps": ["cd frontend/admin && npm run lint", "npm run build"],
+          "data": "(none)",
+          "expected": "Cả hai exit 0; đủ 11 route; /auth/login giữ 7.41 kB",
+          "actual": "lint exit 0; build exit 0, 11 route, /auth/login 7.41 kB",
+          "status": "Pass",
+          "comments": "AC8 · evidence/test-admin-lint.log, evidence/test-admin-build.log"
+        },
+        {
+          "id": "TC-ADMINUI-22",
+          "description": "Cuộn trang bằng một thanh cuộn duy nhất, sidebar và topbar đứng yên",
+          "precondition": "Đã đăng nhập; viewport 1440×900",
+          "steps": ["Mở 3 trang dashboard", "Liệt kê phần tử có overflow-y auto/scroll đang cuộn được", "Cuộn trang khoảng 300px", "Đọc vị trí topbar và sidebar"],
+          "data": "Viewport 1440×900",
+          "expected": "Không có vùng cuộn dọc lồng bên trong; chỉ document cuộn; topbar và sidebar giữ top = 0; thanh cuộn mảnh màu #b6c4da",
+          "actual": "innerVerticalScrollers = []; topbar/sidebar top 0 trước và sau; scrollbar-color rgb(182, 196, 218)",
+          "status": "Pass",
+          "comments": "AC1 · P13 · evidence/test-scroll-structure.log"
+        },
+        {
+          "id": "TC-ADMINUI-23",
+          "description": "Hiện đủ cột bảng ở desktop hẹp 1280px",
+          "precondition": "Đã đăng nhập",
+          "steps": ["Mở /dashboard/medications và /dashboard/interactions ở 1280×800", "So scrollWidth với clientWidth của vùng bảng"],
+          "data": "Viewport 1280×800",
+          "expected": "Bảng vừa card, không có cuộn ngang trong card",
+          "actual": "958 = 958 ở cả hai bảng",
+          "status": "Pass",
+          "comments": "AC6 · EP (2) · evidence/test-table-width.log"
+        },
+        {
+          "id": "TC-ADMINUI-24",
+          "description": "Khóa cuộn trang nền khi đang mở modal",
+          "precondition": "Đang ở /dashboard/medications, trang cuộn được",
+          "steps": ["Lăn chuột 600px khi chưa mở modal", "Tải lại, mở modal chi tiết thuốc, lăn chuột 600px"],
+          "data": "mouseWheel deltaY 600 (CDP)",
+          "expected": "Chưa mở modal: trang cuộn; đang mở modal: trang nền không cuộn",
+          "actual": "Không modal: scrollY 268; có modal: scrollY 0, body overflow hidden",
+          "status": "Pass",
+          "comments": "AC4 · Chuyển trạng thái (đóng → mở modal) · evidence/test-modal-scroll-lock.log"
+        },
+        {
+          "id": "TC-ADMINUI-25",
+          "description": "Không để topbar dính che phần tử đang được focus",
+          "precondition": "Trang /dashboard/medications đã cuộn xuống cuối",
+          "steps": ["Focus nút đầu tiên trong bảng (trình duyệt tự cuộn tới)", "So top của nút với đáy topbar"],
+          "data": "scroll-padding-top 84px",
+          "expected": "Nút nằm dưới đáy topbar (không bị che)",
+          "actual": "Nút top 141px, đáy topbar 68px, obscured = false",
+          "status": "Pass",
+          "comments": "AC5 · Error guessing (WCAG 2.2 focus not obscured) · evidence/test-focus-not-obscured.log"
+        },
+        {
+          "id": "TC-ADMINUI-26",
+          "description": "Đăng nhập bằng tài khoản admin thật qua backend rồi duyệt giao diện",
+          "precondition": "Backend chạy với backend/.env (Supabase cloud); có tài khoản users.system_role = 'admin'; admin web chạy với DRUGTIME_API_BASE_URL",
+          "steps": ["Mở /auth/login", "Đăng nhập bằng tài khoản admin", "Duyệt 5 trang dashboard và đăng xuất"],
+          "data": "Tài khoản admin test do người dùng tạo",
+          "expected": "Đăng nhập thành công vào /dashboard; giao diện như TC-ADMINUI-01..04; đăng xuất về Login",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1, AC2 · manual · cần người chạy với backend thật (agent dùng cookie phiên test)"
+        },
+        {
+          "id": "TC-ADMINUI-27",
+          "description": "Hiển thị layout và thanh cuộn trên Firefox và Safari",
+          "precondition": "Đã đăng nhập; có Firefox, Safari (macOS/iOS)",
+          "steps": ["Mở /dashboard/medications trên Firefox", "Mở trên Safari", "Quan sát thanh cuộn, topbar sticky, sidebar"],
+          "data": "Firefox, Safari bản mới",
+          "expected": "Layout như Chrome; thanh cuộn mảnh (Safari dùng fallback ::-webkit-scrollbar)",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1 · manual · agent chỉ kiểm trên Chrome headless"
+        }
+      ]
+    }
+  ]
+}

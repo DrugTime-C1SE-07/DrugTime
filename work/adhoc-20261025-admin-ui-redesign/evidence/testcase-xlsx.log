@@ -1,0 +1,12 @@
+Spec adhoc-20261025-admin-ui-redesign/testcases.json hợp lệ:
+  ADMINUI: 27 test case — Pass 25, Fail 0, Pending 2
+validate exit=0
+Spec adhoc-20261025-admin-ui-redesign/testcases.json hợp lệ:
+  ADMINUI: 27 test case — Pass 25, Fail 0, Pending 2
+OK: đã ghi D:\Captone\DrugTime\work\adhoc-20261025-admin-ui-redesign\testcases.xlsx
+build exit=0
+merge: KHÔNG chạy — docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx đang ở trạng thái xung đột merge (git status: UU) trên nhánh main của docs, cùng thay đổi đã stage của người khác; chờ người dùng quyết định (2026-10-26).
+M  Team1_DTU/01_Proposal_&_Planning/Product-and-Sprint-backlog-DrugTime.xlsx
+A  Team1_DTU/02_Requirements/drugtime_quyet_dinh_theo_chuc_nang.md
+M  Team1_DTU/03_Design/Database/drugtime_schema_v11.sql
+UU Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx

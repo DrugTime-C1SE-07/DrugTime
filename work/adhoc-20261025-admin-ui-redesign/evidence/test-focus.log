@@ -1,0 +1,77 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-tab2-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "A",
+      "admin-sidebar__link",
+      "Danh mục thuốc",
+      true,
+      "solid",
+      "2px",
+      "rgb(255, 255, 255)"
+    ]
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-tab6-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "BUTTON",
+      "admin-sidebar__logout",
+      "",
+      true,
+      "solid",
+      "2px",
+      "rgb(255, 255, 255)"
+    ]
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-tab9-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "BUTTON",
+      "admin-topbar__profile",
+      "",
+      true,
+      "solid",
+      "3px",
+      "rgb(37, 99, 235)"
+    ]
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-tab12-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "BUTTON",
+      "dashboard-action",
+      "Đồng bộ tức thì",
+      true,
+      "solid",
+      "3px",
+      "rgb(37, 99, 235)"
+    ]
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-medications-tab14-1440.png",
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "SELECT",
+      "",
+      "Nguồn: Tất cảNguồn: Cục QLDNgu",
+      true,
+      "none",
+      "3px",
+      "rgb(17, 24, 39)"
+    ]
+  }
+]

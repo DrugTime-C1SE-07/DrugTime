@@ -1,0 +1,70 @@
+[
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      [
+        "medication-table-card",
+        1118,
+        1118
+      ],
+      [
+        "medication-table-scroll",
+        1118,
+        1118
+      ]
+    ]
+  },
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      [
+        "medication-table-card",
+        958,
+        958
+      ],
+      [
+        "medication-table-scroll",
+        958,
+        958
+      ]
+    ]
+  },
+  {
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      [
+        "interaction-frame3-card",
+        1118,
+        1118
+      ],
+      [
+        "interaction-frame3-table-scroll",
+        1118,
+        1118
+      ]
+    ]
+  },
+  {
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      [
+        "interaction-frame3-card",
+        958,
+        958
+      ],
+      [
+        "interaction-frame3-table-scroll",
+        958,
+        958
+      ]
+    ]
+  }
+]

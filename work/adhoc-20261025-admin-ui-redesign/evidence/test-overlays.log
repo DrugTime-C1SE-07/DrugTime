@@ -1,0 +1,23 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-modal-medication-form-1440.png",
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": true
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-modal-interaction-form-1440.png",
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": true
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-toast-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": true
+  }
+]

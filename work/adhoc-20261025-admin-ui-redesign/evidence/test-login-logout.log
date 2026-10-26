@@ -1,0 +1,16 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/login-cdp-direct-1440.png",
+    "path": "/auth/login",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/login-cdp-after-logout-1440.png",
+    "path": "/auth/login",
+    "overflowX": 0,
+    "consoleErrors": [],
+    "js": "Đăng xuất"
+  }
+]

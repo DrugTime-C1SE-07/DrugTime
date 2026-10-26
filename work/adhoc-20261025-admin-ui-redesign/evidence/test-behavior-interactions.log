@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      {
+        "name": "bảng có dữ liệu ban đầu",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "tìm kiếm 'Warfarin' lọc bảng",
+        "ok": true,
+        "detail": {
+          "rows": 1
+        }
+      },
+      {
+        "name": "xóa từ khóa trả lại bảng",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "lọc mức độ = 🔴 Chống chỉ định",
+        "ok": true,
+        "detail": {
+          "rows": 5
+        }
+      },
+      {
+        "name": "đặt lại bộ lọc",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      },
+      {
+        "name": "sang trang sau đổi dòng đầu",
+        "ok": true,
+        "detail": {
+          "before": "Warfarin ⇄ Aspirin / NSAIDs",
+          "after": "Levothyroxine ⇄ Canxi Carbonate / Sắt Sulfat"
+        }
+      },
+      {
+        "name": "mở form thêm quy tắc",
+        "ok": true,
+        "detail": "Thêm mới quy tắc tương tác thuốc"
+      },
+      {
+        "name": "đóng form bằng Hủy bỏ",
+        "ok": true
+      },
+      {
+        "name": "mở form hiệu chỉnh",
+        "ok": true,
+        "detail": "Hiệu chỉnh quy tắc tương tác: RULE-INT-0418"
+      },
+      {
+        "name": "đóng form hiệu chỉnh",
+        "ok": true
+      },
+      {
+        "name": "mở hộp xác nhận xóa mềm",
+        "ok": true,
+        "detail": "Xác nhận xóa quy tắc tương tác"
+      },
+      {
+        "name": "hủy xóa giữ nguyên bảng",
+        "ok": true,
+        "detail": {
+          "rows": 10
+        }
+      }
+    ]
+  }
+]

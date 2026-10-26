@@ -1,0 +1,66 @@
+$ git -C frontend diff --stat origin/main..HEAD
+ admin/app/dashboard/dashboard-theme.css | 1022 +++++++++++++++++++++++++++++++
+ admin/app/dashboard/layout.tsx          |   32 +-
+ 2 files changed, 1044 insertions(+), 10 deletions(-)
+
+$ git -C frontend log --oneline origin/main..HEAD
+122e3577 fix(admin): make dashboard shell full-bleed with single page scroll
+24c36415 feat(admin): redesign dashboard UI with scoped sky theme
+
+$ git -C frontend diff origin/main..HEAD -- admin/app/dashboard/layout.tsx
+diff --git a/admin/app/dashboard/layout.tsx b/admin/app/dashboard/layout.tsx
+index b465ebe9..88ebaef7 100644
+--- a/admin/app/dashboard/layout.tsx
++++ b/admin/app/dashboard/layout.tsx
+@@ -1,3 +1,4 @@
++import { Open_Sans } from "next/font/google";
+ import { cookies } from "next/headers";
+ import type { ReactNode } from "react";
+ 
+@@ -6,6 +7,14 @@ import Sidebar from "../../components/layout/Sidebar";
+ import Topbar from "../../components/layout/Topbar";
+ import { ToastProvider } from "../../components/ui/Toast";
+ import { SESSION_COOKIE, readExpiry } from "../../lib/auth/session";
++import "./dashboard-theme.css";
++
++const openSans = Open_Sans({
++  subsets: ["latin", "vietnamese"],
++  weight: ["400", "600", "700"],
++  display: "swap",
++  variable: "--font-open-sans",
++});
+ 
+ export default function DashboardLayout({
+   children,
+@@ -16,15 +25,18 @@ export default function DashboardLayout({
+   const expiresAt = readExpiry(cookies().get(SESSION_COOKIE)?.value);
+ 
+   return (
+-    <ToastProvider>
+-      <div className="admin-shell">
+-        <SessionKeepAlive expiresAt={expiresAt} />
+-        <Sidebar />
+-        <main className="admin-shell__content">
+-          <Topbar />
+-          <div className="admin-shell__body">{children}</div>
+-        </main>
+-      </div>
+-    </ToastProvider>
++    // Theme chỉ áp trong .admin-theme để trang Login (dùng chung globals.css) không đổi; bọc ngoài ToastProvider để toast cũng nhận theme.
++    <div className={`admin-theme ${openSans.variable}`}>
++      <ToastProvider>
++        <div className="admin-shell">
++          <SessionKeepAlive expiresAt={expiresAt} />
++          <Sidebar />
++          <main className="admin-shell__content">
++            <Topbar />
++            <div className="admin-shell__body">{children}</div>
++          </main>
++        </div>
++      </ToastProvider>
++    </div>
+   );
+ }
+
+$ git -C frontend diff --name-only origin/main..HEAD -- admin/components admin/app/auth admin/lib admin/app/globals.css
+(rong = khong file logic/login nao bi doi)

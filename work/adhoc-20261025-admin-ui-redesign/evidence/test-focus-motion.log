@@ -1,0 +1,72 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-focus-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      [
+        "admin-sidebar__link",
+        false,
+        "none",
+        "3px",
+        "rgb(255, 255, 255)"
+      ],
+      [
+        "admin-topbar__icon-button",
+        false,
+        "none",
+        "3px",
+        "rgb(107, 114, 128)"
+      ],
+      [
+        "dashboard-action",
+        false,
+        "none",
+        "3px",
+        "rgb(255, 255, 255)"
+      ]
+    ]
+  },
+  {
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "1e-05s",
+      "1e-05s",
+      true
+    ]
+  },
+  {
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": [
+      "0.18s, 0.18s, 0.18s",
+      "0.2s, 0.2s",
+      false
+    ]
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-medications-1440.png",
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-interactions-1440.png",
+    "path": "/dashboard/interactions",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": null
+  }
+]

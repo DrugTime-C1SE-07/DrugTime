@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "scrollYWhileModalOpen": 268,
+      "scrollYAfterClose": 268,
+      "scrollPaddingTop": "84px"
+    }
+  },
+  {
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": {
+      "focusedTop": 141,
+      "topbarBottom": 68,
+      "obscured": false
+    }
+  }
+]

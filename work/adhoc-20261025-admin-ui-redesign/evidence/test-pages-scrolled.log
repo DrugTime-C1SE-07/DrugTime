@@ -1,0 +1,16 @@
+[
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-dashboard-scrolled-1440.png",
+    "path": "/dashboard",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": 315
+  },
+  {
+    "out": "D:/Captone/DrugTime/work/adhoc-20261025-admin-ui-redesign/evidence/impl-medications-scrolled-1440.png",
+    "path": "/dashboard/medications",
+    "overflowX": -10,
+    "consoleErrors": [],
+    "js": 268
+  }
+]

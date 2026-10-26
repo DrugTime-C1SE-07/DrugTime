@@ -1,0 +1,6 @@
+login-before-1440 vs login (test, HEAD 122e3577) 1440:
+diff_pixels=0 bbox=None
+login-before-375 vs login (test, HEAD 122e3577) 375:
+diff_pixels=0 bbox=None
+CDP login truc tiep vs sau logout:
+diff_pixels=0 bbox=None
