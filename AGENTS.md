@@ -131,7 +131,7 @@ Không task nào được vi phạm các điều sau. Nguồn: quyết định k
 2. Mọi endpoint chạm dữ liệu sức khỏe đi qua PEP: `resolve_access → Consent Guard → Access Log Writer` (module `access`). Access Log Writer ghi đồng bộ và fail-closed; dòng `denied` ghi ở transaction riêng để không bị rollback theo. `patient_id` do client gửi luôn được đối chiếu với `caregiver_links`. Truy cập bị từ chối trả 403.
 3. Không role nào được UPDATE, DELETE hay TRUNCATE `access_logs`; thực thi bằng revoke và trigger, không chỉ grant.
 4. Quyết định phân quyền đọc từ DB ở mỗi request. JWT chỉ mang danh tính; không cache quyết định phân quyền ở API hay app.
-5. Ghi nhận liều idempotent: upsert theo `(medication_schedule_id, scheduled_at)`, khử trùng theo `client_uuid`. Worker không bao giờ ghi đè liều đã xác nhận; xác nhận đến muộn chuyển Bỏ lỡ thành Uống trễ.
+5. Ghi nhận liều idempotent: upsert theo `(medication_schedule_id, scheduled_at)`, khử trùng theo `client_uuid`. Worker chỉ ghi `bo_lo` khi đã xác minh (checkpoint đồng bộ của patient ≥ giờ dự kiến + 120 phút) và không bao giờ ghi đè liều đã xác nhận; xác nhận đến sau `bo_lo` tính trạng thái theo `taken_at` (QD-03).
 6. Engine kiểm tra tương tác thuốc là tất định, không có LLM trong đường xử lý, và có ba trạng thái kết quả: có tương tác, đã kiểm tra và không thấy, chưa đủ dữ liệu.
 7. Múi giờ cố định `Asia/Ho_Chi_Minh`.
 
@@ -163,7 +163,7 @@ Khi task chạm vùng tương ứng, test tích hợp phải phủ các kịch b
 - Truy cập chéo patient khi không có liên kết hoặc consent → 403, và có dòng `denied` trong `access_logs`.
 - Rút consent hoặc hủy liên kết, gửi request ngay sau đó → 403.
 - Gửi lại cùng `client_uuid` → chỉ có một bản ghi liều.
-- Worker quét bỏ lỡ chạy đua với xác nhận đến muộn → kết quả Uống trễ, không có bản ghi trùng.
+- Worker quét bỏ lỡ chạy đua với xác nhận đến muộn → kết quả theo `taken_at`, không có bản ghi trùng.
 - Thay đổi quy tắc tương tác → toàn bộ `sample_patient_scenarios` vẫn đúng.
 
 ### Definition of Done
