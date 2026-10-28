@@ -1,0 +1,66 @@
+[
+  {
+    "name": "LM G710",
+    "id": "LMG7103f11b938",
+    "isSupported": true,
+    "targetPlatform": "android-arm64",
+    "emulator": false,
+    "sdk": "Android 13 (API 33)",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": true,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "Windows",
+    "id": "windows",
+    "isSupported": true,
+    "targetPlatform": "windows-x64",
+    "emulator": false,
+    "sdk": "Microsoft Windows [Version 10.0.19044.7807]",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": false,
+      "flutterExit": true,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "Chrome",
+    "id": "chrome",
+    "isSupported": true,
+    "targetPlatform": "web-javascript",
+    "emulator": false,
+    "sdk": "Google Chrome 156.0.8078.47",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": false,
+      "flutterExit": false,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  },
+  {
+    "name": "Edge",
+    "id": "edge",
+    "isSupported": true,
+    "targetPlatform": "web-javascript",
+    "emulator": false,
+    "sdk": "Microsoft Edge 156.0.4314.42",
+    "capabilities": {
+      "hotReload": true,
+      "hotRestart": true,
+      "screenshot": false,
+      "flutterExit": false,
+      "hardwareRendering": false,
+      "startPaused": true
+    }
+  }
+]

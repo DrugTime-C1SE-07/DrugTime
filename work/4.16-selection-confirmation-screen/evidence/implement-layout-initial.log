@@ -1,0 +1,289 @@
+00:00 +0: loading D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart
+00:00 +0: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:01 +1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:01 +2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: replacement, empty and same id changed metadata clear selection
+00:01 +3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: A B A: only current generation can update, including stale error
+00:01 +4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: missing fields are unknown without fabricated unit or strength
+00:01 +5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: clear invalidates request and dispose cancels timer or ignores response
+00:01 +6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: clear invalidates request and dispose cancels timer or ignores response
+00:01 +7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+00:02 +8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+00:02 +9: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+00:02 +10: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+00:02 +11: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: failure MedicationFailureKind.validation is not empty success
+00:02 +12: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:02 +13: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:02 +14: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:03 +15: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:03 +16: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:03 +17: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:256:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(320.0, 568.0) text 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +17 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:03 +17 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(320.0, 568.0) text 1.0
+  
+00:03 +17 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.5
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:256:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(320.0, 568.0) text 1.5
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +17 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:03 +17 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.5 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(320.0, 568.0) text 1.5
+  
+00:04 +17 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 2.0
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 67 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///D:/DrugTime/source/DrugTime/frontend/mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart:79:12
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#a6fb4 OVERFLOWING:
+  needs compositing
+  creator: Column ← DrugSelectionPanel ← Expanded ← Column ← Padding ← FractionallySizedBox ←
+    DrugCatalogSheet ← KeyedSubtree-[GlobalKey#98439] ← _BodyBuilder ← MediaQuery ←
+    LayoutId-[<_ScaffoldSlot.body>] ← CustomMultiChildLayout ← ⋯
+  parentData: offset=Offset(0.0, 275.0); flex=1; fit=FlexFit.tight (can use size)
+  constraints: BoxConstraints(w=320.0, h=45.2)
+  size: Size(320.0, 45.2)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:256:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(320.0, 568.0) text 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +17 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:04 +17 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(320.0, 568.0) text 2.0
+  
+00:04 +17 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(375.0, 812.0) text 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +17 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:04 +17 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(375.0, 812.0) text 1.0
+  
+00:04 +17 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 1.5
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(375.0, 812.0) text 1.5
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +17 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:04 +17 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 1.5 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(375.0, 812.0) text 1.5
+  
+00:04 +17 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with text "Thông tin thuốc đã chọn" (considering
+only hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:120:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart line 120
+The test description was:
+  long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +17 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 2.0
+00:04 +17 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+  
+00:04 +17 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:256:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  keyboard selection and semantics Size(375.0, 812.0) text 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +17 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.0 scroll review and confirm
+00:04 +17 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: keyboard selection and semantics Size(375.0, 812.0) text 2.0
+  
+00:05 +17 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: small screen large text with keyboard: states scroll and retry remains reachable
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:293:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  small screen large text with keyboard: states scroll and retry remains reachable
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +17 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.0 scroll review and confirm
+00:05 +17 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: small screen large text with keyboard: states scroll and retry remains reachable [E]
+  Test failed. See exception logs above.
+  The test description was: small screen large text with keyboard: states scroll and retry remains reachable
+  
+00:05 +18 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm
+00:05 +19 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 2.0 scroll review and confirm
+00:06 +20 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  semantics labels selected state and enabled confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +20 -9: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm [E]
+  Test failed. See exception logs above.
+  The test description was: semantics labels selected state and enabled confirm
+  
+00:06 +20 -9: Some tests failed.
+
+Failing tests:
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.0
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 1.5
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(320.0, 568.0) text 2.0
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: keyboard selection and semantics Size(375.0, 812.0) text 1.0
+  ... and 5 more

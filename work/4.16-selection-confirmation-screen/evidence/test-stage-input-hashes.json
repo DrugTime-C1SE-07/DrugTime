@@ -1,0 +1,15 @@
+{
+  "frontend/mobile/lib/app/router.dart": "3cd13570681b3a20d77e4191fe80dcb46347777c325995f5e369de4beda42ba3",
+  "frontend/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart": "09982f6e88fc22db1450daa4ca8d6bd9c0147e41d177ee4793328034d69b3419",
+  "frontend/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart": "f61ec0f47e47d0d75d3543ab326d4fbcab70ae230d347fc04d8a451975978c5b",
+  "frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart": "9e2222875686f97189a120b6588e0f970d4a2a9d58dbca24709f1e7b8964c71d",
+  "frontend/mobile/test/features/medication/medication_lookup_widget_test.dart": "fc7d66d0e7c5bb4e7630c7cf0938183154b6a5bb21eea9e8239d14c3427e7a99",
+  "frontend/mobile/test/features/medication/medication_screens_test.dart": "89b22767bf703155ced8384cc9d22f036e16c6ea3252a024c21a1c0439dd586b",
+  "frontend/mobile/lib/features/medication/data/models/drug_selection_demo_fixtures.dart": "6ed76723eec8b2997baa1bab5685387ff9d94b8cb48ded73dcfe013ef53c826d",
+  "frontend/mobile/lib/features/medication/presentation/screens/drug_selection_demo_screen.dart": "722e6840faf16f1ca1d38887c2c45308da4a446921731200daf61ea138d31d6a",
+  "frontend/mobile/lib/features/medication/presentation/screens/drug_selection_screen.dart": "eb61f1dc6a44a2d44718657f4862f55ade67a244d612a6dacf1592d56c7f18b4",
+  "frontend/mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart": "d58a6eabd904cb85e39bf90f1ae297415b47bee4ffbb0e0654f4f61495ccbf92",
+  "frontend/mobile/test/features/medication/drug_selection_demo_test.dart": "b38d98c6c3e16802d9a404ae3eabb32bb7a19b8f40e54ecc6301746b89d2259b",
+  "frontend/mobile/test/features/medication/drug_selection_flow_test.dart": "517902d308eca667b6d1679b8fc28f6cb9dd9e20a89407199903410529afae7b",
+  "frontend/mobile/test/features/medication/drug_selection_panel_test.dart": "67170ad80e8525585c7565679b609cb2fafa3b832000a457ab79eb182a4631b0"
+}

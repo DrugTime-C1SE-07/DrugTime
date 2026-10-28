@@ -1,0 +1,41 @@
+COMMAND: git status --short --branch
+## feat/4.16-selection-confirmation-screen...origin/main
+ M api_contract
+ M backend
+ M docs
+ M frontend
+ M tests
+
+warning: could not open directory '.pytest_cache/': Permission denied
+
+EXIT: 0
+COMMAND: git -C frontend status --short --branch
+## feat/4.16-selection-confirmation-screen...origin/main
+ M mobile/lib/app/router.dart
+ M mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+ M mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart
+ M mobile/test/features/medication/drug_catalog_sheet_test.dart
+ M mobile/test/features/medication/medication_lookup_widget_test.dart
+ M mobile/test/features/medication/medication_screens_test.dart
+?? mobile/lib/features/medication/data/models/drug_selection_demo_fixtures.dart
+?? mobile/lib/features/medication/presentation/screens/drug_selection_demo_screen.dart
+?? mobile/lib/features/medication/presentation/screens/drug_selection_screen.dart
+?? mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart
+?? mobile/test/features/medication/drug_selection_demo_test.dart
+?? mobile/test/features/medication/drug_selection_flow_test.dart
+?? mobile/test/features/medication/drug_selection_panel_test.dart
+
+
+EXIT: 0
+COMMAND: git -C docs status --short --branch
+## feat/4.16-selection-confirmation-screen...origin/main
+ M Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+
+
+EXIT: 0
+COMMAND: git -C backend status --short --branch
+## feat-3.26...origin/feat-3.26
+ M src/drugtime/modules/catalog/fetchers.py
+
+
+EXIT: 0

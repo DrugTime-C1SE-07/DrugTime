@@ -1,0 +1,10 @@
+Analyzing mobile...                                             
+
+   info - 'hasFlag' is deprecated and shouldn't be used. Use flagsCollection instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - test\features\medication\drug_catalog_sheet_test.dart:263:45 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\medication\drug_selection_flow_test.dart:113:29 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\medication\drug_selection_flow_test.dart:114:15 - prefer_const_constructors
+   info - 'hasFlag' is deprecated and shouldn't be used. Use flagsCollection instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - test\features\medication\drug_selection_panel_test.dart:141:21 - deprecated_member_use
+   info - 'hasFlag' is deprecated and shouldn't be used. Use flagsCollection instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - test\features\medication\drug_selection_panel_test.dart:142:21 - deprecated_member_use
+   info - 'hasFlag' is deprecated and shouldn't be used. Use flagsCollection instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - test\features\medication\drug_selection_panel_test.dart:144:38 - deprecated_member_use
+
+6 issues found. (ran in 22.1s)

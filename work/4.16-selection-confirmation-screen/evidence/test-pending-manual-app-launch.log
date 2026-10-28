@@ -1,0 +1,33 @@
+COMMAND: C:/Users/admin/flutter/bin/cache/dart-sdk/bin/dart.exe C:/Users/admin/flutter/bin/cache/flutter_tools.snapshot run --no-pub --no-resident -d LMG7103f11b938 --dart-define=DRUGTIME_PREVIEW=true --target=D:\DrugTime\source\DrugTime\work\4.16-selection-confirmation-screen\scratch\manual_selection_app.dart
+Launching D:\DrugTime\source\DrugTime\work\4.16-selection-confirmation-screen\scratch\manual_selection_app.dart on LM G710 in debug mode...
+Running Gradle task 'assembleDebug'...                          
+Warning: Flutter support for your project's Gradle version (8.14.0) will soon be dropped. Please upgrade your Gradle version to a version of at least 9.1.0 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's gradle version is typically defined in the gradle wrapper file. By default, this can be found at D:\DrugTime\source\DrugTime\frontend\mobile\android/gradle/wrapper/gradle-wrapper.properties. 
+For more information, see https://docs.gradle.org/current/userguide/gradle_wrapper.html.
+
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 8.11.1) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the ext.kotlin_version property.
+
+Running Gradle task 'assembleDebug'...                             31.5s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          18.2s
+I/FlutterActivityAndFragmentDelegate(23746): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI(23746): Beginning load of flutter...
+D/FlutterJNI(23746): flutter (null) was loaded normally!
+I/flutter (23746): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (23746): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterRenderer(23746): Width is zero. 0,0
+Syncing files to device LM G710...                                 229ms
+
+EXIT: 0

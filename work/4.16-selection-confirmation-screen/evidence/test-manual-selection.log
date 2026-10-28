@@ -1,0 +1,25 @@
+Task: 4.16-selection-confirmation-screen
+Case: TC-MEDPICK-52 / T21-T22
+Date: 2026-10-28
+Device: LM G710 Android 13, connected device LMG7103f11b938.
+Application: unchanged DrugSelectionDemoScreen opened by debug QA entry point in scratch/manual_selection_app.dart.
+Launch evidence: test-pending-manual-app-launch.log, exit 0.
+Tester: người dùng. Codex ghi nhận phản hồi, không tự nhận đã thao tác bằng tay.
+
+Các bước đã giao cho người kiểm:
+1. OCR/Tìm kiếm có kết quả: chọn, đổi thuốc, xem lại và Xác nhận.
+2. Hai mục không có kết quả: Tìm kiếm thủ công, nhập Paracetamol; Back/Hủy.
+3. Tên dài/danh sách dài: cuộn/chạm, chữ lớn và bàn phím. TalkBack nếu sẵn có.
+
+Phản hồi nguyên văn của người dùng:
+"Đạt các thao tác; TalkBack chưa kiểm"
+
+Kết quả: Pass phần nghiệm thu thủ công đã được người dùng xác nhận.
+TalkBack tại phản hồi ban đầu: chưa kiểm; đã có xác nhận bổ sung ở cuối log.
+Không đo riêng kích thước màn/font trong lượt người dùng kiểm; không thay thế phép đo tự động cấu hình nhỏ/chữ lớn TC-28 hoặc regression TC-51.
+Phạm vi: dữ liệu mẫu tổng hợp, không OCR/backend thật trong lượt nghiệm thu bằng tay này.
+
+Xác nhận bổ sung của người dùng, 2026-10-28:
+"talkback hoạt động bình thường"
+Kết quả cập nhật: TalkBack Pass theo người dùng thực hiện kiểm bằng tay trên thiết bị. Agent không tự nhận đã kiểm TalkBack.
+TC-28/51 và lỗi layout Medium giữ nguyên; không suy diễn kết quả TalkBack thành regression màn nhỏ Pass.
