@@ -1,0 +1,210 @@
+00:00 +0: loading D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart
+00:00 +0: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building FamilyTabScreen(dirty, dependencies: [FamilyAlertScope],
+state: _FamilyTabScreenState#fa8e4):
+Không tìm thấy ConsentScope phía trên widget này
+'package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart':
+Failed assertion: line 86 pos 12: 'scope != null'
+
+The relevant error-causing widget was:
+  FamilyTabScreen
+  FamilyTabScreen:file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart:21:55
+
+When the exception was thrown, this was the stack:
+#2      ConsentScope.of (package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart:86:12)
+#3      _FamilyTabScreenState.build (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:60:22)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5944:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5830:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5812:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5986:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5806:5)
+...     Normal element mounting (260 frames)
+#270    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#271    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7277:36)
+#272    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7292:32)
+...     Normal element mounting (473 frames)
+#745    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#746    Element.updateChild (package:flutter/src/widgets/framework.dart:4066:20)
+#747    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#748    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#749    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#750    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#751    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#752    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#753    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#754    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#755    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#756    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#757    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#758    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#759    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#760    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#761    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#762    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#763    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#764    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#765    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#766    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#767    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#768    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#769    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#770    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#771    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#772    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#773    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#774    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#775    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#776    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#777    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#778    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#779    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#780    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#781    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#782    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#783    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#784    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#785    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#786    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#787    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#788    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#789    _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:488:16)
+#790    _RawViewElement.update (package:flutter/src/widgets/view.dart:575:5)
+#791    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#792    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#793    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#794    StatelessElement.update (package:flutter/src/widgets/framework.dart:5908:5)
+#795    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#796    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#797    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#798    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#799    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#800    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#801    RootElement._rebuild (package:flutter/src/widgets/binding.dart:2091:16)
+#802    RootElement.update (package:flutter/src/widgets/binding.dart:2069:5)
+#803    RootElement.performRebuild (package:flutter/src/widgets/binding.dart:2083:7)
+#804    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#805    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2763:15)
+#806    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2820:11)
+#807    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3124:18)
+#808    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2432:19)
+#809    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)
+#810    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#811    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#812    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#815    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#816    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#817    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#820    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#821    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#822    main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#823    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#824    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY SCHEDULER LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during a scheduler callback:
+Không tìm thấy FamilyLinkScope phía trên widget này
+'package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart':
+Failed assertion: line 35 pos 12: 'scope != null'
+
+When the exception was thrown, this was the stack:
+#2      FamilyLinkScope.read (package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart:35:12)
+#3      _FamilyTabScreenState._controller (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:32:64)
+#4      _FamilyTabScreenState._queueLoad.<anonymous closure> (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:47:32)
+#5      SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#6      SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1357:11)
+#7      AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#12     WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#15     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#16     WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#17     main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#18     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#19     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "1 chưa đọc": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart:22:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart line 22
+The test description was:
+  alert entry displays server unread count and removes it after clear
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (3) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear [E]
+  Test failed. See exception logs above.
+  The test description was: alert entry displays server unread count and removes it after clear
+  
+00:00 +0 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Theo dõi người thân → hai lựa chọn Quét mã QR và Nhập mã
+00:01 +1 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Quét mã QR mở màn quét
+00:01 +2 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: AC11: Nhập mã mở màn nhập mã
+00:02 +3 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: Mã liên kết của tôi mở màn QR của 3.11
+00:02 +4 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 1. UI/Controller cô lập trạng thái: hai controller nhận mã khác nhau từ repository thì hiển thị tách biệt, không dùng lẫn cache
+00:03 +5 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 2. Tính bất biến phía client: gọi load() nhiều lần chỉ thực hiện fetch() đọc dữ liệu, client không tự ý sinh hay yêu cầu đổi mã
+00:03 +6 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 3. Tái tạo trạng thái qua vòng đời widget: mở lại màn hình với controller mới vẫn nạp đúng mã từ repository
+00:03 +7 -1: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PATIENT10X": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart:221:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart line 221
+The test description was:
+  4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại
+  mã ổn định
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +7 -2: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định [E]
+  Test failed. See exception logs above.
+  The test description was: 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  
+00:06 +7 -2: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 5. Không hết hạn trên UI: virtual clock trôi +24h, +30 ngày, +1 năm mã không đổi, không có thông báo hết hạn hay đếm ngược
+00:06 +8 -2: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 6. Tái sử dụng: mã không bị tiêu hao sau khi hiển thị hay sao chép
+00:06 +9 -2: D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 7. Kiểm tra ràng buộc độ dài mã định danh tại RemoteFamilyLinkCodeRepository: độ dài 9, 11, 36 (UUID) -> ném invalidResponse; 10 ký tự -> thành công
+00:06 +10 -2: Some tests failed.
+
+Failing tests:
+  D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/baseline/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear

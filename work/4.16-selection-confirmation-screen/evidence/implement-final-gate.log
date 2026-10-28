@@ -1,0 +1,8 @@
+Task: 4.16-selection-confirmation-screen  (size: M, contract_change: no)
+  01-requirement.md      approved
+  02-contract.md         bỏ qua
+  03-plan.md             approved
+  04-impl-notes.md       draft
+  05-test-report.md      chưa có
+  06-review.md           chưa có
+Giai đoạn cần làm hoặc chờ duyệt: implement

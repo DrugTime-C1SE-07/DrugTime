@@ -1,0 +1,187 @@
+Running Gradle task 'assembleDebug'...                          
+Warning: Flutter support for your project's Gradle version (8.14.0) will soon be dropped. Please upgrade your Gradle version to a version of at least 9.1.0 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's gradle version is typically defined in the gradle wrapper file. By default, this can be found at D:\DrugTime\source\DrugTime\frontend\mobile\android/gradle/wrapper/gradle-wrapper.properties. 
+For more information, see https://docs.gradle.org/current/userguide/gradle_wrapper.html.
+
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 8.11.1) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the ext.kotlin_version property.
+
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Note: C:\Users\admin\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-17.0.0\android\src\main\java\io\flutter\plugins\firebase\messaging\FlutterFirebaseMessagingPlugin.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Running Gradle task 'assembleDebug'...                            111.0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          11.1s
+I/Choreographer(14985): Skipped 79 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:60346/7vxOlLAyDnA=/
+VMServiceFlutterDriver: Isolate found with number: 4762071111349935
+VMServiceFlutterDriver: Isolate 4762071111349935 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter (14985): 00:00 +0: T21/T22 physical Android selection, Back, manual search and keyboard
+I/Gralloc4(14985): mapper 4.x is not supported
+W/Gralloc3(14985): mapper 3.x is not supported
+W/Gralloc4(14985): allocator 4.x is not supported
+W/Gralloc3(14985): allocator 3.x is not supported
+I/Gralloc2(14985): Adding additional valid usage bits: 0x8202000
+I/Choreographer(14985): Skipped 45 frames!  The application may be doing too much work on its main thread.
+I/OpenGLRenderer(14985): Davey! duration=793ms; Flags=1, FrameTimelineVsyncId=50775700, IntendedVsync=72999818821004, Vsync=73000570541684, InputEventId=0, HandleInputStart=73000584844183, AnimationStart=73000584849026, PerformTraversalsStart=73000584850224, DrawStart=73000585367203, FrameDeadline=72999838821004, FrameInterval=73000584741005, FrameStartTime=16704904, SyncQueued=73000586093818, SyncStart=73000586185693, IssueDrawCommandsStart=73000586282672, SwapBuffers=73000607797255, FrameCompleted=73000612301578, DequeueBufferDuration=5492552, QueueBufferDuration=432448, GpuCompleted=73000612301578, SwapBuffersCompleted=73000608855328, DisplayPresentTime=0, CommandSubmissionCompleted=73000607797255, 
+VMServiceFlutterDriver: Connected to Flutter application.
+D/ProfileInstaller(14985): Installing profile for vn.drugtime.drugtime_mobile
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+I/flutter (14985): Device viewport=Size(411.4, 867.4), text scale=1.0; large=false
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/flutter (14985): Verified OCR · Có kết quả: choose/change/confirm exact demo-250, Back and Hủy.
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/flutter (14985): Verified Tìm kiếm · Có kết quả: choose/change/confirm exact demo-250, Back and Hủy.
+W/OnBackInvokedCallback(14985): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(14985): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F....ID 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F....ID 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(14985): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(14985): The input method toggled cursor monitoring on
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(14985): The input method toggled cursor monitoring off
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(14985): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(14985): The input method toggled cursor monitoring on
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/FlutterJNI(14985): Sending viewport metrics to the engine.
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+D/InputMethodManager(14985): showSoftInput() view=io.flutter.embedding.android.FlutterView{8794ad3 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(14985): show(ime(), fromIme=true)
+I/flutter (14985): OCR · Không có kết quả: real keyboard inset=0.0
+I/flutter (14985): ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+I/flutter (14985): The following TestFailure was thrown running a test:
+I/flutter (14985): Expected: a value greater than <0>
+I/flutter (14985):   Actual: <0.0>
+I/flutter (14985):    Which: is not a value greater than <0>
+I/flutter (14985): 
+I/flutter (14985): When the exception was thrown, this was the stack:
+I/flutter (14985): #4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/selection_device_test.dart:91:7)
+I/flutter (14985): <asynchronous suspension>
+I/flutter (14985): #5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+I/flutter (14985): <asynchronous suspension>
+I/flutter (14985): #6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+I/flutter (14985): <asynchronous suspension>
+I/flutter (14985): #7      TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707:12)
+I/flutter (14985): <asynchronous suspension>
+I/flutter (14985): 
+I/flutter (14985): This was caught by the test expectation on the following line:
+I/flutter (14985):   file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/selection_device_test.dart line 91
+I/flutter (14985): The test description was:
+I/flutter (14985):   T21/T22 physical Android selection, Back, manual search and keyboard
+I/flutter (14985): ════════════════════════════════════════════════════════════════════════════════════════════════════
+I/flutter (14985): 00:23 +0: T21/T22 physical Android selection, Back, manual search and keyboard [E]
+I/flutter (14985):   Test failed. See exception logs above.
+I/flutter (14985):   The test description was: T21/T22 physical Android selection, Back, manual search and keyboard
+I/flutter (14985):   
+I/flutter (14985): 00:23 +0 -1: (tearDownAll)
+I/flutter (14985): 00:23 +1 -1: Some tests failed.
+Failure Details:
+Failure in method: T21/T22 physical Android selection, Back, manual search and keyboard
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞═════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than <0>
+  Actual: <0.0>
+   Which: is not a value greater than <0>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/selection_device_test.dart:91:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707:12)
+<asynchronous suspension>
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/selection_device_test.dart line 91
+The test description was:
+  T21/T22 physical Android selection, Back, manual search and
+  keyboard
+═════════════════════════════════════════════════════════════════
+
+end of failure 1
+
+
+

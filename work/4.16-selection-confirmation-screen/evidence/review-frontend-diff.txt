@@ -1,0 +1,1711 @@
+diff --git a/mobile/lib/app/router.dart b/mobile/lib/app/router.dart
+index 7b6458e..033b09d 100644
+--- a/mobile/lib/app/router.dart
++++ b/mobile/lib/app/router.dart
+@@ -24,6 +24,7 @@ import '../features/medication/domain/entities/medication.dart';
+ import '../features/medication/presentation/screens/edit_medication_screen.dart';
+ import '../features/medication/presentation/screens/medication_detail_screen.dart';
+ import '../features/medication/presentation/screens/add_medication_screen.dart';
++import '../features/medication/presentation/screens/drug_selection_demo_screen.dart';
+ import '../features/reminder/domain/entities/dose_reminder.dart';
+ import '../features/reminder/presentation/screens/dose_reminder_screen.dart';
+ import '../features/reminder/presentation/widgets/lockscreen_privacy_gate.dart';
+@@ -42,6 +43,7 @@ abstract final class AppRoutes {
+   static const familyAlertDetail = '/family/alerts/detail';
+   static const home = '/';
+   static const addMedication = '/medications/add';
++  static const drugSelectionDemo = '/medications/selection-demo';
+   static const medicationDetail = '/medications/detail';
+   static const editMedication = '/medications/edit';
+   static const login = '/login';
+@@ -89,6 +91,13 @@ Route<dynamic>? onGenerateRoute(
+   ValueListenable<bool>? familyAdherenceAvailability,
+ }) {
+   return switch (settings.name) {
++    AppRoutes.drugSelectionDemo => MaterialPageRoute<void>(
++        settings: settings,
++        builder: (_) => preview && kDebugMode
++            ? const DrugSelectionDemoScreen()
++            : const Scaffold(
++                body: Center(child: Text('Bản xem thử không khả dụng'))),
++      ),
+     // Kiểm auth/consent cả khi đi vào từ push hoặc điều hướng trực tiếp tới route.
+     AppRoutes.familyAlerts => MaterialPageRoute<void>(
+         settings: settings,
+diff --git a/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart b/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+index 6d821f8..f5629a9 100644
+--- a/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
++++ b/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+@@ -1,7 +1,10 @@
+ import 'package:flutter/material.dart';
++import 'package:flutter/foundation.dart';
+ import 'package:flutter/services.dart';
+ 
+ import '../../../../app/theme/app_theme.dart';
++import '../../../../app/router.dart';
++import '../../../../core/preview/app_preview_scope.dart';
+ import '../../../../core/storage/local_db/client_uuid.dart';
+ import '../../../../shared/widgets/selectable_pill.dart';
+ import '../../../../shared/widgets/two_column_grid.dart';
+@@ -196,6 +199,12 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
+             AppSpacing.xl,
+           ),
+           children: [
++            if (kDebugMode && AppPreviewScope.maybeOf(context) != null)
++              TextButton(
++                onPressed: () => Navigator.of(context)
++                    .pushNamed(AppRoutes.drugSelectionDemo),
++                child: const Text('Mẫu · Xem thử chọn và xác nhận thuốc'),
++              ),
+             ScanEntryCard(
+                 onTap: () => _toast('Quét vỏ thuốc đang được phát triển')),
+             const SizedBox(height: AppSpacing.xl),
+diff --git a/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart b/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart
+index 52cdd43..e023414 100644
+--- a/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart
++++ b/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart
+@@ -3,35 +3,50 @@ import 'dart:async';
+ import 'package:flutter/material.dart';
+ 
+ import '../../../../app/theme/app_theme.dart';
+-import '../../../../shared/widgets/pill_icon.dart';
+ import '../../domain/entities/medication.dart';
+ import '../../domain/entities/medication_failure.dart';
+ import '../state/medication_controller.dart';
+ import 'medication_error_messages.dart';
+-import 'medication_labels.dart';
++import 'drug_selection_panel.dart';
+ 
+ /// Chờ người dùng ngừng gõ ngần này rồi mới gọi API tìm danh mục.
+ const catalogSearchDebounce = Duration(milliseconds: 300);
+ 
+-Future<DrugCatalogItem?> showDrugCatalogSheet(BuildContext context) {
++typedef CatalogSearch = Future<List<DrugCatalogItem>> Function(String query);
++
++Future<DrugCatalogItem?> showDrugCatalogSheet(BuildContext context,
++    {CatalogSearch? search, bool Function(String)? isInUse}) {
+   return showModalBottomSheet<DrugCatalogItem>(
+     context: context,
+     isScrollControlled: true,
+     useSafeArea: true,
+-    builder: (_) => const DrugCatalogSheet(),
++    builder: (context) => Padding(
++      padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
++      child: MediaQuery.removeViewInsets(
++        context: context,
++        removeBottom: true,
++        child: DrugCatalogSheet(search: search, isInUse: isInUse),
++      ),
++    ),
+   );
+ }
+ 
+ /// Tìm & chọn thuốc từ danh mục chuẩn (S06a).
+ class DrugCatalogSheet extends StatefulWidget {
+-  const DrugCatalogSheet({super.key});
++  const DrugCatalogSheet({super.key, this.search, this.isInUse});
++
++  final CatalogSearch? search;
++  final bool Function(String)? isInUse;
+ 
+   @override
+   State<DrugCatalogSheet> createState() => _DrugCatalogSheetState();
+ }
+ 
+ class _DrugCatalogSheetState extends State<DrugCatalogSheet> {
+-  late final MedicationController _controller;
++  late final CatalogSearch _searchCatalog;
++  late final bool Function(String) _isInUse;
++  final _textController = TextEditingController();
++  final _focusNode = FocusNode();
+   Timer? _debounce;
+ 
+   /// `null` khi đang tìm.
+@@ -44,12 +59,18 @@ class _DrugCatalogSheetState extends State<DrugCatalogSheet> {
+   @override
+   void initState() {
+     super.initState();
+-    _controller = MedicationScope.read(context);
++    final controller = widget.search == null || widget.isInUse == null
++        ? MedicationScope.read(context)
++        : null;
++    _searchCatalog = widget.search ?? controller!.searchCatalog;
++    _isInUse = widget.isInUse ?? controller!.isInUse;
+   }
+ 
+   @override
+   void dispose() {
+     _debounce?.cancel();
++    _textController.dispose();
++    _focusNode.dispose();
+     super.dispose();
+   }
+ 
+@@ -82,7 +103,7 @@ class _DrugCatalogSheetState extends State<DrugCatalogSheet> {
+     List<DrugCatalogItem> results;
+     MedicationFailure? error;
+     try {
+-      results = await _controller.searchCatalog(query);
++      results = await _searchCatalog(query);
+     } on MedicationFailure catch (failure) {
+       results = const [];
+       error = failure;
+@@ -98,171 +119,105 @@ class _DrugCatalogSheetState extends State<DrugCatalogSheet> {
+   @override
+   Widget build(BuildContext context) {
+     final results = _results;
+-    return FractionallySizedBox(
+-      heightFactor: 0.92,
+-      child: Padding(
+-        padding:
+-            EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
+-        child: Column(
+-          crossAxisAlignment: CrossAxisAlignment.stretch,
+-          children: [
+-            Padding(
+-              padding: const EdgeInsets.fromLTRB(
+-                AppSpacing.page,
+-                0,
+-                AppSpacing.page,
+-                AppSpacing.md,
+-              ),
+-              child: Column(
+-                crossAxisAlignment: CrossAxisAlignment.stretch,
+-                children: [
+-                  Semantics(
+-                    header: true,
+-                    child: const Text('Chọn thuốc từ danh mục',
+-                        style: AppTextStyles.heading),
+-                  ),
+-                  const SizedBox(height: AppSpacing.md),
+-                  TextField(
+-                    autofocus: true,
+-                    onChanged: _onChanged,
+-                    textInputAction: TextInputAction.search,
+-                    style: AppTextStyles.body,
+-                    decoration: const InputDecoration(
+-                      hintText: 'Nhập tên thuốc hoặc hoạt chất',
+-                      prefixIcon: Icon(Icons.search, color: AppColors.inkMuted),
+-                    ),
+-                  ),
+-                ],
+-              ),
+-            ),
+-            const Divider(height: 1),
+-            Expanded(
+-              child: results == null
+-                  ? const Center(child: CircularProgressIndicator())
+-                  : _tooLong
+-                      ? const _SheetMessage(
+-                          icon: Icons.search,
+-                          title: 'Từ khóa quá dài',
+-                          message:
+-                              'Nhập tối đa 100 ký tự sau khi bỏ khoảng trắng đầu và cuối.',
+-                        )
+-                      : _error != null
+-                          ? _SheetMessage(
+-                              icon: Icons.cloud_off_outlined,
+-                              title: 'Chưa tìm được',
+-                              message: medicationErrorMessage(_error!),
+-                              onRetry: _error!.kind ==
+-                                      MedicationFailureKind.unauthorized
+-                                  ? null
+-                                  : _retry,
+-                            )
+-                          : _query.trim().isEmpty
+-                              ? const _SheetMessage(
+-                                  icon: Icons.search,
+-                                  title: 'Nhập tên thuốc hoặc hoạt chất',
+-                                  message:
+-                                      'Gõ có dấu hay không dấu đều được, ví dụ: thuoc ho.',
+-                                )
+-                              : results.isEmpty
+-                                  ? const _NoResults()
+-                                  : ListView.separated(
+-                                      padding: const EdgeInsets.symmetric(
+-                                          vertical: AppSpacing.sm),
+-                                      itemCount: results.length,
+-                                      separatorBuilder: (_, __) =>
+-                                          const Divider(
+-                                        height: 1,
+-                                        indent: AppSpacing.page +
+-                                            48 +
+-                                            AppSpacing.md,
+-                                      ),
+-                                      itemBuilder: (context, i) => _CatalogTile(
+-                                        drug: results[i],
+-                                        inUse:
+-                                            _controller.isInUse(results[i].id),
+-                                        onTap: () => Navigator.of(context)
+-                                            .pop(results[i]),
+-                                      ),
+-                                    ),
+-            ),
+-          ],
+-        ),
+-      ),
+-    );
+-  }
+-}
+-
+-class _CatalogTile extends StatelessWidget {
+-  const _CatalogTile(
+-      {required this.drug, required this.inUse, required this.onTap});
+-
+-  final DrugCatalogItem drug;
+-  final bool inUse;
+-  final VoidCallback onTap;
+-
+-  @override
+-  Widget build(BuildContext context) {
+-    return InkWell(
+-      onTap: onTap,
+-      child: Padding(
+-        padding: const EdgeInsets.symmetric(
+-          horizontal: AppSpacing.page,
+-          vertical: AppSpacing.md,
+-        ),
+-        child: Row(
+-          children: [
+-            const PillTile(),
+-            const SizedBox(width: AppSpacing.md),
+-            Expanded(
+-              child: Column(
+-                crossAxisAlignment: CrossAxisAlignment.start,
+-                children: [
+-                  Text(drug.name, style: AppTextStyles.bodyStrong),
+-                  if (drug.strength.trim().isNotEmpty)
+-                    Text(drug.strength, style: AppTextStyles.caption),
+-                  Text(
+-                    drugSubtitle(drug.activeIngredient, drug.dosageForm),
+-                    style: AppTextStyles.caption,
+-                  ),
+-                ],
+-              ),
+-            ),
+-            if (inUse) ...[
+-              const SizedBox(width: AppSpacing.sm),
+-              Container(
+-                padding: const EdgeInsets.symmetric(
+-                  horizontal: AppSpacing.sm,
+-                  vertical: AppSpacing.xs,
++    final displayedGeneration = _generation;
++    return LayoutBuilder(builder: (context, constraints) {
++      // Modal host reserves keyboard space; Scaffold hosts resize themselves.
++      return SizedBox(
++        height: constraints.maxHeight * 0.92,
++        child: Padding(
++          padding: const EdgeInsets.only(top: AppSpacing.sm),
++          child: Column(
++            crossAxisAlignment: CrossAxisAlignment.stretch,
++            children: [
++              Padding(
++                padding: const EdgeInsets.fromLTRB(
++                  AppSpacing.page,
++                  0,
++                  AppSpacing.page,
++                  AppSpacing.md,
+                 ),
+-                decoration: BoxDecoration(
+-                  color: AppColors.brandTint,
+-                  borderRadius: BorderRadius.circular(AppSpacing.sm),
+-                ),
+-                child: Text(
+-                  'Đang dùng',
+-                  style: AppTextStyles.captionStrong
+-                      .copyWith(color: AppColors.brand),
++                child: Column(
++                  crossAxisAlignment: CrossAxisAlignment.stretch,
++                  children: [
++                    if (constraints.maxHeight > 480) ...[
++                      Semantics(
++                        header: true,
++                        child: const Text('Chọn thuốc từ danh mục',
++                            style: AppTextStyles.heading),
++                      ),
++                      const SizedBox(height: AppSpacing.md),
++                    ],
++                    TextField(
++                      controller: _textController,
++                      focusNode: _focusNode,
++                      autofocus: true,
++                      onChanged: _onChanged,
++                      textInputAction: TextInputAction.search,
++                      style: AppTextStyles.body,
++                      decoration: const InputDecoration(
++                        hintText: 'Nhập tên thuốc hoặc hoạt chất',
++                        prefixIcon:
++                            Icon(Icons.search, color: AppColors.inkMuted),
++                      ),
++                    ),
++                  ],
+                 ),
+               ),
++              const Divider(height: 1),
++              Expanded(
++                child: results == null
++                    ? const Center(child: CircularProgressIndicator())
++                    : _tooLong
++                        ? const _SheetMessage(
++                            icon: Icons.search,
++                            title: 'Từ khóa quá dài',
++                            message:
++                                'Nhập tối đa 100 ký tự sau khi bỏ khoảng trắng đầu và cuối.',
++                          )
++                        : _error != null
++                            ? _SheetMessage(
++                                icon: Icons.cloud_off_outlined,
++                                title: 'Chưa tìm được',
++                                message: medicationErrorMessage(_error!),
++                                onRetry: _error!.kind ==
++                                        MedicationFailureKind.unauthorized
++                                    ? null
++                                    : _retry,
++                              )
++                            : _query.trim().isEmpty
++                                ? const _SheetMessage(
++                                    icon: Icons.search,
++                                    title: 'Nhập tên thuốc hoặc hoạt chất',
++                                    message:
++                                        'Gõ có dấu hay không dấu đều được, ví dụ: thuoc ho.',
++                                  )
++                                : DrugSelectionPanel(
++                                    candidates: results,
++                                    source: DrugSelectionSource.search,
++                                    isInUse: _isInUse,
++                                    onConfirm: (item) {
++                                      if (displayedGeneration == _generation &&
++                                          identical(results, _results) &&
++                                          mounted &&
++                                          (ModalRoute.of(context)?.isCurrent ??
++                                              false)) {
++                                        Navigator.of(context).pop(item);
++                                      }
++                                    },
++                                    onManualSearch: () {
++                                      _focusNode.requestFocus();
++                                      _textController.selection = TextSelection(
++                                          baseOffset: 0,
++                                          extentOffset:
++                                              _textController.text.length);
++                                    },
++                                  ),
++              ),
+             ],
+-          ],
++          ),
+         ),
+-      ),
+-    );
+-  }
+-}
+-
+-class _NoResults extends StatelessWidget {
+-  const _NoResults();
+-
+-  @override
+-  Widget build(BuildContext context) {
+-    return const _SheetMessage(
+-      icon: Icons.search_off,
+-      title: 'Không tìm thấy thuốc phù hợp',
+-      message:
+-          'Kiểm tra lại chính tả, hoặc thử tìm bằng tên hoạt chất (ví dụ: Paracetamol).',
+-    );
++      );
++    });
+   }
+ }
+ 
+diff --git a/mobile/test/features/medication/drug_catalog_sheet_test.dart b/mobile/test/features/medication/drug_catalog_sheet_test.dart
+index 84b16d0..af51ee2 100644
+--- a/mobile/test/features/medication/drug_catalog_sheet_test.dart
++++ b/mobile/test/features/medication/drug_catalog_sheet_test.dart
+@@ -1,4 +1,5 @@
+ import 'dart:async';
++import 'dart:ui' show Tristate;
+ import 'package:drugtime_mobile/features/medication/data/repositories/in_memory_medication_repository.dart';
+ import 'package:drugtime_mobile/features/medication/domain/entities/medication.dart';
+ import 'package:drugtime_mobile/features/medication/domain/entities/medication_failure.dart';
+@@ -107,11 +108,15 @@ void main() {
+     testWidgets('trimmed Unicode limit 100 allowed, 101 blocked: $symbol',
+         (tester) async {
+       final repo = await mount(tester);
++      await search(tester, symbol * 99);
++      expect(repo.queries, [symbol * 99]);
++      repo.pending[0].complete([]);
++      await tester.pump();
+       await search(tester, ' ${symbol * 100} ');
+-      expect(repo.queries, [symbol * 100]);
++      expect(repo.queries, [symbol * 99, symbol * 100]);
+       await search(tester, symbol * 101);
+-      expect(repo.queries, hasLength(1));
+-      repo.pending[0].complete([drug('stale')]);
++      expect(repo.queries, hasLength(2));
++      repo.pending[1].complete([drug('stale')]);
+       await tester.pump();
+       expect(find.text('stale'), findsNothing);
+       expect(
+@@ -119,7 +124,7 @@ void main() {
+               'Nhập tối đa 100 ký tự sau khi bỏ khoảng trắng đầu và cuối.'),
+           findsOneWidget);
+       await search(tester, 'valid');
+-      repo.pending[1].complete([]);
++      repo.pending[2].complete([]);
+       await tester.pump();
+       expect(find.text('Không tìm thấy thuốc phù hợp'), findsOneWidget);
+     });
+@@ -189,6 +194,121 @@ void main() {
+     expect(find.text('Chưa có thông tin hoạt chất'), findsOneWidget);
+   });
+ 
++  testWidgets(
++      'query change removes selection immediately; stale response cannot restore it',
++      (tester) async {
++    final repo = await mount(tester);
++    await search(tester, 'A');
++    repo.pending[0].complete([drug('current')]);
++    await tester.pump();
++    await tester.tap(find.text('current'));
++    await tester.pumpAndSettle();
++    final confirm = find.widgetWithText(FilledButton, 'Xác nhận thuốc');
++    expect(tester.widget<FilledButton>(confirm).onPressed, isNotNull);
++    await tester.enterText(find.byType(TextField), 'B');
++    await tester.pump();
++    expect(confirm, findsNothing);
++    await tester.pump(catalogSearchDebounce);
++    await search(tester, 'A');
++    repo.pending[2].complete([drug('new-current')]);
++    await tester.pump();
++    repo.pending[1].complete([drug('stale')]);
++    await tester.pump();
++    expect(find.text('stale'), findsNothing);
++    expect(tester.widget<FilledButton>(confirm).onPressed, isNull);
++    expect(find.byKey(const ValueKey('drug-selection-review')), findsNothing);
++  });
++
++  testWidgets('empty action focuses and selects current query on same route',
++      (tester) async {
++    final repo = await mount(tester);
++    await search(tester, 'unknown');
++    repo.pending.single.complete([]);
++    await tester.pump();
++    await tester.tap(find.text('Tìm kiếm thủ công'));
++    await tester.pump();
++    final field = tester.widget<TextField>(find.byType(TextField));
++    expect(field.focusNode!.hasFocus, isTrue);
++    expect(field.controller!.selection,
++        const TextSelection(baseOffset: 0, extentOffset: 7));
++    expect(find.byType(DrugCatalogSheet), findsOneWidget);
++  });
++
++  for (final size in [const Size(320, 568), const Size(375, 812)]) {
++    for (final scale in [1.0, 1.5, 2.0]) {
++      testWidgets('keyboard selection and semantics $size text $scale',
++          (tester) async {
++        tester.view.physicalSize = size;
++        tester.view.devicePixelRatio = 1;
++        tester.view.viewInsets = const FakeViewPadding(bottom: 220);
++        tester.platformDispatcher.textScaleFactorTestValue = scale;
++        addTearDown(tester.view.reset);
++        addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
++        final semantics = tester.ensureSemantics();
++        final repo = await mount(tester);
++        await search(tester, 'long');
++        repo.pending.single.complete([
++          drug('long-name', name: 'Tên thuốc dài để thử khả năng cuộn và đọc'),
++        ]);
++        await tester.pump();
++        final name = find.text('Tên thuốc dài để thử khả năng cuộn và đọc');
++        await tester.scrollUntilVisible(name, 80,
++            scrollable: find.byType(Scrollable).last);
++        await tester.ensureVisible(name);
++        await tester.pumpAndSettle();
++        await tester.tapAt(tester.getTopLeft(name) + const Offset(10, 10));
++        await tester.pumpAndSettle();
++        final confirm = find.widgetWithText(FilledButton, 'Xác nhận thuốc');
++        expect(confirm.hitTestable(), findsOneWidget);
++        expect(tester.getSemantics(confirm).flagsCollection.isEnabled,
++            Tristate.isTrue);
++        expect(tester.takeException(), isNull);
++        semantics.dispose();
++      });
++    }
++  }
++
++  testWidgets('modal host places query and confirm above the keyboard',
++      (tester) async {
++    tester.view.physicalSize = const Size(320, 568);
++    tester.view.devicePixelRatio = 1;
++    tester.view.viewInsets = const FakeViewPadding(bottom: 220);
++    tester.platformDispatcher.textScaleFactorTestValue = 2;
++    addTearDown(tester.view.reset);
++    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
++    DrugCatalogItem? result;
++    await tester.pumpWidget(MaterialApp(
++        home: Builder(
++      builder: (context) => Scaffold(
++          body: TextButton(
++              onPressed: () async {
++                result = await showDrugCatalogSheet(context,
++                    search: (_) async => [drug('modal-item')],
++                    isInUse: (_) => false);
++              },
++              child: const Text('Mở'))),
++    )));
++    await tester.tap(find.text('Mở'));
++    await tester.pumpAndSettle();
++    expect(tester.getBottomRight(find.byType(TextField)).dy,
++        lessThanOrEqualTo(348));
++    await tester.enterText(find.byType(TextField), 'modal');
++    await tester.pumpAndSettle();
++    await tester.scrollUntilVisible(find.text('modal-item'), 80,
++        scrollable: find.byType(Scrollable).last);
++    await tester.ensureVisible(find.text('modal-item'));
++    await tester.pumpAndSettle();
++    await tester.tapAt(
++        tester.getTopLeft(find.text('modal-item')) + const Offset(10, 10));
++    await tester.pumpAndSettle();
++    final confirm = find.widgetWithText(FilledButton, 'Xác nhận thuốc');
++    expect(tester.getBottomRight(confirm).dy, lessThanOrEqualTo(348));
++    await tester.tap(confirm);
++    await tester.pumpAndSettle();
++    expect(result!.id, 'modal-item');
++    expect(tester.takeException(), isNull);
++  });
++
+   testWidgets(
+       'small screen large text with keyboard: states scroll and retry remains reachable',
+       (tester) async {
+@@ -214,7 +334,8 @@ void main() {
+     await search(tester, 'B');
+     repo.pending[2].complete([drug('result')]);
+     await tester.pump();
+-    await tester.ensureVisible(find.text('result'));
++    await tester.scrollUntilVisible(find.text('result'), 80,
++        scrollable: find.byType(Scrollable).last);
+     expect(tester.takeException(), isNull);
+   });
+ }
+diff --git a/mobile/test/features/medication/medication_lookup_widget_test.dart b/mobile/test/features/medication/medication_lookup_widget_test.dart
+index 5dbcce8..4c3198a 100644
+--- a/mobile/test/features/medication/medication_lookup_widget_test.dart
++++ b/mobile/test/features/medication/medication_lookup_widget_test.dart
+@@ -1,4 +1,4 @@
+-﻿import 'dart:async';
++import 'dart:async';
+ 
+ import 'package:drugtime_mobile/features/medication/data/repositories/in_memory_medication_repository.dart';
+ import 'package:drugtime_mobile/features/medication/domain/entities/medication.dart';
+@@ -154,7 +154,8 @@ Future<void> _scrollIntoView(WidgetTester tester, Finder finder) async {
+ 
+ void main() {
+   group('Subtask 4.a — Debounce tìm kiếm danh mục thuốc', () {
+-    testWidgets('gõ nhanh liên tiếp nhiều ký tự chỉ gọi API đúng 1 lần sau 300ms',
++    testWidgets(
++        'gõ nhanh liên tiếp nhiều ký tự chỉ gọi API đúng 1 lần sau 300ms',
+         (tester) async {
+       final (repo, _) = await _mountCatalogSheet(tester);
+ 
+@@ -177,7 +178,8 @@ void main() {
+ 
+       // Đến đúng 300ms debounce
+       await tester.pump(const Duration(milliseconds: 1));
+-      expect(repo.queries, ['Para'], reason: 'Chỉ gọi đúng 1 lần với chuỗi cuối');
++      expect(repo.queries, ['Para'],
++          reason: 'Chỉ gọi đúng 1 lần với chuỗi cuối');
+ 
+       // Trả về kết quả và kiểm tra hiển thị
+       repo.pendingSearchRequests.single.complete([
+@@ -187,7 +189,8 @@ void main() {
+       expect(find.text('Paracetamol 500mg'), findsOneWidget);
+     });
+ 
+-    testWidgets('gõ chậm hơn debounce gọi repository nhiều lần theo đúng số lần',
++    testWidgets(
++        'gõ chậm hơn debounce gọi repository nhiều lần theo đúng số lần',
+         (tester) async {
+       final (repo, _) = await _mountCatalogSheet(tester);
+ 
+@@ -216,7 +219,8 @@ void main() {
+       expect(find.text('Panadol'), findsOneWidget);
+     });
+ 
+-    testWidgets('xóa hết ô tìm trong lúc đang debounce huỷ timer và không gọi API',
++    testWidgets(
++        'xóa hết ô tìm trong lúc đang debounce huỷ timer và không gọi API',
+         (tester) async {
+       final (repo, _) = await _mountCatalogSheet(tester);
+ 
+@@ -267,7 +271,9 @@ void main() {
+     });
+   });
+ 
+-  group('Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline)', () {
++  group(
++      'Subtask 4.c — Các trạng thái tìm kiếm (rỗng, đang tải, lỗi mạng / offline)',
++      () {
+     testWidgets('trạng thái ban đầu rỗng hiện hướng dẫn và không gọi API',
+         (tester) async {
+       final (repo, _) = await _mountCatalogSheet(tester);
+@@ -298,7 +304,8 @@ void main() {
+       expect(find.byType(CircularProgressIndicator), findsNothing);
+     });
+ 
+-    testWidgets('trạng thái rỗng không có kết quả hiển thị thông báo không tìm thấy',
++    testWidgets(
++        'trạng thái rỗng không có kết quả hiển thị thông báo không tìm thấy',
+         (tester) async {
+       final (repo, _) = await _mountCatalogSheet(tester);
+ 
+@@ -314,6 +321,12 @@ void main() {
+         ),
+         findsOneWidget,
+       );
++      await tester.tap(find.text('Tìm kiếm thủ công'));
++      await tester.pump();
++      expect(
++          tester.widget<TextField>(find.byType(TextField)).focusNode!.hasFocus,
++          isTrue);
++      expect(find.byType(DrugCatalogSheet), findsOneWidget);
+     });
+ 
+     testWidgets('từ khoá vượt quá 100 ký tự hiển thị cảnh báo và không gọi API',
+@@ -339,8 +352,8 @@ void main() {
+ 
+       await tester.enterText(find.byType(TextField), 'Para');
+       await tester.pump(const Duration(milliseconds: 300));
+-      repo.pendingSearchRequests[0]
+-          .completeError(const MedicationFailure(MedicationFailureKind.network));
++      repo.pendingSearchRequests[0].completeError(
++          const MedicationFailure(MedicationFailureKind.network));
+       await tester.pump();
+ 
+       expect(find.text('Chưa tìm được'), findsOneWidget);
+@@ -372,8 +385,8 @@ void main() {
+ 
+       await tester.enterText(find.byType(TextField), 'Para');
+       await tester.pump(const Duration(milliseconds: 300));
+-      repo.pendingSearchRequests.single
+-          .completeError(const MedicationFailure(MedicationFailureKind.unauthorized));
++      repo.pendingSearchRequests.single.completeError(
++          const MedicationFailure(MedicationFailureKind.unauthorized));
+       await tester.pump();
+ 
+       expect(find.text('Chưa tìm được'), findsOneWidget);
+@@ -385,8 +398,11 @@ void main() {
+     });
+   });
+ 
+-  group('Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế', () {
+-    testWidgets('hiển thị đầy đủ mọi trường dữ liệu: tên, dạng bào chế, hoạt chất, hàm lượng, liều, tần suất, giờ, tồn kho',
++  group(
++      'Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế',
++      () {
++    testWidgets(
++        'hiển thị đầy đủ mọi trường dữ liệu: tên, dạng bào chế, hoạt chất, hàm lượng, liều, tần suất, giờ, tồn kho',
+         (tester) async {
+       final med = _medication(
+         name: 'Amoxicillin 500mg',
+@@ -443,7 +459,8 @@ void main() {
+       expect(find.text('Còn 30 viên'), findsOneWidget);
+ 
+       // 5. Lưu ý an toàn
+-      await _scrollIntoView(tester, find.textContaining('Luôn uống thuốc đúng giờ'));
++      await _scrollIntoView(
++          tester, find.textContaining('Luôn uống thuốc đúng giờ'));
+       expect(
+         find.textContaining('Luôn uống thuốc đúng giờ và theo đúng liều lượng'),
+         findsOneWidget,
+@@ -454,11 +471,14 @@ void main() {
+       expect(find.text('Tạm ngừng thuốc này'), findsOneWidget);
+ 
+       // Xác minh KHÔNG có trường nhà sản xuất (hợp đồng API và model không hỗ trợ)
+-      expect(find.textContaining('nhà sản xuất', findRichText: true), findsNothing);
+-      expect(find.textContaining('Nhà sản xuất', findRichText: true), findsNothing);
++      expect(find.textContaining('nhà sản xuất', findRichText: true),
++          findsNothing);
++      expect(find.textContaining('Nhà sản xuất', findRichText: true),
++          findsNothing);
+     });
+ 
+-    testWidgets('trường hoạt chất trống hiển thị Chưa có thông tin', (tester) async {
++    testWidgets('trường hoạt chất trống hiển thị Chưa có thông tin',
++        (tester) async {
+       final med = _medication(
+         name: 'Thuốc Không Rõ Hoạt Chất',
+         activeIngredient: '',
+@@ -518,7 +538,8 @@ void main() {
+       );
+     });
+ 
+-    testWidgets('thuốc đã ngừng hiển thị badge Đã ngừng và nút Tiếp tục dùng thuốc này',
++    testWidgets(
++        'thuốc đã ngừng hiển thị badge Đã ngừng và nút Tiếp tục dùng thuốc này',
+         (tester) async {
+       final med = _medication(
+         name: 'Thuốc Cũ',
+@@ -542,7 +563,8 @@ void main() {
+ 
+       expect(find.text('Ngừng dùng thuốc?'), findsOneWidget);
+       expect(
+-        find.textContaining('Thuốc "Thuốc Đang Dùng" sẽ chuyển vào danh sách Đã ngừng'),
++        find.textContaining(
++            'Thuốc "Thuốc Đang Dùng" sẽ chuyển vào danh sách Đã ngừng'),
+         findsOneWidget,
+       );
+ 
+diff --git a/mobile/test/features/medication/medication_screens_test.dart b/mobile/test/features/medication/medication_screens_test.dart
+index 99287f4..81eeed7 100644
+--- a/mobile/test/features/medication/medication_screens_test.dart
++++ b/mobile/test/features/medication/medication_screens_test.dart
+@@ -91,6 +91,8 @@ Future<void> pickDrug(WidgetTester tester, String query, String name) async {
+   await tester.pumpAndSettle();
+   await tester.tap(find.text(name));
+   await tester.pumpAndSettle();
++  await tester.tap(find.text('Xác nhận thuốc'));
++  await tester.pumpAndSettle();
+ }
+ 
+ /// Người dùng đã đăng nhập và có hồ sơ: app mở thẳng Trang chủ như trước khi có màn đăng nhập.
+@@ -266,6 +268,12 @@ void main() {
+               .first);
+       await tester.tap(find.byType(DrugPickerField));
+       await tester.pumpAndSettle();
++      await tester.enterText(find.byType(TextField).last, 'losartan');
++      await tester.pumpAndSettle();
++      await tester.tap(find.text('Losartan 50mg'));
++      await tester.pumpAndSettle();
++      // Selecting without confirming cannot replace the existing form or save.
++      expect(repository.addCalls, isEmpty);
+       Navigator.of(tester.element(find.byType(TextField).last)).pop();
+       await tester.pumpAndSettle();
+       final original =
+@@ -285,6 +293,9 @@ void main() {
+       expect(find.text('Đang dùng'), findsOneWidget);
+       await tester.tap(find.text('Losartan 50mg'));
+       await tester.pumpAndSettle();
++      expect(repository.addCalls, isEmpty);
++      await tester.tap(find.text('Xác nhận thuốc'));
++      await tester.pumpAndSettle();
+       final picked =
+           tester.widget<DrugPickerField>(find.byType(DrugPickerField)).value!;
+       expect(picked.id, 'losartan-50');
+@@ -320,10 +331,14 @@ void main() {
+       expect(find.text('5 mg'), findsOneWidget);
+       await tester.tap(find.text('Cùng tên').last);
+       await tester.pumpAndSettle();
++      expect(repository.addCalls, isEmpty);
++      await tester.tap(find.text('Xác nhận thuốc'));
++      await tester.pumpAndSettle();
+       final picked =
+           tester.widget<DrugPickerField>(find.byType(DrugPickerField)).value;
+       expect(picked, same(repository.items.last));
+-      expect(tester.widget<ReadOnlyField>(find.byType(ReadOnlyField)).value, '');
++      expect(
++          tester.widget<ReadOnlyField>(find.byType(ReadOnlyField)).value, '');
+       expect(find.textContaining('null'), findsNothing);
+       expect(repository.addCalls, isEmpty);
+       await tester.tap(find.text('Lưu thuốc'));
+@@ -355,6 +370,8 @@ void main() {
+       await tester.pumpAndSettle();
+       await tester.tap(find.text('Amlodipin 5mg'));
+       await tester.pumpAndSettle();
++      await tester.tap(find.text('Xác nhận thuốc'));
++      await tester.pumpAndSettle();
+ 
+       // Hàm lượng tự điền từ danh mục.
+       expect(find.text('5 mg'), findsOneWidget);
+@@ -389,6 +406,8 @@ void main() {
+       expect(find.text('Đang dùng'), findsOneWidget);
+       await tester.tap(find.text('Losartan 50mg'));
+       await tester.pumpAndSettle();
++      await tester.tap(find.text('Xác nhận thuốc'));
++      await tester.pumpAndSettle();
+ 
+       expect(find.textContaining('đã có trong danh sách đang dùng'),
+           findsOneWidget);
+@@ -407,6 +426,8 @@ void main() {
+       await tester.pumpAndSettle();
+       await tester.tap(find.text('Amlodipin 5mg'));
+       await tester.pumpAndSettle();
++      await tester.tap(find.text('Xác nhận thuốc'));
++      await tester.pumpAndSettle();
+ 
+       // Hai lần nhấn trước khi frame kế tiếp kịp vô hiệu nút. Gọi thẳng onPressed
+       // vì tap() thứ hai sẽ trượt: repo trong bộ nhớ lưu xong và đóng màn ngay.
+
+
+NEW FILE: frontend/mobile/lib/features/medication/data/models/drug_selection_demo_fixtures.dart
+
+import '../../domain/entities/medication.dart';
+
+/// Synthetic catalog data for preview and tests; never used by repositories.
+abstract final class DrugSelectionDemoFixtures {
+  static const candidates = [
+    DrugCatalogItem(
+        id: 'demo-500',
+        name: 'Thuốc mẫu Paracetamol',
+        activeIngredient: 'Paracetamol',
+        strength: '500 mg',
+        dosageForm: 'Viên nén',
+        unit: 'viên'),
+    DrugCatalogItem(
+        id: 'demo-250',
+        name: 'Thuốc mẫu Paracetamol',
+        activeIngredient: 'Paracetamol',
+        strength: '250 mg',
+        dosageForm: 'Gói bột',
+        unit: 'gói'),
+  ];
+
+  static const missing = [
+    DrugCatalogItem(
+        id: 'demo-missing',
+        name: 'Thuốc mẫu thiếu thông tin',
+        activeIngredient: '',
+        strength: '',
+        dosageForm: '',
+        unit: ''),
+  ];
+
+  static final longList = List<DrugCatalogItem>.unmodifiable([
+    for (var i = 0; i < 30; i++)
+      DrugCatalogItem(
+          id: 'demo-long-$i',
+          name: 'Thuốc mẫu $i với tên rất dài để kiểm tra khả năng đọc và cuộn',
+          activeIngredient: 'Hoạt chất mẫu có tên dài',
+          strength: '500 mg',
+          dosageForm: 'Viên nén',
+          unit: 'viên'),
+  ]);
+
+  static Future<List<DrugCatalogItem>> search(String query) async {
+    final normalized = query.trim().toLowerCase();
+    return candidates
+        .where((item) =>
+            item.name.toLowerCase().contains(normalized) ||
+            item.activeIngredient.toLowerCase().contains(normalized))
+        .toList(growable: false);
+  }
+}
+
+
+NEW FILE: frontend/mobile/lib/features/medication/presentation/screens/drug_selection_demo_screen.dart
+
+import 'package:flutter/material.dart';
+
+import '../../../../app/theme/app_theme.dart';
+import '../../data/models/drug_selection_demo_fixtures.dart';
+import '../../domain/entities/medication.dart';
+import '../widgets/drug_selection_panel.dart';
+import 'drug_selection_screen.dart';
+
+class DrugSelectionDemoScreen extends StatefulWidget {
+  const DrugSelectionDemoScreen({super.key});
+
+  @override
+  State<DrugSelectionDemoScreen> createState() =>
+      _DrugSelectionDemoScreenState();
+}
+
+class _DrugSelectionDemoScreenState extends State<DrugSelectionDemoScreen> {
+  DrugCatalogItem? _result;
+
+  Future<void> _open(
+      DrugSelectionSource source, List<DrugCatalogItem> items) async {
+    final result = await showDrugSelectionScreen(context,
+        candidates: items,
+        source: source,
+        search: DrugSelectionDemoFixtures.search);
+    if (mounted) setState(() => _result = result);
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('Mẫu · Chọn và xác nhận thuốc')),
+        body: ListView(
+          padding: const EdgeInsets.all(AppSpacing.page),
+          children: [
+            const Text(
+              'Dữ liệu mẫu tổng hợp, chỉ dùng xem thử. Không quét ảnh hoặc lưu thuốc/lịch. Tìm thủ công: nhập Paracetamol.',
+              style: AppTextStyles.body,
+            ),
+            for (final preset in [
+              (
+                'OCR · Có kết quả',
+                DrugSelectionSource.ocr,
+                DrugSelectionDemoFixtures.candidates
+              ),
+              (
+                'OCR · Không có kết quả',
+                DrugSelectionSource.ocr,
+                const <DrugCatalogItem>[]
+              ),
+              (
+                'Tìm kiếm · Có kết quả',
+                DrugSelectionSource.search,
+                DrugSelectionDemoFixtures.candidates
+              ),
+              (
+                'Tìm kiếm · Không có kết quả',
+                DrugSelectionSource.search,
+                const <DrugCatalogItem>[]
+              ),
+              (
+                'Thiếu thông tin',
+                DrugSelectionSource.ocr,
+                DrugSelectionDemoFixtures.missing
+              ),
+              (
+                'Tên dài và danh sách dài',
+                DrugSelectionSource.search,
+                DrugSelectionDemoFixtures.longList
+              ),
+            ])
+              Padding(
+                padding: const EdgeInsets.only(top: AppSpacing.md),
+                child: OutlinedButton(
+                  onPressed: () => _open(preset.$2, preset.$3),
+                  child: Text(preset.$1),
+                ),
+              ),
+            const SizedBox(height: AppSpacing.xl),
+            Text(
+              _result == null
+                  ? 'Mẫu · Chưa có lựa chọn được xác nhận'
+                  : 'Mẫu · Đã xác nhận: ${_result!.name} · ${_result!.strength} · ${_result!.id}',
+              key: const ValueKey('demo-result'),
+              style: AppTextStyles.bodyStrong,
+            ),
+          ],
+        ),
+      );
+}
+
+
+NEW FILE: frontend/mobile/lib/features/medication/presentation/screens/drug_selection_screen.dart
+
+import 'package:flutter/material.dart';
+
+import '../../domain/entities/medication.dart';
+import '../widgets/drug_catalog_sheet.dart';
+import '../widgets/drug_selection_panel.dart';
+
+Future<DrugCatalogItem?> showDrugSelectionScreen(
+  BuildContext context, {
+  required List<DrugCatalogItem> candidates,
+  required DrugSelectionSource source,
+  required CatalogSearch search,
+}) =>
+    Navigator.of(context).push<DrugCatalogItem>(MaterialPageRoute(
+      builder: (_) => DrugSelectionScreen(
+          candidates: candidates, source: source, search: search),
+    ));
+
+class DrugSelectionScreen extends StatefulWidget {
+  const DrugSelectionScreen({
+    super.key,
+    required this.candidates,
+    required this.source,
+    required this.search,
+  });
+
+  final List<DrugCatalogItem> candidates;
+  final DrugSelectionSource source;
+  final CatalogSearch search;
+
+  @override
+  State<DrugSelectionScreen> createState() => _DrugSelectionScreenState();
+}
+
+class _DrugSelectionScreenState extends State<DrugSelectionScreen> {
+  bool _openingSearch = false;
+  bool _returned = false;
+
+  void _confirm(DrugCatalogItem item) {
+    if (_returned ||
+        !mounted ||
+        !(ModalRoute.of(context)?.isCurrent ?? false)) {
+      return;
+    }
+    _returned = true;
+    Navigator.of(context).pop(item);
+  }
+
+  Future<void> _manualSearch() async {
+    if (_openingSearch || _returned) return;
+    _openingSearch = true;
+    final item = await showDrugCatalogSheet(context,
+        search: widget.search, isInUse: (_) => false);
+    if (!mounted) return;
+    _openingSearch = false;
+    if (item != null) _confirm(item);
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Xác nhận thông tin'),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Hủy')),
+          ],
+        ),
+        body: SafeArea(
+          child: DrugSelectionPanel(
+            candidates: widget.candidates,
+            source: widget.source,
+            onConfirm: _confirm,
+            onManualSearch: _manualSearch,
+          ),
+        ),
+      );
+}
+
+
+NEW FILE: frontend/mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart
+
+import 'package:flutter/material.dart';
+
+import '../../../../app/theme/app_theme.dart';
+import '../../domain/entities/medication.dart';
+import 'medication_labels.dart';
+
+enum DrugSelectionSource { ocr, search }
+
+/// Local selection only. The caller owns any subsequent schedule or save.
+class DrugSelectionPanel extends StatefulWidget {
+  const DrugSelectionPanel({
+    super.key,
+    required this.candidates,
+    required this.source,
+    required this.onConfirm,
+    required this.onManualSearch,
+    this.isInUse,
+  });
+
+  final List<DrugCatalogItem> candidates;
+  final DrugSelectionSource source;
+  final ValueChanged<DrugCatalogItem> onConfirm;
+  final VoidCallback onManualSearch;
+  final bool Function(String)? isInUse;
+
+  @override
+  State<DrugSelectionPanel> createState() => _DrugSelectionPanelState();
+}
+
+class _DrugSelectionPanelState extends State<DrugSelectionPanel> {
+  DrugCatalogItem? _selected;
+  bool _confirmed = false;
+  final _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _select(DrugCatalogItem item) {
+    setState(() => _selected = item);
+    // Bring the read-only review into view after choosing a distant result.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && _scrollController.hasClients) {
+        _scrollController.jumpTo(0);
+      }
+    });
+  }
+
+  @override
+  void didUpdateWidget(DrugSelectionPanel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.candidates, widget.candidates) ||
+        oldWidget.source != widget.source) {
+      _selected = null;
+    }
+  }
+
+  void _confirm() {
+    final selected = _selected;
+    if (_confirmed ||
+        selected == null ||
+        !widget.candidates.any((item) => identical(item, selected))) {
+      return;
+    }
+    setState(() => _confirmed = true);
+    widget.onConfirm(selected);
+  }
+
+  String _known(String value) =>
+      value.trim().isEmpty ? 'Chưa có thông tin' : value;
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = _selected;
+    final empty = widget.candidates.isEmpty;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          child: ListView(
+            controller: _scrollController,
+            padding: const EdgeInsets.all(AppSpacing.page),
+            children: [
+              Text(
+                widget.source == DrugSelectionSource.ocr
+                    ? 'Kết quả từ OCR'
+                    : 'Kết quả tìm kiếm',
+                style: AppTextStyles.captionStrong,
+              ),
+              const SizedBox(height: AppSpacing.sm),
+              if (empty) ...[
+                const Icon(Icons.search_off,
+                    size: 48, color: AppColors.inkMuted),
+                const SizedBox(height: AppSpacing.md),
+                const Text('Không tìm thấy thuốc phù hợp',
+                    style: AppTextStyles.heading),
+                const SizedBox(height: AppSpacing.sm),
+                const Text(
+                  'Kiểm tra lại chính tả, hoặc thử tìm bằng tên hoạt chất (ví dụ: Paracetamol).',
+                  style: AppTextStyles.body,
+                ),
+                const SizedBox(height: AppSpacing.lg),
+                OutlinedButton(
+                  onPressed: widget.onManualSearch,
+                  style: OutlinedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(AppSizes.tapTarget)),
+                  child: const Text('Tìm kiếm thủ công',
+                      textAlign: TextAlign.center),
+                ),
+              ] else ...[
+                const Text('Chọn đúng thuốc, rồi kiểm tra trước khi xác nhận.',
+                    style: AppTextStyles.body),
+                if (selected != null) ...[
+                  const SizedBox(height: AppSpacing.md),
+                  Container(
+                    key: const ValueKey('drug-selection-review'),
+                    padding: const EdgeInsets.all(AppSpacing.lg),
+                    decoration: BoxDecoration(
+                      color: AppColors.brandTint,
+                      borderRadius: BorderRadius.circular(AppRadius.field),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Thông tin thuốc đã chọn',
+                            style: AppTextStyles.heading),
+                        for (final field in [
+                          ('Tên thuốc', selected.name),
+                          ('Hoạt chất', selected.activeIngredient),
+                          ('Hàm lượng', selected.strength),
+                          ('Dạng bào chế', selected.dosageForm),
+                          ('Đơn vị', selected.unit),
+                        ])
+                          Padding(
+                            padding: const EdgeInsets.only(top: AppSpacing.sm),
+                            child: Text('${field.$1}: ${_known(field.$2)}',
+                                style: AppTextStyles.body),
+                          ),
+                        const SizedBox(height: AppSpacing.sm),
+                        const Text('Chạm thuốc khác bên dưới để đổi lựa chọn.',
+                            style: AppTextStyles.caption),
+                      ],
+                    ),
+                  ),
+                ],
+                const SizedBox(height: AppSpacing.md),
+                for (var i = 0; i < widget.candidates.length; i++)
+                  _candidate(widget.candidates[i], i),
+              ],
+            ],
+          ),
+        ),
+        if (!empty)
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.all(AppSpacing.page),
+              child: FilledButton(
+                onPressed: selected == null || _confirmed ? null : _confirm,
+                style: FilledButton.styleFrom(
+                    minimumSize: const Size.fromHeight(AppSizes.primaryButton)),
+                child:
+                    const Text('Xác nhận thuốc', textAlign: TextAlign.center),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _candidate(DrugCatalogItem item, int index) {
+    final selected = identical(_selected, item);
+    return Semantics(
+      selected: selected,
+      button: true,
+      enabled: !_confirmed,
+      label: 'Chọn ${item.name}',
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+        child: Material(
+          color: selected ? AppColors.brandTint : AppColors.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadius.field),
+            side: BorderSide(
+                color: selected ? AppColors.brand : AppColors.border,
+                width: selected ? 2 : 1),
+          ),
+          child: InkWell(
+            key: ValueKey('drug-candidate-$index'),
+            borderRadius: BorderRadius.circular(AppRadius.field),
+            onTap: _confirmed ? null : () => _select(item),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: AppSizes.tapTarget),
+              child: Padding(
+                padding: const EdgeInsets.all(AppSpacing.md),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(selected
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_off),
+                    const SizedBox(width: AppSpacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(item.name, style: AppTextStyles.bodyStrong),
+                          if (item.strength.trim().isNotEmpty)
+                            Text(item.strength, style: AppTextStyles.caption),
+                          Text(
+                              drugSubtitle(
+                                  item.activeIngredient, item.dosageForm),
+                              style: AppTextStyles.caption),
+                          if (item.unit.trim().isNotEmpty)
+                            Text('Đơn vị: ${item.unit}',
+                                style: AppTextStyles.caption),
+                          if (widget.isInUse?.call(item.id) ?? false)
+                            const Text('Đang dùng',
+                                style: AppTextStyles.captionStrong),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+NEW FILE: frontend/mobile/test/features/medication/drug_selection_demo_test.dart
+
+import 'dart:io';
+
+import 'package:drugtime_mobile/app/router.dart';
+import 'package:drugtime_mobile/app/theme/app_theme.dart';
+import 'package:drugtime_mobile/features/medication/data/models/drug_selection_demo_fixtures.dart';
+import 'package:drugtime_mobile/features/medication/data/repositories/in_memory_medication_repository.dart';
+import 'package:drugtime_mobile/features/medication/domain/entities/medication.dart';
+import 'package:drugtime_mobile/features/medication/presentation/state/medication_controller.dart';
+import 'package:drugtime_mobile/features/medication/presentation/screens/drug_selection_demo_screen.dart';
+import 'package:drugtime_mobile/features/medication/presentation/screens/drug_selection_screen.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+/// Any unexpected transport fails the test. Demo deliberately has no save port.
+class _NoNetwork extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) =>
+      throw StateError('Demo must run offline');
+}
+
+class _SaveSpy extends InMemoryMedicationRepository {
+  var saves = 0;
+
+  @override
+  Future<Medication> add(Medication draft, {required String clientUuid}) {
+    saves++;
+    throw StateError('Selection must not save a medication');
+  }
+
+  @override
+  Future<List<DrugCatalogItem>> searchCatalog(String query) =>
+      throw StateError('Demo must use its injected search');
+}
+
+void main() {
+  for (final preview in [true, false]) {
+    testWidgets('demo route requires preview and debug: preview=$preview',
+        (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        theme: buildAppTheme(),
+        onGenerateRoute: (settings) =>
+            onGenerateRoute(settings, preview: preview),
+        home: Builder(
+            builder: (context) => TextButton(
+                  onPressed: () => Navigator.of(context)
+                      .pushNamed(AppRoutes.drugSelectionDemo),
+                  child: const Text('Mở demo'),
+                )),
+      ));
+      await tester.tap(find.text('Mở demo'));
+      await tester.pumpAndSettle();
+      expect(find.byType(DrugSelectionDemoScreen),
+          preview && kDebugMode ? findsOneWidget : findsNothing);
+      if (!preview) {
+        expect(find.text('Bản xem thử không khả dụng'), findsOneWidget);
+      }
+    });
+  }
+
+  testWidgets('four presets run offline; manual search and result stay in demo',
+      (tester) async {
+    final previous = HttpOverrides.current;
+    HttpOverrides.global = _NoNetwork();
+    addTearDown(() => HttpOverrides.global = previous);
+    final repository = _SaveSpy();
+    final controller = MedicationController(repository);
+    addTearDown(controller.dispose);
+    await tester.pumpWidget(MaterialApp(
+      theme: buildAppTheme(),
+      home: MedicationScope(
+          controller: controller, child: const DrugSelectionDemoScreen()),
+    ));
+    for (final preset in [
+      'OCR · Có kết quả',
+      'OCR · Không có kết quả',
+      'Tìm kiếm · Có kết quả',
+      'Tìm kiếm · Không có kết quả',
+    ]) {
+      await tester.ensureVisible(find.text(preset));
+      await tester.tap(find.text(preset));
+      await tester.pumpAndSettle();
+      expect(find.byType(DrugSelectionScreen), findsOneWidget);
+      if (preset.contains('Không')) {
+        await tester.tap(find.text('Tìm kiếm thủ công').hitTestable());
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextField), 'nothing');
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Tìm kiếm thủ công').hitTestable());
+        await tester.enterText(find.byType(TextField), 'Paracetamol');
+        await tester.pumpAndSettle();
+      }
+      await tester.tap(find.byKey(const ValueKey('drug-candidate-0')));
+      await tester.pump();
+      await tester.tap(find.text('Xác nhận thuốc'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Mẫu · Đã xác nhận:'), findsOneWidget);
+      expect(find.textContaining('demo-500'), findsOneWidget);
+      expect(find.byType(DrugSelectionScreen), findsNothing);
+      expect(repository.saves, 0);
+    }
+    await tester.ensureVisible(find.text('Thiếu thông tin'));
+    await tester.tap(find.text('Thiếu thông tin'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('drug-candidate-0')));
+    await tester.pump();
+    expect(find.text('Đơn vị: Chưa có thông tin'), findsOneWidget);
+    await tester.tap(find.text('Hủy'));
+    await tester.pumpAndSettle();
+    expect(
+        find.textContaining('Chưa có lựa chọn được xác nhận'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    expect(repository.saves, 0);
+  });
+
+  test('synthetic search returns fixture identity and unknown query is empty',
+      () async {
+    expect(await DrugSelectionDemoFixtures.search(' Paracetamol '),
+        DrugSelectionDemoFixtures.candidates);
+    expect(await DrugSelectionDemoFixtures.search('unknown'), isEmpty);
+    expect(DrugSelectionDemoFixtures.missing.single.unit, isEmpty);
+  });
+}
+
+
+NEW FILE: frontend/mobile/test/features/medication/drug_selection_flow_test.dart
+
+import 'package:drugtime_mobile/app/theme/app_theme.dart';
+import 'package:drugtime_mobile/features/medication/data/models/drug_selection_demo_fixtures.dart';
+import 'package:drugtime_mobile/features/medication/domain/entities/medication.dart';
+import 'package:drugtime_mobile/features/medication/presentation/screens/drug_selection_screen.dart';
+import 'package:drugtime_mobile/features/medication/presentation/widgets/drug_catalog_sheet.dart';
+import 'package:drugtime_mobile/features/medication/presentation/widgets/drug_selection_panel.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  for (final source in DrugSelectionSource.values) {
+    Future<List<DrugCatalogItem?>> open(WidgetTester tester,
+        {bool empty = false}) async {
+      final results = <DrugCatalogItem?>[];
+      await tester.pumpWidget(MaterialApp(
+        theme: buildAppTheme(),
+        home: Builder(
+            builder: (context) => Scaffold(
+                  body: TextButton(
+                      onPressed: () async {
+                        results.add(await showDrugSelectionScreen(
+                          context,
+                          candidates: empty
+                              ? const []
+                              : DrugSelectionDemoFixtures.candidates,
+                          source: source,
+                          search: DrugSelectionDemoFixtures.search,
+                        ));
+                      },
+                      child: const Text('Mở')),
+                )),
+      ));
+      await tester.tap(find.text('Mở'));
+      await tester.pumpAndSettle();
+      return results;
+    }
+
+    testWidgets('$source same panel, explicit confirm returns original item',
+        (tester) async {
+      final results = await open(tester);
+      expect(find.byType(DrugSelectionPanel), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('drug-candidate-0')));
+      await tester.pump();
+      expect(results, isEmpty);
+      await tester.tap(find.text('Xác nhận thuốc'));
+      await tester.pumpAndSettle();
+      expect(results, [same(DrugSelectionDemoFixtures.candidates.first)]);
+    });
+
+    for (final cancel in [true, false]) {
+      testWidgets('$source ${cancel ? 'cancel' : 'system Back'} returns null',
+          (tester) async {
+        final results = await open(tester);
+        await tester.tap(find.byKey(const ValueKey('drug-candidate-0')));
+        await tester.pump();
+        if (cancel) {
+          await tester.tap(find.text('Hủy'));
+        } else {
+          await tester.binding.handlePopRoute();
+        }
+        await tester.pumpAndSettle();
+        expect(results, [null]);
+      });
+    }
+
+    testWidgets(
+        '$source empty manual search confirm reaches original caller once',
+        (tester) async {
+      final results = await open(tester, empty: true);
+      await tester.tap(find.text('Tìm kiếm thủ công'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Paracetamol');
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('drug-candidate-1')));
+      await tester.pump();
+      expect(results, isEmpty);
+      await tester.tap(find.text('Xác nhận thuốc'));
+      await tester.pumpAndSettle();
+      expect(results, [same(DrugSelectionDemoFixtures.candidates.last)]);
+      expect(find.byType(DrugSelectionScreen), findsNothing);
+      expect(find.byType(DrugCatalogSheet), findsNothing);
+    });
+
+    testWidgets(
+        '$source repeated no-result focuses same field; cancel and retry',
+        (tester) async {
+      final results = await open(tester, empty: true);
+      for (var i = 0; i < 2; i++) {
+        await tester.tap(find.text('Tìm kiếm thủ công').hitTestable());
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextField), 'no-match');
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Tìm kiếm thủ công').hitTestable());
+        await tester.pumpAndSettle();
+        expect(find.byType(DrugCatalogSheet), findsOneWidget);
+        final field = tester.widget<TextField>(find.byType(TextField));
+        expect(field.focusNode!.hasFocus, isTrue);
+        expect(field.controller!.selection,
+            const TextSelection(baseOffset: 0, extentOffset: 8));
+        await tester.binding.handlePopRoute();
+        await tester.pumpAndSettle();
+        expect(find.byType(DrugSelectionScreen), findsOneWidget);
+        expect(results, isEmpty);
+      }
+      await tester.tap(find.text('Hủy'));
+      await tester.pumpAndSettle();
+      expect(results, [null]);
+    });
+  }
+
+  testWidgets('disposing host while manual search open never pops caller',
+      (tester) async {
+    await tester.pumpWidget(const MaterialApp(
+        home: DrugSelectionScreen(
+      candidates: [],
+      source: DrugSelectionSource.ocr,
+      search: DrugSelectionDemoFixtures.search,
+    )));
+    await tester.tap(find.text('Tìm kiếm thủ công'));
+    await tester.pumpAndSettle();
+    await tester.pumpWidget(const MaterialApp(home: Text('Caller mới')));
+    await tester.pumpAndSettle();
+    expect(find.text('Caller mới'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+}
+
+
+NEW FILE: frontend/mobile/test/features/medication/drug_selection_panel_test.dart
+
+import 'dart:ui' show Tristate;
+
+import 'package:drugtime_mobile/app/theme/app_theme.dart';
+import 'package:drugtime_mobile/features/medication/data/models/drug_selection_demo_fixtures.dart';
+import 'package:drugtime_mobile/features/medication/domain/entities/medication.dart';
+import 'package:drugtime_mobile/features/medication/presentation/widgets/drug_selection_panel.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+const items = DrugSelectionDemoFixtures.candidates;
+final confirm = find.widgetWithText(FilledButton, 'Xác nhận thuốc');
+Finder candidate(int i) => find.byKey(ValueKey('drug-candidate-$i'));
+
+Future<void> mount(WidgetTester tester,
+        {List<DrugCatalogItem> candidates = items,
+        ValueChanged<DrugCatalogItem>? onConfirm,
+        VoidCallback? manual}) =>
+    tester.pumpWidget(MaterialApp(
+      theme: buildAppTheme(),
+      home: Scaffold(
+        body: DrugSelectionPanel(
+          candidates: candidates,
+          source: DrugSelectionSource.ocr,
+          onConfirm: onConfirm ?? (_) {},
+          onManualSearch: manual ?? () {},
+        ),
+      ),
+    ));
+
+void main() {
+  testWidgets('order, identity, tap only selects; confirm returns latest once',
+      (tester) async {
+    final results = <DrugCatalogItem>[];
+    await mount(tester, onConfirm: results.add);
+    expect(tester.widget<FilledButton>(confirm).onPressed, isNull);
+    expect(tester.getTopLeft(candidate(0)).dy,
+        lessThan(tester.getTopLeft(candidate(1)).dy));
+    await tester.tap(candidate(0));
+    await tester.pump();
+    expect(results, isEmpty);
+    expect(find.text('Hàm lượng: 500 mg'), findsOneWidget);
+    await tester.ensureVisible(candidate(1));
+    await tester.pumpAndSettle();
+    await tester.tap(candidate(1));
+    await tester.pump();
+    final callback = tester.widget<FilledButton>(confirm).onPressed!;
+    callback();
+    callback();
+    await tester.pump();
+    expect(results, [same(items[1])]);
+    expect(tester.widget<FilledButton>(confirm).onPressed, isNull);
+  });
+
+  testWidgets('replacement, empty and same id changed metadata clear selection',
+      (tester) async {
+    final results = <DrugCatalogItem>[];
+    await mount(tester, onConfirm: results.add);
+    await tester.tap(candidate(0));
+    await tester.pump();
+    final changed = [
+      DrugCatalogItem(
+          id: items.first.id,
+          name: items.first.name,
+          activeIngredient: '',
+          strength: 'Mới',
+          dosageForm: '',
+          unit: ''),
+    ];
+    await mount(tester, candidates: changed, onConfirm: results.add);
+    expect(tester.widget<FilledButton>(confirm).onPressed, isNull);
+    expect(find.byKey(const ValueKey('drug-selection-review')), findsNothing);
+    await tester.tap(candidate(0));
+    await tester.pump();
+    expect(find.text('Hàm lượng: Mới'), findsOneWidget);
+    await mount(tester, candidates: const [], onConfirm: results.add);
+    expect(confirm, findsNothing);
+    expect(results, isEmpty);
+  });
+
+  testWidgets('missing fields are unknown without fabricated unit or strength',
+      (tester) async {
+    await mount(tester, candidates: DrugSelectionDemoFixtures.missing);
+    await tester.tap(candidate(0));
+    await tester.pump();
+    for (final label in ['Hoạt chất', 'Hàm lượng', 'Dạng bào chế', 'Đơn vị']) {
+      expect(find.text('$label: Chưa có thông tin'), findsOneWidget);
+    }
+    expect(find.textContaining('null'), findsNothing);
+    expect(find.textContaining('500 mg'), findsNothing);
+    expect(find.text('Đơn vị: viên'), findsNothing);
+  });
+
+  testWidgets('empty offers manual search and never confirms', (tester) async {
+    var manual = 0;
+    await mount(tester, candidates: const [], manual: () => manual++);
+    expect(confirm, findsNothing);
+    await tester.tap(find.text('Tìm kiếm thủ công'));
+    expect(manual, 1);
+  });
+
+  for (final size in [const Size(320, 568), const Size(375, 812)]) {
+    for (final scale in [1.0, 1.5, 2.0]) {
+      testWidgets('long list/name $size scale $scale scroll review and confirm',
+          (tester) async {
+        tester.view.physicalSize = size;
+        tester.view.devicePixelRatio = 1;
+        tester.platformDispatcher.textScaleFactorTestValue = scale;
+        addTearDown(tester.view.reset);
+        addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+        final results = <DrugCatalogItem>[];
+        await mount(tester,
+            candidates: DrugSelectionDemoFixtures.longList,
+            onConfirm: results.add);
+        final lastName =
+            find.text(DrugSelectionDemoFixtures.longList.last.name);
+        await tester.scrollUntilVisible(lastName, 250,
+            maxScrolls: 200, scrollable: find.byType(Scrollable).first);
+        await tester.ensureVisible(lastName);
+        await tester.pumpAndSettle();
+        await tester.tap(lastName);
+        await tester.pumpAndSettle();
+        expect(
+            find.text('Thông tin thuốc đã chọn').hitTestable(), findsOneWidget);
+        expect(find.text('Hàm lượng: 500 mg'), findsOneWidget);
+        await tester.tap(confirm);
+        await tester.pump();
+        expect(results.single, same(DrugSelectionDemoFixtures.longList.last));
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
+  testWidgets('semantics labels selected state and enabled confirm',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    await mount(tester);
+    await tester.tap(candidate(0));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(candidate(0));
+    await tester.pumpAndSettle();
+    final selected = tester.getSemantics(candidate(0));
+    expect(selected.flagsCollection.isSelected, Tristate.isTrue);
+    expect(selected.flagsCollection.isButton, isTrue);
+    expect(tester.getSemantics(confirm).flagsCollection.isEnabled,
+        Tristate.isTrue);
+    semantics.dispose();
+  });
+}

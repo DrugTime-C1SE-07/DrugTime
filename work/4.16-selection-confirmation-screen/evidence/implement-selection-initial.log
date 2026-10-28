@@ -1,0 +1,397 @@
+00:00 +0: loading D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart
+00:00 +0: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'drug-candidate-1'>]: [
+  InkWell-[<'drug-candidate-1'>](dependencies: [_ScrollableScope]),
+]" derived an Offset (Offset(400.0, 520.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#7fd4e relayoutBoundary=up10
+The hit test result at that offset is: HitTestResult(_RenderInkFeatures#dc3ad@Offset(400.0, 520.5), RenderPhysicalModel#7a15b@Offset(400.0, 520.5), RenderSemanticsAnnotations#5d7a5@Offset(400.0, 520.5), RenderRepaintBoundary#8564b@Offset(400.0, 520.5), RenderIgnorePointer#5eb7f@Offset(400.0, 520.5), RenderAnimatedOpacity#69bb0@Offset(400.0, 520.5), RenderAnimatedOpacity#e6f2e@Offset(400.0, 520.5), _RenderColoredBox#807c8@Offset(400.0, 520.5), RenderAnimatedOpacity#7cbe9@Offset(400.0, 520.5), RenderIgnorePointer#bc033@Offset(400.0, 520.5), RenderAnimatedOpacity#afc6b@Offset(400.0, 520.5), RenderRepaintBoundary#f199d@Offset(400.0, 520.5), RenderSemanticsAnnotations#ef233@Offset(400.0, 520.5), RenderOffstage#96922@Offset(400.0, 520.5), RenderSemanticsAnnotations#e42ec@Offset(400.0, 520.5), _RenderTheater#84636@Offset(400.0, 520.5), RenderAbsorbPointer#1961c@Offset(400.0, 520.5), RenderPointerListener#b94a7@Offset(400.0, 520.5), RenderSemanticsAnnotations#c1e7e@Offset(400.0, 520.5), RenderCustomPaint#48ea0@Offset(400.0, 520.5), RenderSemanticsAnnotations#5b5fd@Offset(400.0, 520.5), RenderSemanticsAnnotations#d9b7c@Offset(400.0, 520.5), RenderSemanticsAnnotations#896a9@Offset(400.0, 520.5), RenderTapRegionSurface#89d02@Offset(400.0, 520.5), RenderSemanticsAnnotations#c25f6@Offset(400.0, 520.5), RenderSemanticsAnnotations#9b3cf@Offset(400.0, 520.5), HitTestEntry<HitTestTarget>#0fbd3(_ReusableRenderView#d48d5), HitTestEntry<HitTestTarget>#c8f17(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:42:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: [<same instance as <Instance of 'DrugCatalogItem'>>]
+  Actual: [Instance of 'DrugCatalogItem']
+   Which: at location [0] is <Instance of 'DrugCatalogItem'> which does not match same instance as
+<Instance of 'DrugCatalogItem'>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:48:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart line 48
+The test description was:
+  order, identity, tap only selects; confirm returns latest once
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: demo route requires preview and debug: preview=true
+00:01 +0 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once [E]
+  Test failed. See exception logs above.
+  The test description was: order, identity, tap only selects; confirm returns latest once
+  
+00:01 +1 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:02 +2 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:02 +3 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:02 +4 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:02 +5 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:02 +6 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:02 +7 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:02 +8 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:03 +8 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'drug-candidate-29'>]: [
+  InkWell-[<'drug-candidate-29'>](dependencies: [_ScrollableScope]),
+]" derived an Offset (Offset(160.0, 510.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#20d4e relayoutBoundary=up10
+The hit test result at that offset is: HitTestResult(RenderPointerListener#0d83a@Offset(144.0, 14.5), RenderSemanticsAnnotations#90230@Offset(144.0, 14.5), RenderMouseRegion#162e3@Offset(144.0, 14.5), RenderSemanticsAnnotations#3f5ba@Offset(144.0, 14.5), _RenderInkFeatures#a00a1@Offset(144.0, 14.5), RenderCustomPaint#3d9fc@Offset(144.0, 14.5), RenderPhysicalShape#9ab49@Offset(144.0, 14.5), RenderConstrainedBox#3ff9e@Offset(144.0, 14.5), _RenderInputPadding#24ee4@Offset(144.0, 14.5), RenderSemanticsAnnotations#22140@Offset(144.0, 14.5), RenderPadding#34938@Offset(160.0, 30.5), RenderPadding#d411c@Offset(160.0, 30.5), RenderFlex#877b6@Offset(160.0, 510.5), RenderCustomMultiChildLayoutBox#3f404@Offset(160.0, 510.5), _RenderInkFeatures#53683@Offset(160.0, 510.5), RenderPhysicalModel#a688a@Offset(160.0, 510.5), RenderSemanticsAnnotations#d7ba0@Offset(160.0, 510.5), RenderRepaintBoundary#a0d15@Offset(160.0, 510.5), RenderIgnorePointer#9602a@Offset(160.0, 510.5), RenderAnimatedOpacity#65670@Offset(160.0, 510.5), RenderAnimatedOpacity#4069b@Offset(160.0, 510.5), _RenderColoredBox#108a4@Offset(160.0, 510.5), RenderAnimatedOpacity#ea393@Offset(160.0, 510.5), RenderIgnorePointer#caa41@Offset(160.0, 510.5), RenderAnimatedOpacity#7dd0a@Offset(160.0, 510.5), RenderRepaintBoundary#569b4@Offset(160.0, 510.5), RenderSemanticsAnnotations#46827@Offset(160.0, 510.5), RenderOffstage#ceed7@Offset(160.0, 510.5), RenderSemanticsAnnotations#c0c53@Offset(160.0, 510.5), _RenderTheater#f08ee@Offset(160.0, 510.5), RenderAbsorbPointer#bbbbe@Offset(160.0, 510.5), RenderPointerListener#54974@Offset(160.0, 510.5), RenderSemanticsAnnotations#1a564@Offset(160.0, 510.5), RenderCustomPaint#55dc3@Offset(160.0, 510.5), RenderSemanticsAnnotations#d9531@Offset(160.0, 510.5), RenderSemanticsAnnotations#7cfa3@Offset(160.0, 510.5), RenderSemanticsAnnotations#3b255@Offset(160.0, 510.5), RenderTapRegionSurface#66f27@Offset(160.0, 510.5), RenderSemanticsAnnotations#6c658@Offset(160.0, 510.5), RenderSemanticsAnnotations#5cf8e@Offset(160.0, 510.5), HitTestEntry<HitTestTarget>#76224(_ReusableRenderView#d48d5), HitTestEntry<HitTestTarget>#2cee7(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:114:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:116:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +8 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:03 +8 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+  
+00:04 +9 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 2 widgets with text "Tìm kiếm thủ công": [
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+]" (used in a call to "tap()") ambiguously found multiple matching widgets. The "tap()" method needs
+a single target.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2100:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart:62:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  four presets run offline; manual search and result stay in demo
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +9 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:04 +9 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo [E]
+  Test failed. See exception logs above.
+  The test description was: four presets run offline; manual search and result stay in demo
+  
+00:04 +10 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:112:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +10 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry
+00:04 +10 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+  
+00:04 +10 -4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 2 widgets with text "Tìm kiếm thủ công": [
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+]" (used in a call to "tap()") ambiguously found multiple matching widgets. The "tap()" method needs
+a single target.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2100:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart:85:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +10 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:04 +10 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry [E]
+  Test failed. See exception logs above.
+  The test description was: DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry
+  
+00:04 +11 -5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:112:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +11 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.search cancel returns null
+00:05 +11 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+  
+00:05 +12 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.0 scroll review and confirm
+00:05 +13 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.0 scroll review and confirm
+00:05 +14 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.0 scroll review and confirm
+00:05 +15 -6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.search repeated no-result focuses same field; cancel and retry
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 2 widgets with text "Tìm kiếm thủ công": [
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+  Text("Tìm kiếm thủ công", textAlign: center, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+]" (used in a call to "tap()") ambiguously found multiple matching widgets. The "tap()" method needs
+a single target.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2100:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart:85:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  DrugSelectionSource.search repeated no-result focuses same field; cancel and retry
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +15 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm
+00:06 +15 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.search repeated no-result focuses same field; cancel and retry [E]
+  Test failed. See exception logs above.
+  The test description was: DrugSelectionSource.search repeated no-result focuses same field; cancel and retry
+  
+00:06 +16 -7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'drug-candidate-29'>]: [
+  InkWell-[<'drug-candidate-29'>](dependencies: [_ScrollableScope]),
+]" derived an Offset (Offset(187.5, 767.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderSemanticsAnnotations#916fe relayoutBoundary=up10
+The hit test result at that offset is: HitTestResult(RenderParagraph#92323@Offset(156.1, 41.5), RenderPositionedBox#b98e4@Offset(156.1, 41.5), RenderPadding#7012d@Offset(171.5, 41.5), RenderPointerListener#a767c@Offset(171.5, 41.5), RenderSemanticsAnnotations#69f30@Offset(171.5, 41.5), RenderMouseRegion#f6db4@Offset(171.5, 41.5), RenderSemanticsAnnotations#26bfd@Offset(171.5, 41.5), _RenderInkFeatures#eda99@Offset(171.5, 41.5), RenderCustomPaint#e425f@Offset(171.5, 41.5), RenderPhysicalShape#294bc@Offset(171.5, 41.5), RenderConstrainedBox#9b5a1@Offset(171.5, 41.5), _RenderInputPadding#db938@Offset(171.5, 41.5), RenderSemanticsAnnotations#e485f@Offset(171.5, 41.5), RenderPadding#286a1@Offset(187.5, 57.5), RenderPadding#05c3e@Offset(187.5, 57.5), RenderFlex#db689@Offset(187.5, 767.5), RenderCustomMultiChildLayoutBox#4dbb0@Offset(187.5, 767.5), _RenderInkFeatures#863c0@Offset(187.5, 767.5), RenderPhysicalModel#a08ef@Offset(187.5, 767.5), RenderSemanticsAnnotations#d68e6@Offset(187.5, 767.5), RenderRepaintBoundary#63420@Offset(187.5, 767.5), RenderIgnorePointer#89b40@Offset(187.5, 767.5), RenderAnimatedOpacity#f30c6@Offset(187.5, 767.5), RenderAnimatedOpacity#27a23@Offset(187.5, 767.5), _RenderColoredBox#8b83f@Offset(187.5, 767.5), RenderAnimatedOpacity#09acd@Offset(187.5, 767.5), RenderIgnorePointer#720f3@Offset(187.5, 767.5), RenderAnimatedOpacity#bd350@Offset(187.5, 767.5), RenderRepaintBoundary#0e141@Offset(187.5, 767.5), RenderSemanticsAnnotations#2ce3a@Offset(187.5, 767.5), RenderOffstage#1b894@Offset(187.5, 767.5), RenderSemanticsAnnotations#5cd9a@Offset(187.5, 767.5), _RenderTheater#8a21b@Offset(187.5, 767.5), RenderAbsorbPointer#a914e@Offset(187.5, 767.5), RenderPointerListener#fd2bd@Offset(187.5, 767.5), RenderSemanticsAnnotations#c2f6b@Offset(187.5, 767.5), RenderCustomPaint#c03f1@Offset(187.5, 767.5), RenderSemanticsAnnotations#4c2ab@Offset(187.5, 767.5), RenderSemanticsAnnotations#5ec7d@Offset(187.5, 767.5), RenderSemanticsAnnotations#32a46@Offset(187.5, 767.5), RenderTapRegionSurface#0fffe@Offset(187.5, 767.5), RenderSemanticsAnnotations#5952e@Offset(187.5, 767.5), RenderSemanticsAnnotations#f49a2@Offset(187.5, 767.5), HitTestEntry<HitTestTarget>#3f665(_ReusableRenderView#d48d5), HitTestEntry<HitTestTarget>#9d225(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:114:22)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:116:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +16 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(375.0, 812.0) scale 1.5 scroll review and confirm
+  
+00:06 +16 -8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 2.0 scroll review and confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:112:9)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  long list/name Size(375.0, 812.0) scale 2.0 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +16 -9: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(375.0, 812.0) scale 2.0 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(375.0, 812.0) scale 2.0 scroll review and confirm
+  
+00:07 +16 -9: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.isEmpty (dart:core/iterable.dart:560:33)
+#4      SemanticsController.find (package:flutter_test/src/controller.dart:97:20)
+#5      WidgetController.getSemantics (package:flutter_test/src/controller.dart:2364:79)
+#6      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:135:29)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  semantics labels selected state and enabled confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +16 -10: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm [E]
+  Test failed. See exception logs above.
+  The test description was: semantics labels selected state and enabled confirm
+  
+00:07 +16 -10: Some tests failed.
+
+Failing tests:
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr repeated no-result focuses same field; cancel and retry
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.search repeated no-result focuses same field; cancel and retry
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.0 scroll review and confirm
+  ... and 6 more

@@ -1,0 +1,11 @@
+# Các lệnh chỉ được soạn, CHƯA chạy. Commit/push cần người dùng yêu cầu. Không stage scratch.
+git -C frontend add -- mobile/lib/app/router.dart mobile/lib/features/medication/presentation/screens/add_medication_screen.dart mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart mobile/test/features/medication/drug_catalog_sheet_test.dart mobile/test/features/medication/medication_lookup_widget_test.dart mobile/test/features/medication/medication_screens_test.dart mobile/lib/features/medication/data/models/drug_selection_demo_fixtures.dart mobile/lib/features/medication/presentation/screens/drug_selection_demo_screen.dart mobile/lib/features/medication/presentation/screens/drug_selection_screen.dart mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart mobile/test/features/medication/drug_selection_demo_test.dart mobile/test/features/medication/drug_selection_flow_test.dart mobile/test/features/medication/drug_selection_panel_test.dart
+git -C frontend commit -m "wip(medication): preserve selection confirmation (4.16)"
+git -C docs add -- "Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx"
+git -C docs commit -m "test(medication): record selection confirmation findings (4.16)"
+git add -f -- work/4.16-selection-confirmation-screen/01-requirement.md work/4.16-selection-confirmation-screen/03-plan.md work/4.16-selection-confirmation-screen/04-impl-notes.md work/4.16-selection-confirmation-screen/05-test-report.md work/4.16-selection-confirmation-screen/testcases.json work/4.16-selection-confirmation-screen/testcases.xlsx work/4.16-selection-confirmation-screen/evidence
+git commit -m "docs: record task 4.16 test findings"
+# Chỉ khi người dùng yêu cầu push; chưa bump con trỏ tới commit chưa push:
+git -C frontend push -u origin feat/4.16-selection-confirmation-screen
+git -C docs push -u origin feat/4.16-selection-confirmation-screen
+git push -u origin feat/4.16-selection-confirmation-screen

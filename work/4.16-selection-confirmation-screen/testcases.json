@@ -1,0 +1,915 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "MEDPICK",
+      "name": "Tìm và chọn thuốc khi nhập thuốc",
+      "sheet": "Chọn thuốc danh mục",
+      "description": "UI chọn/xác nhận mock OCR 4.16; hồi quy tìm danh mục API/DB thật của 3.05; chưa tích hợp OCR 4.13/search 4.15.",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-27",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "2026-10-28: 50 Pass, 2 Fail, 0 Pending. TC25/26/29: 43 pytest pass trên PostgreSQL local; TC27: 5 query Android + API/DB thật pass, không tạo bản ghi; TC52: người dùng xác nhận thao tác và TalkBack hoạt động bình thường. TC28 và TC51 cùng một lỗi layout màn nhỏ/chữ lớn. Các case khác giữ kết quả phiên 27/10; không coi là đã chạy lại hôm nay. 2026-10-28: người dùng chấp nhận lỗi layout Medium và hoãn sửa trong task 4.16; giữ Fail theo bằng chứng. Quyết định: evidence/test-layout-risk-acceptance.log.",
+      "ep": [
+        {
+          "field": "q",
+          "valid": [
+            "1–100 Unicode code point sau trim"
+          ],
+          "invalid": [
+            "(blank) hoặc toàn khoảng trắng",
+            "Trên 100 Unicode code point"
+          ]
+        },
+        {
+          "field": "item",
+          "valid": [
+            "Có trường nullable, giữ đúng id"
+          ],
+          "invalid": []
+        },
+        {
+          "field": "response",
+          "valid": [],
+          "invalid": [
+            "Lỗi mạng/HTTP, không được coi là thành công"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Kết quả tìm kiếm hiện hành",
+          "actions": [
+            {
+              "name": "Hiện kết quả và cho chọn",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Hiện không tìm thấy",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "Hiện lỗi, cho retry",
+              "rules": [
+                3
+              ]
+            },
+            {
+              "name": "Xử lý phiên chung, không retry tìm",
+              "rules": [
+                4
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "name": "Kết quả",
+              "values": [
+                "Có item",
+                "Items rỗng",
+                "Lỗi mạng/validation/server",
+                "401"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Cho phép xác nhận (4.16)",
+          "conditions": [
+            {
+              "name": "Có ứng viên?",
+              "values": [
+                "No",
+                "Yes",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Đã chọn mục thuộc danh sách hiện tại?",
+              "values": [
+                "No",
+                "No",
+                "Yes",
+                "No sau thay dữ liệu"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Chỉ cho tìm lại/hủy",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Không cho xác nhận",
+              "rules": [
+                2,
+                4
+              ]
+            },
+            {
+              "name": "Cho xác nhận đúng một lần",
+              "rules": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-MEDPICK-01",
+          "description": "Mở sheet chọn thuốc từ form thêm",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Chạm trường Thuốc.",
+            "Nhập amlo; chọn Amlodipin 5mg.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Quan sát form và số lần gọi add."
+          ],
+          "data": "Thuốc: chưa chọn",
+          "expected": "Sheet mở; thuốc trở về form, không mở tra cứu/chi tiết và chưa tự lưu. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC1, AC5 · Chuyển trạng thái form → sheet → form · 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-02",
+          "description": "Giữ hướng dẫn khi từ khóa rỗng",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Mở sheet; không nhập.",
+            "Chờ trên 300ms."
+          ],
+          "data": "(blank), độ dài 0",
+          "expected": "Hiện Nhập tên thuốc hoặc hoạt chất; không gọi tìm kiếm.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC2 · EP (3); BVA (min-1=0) · sheet danh mục: chưa gõ thì gợi ý, không tìm · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-03",
+          "description": "Bỏ qua từ khóa toàn khoảng trắng",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập ba dấu cách.",
+            "Chờ 400ms; kiểm tra số request."
+          ],
+          "data": "q=\"   \"",
+          "expected": "Không gọi API; không giữ kết quả cũ.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC2 · EP (3) · empty whitespace, debounce 299/300ms and trimmed final query · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-04",
+          "description": "Trim từ khóa một ký tự và chờ debounce",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập A có khoảng trắng hai đầu.",
+            "Chờ 299ms rồi đổi sang B có khoảng trắng.",
+            "Chờ 299ms rồi thêm 1ms."
+          ],
+          "data": "q=\" A \", sau đó \" B \"; 299ms + 1ms",
+          "expected": "Không gọi trước 300ms; chỉ gửi B đã trim.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC3 · EP (1); BVA (min=1) · empty whitespace, debounce 299/300ms and trimmed final query · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-05",
+          "description": "Giữ thứ tự kết quả server",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm B.",
+            "Server trả second trước first.",
+            "Quan sát thứ tự trên sheet."
+          ],
+          "data": "items: second, first",
+          "expected": "second nằm trước first; client không tự sắp xếp.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC3 · EP (1) · empty whitespace, debounce 299/300ms and trimmed final query · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-06",
+          "description": "Xóa từ khóa và bỏ response còn chờ",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm A.",
+            "Xóa từ khóa trước khi response về.",
+            "Cho response A về."
+          ],
+          "data": "q=A → (blank); response A về sau",
+          "expected": "Kết quả A không xuất hiện; trở về hướng dẫn.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC2, AC9 · Chuyển trạng thái loading → initial · clear invalidates request and dispose cancels timer or ignores response · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-07",
+          "description": "Chỉ nhận response mới nhất trong A → B → A",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm A, B, A theo thứ tự.",
+            "Trả latest cho A2 rồi stale cho A1 và lỗi mạng cho B.",
+            "Quan sát kết quả và lỗi."
+          ],
+          "data": "Request A1, B, A2; response A2, A1, lỗi B",
+          "expected": "Chỉ latest hiển thị, không xuất hiện stale hoặc Chưa tìm được.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC9 · Đoán lỗi response sai thứ tự · A B A: only current generation can update, including stale error · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-08",
+          "description": "Đóng sheet khi còn timer và request",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm A rồi xóa.",
+            "Tìm B rồi nhập C chưa đủ debounce.",
+            "Đóng sheet; trả lỗi B."
+          ],
+          "data": "A đang chờ; B gửi; C đang debounce",
+          "expected": "Timer C không gửi; không exception cập nhật widget đã dispose.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC9 · Chuyển trạng thái sheet → disposed · clear invalidates request and dispose cancels timer or ignores response · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-09",
+          "description": "Chấp nhận 99 ký tự sau trim",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập chuỗi a dài 99 ký tự.",
+            "Chờ 300ms; kiểm tra request."
+          ],
+          "data": "q=a*99",
+          "expected": "Gửi q 99 ký tự; không báo quá dài.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC10 · EP (1) · BVA (max-1=99) · scratch/catalog_boundary_test.dart; Flutter drive Android · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-10",
+          "description": "Chấp nhận 100 ký tự tiếng Việt sau trim",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập 100 ký tự á có khoảng trắng hai đầu.",
+            "Chờ 300ms; kiểm tra request."
+          ],
+          "data": "q=\" \"+á*100+\" \"",
+          "expected": "Gửi đúng 100 ký tự á sau trim.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC10 · EP (1); BVA (max=100) · trimmed Unicode limit 100 allowed, 101 blocked: á · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-11",
+          "description": "Chặn 101 ký tự tiếng Việt và khôi phục query hợp lệ",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Gửi query 100 ký tự rồi nhập 101 ký tự.",
+            "Trả response cũ.",
+            "Đổi sang valid và trả items rỗng."
+          ],
+          "data": "á*100 → á*101 → valid",
+          "expected": "Không gửi query 101; bỏ response cũ; hiện Nhập tối đa 100 ký tự sau khi bỏ khoảng trắng đầu và cuối.; query valid tìm lại được.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC9, AC10 · EP (4); BVA (max+1=101) · trimmed Unicode limit 100 allowed, 101 blocked: á · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-12",
+          "description": "Đếm Unicode ngoài BMP theo code point",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập 100 emoji rồi 101 emoji.",
+            "Quan sát số lần gọi tìm kiếm và thông báo."
+          ],
+          "data": "😀*100, 😀*101",
+          "expected": "100 code point được gửi, 101 bị chặn, không đếm thành 200 UTF-16 unit.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC10 · EP (1,4); BVA (max=100,max+1=101) · trimmed Unicode limit 100 allowed, 101 blocked: 😀 · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-13",
+          "description": "Hiện không tìm thấy khi API trả items rỗng",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm valid.",
+            "Server trả danh sách rỗng.",
+            "Quan sát sheet."
+          ],
+          "data": "q=valid; items=[]",
+          "expected": "Hiện Không tìm thấy thuốc phù hợp và gợi ý đổi từ khóa; không tự tạo thuốc.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC7 · Decision Table (R2) · network retry uses current query once and clears old error · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-14",
+          "description": "Thử lại lỗi mạng đúng query hiện tại",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập A; mô phỏng mất mạng.",
+            "Bấm Thử lại liên tục hai lần.",
+            "Cho lần retry trả latest."
+          ],
+          "data": "q=\" A \"; lần đầu lỗi mạng, lần sau latest",
+          "expected": "Hiện Chưa tìm được; chỉ một retry với A đã trim; lỗi được xóa khi tải.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC8 · EP (5); Decision Table (R3) · network retry uses current query once and clears old error · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-15",
+          "description": "Phân biệt lỗi HTTP 422 với kết quả rỗng",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Nhập A.",
+            "Trả lỗi validation 422.",
+            "Quan sát lỗi và khả năng retry."
+          ],
+          "data": "GET /catalog/medications; HTTP 422",
+          "expected": "Hiện Chưa tìm được; không hiển thị như tìm thành công không có kết quả.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC10 · EP (5); Decision Table (R3) · failure MedicationFailureKind.validation is not empty success · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-16",
+          "description": "Xử lý 401 theo cơ chế phiên chung",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm A với phiên không hợp lệ.",
+            "Trả 401; kiểm callback phiên và lỗi repository.",
+            "Quan sát sheet."
+          ],
+          "data": "HTTP 401; refresh thất bại",
+          "expected": "Callback onUnauthorized được gọi; ném unauthorized; sheet không báo kết quả rỗng hoặc cho retry tìm kiếm.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC11 · EP (5); Decision Table (R4) · 3.05 search 401 throws failure rather than empty success; failure MedicationFailureKind.unauthorized is not empty success · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-17",
+          "description": "Giữ lỗi timeout và lỗi server",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Gọi searchCatalog với mỗi status đã nêu.",
+            "Quan sát kết quả repository."
+          ],
+          "data": "HTTP 408, 500, 503",
+          "expected": "Ném failure tương ứng; không chuyển thành danh sách rỗng thành công.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC8 · EP (5); Decision Table (R3) · 3.05 search 408/500/503 throws failure rather than empty success · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-18",
+          "description": "Giữ lỗi socket khi mất kết nối",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Gọi searchCatalog khi server không nhận kết nối.",
+            "Kiểm tra lỗi trả về."
+          ],
+          "data": "Ngắt kết nối server cục bộ",
+          "expected": "Ném lỗi network thay vì trả items rỗng.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC8 · EP (5) · 3.05 search socket failure is network error · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-19",
+          "description": "Hiện thông tin nhận diện và không suy diễn trường thiếu",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm A và trả hai item.",
+            "Quan sát tên, 5 mg và các trường thiếu."
+          ],
+          "data": "Hai thuốc Cùng tên: id=1 đủ thông tin, id=2 thiếu hoạt chất/hàm lượng/dạng",
+          "expected": "Hiện hai dòng cùng tên; 5 mg chỉ ở item đủ thông tin; không hiện null; có Chưa có thông tin hoạt chất.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC5, AC6 · EP (2); Decision Table (R1) · strength, missing fields and same name distinct ids keep original item · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-20",
+          "description": "Chọn đúng item khi hai thuốc cùng tên",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm Cùng.",
+            "Chọn dòng thứ hai.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Quan sát form trước Lưu."
+          ],
+          "data": "Cùng tên: id=1, id=200; chọn item thứ hai nullable",
+          "expected": "Form nhận nguyên item id=200; hàm lượng trống, không tự điền y khoa, không tự lưu. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC5, AC6 · EP (2) · 3.05: chọn đúng item cùng tên, thiếu thông tin giữ trường trống không tự lưu · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-21",
+          "description": "Giữ thông tin sử dụng khi hủy rồi chọn lại",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Chọn Amlodipin; tăng liều thành 2 và chọn 3 lần/ngày.",
+            "Mở sheet rồi hủy; mở lại và chọn Losartan.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Kiểm dữ liệu còn giữ, sau đó Lưu để kiểm payload."
+          ],
+          "data": "Amlodipin 5mg → Losartan 50mg; liều 2; 3 lần/ngày",
+          "expected": "Hủy giữ thuốc cũ; chọn lại đổi catalog id; giữ liều/tần suất/giờ mặc định đã chọn; chưa add trước Lưu. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC12, AC5 · Chuyển trạng thái chọn → hủy → chọn lại · 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-22",
+          "description": "Cho phép chọn thuốc đang dùng và giữ cảnh báo",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Tìm losartan.",
+            "Quan sát nhãn Đang dùng và chọn.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Quan sát form."
+          ],
+          "data": "Losartan 50mg đã có trong danh sách",
+          "expected": "Giữ nhãn Đang dùng và cảnh báo đã có trong danh sách đang dùng; vẫn chọn được. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC13 · Decision Table (R1) · 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-23",
+          "description": "Gọi đúng GET và giữ id/nullable/thứ tự",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Gọi RemoteMedicationRepository.searchCatalog.",
+            "Kiểm method/path/q và item mapper."
+          ],
+          "data": "q có khoảng trắng; hai item khác id, trường nullable",
+          "expected": "GET /catalog/medications với q trim; giữ thứ tự và id; nullable không tạo dữ liệu giả.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC3, AC5, AC6 · EP (1,2) · 3.05 search GET trim, server order, nullable and exact ids · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-24",
+          "description": "Cuộn trạng thái ở màn nhỏ có bàn phím",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Mở sheet ở cấu hình đã nêu.",
+            "Cho lỗi mạng, cuộn tới Thử lại và bấm.",
+            "Trả rỗng rồi kết quả; cuộn tới kết quả."
+          ],
+          "data": "Widget 320×640; scale 1.5; keyboard inset 250",
+          "expected": "Không exception layout; retry chạm được và kết quả cuộn được. Chỉ là kiểm tra widget hỗ trợ AC14.",
+          "actual": "Chạy lại 2026-10-27: assertion tương ứng đạt trong medication 172/172; evidence/test-medication.log. Nguồn là fake/widget, không phải API/DB thật.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC14 · Đoán lỗi layout · small screen large text with keyboard: states scroll and retry remains reachable · Task 4.16: hồi quy · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-25",
+          "description": "Tìm tên/hoạt chất có dấu, không dấu và khác hoa thường trên DB thật",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Reset Supabase local, không dùng DB deploy.",
+            "Chạy pytest tests/integration/test_catalog_search.py -q -ra.",
+            "Kiểm test_unaccented_and_case_insensitive__AC5c và response."
+          ],
+          "data": "Thuốc ho Bảo Thanh <tag>; Đồng sulfat <tag>; các query thuoc ho bao thanh, THUỐC HO BẢO THANH, dong sulfat, ĐỒNG SULFAT",
+          "expected": "HTTP 200; cùng thuốc phù hợp cho các biến thể dấu và hoa thường.",
+          "actual": "2026-10-28: Pass với PostgreSQL Supabase local sau reset. Tên/hoạt chất có dấu, không dấu và hoa thường trả HTTP 200, đúng thuốc qua cả /catalog/medications và /medications/search. Suite catalog: 43 pass, 0 fail, 0 skip (9.86s).",
+          "status": "Pass",
+          "comments": "Task 3.05: AC4 · EP (1); tích hợp DB thật · pytest tests/integration/test_catalog_search.py · Đã chạy lại 2026-10-28: evidence/test-pending-catalog-search-rerun.log",
+          "evidence": "evidence/test-pending-catalog-search-rerun.log"
+        },
+        {
+          "id": "TC-MEDPICK-26",
+          "description": "Loại thuốc đã gỡ và kiểm limit/thứ tự ở API thật",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Chuẩn bị fixture trong test_catalog_search.py.",
+            "Chạy test_matches_name_and_ingredient_excludes_deleted_respects_limit__AC5 và test_prefix_first_then_name_order__AC5."
+          ],
+          "data": "Metformin <tag>, Glucophage <tag>; một thuốc deleted_at khác null; limit=1",
+          "expected": "Chỉ thuốc chưa gỡ, đúng schema; limit 1; tiền tố tên được ưu tiên, sau đó thứ tự tên.",
+          "actual": "2026-10-28: Pass trên DB local thật: loại thuốc deleted_at khác null; đúng 5 trường schema; limit=1; ưu tiên tiền tố tên rồi thứ tự tên. Các test tương ứng pass cho cả hai route; suite 43 pass.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC4 · EP (1); tích hợp DB thật · pytest tests/integration/test_catalog_search.py · Đã chạy lại 2026-10-28: evidence/test-pending-catalog-search-rerun.log",
+          "evidence": "evidence/test-pending-catalog-search-rerun.log"
+        },
+        {
+          "id": "TC-MEDPICK-27",
+          "description": "Chọn thuốc từ Mobile nối Backend API thật",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Chạy app với DRUGTIME_API_BASE_URL trỏ Backend local; đăng nhập tài khoản test.",
+            "Mở Thêm thuốc → Thuốc; tìm tên/hoạt chất có dấu, không dấu, hoa thường.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Chọn item; đối chiếu id trong phản hồi API và form; không bấm Lưu."
+          ],
+          "data": "Danh mục local có tên/hoạt chất có dấu và một thuốc đã gỡ; tài khoản test",
+          "expected": "Chọn đúng item/id; không thấy thuốc gỡ; tìm/chọn chưa tạo thuốc cá nhân. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "2026-10-28: Pass trên LM G710 Android 13/font1.0 với Backend API và PostgreSQL local thật. Cả 5 query có dấu/không dấu/hoa thường/tên/hoạt chất trả đúng id=153, loại id đã gỡ=154. Chạm chỉ chọn, form giữ nguyên đến Xác nhận thuốc; ID/tên/hoạt chất/hàm lượng/dạng bào chế khớp. add_calls=0; DB meds/schedules/prescriptions giữ 0/0/0.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC4, AC5 · Flutter drive thiết bị thật + Backend API thật + PostgreSQL local; session từ fixture, không test login · Đã chạy lại 2026-10-28; evidence/test-pending-device-response.json",
+          "evidence": "evidence/test-pending-TC27-android-final.log; evidence/test-pending-device-response.json"
+        },
+        {
+          "id": "TC-MEDPICK-28",
+          "description": "Đọc và chọn thuốc trên thiết bị với cỡ chữ lớn và bàn phím",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Mở form và sheet; bật cỡ chữ lớn trong cấu hình thiết bị.",
+            "Kiểm hướng dẫn, loading, không kết quả, lỗi và retry.",
+            "Tìm thuốc, cuộn và chọn kết quả; kiểm form.",
+            "Sau khi chạm thuốc, kiểm tra vùng Thông tin thuốc đã chọn; bấm Xác nhận thuốc để trả về form.",
+            "Khôi phục cỡ chữ ban đầu sau test."
+          ],
+          "data": "Điện thoại LM G710 Android 13; cỡ chữ lớn; bàn phím mở",
+          "expected": "Nội dung đọc/cuộn được; bàn phím không che thao tác; chọn trả đúng thuốc về form. Chạm dòng chỉ chọn; chỉ Xác nhận thuốc mới đóng sheet và trả lựa chọn.",
+          "actual": "2026-10-28: Fail trên LM G710 Android 13, viewport 360×616 dp, text scale 1.5; keyboard thật 325.5 dp. Hướng dẫn/loading/503 một lần/retry/no-result/query99 và chọn từ API/DB local đã chạy. Chạm item đã chọn, nhưng vùng xem lại chỉ 21.34 dp < một dòng metadata 35 dp. Không đủ đọc một dòng trước xác nhận; regression exit 1. Cấu hình thiết bị được khôi phục.",
+          "status": "Fail",
+          "comments": "Task 3.05: AC14 · Flutter drive trên thiết bị thật + agent kiểm ảnh; thay thao tác tay bằng cùng luồng tự động, không giả lập viewInsets · 2026-10-28 Fail cùng lỗi layout BUG-MEDPICK-51 · evidence/test-pending-TC28-android-confirmed.log · Lỗi đã biết được người dùng chấp nhận, hoãn sửa (2026-10-28)",
+          "severity": "Medium",
+          "root_cause": "Cùng nguyên nhân với BUG-MEDPICK-51: DrugCatalogSheet dùng constraints.maxHeight * 0.92 sau khi trừ keyboard; header và CTA chiếm chiều cao cố định, ListView xem lại còn quá thấp trên màn nhỏ/chữ lớn. Có cách tránh bằng đóng bàn phím hoặc giảm cỡ chữ. 2026-10-28: người dùng chấp nhận lỗi layout Medium và hoãn sửa trong task 4.16; giữ Fail theo bằng chứng. Quyết định: evidence/test-layout-risk-acceptance.log.",
+          "evidence": "evidence/test-pending-TC28-android-confirmed.log; evidence/pending-28-selected-review.png; evidence/test-layout-risk-acceptance.log"
+        },
+        {
+          "id": "TC-MEDPICK-29",
+          "description": "Tìm chuỗi ký tự đặc biệt nguyên văn",
+          "precondition": "Đăng nhập Mobile; mở Danh sách thuốc → Thêm thuốc → trường Thuốc. Dữ liệu/hạ tầng theo Test Data; test tự động dùng fixture riêng.",
+          "steps": [
+            "Chạy test_like_wildcards_are_literal__AC6 với DB local.",
+            "Kiểm items không bị wildcard khớp tất cả."
+          ],
+          "data": "q=%; q=_; tên có 100% tự nhiên, a_b, axb",
+          "expected": "Chỉ khớp ký tự nguyên văn; không mở rộng thành mọi thuốc.",
+          "actual": "2026-10-28: Pass trên DB local thật: %, _ và backslash được tìm nguyên văn; query % hoặc _ không khớp mọi thuốc. Test literal wildcard pass cho cả hai route; suite 43 pass.",
+          "status": "Pass",
+          "comments": "Task 3.05: AC4 · Đoán lỗi SQL wildcard; tích hợp DB thật · pytest tests/integration/test_catalog_search.py · Đã chạy lại 2026-10-28: evidence/test-pending-catalog-search-rerun.log",
+          "evidence": "evidence/test-pending-catalog-search-rerun.log"
+        },
+        {
+          "id": "TC-MEDPICK-30",
+          "description": "Dùng chung màn chọn cho OCR và tìm kiếm",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở OCR · Có kết quả.",
+            "Hủy; mở Tìm kiếm · Có kết quả.",
+            "Chọn và xác nhận một ứng viên ở mỗi nguồn."
+          ],
+          "data": "demo-500 và demo-250",
+          "expected": "Cùng DrugSelectionPanel và quy tắc chọn/xác nhận; trả đúng đối tượng gốc.",
+          "actual": "Đạt assertion same panel, explicit confirm returns original item; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC1 · Chuyển trạng thái · same panel, explicit confirm returns original item · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-31",
+          "description": "Giữ thứ tự, định danh và hàm lượng khi trùng tên",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở OCR · Có kết quả.",
+            "Đọc hai dòng cùng tên theo thứ tự.",
+            "Chọn dòng 250 mg; xác nhận."
+          ],
+          "data": "demo-500: 500 mg/Viên nén/viên; demo-250: 250 mg/Gói bột/gói",
+          "expected": "500 mg trước 250 mg; kết quả demo-250 giữ nguyên metadata, không xếp hạng lại.",
+          "actual": "Đạt assertion order, identity, tap only selects; confirm returns latest once; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC2 · EP (2) · order, identity, tap only selects; confirm returns latest once · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-32",
+          "description": "Chặn xác nhận khi chưa chọn thuốc",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở preset có kết quả.",
+            "Quan sát và thử nút Xác nhận thuốc trước khi chạm dòng."
+          ],
+          "data": "Hai ứng viên; selected=null",
+          "expected": "Nút vô hiệu; không trả lựa chọn hay tạo thuốc.",
+          "actual": "Đạt assertion order, identity, tap only selects; confirm returns latest once; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC3 · Decision Table Cho phép xác nhận (R2) · order, identity, tap only selects; confirm returns latest once · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-33",
+          "description": "Chỉ cập nhật xem lại khi chạm dòng",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở OCR · Có kết quả.",
+            "Chạm dòng demo-500.",
+            "Đọc vùng Thông tin thuốc đã chọn; chưa bấm xác nhận."
+          ],
+          "data": "demo-500",
+          "expected": "Hiện Tên thuốc/Hoạt chất/Hàm lượng/Dạng bào chế/Đơn vị; màn vẫn mở, caller chưa nhận kết quả.",
+          "actual": "Đạt assertion same panel, explicit confirm returns original item; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC3 · Chuyển trạng thái chưa chọn → đã chọn · same panel, explicit confirm returns original item · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-34",
+          "description": "Đổi lựa chọn và xác nhận một lần",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Chọn demo-500.",
+            "Cuộn xuống và chọn demo-250.",
+            "Bấm Xác nhận thuốc hai lần liên tiếp."
+          ],
+          "data": "500 mg → 250 mg",
+          "expected": "Chỉ trả demo-250 một lần; khóa callback xác nhận lặp.",
+          "actual": "Đạt assertion order, identity, tap only selects; confirm returns latest once; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC3, AC4 · Decision Table Cho phép xác nhận (R3); đoán lỗi double tap · order, identity, tap only selects; confirm returns latest once · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-35",
+          "description": "Hủy lựa chọn từ cả hai nguồn",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở lần lượt OCR/Tìm kiếm · Có kết quả.",
+            "Chọn một dòng; bấm Hủy.",
+            "Kiểm caller không nhận thuốc."
+          ],
+          "data": "Hai nguồn, demo-500",
+          "expected": "Trả null; không biến chọn tạm thành xác nhận.",
+          "actual": "Đạt assertion cancel returns null; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC4 · Chuyển trạng thái đã chọn → hủy · cancel returns null · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-36",
+          "description": "Dùng Back sau khi chọn từ cả hai nguồn",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở lần lượt hai nguồn có kết quả.",
+            "Chọn demo-500 rồi dùng Back.",
+            "Kiểm kết quả caller."
+          ],
+          "data": "System Back",
+          "expected": "Trả null, không xác nhận/lưu.",
+          "actual": "Đạt assertion system Back returns null; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC4 · Chuyển trạng thái đã chọn → Back · system Back returns null · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-37",
+          "description": "Tìm thủ công từ OCR rỗng và trả đúng caller",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở OCR · Không có kết quả.",
+            "Bấm Tìm kiếm thủ công; nhập Paracetamol.",
+            "Chọn dòng 250 mg; bấm Xác nhận thuốc."
+          ],
+          "data": "items=[] → q=Paracetamol → demo-250",
+          "expected": "Không tự chọn khi rỗng; sau confirm đóng sheet/màn gốc, caller nhận đúng một demo-250.",
+          "actual": "Đạt assertion ocr empty manual search confirm reaches original caller once; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC5 · Decision Table Cho phép xác nhận (R1); chuyển trạng thái · ocr empty manual search confirm reaches original caller once · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-38",
+          "description": "Sửa từ khóa ngay trong sheet khi tìm rỗng",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở Tìm kiếm · Không có kết quả.",
+            "Tìm thủ công; nhập unknown.",
+            "Bấm Tìm kiếm thủ công một lần nữa; thay từ khóa."
+          ],
+          "data": "unknown → Paracetamol",
+          "expected": "Chỉ một sheet; focus và chọn nội dung ô nhập hiện tại; cho tìm lại, không tới Admin hay tạo thuốc ngoài danh mục.",
+          "actual": "Đạt assertion empty action focuses and selects current query on same route; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC6 · Decision Table Kết quả tìm kiếm (R2) · empty action focuses and selects current query on same route · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-39",
+          "description": "Lặp tìm rỗng, hủy sheet rồi tìm lại",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở preset rỗng.",
+            "Hai lần mở tìm thủ công, nhập no-match, bấm tìm lại và dùng Back đóng sheet.",
+            "Hủy màn gốc."
+          ],
+          "data": "no-match, lặp 2 lần; cả OCR/search",
+          "expected": "Sheet không lồng vô hạn; Back về màn gốc; hủy trả null.",
+          "actual": "Đạt assertion repeated no-result focuses same field; cancel and retry; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC5, AC6 · Chuyển trạng thái empty → search → empty → cancel · repeated no-result focuses same field; cancel and retry · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-40",
+          "description": "Xóa lựa chọn khi thay ứng viên hoặc metadata",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Trong harness panel chọn A.",
+            "Thay danh sách bằng cùng id nhưng strength=Mới.",
+            "Chọn lại, rồi thay bằng danh sách rỗng."
+          ],
+          "data": "id giữ nguyên; strength cũ → Mới → items=[]",
+          "expected": "Xóa vùng xem lại/lựa chọn mỗi lần thay; không confirm object cũ, kể cả cùng ID.",
+          "actual": "Đạt assertion replacement, empty and same id changed metadata clear selection; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC7 · Decision Table Cho phép xác nhận (R4) · replacement, empty and same id changed metadata clear selection · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-41",
+          "description": "Bỏ lựa chọn ngay khi đổi query và bỏ phản hồi cũ",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Tìm A và chọn current.",
+            "Đổi B rồi A; trả new-current trước stale.",
+            "Quan sát nút và vùng xem lại."
+          ],
+          "data": "A → B → A; response đảo thứ tự",
+          "expected": "Không còn lựa chọn cũ; stale không phục hồi lựa chọn; phải chọn lại.",
+          "actual": "Đạt assertion query change removes selection immediately; stale response cannot restore it; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC7 · Chuyển trạng thái selected → loading; đoán lỗi race · query change removes selection immediately; stale response cannot restore it · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-42",
+          "description": "Hiện trung thực metadata thiếu",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở Thiếu thông tin.",
+            "Chạm dòng; đọc từng thuộc tính và xác nhận trong harness panel."
+          ],
+          "data": "demo-missing; hoạt chất/hàm lượng/dạng/đơn vị đều rỗng",
+          "expected": "Chưa có thông tin; không null/crash, không bịa 500 mg hay đơn vị viên và không quy đổi.",
+          "actual": "Đạt assertion missing fields are unknown without fabricated unit or strength; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC8 · EP (2) · missing fields are unknown without fabricated unit or strength · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-43",
+          "description": "Cuộn danh sách dài và xem lại ở sáu cấu hình",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Trong harness đặt lần lượt 320×568 và 375×812, scale 1/1.5/2.",
+            "Mở Tên dài và danh sách dài; cuộn dòng cuối.",
+            "Chọn dòng 29; xem lại và xác nhận."
+          ],
+          "data": "30 ứng viên; demo-long-29",
+          "expected": "Đọc/cuộn/xác nhận được; trả đúng dòng cuối, không exception layout.",
+          "actual": "Đạt assertion long list/name; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC10 · BVA danh sách dài; ma trận kích thước/chữ · long list/name · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-44",
+          "description": "Giữ nút và semantics khi có bàn phím",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Trong harness mở sheet với inset 220, hai kích thước và scale 1/1.5/2.",
+            "Tìm tên dài; chọn dòng.",
+            "Kiểm nhãn selected/button/enabled và nút xác nhận."
+          ],
+          "data": "320×568/375×812; 6 tổ hợp",
+          "expected": "Không overflow; nút chạm được, semantics có nhãn và trạng thái chọn/khả dụng.",
+          "actual": "Đạt assertion keyboard selection and semantics; semantics labels selected state and enabled confirm; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC10 · Ma trận layout và accessibility · keyboard selection and semantics; semantics labels selected state and enabled confirm · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-45",
+          "description": "Đặt ô tìm và nút xác nhận trên bàn phím modal",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Mở helper showDrugCatalogSheet ở 320×568, scale 2, inset 220.",
+            "Tìm modal; chọn và xác nhận."
+          ],
+          "data": "modal-item",
+          "expected": "Đáy ô tìm và nút ≤348; trả đúng modal-item, không exception.",
+          "actual": "Đạt assertion modal host places query and confirm above the keyboard; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC10 · BVA viewport · modal host places query and confirm above the keyboard · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-46",
+          "description": "Chạy bốn preset offline và không lưu thuốc",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Trong harness chặn mọi HttpClient ngoài dự kiến; gắn spy lưu.",
+            "Đi hết bốn preset, gồm no-result → tìm tay → confirm.",
+            "Mở Thiếu thông tin và hủy."
+          ],
+          "data": "OCR/search × có/rỗng; fixture tổng hợp",
+          "expected": "Không HTTP/lưu; spy add=0; kết quả chỉ ở demo; không ảnh OCR hay dữ liệu người bệnh.",
+          "actual": "Đạt assertion four presets run offline; manual search and result stay in demo; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC1, AC5, AC6, AC9 · Decision Table Kết quả tìm kiếm (R1,R2); đoán lỗi side effect · four presets run offline; manual search and result stay in demo · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-47",
+          "description": "Chặn route demo khi không có preview",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Trong harness gọi /medications/selection-demo lần lượt preview=true và false.",
+            "Quan sát màn kết quả."
+          ],
+          "data": "Debug, preview=true/false",
+          "expected": "True cho demo; false hiện Bản xem thử không khả dụng; gate còn yêu cầu kDebugMode (chưa chạy binary release).",
+          "actual": "Đạt assertion demo route requires preview and debug; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC9 · Bảng quyết định preview true/false · demo route requires preview and debug · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-48",
+          "description": "Giữ nguyên thuốc và thông tin sử dụng khi hủy",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Chọn và xác nhận Amlodipin; tăng liều 2, tần suất 3 lần/ngày.",
+            "Mở sheet, chọn Losartan nhưng Back.",
+            "Mở lại và xác nhận Losartan; kiểm form."
+          ],
+          "data": "amlodipin-5 → tạm losartan-50 → hủy → xác nhận",
+          "expected": "Hủy vẫn Amlodipin; chỉ confirm mới đổi Losartan; liều/giờ/tần suất giữ đúng.",
+          "actual": "Đạt assertion 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC4, AC9 · Chuyển trạng thái form → chọn tạm → hủy · 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-49",
+          "description": "Giữ bước Lưu và validation tại form",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Chọn thuốc, xem lại, confirm; kiểm spy add=0.",
+            "Thử lưu khi chưa chọn hoặc thiếu giờ theo test form.",
+            "Chỉ sau nút Lưu hợp lệ kiểm payload."
+          ],
+          "data": "catalog id đúng; liều 2; 3 lần/ngày",
+          "expected": "Confirm không lưu thuốc/lịch; form vẫn kiểm liều/giờ; add chỉ ở Lưu, không đổi endpoint.",
+          "actual": "Đạt assertion medication_screens_test.dart: bắt chọn thuốc trước khi lưu; hủy/chọn lại giữ dữ liệu sử dụng; chạy 2026-10-27; evidence/test-medication.log.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC3, AC9 · Chuyển trạng thái selected → confirmed → save · medication_screens_test.dart: bắt chọn thuốc trước khi lưu; hủy/chọn lại giữ dữ liệu sử dụng · evidence/test-medication.log"
+        },
+        {
+          "id": "TC-MEDPICK-50",
+          "description": "Đi hết bốn preset trên Android thật",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Kết nối LM G710; chạy scratch/selection_device_test.dart bằng Flutter drive.",
+            "Chạy OCR/search có/rỗng, chọn 500→250 mg, confirm.",
+            "Kiểm no-result→gõ lại, Back/Hủy và thiếu thông tin."
+          ],
+          "data": "Android 13, font 1.0, bàn phím thật",
+          "expected": "Mọi preset trả demo-250; bàn phím inset >0; CTA ở trên bàn phím; Back/Hủy không confirm.",
+          "actual": "Chạy Android 13 LM G710 thật ngày 2026-10-27: 4 preset, đổi 500→250 mg, tìm tay, bàn phím thật, Back/Hủy, metadata thiếu và dòng 29 đều đạt; evidence/test-android-normal-v5.log. Đây là tự động trên thiết bị; TC-52 vẫn cần người kiểm.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC10, AC11 · Thiết bị thật; tự động, chưa thay đánh giá cảm nhận bằng tay · 4.16 Android: four presets, keyboard, Back, missing and long list · evidence/test-android-normal-v5.log"
+        },
+        {
+          "id": "TC-MEDPICK-51",
+          "description": "Đọc vùng xem lại ở màn nhỏ, chữ lớn khi bàn phím mở",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Chạy harness trên LM G710, viewport 360×616 dp và font hệ thống 1.5.",
+            "Mở OCR · Không có kết quả → Tìm kiếm thủ công; nhập no-match rồi tìm lại Paracetamol, giữ bàn phím thật mở.",
+            "Cuộn và chạm thuốc 500 mg; kiểm vùng Thông tin thuốc đã chọn và đọc từng dòng metadata trước xác nhận.",
+            "Đo viewport so với một dòng chữ; nếu đọc được thì tiếp tục đổi/xác nhận và danh sách dài; khôi phục cấu hình trong finally."
+          ],
+          "data": "LM G710 Android 13; wm 720×1280, density 320, font 1.5",
+          "expected": "Vùng xem lại cuộn và đọc được trọn ít nhất một dòng metadata (35 dp ở cấu hình này); tên/hàm lượng lựa chọn kiểm tra được trước xác nhận, CTA ở trên bàn phím. Tiếp tục đổi/xác nhận đúng thuốc và danh sách dài; khôi phục cấu hình.",
+          "actual": "Android 13 LM G710: viewport 360×616 dp, font 1.5, keyboard 325.5 dp; sau tìm Paracetamol và chạm demo-500, confirm bật nhưng danh sách/vùng xem lại chỉ khoảng 21.3 dp, không đọc được trọn dòng metadata. Regression kiểm chiều cao viewport so với một dòng chữ thất bại. Normal font1.0 đạt. Chưa sửa sản phẩm.",
+          "status": "Fail",
+          "comments": "Task 4.16: AC10, AC11 · BVA viewport/chữ/bàn phím thật · REGRESSION AC10/AC11 · evidence/test-android-large-regression-v2.log · BUG-MEDPICK-51 · Lỗi đã biết được người dùng chấp nhận, hoãn sửa (2026-10-28)",
+          "severity": "Medium",
+          "root_cause": "DrugCatalogSheet giữ ô nhập và CTA ở chiều cao cố định, SizedBox dùng 0.92×constraints.maxHeight; khi Android 360×616 dp, font 1.5 và keyboard 325.5 dp, Expanded/ListView của panel còn khoảng 21.3 dp, nhỏ hơn một dòng metadata. Có workaround đóng bàn phím; cần sửa layout tại implement, không sửa trong test. 2026-10-28: người dùng chấp nhận lỗi layout Medium và hoãn sửa trong task 4.16; giữ Fail theo bằng chứng. Quyết định: evidence/test-layout-risk-acceptance.log.",
+          "evidence": "evidence/test-android-large-regression-v2.log; evidence/android-large-unreadable-review.png; evidence/test-layout-risk-acceptance.log"
+        },
+        {
+          "id": "TC-MEDPICK-52",
+          "description": "Đánh giá tiếng Việt, chạm/cuộn và TalkBack bằng tay",
+          "precondition": "Bản debug preview DrugTime; mở Thêm thuốc mới → Mẫu · Xem thử chọn và xác nhận thuốc. Test tự động dùng fixture/harness tương ứng, không ảnh OCR hoặc dữ liệu người bệnh thật.",
+          "steps": [
+            "Người kiểm mở app debug preview trên Android.",
+            "Đi hai nguồn/no-result→tìm lại, Back/Hủy; nhận xét phân biệt chọn với xác nhận.",
+            "Kiểm vùng chạm, cuộn, bàn phím và đọc TalkBack nếu sẵn có; ghi phần chưa kiểm."
+          ],
+          "data": "Thiết bị thật; bốn preset, chữ lớn, danh sách dài",
+          "expected": "Câu chữ dễ hiểu, điều khiển truy cập được; ghi rõ kết quả TalkBack và cảm nhận thực tế.",
+          "actual": "2026-10-28: Người dùng kiểm trên LM G710 và xác nhận thao tác đạt; sau đó bổ sung nguyên văn: “talkback hoạt động bình thường”. TC-52 Pass gồm câu chữ/chọn/đổi/xem lại/xác nhận, hai nguồn/no-result→tìm lại, Back/Hủy, chạm/cuộn/bàn phím và TalkBack theo xác nhận người kiểm. Agent ghi nhận kết quả người dùng, không tự nhận đã thao tác TalkBack. Không đo riêng cấu hình màn/font trong lượt kiểm tay; không thay thế regression TC-28/51.",
+          "status": "Pass",
+          "comments": "Task 4.16: AC11 · manual T21/T22 · Người dùng xác nhận thao tác và TalkBack đạt ngày 2026-10-28 · evidence/test-manual-selection.log",
+          "evidence": "evidence/test-manual-selection.log"
+        }
+      ]
+    }
+  ]
+}

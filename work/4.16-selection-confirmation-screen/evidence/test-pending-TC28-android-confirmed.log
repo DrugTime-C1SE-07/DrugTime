@@ -1,0 +1,209 @@
+COMMAND: powershell.exe -NoProfile -File D:\DrugTime\source\DrugTime\work\4.16-selection-confirmation-screen\scratch\run_pending_large_android.ps1
+BEFORE size=Physical size: 1440x3120 density=Physical density: 560 font=1.0
+Running Gradle task 'assembleDebug'...                          
+Warning: Flutter support for your project's Gradle version (8.14.0) will soon be dropped. Please upgrade your Gradle version to a version of at least 9.1.0 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's gradle version is typically defined in the gradle wrapper file. By default, this can be found at D:\DrugTime\source\DrugTime\frontend\mobile\android/gradle/wrapper/gradle-wrapper.properties. 
+For more information, see https://docs.gradle.org/current/userguide/gradle_wrapper.html.
+
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 8.11.1) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the ext.kotlin_version property.
+
+Running Gradle task 'assembleDebug'...                             32.2s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          24.4s
+D/com.llfbandit.app_links(22103): Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x30000000 cmp=vn.drugtime.drugtime_mobile/.MainActivity (has extras) }
+D/FLTFireContextHolder(22103): received application context.
+W/drugtime_mobile(22103): Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (unsupported,test-api, reflection, allowed)
+W/drugtime_mobile(22103): Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (unsupported, reflection, allowed)
+W/drugtime_mobile(22103): Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (unsupported, reflection, allowed)
+W/drugtime_mobile(22103): Accessing hidden method Landroid/util/LongArray;->get(I)J (unsupported, reflection, allowed)
+D/AccessibilityBridge(22103): Setting not found: accessibility_display_inversion_enabled, using default: 0
+D/FlutterRenderer(22103): Width is zero. 0,0
+D/CompatibilityChangeReporter(22103): Compat change id reported: 237531167; UID 10697; state: DISABLED
+W/Parcel  (22103): Expecting binder but got null!
+I/Choreographer(22103): Skipped 206 frames!  The application may be doing too much work on its main thread.
+D/FlutterRenderer(22103): Width is zero. 0,0
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+E/OpenGLRenderer(22103): Unable to match the desired swap behavior.
+I/Choreographer(22103): Skipped 72 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:64123/4u7rimQBZsg=/
+VMServiceFlutterDriver: Isolate found with number: 6974847058751071
+VMServiceFlutterDriver: Isolate 6974847058751071 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+D/ProfileInstaller(22103): Installing profile for vn.drugtime.drugtime_mobile
+I/flutter (22103): 00:00 +0: TC-MEDPICK-28: physical Android small viewport large font states and selection
+I/Gralloc4(22103): mapper 4.x is not supported
+W/Gralloc3(22103): mapper 3.x is not supported
+W/Gralloc4(22103): allocator 4.x is not supported
+W/Gralloc3(22103): allocator 3.x is not supported
+I/Gralloc2(22103): Adding additional valid usage bits: 0x8202000
+I/Choreographer(22103): Skipped 32 frames!  The application may be doing too much work on its main thread.
+VMServiceFlutterDriver: Connected to Flutter application.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+I/flutter (22103): Physical device viewport=Size(360.0, 616.0), textScale=1.5
+W/OnBackInvokedCallback(22103): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(22103): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/InputMethodManager(22103): showSoftInput() view=io.flutter.embedding.android.FlutterView{9bd7e10 VFE...... .F....ID 0,0-720,1232 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(22103): showSoftInput() view=io.flutter.embedding.android.FlutterView{9bd7e10 VFE...... .F....ID 0,0-720,1232 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(22103): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputMethodManager(22103): showSoftInput() view=io.flutter.embedding.android.FlutterView{9bd7e10 VFE...... .F...... 0,0-720,1232 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(22103): showSoftInput() view=io.flutter.embedding.android.FlutterView{9bd7e10 VFE...... .F...... 0,0-720,1232 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/flutter (22103): Initial real keyboard inset: 0.0
+D/InputMethodManager(22103): showSoftInput() view=io.flutter.embedding.android.FlutterView{9bd7e10 VFE...... .F...... 0,0-720,1232 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputConnectionAdaptor(22103): The input method toggled cursor monitoring on
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+D/InsetsController(22103): show(ime(), fromIme=true)
+D/InsetsController(22103): show(ime(), fromIme=true)
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/InsetsController(22103): show(ime(), fromIme=true)
+D/InsetsController(22103): show(ime(), fromIme=true)
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+I/flutter (22103): REQUEST catalog loadingqataskfncejkgj
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+I/flutter (22103): TC28 loading visible; releasing local test barrier
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+I/flutter (22103): RESPONSE catalog loadingqataskfncejkgj length=0
+I/flutter (22103): REQUEST catalog faultqataskfncejkgj
+I/flutter (22103): REQUEST catalog faultqataskfncejkgj
+I/flutter (22103): RESPONSE catalog faultqataskfncejkgj length=0
+I/flutter (22103): REQUEST catalog aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+I/flutter (22103): RESPONSE catalog aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa length=0
+I/flutter (22103): REQUEST catalog dong sulfat qataskfncejkgj
+I/flutter (22103): RESPONSE catalog dong sulfat qataskfncejkgj length=1
+I/flutter (22103): Keyboard inset at results: 325.5
+I/flutter (22103): Visible tile bounds: Rect.fromLTRB(16.0, 181.2, 344.0, 202.5); scroll=247.0
+I/flutter (22103): TC28 READABILITY: viewport=21.340000000000003; metadata line=35.0; keyboard=325.5; selected=true
+I/flutter (22103): ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞═════════════════
+I/flutter (22103): The following TestFailure was thrown running a test:
+I/flutter (22103): Expected: a value greater than or equal to <35.0>
+I/flutter (22103):   Actual: <21.340000000000003>
+I/flutter (22103):    Which: is not a value greater than or equal to <35.0>
+I/flutter (22103): Review must show at least one complete metadata line with real
+I/flutter (22103): keyboard
+I/flutter (22103): 
+I/flutter (22103): When the exception was thrown, this was the stack:
+I/flutter (22103): #4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart:370:9)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #7      TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707:12)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): 
+I/flutter (22103): This was caught by the test expectation on the following line:
+I/flutter (22103):   file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart line 370
+I/flutter (22103): The test description was:
+I/flutter (22103):   TC-MEDPICK-28: physical Android small viewport large font
+I/flutter (22103):   states and selection
+I/flutter (22103): ═════════════════════════════════════════════════════════════════
+I/flutter (22103): 
+I/flutter (22103): ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+I/flutter (22103): The following TestFailure was thrown running a test:
+I/flutter (22103): Expected: a value greater than or equal to <35.0>
+I/flutter (22103):   Actual: <21.340000000000003>
+I/flutter (22103):    Which: is not a value greater than or equal to <35.0>
+I/flutter (22103): Review must show at least one complete metadata line with real keyboard
+I/flutter (22103): 
+I/flutter (22103): When the exception was thrown, this was the stack:
+I/flutter (22103): #4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart:370:9)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): #7      TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707:12)
+I/flutter (22103): <asynchronous suspension>
+I/flutter (22103): 
+I/flutter (22103): This was caught by the test expectation on the following line:
+I/flutter (22103):   file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart line 370
+I/flutter (22103): The test description was:
+I/flutter (22103):   TC-MEDPICK-28: physical Android small viewport large font states and selection
+I/flutter (22103): ════════════════════════════════════════════════════════════════════════════════════════════════════
+I/flutter (22103): 00:12 +0: TC-MEDPICK-28: physical Android small viewport large font states and selection [E]
+I/flutter (22103):   Test failed. See exception logs above.
+I/flutter (22103):   The test description was: TC-MEDPICK-28: physical Android small viewport large font states and selection
+I/flutter (22103):   
+I/flutter (22103): 00:12 +0 -1: (tearDownAll)
+I/flutter (22103): 00:13 +1 -1: Some tests failed.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(22103): The input method toggled cursor monitoring off
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+D/FlutterJNI(22103): Sending viewport metrics to the engine.
+Failure Details:
+Failure in method: TC-MEDPICK-28: physical Android small viewport large font states and selection
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞═════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <35.0>
+  Actual: <21.340000000000003>
+   Which: is not a value greater than or equal to <35.0>
+Review must show at least one complete metadata line with real
+keyboard
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart:370:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._createTestCompletionHandler.<anonymous closure> (package:flutter_test/src/binding.dart:1707:12)
+<asynchronous suspension>
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/work/4.16-selection-confirmation-screen/scratch/pending_catalog_device_test.dart line 370
+The test description was:
+  TC-MEDPICK-28: physical Android small viewport large font
+  states and selection
+═════════════════════════════════════════════════════════════════
+
+end of failure 1
+
+
+
+AFTER RESTORE
+Physical size: 1440x3120
+Physical density: 560
+1.0
+Flutter drive exit code: 1
+
+EXIT: 1

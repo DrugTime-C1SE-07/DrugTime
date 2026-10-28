@@ -1,0 +1,242 @@
+00:00 +0: loading D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart
+00:00 +0: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +4: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +5: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +6: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +7: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +8: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +9: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +10: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +11: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +12: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +13: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +14: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +15: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +16: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +17: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:02 +18: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +19: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +20: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +21: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +22: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +23: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +24: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: empty whitespace, debounce 299/300ms and trimmed final query
+00:03 +25: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:03 +26: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:03 +27: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.ocr same panel, explicit confirm returns original item
+00:04 +28: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once
+00:04 +29: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once
+00:04 +30: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once
+00:04 +31: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: order, identity, tap only selects; confirm returns latest once
+00:04 +32: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +33: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +34: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +35: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +36: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +37: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +38: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +39: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:05 +40: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:06 +41: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:06 +42: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:06 +42: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: small screen large text with keyboard: states scroll and retry remains reachable
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart:217:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  small screen large text with keyboard: states scroll and retry remains reachable
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +42 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:06 +42 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: small screen large text with keyboard: states scroll and retry remains reachable [E]
+  Test failed. See exception logs above.
+  The test description was: small screen large text with keyboard: states scroll and retry remains reachable
+  
+00:06 +43 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:07 +44 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_demo_test.dart: four presets run offline; manual search and result stay in demo
+00:07 +45 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:07 +46 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:08 +47 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 1.5 scroll review and confirm
+00:08 +48 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_flow_test.dart: DrugSelectionSource.search cancel returns null
+00:08 +49 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:08 +50 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +51 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +52 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +53 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +54 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +55 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +56 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +57 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +58 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +59 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +60 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +61 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +62 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +63 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +64 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +65 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +66 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +67 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +68 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +69 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +70 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +71 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +72 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +73 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +74 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +75 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +76 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +77 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +78 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +79 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+00:09 +80 -1: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _HitTestableWidgetFinder:<Found 0 widgets with text "Thông tin thuốc đã chọn" (considering
+only hit-testable widgets with a RenderBox): []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart:120:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart line 120
+The test description was:
+  long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:10 +80 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:10 +80 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm [E]
+  Test failed. See exception logs above.
+  The test description was: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+  
+00:10 +81 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:10 +82 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +83 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +84 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +85 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +86 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +87 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +88 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +89 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +90 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +91 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +92 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +93 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +94 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +95 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +96 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +97 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +98 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +99 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +100 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:11 +101 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +102 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +103 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +104 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +105 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +106 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +107 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:12 +108 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +109 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +110 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +111 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +112 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +113 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc chạm vào thẻ thuốc mở màn hình chi tiết
+00:13 +114 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:13 +115 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:13 +116 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +117 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +118 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +119 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +120 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +120 -2: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  semantics labels selected state and enabled confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +120 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +120 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm [E]
+  Test failed. See exception logs above.
+  The test description was: semantics labels selected state and enabled confirm
+  
+00:14 +121 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +122 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +123 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:14 +124 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc tạm ngừng thuốc và chuyển trạng thái
+00:14 +125 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc tạm ngừng thuốc và chuyển trạng thái
+00:15 +126 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06a · Xem chi tiết thuốc tạm ngừng thuốc và chuyển trạng thái
+00:15 +127 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc
+00:15 +128 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc
+00:15 +129 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC11, AC15: chưa có thuốc → chỉ nút giữa, không có tìm kiếm/tra cứu/bộ lọc
+00:15 +130 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:15 +131 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:15 +132 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) hiển thị đầy đủ giao diện prototype
+00:15 +133 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC12: có thuốc → có nút "Thêm" ở header, không có empty-state
+00:15 +134 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_lookup_widget_test.dart: Subtask 4.b — Màn chi tiết thuốc hiển thị ĐỦ các trường theo model thực tế thao tác tạm ngừng thuốc hỏi xác nhận; huỷ thì giữ nguyên
+00:16 +135 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) chỉnh sửa cách uống và lưu thành công
+00:16 +136 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) chỉnh sửa cách uống và lưu thành công
+00:16 +137 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) chỉnh sửa cách uống và lưu thành công
+00:16 +138 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi AC14: rỗng do tải lỗi → thẻ lỗi và nút "Thêm" ở header
+00:16 +139 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) xoá thuốc khỏi danh sách có xác nhận
+00:17 +140 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: S06b · Sửa chi tiết thuốc (Figma Prototype) xoá thuốc khỏi danh sách có xác nhận
+00:17 +141 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id
+00:18 +142 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id
+00:19 +143 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới 3.05: hủy/chọn lại giữ dữ liệu sử dụng, chưa tự lưu và đúng catalog id
+00:19 +144 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Sửa liều chỉ gửi quantity_per_dose (AC13)
+00:19 +145 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới 3.05: chọn đúng item cùng tên, thiếu thông tin giữ trường trống không tự lưu
+00:20 +146 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_detail_and_edit_test.dart: Nối API: ngừng, dùng lại, xoá, sửa Thuốc "Khi cần" hiện ô tối đa lần/ngày ở màn sửa (AC14f)
+00:20 +147 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới bắt chọn thuốc trước khi lưu
+00:20 +148 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+00:21 +149 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới cảnh báo khi chọn thuốc đã có trong danh sách
+00:22 +150 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới nhấn Lưu hai lần liên tiếp chỉ thêm một thuốc
+00:22 +151 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới hỏi xác nhận trước khi bỏ thông tin đã nhập
+00:23 +152 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày lưu lỗi mạng: báo lỗi, giữ form; lưu lại dùng cùng client_uuid (AC9, AC10)
+00:23 +153 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày lỗi danh mục 422 hiện câu tiếng Việt tương ứng (AC10)
+00:24 +154 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày "Khi cần" hiện ô tối đa lần/ngày 1–6, mặc định 3; đổi về theo giờ thì ẩn (AC14f)
+00:25 +155 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày chọn lại tần suất theo giờ thì ẩn ô và không gửi số lần tối đa
+00:25 +156 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày S06 không tải được: thẻ lỗi + Thử lại, không báo "Chưa có thuốc nào"
+00:25 +157 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày sheet danh mục: chưa gõ thì gợi ý, không tìm
+00:26 +158 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: hàng chip S06 không rớt dòng khi phóng chữ 1.5x
+00:26 +159 -3: D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/medication_screens_test.dart: bố cục không vỡ khi phóng to chữ 1.5x
+00:26 +160 -3: Some tests failed.
+
+Failing tests:
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart: small screen large text with keyboard: states scroll and retry remains reachable
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: long list/name Size(320.0, 568.0) scale 2.0 scroll review and confirm
+  D:/DrugTime/source/DrugTime/frontend/mobile/test/features/medication/drug_selection_panel_test.dart: semantics labels selected state and enabled confirm

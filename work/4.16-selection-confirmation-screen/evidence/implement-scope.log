@@ -1,0 +1,16 @@
+Phạm vi giai đoạn 'implement' của 4.16-selection-confirmation-screen:
+  [OK]        frontend/mobile/lib/app/router.dart
+  [OK]        frontend/mobile/lib/features/medication/data/models/drug_selection_demo_fixtures.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/screens/drug_selection_demo_screen.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/screens/drug_selection_screen.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/widgets/drug_catalog_sheet.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/widgets/drug_selection_panel.dart
+  [OK]        frontend/mobile/test/features/medication/drug_catalog_sheet_test.dart
+  [OK]        frontend/mobile/test/features/medication/drug_selection_demo_test.dart
+  [OK]        frontend/mobile/test/features/medication/drug_selection_flow_test.dart
+  [OK]        frontend/mobile/test/features/medication/drug_selection_panel_test.dart
+  [OK]        frontend/mobile/test/features/medication/medication_lookup_widget_test.dart
+  [OK]        frontend/mobile/test/features/medication/medication_screens_test.dart
+  [CHƯA SỬA]  docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx  (có trong plan)
+OK: mọi thay đổi nằm trong phạm vi.

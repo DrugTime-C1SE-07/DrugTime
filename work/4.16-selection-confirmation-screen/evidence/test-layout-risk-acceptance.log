@@ -1,0 +1,14 @@
+Task: 4.16-selection-confirmation-screen
+Date: 2026-10-28
+Source: người dùng trong phiên làm việc này.
+User statement (verbatim): "thôi bỏ qua lỗi đó cũng được"
+
+Context explained before acceptance:
+- TC-MEDPICK-28 và TC-MEDPICK-51 cùng một lỗi layout Medium.
+- Màn 360×616 dp, cỡ chữ hệ thống 1.5 lần, bàn phím mở.
+- Vùng xem lại 21.34 dp < một dòng chữ 35 dp; cấu hình chữ 1.0 đã Pass.
+- Có cách tránh bằng đóng bàn phím hoặc giảm cỡ chữ.
+
+Decision: chấp nhận lỗi đã biết trong phạm vi task 4.16; hoãn sửa layout, không coi lỗi này là việc bắt buộc sửa ngay trước khi trình duyệt test.
+Evidence status: TC-28 và TC-51 vẫn Fail, Medium; actual/expected và log tái hiện giữ nguyên. Không xóa bug, không ghi đã sửa, không suy diễn thành AC10/AC11 Pass.
+Approval: đây là chấp nhận rủi ro, không phải chạy lệnh duyệt stage. Người duyệt vẫn cần xem ngoại lệ và tự chạy gate.py approve nếu đồng ý.

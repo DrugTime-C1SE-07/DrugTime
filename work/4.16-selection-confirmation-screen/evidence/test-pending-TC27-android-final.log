@@ -1,0 +1,282 @@
+COMMAND: C:/Users/admin/flutter/bin/cache/dart-sdk/bin/dart.exe C:/Users/admin/flutter/bin/cache/flutter_tools.snapshot drive --no-pub -d LMG7103f11b938 --dart-define=QA_CASE=AC4 --driver=D:\DrugTime\source\DrugTime\work\4.16-selection-confirmation-screen\scratch\pending_catalog_driver.dart --target=D:\DrugTime\source\DrugTime\work\4.16-selection-confirmation-screen\scratch\pending_catalog_device_test.dart
+Running Gradle task 'assembleDebug'...                          
+Warning: Flutter support for your project's Gradle version (8.14.0) will soon be dropped. Please upgrade your Gradle version to a version of at least 9.1.0 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's gradle version is typically defined in the gradle wrapper file. By default, this can be found at D:\DrugTime\source\DrugTime\frontend\mobile\android/gradle/wrapper/gradle-wrapper.properties. 
+For more information, see https://docs.gradle.org/current/userguide/gradle_wrapper.html.
+
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 8.11.1) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (D:\DrugTime\source\DrugTime\frontend\mobile\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (D:\DrugTime\source\DrugTime\frontend\mobile\android/build.gradle) by the ext.kotlin_version property.
+
+Running Gradle task 'assembleDebug'...                             46.0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          12.1s
+D/FLTFireContextHolder(16430): received application context.
+W/drugtime_mobile(16430): Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (unsupported,test-api, reflection, allowed)
+W/drugtime_mobile(16430): Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (unsupported, reflection, allowed)
+W/drugtime_mobile(16430): Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (unsupported, reflection, allowed)
+W/drugtime_mobile(16430): Accessing hidden method Landroid/util/LongArray;->get(I)J (unsupported, reflection, allowed)
+D/AccessibilityBridge(16430): Setting not found: accessibility_display_inversion_enabled, using default: 0
+D/FlutterRenderer(16430): Width is zero. 0,0
+D/CompatibilityChangeReporter(16430): Compat change id reported: 237531167; UID 10696; state: DISABLED
+W/Parcel  (16430): Expecting binder but got null!
+I/Choreographer(16430): Skipped 150 frames!  The application may be doing too much work on its main thread.
+D/FlutterRenderer(16430): Width is zero. 0,0
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+E/OpenGLRenderer(16430): Unable to match the desired swap behavior.
+I/Choreographer(16430): Skipped 73 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:61524/An8WXa7EWLU=/
+VMServiceFlutterDriver: Isolate found with number: 7865960846860835
+VMServiceFlutterDriver: Isolate 7865960846860835 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter (16430): 00:00 +0: TC-MEDPICK-27: Android form uses real local API and PostgreSQL
+VMServiceFlutterDriver: Connected to Flutter application.
+I/Gralloc4(16430): mapper 4.x is not supported
+W/Gralloc3(16430): mapper 3.x is not supported
+W/Gralloc4(16430): allocator 4.x is not supported
+W/Gralloc3(16430): allocator 3.x is not supported
+I/Gralloc2(16430): Adding additional valid usage bits: 0x8202000
+I/Choreographer(16430): Skipped 53 frames!  The application may be doing too much work on its main thread.
+I/Choreographer(16430): Skipped 44 frames!  The application may be doing too much work on its main thread.
+I/OpenGLRenderer(16430): Davey! duration=810ms; Flags=1, FrameTimelineVsyncId=6286673, IntendedVsync=10358114456641, Vsync=10358850484593, InputEventId=0, HandleInputStart=10358861650369, AnimationStart=10358861653962, PerformTraversalsStart=10358861655108, DrawStart=10358862143390, FrameDeadline=10358134456641, FrameInterval=10358861572400, FrameStartTime=16727908, SyncQueued=10358862853129, SyncStart=10358862935629, IssueDrawCommandsStart=10358863024587, SwapBuffers=10358920635577, FrameCompleted=10358924839067, DequeueBufferDuration=1801771, QueueBufferDuration=568021, GpuCompleted=10358924839067, SwapBuffersCompleted=10358922043337, DisplayPresentTime=0, CommandSubmissionCompleted=10358920635577, 
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/ProfileInstaller(16430): Installing profile for vn.drugtime.drugtime_mobile
+W/OnBackInvokedCallback(16430): OnBackInvokedCallback is not enabled for the application.
+W/OnBackInvokedCallback(16430): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F....ID 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F....ID 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16430): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring on
+I/flutter (16430): REQUEST catalog thuoc ho bao thanh qataskhnamocio
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): RESPONSE catalog thuoc ho bao thanh qataskhnamocio length=1
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring off
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): Verified local API search and selected id: 153; query=thuoc ho bao thanh qataskhnamocio
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16430): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring on
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16430): show(ime(), fromIme=true)
+I/flutter (16430): REQUEST catalog THUỐC HO BẢO THANH qataskhnamocio
+I/flutter (16430): RESPONSE catalog THUỐC HO BẢO THANH qataskhnamocio length=1
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring off
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): Verified local API search and selected id: 153; query=THUỐC HO BẢO THANH qataskhnamocio
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16430): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring on
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16430): show(ime(), fromIme=true)
+I/flutter (16430): REQUEST catalog thuốc ho bảo thanh qataskhnamocio
+I/flutter (16430): RESPONSE catalog thuốc ho bảo thanh qataskhnamocio length=1
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring off
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): Verified local API search and selected id: 153; query=thuốc ho bảo thanh qataskhnamocio
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16430): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring on
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16430): show(ime(), fromIme=true)
+I/flutter (16430): REQUEST catalog dong sulfat qataskhnamocio
+I/flutter (16430): RESPONSE catalog dong sulfat qataskhnamocio length=1
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring off
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): Verified local API search and selected id: 153; query=dong sulfat qataskhnamocio
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16430): Flattened final assist data: 504 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring on
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InsetsController(16430): show(ime(), fromIme=true)
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputMethodManager(16430): showSoftInput() view=io.flutter.embedding.android.FlutterView{70845f7 VFE...... .F...... 0,0-1440,3036 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16430): show(ime(), fromIme=true)
+I/flutter (16430): REQUEST catalog ĐỒNG SULFAT qataskhnamocio
+I/flutter (16430): RESPONSE catalog ĐỒNG SULFAT qataskhnamocio length=1
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/InputConnectionAdaptor(16430): The input method toggled cursor monitoring off
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+D/FlutterJNI(16430): Sending viewport metrics to the engine.
+I/flutter (16430): Verified local API search and selected id: 153; query=ĐỒNG SULFAT qataskhnamocio
+I/flutter (16430): No personal medication/schedule/prescription created: {meds: 0, schedules: 0, prescriptions: 0}
+I/flutter (16430): 00:18 +1: (tearDownAll)
+I/flutter (16430): 00:18 +2: All tests passed!
+All tests passed.
+
+EXIT: 0
