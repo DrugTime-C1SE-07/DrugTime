@@ -1,0 +1,1202 @@
+{
+  "schema_version": 1,
+  "imported_at": "2026-10-29T08:48:32.427820+00:00",
+  "runs": {
+    "06f91517-adb5-4f5d-906f-f68c1e5d2cdf": {
+      "run_id": "06f91517-adb5-4f5d-906f-f68c1e5d2cdf",
+      "sha256": "0da9a5d498841b0176854fdd13452d1ea2b5520da69783a952678ef20e3bee16",
+      "source": "adb:emulator-5554/files/ocr_runs/06f91517-adb5-4f5d-906f-f68c1e5d2cdf.json",
+      "raw_path": "raw/06f91517-adb5-4f5d-906f-f68c1e5d2cdf.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "2b8d0d7e81211000e6a46d7a26347756f1f16aaee2671a13f17bf44030c64edc",
+      "image_candidates": [
+        "atorvastatin_10_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "07a91d95-ea4b-4cfa-b360-a2b42c0d39de": {
+      "run_id": "07a91d95-ea4b-4cfa-b360-a2b42c0d39de",
+      "sha256": "e0c1cab69d7a3b8f6eb18e2d881982d1b1ab8b8ee444ac422fb2fe9cb3681fbe",
+      "source": "adb:emulator-5554/files/ocr_runs/07a91d95-ea4b-4cfa-b360-a2b42c0d39de.json",
+      "raw_path": "raw/07a91d95-ea4b-4cfa-b360-a2b42c0d39de.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "9832b7f21325233f8b90abc525e20bec647dd31a0a67abd7a63e6ee44d60f0cd",
+      "image_candidates": [
+        "metformin_500_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "0a64fa73-2f85-4874-9f4f-e219d4082c79": {
+      "run_id": "0a64fa73-2f85-4874-9f4f-e219d4082c79",
+      "sha256": "df9bcf36351f370ff6241e41549e925227843da84e63fc0f1fc1b687669455ce",
+      "source": "adb:emulator-5554/files/ocr_runs/0a64fa73-2f85-4874-9f4f-e219d4082c79.json",
+      "raw_path": "raw/0a64fa73-2f85-4874-9f4f-e219d4082c79.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3e1ed7d98b4ea98023462dccd83f99718ba42f50a330448fd8f7ef4a636b439c",
+      "image_candidates": [
+        "efferalgan_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "10f8e81e-003f-4009-8bc5-f91f15cf37d9": {
+      "run_id": "10f8e81e-003f-4009-8bc5-f91f15cf37d9",
+      "sha256": "b304560c8849f2f11456311907df1520c6a409bf936ecbb6a3ba2ba237594fc9",
+      "source": "adb:emulator-5554/files/ocr_runs/10f8e81e-003f-4009-8bc5-f91f15cf37d9.json",
+      "raw_path": "raw/10f8e81e-003f-4009-8bc5-f91f15cf37d9.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "114fbd306dbedf7a617992615d36d37d561bacd884643b5a38e1e7a85934af03",
+      "image_candidates": [
+        "candesartan_htz_32_25_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "1c687834-2fb4-401c-8a07-ecf580d32a3c": {
+      "run_id": "1c687834-2fb4-401c-8a07-ecf580d32a3c",
+      "sha256": "635caa2a990bb3a4b10c5eb1a28d00fb06ce4fb080f8a578f5bdfce4a88fbfdf",
+      "source": "adb:emulator-5554/files/ocr_runs/1c687834-2fb4-401c-8a07-ecf580d32a3c.json",
+      "raw_path": "raw/1c687834-2fb4-401c-8a07-ecf580d32a3c.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3c1d5b768a09fa7ef32c3a2f58a1ab2fd9ca92054696dbc039686843fffa2ab1",
+      "image_candidates": [
+        "levocetirizine_5_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "2684aa88-a381-43ac-a331-9cd50c541444": {
+      "run_id": "2684aa88-a381-43ac-a331-9cd50c541444",
+      "sha256": "51ab3f306eb062cd07695ce74ac4d94d08482f3e8054a7e042266b48e96d4951",
+      "source": "adb:emulator-5554/files/ocr_runs/2684aa88-a381-43ac-a331-9cd50c541444.json",
+      "raw_path": "raw/2684aa88-a381-43ac-a331-9cd50c541444.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "323a9df30742c38241feaabeaf1d8bef49d00f5e8f8cf828cb63214038d6b650",
+      "image_candidates": [
+        "tiffy_dey_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c": {
+      "run_id": "2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c",
+      "sha256": "1c2d4fe3948ca5f55ad2b004ecee872b98f560287c9d8697a2f10a6649568a66",
+      "source": "adb:emulator-5554/files/ocr_runs/2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c.json",
+      "raw_path": "raw/2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "0ad9abf2f3ba66699a7505ebc1438c7dca1631b5cf574aec6ef8b170a3eadcf3",
+      "image_candidates": [
+        "decolgen_forte_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "2da6ca63-2bff-4b87-95f3-959067784a05": {
+      "run_id": "2da6ca63-2bff-4b87-95f3-959067784a05",
+      "sha256": "3349e2f6dd337e24b7adb9f360879beec32c28f0699be7299bbafec0f9f85902",
+      "source": "adb:emulator-5554/files/ocr_runs/2da6ca63-2bff-4b87-95f3-959067784a05.json",
+      "raw_path": "raw/2da6ca63-2bff-4b87-95f3-959067784a05.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "93e12de187963e56f4fd4cfd650c09edd414c15c30907863841eaeb89f54bbc6",
+      "image_candidates": [
+        "bisoprolol_2_point_5_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "331bf632-ef84-4936-938b-6b9a8c4de6b9": {
+      "run_id": "331bf632-ef84-4936-938b-6b9a8c4de6b9",
+      "sha256": "4cf48eb6dcfd87835aeb9852678b8f189bd5d10894820675887b8912fc627a5c",
+      "source": "adb:emulator-5554/files/ocr_runs/331bf632-ef84-4936-938b-6b9a8c4de6b9.json",
+      "raw_path": "raw/331bf632-ef84-4936-938b-6b9a8c4de6b9.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "5d7a88116c18c42c0cd92b760b7f44bbcc2ba3f441b8aff620bc0390179d6f0e",
+      "image_candidates": [
+        "strepsils_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "35596a5b-074c-416d-a2c5-e3f748adb9aa": {
+      "run_id": "35596a5b-074c-416d-a2c5-e3f748adb9aa",
+      "sha256": "a92382a813683d3aaaca624dd2cfdec7b395c755e2f32341610618749ac1fa7b",
+      "source": "adb:emulator-5554/files/ocr_runs/35596a5b-074c-416d-a2c5-e3f748adb9aa.json",
+      "raw_path": "raw/35596a5b-074c-416d-a2c5-e3f748adb9aa.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "f62e97c5da484472be625fb7d53cb180b273fc2e2ecea1378cdaccfbd569325b",
+      "image_candidates": [
+        "efferalgan_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "36aab102-d3ae-4fd6-9902-2870f087a5a2": {
+      "run_id": "36aab102-d3ae-4fd6-9902-2870f087a5a2",
+      "sha256": "0e211fda2481f23b080e550c084e29cdc30b98fc236acced08a669458d7fb9c8",
+      "source": "adb:emulator-5554/files/ocr_runs/36aab102-d3ae-4fd6-9902-2870f087a5a2.json",
+      "raw_path": "raw/36aab102-d3ae-4fd6-9902-2870f087a5a2.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "db9876b45a59457feedf5681c4ae0c576838528ce4c4263c2d98afde66011fa1",
+      "image_candidates": [
+        "tiffy_dey_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "37336c67-2a7d-49ff-819c-e7324e8c254b": {
+      "run_id": "37336c67-2a7d-49ff-819c-e7324e8c254b",
+      "sha256": "8afbe5187c1c256caf2de413c1abe9870823734b64b6a44075aecd8f8df688e1",
+      "source": "adb:emulator-5554/files/ocr_runs/37336c67-2a7d-49ff-819c-e7324e8c254b.json",
+      "raw_path": "raw/37336c67-2a7d-49ff-819c-e7324e8c254b.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "36c6bf1e31d6dd374ddd988f487bef8f62a8f51797d443cc85107192212530ff",
+      "image_candidates": [
+        "metformin_500_box_003"
+      ],
+      "image_check": "matched"
+    },
+    "3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0": {
+      "run_id": "3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0",
+      "sha256": "37036fef3f6306d9d678531f965112bd658679c45960a0914fea689d6a335b0b",
+      "source": "adb:emulator-5554/files/ocr_runs/3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0.json",
+      "raw_path": "raw/3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "7700c98e15e0bb558d2f135c86ff5bcb5d2fa44a64659f46359f3cf3a210315d",
+      "image_candidates": [
+        "candesartan_htz_32_25_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "4406e44d-afda-4455-8ede-96f7e32a5357": {
+      "run_id": "4406e44d-afda-4455-8ede-96f7e32a5357",
+      "sha256": "341b2b62ce1e0b523d0e6c09a248b57742e0ab05401838095d31034acc12b4d5",
+      "source": "adb:emulator-5554/files/ocr_runs/4406e44d-afda-4455-8ede-96f7e32a5357.json",
+      "raw_path": "raw/4406e44d-afda-4455-8ede-96f7e32a5357.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "323a9df30742c38241feaabeaf1d8bef49d00f5e8f8cf828cb63214038d6b650",
+      "image_candidates": [
+        "tiffy_dey_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "4505fc7c-5241-4a40-bffb-14ffaa685fff": {
+      "run_id": "4505fc7c-5241-4a40-bffb-14ffaa685fff",
+      "sha256": "903a3b17d58b2c7bbadeda083eb0b0ed35e49bbddea1acc348913c9ee58b79aa",
+      "source": "adb:emulator-5554/files/ocr_runs/4505fc7c-5241-4a40-bffb-14ffaa685fff.json",
+      "raw_path": "raw/4505fc7c-5241-4a40-bffb-14ffaa685fff.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ec0e5f035da68101d31ec591dd651fe434157ff3b92825d56b7784b72a617ab8",
+      "image_candidates": [
+        "decolgen_forte_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "50bffbf2-d004-4e32-952a-dcb44b7e0c4e": {
+      "run_id": "50bffbf2-d004-4e32-952a-dcb44b7e0c4e",
+      "sha256": "985326938a879efec7040fde9abe71a7e059ad61021d0125a127cbe68521c2a5",
+      "source": "adb:emulator-5554/files/ocr_runs/50bffbf2-d004-4e32-952a-dcb44b7e0c4e.json",
+      "raw_path": "raw/50bffbf2-d004-4e32-952a-dcb44b7e0c4e.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "f62e97c5da484472be625fb7d53cb180b273fc2e2ecea1378cdaccfbd569325b",
+      "image_candidates": [
+        "efferalgan_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "57cbedaf-a76d-4afd-aa7f-30017e37f949": {
+      "run_id": "57cbedaf-a76d-4afd-aa7f-30017e37f949",
+      "sha256": "c600d4c6437a1912cb05c4cbd9a9cffa361f7a1bb781df10440f992cc5c83fef",
+      "source": "adb:emulator-5554/files/ocr_runs/57cbedaf-a76d-4afd-aa7f-30017e37f949.json",
+      "raw_path": "raw/57cbedaf-a76d-4afd-aa7f-30017e37f949.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "5f0c6abb3c1f0e58e42cae2d5c18db215ad9d35b93f75f7a3be183464a489215",
+      "image_candidates": [
+        "efferalgan_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "5b7c3812-6896-4ebf-9e77-d904bacbceb3": {
+      "run_id": "5b7c3812-6896-4ebf-9e77-d904bacbceb3",
+      "sha256": "f4f0c9513ea4acb0b59c6e99ac2d998463dfd27a5a6653d821120b1385770358",
+      "source": "adb:emulator-5554/files/ocr_runs/5b7c3812-6896-4ebf-9e77-d904bacbceb3.json",
+      "raw_path": "raw/5b7c3812-6896-4ebf-9e77-d904bacbceb3.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ac4552719613acea5acd6ee8b784a9c1c07acbe86162c7d27336358fe55dead9",
+      "image_candidates": [
+        "strepsils_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "64533465-627b-4e4c-b57a-9e97e71cd0e0": {
+      "run_id": "64533465-627b-4e4c-b57a-9e97e71cd0e0",
+      "sha256": "439be8c5e115b5182df9dcc6bc9b854388d1864e7dd03cd5a1fa588b6fec6255",
+      "source": "adb:emulator-5554/files/ocr_runs/64533465-627b-4e4c-b57a-9e97e71cd0e0.json",
+      "raw_path": "raw/64533465-627b-4e4c-b57a-9e97e71cd0e0.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "54d1d56bc2a05ad5cac83a95b2edc767c3c4f09a1248a649dde8605b3b270c25",
+      "image_candidates": [
+        "metformin_500_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "6799276d-9660-4172-823d-698ab37150a8": {
+      "run_id": "6799276d-9660-4172-823d-698ab37150a8",
+      "sha256": "c478afa791f04897e68ed5606e94dc471d756fac5cd9d3e45fd985dd6c99e73b",
+      "source": "adb:emulator-5554/files/ocr_runs/6799276d-9660-4172-823d-698ab37150a8.json",
+      "raw_path": "raw/6799276d-9660-4172-823d-698ab37150a8.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "5f0c6abb3c1f0e58e42cae2d5c18db215ad9d35b93f75f7a3be183464a489215",
+      "image_candidates": [
+        "efferalgan_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "6c38adb0-5fee-4b4e-b70f-9d91f42e1422": {
+      "run_id": "6c38adb0-5fee-4b4e-b70f-9d91f42e1422",
+      "sha256": "914ffd2bc78e892e1f58828a2547687561a37f40a16b76f92d02aca3e89c6268",
+      "source": "adb:emulator-5554/files/ocr_runs/6c38adb0-5fee-4b4e-b70f-9d91f42e1422.json",
+      "raw_path": "raw/6c38adb0-5fee-4b4e-b70f-9d91f42e1422.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "1b0172e287ffa887a7c53cb566bc947bee377d546198d505b3032dfbc6c7040f",
+      "image_candidates": [
+        "atorvastatin_10_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "7134a04f-fc31-41fb-bd01-227c95a2b108": {
+      "run_id": "7134a04f-fc31-41fb-bd01-227c95a2b108",
+      "sha256": "dfa323f7d37dfb6cd31d257880c092acf0d9cf45a9db41cbd8529e588e41543c",
+      "source": "adb:emulator-5554/files/ocr_runs/7134a04f-fc31-41fb-bd01-227c95a2b108.json",
+      "raw_path": "raw/7134a04f-fc31-41fb-bd01-227c95a2b108.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "24f0fd2a84dde27d26cf5cc4a5592937295d733e738b77921000b8e46a36bc5e",
+      "image_candidates": [
+        "atorvastatin_10_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "71e2ac39-c00b-45b4-a5ea-f604fda06de5": {
+      "run_id": "71e2ac39-c00b-45b4-a5ea-f604fda06de5",
+      "sha256": "a00802e903c5060e38274bfe6aa40d9bd4a19f034456984dd1884f99d4b98d1a",
+      "source": "adb:emulator-5554/files/ocr_runs/71e2ac39-c00b-45b4-a5ea-f604fda06de5.json",
+      "raw_path": "raw/71e2ac39-c00b-45b4-a5ea-f604fda06de5.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "0ad9abf2f3ba66699a7505ebc1438c7dca1631b5cf574aec6ef8b170a3eadcf3",
+      "image_candidates": [
+        "decolgen_forte_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "72147707-9021-4f94-a171-c1946e4a33d1": {
+      "run_id": "72147707-9021-4f94-a171-c1946e4a33d1",
+      "sha256": "5b569f17ec654aec4e9718ef04cdc131a26374e18ef027ab22bf6f9cb785a3cb",
+      "source": "adb:emulator-5554/files/ocr_runs/72147707-9021-4f94-a171-c1946e4a33d1.json",
+      "raw_path": "raw/72147707-9021-4f94-a171-c1946e4a33d1.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "810acb71a530e65c912415be9c1d6da6573493601e4a33f766681eca1bfc47c4",
+      "image_candidates": [
+        "levocetirizine_5_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "771badfa-1e6a-4a38-95e7-6fd1fbce623d": {
+      "run_id": "771badfa-1e6a-4a38-95e7-6fd1fbce623d",
+      "sha256": "5f00dd7d0935d2bbe2924e5353cb05202d323e8cb0cde982641a3ef0bf542150",
+      "source": "adb:emulator-5554/files/ocr_runs/771badfa-1e6a-4a38-95e7-6fd1fbce623d.json",
+      "raw_path": "raw/771badfa-1e6a-4a38-95e7-6fd1fbce623d.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "c1e20e139516e505e114d9b1ee8bb530c954d3b1a617c552e4b12dc9c272e246",
+      "image_candidates": [
+        "strepsils_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "7da78f76-0b14-4a57-9642-1b5bd7c902f7": {
+      "run_id": "7da78f76-0b14-4a57-9642-1b5bd7c902f7",
+      "sha256": "e83c6c42826ae2e75a8ebe8eb7b700524e28c826ad0744fdc2c705defe2409e1",
+      "source": "adb:emulator-5554/files/ocr_runs/7da78f76-0b14-4a57-9642-1b5bd7c902f7.json",
+      "raw_path": "raw/7da78f76-0b14-4a57-9642-1b5bd7c902f7.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ac88ae27b2877ba8dc2ac8ef9fea63d5f8e40a68f236bba135c355ee67a4a871",
+      "image_candidates": [
+        "strepsils_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "81f82429-b3f5-464b-97f9-4beb00bf92e2": {
+      "run_id": "81f82429-b3f5-464b-97f9-4beb00bf92e2",
+      "sha256": "39d24a382cba5d8860ce6fc2f25aa8dc39628ea27a3ad0e93c27113819a269b7",
+      "source": "adb:emulator-5554/files/ocr_runs/81f82429-b3f5-464b-97f9-4beb00bf92e2.json",
+      "raw_path": "raw/81f82429-b3f5-464b-97f9-4beb00bf92e2.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ba5c624444c310acaa2d85292aeca3eadea4be78259e7f352d2a9c1d444c4671",
+      "image_candidates": [
+        "tiffy_dey_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "8454aea4-1990-4a2b-ae23-4872983aa75d": {
+      "run_id": "8454aea4-1990-4a2b-ae23-4872983aa75d",
+      "sha256": "d92bf640ea3ecac76ec0426254dc7db905ebcda0b65854b185ed2dedb8972bac",
+      "source": "adb:emulator-5554/files/ocr_runs/8454aea4-1990-4a2b-ae23-4872983aa75d.json",
+      "raw_path": "raw/8454aea4-1990-4a2b-ae23-4872983aa75d.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "414fa5740a7d02b188994b4ad09b3df002019a3aefe129ccf127d74347aebd7e",
+      "image_candidates": [
+        "decolgen_forte_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "84d7b04c-4674-45a8-9a3f-aaca303120ac": {
+      "run_id": "84d7b04c-4674-45a8-9a3f-aaca303120ac",
+      "sha256": "027ae15459e421eea8eb61f1a69cbc9418c4bb0ffb7d2296eae03ef77bdd7e74",
+      "source": "adb:emulator-5554/files/ocr_runs/84d7b04c-4674-45a8-9a3f-aaca303120ac.json",
+      "raw_path": "raw/84d7b04c-4674-45a8-9a3f-aaca303120ac.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "f40b20a49892fe45127da4586893e1c658a17052a88dc4e65f05b1107b458b80",
+      "image_candidates": [
+        "efferalgan_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "8d0f542b-bf86-4cc9-bbe5-d45a39392a6c": {
+      "run_id": "8d0f542b-bf86-4cc9-bbe5-d45a39392a6c",
+      "sha256": "29042e9f6dd6ae8874c40c7515ce164f0fb57b83e4d6c3deca4dab67541316ff",
+      "source": "adb:emulator-5554/files/ocr_runs/8d0f542b-bf86-4cc9-bbe5-d45a39392a6c.json",
+      "raw_path": "raw/8d0f542b-bf86-4cc9-bbe5-d45a39392a6c.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "323a9df30742c38241feaabeaf1d8bef49d00f5e8f8cf828cb63214038d6b650",
+      "image_candidates": [
+        "tiffy_dey_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "8d81e335-9dc0-4df6-9051-c73abf139f27": {
+      "run_id": "8d81e335-9dc0-4df6-9051-c73abf139f27",
+      "sha256": "c9a9ac09464b453d2d43a27140190a9035fa95c6ea1f2255a13a45b803b7e3fe",
+      "source": "adb:emulator-5554/files/ocr_runs/8d81e335-9dc0-4df6-9051-c73abf139f27.json",
+      "raw_path": "raw/8d81e335-9dc0-4df6-9051-c73abf139f27.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "414fa5740a7d02b188994b4ad09b3df002019a3aefe129ccf127d74347aebd7e",
+      "image_candidates": [
+        "decolgen_forte_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "9045e139-e68d-4a56-beee-23f36e3f954f": {
+      "run_id": "9045e139-e68d-4a56-beee-23f36e3f954f",
+      "sha256": "c88ed9253a17497ee611669af90592a169951f97047346b0ed461507980ddcc0",
+      "source": "adb:emulator-5554/files/ocr_runs/9045e139-e68d-4a56-beee-23f36e3f954f.json",
+      "raw_path": "raw/9045e139-e68d-4a56-beee-23f36e3f954f.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3e1ed7d98b4ea98023462dccd83f99718ba42f50a330448fd8f7ef4a636b439c",
+      "image_candidates": [
+        "efferalgan_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "923f520b-99a8-4cbc-ac18-8fc06167a683": {
+      "run_id": "923f520b-99a8-4cbc-ac18-8fc06167a683",
+      "sha256": "0812ac4ffe27d79757709186d857f4025bcbad62afe76b6f9bacd3b9cb2c0dae",
+      "source": "adb:emulator-5554/files/ocr_runs/923f520b-99a8-4cbc-ac18-8fc06167a683.json",
+      "raw_path": "raw/923f520b-99a8-4cbc-ac18-8fc06167a683.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "d57275e1e30ebe83fbef532b6bb74f3dfd71f22bfd5003f7583cf74b300c1830",
+      "image_candidates": [
+        "cilnidipine_5_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "976ae91d-b79d-48a9-9444-3468c964a30a": {
+      "run_id": "976ae91d-b79d-48a9-9444-3468c964a30a",
+      "sha256": "d8d208566c4e933c33cea2d53c094f7a5940565319157a886b4a3da3ffbf13ca",
+      "source": "adb:emulator-5554/files/ocr_runs/976ae91d-b79d-48a9-9444-3468c964a30a.json",
+      "raw_path": "raw/976ae91d-b79d-48a9-9444-3468c964a30a.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3527c6c73e0f2a6b67772c38491678b2d3e16a6729d5a9ba6b406e6d673f6b78",
+      "image_candidates": [
+        "candesartan_htz_32_25_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "99eaa534-e48b-44f1-8bd6-f72a4d4be482": {
+      "run_id": "99eaa534-e48b-44f1-8bd6-f72a4d4be482",
+      "sha256": "9553da995fbc70dcf1e62062ef7b2fe63f736250d68bf37e9204808eb3e2031f",
+      "source": "adb:emulator-5554/files/ocr_runs/99eaa534-e48b-44f1-8bd6-f72a4d4be482.json",
+      "raw_path": "raw/99eaa534-e48b-44f1-8bd6-f72a4d4be482.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ea9377786678437de940458ccb67135bd256c10de7fa96e83e735aacdde34462",
+      "image_candidates": [
+        "decolgen_forte_blister_003"
+      ],
+      "image_check": "matched"
+    },
+    "9d81f31b-7e89-4365-954a-0347c7c03fae": {
+      "run_id": "9d81f31b-7e89-4365-954a-0347c7c03fae",
+      "sha256": "e584fa908207867bd7e0c4205f095c339c4618c33c4a60c366bc28bc0588ef25",
+      "source": "adb:emulator-5554/files/ocr_runs/9d81f31b-7e89-4365-954a-0347c7c03fae.json",
+      "raw_path": "raw/9d81f31b-7e89-4365-954a-0347c7c03fae.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "73a4cdc053ec704d73a3c941e13296606324ffb20f83c14ec5c21e43519947a7",
+      "image_candidates": [
+        "levocetirizine_5_box_003"
+      ],
+      "image_check": "matched"
+    },
+    "9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f": {
+      "run_id": "9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f",
+      "sha256": "2e49d688a3ec35b6b3d330870fe345f69b905375b1650b6c990801861d905597",
+      "source": "adb:emulator-5554/files/ocr_runs/9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f.json",
+      "raw_path": "raw/9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "311f5c75f7a2c6ab6ea060b62950854c93bacc27cd90e341bebc12340e54a314",
+      "image_candidates": [
+        "bisoprolol_2_point_5_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "a2a4ae32-c9e2-4703-8cee-0722430c6dee": {
+      "run_id": "a2a4ae32-c9e2-4703-8cee-0722430c6dee",
+      "sha256": "edd04df6f01ce924114077df5eff6a30cff1c36ecc6c67f436320d628784ea32",
+      "source": "adb:emulator-5554/files/ocr_runs/a2a4ae32-c9e2-4703-8cee-0722430c6dee.json",
+      "raw_path": "raw/a2a4ae32-c9e2-4703-8cee-0722430c6dee.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "5d7a88116c18c42c0cd92b760b7f44bbcc2ba3f441b8aff620bc0390179d6f0e",
+      "image_candidates": [
+        "strepsils_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "b13325d8-d293-4ca2-9817-99ea58301f91": {
+      "run_id": "b13325d8-d293-4ca2-9817-99ea58301f91",
+      "sha256": "27f65402c0d1e7bcb0fa1cef4f9510b185a552215da6e7c232aadd94ea189bda",
+      "source": "adb:emulator-5554/files/ocr_runs/b13325d8-d293-4ca2-9817-99ea58301f91.json",
+      "raw_path": "raw/b13325d8-d293-4ca2-9817-99ea58301f91.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ac4552719613acea5acd6ee8b784a9c1c07acbe86162c7d27336358fe55dead9",
+      "image_candidates": [
+        "strepsils_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "ba4984d2-1833-49fe-ab08-f8295e05dee7": {
+      "run_id": "ba4984d2-1833-49fe-ab08-f8295e05dee7",
+      "sha256": "cdd16f2e7e56def6689e6bcf78ce59f81beb38b315f9b54f4569e44d0c58e5dc",
+      "source": "adb:emulator-5554/files/ocr_runs/ba4984d2-1833-49fe-ab08-f8295e05dee7.json",
+      "raw_path": "raw/ba4984d2-1833-49fe-ab08-f8295e05dee7.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "081af8ed109d9b0c21703adfbaa2b104e29bebe42d1f6a8ffa1a53c7067d4d1b",
+      "image_candidates": [
+        "tiffy_dey_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "be5bdeed-37c9-4208-bcf9-9e4634ed4f30": {
+      "run_id": "be5bdeed-37c9-4208-bcf9-9e4634ed4f30",
+      "sha256": "e9c810cf7107efae738e39d8abcb4f9ae2f2a00d2bb8fcb44901230abc514b8e",
+      "source": "adb:emulator-5554/files/ocr_runs/be5bdeed-37c9-4208-bcf9-9e4634ed4f30.json",
+      "raw_path": "raw/be5bdeed-37c9-4208-bcf9-9e4634ed4f30.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "288fdba013e5b0aee68c487edcd5e80e55f736c12cb27cabb6826fc85d6e1d96",
+      "image_candidates": [
+        "bisoprolol_2_point_5_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a": {
+      "run_id": "bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a",
+      "sha256": "6a9baf294e73652b610bb03e76f32477dd8eb54286833259e32c8044b18f294b",
+      "source": "adb:emulator-5554/files/ocr_runs/bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a.json",
+      "raw_path": "raw/bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "0ad9abf2f3ba66699a7505ebc1438c7dca1631b5cf574aec6ef8b170a3eadcf3",
+      "image_candidates": [
+        "decolgen_forte_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "bf779f5c-16d3-417a-8c4b-6aedada08cd9": {
+      "run_id": "bf779f5c-16d3-417a-8c4b-6aedada08cd9",
+      "sha256": "0e30e0bbf2029e012a7fe9b8b143f837412a08b7d9a1631e6500294d192131c4",
+      "source": "adb:emulator-5554/files/ocr_runs/bf779f5c-16d3-417a-8c4b-6aedada08cd9.json",
+      "raw_path": "raw/bf779f5c-16d3-417a-8c4b-6aedada08cd9.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "78dd262562d37254b5c2d01d7431fdc7057b99af0b52dfd2efeacedab283da19",
+      "image_candidates": [
+        "loratadine_table_10_box_003"
+      ],
+      "image_check": "matched"
+    },
+    "bfeb4070-46cc-4f72-82dc-59dd0e70fa15": {
+      "run_id": "bfeb4070-46cc-4f72-82dc-59dd0e70fa15",
+      "sha256": "6b1148325cc359e9bae13e06754fdb191c596befdd9667973a0d1866429add54",
+      "source": "adb:emulator-5554/files/ocr_runs/bfeb4070-46cc-4f72-82dc-59dd0e70fa15.json",
+      "raw_path": "raw/bfeb4070-46cc-4f72-82dc-59dd0e70fa15.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "2204eb5a544bfa935ae01e6519ab69bf7e7479189c723b83cca03da3dceff76f",
+      "image_candidates": [
+        "metformin_500_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "c3ba9109-e0ef-4f08-8ede-e0401a6ee537": {
+      "run_id": "c3ba9109-e0ef-4f08-8ede-e0401a6ee537",
+      "sha256": "3c0aaa73a9286037084cb43ac2bc8ecfc3e2c0feb495602c90d330c0eeb37dbe",
+      "source": "adb:emulator-5554/files/ocr_runs/c3ba9109-e0ef-4f08-8ede-e0401a6ee537.json",
+      "raw_path": "raw/c3ba9109-e0ef-4f08-8ede-e0401a6ee537.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "43ed76d6a6857ede6e2210410779650960230d4058795e14d1c8a13d2fc72065",
+      "image_candidates": [
+        "loratadine_table_10_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "c6da86d5-1496-4f70-9fb2-720ae357221c": {
+      "run_id": "c6da86d5-1496-4f70-9fb2-720ae357221c",
+      "sha256": "58b9933c4dac9d5af480a7621d85c6ccdc55daf2d52dc63b82994a29f8436387",
+      "source": "adb:emulator-5554/files/ocr_runs/c6da86d5-1496-4f70-9fb2-720ae357221c.json",
+      "raw_path": "raw/c6da86d5-1496-4f70-9fb2-720ae357221c.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "c8059be54f8a270d7611fe8d5f69e54973eb113af71f2559fae9d9c038dd964d",
+      "image_candidates": [],
+      "image_check": "not_in_dataset"
+    },
+    "cbea4918-6597-4eb1-9bb8-3e930c5aa3c5": {
+      "run_id": "cbea4918-6597-4eb1-9bb8-3e930c5aa3c5",
+      "sha256": "3007bccb6d36506f67f19a0dc434d0b1b794a90e92c9ad007becfe6f81367d4c",
+      "source": "adb:emulator-5554/files/ocr_runs/cbea4918-6597-4eb1-9bb8-3e930c5aa3c5.json",
+      "raw_path": "raw/cbea4918-6597-4eb1-9bb8-3e930c5aa3c5.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "db9876b45a59457feedf5681c4ae0c576838528ce4c4263c2d98afde66011fa1",
+      "image_candidates": [
+        "tiffy_dey_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "d1b6702a-cc87-4373-b4b1-f1952e71c5be": {
+      "run_id": "d1b6702a-cc87-4373-b4b1-f1952e71c5be",
+      "sha256": "dc69dc9f62b5705a833a0d1135bbc4e51f647a3e33677a341fb4228fc0289d3b",
+      "source": "adb:emulator-5554/files/ocr_runs/d1b6702a-cc87-4373-b4b1-f1952e71c5be.json",
+      "raw_path": "raw/d1b6702a-cc87-4373-b4b1-f1952e71c5be.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "e4a2928a15a4efad9b3b8830847fddbcd020206947d04653725a2769fd6c1c54",
+      "image_candidates": [
+        "cilnidipine_5_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06": {
+      "run_id": "dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06",
+      "sha256": "aba3812ca241c0028f41b77007a2b1215cc1c61d6312d119a902d090ebc775aa",
+      "source": "adb:emulator-5554/files/ocr_runs/dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06.json",
+      "raw_path": "raw/dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "d5049169d63b43483520d37019ac3bf3e16ae9d8bc8a0b435315134023021115",
+      "image_candidates": [
+        "decolgen_forte_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "ddd2955d-a5b0-4be5-85df-3b1716da4e63": {
+      "run_id": "ddd2955d-a5b0-4be5-85df-3b1716da4e63",
+      "sha256": "f09d11a5fa18839cc196e55ffcae0423f9c9554cca23ade0b05b7605b917d3fd",
+      "source": "adb:emulator-5554/files/ocr_runs/ddd2955d-a5b0-4be5-85df-3b1716da4e63.json",
+      "raw_path": "raw/ddd2955d-a5b0-4be5-85df-3b1716da4e63.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "c1e20e139516e505e114d9b1ee8bb530c954d3b1a617c552e4b12dc9c272e246",
+      "image_candidates": [
+        "strepsils_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "df88d05f-f180-4a73-85b9-ebc4eca02622": {
+      "run_id": "df88d05f-f180-4a73-85b9-ebc4eca02622",
+      "sha256": "8f45d177b6a5e94d80db841ab6fdfda5374b5badaac6d2d33f57324fb59454be",
+      "source": "adb:emulator-5554/files/ocr_runs/df88d05f-f180-4a73-85b9-ebc4eca02622.json",
+      "raw_path": "raw/df88d05f-f180-4a73-85b9-ebc4eca02622.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "f5f7ff7202768f044fe3928721f6361bb4998cc6f473ae4b0ec124016134f57c",
+      "image_candidates": [
+        "cilnidipine_5_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "e0c21b32-8f62-4360-86df-f4ca7c2ac41e": {
+      "run_id": "e0c21b32-8f62-4360-86df-f4ca7c2ac41e",
+      "sha256": "ba6136a9a862ff4c56c58803c4e21899f5bc484be1ee5bba2d31be485a0e6f5e",
+      "source": "adb:emulator-5554/files/ocr_runs/e0c21b32-8f62-4360-86df-f4ca7c2ac41e.json",
+      "raw_path": "raw/e0c21b32-8f62-4360-86df-f4ca7c2ac41e.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ba5c624444c310acaa2d85292aeca3eadea4be78259e7f352d2a9c1d444c4671",
+      "image_candidates": [
+        "tiffy_dey_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "e10ce562-a06d-4e03-8991-a48310cb03f7": {
+      "run_id": "e10ce562-a06d-4e03-8991-a48310cb03f7",
+      "sha256": "549472d37320e9149a8668c0a2b161a5e4aab076f8912258d61bcab8b42606ea",
+      "source": "adb:emulator-5554/files/ocr_runs/e10ce562-a06d-4e03-8991-a48310cb03f7.json",
+      "raw_path": "raw/e10ce562-a06d-4e03-8991-a48310cb03f7.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "f40b20a49892fe45127da4586893e1c658a17052a88dc4e65f05b1107b458b80",
+      "image_candidates": [
+        "efferalgan_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "e29c9113-3ffd-4be0-8b6d-a0427a3077b8": {
+      "run_id": "e29c9113-3ffd-4be0-8b6d-a0427a3077b8",
+      "sha256": "14a655d78c1235beb1ed65c133350b12a821c535dd06335b5f3957349e8df5a3",
+      "source": "adb:emulator-5554/files/ocr_runs/e29c9113-3ffd-4be0-8b6d-a0427a3077b8.json",
+      "raw_path": "raw/e29c9113-3ffd-4be0-8b6d-a0427a3077b8.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "0ad9abf2f3ba66699a7505ebc1438c7dca1631b5cf574aec6ef8b170a3eadcf3",
+      "image_candidates": [
+        "decolgen_forte_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "e312bc09-4530-484e-b1ad-7d6e4632755b": {
+      "run_id": "e312bc09-4530-484e-b1ad-7d6e4632755b",
+      "sha256": "cd5062bad2ca6c15610bf25bd49342bac10a352ffba9099eb63f4647550ef596",
+      "source": "adb:emulator-5554/files/ocr_runs/e312bc09-4530-484e-b1ad-7d6e4632755b.json",
+      "raw_path": "raw/e312bc09-4530-484e-b1ad-7d6e4632755b.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ac88ae27b2877ba8dc2ac8ef9fea63d5f8e40a68f236bba135c355ee67a4a871",
+      "image_candidates": [
+        "strepsils_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "e37b994a-67d7-459e-b067-0d75b4863a73": {
+      "run_id": "e37b994a-67d7-459e-b067-0d75b4863a73",
+      "sha256": "ecfae1b61d50ab96544410245720c8280f1acb6fe8390626040ad745991a6e10",
+      "source": "adb:emulator-5554/files/ocr_runs/e37b994a-67d7-459e-b067-0d75b4863a73.json",
+      "raw_path": "raw/e37b994a-67d7-459e-b067-0d75b4863a73.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "a357ad90e54f99f10c552d652107ed5851bc7a8b5731d3d2d9c52fd7684ed833",
+      "image_candidates": [
+        "atorvastatin_10_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "e43d4c3a-5e6e-42b7-8771-e3b88bf56306": {
+      "run_id": "e43d4c3a-5e6e-42b7-8771-e3b88bf56306",
+      "sha256": "650c7395f8cf9655da95de7ebea47326a83946504cb37bee3cadec5a29f2138a",
+      "source": "adb:emulator-5554/files/ocr_runs/e43d4c3a-5e6e-42b7-8771-e3b88bf56306.json",
+      "raw_path": "raw/e43d4c3a-5e6e-42b7-8771-e3b88bf56306.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "6ae78f6f43ff1df2daba1050bcbe8246e46cb3a825f058e3466417bc682fdba9",
+      "image_candidates": [
+        "loratadine_table_10_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "e6a6edae-8532-445b-9d2a-81ce280d4a49": {
+      "run_id": "e6a6edae-8532-445b-9d2a-81ce280d4a49",
+      "sha256": "580f9e62b0f6c1f4f107cb6f9b80233524e7862102656547d31e47c095f09147",
+      "source": "adb:emulator-5554/files/ocr_runs/e6a6edae-8532-445b-9d2a-81ce280d4a49.json",
+      "raw_path": "raw/e6a6edae-8532-445b-9d2a-81ce280d4a49.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "ec0e5f035da68101d31ec591dd651fe434157ff3b92825d56b7784b72a617ab8",
+      "image_candidates": [
+        "decolgen_forte_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "e70fc2a4-737d-4ab4-beb6-80d0fda31a0d": {
+      "run_id": "e70fc2a4-737d-4ab4-beb6-80d0fda31a0d",
+      "sha256": "9bd98ef913b3c6e877ae56d37c456ea65b0388eddacc462962ee1928cf5d1a70",
+      "source": "adb:emulator-5554/files/ocr_runs/e70fc2a4-737d-4ab4-beb6-80d0fda31a0d.json",
+      "raw_path": "raw/e70fc2a4-737d-4ab4-beb6-80d0fda31a0d.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "999610a4767be5aff779fe4d27359d85ff247bcc5fa07a23f43de30f00fef83c",
+      "image_candidates": [
+        "decolgen_forte_blister_004"
+      ],
+      "image_check": "matched"
+    },
+    "e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1": {
+      "run_id": "e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1",
+      "sha256": "512a9cb1f3cc5b23778fe549d1d248f3c00d151652e23ba7a438e85484a14783",
+      "source": "adb:emulator-5554/files/ocr_runs/e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1.json",
+      "raw_path": "raw/e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3c62c32e959bd4693df8d549d3d5986812fe15555578e441099d77da207453f7",
+      "image_candidates": [
+        "metformin_500_blister_001"
+      ],
+      "image_check": "matched"
+    },
+    "ef381c48-a299-40c4-86a6-0f5541d79dca": {
+      "run_id": "ef381c48-a299-40c4-86a6-0f5541d79dca",
+      "sha256": "c1e435c6448ca279385b3f0b01f296507f93e6e5e32bbdad839aa8371da53fa7",
+      "source": "adb:emulator-5554/files/ocr_runs/ef381c48-a299-40c4-86a6-0f5541d79dca.json",
+      "raw_path": "raw/ef381c48-a299-40c4-86a6-0f5541d79dca.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "081af8ed109d9b0c21703adfbaa2b104e29bebe42d1f6a8ffa1a53c7067d4d1b",
+      "image_candidates": [
+        "tiffy_dey_box_002"
+      ],
+      "image_check": "matched"
+    },
+    "f06d9227-c843-4c16-9ae2-c8c923bedf35": {
+      "run_id": "f06d9227-c843-4c16-9ae2-c8c923bedf35",
+      "sha256": "77254fcfdc6aa2eb25f147a0053545761a39e311635ad68223c3f41350ad4413",
+      "source": "adb:emulator-5554/files/ocr_runs/f06d9227-c843-4c16-9ae2-c8c923bedf35.json",
+      "raw_path": "raw/f06d9227-c843-4c16-9ae2-c8c923bedf35.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "83754a1c956f92f02b30fe66b7c9fa31cf2ddba00fded52a0525b82089e8604d",
+      "image_candidates": [
+        "levocetirizine_5_box_004"
+      ],
+      "image_check": "matched"
+    },
+    "f23251be-4b45-407b-a928-a88dd3d02008": {
+      "run_id": "f23251be-4b45-407b-a928-a88dd3d02008",
+      "sha256": "ffdfad62b9795562b50a9dd8f39c2686b0561b5f3797b7fec3d5e78edda7bfd8",
+      "source": "adb:emulator-5554/files/ocr_runs/f23251be-4b45-407b-a928-a88dd3d02008.json",
+      "raw_path": "raw/f23251be-4b45-407b-a928-a88dd3d02008.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "3ab72d1a1798f1bcb84ea22d537ee4cfb289682fe1832004676519cc5828c97a",
+      "image_candidates": [
+        "atorvastatin_10_box_003"
+      ],
+      "image_check": "matched"
+    },
+    "f2a05f89-d16b-4da0-9fe5-9e1023f45dd6": {
+      "run_id": "f2a05f89-d16b-4da0-9fe5-9e1023f45dd6",
+      "sha256": "d853d5c4757123f16571d77940aed3fb16fd4368d5b5e3b509afae2c48b76ffe",
+      "source": "adb:emulator-5554/files/ocr_runs/f2a05f89-d16b-4da0-9fe5-9e1023f45dd6.json",
+      "raw_path": "raw/f2a05f89-d16b-4da0-9fe5-9e1023f45dd6.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "92ba02fcc9a97ffb6b8bc7cc58a4868acbe34e970db3a10f22c801d9a4506e2c",
+      "image_candidates": [
+        "cilnidipine_5_box_003"
+      ],
+      "image_check": "matched"
+    },
+    "f2dbbcff-0e27-47c4-87b7-4edaac90ec94": {
+      "run_id": "f2dbbcff-0e27-47c4-87b7-4edaac90ec94",
+      "sha256": "fef86132c9452eec8a20a962dbf315b2a4eeaa567104ae6ce56913829abd4e46",
+      "source": "adb:emulator-5554/files/ocr_runs/f2dbbcff-0e27-47c4-87b7-4edaac90ec94.json",
+      "raw_path": "raw/f2dbbcff-0e27-47c4-87b7-4edaac90ec94.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "b22d09e64904e865789472e46f69ca47b0a73b8f3ac6f8f8904d3a3fbe7c7098",
+      "image_candidates": [
+        "cilnidipine_5_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "f52a04a9-6103-4dd4-a644-2f22c8031217": {
+      "run_id": "f52a04a9-6103-4dd4-a644-2f22c8031217",
+      "sha256": "55383953ba901fdba9be1441f0ff815e4fb3966f0002e895ff1ff907360229f9",
+      "source": "adb:emulator-5554/files/ocr_runs/f52a04a9-6103-4dd4-a644-2f22c8031217.json",
+      "raw_path": "raw/f52a04a9-6103-4dd4-a644-2f22c8031217.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "322a15e35eae86d6135f08ae1a5dcd9ef27e033637da5e64eb55110186af2a24",
+      "image_candidates": [
+        "bisoprolol_2_point_5_blister_002"
+      ],
+      "image_check": "matched"
+    },
+    "f5ce68db-9f3b-4d8b-b297-aaf550df7e4b": {
+      "run_id": "f5ce68db-9f3b-4d8b-b297-aaf550df7e4b",
+      "sha256": "adb42c69c07d147610ae58eceebafaa82f44f3250ae03b571f07f0ca866853bd",
+      "source": "adb:emulator-5554/files/ocr_runs/f5ce68db-9f3b-4d8b-b297-aaf550df7e4b.json",
+      "raw_path": "raw/f5ce68db-9f3b-4d8b-b297-aaf550df7e4b.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "d5049169d63b43483520d37019ac3bf3e16ae9d8bc8a0b435315134023021115",
+      "image_candidates": [
+        "decolgen_forte_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "f7a16f0e-9c18-4731-ad45-1c546e8acbd0": {
+      "run_id": "f7a16f0e-9c18-4731-ad45-1c546e8acbd0",
+      "sha256": "3ee3a282e19ae97f1e3127222981d54fe1eeaf4b0670eb705fda77588d23f0ca",
+      "source": "adb:emulator-5554/files/ocr_runs/f7a16f0e-9c18-4731-ad45-1c546e8acbd0.json",
+      "raw_path": "raw/f7a16f0e-9c18-4731-ad45-1c546e8acbd0.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "d5049169d63b43483520d37019ac3bf3e16ae9d8bc8a0b435315134023021115",
+      "image_candidates": [
+        "decolgen_forte_box_001"
+      ],
+      "image_check": "matched"
+    },
+    "fea2622e-6a3e-4533-8dee-cd46826917a9": {
+      "run_id": "fea2622e-6a3e-4533-8dee-cd46826917a9",
+      "sha256": "27c4a38f05d89f94048b02ee7e596bf81bd0548e9cbe62cffccfaa30d1fa900d",
+      "source": "adb:emulator-5554/files/ocr_runs/fea2622e-6a3e-4533-8dee-cd46826917a9.json",
+      "raw_path": "raw/fea2622e-6a3e-4533-8dee-cd46826917a9.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "c95de0a99ce49dba8fa436dc59110cdae9861370324c729be19ad9715f30be0d",
+      "image_candidates": [
+        "atorvastatin_10_blister_003"
+      ],
+      "image_check": "matched"
+    },
+    "ff0c4cb4-8066-4586-a00b-53f5ffb3cbba": {
+      "run_id": "ff0c4cb4-8066-4586-a00b-53f5ffb3cbba",
+      "sha256": "2e41e0222a79638c851450501345a492f289400d7f944e9074243e262ee252b5",
+      "source": "adb:emulator-5554/files/ocr_runs/ff0c4cb4-8066-4586-a00b-53f5ffb3cbba.json",
+      "raw_path": "raw/ff0c4cb4-8066-4586-a00b-53f5ffb3cbba.json",
+      "observed_device": {
+        "platform": "android",
+        "deviceModel": "sdk_gphone16k_x86_64",
+        "osVersion": "17",
+        "deviceKind": "emulator"
+      },
+      "image_sha256": "2fc678a8e1d112c38c0e5ed340984c51fec3ca07987aed6183c04c3890cf9b00",
+      "image_candidates": [
+        "levocetirizine_5_blister_001"
+      ],
+      "image_check": "matched"
+    }
+  },
+  "errors": [],
+  "skipped_legacy": [
+    "0fc116a2-7197-4b98-86f2-3989cf13ae56",
+    "37dcf60d-bd87-4ffc-95f8-8e9d3df71910",
+    "8a70835d-94a6-42b6-9ab5-b4bfb4dff96a",
+    "91eead61-eecc-4ff4-840b-aa82beada99f",
+    "c556914b-94d2-4c56-bdec-4ee2d1cb1cbd"
+  ]
+}

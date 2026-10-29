@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "df88d05f-f180-4a73-85b9-ebc4eca02622",
+  "imageId": "cilnidipine_5_blister_001",
+  "createdAt": "2026-10-29T15:35:38.725682+07:00",
+  "rawText": "28z90\nEach filn coated tablet cortalnsMedical Practioner only.\nCilnidiplne\n5 mg\nColour Irondxide Yellow &\nTitanium Dioxide\nDosage: As đirected by\nthe Physiclan.\nprotected from lght.\nwrety reetal or rby retai on\nthe prescription of a Registered\nR\nKeep in a cool dry place. ac Regt.Oto 151 13\nM.L. No.: JK/01/05-06/75\nManufactured by\nMEDLEY\nPHARMACEUTICALS L\nLTD.\nmed éy\n5 mg\nCilnidipine Tablets\nCildip 5\nAnGesEas), Mumba4\n400380D\nRras 5\nWarning : To be solid by retail on\nthe presuription of a Registered\nEach tim coated tablet containsMedical Practitioner only.\nCilnidipine\nColour: Iron Oxide Yellow & M.L. No. JK/01/05-06/75\nCidin\nCildip 5",
+  "status": "text",
+  "elapsedMs": 3761,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "df88d05f-f180-4a73-85b9-ebc4eca02622/image.jpg",
+  "errorCode": null
+}

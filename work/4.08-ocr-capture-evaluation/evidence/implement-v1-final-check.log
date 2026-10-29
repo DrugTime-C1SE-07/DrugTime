@@ -1,0 +1,7 @@
+PASS T1: 49 unique IDs, all paths exist, no label structure errors.
+PASS T2/T3: 49 visual-review annotations, honest AI reviewer/source unknown, 23 corrected rows logged.
+PASS T4: actual image/labels/annotations hashes and 28 box/21 blister counts reconcile; 49 photo bytes unchanged.
+PASS workbook preservation: only documented name/strength cells changed; existing styles/other cells unchanged.
+PASS T8: human engineering GO separated from automatic not_decided; report/snapshot/raw evidence hashes match.
+PASS raw integrity: 49 JSON payload hashes match original import index, no new OCR run required.
+PENDING: independent human review; native manual checks; commit/push/clone/PR/review.

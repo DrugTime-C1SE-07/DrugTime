@@ -1,0 +1,20 @@
+test_control_characters_cannot_break_table (test_run_ocr.FormatTests.test_control_characters_cannot_break_table) ... ok
+test_csv_round_trip_and_formula_safety (test_run_ocr.FormatTests.test_csv_round_trip_and_formula_safety) ... ok
+test_empty_table_and_header_width (test_run_ocr.FormatTests.test_empty_table_and_header_width) ... ok
+test_formula_prefixes_and_leading_whitespace (test_run_ocr.FormatTests.test_formula_prefixes_and_leading_whitespace) ... ok
+test_group_words_by_full_key_and_preserve_repetitions (test_run_ocr.FormatTests.test_group_words_by_full_key_and_preserve_repetitions) ... ok
+test_invalid_confidence_does_not_drop_visible_text (test_run_ocr.FormatTests.test_invalid_confidence_does_not_drop_visible_text) ... ok
+test_literal_quotes_preserved_in_tsv (test_run_ocr.FormatTests.test_literal_quotes_preserved_in_tsv) ... ok
+test_malformed_tsv_is_rejected (test_run_ocr.FormatTests.test_malformed_tsv_is_rejected) ... ok
+test_table_alignment_wrap_and_unicode (test_run_ocr.FormatTests.test_table_alignment_wrap_and_unicode) ... ok
+test_failure_has_metadata_and_stderr (test_run_ocr.RunnerTests.test_failure_has_metadata_and_stderr) ... ok
+test_missing_engine (test_run_ocr.RunnerTests.test_missing_engine) ... ok
+test_missing_image (test_run_ocr.RunnerTests.test_missing_image) ... ok
+test_missing_language (test_run_ocr.RunnerTests.test_missing_language) ... ok
+test_real_export_pipeline_from_stub_and_unique_runs (test_run_ocr.RunnerTests.test_real_export_pipeline_from_stub_and_unique_runs) ... ok
+test_timeout_saved_as_failure (test_run_ocr.RunnerTests.test_timeout_saved_as_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.063s
+
+OK

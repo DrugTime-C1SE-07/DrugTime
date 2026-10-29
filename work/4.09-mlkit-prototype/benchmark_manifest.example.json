@@ -1,0 +1,16 @@
+{
+  "datasetVersion": null,
+  "datasetHash": null,
+  "source": "4.08_verified_real_photos",
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "images": [
+    {
+      "imageId": "REPLACE_WITH_4_08_IMAGE_ID",
+      "condition": "REPLACE_WITH_FROZEN_CONDITION",
+      "labelsVerified": false,
+      "drugName": null,
+      "activeIngredient": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+8 scope entries:
+datasets/README.md
+datasets/scripts/ocr_dataset.py
+datasets/scripts/import_android_runs.py
+datasets/scripts/evaluate_ocr.py
+datasets/scripts/test_ocr_dataset.py
+datasets/scripts/test_import_android_runs.py
+datasets/scripts/test_evaluate_ocr.py
+datasets/results/**
+7 checklist steps; all new scope under datasets; labels/images are read-only.

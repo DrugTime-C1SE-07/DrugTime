@@ -1,0 +1,6 @@
+work\4.09-mlkit-prototype\testcases.xlsx ['OCR Prototype', 'OCR Dataset', 'Report']
+Verified: {'Pending': 10, 'Pass': 46} unique IDs: 56 Report charts: 2
+docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx ['OCR Prototype', 'OCR Dataset', 'Report']
+Verified: {'Pending': 10, 'Pass': 46} unique IDs: 56 Report charts: 2
+Task/master case IDs match; original master contained no test case data. Official merge removed the empty placeholder sheet.
+Native Excel formula recalculation/rendering not exercised; workbook structures inspected read-only.

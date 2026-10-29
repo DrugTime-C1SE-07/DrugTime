@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e70fc2a4-737d-4ab4-beb6-80d0fda31a0d",
+  "imageId": "decolgen_forte_blister_004",
+  "createdAt": "2026-10-29T15:44:28.286119+07:00",
+  "rawText": "naegnnnssasuns 10 mg\nChaarphegranns taaate\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\ngen\nS00 mọ\nMatest 2 mg\nHUNITED\nNAL PHARMA\nFOR TE\nIaen\nFORTE\nDecolgen\nDecolgen\ntetat\nPhanylephine Hydrochioride 10m9\nChionpheniramine Maleate 2 m\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nPhesaph ydrohsorte 10m\nParaceta\nPhenylephng Hydrcchlerida 10 mg\nChiorpheatrarnine Maleate 2m2\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nChtegtoniranngMateatEm2\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\n500 mg\nS00 ma\nDecolgen\nFORTE\nParscetamo\nPhanyleghing rdrochioide t0 mạ\nChiorpheniraming Maloato\n2m\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nDecolnen",
+  "status": "text",
+  "elapsedMs": 4349,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e70fc2a4-737d-4ab4-beb6-80d0fda31a0d/image.png",
+  "errorCode": null
+}

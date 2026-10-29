@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e37b994a-67d7-459e-b067-0d75b4863a73",
+  "imageId": "atorvastatin_10_box_002",
+  "createdAt": "2026-10-29T15:41:42.700082+07:00",
+  "rawText": "WHO-GMP\nRx- THUỐC BÁN THEO ĐƠN\nAtorvastatin 10\nChính hãng\nAtorvastatin 10mg\n(Dưới dang Atorvastatin calcium\nManulactured by:\nKHAPHARCO PHARM C0\nNhà thuốc Ngọc Anh\nnhathuocngocanh.com\nHotline:\n0333.405.080",
+  "status": "text",
+  "elapsedMs": 1942,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e37b994a-67d7-459e-b067-0d75b4863a73/image.jpg",
+  "errorCode": null
+}

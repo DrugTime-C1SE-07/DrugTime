@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f2dbbcff-0e27-47c4-87b7-4edaac90ec94",
+  "imageId": "cilnidipine_5_blister_002",
+  "createdAt": "2026-10-29T15:36:03.888756+07:00",
+  "rawText": "Compeston\nDce P\nsture at temperanure nc\nPryscan\nKeep out of reach of chidren,\nCilapress\nCinidipine\nCompo boonfa\ng\nCilnidipine Tablets IP 5mg\nMn\nchaw tne taclets\nkangoo\nLIVIDUSPaaraceuiCas t L0\nAeva Leve 2 gntie Tech Pak 14t\nCheer Perungad,\nM Ue AcS2201E\nSanecainrs",
+  "status": "text",
+  "elapsedMs": 5267,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f2dbbcff-0e27-47c4-87b7-4edaac90ec94/image.jpg",
+  "errorCode": null
+}

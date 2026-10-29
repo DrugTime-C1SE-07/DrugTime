@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "4505fc7c-5241-4a40-bffb-14ffaa685fff",
+  "imageId": "decolgen_forte_blister_001",
+  "createdAt": "2026-10-29T15:43:37.560248+07:00",
+  "rawText": "aY TNHH UNITED\nFRNATIONAL PHARMA\nDecalge\nFON\nCTY TNHH UNITED\nNTERNATIONAL PHARMA\nCTY TNHH UNITED\nNTERHATIONAL PRARMA\nColger\n800\nDecol\nFORTE\nPaacetamo\nCTY INHH\nINTERNATION\nDecolgeni\nTeRNTICAPAAk",
+  "status": "text",
+  "elapsedMs": 3772,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "4505fc7c-5241-4a40-bffb-14ffaa685fff/image.jpg",
+  "errorCode": null
+}

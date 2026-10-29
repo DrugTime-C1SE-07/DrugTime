@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e6a6edae-8532-445b-9d2a-81ce280d4a49",
+  "imageId": "decolgen_forte_blister_001",
+  "createdAt": "2026-10-29T13:41:17.213307+07:00",
+  "rawText": "aY TNHH UNITED\nFRNATIONAL PHARMA\nDecalge\nFON\nCTY TNHH UNITED\nNTERNATIONAL PHARMA\nCTY TNHH UNITED\nNTERHATIONAL PRARMA\nColger\n800\nDecol\nFORTE\nPaacetamo\nCTY INHH\nINTERNATION\nDecolgeni\nTeRNTICAPAAk",
+  "status": "text",
+  "elapsedMs": 2573,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e6a6edae-8532-445b-9d2a-81ce280d4a49/image.jpg",
+  "errorCode": null
+}

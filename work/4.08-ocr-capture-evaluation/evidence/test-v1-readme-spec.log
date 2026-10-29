@@ -1,0 +1,3 @@
+4.08 PKGDATA: 8 cases, 6 Pass/0 Fail/2 Pending.
+4.09 OCRP+OCRD: 56 cases, 47 Pass/0 Fail/9 Pending; retired optional benchmark case48, added engineering decision case49.
+PASS README links/local publication state; no manual native results inferred.

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f23251be-4b45-407b-a928-a88dd3d02008",
+  "imageId": "atorvastatin_10_box_003",
+  "createdAt": "2026-10-29T15:41:57.522721+07:00",
+  "rawText": "WHO GMP\nRx - THUỘC KÊ ĐƠN\nAtorvastatin 10\nKHured by\nChính hãng\nHộp 3 vi x 10 viện nén dài\nAtorvastatin 1Omg\n(Dưới dạng Atorvastatin calcium)\nAPHARCO PHARM. CO.\nNhà thuốc Ngọc Anh\nnhathuocngocanh.com\nHotline:\n0333.405.080",
+  "status": "text",
+  "elapsedMs": 2224,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f23251be-4b45-407b-a928-a88dd3d02008/image.jpg",
+  "errorCode": null
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f",
+  "imageId": "bisoprolol_2_point_5_box_001",
+  "createdAt": "2026-10-29T15:39:32.133518+07:00",
+  "rawText": "KyTHUỘC KÊ ĐƠN\nATBisoprolol 2.5\nBisoprolol Fumarate\n2,5 mg\nGMP-WHO\nHộp 10 vi x 10 viên nén\nCÔNG TY cÓ PHÀN DưỢC PHẢM AN THIÊN\nAN TNIEN PHARMA 314 Böng Sao, Phuờng 5, Quận 8, TP. HỒ Chi Minh",
+  "status": "text",
+  "elapsedMs": 2498,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f/image.jpg",
+  "errorCode": null
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "bf779f5c-16d3-417a-8c4b-6aedada08cd9",
+  "imageId": "loratadine_table_10_box_003",
+  "createdAt": "2026-10-29T15:32:54.702377+07:00",
+  "rawText": "G central\npharmacy\nTrungTam Thuoc.com\n10 Tabsblister x 10 BlistersbOx\nNo-lapin\nNo-lapit\nTab.\nLoratadine 10mg\nMarutscured by\nFAUTSCR HUIS KOR\nKOREA\nS582Yecnocheon.. Dongta yeart\nHung-, Chyongpido Kana",
+  "status": "text",
+  "elapsedMs": 1660,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "bf779f5c-16d3-417a-8c4b-6aedada08cd9/image.jpg",
+  "errorCode": null
+}
