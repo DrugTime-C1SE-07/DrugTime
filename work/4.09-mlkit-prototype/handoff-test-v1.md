@@ -6,21 +6,21 @@ Trước lần sửa README này, cả hai task đã được duyệt hết, hai
 
 **Chỉ dẫn mới nhất của người dùng: “đẩy cho tôi”.** Chỉ dẫn này thay thế yêu cầu giữ cục bộ trước đó: được commit/push phần dataset, hồ sơ4.08/4.09 và workbook docs; được cập nhật con trỏ frontend/docs tới commit đã có trên remote. Không đẩy baseline ngoài task, scratch/build/secret. Không mở PR hoặc merge nếu chưa được yêu cầu.
 
-Docs đã commit/push `6fd7c59` trên `codex/4.09-ocr-testcases`; remote-tracking chứa HEAD. Frontend `281f9ff` đã xác nhận trong origin/feat/mlkit-prototype-measurement sau fetch. Superproject chuẩn bị commit/push trên feat/datasets-ocr. Kiểm trạng thái xuất bản hiện tại bằng Git remote, không dựa vào các câu “local_only” trong snapshot lịch sử đã duyệt.
+Docs đã commit/push `6fd7c59` trên `codex/4.09-ocr-testcases`; GitHub ls-remote xác nhận đúng SHA. Frontend `281f9ff` đã xác nhận trong origin/feat/mlkit-prototype-measurement sau fetch. Bộ dataset và hồ sơ đã push bằng commit `976286d18cd4679011c16e0a2a41babd437185d8` trên feat/datasets-ocr; GitHub ls-remote xác nhận. Commit kế tiếp chỉ ghi biên bản/bằng chứng xuất bản này. Các câu “local_only” trong snapshot lịch sử đã duyệt không phải trạng thái xuất bản hiện tại.
 
 Khi đóng gói Git phát hiện core.autocrlf=true trên máy hiện tại. Thêm .gitattributes chỉ cho datasets và work của hai task để Git không đổi byte xuống dòng khi checkout; cần bảo toàn SHA-256 raw/report/evidence đã ghi. Không đổi byte ảnh/raw hoặc approval metadata. Scratch và code nghiên cứu Tesseract cũ trong work không đưa vào bản bàn giao hiện hành; evidence lịch sử được giữ để đối chiếu.
 
-Chốt đúng bộ ảnh/prototype; Pending là giới hạn, không buộc chạy thêm8 ca Android hoặc kiểm lại49 ảnh. GO kỹ thuật đã lưu; không chờ benchmark ngưỡng/Tesseract. Publish/clone/PR approval của người khác chưa thực hiện; không nhận là đã đạt Definition of Done về PR.
+Chốt đúng bộ ảnh/prototype; Pending là giới hạn, không buộc chạy thêm8 ca Android hoặc kiểm lại49 ảnh. GO kỹ thuật đã lưu; không chờ benchmark ngưỡng/Tesseract. Đã kiểm clone mới từ GitHub với core.autocrlf=true:225 hash dữ liệu giữ nguyên, báo cáo tái tạo49/49 và exact27,0 lỗi dữ liệu. Evidence: publish-fresh-clone.log, publish-staged-audit.log, publish-docs-push.log, publish-superproject-push.log. Chưa mở PR hoặc có PR approval của người khác; không nhận là đã đạt Definition of Done về PR.
 
-Thay đổi chưa commit:
+Trạng thái sau khi xuất bản dữ liệu:
 
-- Superproject: `.gitignore`, trạng thái/con trỏ `.agents`, `api_contract`, `backend`, `docs`, `frontend` và thư mục datasets chưa track; danh sách Git thực ở `evidence/test-v1-git-status.log`, danh sách file con ở `evidence/test-v1-scope.log`. Giữ các baseline riêng, không tự bump con trỏ; scope báo 230 file, không sạch.
-- Frontend `feat/mlkit-prototype-measurement`: sạch; `evidence/test-v1-frontend-status.log`.
-- Docs `codex/4.09-ocr-testcases`: chỉ `Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx`; `evidence/test-v1-docs-status.log`.
-- Work artifact/spec/xlsx/evidence của hai task đã cập nhật; work có thể bị ignore nên git status không nhất thiết liệt kê. Scratch không commit.
+- Superproject còn baseline riêng `.agents`, `.gitignore`, `api_contract`, `backend`; không stage hoặc đẩy các thay đổi này. Con trỏ frontend/docs và datasets đã commit đúng phạm vi.
+- Frontend feat/mlkit-prototype-measurement sạch; không tạo code commit mới.
+- Docs codex/4.09-ocr-testcases sạch sau commit workbook.
+- Work artifact/spec/xlsx/evidence đã đưa vào bản bàn giao có chọn lọc dù work bị ignore; không đưa scratch/build hoặc code nghiên cứu OCR cũ vào Git. Scope log cũ là ảnh chụp trước xuất bản, không thay Git status hiện tại.
 
 ## Bước tiếp theo
 
-Không còn thao tác duyệt hoặc kiểm thử cần thực hiện cho lần sửa README. Đang xuất bản theo yêu cầu mới, không sửa artifact approved hoặc nhắc lại lệnh approve/reopen cũ. Sau push kiểm HEAD và commit trên remote; PR/reviewer độc lập vẫn chưa thực hiện. Không tự mở PR/merge.
+Hoàn tất yêu cầu commit/push. Không cần duyệt lại hoặc quét lại ảnh; chỉ ghi biên bản xuất bản, không sửa artifact approved. Các PR description là bản nháp nếu người dùng yêu cầu mở PR sau này; không tự mở PR/merge.
 
 Cập nhật: 2026-10-29, Codex; không sửa artifact approved.
