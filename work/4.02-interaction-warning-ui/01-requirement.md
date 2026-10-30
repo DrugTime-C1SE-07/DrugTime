@@ -1,7 +1,7 @@
 ---
 task: 4.02-interaction-warning-ui
 stage: requirement
-status: draft
+status: ready_for_review
 size: M
 contract_change: no
 owner: Duc1445

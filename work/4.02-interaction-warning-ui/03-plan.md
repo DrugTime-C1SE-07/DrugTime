@@ -44,3 +44,14 @@ owner: Duc1445
   - Test 3: Kiểm tra trạng thái `noKnownInteractions` hiển thị câu chữ bắt buộc và tuyệt đối không chứa từ "an toàn".
   - Test 4: Kiểm tra trạng thái `insufficientData` hiển thị thông báo khuyến cáo hỏi bác sĩ/dược sĩ.
   - Test 5: Kiểm tra điều hướng route `/interaction-warning`.
+
+---
+
+## 3. File sẽ thay đổi
+
+| Submodule | Đường dẫn | Hành động | Mục đích |
+|---|---|---|---|
+| `frontend` | `mobile/lib/features/interaction/**` | Tạo mới | Domain entities, UI widgets và Warning Screen |
+| `frontend` | `mobile/lib/app/router.dart` | Sửa | Đăng ký route `/interaction-warning` và route handler |
+| `frontend` | `mobile/test/features/interaction/**` | Tạo mới | Bộ automated widget tests |
+

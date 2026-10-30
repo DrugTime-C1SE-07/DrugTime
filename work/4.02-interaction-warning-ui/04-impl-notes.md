@@ -18,24 +18,21 @@ owner: Duc1445
    - `DrugInteractionPair`: Entity mô tả một cặp thuốc xung đột (`firstDrugName`, `secondDrugName`, `severity`, `description`, `recommendation`, `referenceSource`).
    - `DrugInteractionReport`: Báo cáo kết quả tổng thể với danh sách các cặp tương tác, timestamp, `patientName`, `checkedMedications`, và danh sách các thuốc chưa có dữ liệu hoạt chất.
 
-2. **Thành phần giao diện (UI Components - Bám sát Prototype Figma `page_127_Image556.png` & `page_130_Image562.png`)**:
+2. **Thành phần giao diện (UI Components - Chuẩn hóa Clean UI/UX theo Prototype Figma `S06c` Node `401:107`)**:
    - `MandatoryDisclaimerCard` (`presentation/widgets/mandatory_disclaimer_card.dart`):
      - Hiển thị thông điệp miễn trừ trách nhiệm y tế chuẩn: *"Lưu ý: Thông tin cảnh báo tương tác thuốc chỉ mang tính chất tham khảo, không thay thế cho chỉ định hoặc tư vấn chuyên môn của bác sĩ/dược sĩ."*
-     - Định dạng thẻ màu cam đào chuẩn Figma (`#FEEBD9`, viền `#FAD2B0`), tiêu đề in hoa `LƯU Ý Y TẾ BẮT BUỘC`, biểu tượng `Icons.health_and_safety_rounded`.
+     - Dải card màu hổ phách/vàng ấm nhẹ (`#FEF3E2`, viền `#FDE68A`), icon `Icons.shield_outlined` (`#D97706`), font size 11pt tinh gọn 1-2 dòng, giảm tối đa visual clutter.
      - **Bất biến**: Cố định 100% ở chân màn hình, tuyệt đối không có nút đóng (X) hay thao tác ẩn.
    - `InteractionPairCard` (`presentation/widgets/interaction_pair_card.dart`):
-     - Dải header phân loại nghiêm trọng chuẩn Figma: Dải băng màu đặc (`#BA1A1A` cho Chống chỉ định, `#DC2626` cho Nghiêm trọng, `#D97706` cho Trung bình, `#4B5563` cho Nhẹ) kèm icon và badge mức độ.
-     - Khối hiển thị cặp thuốc dạng chip pill (`Color(0xFFF0F4FC)`) với icon thuốc và mũi tên hoán đổi.
-     - Hộp cơ chế dược lực học & lâm sàng nổi bật (`#FDF2F2` / `#FEF9EE`) với biểu tượng `Icons.science_outlined`.
-     - Hộp hướng dẫn xử trí lâm sàng (`#E8F6F4`) với biểu tượng `Icons.medical_services_outlined`.
-     - Chú thích nguồn tham chiếu theo Quyết định 5948/QĐ-BYT & Dược thư Quốc gia Việt Nam.
+     - Phân cấp mức độ nguy cơ bằng icon tròn và badge màu tương ứng (`#DC2626` cho Chống chỉ định/Nghiêm trọng, `#D97706` cho Trung bình, `#16A34A` cho Nhẹ).
+     - Khối hiển thị cặp thuốc dạng capsule nền trắng (`💊 Clopidogrel 75mg ⇄ 💊 Omeprazole 20mg`).
+     - Tối ưu nhận thức trong 3 giây: 2 dòng bullet points cốt lõi (Nguy cơ + Khuyến nghị), loại bỏ các đoạn văn rườm rà.
    - `DrugInteractionWarningScreen` (`presentation/screens/drug_interaction_warning_screen.dart`):
-     - Tích hợp **Patient Context Banner** (`#F0F4FC`) hiển thị tên người thân/bệnh nhân, icon xác thực bảo mật và nút chuyển chế độ "Chữ lớn" (`TT`).
-     - Tích hợp Card **"Đã đối soát X hoạt chất"** với danh sách các thuốc dạng pill tags màu xanh ngọc (`#D2F3EE`).
-     - Trạng thái `hasInteractions`: Prominent Warning Banner màu đỏ san hô (`#FDE8E8`), icon squircle đỏ cảnh báo, headline phát hiện tương tác, và trích dẫn pháp lý Quyết định 5948/QĐ-BYT.
-     - Trạng thái `noKnownInteractions`: Tích hợp linh vật **DrugTime Mascot** (`AppAssets.mascotInteraction`), badge xác thực QĐ 5948/BYT, câu chữ bắt buộc *"Không tìm thấy tương tác đã biết trong cơ sở dữ liệu hiện tại"*, TUYỆT ĐỐI KHÔNG chứa từ "an toàn" (CD06).
-     - Trạng thái `insufficientData`: Tích hợp linh vật **DrugTime Thinking Mascot** (`AppAssets.mascotThinking`), câu chữ bắt buộc *"Một số thuốc chưa có dữ liệu hoạt chất để kiểm tra tương tác, vui lòng tham khảo ý kiến bác sĩ hoặc dược sĩ."*, và danh sách thuốc thiếu dữ liệu.
-     - Khối chân màn hình (`_buildBottomBar`): Cố định `MandatoryDisclaimerCard` cùng các nút hành động ("Tham khảo ý kiến bác sĩ" và "Tôi đã hiểu và tiếp tục").
+     - Trạng thái `hasInteractions`: Hero alert card đỏ/hổ phách, headline số lượng tương tác, danh sách `InteractionPairCard`.
+     - Trạng thái `noKnownInteractions`: Icon tròn xanh lá checkmark, badge chứng nhận QĐ 5948/BYT, câu chữ bắt buộc *"Không tìm thấy tương tác đã biết trong cơ sở dữ liệu hiện tại"*, TUYỆT ĐỐI KHÔNG chứa từ "an toàn" (CD06).
+     - Trạng thái `insufficientData`: Icon tròn vàng hỏi chấm, câu chữ bắt buộc *"Một số thuốc chưa có dữ liệu hoạt chất để kiểm tra tương tác, vui lòng tham khảo ý kiến bác sĩ hoặc dược sĩ."*, và danh sách thuốc thiếu dữ liệu.
+     - Card đơn thuốc đã đối soát và thông tin bệnh nhân tinh gọn, chỉ hiển thị khi có dữ liệu tường minh.
+     - Khối chân màn hình (`_buildBottomBar`): Cố định `MandatoryDisclaimerCard` cùng các nút hành động ("Tham khảo ý kiến bác sĩ" 48px touch target và "Tôi đã hiểu và tiếp tục").
 
 3. **Routing / Navigation (`lib/app/router.dart`)**:
    - Khai báo route `AppRoutes.interactionWarning = '/interaction-warning'`.
