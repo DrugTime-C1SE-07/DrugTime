@@ -1,0 +1,58 @@
+PASS dataset: 49 images/labels/annotations, paths and actual snapshot hashes agree.
+LABELS (read only, not a new visual sign-off):
+decolgen_forte_box_001 | Decolgen Forte | 
+decolgen_forte_box_002 | Decolgen Forte | 
+decolgen_forte_blister_001 | Decolgen Forte | 
+decolgen_forte_blister_002 | Decolgen Forte | 
+decolgen_forte_blister_003 | Decolgen Forte | 
+efferalgan_box_001 | Efferalgan | 500mg
+efferalgan_box_002 | Efferalgan | 500mg
+efferalgan_blister_001 | Efferalgan | 500mg
+efferalgan_blister_002 | Efferalgan | 500mg
+strepsils_box_001 | Strepsils Original | 
+strepsils_box_002 | Strepsils Original | 
+strepsils_blister_001 | Strepsils Original | 
+strepsils_blister_002 | Strepsils Original | 
+tiffy_dey_box_001 | Tiffy Dey | 
+tiffy_dey_box_002 | Tiffy Dey | 
+tiffy_dey_blister_001 | Tiffy Dey | 
+tiffy_dey_blister_002 | Tiffy Dey | 
+atorvastatin_10_blister_001 | Atorvastatin | 10mg
+atorvastatin_10_blister_002 | Atorvastatin | 10mg
+atorvastatin_10_blister_003 | Atorvastatin | 10mg
+atorvastatin_10_box_001 | A.TATORVASTATIN | 10mg
+atorvastatin_10_box_002 | Atorvastatin | 10mg
+atorvastatin_10_box_003 | Atorvastatin | 10mg
+bisoprolol_2_point_5_blister_001 | Bisoheart | 2.5mg
+bisoprolol_2_point_5_blister_002 | A.TBisoprolol | 2.5mg
+bisoprolol_2_point_5_box_001 | A.TBisoprolol | 2.5mg
+bisoprolol_2_point_5_box_002 | A.TBisoprolol | 2.5mg
+candesartan_htz_32_25_blister_001 | Candesartan Krka | 16mg
+candesartan_htz_32_25_box_001 | A.TCANDESARTAN HTZ | 32mg + 25mg
+candesartan_htz_32_25_box_002 | ACANTANHTZ | 8mg + 12.5mg
+cilnidipine_5_blister_001 | Cildip | 5mg
+cilnidipine_5_blister_002 | Cilapress | 5mg
+cilnidipine_5_box_001 | Cilnidipine | 5mg
+cilnidipine_5_box_002 | Clidipine | 5mg
+cilnidipine_5_box_003 | CILPOL | 5mg
+decolgen_forte_blister_004 | Decolgen Forte | 
+levocetirizine_5_blister_001 | 1-AL | 5mg
+levocetirizine_5_box_001 | 1-AL | 5mg
+levocetirizine_5_box_002 | 1-AL | 
+levocetirizine_5_box_003 | Lifezine | 5mg
+levocetirizine_5_box_004 | Levocetirizin | 5mg
+loratadine_table_10_box_001 | LoratadineSPM | 10mg
+loratadine_table_10_box_002 | ALOR | 10mg
+loratadine_table_10_box_003 | Nó-lapin | 10mg
+metformin_500_blister_001 | Metformin | 500mg
+metformin_500_blister_002 | Metformin | 500mg
+metformin_500_box_001 | Metformin | 500mg
+metformin_500_box_002 | Metformin | 500mg
+metformin_500_box_003 | Metformin | 500mg
+PASS pilot: stored CSV/summary reproduce from 49 original raw; exact27/49; source hashes agree.
+PASS engineering GO separate from automatic not_decided, report/summary/raw links are intact.
+PASS workbook/spec: 4.08-ocr-capture-evaluation PKGDATA {'Pass': 6, 'Pending': 2}
+PASS workbook/spec: 4.09-mlkit-prototype OCRP {'Pending': 8}
+PASS workbook/spec: 4.09-mlkit-prototype OCRD {'Pass': 47, 'Pending': 1}
+PASS master/specs agree: 64 cases, 53 Pass/0 Fail/11 Pending; historic unit41 and host5 logs reconcile.
+No OCR/native/unit suite run performed by this review; no source files changed.

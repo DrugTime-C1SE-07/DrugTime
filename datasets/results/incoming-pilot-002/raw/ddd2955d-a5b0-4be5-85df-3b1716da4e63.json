@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "ddd2955d-a5b0-4be5-85df-3b1716da4e63",
+  "imageId": "strepsils_box_002",
+  "createdAt": "2026-10-29T15:46:59.518870+07:00",
+  "rawText": "ESrepsils\nigndl\nStrepsilsS\nLOT ABK9947",
+  "status": "text",
+  "elapsedMs": 1211,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "ddd2955d-a5b0-4be5-85df-3b1716da4e63/image.jpg",
+  "errorCode": null
+}

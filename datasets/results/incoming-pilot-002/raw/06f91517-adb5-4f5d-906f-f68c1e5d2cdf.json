@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "06f91517-adb5-4f5d-906f-f68c1e5d2cdf",
+  "imageId": "atorvastatin_10_box_001",
+  "createdAt": "2026-10-29T15:41:26.519547+07:00",
+  "rawText": "R THUOC Kt 0ON\nGMP WHO\nATATORVASTATIN 10 mg\nAtorvastatin 10 mg\n(Duới dạng Atorvastatin calci trihydrat)\nHỌP 3 VĨ x 10 VIÊN NÊN BAO PHIM\ncÔNG TY CO PHAN DƯỢC PHAM AN TNIÊN\nAS 314 Bog Sao hng 5,Quan 8TP C in",
+  "status": "text",
+  "elapsedMs": 1164,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "06f91517-adb5-4f5d-906f-f68c1e5d2cdf/image.jpg",
+  "errorCode": null
+}

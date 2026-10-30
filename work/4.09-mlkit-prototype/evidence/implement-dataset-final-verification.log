@@ -1,0 +1,7 @@
+Protected hashes unchanged: 17 images + labels.xlsx
+Legacy copies verified byte-for-byte: 6
+New raw SHA-256 checked: 4
+Pilot decision: not_decided
+Selected: {'tokens_present_noncontiguous': 1, 'exact_name': 1}
+Data errors: ['c6da86d5-1496-4f70-9fb2-720ae357221c: imageId/mapping has no valid label']
+Ruff available: False

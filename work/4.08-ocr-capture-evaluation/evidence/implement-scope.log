@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'implement' của 4.08-ocr-capture-evaluation:
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/run_ocr.py  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/test_run_ocr.py  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/ocr_fields.py  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/test_ocr_fields.py  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/README.md  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/capture_manifest.csv  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/evaluation.csv  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/capture-rules.md  (có trong plan)
+  [CHƯA SỬA]  work/4.08-ocr-capture-evaluation/04-impl-notes.md  (có trong plan)
+  (không có thay đổi nào ngoài work/)
+OK: mọi thay đổi nằm trong phạm vi.

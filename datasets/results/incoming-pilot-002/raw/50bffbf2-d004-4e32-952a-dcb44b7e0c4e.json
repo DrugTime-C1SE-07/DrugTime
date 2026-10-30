@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "50bffbf2-d004-4e32-952a-dcb44b7e0c4e",
+  "imageId": "efferalgan_blister_002",
+  "createdAt": "2026-10-29T13:42:19.974151+07:00",
+  "rawText": "RALGAN ERALEA\n500 ma\nVESCENTI\nESCENT\nUPSA SAS FANCE\nRVESCENT\ntFFERVE\nFFERYE\nWAGHAOL\nUERIME\nSRVESCENT I\nFRrERYESCENT\nERALGAN EFERALGAN\nSOMPRINA\n500 Ng\nAFERVESOENT\n500 rng\nRAL\nLGANS",
+  "status": "text",
+  "elapsedMs": 2952,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "50bffbf2-d004-4e32-952a-dcb44b7e0c4e/image.jpg",
+  "errorCode": null
+}

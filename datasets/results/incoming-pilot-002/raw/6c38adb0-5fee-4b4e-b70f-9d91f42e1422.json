@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "6c38adb0-5fee-4b4e-b70f-9d91f42e1422",
+  "imageId": "atorvastatin_10_blister_002",
+  "createdAt": "2026-10-29T15:40:33.316562+07:00",
+  "rawText": "atin Alu\nAtoris\n10 mg\nvastatio\natin Atorvas\nvastatin\n0 mg\nAtoris 10 mg Ateris 10.\nAtorvastatin Atorvastatin\nAteris 10 mg\norvastatin\nAtor\nastatin\ntoris 10 mg\nAtorvasta\nAtoris 10 m\nAte.\nAteris 1\nAtorvast\nAtoris 10 mg\nAteris 10 mgastatin Al0rvastat\nAtorva\nAtoris 10 mg\nAtorvastatin At\nAtoris 10m\ntatin\ntatin\nAtoris 10 mg\nAlorvastatin Atorvastati\nAtoris 10 r\nAtorvas\nAtoc\n10 mg\nt\nAlorvastatin Alor\nAteris 10\nis 10 mg",
+  "status": "text",
+  "elapsedMs": 3843,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "6c38adb0-5fee-4b4e-b70f-9d91f42e1422/image.jpg",
+  "errorCode": null
+}

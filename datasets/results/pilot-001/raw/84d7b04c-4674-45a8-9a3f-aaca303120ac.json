@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "84d7b04c-4674-45a8-9a3f-aaca303120ac",
+  "imageId": "efferalgan_box_001",
+  "createdAt": "2026-10-29T13:43:14.464251+07:00",
+  "rawText": "EFFERALGAN\nPARACETAMOL\nDOULEURS ET FIEVRE\n500 mg\nDOULEURS\nFIEVRE\nVOIE ORALE\nRéservé à l'adulte\net à l'enfant pesant\nà partir de 13 kg\nBOITE DE 4 STRIPS\nX4 COMPRIMES\nEFFERVESCENTS",
+  "status": "text",
+  "elapsedMs": 2482,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "84d7b04c-4674-45a8-9a3f-aaca303120ac/image.jpg",
+  "errorCode": null
+}

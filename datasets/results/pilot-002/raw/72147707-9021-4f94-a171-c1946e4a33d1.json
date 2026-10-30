@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "72147707-9021-4f94-a171-c1946e4a33d1",
+  "imageId": "levocetirizine_5_box_002",
+  "createdAt": "2026-10-29T15:34:16.374706+07:00",
+  "rawText": "ALbet\n1-AL Tablet\n1 Tablet\n10 Tablets\n1-AL Tablet",
+  "status": "text",
+  "elapsedMs": 1220,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "72147707-9021-4f94-a171-c1946e4a33d1/image.jpg",
+  "errorCode": null
+}

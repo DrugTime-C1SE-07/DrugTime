@@ -1,0 +1,42 @@
+test_brand_token_inside_noisy_line_keeps_evidence (test_ocr_fields.AlgorithmTests.test_brand_token_inside_noisy_line_keeps_evidence) ... ok
+test_broken_unit_not_classified_as_product_name (test_ocr_fields.AlgorithmTests.test_broken_unit_not_classified_as_product_name) ... ok
+test_exact_duplicates_keep_regions_and_counts (test_ocr_fields.AlgorithmTests.test_exact_duplicates_keep_regions_and_counts) ... ok
+test_extraction_independent_of_expected_and_filename (test_ocr_fields.AlgorithmTests.test_extraction_independent_of_expected_and_filename) ... ok
+test_horizontal_name_join_and_mismatched_height (test_ocr_fields.AlgorithmTests.test_horizontal_name_join_and_mismatched_height) ... ok
+test_name_variants_not_numeric_or_release_corrections (test_ocr_fields.AlgorithmTests.test_name_variants_not_numeric_or_release_corrections) ... ok
+test_near_vertical_name_join_but_not_far (test_ocr_fields.AlgorithmTests.test_near_vertical_name_join_but_not_far) ... ok
+test_numbers_decimal_and_units (test_ocr_fields.AlgorithmTests.test_numbers_decimal_and_units) ... ok
+test_same_region_does_not_add_votes (test_ocr_fields.AlgorithmTests.test_same_region_does_not_add_votes) ... ok
+test_case_and_spaces_match_but_wrong_letters_do_not (test_ocr_fields.ComparisonTests.test_case_and_spaces_match_but_wrong_letters_do_not) ... ok
+test_csv_roundtrip_and_formula_safe (test_ocr_fields.ComparisonTests.test_csv_roundtrip_and_formula_safe) ... ok
+test_exact_name_with_other_candidate_requires_verification (test_ocr_fields.ComparisonTests.test_exact_name_with_other_candidate_requires_verification) ... ok
+test_ingredients_and_release_are_sets (test_ocr_fields.ComparisonTests.test_ingredients_and_release_are_sets) ... ok
+test_missing_partial_and_unknown (test_ocr_fields.ComparisonTests.test_missing_partial_and_unknown) ... ok
+test_multicolumn_ascii_wrap_and_unicode (test_ocr_fields.ComparisonTests.test_multicolumn_ascii_wrap_and_unicode) ... ok
+test_product_context_not_used_as_visible_name (test_ocr_fields.ComparisonTests.test_product_context_not_used_as_visible_name) ... ok
+test_strength_conflict_not_silently_ignored (test_ocr_fields.ComparisonTests.test_strength_conflict_not_silently_ignored) ... ok
+test_pipeline_creates_comparison_and_preserves_label (test_ocr_fields.IntegrationTests.test_pipeline_creates_comparison_and_preserves_label) ... ok
+test_corrupt_workbook_is_actionable (test_ocr_fields.LabelTests.test_corrupt_workbook_is_actionable) ... ok
+test_duplicate_rows_and_missing_image_fail (test_ocr_fields.LabelTests.test_duplicate_rows_and_missing_image_fail) ... ok
+test_header_c2_shared_and_inline_strings_read_only (test_ocr_fields.LabelTests.test_header_c2_shared_and_inline_strings_read_only) ... ok
+test_multiple_sheets_require_selection (test_ocr_fields.LabelTests.test_multiple_sheets_require_selection) ... ok
+test_control_characters_cannot_break_table (test_run_ocr.FormatTests.test_control_characters_cannot_break_table) ... ok
+test_csv_round_trip_and_formula_safety (test_run_ocr.FormatTests.test_csv_round_trip_and_formula_safety) ... ok
+test_empty_table_and_header_width (test_run_ocr.FormatTests.test_empty_table_and_header_width) ... ok
+test_formula_prefixes_and_leading_whitespace (test_run_ocr.FormatTests.test_formula_prefixes_and_leading_whitespace) ... ok
+test_group_words_by_full_key_and_preserve_repetitions (test_run_ocr.FormatTests.test_group_words_by_full_key_and_preserve_repetitions) ... ok
+test_invalid_confidence_does_not_drop_visible_text (test_run_ocr.FormatTests.test_invalid_confidence_does_not_drop_visible_text) ... ok
+test_literal_quotes_preserved_in_tsv (test_run_ocr.FormatTests.test_literal_quotes_preserved_in_tsv) ... ok
+test_malformed_tsv_is_rejected (test_run_ocr.FormatTests.test_malformed_tsv_is_rejected) ... ok
+test_table_alignment_wrap_and_unicode (test_run_ocr.FormatTests.test_table_alignment_wrap_and_unicode) ... ok
+test_failure_has_metadata_and_stderr (test_run_ocr.RunnerTests.test_failure_has_metadata_and_stderr) ... ok
+test_missing_engine (test_run_ocr.RunnerTests.test_missing_engine) ... ok
+test_missing_image (test_run_ocr.RunnerTests.test_missing_image) ... ok
+test_missing_language (test_run_ocr.RunnerTests.test_missing_language) ... ok
+test_real_export_pipeline_from_stub_and_unique_runs (test_run_ocr.RunnerTests.test_real_export_pipeline_from_stub_and_unique_runs) ... ok
+test_timeout_saved_as_failure (test_run_ocr.RunnerTests.test_timeout_saved_as_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.204s
+
+OK

@@ -1,0 +1,27 @@
+Anh: hapacol_extra_original.png
+
+Che do: doi chieu nhan Excel bang rule; khong tu sua OCR.
+
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Truong            | Dap an                    | OCR trich duoc                   | Danh gia                |
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Ten thuoc         | Hapacol Extra             | extra; may; Hau; (+37 ung vien,  | Cần xác minh            |
+|                   |                           | xem CSV)                         |                         |
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Hoat chat         | Paracetamol; Cafein       | paracetamol; cafein; ccafein     | Sai                     |
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Ham luong         | Paracetamol: 500 mg; Cafe | paracetamol: 500 mg; cafein: 65  | Sai                     |
+|                   | in: 65 mg                 | mg; ccafein: 65 mg               |                         |
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Hang hien thi     | DHG PHARMA                | DHS PHARMA                       | Sai                     |
++-------------------+---------------------------+----------------------------------+-------------------------+
+| Chu khac          | JAPAN GMP                 | (chua co)                        | Thiếu                   |
++-------------------+---------------------------+----------------------------------+-------------------------+
+
+Confidence la diem tin cay cua model, KHONG phai ty le doc dung.
+CSV (mo bang Excel): D:\DrugTime\work\4.08-ocr-capture-evaluation\results\20261026_202111_787415_18dbc2ef\lines.csv
+Bang ASCII: D:\DrugTime\work\4.08-ocr-capture-evaluation\results\20261026_202111_787415_18dbc2ef\table.txt
+Van ban goc: D:\DrugTime\work\4.08-ocr-capture-evaluation\results\20261026_202111_787415_18dbc2ef\raw.txt
+CSV doi chieu: D:\DrugTime\work\4.08-ocr-capture-evaluation\results\20261026_202111_787415_18dbc2ef\comparison.csv
+Bang doi chieu: D:\DrugTime\work\4.08-ocr-capture-evaluation\results\20261026_202111_787415_18dbc2ef\comparison.txt
+

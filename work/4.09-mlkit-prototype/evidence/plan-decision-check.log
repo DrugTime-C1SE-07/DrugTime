@@ -1,0 +1,3 @@
+4.08 scope: ['datasets/labels.xlsx', 'datasets/annotations.v1.csv', 'datasets/manifest.v1.json', 'datasets/README.md']
+4.09 scope: ['datasets/README.md', 'datasets/results/pilot-002/per_image.csv', 'datasets/results/pilot-002/summary.json', 'datasets/results/pilot-002/report.md', 'datasets/results/pilot-002/decision.json', 'datasets/results/pilot-002/decision.md']
+Only data/report/README paths; no frontend or new engine. Requirement approvals unchanged.

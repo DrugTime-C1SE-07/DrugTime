@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "ff0c4cb4-8066-4586-a00b-53f5ffb3cbba",
+  "imageId": "levocetirizine_5_blister_001",
+  "createdAt": "2026-10-29T15:33:29.665297+07:00",
+  "rawText": "COMPOSITION:\nEach film coated tablet contains:\nLevocetirizine\nHydrochloride IP.\nPermitted Colours: Titanium\nDioxide lP and Quinoline Yellow\nDOSAGE:\nAs directed by the Physician.\nStore protected from light &\nmoistura. Store at a temperature\nnot exceeding 30'c.\n....5 mg\nKeep all medicines out of reach\nof children\nSCHEDULE H PRESCRIPTION\nDRUG-CAUTION\nNot to be sold by retall without\nthe prescription of a Registered\nMedical Practitioner.\nMfg. Lic. No.: 656\nManufactured by:\nFDO FDC Limited\nL-121/B, Phase l/A,\nVerna Industrial Estate,\nVerna - 403 722, Salcete, Goa.\nRegistared Trademark of FDC Limited\ncOMPOSITION:\nLEVOCETIRIZINE\nTABLETS IP5 mg\n1-AL -s\n2000007758\nEach film coated tablet contains:\nLevocetirizine\nHydrochloride IP........5mg\nPermitted Colours: Titanium\nDioxide IP and Quinoline Yellow\nDOSAGE:\nAs directed by the Physiclan.\nore protected\nfromi light &",
+  "status": "text",
+  "elapsedMs": 3915,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "ff0c4cb4-8066-4586-a00b-53f5ffb3cbba/image.jpg",
+  "errorCode": null
+}

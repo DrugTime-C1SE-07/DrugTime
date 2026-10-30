@@ -1,0 +1,78 @@
+[
+  {
+    "Path": "D:\\DrugTime\\datasets\\labels.xlsx",
+    "Hash": "7C595EDD2A65A434275B520FABFBB98A4F092A2E50FE82F35ED076748C7353D3"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\README.md",
+    "Hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\decolgen_forte\\blister\\decolgen_forte_blister_001.jpg",
+    "Hash": "EC0E5F035DA68101D31EC591DD651FE434157FF3B92825D56B7784B72A617AB8"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\decolgen_forte\\blister\\decolgen_forte_blister_002.jpg",
+    "Hash": "0AD9ABF2F3BA66699A7505EBC1438C7DCA1631B5CF574AEC6EF8B170A3EADCF3"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\decolgen_forte\\blister\\decolgen_forte_blister_003.jpg",
+    "Hash": "EA9377786678437DE940458CCB67135BD256C10DE7FA96E83E735AACDDE34462"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\decolgen_forte\\box\\decolgen_forte_box_001.jpg",
+    "Hash": "D5049169D63B43483520D37019AC3BF3E16AE9D8BC8A0B435315134023021115"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\decolgen_forte\\box\\decolgen_forte_box_002.jpg",
+    "Hash": "414FA5740A7D02B188994B4AD09B3DF002019A3AEFE129CCF127D74347AEBD7E"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\efferalgan\\blister\\efferalgan_blister_001.jpg",
+    "Hash": "5F0C6ABB3C1F0E58E42CAE2D5C18DB215AD9D35B93F75F7A3BE183464A489215"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\efferalgan\\blister\\efferalgan_blister_002.jpg",
+    "Hash": "F62E97C5DA484472BE625FB7D53CB180B273FC2E2ECEA1378CDACCFBD569325B"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\efferalgan\\box\\efferalgan_box_001.jpg",
+    "Hash": "F40B20A49892FE45127DA4586893E1C658A17052A88DC4E65F05B1107B458B80"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\efferalgan\\box\\efferalgan_box_002.jpg",
+    "Hash": "3E1ED7D98B4EA98023462DCCD83F99718BA42F50A330448FD8F7EF4A636B439C"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\strepsils\\blister\\strepsils_blister_001.jpg",
+    "Hash": "AC88AE27B2877BA8DC2AC8EF9FEA63D5F8E40A68F236BBA135C355EE67A4A871"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\strepsils\\blister\\strepsils_blister_002.jpg",
+    "Hash": "AC4552719613ACEA5ACD6EE8B784A9C1C07ACBE86162C7D27336358FE55DEAD9"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\strepsils\\box\\strepsils_box_001.jpg",
+    "Hash": "5D7A88116C18C42C0CD92B760B7F44BBCC2BA3F441B8AFF620BC0390179D6F0E"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\strepsils\\box\\strepsils_box_002.jpg",
+    "Hash": "C1E20E139516E505E114D9B1EE8BB530C954D3B1A617C552E4B12DC9C272E246"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\tiffy_dey\\blister\\tiffy_dey_blister_001.jpg",
+    "Hash": "BA5C624444C310ACAA2D85292AECA3EADEA4BE78259E7F352D2A9C1D444C4671"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\tiffy_dey\\blister\\tiffy_dey_blister_002.jpg",
+    "Hash": "DB9876B45A59457FEEDF5681C4AE0C576838528CE4C4263C2D98AFDE66011FA1"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\tiffy_dey\\box\\tiffy_dey_box_001.jpg",
+    "Hash": "323A9DF30742C38241FEAABEAF1D8BEF49D00F5E8F8CF828CB63214038D6B650"
+  },
+  {
+    "Path": "D:\\DrugTime\\datasets\\images\\tiffy_dey\\box\\tiffy_dey_box_002.jpg",
+    "Hash": "081AF8ED109D9B0C21703ADFBAA2B104E29BEBE42D1F6A8FFA1A53C7067D4D1B"
+  }
+]

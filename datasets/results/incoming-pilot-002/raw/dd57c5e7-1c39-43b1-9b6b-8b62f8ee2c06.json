@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06",
+  "imageId": "decolgen_forte_box_001",
+  "createdAt": "2026-10-29T13:39:53.725685+07:00",
+  "rawText": "Decolgen\nFORTE\nSAAEE MEHOO OF OMIISTRUAVA\ntastordien,\n10 Trg\n2 mg\n8. tor 1 tablet\n93602z4?1905\nUNIDED\nFORTE",
+  "status": "text",
+  "elapsedMs": 3367,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "dd57c5e7-1c39-43b1-9b6b-8b62f8ee2c06/image.jpg",
+  "errorCode": null
+}

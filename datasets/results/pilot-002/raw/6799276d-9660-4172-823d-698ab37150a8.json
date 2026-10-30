@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "6799276d-9660-4172-823d-698ab37150a8",
+  "imageId": "efferalgan_blister_001",
+  "createdAt": "2026-10-29T15:47:35.942899+07:00",
+  "rawText": "SIPSA SAS-RANCE\nARACETAMOL\nF-FERALGAN EFFERALEAV\ncOMPRIME\nEFFERVESCENT I\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nHAEARACETAMOR\n500 mg\nCOMPRIME\nEFFERVESCENT\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nEFFERALGAN\nCABLET\nEFFERALGAN AERALOAN\ncOMPRIME\nEFERVESENT\nnAASRNT\nUPSA SAS FRANCE\n500 mg\nPARACETAMOL\ncOMPRIME\nEFFERVESCENT /\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nUPSA SAS FRANCE\n500 ng\nCOMPRIMÉ\nEFFERVESCENT I\nFFERVESCENT\nTABLET\nPARACETAMOL\n500 ng\nEFFERALGAN\nCOMPRIME\nBEFERVESCENT\nEFFERVESCEN",
+  "status": "text",
+  "elapsedMs": 3940,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "6799276d-9660-4172-823d-698ab37150a8/image.jpg",
+  "errorCode": null
+}

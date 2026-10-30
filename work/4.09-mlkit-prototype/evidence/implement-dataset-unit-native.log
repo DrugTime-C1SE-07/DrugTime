@@ -1,0 +1,44 @@
+test_benchmark_actual_image_change_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_actual_image_change_is_pending) ... ok
+test_benchmark_fixture_go_and_no_go (test_evaluate_ocr.EvaluationTests.test_benchmark_fixture_go_and_no_go) ... ok
+test_benchmark_missing_or_draft_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_missing_or_draft_is_pending) ... ok
+test_benchmark_pre_freeze_config_coverage_verification_phase (test_evaluate_ocr.EvaluationTests.test_benchmark_pre_freeze_config_coverage_verification_phase) ... ok
+test_csv_formula_injection (test_evaluate_ocr.EvaluationTests.test_csv_formula_injection) ... ok
+test_earliest_failed_run_is_not_replaced_by_good_retry (test_evaluate_ocr.EvaluationTests.test_earliest_failed_run_is_not_replaced_by_good_retry) ... ok
+test_invalid_time_and_unmapped_remain_visible (test_evaluate_ocr.EvaluationTests.test_invalid_time_and_unmapped_remain_visible) ... ok
+test_mapping_and_image_hash_mismatch (test_evaluate_ocr.EvaluationTests.test_mapping_and_image_hash_mismatch) ... ok
+test_name_layout_diagnostic_not_counted_exact (test_evaluate_ocr.EvaluationTests.test_name_layout_diagnostic_not_counted_exact) ... ok
+test_no_runs_lists_every_image_and_no_fake_accuracy (test_evaluate_ocr.EvaluationTests.test_no_runs_lists_every_image_and_no_fake_accuracy) ... ok
+test_no_text_counts_failed_not_excluded (test_evaluate_ocr.EvaluationTests.test_no_text_counts_failed_not_excluded) ... ok
+test_reports_and_cli_preserve_sources (test_evaluate_ocr.EvaluationTests.test_reports_and_cli_preserve_sources) ... ok
+test_two_device_types_and_os_are_scored_separately (test_evaluate_ocr.EvaluationTests.test_two_device_types_and_os_are_scored_separately) ... ok
+test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw (test_import_android_runs.ImportTests.test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw) ... ok
+test_conflict_never_overwrites (test_import_android_runs.ImportTests.test_conflict_never_overwrites) ... ok
+test_explicit_serial_required (test_import_android_runs.ImportTests.test_explicit_serial_required) ... ok
+test_filename_must_match_run_id (test_import_android_runs.ImportTests.test_filename_must_match_run_id) ... ok
+test_hash_ambiguity_does_not_create_mapping (test_import_android_runs.ImportTests.test_hash_ambiguity_does_not_create_mapping) ... ok
+test_import_preserves_bytes_unicode_newlines_and_idempotence (test_import_android_runs.ImportTests.test_import_preserves_bytes_unicode_newlines_and_idempotence) ... ok
+test_legacy_runs_are_not_reimported_into_pilot (test_import_android_runs.ImportTests.test_legacy_runs_are_not_reimported_into_pilot) ... ok
+test_malformed_base64_json_is_reported (test_import_android_runs.ImportTests.test_malformed_base64_json_is_reported) ... ok
+test_safe_sandbox_image_paths (test_import_android_runs.ImportTests.test_safe_sandbox_image_paths) ... ok
+test_ambiguous_header_rejected (test_ocr_dataset.DataTests.test_ambiguous_header_rejected) ... ok
+test_devices_separate_unknown_kind_and_os (test_ocr_dataset.DataTests.test_devices_separate_unknown_kind_and_os) ... ok
+test_duplicate_conflicting_and_malformed_run_reported (test_ocr_dataset.DataTests.test_duplicate_conflicting_and_malformed_run_reported) ... ok
+test_duplicate_ids_invalidate_all_rows (test_ocr_dataset.DataTests.test_duplicate_ids_invalidate_all_rows) ... ok
+test_mapping_needs_verification_and_known_label (test_ocr_dataset.DataTests.test_mapping_needs_verification_and_known_label) ... ok
+test_missing_name_image_and_formula_not_silent (test_ocr_dataset.DataTests.test_missing_name_image_and_formula_not_silent) ... ok
+test_path_escape_and_symlink_rejected (test_ocr_dataset.DataTests.test_path_escape_and_symlink_rejected) ... ok
+test_run_schema_and_timezone (test_ocr_dataset.DataTests.test_run_schema_and_timezone) ... ok
+test_snapshot_tracks_actual_image_bytes (test_ocr_dataset.DataTests.test_snapshot_tracks_actual_image_bytes) ... ok
+test_xlsx_shifted_header_inline_and_shared_unchanged (test_ocr_dataset.DataTests.test_xlsx_shifted_header_inline_and_shared_unchanged) ... ok
+test_boundaries_and_typo_are_not_fixed (test_ocr_dataset.ScoringTests.test_boundaries_and_typo_are_not_fixed) ... ok
+test_exact_newline_case_nfc (test_ocr_dataset.ScoringTests.test_exact_newline_case_nfc) ... ok
+test_layout_and_order_are_diagnostic_only (test_ocr_dataset.ScoringTests.test_layout_and_order_are_diagnostic_only) ... ok
+test_repeated_tokens_need_repeated_occurrences (test_ocr_dataset.ScoringTests.test_repeated_tokens_need_repeated_occurrences) ... ok
+test_strength_no_guessing_multiple_components (test_ocr_dataset.ScoringTests.test_strength_no_guessing_multiple_components) ... ok
+test_strength_single_occurrence_boundaries (test_ocr_dataset.ScoringTests.test_strength_single_occurrence_boundaries) ... ok
+test_timing_and_nearest_rank (test_ocr_dataset.ScoringTests.test_timing_and_nearest_rank) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 2.071s
+
+OK

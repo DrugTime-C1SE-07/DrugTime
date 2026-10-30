@@ -1,0 +1,131 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "PKGDATA",
+      "name": "Bộ ảnh bao bì có nhãn",
+      "sheet": "Packaging Dataset",
+      "description": "Phiên bản/hash/nguồn/xác minh/bàn giao bộ ảnh PB31",
+      "created_by": "Bao Nguyen",
+      "created_date": "2026-10-29",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Medium",
+      "remarks": "6 kiểm tự động/tài liệu Pass; review độc lập và clone/publish Pending; không có engine nghiên cứu.",
+      "cases": [
+        {
+          "id": "TC-PKGDATA-01",
+          "description": "Kiểm mỗi ảnh có một ID và một hàng nhãn",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy bundled Python work/4.08-ocr-capture-evaluation/scratch/verify_v1.py.",
+            "Đối chiếu PASS tương ứng, manifest/annotations và log; không sửa source."
+          ],
+          "data": "49 ảnh/49 dòng; 28 hộp,21 vỉ.",
+          "expected": "ID duy nhất, path tồn tại, reader 0 lỗi.",
+          "actual": "PASS T1; 49 unique IDs, đường dẫn và số hàng khớp.",
+          "status": "Pass",
+          "comments": "AC1 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-02",
+          "description": "Người kiểm khác đối chiếu nhãn/PHI trên từng ảnh",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Mở từng ảnh gốc, không dùng raw OCR làm đáp án.",
+            "Đối chiếu name/strength/PHI và nguồn; ghi người/ngày xác minh độc lập."
+          ],
+          "data": "49 ảnh, annotations review AI; tên dài và chữ cách điệu.",
+          "expected": "Tên/strength đúng bao bì; chưa rõ ghi pending; không PHI/secret; ghi người/ngày thực.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC2, AC3, AC5 · manual · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-03",
+          "description": "Giữ hàm lượng thiếu và phân biệt thương hiệu",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy bundled Python work/4.08-ocr-capture-evaluation/scratch/verify_v1.py.",
+            "Đối chiếu PASS tương ứng, manifest/annotations và log; không sửa source."
+          ],
+          "data": "1-AL hộp trắng strength trống; Bisoheart khác A.TBisoprolol; Lifezine khác 1-AL.",
+          "expected": "Các trường ghi theo ảnh review, không suy từ folder/hoạt chất; không tự xác nhận cùng sản phẩm.",
+          "actual": "PASS workbook/annotations; thay đổi có nhật ký, ô không liên quan giữ nguyên. Chưa thay human review.",
+          "status": "Pass",
+          "comments": "AC2, AC3 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-04",
+          "description": "Đối chiếu manifest với byte nguồn",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy bundled Python work/4.08-ocr-capture-evaluation/scratch/verify_v1.py.",
+            "Đối chiếu PASS tương ứng, manifest/annotations và log; không sửa source."
+          ],
+          "data": "manifest/workbook/49 ảnh/annotations hash.",
+          "expected": "Hash byte thực khớp snapshot, thống kê28/21 và tổng49; ảnh không đổi.",
+          "actual": "PASS T4; 49 image hashes unchanged, manifest và annotations SHA-256 khớp.",
+          "status": "Pass",
+          "comments": "AC4 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-05",
+          "description": "Ghi trung thực nguồn chưa rõ và người rà là AI",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy bundled Python work/4.08-ocr-capture-evaluation/scratch/verify_v1.py.",
+            "Đối chiếu PASS tương ứng, manifest/annotations và log; không sửa source."
+          ],
+          "data": "49 annotations, nguồn gốc/thiết bị không rõ; watermark nhìn thấy.",
+          "expected": "unknown giữ rõ, reviewer là Codex visual inspection, không giả human sign-off.",
+          "actual": "PASS T2/T3; 49 reviewer/date đúng, unknown không bịa URL/thiết bị.",
+          "status": "Pass",
+          "comments": "AC4, AC5 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-06",
+          "description": "Phát hiện byte ảnh đổi sau snapshot trên fixture",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy python -m unittest discover -s datasets/scripts -p test_ocr_dataset.py -k test_snapshot_tracks_actual_image_bytes -v.",
+            "Đọc ok; fixture tự dọn, không đổi ảnh gốc."
+          ],
+          "data": "Fixture img1.jpg thay bytes; snapshot trước/sau.",
+          "expected": "Dataset hash đổi, không chỉ so hai chuỗi khai báo.",
+          "actual": "test_snapshot_tracks_actual_image_bytes: ok trong bộ41 unit phiên này; ../4.09-mlkit-prototype/evidence/test-v1-unit.log",
+          "status": "Pass",
+          "comments": "AC4 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-07",
+          "description": "Kiểm tài liệu bàn giao và trạng thái publish",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Chạy bundled Python work/4.08-ocr-capture-evaluation/scratch/verify_v1.py.",
+            "Đối chiếu PASS tương ứng, manifest/annotations và log; không sửa source."
+          ],
+          "data": "README dẫn labels, annotations.v1.csv, manifest.v1.json và kết quả pilot.",
+          "expected": "Link file có thật, chỉ dẫn tái hiện và local-only/pending rõ; không phụ thuộc engine cũ.",
+          "actual": "Đã đọc README; các file đích tồn tại và ghi chưa commit/push; không coi là đã kiểm clone.",
+          "status": "Pass",
+          "comments": "AC4, AC6 · Kiểm bất biến/phân lớp tương đương · evidence/test-v1-integrity.log"
+        },
+        {
+          "id": "TC-PKGDATA-08",
+          "description": "Clone/pull và kiểm bộ dữ liệu trên checkout khác",
+          "precondition": "Có bộ datasets v1 và Python/bundled Python theo hướng dẫn.",
+          "steps": [
+            "Sau khi người dùng yêu cầu và review, commit/push đúng phạm vi.",
+            "Clone/pull từ remote vào checkout khác và kiểm số file/hash theo manifest."
+          ],
+          "data": "Chưa có commit/push/PR theo yêu cầu người dùng.",
+          "expected": "Sau publish được yêu cầu, nhóm clone/pull lấy đủ ảnh/nhãn/README/hash và tái hiện kiểm.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC6 · manual · evidence/test-v1-integrity.log"
+        }
+      ]
+    }
+  ]
+}

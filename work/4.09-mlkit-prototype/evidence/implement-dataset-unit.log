@@ -1,0 +1,1710 @@
+test_benchmark_actual_image_change_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_actual_image_change_is_pending) ... ERROR
+test_benchmark_fixture_go_and_no_go (test_evaluate_ocr.EvaluationTests.test_benchmark_fixture_go_and_no_go) ... ERROR
+test_benchmark_missing_or_draft_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_missing_or_draft_is_pending) ... ERROR
+test_benchmark_pre_freeze_config_coverage_verification_phase (test_evaluate_ocr.EvaluationTests.test_benchmark_pre_freeze_config_coverage_verification_phase) ... ERROR
+test_csv_formula_injection (test_evaluate_ocr.EvaluationTests.test_csv_formula_injection) ... ERROR
+test_earliest_failed_run_is_not_replaced_by_good_retry (test_evaluate_ocr.EvaluationTests.test_earliest_failed_run_is_not_replaced_by_good_retry) ... ERROR
+test_invalid_time_and_unmapped_remain_visible (test_evaluate_ocr.EvaluationTests.test_invalid_time_and_unmapped_remain_visible) ... ERROR
+test_mapping_and_image_hash_mismatch (test_evaluate_ocr.EvaluationTests.test_mapping_and_image_hash_mismatch) ... ERROR
+test_name_layout_diagnostic_not_counted_exact (test_evaluate_ocr.EvaluationTests.test_name_layout_diagnostic_not_counted_exact) ... ERROR
+test_no_runs_lists_every_image_and_no_fake_accuracy (test_evaluate_ocr.EvaluationTests.test_no_runs_lists_every_image_and_no_fake_accuracy) ... ERROR
+test_no_text_counts_failed_not_excluded (test_evaluate_ocr.EvaluationTests.test_no_text_counts_failed_not_excluded) ... ERROR
+test_reports_and_cli_preserve_sources (test_evaluate_ocr.EvaluationTests.test_reports_and_cli_preserve_sources) ... ERROR
+test_two_device_types_and_os_are_scored_separately (test_evaluate_ocr.EvaluationTests.test_two_device_types_and_os_are_scored_separately) ... ERROR
+test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw (test_import_android_runs.ImportTests.test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw) ... ERROR
+test_conflict_never_overwrites (test_import_android_runs.ImportTests.test_conflict_never_overwrites) ... ERROR
+test_explicit_serial_required (test_import_android_runs.ImportTests.test_explicit_serial_required) ... ERROR
+test_filename_must_match_run_id (test_import_android_runs.ImportTests.test_filename_must_match_run_id) ... ERROR
+test_hash_ambiguity_does_not_create_mapping (test_import_android_runs.ImportTests.test_hash_ambiguity_does_not_create_mapping) ... ERROR
+test_import_preserves_bytes_unicode_newlines_and_idempotence (test_import_android_runs.ImportTests.test_import_preserves_bytes_unicode_newlines_and_idempotence) ... ERROR
+test_legacy_runs_are_not_reimported_into_pilot (test_import_android_runs.ImportTests.test_legacy_runs_are_not_reimported_into_pilot) ... ERROR
+test_malformed_base64_json_is_reported (test_import_android_runs.ImportTests.test_malformed_base64_json_is_reported) ... ERROR
+test_safe_sandbox_image_paths (test_import_android_runs.ImportTests.test_safe_sandbox_image_paths) ... ERROR
+test_ambiguous_header_rejected (test_ocr_dataset.DataTests.test_ambiguous_header_rejected) ... ERROR
+test_ambiguous_header_rejected (test_ocr_dataset.DataTests.test_ambiguous_header_rejected) ... ERROR
+test_devices_separate_unknown_kind_and_os (test_ocr_dataset.DataTests.test_devices_separate_unknown_kind_and_os) ... ERROR
+test_duplicate_conflicting_and_malformed_run_reported (test_ocr_dataset.DataTests.test_duplicate_conflicting_and_malformed_run_reported) ... ERROR
+test_duplicate_conflicting_and_malformed_run_reported (test_ocr_dataset.DataTests.test_duplicate_conflicting_and_malformed_run_reported) ... ERROR
+test_duplicate_ids_invalidate_all_rows (test_ocr_dataset.DataTests.test_duplicate_ids_invalidate_all_rows) ... ERROR
+test_duplicate_ids_invalidate_all_rows (test_ocr_dataset.DataTests.test_duplicate_ids_invalidate_all_rows) ... ERROR
+test_mapping_needs_verification_and_known_label (test_ocr_dataset.DataTests.test_mapping_needs_verification_and_known_label) ... ERROR
+test_mapping_needs_verification_and_known_label (test_ocr_dataset.DataTests.test_mapping_needs_verification_and_known_label) ... ERROR
+test_missing_name_image_and_formula_not_silent (test_ocr_dataset.DataTests.test_missing_name_image_and_formula_not_silent) ... ERROR
+test_missing_name_image_and_formula_not_silent (test_ocr_dataset.DataTests.test_missing_name_image_and_formula_not_silent) ... ERROR
+test_path_escape_and_symlink_rejected (test_ocr_dataset.DataTests.test_path_escape_and_symlink_rejected) ... ERROR
+test_run_schema_and_timezone (test_ocr_dataset.DataTests.test_run_schema_and_timezone) ... ERROR
+test_snapshot_tracks_actual_image_bytes (test_ocr_dataset.DataTests.test_snapshot_tracks_actual_image_bytes) ... ERROR
+test_snapshot_tracks_actual_image_bytes (test_ocr_dataset.DataTests.test_snapshot_tracks_actual_image_bytes) ... ERROR
+test_xlsx_shifted_header_inline_and_shared_unchanged (test_ocr_dataset.DataTests.test_xlsx_shifted_header_inline_and_shared_unchanged) ... ERROR
+test_xlsx_shifted_header_inline_and_shared_unchanged (test_ocr_dataset.DataTests.test_xlsx_shifted_header_inline_and_shared_unchanged) ... ERROR
+test_boundaries_and_typo_are_not_fixed (test_ocr_dataset.ScoringTests.test_boundaries_and_typo_are_not_fixed) ... ok
+test_exact_newline_case_nfc (test_ocr_dataset.ScoringTests.test_exact_newline_case_nfc) ... ok
+test_layout_and_order_are_diagnostic_only (test_ocr_dataset.ScoringTests.test_layout_and_order_are_diagnostic_only) ... ok
+test_repeated_tokens_need_repeated_occurrences (test_ocr_dataset.ScoringTests.test_repeated_tokens_need_repeated_occurrences) ... ok
+test_strength_no_guessing_multiple_components (test_ocr_dataset.ScoringTests.test_strength_no_guessing_multiple_components) ... ok
+test_strength_single_occurrence_boundaries (test_ocr_dataset.ScoringTests.test_strength_single_occurrence_boundaries) ... ok
+test_timing_and_nearest_rank (test_ocr_dataset.ScoringTests.test_timing_and_nearest_rank) ... ok
+
+======================================================================
+ERROR: test_benchmark_actual_image_change_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_actual_image_change_is_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ii8t6bz\\dataset'
+
+======================================================================
+ERROR: test_benchmark_fixture_go_and_no_go (test_evaluate_ocr.EvaluationTests.test_benchmark_fixture_go_and_no_go)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpaoewinj2\\dataset'
+
+======================================================================
+ERROR: test_benchmark_missing_or_draft_is_pending (test_evaluate_ocr.EvaluationTests.test_benchmark_missing_or_draft_is_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7cmtk63y\\dataset'
+
+======================================================================
+ERROR: test_benchmark_pre_freeze_config_coverage_verification_phase (test_evaluate_ocr.EvaluationTests.test_benchmark_pre_freeze_config_coverage_verification_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp2px5fk4j\\dataset'
+
+======================================================================
+ERROR: test_csv_formula_injection (test_evaluate_ocr.EvaluationTests.test_csv_formula_injection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp382j8upd\\dataset'
+
+======================================================================
+ERROR: test_earliest_failed_run_is_not_replaced_by_good_retry (test_evaluate_ocr.EvaluationTests.test_earliest_failed_run_is_not_replaced_by_good_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp75c626qx\\dataset'
+
+======================================================================
+ERROR: test_invalid_time_and_unmapped_remain_visible (test_evaluate_ocr.EvaluationTests.test_invalid_time_and_unmapped_remain_visible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpo_rtou4b\\dataset'
+
+======================================================================
+ERROR: test_mapping_and_image_hash_mismatch (test_evaluate_ocr.EvaluationTests.test_mapping_and_image_hash_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpbncz54h5\\dataset'
+
+======================================================================
+ERROR: test_name_layout_diagnostic_not_counted_exact (test_evaluate_ocr.EvaluationTests.test_name_layout_diagnostic_not_counted_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4zici1ug\\dataset'
+
+======================================================================
+ERROR: test_no_runs_lists_every_image_and_no_fake_accuracy (test_evaluate_ocr.EvaluationTests.test_no_runs_lists_every_image_and_no_fake_accuracy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmnm2tikp\\dataset'
+
+======================================================================
+ERROR: test_no_text_counts_failed_not_excluded (test_evaluate_ocr.EvaluationTests.test_no_text_counts_failed_not_excluded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7g8ctptc\\dataset'
+
+======================================================================
+ERROR: test_reports_and_cli_preserve_sources (test_evaluate_ocr.EvaluationTests.test_reports_and_cli_preserve_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmvg411gv\\dataset'
+
+======================================================================
+ERROR: test_two_device_types_and_os_are_scored_separately (test_evaluate_ocr.EvaluationTests.test_two_device_types_and_os_are_scored_separately)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_evaluate_ocr.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset', ('Decolgen Forte', 'Efferalgan'))
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmprfwhefu2\\dataset'
+
+======================================================================
+ERROR: test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw (test_import_android_runs.ImportTests.test_adb_hash_mapping_and_device_observation_do_not_rewrite_raw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpdxdm6sno\\dataset'
+
+======================================================================
+ERROR: test_conflict_never_overwrites (test_import_android_runs.ImportTests.test_conflict_never_overwrites)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ig0k_lm\\dataset'
+
+======================================================================
+ERROR: test_explicit_serial_required (test_import_android_runs.ImportTests.test_explicit_serial_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp8la5a_ab\\dataset'
+
+======================================================================
+ERROR: test_filename_must_match_run_id (test_import_android_runs.ImportTests.test_filename_must_match_run_id)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpqxlc8pz1\\dataset'
+
+======================================================================
+ERROR: test_hash_ambiguity_does_not_create_mapping (test_import_android_runs.ImportTests.test_hash_ambiguity_does_not_create_mapping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpl_w1xxoq\\dataset'
+
+======================================================================
+ERROR: test_import_preserves_bytes_unicode_newlines_and_idempotence (test_import_android_runs.ImportTests.test_import_preserves_bytes_unicode_newlines_and_idempotence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpm227pdms\\dataset'
+
+======================================================================
+ERROR: test_legacy_runs_are_not_reimported_into_pilot (test_import_android_runs.ImportTests.test_legacy_runs_are_not_reimported_into_pilot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp9nkvvfax\\dataset'
+
+======================================================================
+ERROR: test_malformed_base64_json_is_reported (test_import_android_runs.ImportTests.test_malformed_base64_json_is_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpd61j4i8d\\dataset'
+
+======================================================================
+ERROR: test_safe_sandbox_image_paths (test_import_android_runs.ImportTests.test_safe_sandbox_image_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_import_android_runs.py", line 19, in setUp
+    self.labels = workbook(self.root/'dataset')
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 14, in workbook
+    root.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpy1udg5d4\\dataset'
+
+======================================================================
+ERROR: test_ambiguous_header_rejected (test_ocr_dataset.DataTests.test_ambiguous_header_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4irbty6y\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 137, in test_ambiguous_header_rejected
+    path = workbook(self.root, ('image_id',))
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4irbty6y\\images'
+
+======================================================================
+ERROR: test_ambiguous_header_rejected (test_ocr_dataset.DataTests.test_ambiguous_header_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4irbty6y'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4irbty6y'
+
+======================================================================
+ERROR: test_devices_separate_unknown_kind_and_os (test_ocr_dataset.DataTests.test_devices_separate_unknown_kind_and_os)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpvt0t9_vw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpvt0t9_vw'
+
+======================================================================
+ERROR: test_duplicate_conflicting_and_malformed_run_reported (test_ocr_dataset.DataTests.test_duplicate_conflicting_and_malformed_run_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 169, in test_duplicate_conflicting_and_malformed_run_reported
+    save_run(directory, run(), 'a.json')
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 58, in save_run
+    directory.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpxmsuywyr\\raw'
+
+======================================================================
+ERROR: test_duplicate_conflicting_and_malformed_run_reported (test_ocr_dataset.DataTests.test_duplicate_conflicting_and_malformed_run_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpxmsuywyr'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpxmsuywyr'
+
+======================================================================
+ERROR: test_duplicate_ids_invalidate_all_rows (test_ocr_dataset.DataTests.test_duplicate_ids_invalidate_all_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp553ow1q1\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 121, in test_duplicate_ids_invalidate_all_rows
+    labels, errors = load_labels(workbook(self.root, ('A', 'B'), duplicate=True))
+                                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp553ow1q1\\images'
+
+======================================================================
+ERROR: test_duplicate_ids_invalidate_all_rows (test_ocr_dataset.DataTests.test_duplicate_ids_invalidate_all_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp553ow1q1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp553ow1q1'
+
+======================================================================
+ERROR: test_mapping_needs_verification_and_known_label (test_ocr_dataset.DataTests.test_mapping_needs_verification_and_known_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp5pumo10z\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 177, in test_mapping_needs_verification_and_known_label
+    labels, _ = load_labels(workbook(self.root))
+                            ~~~~~~~~^^^^^^^^^^^
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp5pumo10z\\images'
+
+======================================================================
+ERROR: test_mapping_needs_verification_and_known_label (test_ocr_dataset.DataTests.test_mapping_needs_verification_and_known_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp5pumo10z'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp5pumo10z'
+
+======================================================================
+ERROR: test_missing_name_image_and_formula_not_silent (test_ocr_dataset.DataTests.test_missing_name_image_and_formula_not_silent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmplh8z7dqz\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 127, in test_missing_name_image_and_formula_not_silent
+    path = workbook(self.root, ('',))
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmplh8z7dqz\\images'
+
+======================================================================
+ERROR: test_missing_name_image_and_formula_not_silent (test_ocr_dataset.DataTests.test_missing_name_image_and_formula_not_silent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmplh8z7dqz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmplh8z7dqz'
+
+======================================================================
+ERROR: test_path_escape_and_symlink_rejected (test_ocr_dataset.DataTests.test_path_escape_and_symlink_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpnu35xx2u'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpnu35xx2u'
+
+======================================================================
+ERROR: test_run_schema_and_timezone (test_ocr_dataset.DataTests.test_run_schema_and_timezone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpw0v6_rti'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpw0v6_rti'
+
+======================================================================
+ERROR: test_snapshot_tracks_actual_image_bytes (test_ocr_dataset.DataTests.test_snapshot_tracks_actual_image_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp6iuhku47\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 185, in test_snapshot_tracks_actual_image_bytes
+    path = workbook(self.root)
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp6iuhku47\\images'
+
+======================================================================
+ERROR: test_snapshot_tracks_actual_image_bytes (test_ocr_dataset.DataTests.test_snapshot_tracks_actual_image_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp6iuhku47'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp6iuhku47'
+
+======================================================================
+ERROR: test_xlsx_shifted_header_inline_and_shared_unchanged (test_ocr_dataset.DataTests.test_xlsx_shifted_header_inline_and_shared_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp29x4jv56\\images\\box'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 112, in test_xlsx_shifted_header_inline_and_shared_unchanged
+    path = workbook(self.root, shared=shared)
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 15, in workbook
+    (root / 'images/box').mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 726, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp29x4jv56\\images'
+
+======================================================================
+ERROR: test_xlsx_shifted_header_inline_and_shared_unchanged (test_ocr_dataset.DataTests.test_xlsx_shifted_header_inline_and_shared_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp29x4jv56'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\datasets\scripts\test_ocr_dataset.py", line 108, in tearDown
+    self.temp.cleanup()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp29x4jv56'
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.460s
+
+FAILED (errors=39)
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpy1udg5d4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpy1udg5d4'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpd61j4i8d'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpd61j4i8d'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp9nkvvfax'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp9nkvvfax'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpm227pdms'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpm227pdms'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpl_w1xxoq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpl_w1xxoq'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpqxlc8pz1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpqxlc8pz1'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp8la5a_ab'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp8la5a_ab'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ig0k_lm'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ig0k_lm'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpdxdm6sno'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpdxdm6sno'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmprfwhefu2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmprfwhefu2'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmvg411gv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmvg411gv'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7g8ctptc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7g8ctptc'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmnm2tikp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpmnm2tikp'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4zici1ug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4zici1ug'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpbncz54h5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpbncz54h5'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpo_rtou4b'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpo_rtou4b'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp75c626qx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp75c626qx'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp382j8upd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp382j8upd'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp2px5fk4j'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp2px5fk4j'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7cmtk63y'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp7cmtk63y'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpaoewinj2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmpaoewinj2'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ii8t6bz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 940, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\QuangBao\\AppData\\Local\\Packages\\sandbox.{94ab0ef5-5b2a-45fd-9331-8975605be897}\\AC\\Temp\\tmp4ii8t6bz'
