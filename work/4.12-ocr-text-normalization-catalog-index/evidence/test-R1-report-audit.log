@@ -1,0 +1,2 @@
+Wrote 05-test-report.md, status draft; approvals and previous review unchanged.
+{"targeted": {"counts": {"passed": 60}, "seconds": 13.198, "summary": "60 passed, 1 warning in 13.20s", "total": 60}, "unit": {"counts": {"passed": 1494, "failed": 30}, "seconds": 64.829, "summary": "30 failed, 1494 passed, 8 warnings in 64.86s (0:01:04)", "total": 1524}, "integration": {"counts": {"passed": 1113, "failed": 18, "xpassed": 1}, "seconds": 459.747, "summary": "18 failed, 1113 passed, 1 xpassed, 5860 warnings in 459.81s (0:07:39)", "total": 1132}}

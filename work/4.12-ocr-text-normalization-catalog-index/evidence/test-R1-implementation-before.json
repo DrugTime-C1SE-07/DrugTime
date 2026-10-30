@@ -1,0 +1,34 @@
+[
+  {
+    "path": "src/drugtime/modules/catalog/domain/catalog_index.py",
+    "sha256": "D22FF582415D9D86A4E46A3196A2A7BAE4FEB7D8DA59877E9B7BA6CC72F74705"
+  },
+  {
+    "path": "src/drugtime/modules/catalog/application/normalize_ocr.py",
+    "sha256": "D061C34D3ACC162217235524936B3B7B5304E08C7862FC79DFE9AFDED8B1245F"
+  },
+  {
+    "path": "src/drugtime/modules/catalog/application/build_catalog_index.py",
+    "sha256": "BD4FB9361FA49B11739046283EC74CA5731302E234398FAAFD1780EF5A37E8E8"
+  },
+  {
+    "path": "src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py",
+    "sha256": "C6DF01D3AC925F48AC3E5137AB5D6937C49B089529DCAE019CD1629D938A2C9F"
+  },
+  {
+    "path": "src/drugtime/modules/catalog/api.py",
+    "sha256": "EDB575757764970B123ECAF5ED2B078E3786FFC4FA929D4B0906937559A96BA4"
+  },
+  {
+    "path": "tests/unit/test_catalog_ocr_normalization.py",
+    "sha256": "E2A15AF9E7D7C7294B622A612DDFB8ABD1DB663B7A123B3F83BAF9385E6002A4"
+  },
+  {
+    "path": "tests/unit/test_catalog_index.py",
+    "sha256": "A6BE18AF973E3AE9ECE491E6873920F62FE2FA2CEBDCC4B3FF35251B0B19BDA2"
+  },
+  {
+    "path": "tests/unit/test_catalog_sync.py",
+    "sha256": "82D38816856F955C74A2A7F57A64A888E698284E4002DDA2244517718A0F0DED"
+  }
+]

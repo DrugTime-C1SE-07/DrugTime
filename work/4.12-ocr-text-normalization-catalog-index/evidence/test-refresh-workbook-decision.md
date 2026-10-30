@@ -1,0 +1,1 @@
+Ngày 2026-10-30, người dùng chọn trong chat: "Dùng bộ 50 ca mới và giữ lịch sử trong backup". Cho phép bỏ 17 ID lỗi thời được liệt kê trong test-refresh-retired-case-ids.json khi gộp workbook tổng; không tái dùng ID. Backup: scratch/test-refresh-workbook-before.xlsx, evidence/test-refresh-testcases-before.json và test-refresh-report-before.md.

@@ -1,0 +1,6 @@
+Implementation files unchanged by test stage: 8/8
+Raw scope command still includes the approved implementation files; it is not overridden.
+Test-stage delta: {"outside": [], "inside": ["backend/tests/integration/test_catalog_index.py", "docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx"], "untouched": []}
+Both retained implementation and test-stage delta are in the approved plan.
+Current unit failure set equals rerun original HEAD baseline: 30 failures, 0 introduced
+Integration baseline re-executed all 18 failing nodeids: identical failure set, 0 introduced

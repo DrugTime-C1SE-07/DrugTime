@@ -1,0 +1,4 @@
+Stopped services: [supabase_kong_DrugTime-backend supabase_inbucket_DrugTime-backend supabase_rest_DrugTime-backend supabase_imgproxy_DrugTime-backend supabase_pg_meta_DrugTime-backend supabase_studio_DrugTime-backend supabase_edge_runtime_DrugTime-backend supabase_analytics_DrugTime-backend supabase_vector_DrugTime-backend supabase_pooler_DrugTime-backend]
+[REDACTED: Supabase CLI local connection credentials and demo keys]
+A new version of Supabase CLI is available: v2.122.0 (currently installed v2.120.0)
+We recommend updating regularly for new features and bug fixes: https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli

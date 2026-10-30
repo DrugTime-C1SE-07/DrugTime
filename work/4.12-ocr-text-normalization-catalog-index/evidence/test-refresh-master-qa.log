@@ -1,0 +1,3 @@
+{"kind":"table","sheet":"Report","address":"A1:L7","rows":7,"cols":12,"values":[["TEST REPORT",null,null,null,null,null,null,null,null,null,null,null],[null,null,"zannguyen","phucnguyenngoc","Total",null,null,null,null,null,null,null],["Executed","Passed",461,240,701,null,null,null,null,null,null,null],[null,"Failed",8,9,17,null,null,null,null,null,null,null],[null,"(Total) Test executed (Passed + Failed)",469,249,718,null,null,null,null,null,null,null],["Pending",null,18,16,34,null,null,null,null,null,null,null],["(Sub-total) Test Planned",null,487,265,752,null,null,null,null,null,null,null]]}
+Master aggregate totals match independent counts: {"Pass":701,"Fail":17,"Pending":34}
+Master report QA, read-only; no export

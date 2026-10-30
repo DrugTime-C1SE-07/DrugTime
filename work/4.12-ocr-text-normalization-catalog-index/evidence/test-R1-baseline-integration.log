@@ -1,0 +1,204 @@
+Baseline backend HEAD: 2439aa66c914809d08c017f09379e03d0144da83
+Imported drugtime: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\baseline_backend\src\drugtime\__init__.py
+Verified original SqlCatalog has no list_for_index method
+Database: existing integration fixtures, local-host guard remains enabled
+Selection: FAILED/ERROR nodeids only
+pytest.main arguments: ['-o', 'pythonpath=', '--import-mode=importlib', '-p', 'no:cacheprovider', '--tb=short', '-q', '--junitxml=D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\evidence\\test-R1-baseline-integration.xml', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04']
+FFFFFFFFFFFFFFFFFF                                                       [100%]
+================================== FAILURES ===================================
+________________ test_integration_alert_timing_and_naming_flow ________________
+backend\tests\integration\test_alert_dispatch_api.py:220: in test_integration_alert_timing_and_naming_flow
+    assert resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+__ test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6 ___
+backend\tests\integration\test_alert_dispatch_api.py:144: in test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+    assert resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+___________ test_integration_patch_notification_marks_as_read__AC7 ____________
+backend\tests\integration\test_alert_dispatch_api.py:188: in test_integration_patch_notification_marks_as_read__AC7
+    assert patch_resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+_ test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18 _
+backend\tests\integration\test_dose_confirmation_api.py:170: in test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+    assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E   AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'
+E     
+E     - 2026-10-02T01:00:00Z
+E     + 2026-10-02T01:00:59.999000Z
+E     ?                  +++++++
+__________ test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4 __________
+backend\tests\integration\test_migration_notification_snapshot.py:75: in test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4
+    body = assert_item(d.client.get(f"/notifications/{d.nid}", headers=d.headers))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'medication_name'
+E     'scheduled_at'
+E     Use -v to get more diff
+___________ test_injection_in_full_name_stored_verbatim__AC11[nul] ____________
+backend\tests\integration\test_mobile_login.py:623: in test_injection_in_full_name_stored_verbatim__AC11
+    assert r.status_code == 204, (r.status_code, _short(r))
+E   AssertionError: (422, '{"detail":"invalid_full_name"}')
+E   assert 422 == 204
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+_ test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/otp] _
+backend\tests\integration\test_mobile_login.py:381: in test_invalid_phone_rejected_before_provider__AC6
+    assert (r.status_code, r.json()) == (422, {"detail": "invalid_phone"}), (phone, _short(r))
+                           ^^^^^^^^
+backend\.venv\Lib\site-packages\httpx\_models.py:832: in json
+    return jsonlib.loads(self.content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py:363: in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+E   json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+_ test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/verify] _
+backend\tests\integration\test_mobile_login.py:381: in test_invalid_phone_rejected_before_provider__AC6
+    assert (r.status_code, r.json()) == (422, {"detail": "invalid_phone"}), (phone, _short(r))
+E   AssertionError: ('0900000001
+E     ', '{"user_id":"63ed3c6c-1fad-4294-97ca-a3a5b3d477a3","session":{"access_token":"***","token_type":"bearer","session_type":"mobile","expires_at":"2026-11-07T15:20:50.955601Z","expires_in":864000},"profile')
+E   assert (200, {'user_...lete': False}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 200 != 422
+E     Use -v to get more diff
+___________ test_profile_limits_255_and_1900__AC12[ngay-0001-01-01] ___________
+backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = <Response [204 No Content]>.status_code
+___________ test_profile_limits_255_and_1900__AC12[ngay-1899-12-31] ___________
+backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = <Response [204 No Content]>.status_code
+_______________ test_profile_limits_255_and_1900__AC12[ten-256] _______________
+backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = <Response [204 No Content]>.status_code
+____ test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp] ____
+backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (503, '{"detail":"auth_provider_unavailable"}')
+E   assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 503 != 422
+E     Use -v to get more diff
+__ test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify] ___
+backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (401, '{"detail":"Invalid credentials"}')
+E   assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 401 != 422
+E     Use -v to get more diff
+_____ test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp] ______
+backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (503, '{"detail":"auth_provider_unavailable"}')
+E   assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 503 != 422
+E     Use -v to get more diff
+____ test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify] ____
+backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (401, '{"detail":"Invalid credentials"}')
+E   assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 401 != 422
+E     Use -v to get more diff
+______ test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4 ______
+backend\tests\integration\test_notification_access.py:87: in test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4
+    item = assert_item(call(d, "detail"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'medication_name'
+E     'scheduled_at'
+E     Use -v to get more diff
+__ test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4 __
+backend\tests\integration\test_notification_snapshot_flow.py:55: in test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4
+    original = assert_item(client.get(f"/notifications/{nid}", headers=headers))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'medication_name'
+E     'scheduled_at'
+E     Use -v to get more diff
+_____________ test_profile_get_put_incomplete_complete__AC01_AC04 _____________
+backend\tests\integration\test_profile_api.py:37: in test_profile_get_put_incomplete_complete__AC01_AC04
+    assert response.json() == {
+E   AssertionError: assert {'full_name':...t.local', ...} == {'full_name':...nditions': []}
+E     
+E     Omitting 4 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'email': 'a3d8e24a-cfb4-4e35-9cfc-ae28336e9fc8@test.local'}
+E     Use -v to get more diff
+============================== warnings summary ===============================
+backend\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED backend\tests\integration\test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow
+FAILED backend\tests\integration\test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+FAILED backend\tests\integration\test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7
+FAILED backend\tests\integration\test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+FAILED backend\tests\integration\test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4
+FAILED backend\tests\integration\test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]
+FAILED backend\tests\integration\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/otp]
+FAILED backend\tests\integration\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/verify]
+FAILED backend\tests\integration\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]
+FAILED backend\tests\integration\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]
+FAILED backend\tests\integration\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]
+FAILED backend\tests\integration\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]
+FAILED backend\tests\integration\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]
+FAILED backend\tests\integration\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]
+FAILED backend\tests\integration\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]
+FAILED backend\tests\integration\test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4
+FAILED backend\tests\integration\test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4
+FAILED backend\tests\integration\test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04
+18 failed, 1 warning in 6.30s
+BASELINE_FAILURE_NODEIDS:
+tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow
+tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7
+tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4
+tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]
+tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/otp]
+tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/verify]
+tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]
+tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]
+tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]
+tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]
+tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]
+tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]
+tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]
+tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4
+tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4
+tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04
+FAILURE SETS: baseline=18, current=18, introduced=0, baseline-only=0
+Baseline pytest exit: 1

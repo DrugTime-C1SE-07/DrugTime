@@ -1,0 +1,9 @@
+Raw samples exercised: 49 ; source/line/unique membership checks passed
+Real pairs: 4 ; synthetic documents: 4
+Labels confirmed: True
+{"threshold": 0.8, "real_pairs_correct": 3, "false_merges": ["metformin-cut-fragment"], "missed_merges": [], "synthetic_documents_correct": 4}
+{"threshold": 0.83, "real_pairs_correct": 4, "false_merges": [], "missed_merges": [], "synthetic_documents_correct": 4}
+{"threshold": 0.86, "real_pairs_correct": 4, "false_merges": [], "missed_merges": [], "synthetic_documents_correct": 4}
+{"threshold": 0.89, "real_pairs_correct": 4, "false_merges": [], "missed_merges": [], "synthetic_documents_correct": 2}
+{"threshold": 0.92, "real_pairs_correct": 4, "false_merges": [], "missed_merges": [], "synthetic_documents_correct": 2}
+Selected threshold: 0.86 ; proposed pending labels: None

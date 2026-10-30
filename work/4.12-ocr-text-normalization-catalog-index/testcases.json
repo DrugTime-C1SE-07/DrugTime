@@ -1,0 +1,914 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "OCRNORM",
+      "name": "Chuẩn hóa dòng và gom cụm OCR",
+      "sheet": "Chuẩn hóa OCR",
+      "description": "Chuẩn hóa dòng và gom cụm OCR",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-30",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Kết quả của lượt test 30/10 theo 23 AC mới; toàn suite còn lỗi nền tách riêng trong 05.",
+      "ep": [
+        {
+          "field": "text/dòng/cụm",
+          "valid": [
+            "Unicode và nguồn dòng",
+            "Tên có chữ số/ký tự nghi ngờ",
+            "Grammar strength hợp lệ",
+            "Rỗng/nhiễu",
+            "Thuần không I/O",
+            "Whitelist/eligibility",
+            "Cụm/raw có nhãn"
+          ],
+          "invalid": [
+            "Strength sai/mơ hồ/ngoài grammar",
+            "Non-string"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Tổng hợp bằng chứng",
+          "conditions": [
+            {
+              "name": "Strength khác nhau?",
+              "values": [
+                "No",
+                "Yes",
+                "-",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Nhóm chưa hiểu?",
+              "values": [
+                "No",
+                "No",
+                "Yes",
+                "Yes/No"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Gắn khi duy nhất một neo",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Giữ cụm xung đột",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "Giữ unparsed độc lập",
+              "rules": [
+                3
+              ]
+            },
+            {
+              "name": "Giữ mọi giá trị/count",
+              "rules": [
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-OCRNORM-01",
+          "description": "Chuẩn hóa tiếng Việt và giữ hai biểu diễn",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_line_sources_and_clean_key.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "THUỐC ĐỎ NFC/NFD, tab, LF/CRLF/CR",
+          "expected": "clean=thuốc đỏ, key=thuoc do; idempotent; raw và nguồn dòng không đổi.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC1, AC2 · EP (1) · tests/unit/test_catalog_ocr_normalization.py::test_line_sources_and_clean_key"
+        },
+        {
+          "id": "TC-OCRNORM-03",
+          "description": "Giữ số trong tên và ký tự OCR",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_names_and_confusables.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Vitamin B12; Vitamin D3; O0l1; Metforrnin",
+          "expected": "Không sửa ký tự, không tách B12/D3 thành strength.",
+          "actual": "7 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC3 · EP (2) · tests/unit/test_catalog_ocr_normalization.py::test_names_and_confusables"
+        },
+        {
+          "id": "TC-OCRNORM-04",
+          "description": "Trích hàm lượng đơn dương",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "500MG; 500 mg; 25 mcg",
+          "expected": "500 mg hoặc 25 mcg; span/line_id đúng; tên còn thuoc mau.",
+          "actual": "10 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC4, AC5 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans"
+        },
+        {
+          "id": "TC-OCRNORM-05",
+          "description": "Chuẩn hóa decimal không đổi đơn vị",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "0,5 g; 0.5g; 500.0mg",
+          "expected": "0.5 g hoặc 500 mg; không quy đổi g sang mg.",
+          "actual": "10 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC4, AC5 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans"
+        },
+        {
+          "id": "TC-OCRNORM-06",
+          "description": "Giữ tử mẫu nồng độ",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "5mg/ml; 250mg/5ml",
+          "expected": "5 mg/ml và 250 mg/5 ml; một occurrence cả biểu thức.",
+          "actual": "10 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC4, AC5 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans"
+        },
+        {
+          "id": "TC-OCRNORM-07",
+          "description": "Giữ thứ tự phối hợp",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "500mg + 65mg",
+          "expected": "500 mg + 65 mg; không đếm từng thành phần thành giá trị cạnh tranh.",
+          "actual": "10 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC4, AC5 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans"
+        },
+        {
+          "id": "TC-OCRNORM-08",
+          "description": "Giữ biểu thức phần trăm",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "0,9%",
+          "expected": "0.9 %; giữ nguồn và span.",
+          "actual": "10 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC4, AC5 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_strength_whole_spans"
+        },
+        {
+          "id": "TC-OCRNORM-09",
+          "description": "Giữ nhóm không dương chưa hiểu",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "-5mg; 0mg; 0.0mg; +5mg",
+          "expected": "Không lấy một nhóm con; unparsed có nguồn, name_key giữ nhóm, không đoán/sửa.",
+          "actual": "46 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6 · EP (8) · BVA (âm/0/dương: không có upper bound) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group"
+        },
+        {
+          "id": "TC-OCRNORM-10",
+          "description": "Giữ số OCR sai và dấu phân nhóm",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "5OOmg; 1e3mg; 1,000 mg; 5.5.5mg",
+          "expected": "Không lấy một nhóm con; unparsed có nguồn, name_key giữ nhóm, không đoán/sửa.",
+          "actual": "46 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6 · EP (8) · BVA (âm/0/dương: không có upper bound) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group"
+        },
+        {
+          "id": "TC-OCRNORM-11",
+          "description": "Giữ toàn biểu thức liên kết hỏng",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "500mg + 5OOmg; 250mg/0ml; 250mg/",
+          "expected": "Không lấy một nhóm con; unparsed có nguồn, name_key giữ nhóm, không đoán/sửa.",
+          "actual": "46 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6 · EP (8) · BVA (âm/0/dương: không có upper bound) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group"
+        },
+        {
+          "id": "TC-OCRNORM-12",
+          "description": "Giữ đơn vị ngoài grammar",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "50 IU; 25µg; 5kg; 5 g/ml",
+          "expected": "Không lấy một nhóm con; unparsed có nguồn, name_key giữ nhóm, không đoán/sửa.",
+          "actual": "46 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6 · EP (8) · BVA (âm/0/dương: không có upper bound) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_whole_group"
+        },
+        {
+          "id": "TC-OCRNORM-17",
+          "description": "Giữ cấu trúc rỗng và không query",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_empty_and_noise_no_query.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "(blank); whitespace; ®™•; newline; 5mg; hop 10 vi",
+          "expected": "Không line/cụm eligible; raw rỗng trả tuple rỗng; newline giữ hai dòng.",
+          "actual": "6 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC15 · EP (4) · tests/unit/test_catalog_ocr_normalization.py::test_empty_and_noise_no_query"
+        },
+        {
+          "id": "TC-OCRNORM-18",
+          "description": "Từ chối non-string không echo",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_non_string_rejected_without_echo.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "None; 123; bytes/list private-marker",
+          "expected": "TypeError: OCR text must be a string; không lộ marker.",
+          "actual": "4 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC15 · EP (9) · tests/unit/test_catalog_ocr_normalization.py::test_non_string_rejected_without_echo"
+        },
+        {
+          "id": "TC-OCRNORM-19",
+          "description": "Giữ normalizer thuần và không log",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_no_ocr_io_log_or_writes.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "synthetic-private-marker 500mg lặp hai dòng",
+          "expected": "Không open/socket/log; count2; không xuất marker.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC21 · EP (5) · tests/unit/test_catalog_ocr_normalization.py::test_no_ocr_io_log_or_writes"
+        },
+        {
+          "id": "TC-OCRNORM-21",
+          "description": "Giữ tên thật không có strength",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_names_and_confusables.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Vitamin B12; Long; Log; Ong; O0l1",
+          "expected": "Tên/ký tự giữ nguyên theo key; không tạo strength đoán.",
+          "actual": "7 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC3 · EP (2) · tests/unit/test_catalog_ocr_normalization.py::test_names_and_confusables"
+        },
+        {
+          "id": "TC-OCRNORM-22",
+          "description": "Giữ mọi dòng và khoảng nguồn",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_line_sources_and_clean_key.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "THUỐC ĐỎ CRLF, dòng trống, hai Metformin CR/LF, trống cuối",
+          "expected": "Năm line_id theo thứ tự; ghép raw+line_ending tái tạo nguyên input; offset chính xác.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC1, AC2 · EP (1) · tests/unit/test_catalog_ocr_normalization.py::test_line_sources_and_clean_key"
+        },
+        {
+          "id": "TC-OCRNORM-23",
+          "description": "Lọc whitelist sau khi trích",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_whitelist_and_eligibility tests/unit/test_catalog_ocr_normalization.py::test_partial_registration_patterns_are_not_removed.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metformin 500mg viên nén hộp 10 vỉ; SDK: VD-13882-11; Vienna Sirolex VD-X",
+          "expected": "metformin eligible; 500mg đã trích; dòng SDK rỗng không query; tên giống noise được bảo vệ.",
+          "actual": "17 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC7, AC8 · EP (6) · tests/unit/test_catalog_ocr_normalization.py::test_whitelist_and_eligibility; tests/unit/test_catalog_ocr_normalization.py::test_partial_registration_patterns_are_not_removed"
+        },
+        {
+          "id": "TC-OCRNORM-24",
+          "description": "Giữ mảnh ngắn với reason",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_whitelist_and_eligibility.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Met.; Metform.; B12; D3; 5mg; Vitamin D3 5mg",
+          "expected": "Mảnh thiếu context không query; không mở rộng; Vitamin D3 query với số tên còn nguyên.",
+          "actual": "13 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC3, AC8 · EP (6) · tests/unit/test_catalog_ocr_normalization.py::test_whitelist_and_eligibility"
+        },
+        {
+          "id": "TC-OCRNORM-25",
+          "description": "Giữ nhóm hợp lệ độc lập cạnh nhóm sai",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_valid_and_corrupted_groups_remain_separate.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "500mg O.5g; l0 mg 500mg; 5OOmg",
+          "expected": "Giữ 500mg hợp lệ nếu độc lập, unparsed riêng và name_key còn nhóm sai; không tính phiếu cho đoán.",
+          "actual": "15 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6, AC14 · EP (8) · Decision Table (R3) · tests/unit/test_catalog_ocr_normalization.py::test_valid_and_corrupted_groups_remain_separate"
+        },
+        {
+          "id": "TC-OCRNORM-26",
+          "description": "Giữ count và đại diện theo hỗ trợ",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_exact_repeats_counts_order_and_representative.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metformin; METFORMIN; Metformin bydrock.; Aspirin",
+          "expected": "Production có count2 cho metformin; thử T0.65 thì đại diện metformin vẫn thắng dòng dài, count3.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC9, AC11 · EP (7) · tests/unit/test_catalog_ocr_clusters.py::test_exact_repeats_counts_order_and_representative"
+        },
+        {
+          "id": "TC-OCRNORM-27",
+          "description": "Kiểm biên ratio có tính bằng",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_ratio_cutoff_below_equal_above.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "abcdefghij / abcdefgxij; ratio=0.9; T=0.899/0.900/0.901",
+          "expected": "Gom ở T dưới/bằng ratio, giữ riêng khi T trên; không nhầm ngưỡng với confidence thuốc.",
+          "actual": "3 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC10 · BVA (dưới/bằng/trên ngưỡng ratio) · tests/unit/test_catalog_ocr_clusters.py::test_ratio_cutoff_below_equal_above"
+        },
+        {
+          "id": "TC-OCRNORM-28",
+          "description": "Chặn nối cụm qua cầu trung gian",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_complete_link_cannot_chain.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "aaaaaaaaaa / aaaaaaaabb / aaaaaabbbb, T0.8",
+          "expected": "Cụm (1,2) và (3); B-C không kéo A-C vào cùng cụm.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC10 · EP (7) · tests/unit/test_catalog_ocr_clusters.py::test_complete_link_cannot_chain"
+        },
+        {
+          "id": "TC-OCRNORM-29",
+          "description": "Chặn dòng thiếu strength nối hai cụm xung đột",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_missing_strength_never_bridges_conflict.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Candesartan Krka16mg / 160mg / thiếu strength; sáu hoán vị",
+          "expected": "Luôn ba singleton, sum count3; không gộp 16 với160.",
+          "actual": "6 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC10 · Decision Table (R2) · tests/unit/test_catalog_ocr_clusters.py::test_missing_strength_never_bridges_conflict"
+        },
+        {
+          "id": "TC-OCRNORM-30",
+          "description": "Gắn dòng thiếu strength khi chỉ có một neo",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_unique_missing_strength_attachment_and_unknown_vote.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metformin500mg / Metformin / Metformin5OOmg / 500mg",
+          "expected": "Dòng1,2 chung cụm; strength500 count1 ở cụm; dòng strength-only ở document, không ghép tên.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC10, AC12, AC14 · Decision Table (R1) · tests/unit/test_catalog_ocr_clusters.py::test_unique_missing_strength_attachment_and_unknown_vote"
+        },
+        {
+          "id": "TC-OCRNORM-31",
+          "description": "Chặn substring và chữ số khác nhau",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_digits_substring_suffix_and_unanchored_fragments_stay_separate.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Vitamin B12/D3; Candesartan16/160; formin/Metformin; Met./Metformin",
+          "expected": "Mỗi cặp giữ riêng, không mở rộng mảnh hoặc suy tên.",
+          "actual": "5 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC8, AC10 · EP (7) · tests/unit/test_catalog_ocr_clusters.py::test_digits_substring_suffix_and_unanchored_fragments_stay_separate"
+        },
+        {
+          "id": "TC-OCRNORM-32",
+          "description": "Kiểm prefix có neo và biên 65%",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_fragment_prefix_guard_and_full_anchor.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metform./Metformin; prefix13/20,12/20; suffix13/20",
+          "expected": "Metform. nhập với neo; 13/20 đủ65%, 12/20 không đủ; suffix không nhập dù dài.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC8, AC10 · BVA (12/20 dưới,13/20 bằng65%; vẫn phải có neo và đạt ratio) · tests/unit/test_catalog_ocr_clusters.py::test_fragment_prefix_guard_and_full_anchor"
+        },
+        {
+          "id": "TC-OCRNORM-33",
+          "description": "Giữ cụm nhỏ và không nhân thành viên",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_every_line_at_most_once_small_clusters_retained.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metformin/Metformim/Metformin/Aspirin/B12/500mg/trống",
+          "expected": "Mỗi dòng tên tối đa một cụm; giữ cụm không query; sort count giảm ổn định.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC9, AC11 · EP (7) · tests/unit/test_catalog_ocr_clusters.py::test_every_line_at_most_once_small_clusters_retained"
+        },
+        {
+          "id": "TC-OCRNORM-34",
+          "description": "Giữ thiểu số, hòa và occurrence lặp",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_evidence_retains_minority_unknown_and_repeated_occurrences.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "4 dòng500mg,1 dòng850mg,1 dòng500mg500.0mg,1 dòng5OOmg; hòa500/850",
+          "expected": "500 count5 nhưng6 occurrence; 850 count1; conflict/unparsed độc lập; hòa giữ hai giá trị; không winner.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC12, AC13, AC14 · Decision Table (R4) · tests/unit/test_catalog_ocr_normalization.py::test_evidence_retains_minority_unknown_and_repeated_occurrences"
+        },
+        {
+          "id": "TC-OCRNORM-35",
+          "description": "Giữ nhiều giá trị trong cùng dòng",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_equal_name_different_signatures_and_ambiguous_line.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Metformin500mg / Metformin500mg850mg / Metformin850mg",
+          "expected": "Ba signature/cụm riêng; có has_conflict và has_ambiguous_line.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC6, AC10, AC14 · EP (8) · tests/unit/test_catalog_ocr_clusters.py::test_equal_name_different_signatures_and_ambiguous_line"
+        },
+        {
+          "id": "TC-OCRNORM-36",
+          "description": "Đếm phối hợp theo toàn biểu thức",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_normalization.py::test_combination_is_one_vote_with_ordered_parts_and_uncertain_tail.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "500mg+65mg / 65mg+500mg / 500mg+5OOmg",
+          "expected": "Giữ thứ tự parts; hai canonical khác nhau; nhóm hỏng không thành phiếu.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC5, AC12, AC14 · EP (3) · tests/unit/test_catalog_ocr_normalization.py::test_combination_is_one_vote_with_ordered_parts_and_uncertain_tail"
+        },
+        {
+          "id": "TC-OCRNORM-37",
+          "description": "Chạy regression raw thật có nhãn",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_labelled_real_raw_regression tests/unit/test_catalog_ocr_clusters.py::test_calibrated_threshold_and_provenance_are_fixed tests/unit/test_catalog_ocr_clusters.py::test_synthetic_labelled_fixture.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Bốn cặp raw từ hai run, source SHA/line IDs trong fixture",
+          "expected": "Đúng bốn nhãn owner_confirmed; T0.86 cố định; không gọi tập nhỏ là accuracy ngoài tập.",
+          "actual": "6 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC23 · EP (7) · tests/unit/test_catalog_ocr_clusters.py::test_labelled_real_raw_regression; tests/unit/test_catalog_ocr_clusters.py::test_calibrated_threshold_and_provenance_are_fixed; tests/unit/test_catalog_ocr_clusters.py::test_synthetic_labelled_fixture"
+        },
+        {
+          "id": "TC-OCRNORM-38",
+          "description": "Từ chối threshold ngoài miền",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_ocr_clusters.py::test_invalid_threshold.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "T=-0.1 và1.1",
+          "expected": "ValueError; không âm thầm clamp ngưỡng.",
+          "actual": "2 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC10 · BVA (ngoài0..1) · tests/unit/test_catalog_ocr_clusters.py::test_invalid_threshold"
+        }
+      ]
+    },
+    {
+      "code": "CATINDEX",
+      "name": "Tra cứu catalog bằng index DB",
+      "sheet": "Index danh mục",
+      "description": "Tra cứu catalog bằng index DB",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-30",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Kết quả của lượt test 30/10 theo 23 AC mới; toàn suite còn lỗi nền tách riêng trong 05.",
+      "ep": [
+        {
+          "field": "query/catalog",
+          "valid": [
+            "Facade/read-only/hồi quy",
+            "Catalog có link/index/budget",
+            "Literal đặc biệt",
+            "Không eligible"
+          ],
+          "invalid": []
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Lookup",
+          "conditions": [
+            {
+              "name": "Dữ liệu đã commit?",
+              "values": [
+                "Yes",
+                "Yes",
+                "-",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Lỗi đọc?",
+              "values": [
+                "No",
+                "No",
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Thấy thay đổi ở lượt mới",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Giữ link/nguồn chính xác",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "Truyền lỗi không partial",
+              "rules": [
+                3
+              ]
+            },
+            {
+              "name": "Giới hạn riêng query/source",
+              "rules": [
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-CATINDEX-07",
+          "description": "Truyền lỗi từng nhánh và iterator",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_index.py::test_any_branch_error_propagates_without_partial_or_fallback tests/unit/test_catalog_index.py::test_sql_iterator_error_is_not_swallowed.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Reader lỗi ở name/raw_active_ingredient/alias; iterator lỗi sau hit",
+          "expected": "Exception truyền lên toàn lượt, không partial/rỗng/cache.",
+          "actual": "4 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC19 · Decision Table (R3) · tests/unit/test_catalog_index.py::test_any_branch_error_propagates_without_partial_or_fallback; tests/unit/test_catalog_index.py::test_sql_iterator_error_is_not_swallowed"
+        },
+        {
+          "id": "TC-CATINDEX-08",
+          "description": "Dùng cùng facade cho hai caller",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_index.py::test_two_facade_callers_fresh_uow_no_snapshot.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Hai UoW mô phỏng4.13/4.15, reader thay dữ liệu giữa lượt",
+          "expected": "Cùng normalized DTO/quy tắc, kết quả mới theo lượt; không snapshot xuyên request.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC22, AC19 · EP (1) · tests/unit/test_catalog_index.py::test_two_facade_callers_fresh_uow_no_snapshot"
+        },
+        {
+          "id": "TC-CATINDEX-09",
+          "description": "Giữ lookup không ghi và không builder",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_index.py::test_lookup_never_calls_writers_or_catalog_builder.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Synthetic marker, guard các writer/loader/builder",
+          "expected": "Không log/lưu/ghi; không gọi đường index Python toàn catalog.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC21 · EP (1) · tests/unit/test_catalog_index.py::test_lookup_never_calls_writers_or_catalog_builder"
+        },
+        {
+          "id": "TC-CATINDEX-12",
+          "description": "Thấy commit thuốc ở giao dịch kế tiếp",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_medication_commits_visible_and_old_result_immutable__AC19.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Thêm thuốc, sửa raw/strength/form, soft-delete/restore",
+          "expected": "UoW mới thấy mọi thay đổi ngay; object cũ không đổi/frozen.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC19 · Decision Table (R1) · tests/integration/test_catalog_index.py::test_medication_commits_visible_and_old_result_immutable__AC19"
+        },
+        {
+          "id": "TC-CATINDEX-14",
+          "description": "Truyền lỗi DB thật sau từng nhánh",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_each_read_branch_failure_raises_without_partial_or_stale__AC19.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Ngắt đúng PID connection riêng trước nhánh0/1/2 sau lượt thành công",
+          "expected": "DBAPIError ở từng vị trí; không trả kết quả một phần hoặc snapshot cũ.",
+          "actual": "3 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC19 · Decision Table (R3) · tests/integration/test_catalog_index.py::test_each_read_branch_failure_raises_without_partial_or_stale__AC19"
+        },
+        {
+          "id": "TC-CATINDEX-15",
+          "description": "Giữ ingest Unicode và ranh giới module",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_sync.py tests/architecture.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "DAV source NFC/còn dấu/hoa thường; toàn architecture suite",
+          "expected": "Ingest regression và architecture pass, không import sai hoặc đổi source hiển thị.",
+          "actual": "18 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC20 · EP (1) · tests/unit/test_catalog_sync.py; tests/architecture"
+        },
+        {
+          "id": "TC-CATINDEX-16",
+          "description": "Giữ hai route search cũ",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_search.py.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "/catalog/medications và /medications/search; q/limit/Unicode/wildcard/whitespace",
+          "expected": "Toàn 43 test search giữ response/thứ tự/active/shape; không đổi expected.",
+          "actual": "43 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC20 · EP (1) · tests/integration/test_catalog_search.py"
+        },
+        {
+          "id": "TC-CATINDEX-19",
+          "description": "Giữ mọi nguồn và ID, raw/null trong DB",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_sources_preserve_raw_nulls_ids_and_explicit_links__AC17_AC21 tests/unit/test_catalog_index.py::test_candidate_mapping_and_all_sources_preserve_raw_ids_nulls.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Hai ID cùng THUỐC ĐỎ khác strength/form; raw ingredient; hai alias; thuốc gỡ; alias không link",
+          "expected": "Chỉ active qua link thật; giữ null/raw/ID, mọi alias_id/text/aid và nguồn name/ingredient/alias.",
+          "actual": "2 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml, evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC17, AC21 · EP (2) · Decision Table (R2) · tests/integration/test_catalog_index.py::test_sources_preserve_raw_nulls_ids_and_explicit_links__AC17_AC21; tests/unit/test_catalog_index.py::test_candidate_mapping_and_all_sources_preserve_raw_ids_nulls"
+        },
+        {
+          "id": "TC-CATINDEX-20",
+          "description": "Escape literal và bind SQL ở ba nhánh",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_literal_wildcards_and_sql_text_are_bound__AC17_AC21.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "percent%; under_score; back\\slash; quote apostrophe OR TRUE--",
+          "expected": "Đúng ID literal, không mở wildcard/injection; query_key đã normalize lowercase.",
+          "actual": "12 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC17, AC21 · EP (3) · tests/integration/test_catalog_index.py::test_literal_wildcards_and_sql_text_are_bound__AC17_AC21"
+        },
+        {
+          "id": "TC-CATINDEX-21",
+          "description": "Kiểm biên200 distinct ID từng nguồn",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_distinct_id_budget_retains_all_alias_sources__AC18.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "199/200/201 ID cho name/ingredient/alias, mỗi ID hai alias",
+          "expected": "Trả min(N,200) distinct ID; truncated chỉ khi201; không mất nguồn alias của ID được chọn.",
+          "actual": "9 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC18 · BVA (max-1/max/max+1:199/200/201) · EP (2) · tests/integration/test_catalog_index.py::test_distinct_id_budget_retains_all_alias_sources__AC18"
+        },
+        {
+          "id": "TC-CATINDEX-22",
+          "description": "Giữ cụm nhỏ và dedup truy vấn trong lượt",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_large_small_clusters_query_dedup_preserves_sources__AC18 tests/unit/test_catalog_index.py::test_independent_cluster_queries_and_deduplication.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "60 thuốc cụm lớn,1 cụm nhỏ; tên trùng khác16/160mg",
+          "expected": "Giữ mọi cụm và line_ids/count; sáu SELECT/WITH có bound pattern/probe201, không SELECT toàn catalog.",
+          "actual": "2 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml, evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC18 · EP (2) · tests/integration/test_catalog_index.py::test_large_small_clusters_query_dedup_preserves_sources__AC18; tests/unit/test_catalog_index.py::test_independent_cluster_queries_and_deduplication"
+        },
+        {
+          "id": "TC-CATINDEX-23",
+          "description": "Không query với input không đủ thông tin",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_ineligible_inputs_issue_no_catalog_read__AC15_AC21 tests/unit/test_catalog_index.py::test_ineligible_no_read.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "(blank),whitespace,SDK,5mg,Met.",
+          "expected": "0 câu SQL đọc catalog, coverage rỗng; vẫn giữ normalized nguồn.",
+          "actual": "8 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml, evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC15, AC21 · EP (4) · tests/integration/test_catalog_index.py::test_ineligible_inputs_issue_no_catalog_read__AC15_AC21; tests/unit/test_catalog_index.py::test_ineligible_no_read"
+        },
+        {
+          "id": "TC-CATINDEX-24",
+          "description": "Thấy commit alias và liên kết không rebuild",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_alias_and_link_commits_visible_next_transaction__AC19.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Thêm alias chưa link, thêm link,sửa alias,gỡ link,thêm lại,xóa alias",
+          "expected": "Chưa link không match; thêm link match;sửa text thấy text mới; gỡ link/xóa alias không match.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC19 · Decision Table (R1) · tests/integration/test_catalog_index.py::test_alias_and_link_commits_visible_next_transaction__AC19"
+        },
+        {
+          "id": "TC-CATINDEX-25",
+          "description": "Kiểm ba expression GIN hợp lệ và khả dụng",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_expression_indexes_ready_and_used_in_eligibility_probe__AC16.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Index name/ingredient/alias; EXPLAIN JSON sau ANALYZE/flush pending list",
+          "expected": "Ba index valid/ready và GIN đúng expression; rollback-only probe dùng index tương ứng, không benchmark.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC16 · EP (2) · tests/integration/test_catalog_index.py::test_expression_indexes_ready_and_used_in_eligibility_probe__AC16"
+        },
+        {
+          "id": "TC-CATINDEX-26",
+          "description": "Kiểm lookup read-only và quyền client đóng",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/integration/test_catalog_index.py::test_read_only_lookup_and_client_grants_remain_closed__AC21.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "api_role READ ONLY; anon/authenticated trên3 bảng catalog",
+          "expected": "Lookup thành công không ghi; hai client role không SELECT được bảng.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-integration.xml",
+          "status": "Pass",
+          "comments": "AC21 · EP (1) · tests/integration/test_catalog_index.py::test_read_only_lookup_and_client_grants_remain_closed__AC21"
+        },
+        {
+          "id": "TC-CATINDEX-27",
+          "description": "Báo truncated riêng không bỏ cụm nhỏ",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Mở terminal tại backend.",
+            "Chạy .venv/Scripts/python.exe -m pytest -p no:cacheprovider -vv tests/unit/test_catalog_index.py::test_truncation_is_per_query_and_source_and_keeps_small_cluster.",
+            "Đối chiếu assertion với dữ liệu/kết quả dưới đây; lưu output vào evidence."
+          ],
+          "data": "Fake reader trả truncated theo từng query/source",
+          "expected": "Coverage giữ truncated riêng; cụm nhỏ không bị cap toàn cục.",
+          "actual": "1 invocation đạt toàn bộ assertion trong lượt test 30/10; không skip. evidence/test-refresh-unit.xml",
+          "status": "Pass",
+          "comments": "AC18 · Decision Table (R4) · tests/unit/test_catalog_index.py::test_truncation_is_per_query_and_source_and_keeps_small_cluster"
+        },
+        {
+          "id": "TC-CATINDEX-28",
+          "description": "Áp dụng migration mới trên baseline có dữ liệu",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Tại gốc superproject, chạy backend/.venv/Scripts/python.exe work/4.12-ocr-text-normalization-catalog-index/scratch/test_refresh_upgrade.py.",
+            "Đối chiếu log test-refresh-migration-upgrade-final.log và JSON: passed=true, payload4, relations75, policies74, functions9."
+          ],
+          "data": "DB clone toàn schema local trừ alias index mới; thuốc/hoạt chất/alias/link tổng hợp",
+          "expected": "Dữ liệu/ACL/RLS/policies/EXECUTE không đổi; GIN valid/ready; xóa DB thử đúng tên.",
+          "actual": "Thực thi thành công trong lượt test 30/10; payload/ACL/RLS/policies/EXECUTE giữ nguyên. evidence/test-refresh-migration-upgrade-final.log",
+          "status": "Pass",
+          "comments": "AC16, AC21 · EP (2) ·  · script upgrade local; evidence/test-refresh-migration-upgrade-final.log"
+        },
+        {
+          "id": "TC-CATINDEX-29",
+          "description": "Áp dụng toàn migration từ DB sạch",
+          "precondition": "Checkout task 4.12; dependencies backend/.venv sẵn có; chạy từ backend. Ca integration cần Supabase local riêng đã reset, không dùng DB deploy/chung; dữ liệu do test tạo.",
+          "steps": [
+            "Tại backend, kiểm project_id DrugTime-backend và chỉ DB local riêng.",
+            "Chạy supabase start rồi supabase db reset --local.",
+            "Kiểm log áp dụng đủ migration, exit0 và fixture integration AC16."
+          ],
+          "data": "Supabase local DrugTime-backend; migration tới20261030025813",
+          "expected": "supabase db reset --local exit0, index alias được tạo; không sửa migration cũ.",
+          "actual": "Thực thi thành công trong lượt test 30/10; Áp dụng toàn migration sạch tới index alias mới. evidence/test-refresh-db-reset.log",
+          "status": "Pass",
+          "comments": "AC16 · EP (2) ·  · CLI local; evidence/test-refresh-db-reset.log"
+        }
+      ]
+    }
+  ]
+}

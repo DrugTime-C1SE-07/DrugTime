@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="48" time="12.082" timestamp="2026-10-28T13:08:55.666109+07:00" hostname="DESKTOP-MND51E9"><testcase classname="tests.integration.test_catalog_index" name="test_loads_all_active_medications_above_search_limit__AC10" time="1.128" /><testcase classname="tests.integration.test_catalog_index" name="test_empty_catalog_is_a_successful_empty_index__AC10" time="0.061"><failure message="sqlalchemy.exc.ProgrammingError: (psycopg.errors.InsufficientPrivilege) permission denied to set role &quot;api_role&quot;&#10;[SQL: SET LOCAL ROLE api_role]&#10;(Background on this error at: https://sqlalche.me/e/21/f405)">self = &lt;sqlalchemy.engine.base.Connection object at 0x000001FF8C3B3570&gt;
+dialect = &lt;sqlalchemy.dialects.postgresql.psycopg.PGDialect_psycopg object at 0x000001FF8C499160&gt;
+context = &lt;sqlalchemy.dialects.postgresql.psycopg.PGExecutionContext_psycopg object at 0x000001FF8C3B3790&gt;
+statement = &lt;sqlalchemy.dialects.postgresql.psycopg.PGCompiler_psycopg object at 0x000001FF8C566850&gt;
+parameters = [{}]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -&gt; CursorResult[Unpack[TupleAny]]:
+        """continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        evt_handled: bool = False
+        try:
+            if self._has_events or self.engine._has_events:
+                for fn in self.dispatch.before_cursor_execute:
+                    str_statement, effective_parameters = fn(
+                        self,
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                        context.executemany,
+                    )
+    
+            if self._echo:
+                self._log_info(str_statement)
+    
+                stats = context._get_cache_stats()
+    
+                if not self.engine.hide_parameters:
+                    self._log_info(
+                        "[%s] %r",
+                        stats,
+                        sql_util._repr_params(
+                            effective_parameters,
+                            batches=10,
+                            ismulti=context.executemany,
+                        ),
+                    )
+                else:
+                    self._log_info(
+                        "[%s] [SQL parameters hidden due to "
+                        "hide_parameters=True]",
+                        stats,
+                    )
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    "_CoreMultiExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    "_CoreSingleExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+&gt;                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1943: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;psycopg.Cursor [closed] [IDLE] (host=127.0.0.1 port=54322 database=postgres) at 0x1ff8c3aeed0&gt;
+query = 'SET LOCAL ROLE api_role', params = {}, prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           psycopg.errors.InsufficientPrivilege: permission denied to set role "api_role"
+
+.venv\Lib\site-packages\psycopg\cursor.py:117: InsufficientPrivilege
+
+The above exception was the direct cause of the following exception:
+
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+make = Factory(db=&lt;sqlalchemy.engine.base.Connection object at 0x000001FF8C3B3460&gt;)
+
+    def test_empty_catalog_is_a_successful_empty_index__AC10(admin_engine, make):
+        make.catalog_medication(name=f"Empty snapshot guard {uuid4().hex}")
+        with admin_engine.connect().execution_options(isolation_level="READ COMMITTED") as connection:
+            transaction = connection.begin()
+            before = _catalog_state(connection)
+            assert any(row.deleted_at is None for row in before)
+            try:
+                connection.execute(
+                    text(
+                        "UPDATE medications SET deleted_at = TIMESTAMPTZ '2026-10-28 00:00:00+00' "
+                        "WHERE deleted_at IS NULL"
+                    )
+                )
+&gt;               connection.execute(text("SET LOCAL ROLE api_role"))
+
+tests\integration\test_catalog_index.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+.venv\Lib\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv\Lib\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+.venv\Lib\site-packages\sqlalchemy\engine\default.py:1192: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;psycopg.Cursor [closed] [IDLE] (host=127.0.0.1 port=54322 database=postgres) at 0x1ff8c3aeed0&gt;
+query = 'SET LOCAL ROLE api_role', params = {}, prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           sqlalchemy.exc.ProgrammingError: (psycopg.errors.InsufficientPrivilege) permission denied to set role "api_role"
+E           [SQL: SET LOCAL ROLE api_role]
+E           (Background on this error at: https://sqlalche.me/e/21/f405)
+
+.venv\Lib\site-packages\psycopg\cursor.py:117: ProgrammingError</failure></testcase><testcase classname="tests.integration.test_catalog_index" name="test_committed_catalog_changes_are_visible_next_call__AC11" time="0.070" /><testcase classname="tests.integration.test_catalog_index" name="test_same_snapshot_has_stable_order_and_old_index_is_unchanged__AC11" time="0.033" /><testcase classname="tests.integration.test_catalog_index" name="test_real_read_error_after_success_is_not_empty_or_cached__AC10_AC11" time="0.169" /><testcase classname="tests.integration.test_catalog_search" name="test_matches_name_and_ingredient_excludes_deleted_respects_limit__AC5[/catalog/medications]" time="1.843" /><testcase classname="tests.integration.test_catalog_search" name="test_matches_name_and_ingredient_excludes_deleted_respects_limit__AC5[/medications/search]" time="0.209" /><testcase classname="tests.integration.test_catalog_search" name="test_null_active_ingredient_is_returned_as_null__AC5[/catalog/medications]" time="0.116" /><testcase classname="tests.integration.test_catalog_search" name="test_null_active_ingredient_is_returned_as_null__AC5[/medications/search]" time="0.113" /><testcase classname="tests.integration.test_catalog_search" name="test_unaccented_and_case_insensitive__AC5c[/catalog/medications]" time="0.215" /><testcase classname="tests.integration.test_catalog_search" name="test_unaccented_and_case_insensitive__AC5c[/medications/search]" time="0.241" /><testcase classname="tests.integration.test_catalog_search" name="test_prefix_first_then_name_order__AC5[/catalog/medications]" time="0.178" /><testcase classname="tests.integration.test_catalog_search" name="test_prefix_first_then_name_order__AC5[/medications/search]" time="0.172" /><testcase classname="tests.integration.test_catalog_search" name="test_like_wildcards_are_literal__AC6[/catalog/medications]" time="0.228" /><testcase classname="tests.integration.test_catalog_search" name="test_like_wildcards_are_literal__AC6[/medications/search]" time="0.222" /><testcase classname="tests.integration.test_catalog_search" name="test_query_is_trimmed[/catalog/medications]" time="0.102" /><testcase classname="tests.integration.test_catalog_search" name="test_query_is_trimmed[/medications/search]" time="0.110" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params0]" time="0.083" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params1]" time="0.078" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params2]" time="0.089" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params3]" time="0.085" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params4]" time="0.123" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params5]" time="0.079" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/catalog/medications-params6]" time="0.084" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params0]" time="0.100" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params1]" time="0.084" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params2]" time="0.084" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params3]" time="0.089" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params4]" time="0.078" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params5]" time="0.090" /><testcase classname="tests.integration.test_catalog_search" name="test_bad_query_422__AC6[/medications/search-params6]" time="0.080" /><testcase classname="tests.integration.test_catalog_search" name="test_requires_auth_401__AC3[/catalog/medications]" time="0.077" /><testcase classname="tests.integration.test_catalog_search" name="test_requires_auth_401__AC3[/medications/search]" time="0.098" /><testcase classname="tests.integration.test_catalog_search" name="test_any_valid_session_no_consent_needed_no_log[/catalog/medications]" time="0.117" /><testcase classname="tests.integration.test_catalog_search" name="test_any_valid_session_no_consent_needed_no_log[/medications/search]" time="0.125" /><testcase classname="tests.integration.test_catalog_search" name="test_alias_matches_catalog_without_id_route_collision__AC1_AC6" time="0.139" /><testcase classname="tests.integration.test_catalog_search" name="test_empty_search_returns_items_empty__AC1[/catalog/medications]" time="0.104" /><testcase classname="tests.integration.test_catalog_search" name="test_empty_search_returns_items_empty__AC1[/medications/search]" time="0.092" /><testcase classname="tests.integration.test_catalog_search" name="test_search_default_and_limit_boundaries__AC1_AC5[/catalog/medications]" time="0.322" /><testcase classname="tests.integration.test_catalog_search" name="test_search_default_and_limit_boundaries__AC1_AC5[/medications/search]" time="0.274" /><testcase classname="tests.integration.test_catalog_search" name="test_query_length_boundaries__AC5[/catalog/medications-1]" time="0.074" /><testcase classname="tests.integration.test_catalog_search" name="test_query_length_boundaries__AC5[/catalog/medications-100]" time="0.074" /><testcase classname="tests.integration.test_catalog_search" name="test_query_length_boundaries__AC5[/medications/search-1]" time="0.076" /><testcase classname="tests.integration.test_catalog_search" name="test_query_length_boundaries__AC5[/medications/search-100]" time="0.080" /><testcase classname="tests.integration.test_catalog_search" name="test_internal_whitespace_is_preserved__AC4[/catalog/medications]" time="0.243" /><testcase classname="tests.integration.test_catalog_search" name="test_internal_whitespace_is_preserved__AC4[/medications/search]" time="0.129" /><testcase classname="tests.integration.test_catalog_search" name="test_invalid_token_is_rejected__AC2[/catalog/medications]" time="0.082" /><testcase classname="tests.integration.test_catalog_search" name="test_invalid_token_is_rejected__AC2[/medications/search]" time="0.087" /></testsuite></testsuites>

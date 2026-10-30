@@ -1,0 +1,9 @@
+Implementation hash unchanged: 8/8
+Raw scope retains 8 pre-existing implementation files as outside test stage; accepted exception remains explicit.
+Actual test-stage delta: {"outside": [], "inside": ["backend/tests/integration/test_catalog_index.py", "docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx"], "untouched": []}
+unit: baseline rerun failure set matches this run, 0 introduced.
+unit: 274 catalog/architecture invocations passed.
+Exact 184 normalizer/index/ingest/search/CRUD/architecture invocations passed.
+integration: baseline rerun failure set matches this run, 0 introduced.
+integration: 70 catalog/architecture invocations passed.
+Recorded 10 final code/workbook SHA256 hashes.

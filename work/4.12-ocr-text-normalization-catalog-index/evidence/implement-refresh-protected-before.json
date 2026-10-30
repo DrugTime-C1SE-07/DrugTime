@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\01-requirement.md",
+    "Hash": "40A1B9A289860E52E16379EE8488B8F785286A80CB105084F6A23C54E6C4E5D4"
+  },
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\03-plan.md",
+    "Hash": "D66B7D6C768A00D73E90A43C85DD26646A0D0DBE53EDF87654915094FC9B8605"
+  },
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\05-test-report.md",
+    "Hash": "F7E9B3EE50764BE23CE3FF3902A132EB99DE3BDFF37B1D9B40F545F1023F8A40"
+  },
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\06-review.md",
+    "Hash": "9D00343FBFC8C9BF299A471310E51ACCB66D558CF4A927B7CD56AAF716F6E753"
+  },
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_catalog_index.py",
+    "Hash": "ADF667DF353A0597D1F89A26D86FE06244CF8CF1C169E03F1C391767A4788C7D"
+  },
+  {
+    "Path": "D:\\DrugTime\\source\\DrugTime\\docs\\Team1_DTU\\04_Quality_&_Testing\\Test_Cases.xlsx",
+    "Hash": "EFB80891B8E772955B0FED34977B576C50BF38844EB704941E59A115F2929419"
+  }
+]

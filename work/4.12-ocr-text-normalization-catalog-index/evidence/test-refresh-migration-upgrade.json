@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "counts": {
+    "relations": 75,
+    "functions": 9,
+    "policies": 74,
+    "payload": 4
+  },
+  "index_definition": "CREATE INDEX ingredient_aliases_search_idx ON public.ingredient_aliases USING gin (catalog_search_key(alias_text) gin_trgm_ops)",
+  "baseline": "full local schema clone minus new alias index",
+  "original_database_unchanged": true
+}

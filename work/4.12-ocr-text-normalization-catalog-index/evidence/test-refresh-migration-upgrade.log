@@ -1,0 +1,10 @@
+Disposable upgrade database removed
+Traceback (most recent call last):
+  File "D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\test_refresh_upgrade.py", line 22, in <module>
+    run(['docker','exec','-i',container,'psql','-U','postgres','-d',name,'-v','ON_ERROR_STOP=1'],schema)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\test_refresh_upgrade.py", line 9, in run
+    if p.returncode: raise RuntimeError(p.stderr.decode(errors='replace')[:1200])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ERROR:  must be able to SET ROLE "supabase_admin"
+

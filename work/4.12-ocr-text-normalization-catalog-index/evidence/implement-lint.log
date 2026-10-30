@@ -1,0 +1,403 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:1
+  |
+1 |   """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+2 |
+3 | / from datetime import datetime
+4 | | from typing import Any
+  | |______________________^
+5 |   """Schemas của catalog module:
+6 |   1. Response của /catalog/medications (Mobile K04, khớp api_contract/openapi.json).
+  |
+help: Organize imports
+  |
+4 | from typing import Any
+5 +
+6 | """Schemas của catalog module:
+  |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 |   """
+ 9 |
+10 | / from datetime import datetime
+11 | | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 | |
+13 | | from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | | from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Organize imports
+   |
+10 | from datetime import datetime
+11 +
+12 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+--------------------------------------------------------------------------------
+21 | )
+   -
+22 |
+   |
+
+F811 [*] Redefinition of unused `datetime` from line 3
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:22
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   |                      ^^^^^^^^ `datetime` redefined here
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+  ::: src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:22
+   |
+ 1 | """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+ 2 |
+ 3 | from datetime import datetime
+   |                      -------- previous definition of `datetime` here
+ 4 | from typing import Any
+ 5 | """Schemas của catalog module:
+   |
+help: Remove definition: `datetime`
+   |
+9  |
+   - from datetime import datetime
+10 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:11:1
+   |
+10 | from datetime import datetime
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:13:1
+   |
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+14 | from drugtime.modules.catalog.domain.sync_run import (
+15 |     CatalogSyncRun,
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:14:1
+   |
+13 |   from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | / from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Move module level imports to top of file
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:101:101
+    |
+ 99 |     @model_validator(mode="after")
+100 |     def _source_pair(self) -> "MedicationBase":
+101 |         """source và source_ref phải cùng có giá trị hoặc cùng NULL (CHECK (source IS NULL)=(source_ref IS NULL))."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+102 |         if (self.source is None) != (self.source_ref is None):
+103 |             raise ValueError("source and source_ref must both be null or both set")
+    |
+
+E501 Line too long (104 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:104:101
+    |
+102 |                     VALUES
+103 |                       (:name, :raw_active_ingredient, :strength_text, :dosage_form,
+104 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+    |                                                                                                     ^^^^
+105 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+106 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:106:101
+    |
+104 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+105 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+106 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+107 |                 """),
+108 |                 data,
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\fetchers.py:3:1
+  |
+1 |   """Network-only clients for catalog sources."""
+2 |
+3 | / from collections.abc import Iterator
+4 | |
+5 | | import httpx
+  | |____________^
+help: Organize imports
+  |
+6 |
+  -
+7 | DAV_PUBLIC_API = (
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\normalize.py:3:1
+  |
+1 |   """Pure normalization of external medication records."""
+2 |
+3 | / import re
+4 | | import unicodedata
+5 | | from dataclasses import dataclass
+  | |_________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | _SPACE = re.compile(r"\s+")
+  |
+
+E501 Line too long (102 > 100)
+  --> src\drugtime\modules\catalog\normalize.py:34:101
+   |
+32 | def normalize_record(record: dict[str, object]) -> NormalizedMedication:
+33 |     """Normalize a canonical raw record produced by a source parser."""
+34 |     values = {name: normalize_text(record.get(name)) for name in NormalizedMedication.__annotations__}
+   |                                                                                                     ^^
+35 |     source_ref = values.get("source_ref")
+36 |     name = values.get("name")
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\consent\adapters\outbound\job_queue.py:3:1
+  |
+1 |   """Celery producer for consent background tasks."""
+2 |
+3 | / from uuid import UUID
+4 | |
+5 | | from drugtime.shared.celery import celery_app
+  | |_____________________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | ERASURE_TASK = "consent.erasure"
+  |
+
+F821 Undefined name `health`
+  --> src\drugtime\runtime\job_runner.py:50:5
+   |
+49 | def record_worker_heartbeat(instance_id: str | None = None) -> None:
+50 |     health.record_heartbeat(instance_id or socket.gethostname())
+   |     ^^^^^^
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\worker.py:3:1
+  |
+1 |   """Composition root for the Celery worker and Celery Beat."""
+2 |
+3 | / import os
+4 | | from pathlib import Path
+5 | |
+6 | | from dotenv import load_dotenv
+  | |______________________________^
+help: Organize imports
+  |
+7 |
+  -
+8 | BACKEND_ROOT = Path(__file__).resolve().parents[2]
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\worker.py:19:1
+   |
+17 |       load_dotenv(BACKEND_ROOT / ".env")
+18 |
+19 | / from drugtime.modules.catalog import tasks as catalog_tasks  # noqa: E402,F401
+20 | | from drugtime.runtime import job_runner  # noqa: E402
+21 | | from drugtime.shared.celery import celery_app  # noqa: E402
+22 | | from drugtime.shared.config import get_settings  # noqa: E402
+   | |_______________________________________________^
+help: Organize imports
+   |
+23 |
+   -
+24 | celery_app.conf.beat_schedule = {
+   |
+
+E501 Line too long (104 > 100)
+  --> tests\integration\conftest.py:42:101
+   |
+40 |     if make_url(ADMIN_URL).host not in _LOCAL_HOSTS:
+41 |         pytest.exit("Integration tests only run against a local database", returncode=2)
+42 |     engine = create_engine(ADMIN_URL, isolation_level="AUTOCOMMIT", connect_args={"connect_timeout": 2})
+   |                                                                                                     ^^^^
+43 |     try:
+44 |         with engine.connect() as c:
+   |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\conftest.py:150:101
+    |
+148 |                 text(
+149 |                     "INSERT INTO caregiver_links "
+150 |                     "(patient_user_id, family_user_id, status, sharing_enabled, revoked_at, rejected_at) "
+    |                                                                                                     ^^^^^^
+151 |                     "VALUES (:p, :f, CAST(:st AS link_status), :s, "
+152 |                     "CASE WHEN :is_revoked THEN now() END, "
+    |
+
+E501 Line too long (108 > 100)
+   --> tests\integration\conftest.py:245:101
+    |
+243 |             text(
+244 |                 f"SELECT id, link_id, patient_user_id, family_user_id, purpose, "
+245 |                 f"document_version, confirmed_at FROM family_link_consent_confirmations {where} ORDER BY id"
+    |                                                                                                     ^^^^^^^^
+246 |             ),
+247 |             params,
+    |
+
+E501 Line too long (102 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:122:101
+    |
+122 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+    |                                                                                                     ^^
+123 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+124 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:123:101
+    |
+122 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+123 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+    |                                                                                                     ^^^^^^
+124 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+125 |     dose_log_id = 998877
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:124:101
+    |
+122 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+123 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+124 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+125 |     dose_log_id = 998877
+126 |     scheduled_at = datetime(2026, 10, 19, 8, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    |
+
+E501 Line too long (113 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:198:101
+    |
+197 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+198 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+    |                                                                                                     ^^^^^^^^^^^^^
+199 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+200 |     dose_log_id = 998879
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:199:101
+    |
+197 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+198 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+199 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+200 |     dose_log_id = 998879
+201 |     scheduled_at = datetime(2026, 10, 19, 10, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    |
+
+E501 Line too long (103 > 100)
+ --> tests\integration\test_family_links_access.py:1:101
+  |
+1 | """Kiểm tra tích hợp phân quyền y tế qua PEP, thu hồi quyền tức thì và truy vấn người thân (task 3.16).
+  |                                                                                                     ^^^
+2 |
+3 | Bao phủ kịch bản I10, I11, I12 theo AC6, AC7, AC10, AC11.
+  |
+
+E501 Line too long (103 > 100)
+  --> tests\integration\test_family_links_access.py:29:101
+   |
+27 | def _create_user_medication(db, patient_id: UUID, med_id: int) -> int:
+28 |     rx_id = db.execute(
+29 |         text("INSERT INTO prescriptions (user_id, entry_source) VALUES (:u, 'mac_dinh') RETURNING id"),
+   |                                                                                                     ^^^
+30 |         {"u": patient_id},
+31 |     ).scalar_one()
+   |
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:55:5
+   |
+53 |     family = make.user()
+54 |     # Tạo link active có bằng chứng evidence nhưng sharing_enabled=False
+55 |     link_id = make.link(patient, family, status="active", sharing=False)
+   |     ^^^^^^^
+56 |     med_id = make.catalog_medication()
+57 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:77:5
+   |
+75 |     family = make.user()
+76 |     # Tạo link active có bằng chứng evidence và sharing_enabled=True
+77 |     link_id = make.link(patient, family, status="active", sharing=True)
+   |     ^^^^^^^
+78 |     med_id = make.catalog_medication()
+79 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+
+E741 Ambiguous variable name: `l`
+   --> tests\integration\test_family_links_access.py:182:32
+    |
+180 |     # Khẳng định access_logs ghi nhận 1 allowed và 1 denied
+181 |     logs = make.access_logs(patient)
+182 |     results = [l["result"] for l in logs]
+    |                                ^
+183 |     assert results == ["allowed", "denied"]
+    |
+
+E501 Line too long (101 > 100)
+  --> tests\integration\test_family_links_concurrency.py:18:101
+   |
+16 |     return db.execute(
+17 |         text(
+18 |             "INSERT INTO caregiver_links (patient_user_id, family_user_id, status, sharing_enabled) "
+   |                                                                                                     ^
+19 |             "VALUES (:p, :f, 'pending', false) RETURNING id"
+20 |         ),
+   |
+
+Found 31 errors.
+[*] 8 fixable with the `--fix` option (2 hidden fixes can be enabled with the `--unsafe-fixes` option).

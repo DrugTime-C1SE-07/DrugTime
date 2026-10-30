@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="18" skipped="0" tests="18" time="9.722" timestamp="2026-10-30T13:58:45.425196+07:00" hostname="DESKTOP-MND51E9"><testcase classname="tests.integration.test_alert_dispatch_api" name="test_integration_alert_timing_and_naming_flow" time="0.650"><failure message="assert 401 == 200&#10; +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code">backend\tests\integration\test_alert_dispatch_api.py:220: in test_integration_alert_timing_and_naming_flow
+    assert resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_alert_dispatch_api" name="test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6" time="0.202"><failure message="assert 401 == 200&#10; +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code">backend\tests\integration\test_alert_dispatch_api.py:144: in test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+    assert resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_alert_dispatch_api" name="test_integration_patch_notification_marks_as_read__AC7" time="0.217"><failure message="assert 401 == 200&#10; +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code">backend\tests\integration\test_alert_dispatch_api.py:188: in test_integration_patch_notification_marks_as_read__AC7
+    assert patch_resp.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = &lt;Response [401 Unauthorized]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_dose_confirmation_api" name="test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18" time="0.212"><failure message="AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'&#10;  &#10;  - 2026-10-02T01:00:00Z&#10;  + 2026-10-02T01:00:59.999000Z&#10;  ?                  +++++++">backend\tests\integration\test_dose_confirmation_api.py:170: in test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+    assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E   AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'
+E     
+E     - 2026-10-02T01:00:00Z
+E     + 2026-10-02T01:00:59.999000Z
+E     ?                  +++++++</failure></testcase><testcase classname="tests.integration.test_migration_notification_snapshot" name="test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4" time="0.189"><failure message="AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}&#10;  &#10;  Extra items in the left set:&#10;  'scheduled_at'&#10;  'medication_name'&#10;  Use -v to get more diff">backend\tests\integration\test_migration_notification_snapshot.py:75: in test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4
+    body = assert_item(d.client.get(f"/notifications/{d.nid}", headers=d.headers))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'scheduled_at'
+E     'medication_name'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_injection_in_full_name_stored_verbatim__AC11[nul]" time="2.724"><failure message="AssertionError: (422, '{&quot;detail&quot;:&quot;invalid_full_name&quot;}')&#10;assert 422 == 204&#10; +  where 422 = &lt;Response [422 Unprocessable Entity]&gt;.status_code">backend\tests\integration\test_mobile_login.py:623: in test_injection_in_full_name_stored_verbatim__AC11
+    assert r.status_code == 204, (r.status_code, _short(r))
+E   AssertionError: (422, '{"detail":"invalid_full_name"}')
+E   assert 422 == 204
+E    +  where 422 = &lt;Response [422 Unprocessable Entity]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/otp]" time="0.274"><failure message="json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)">backend\tests\integration\test_mobile_login.py:381: in test_invalid_phone_rejected_before_provider__AC6
+    assert (r.status_code, r.json()) == (422, {"detail": "invalid_phone"}), (phone, _short(r))
+                           ^^^^^^^^
+backend\.venv\Lib\site-packages\httpx\_models.py:832: in json
+    return jsonlib.loads(self.content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\admin\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py:363: in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+E   json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_invalid_phone_rejected_before_provider__AC6[0900000001\n-/auth/mobile/verify]" time="0.061"><failure message="AssertionError: ('0900000001&#10;  ', '{&quot;user_id&quot;:&quot;d91e9e23-a4b0-4a44-a81b-6252f210b3ed&quot;,&quot;session&quot;:{&quot;access_token&quot;:&quot;***&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;session_type&quot;:&quot;mobile&quot;,&quot;expires_at&quot;:&quot;2026-11-09T06:58:53.869859Z&quot;,&quot;expires_in&quot;:864000},&quot;profile')&#10;assert (200, {'user_...lete': False}) == (422, {'detai...valid_phone'})&#10;  &#10;  At index 0 diff: 200 != 422&#10;  Use -v to get more diff">backend\tests\integration\test_mobile_login.py:381: in test_invalid_phone_rejected_before_provider__AC6
+    assert (r.status_code, r.json()) == (422, {"detail": "invalid_phone"}), (phone, _short(r))
+E   AssertionError: ('0900000001
+E     ', '{"user_id":"d91e9e23-a4b0-4a44-a81b-6252f210b3ed","session":{"access_token":"***","token_type":"bearer","session_type":"mobile","expires_at":"2026-11-09T06:58:53.869859Z","expires_in":864000},"profile')
+E   assert (200, {'user_...lete': False}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 200 != 422
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]" time="0.034"><failure message="AssertionError: (204, '')&#10;assert 204 == 422&#10; +  where 204 = &lt;Response [204 No Content]&gt;.status_code">backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = &lt;Response [204 No Content]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]" time="0.032"><failure message="AssertionError: (204, '')&#10;assert 204 == 422&#10; +  where 204 = &lt;Response [204 No Content]&gt;.status_code">backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = &lt;Response [204 No Content]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_profile_limits_255_and_1900__AC12[ten-256]" time="0.034"><failure message="AssertionError: (204, '')&#10;assert 204 == 422&#10; +  where 204 = &lt;Response [204 No Content]&gt;.status_code">backend\tests\integration\test_mobile_login.py:712: in test_profile_limits_255_and_1900__AC12
+    assert r.status_code == 422, (r.status_code, _short(r))
+E   AssertionError: (204, '')
+E   assert 204 == 422
+E    +  where 204 = &lt;Response [204 No Content]&gt;.status_code</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]" time="0.051"><failure message="AssertionError: (503, '{&quot;detail&quot;:&quot;auth_provider_unavailable&quot;}')&#10;assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})&#10;  &#10;  At index 0 diff: 503 != 422&#10;  Use -v to get more diff">backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (503, '{"detail":"auth_provider_unavailable"}')
+E   assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 503 != 422
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]" time="0.060"><failure message="AssertionError: (401, '{&quot;detail&quot;:&quot;Invalid credentials&quot;}')&#10;assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})&#10;  &#10;  At index 0 diff: 401 != 422&#10;  Use -v to get more diff">backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (401, '{"detail":"Invalid credentials"}')
+E   assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 401 != 422
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]" time="0.045"><failure message="AssertionError: (503, '{&quot;detail&quot;:&quot;auth_provider_unavailable&quot;}')&#10;assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})&#10;  &#10;  At index 0 diff: 503 != 422&#10;  Use -v to get more diff">backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (503, '{"detail":"auth_provider_unavailable"}')
+E   assert (503, {'detai...unavailable'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 503 != 422
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_mobile_login" name="test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]" time="0.054"><failure message="AssertionError: (401, '{&quot;detail&quot;:&quot;Invalid credentials&quot;}')&#10;assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})&#10;  &#10;  At index 0 diff: 401 != 422&#10;  Use -v to get more diff">backend\tests\integration\test_mobile_login.py:407: in test_unicode_digit_phone_rejected__AC7
+    assert (r.status_code, r.json() if r.content else None) == (422, {"detail": "invalid_phone"}), (
+E   AssertionError: (401, '{"detail":"Invalid credentials"}')
+E   assert (401, {'detai...credentials'}) == (422, {'detai...valid_phone'})
+E     
+E     At index 0 diff: 401 != 422
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_notification_access" name="test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4" time="0.217"><failure message="AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}&#10;  &#10;  Extra items in the left set:&#10;  'scheduled_at'&#10;  'medication_name'&#10;  Use -v to get more diff">backend\tests\integration\test_notification_access.py:87: in test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4
+    item = assert_item(call(d, "detail"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'scheduled_at'
+E     'medication_name'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_notification_snapshot_flow" name="test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4" time="0.306"><failure message="AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}&#10;  &#10;  Extra items in the left set:&#10;  'scheduled_at'&#10;  'medication_name'&#10;  Use -v to get more diff">backend\tests\integration\test_notification_snapshot_flow.py:55: in test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4
+    original = assert_item(client.get(f"/notifications/{nid}", headers=headers))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\integration\test_notification_access.py:32: in assert_item
+    assert set(body) == set(schema["required"])
+E   AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E     
+E     Extra items in the left set:
+E     'scheduled_at'
+E     'medication_name'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_profile_api" name="test_profile_get_put_incomplete_complete__AC01_AC04" time="0.187"><failure message="AssertionError: assert {'full_name':...t.local', ...} == {'full_name':...nditions': []}&#10;  &#10;  Omitting 4 identical items, use -vv to show&#10;  Left contains 1 more item:&#10;  {'email': '595b07a4-05e0-4231-a057-f20dcf4c522a@test.local'}&#10;  Use -v to get more diff">backend\tests\integration\test_profile_api.py:37: in test_profile_get_put_incomplete_complete__AC01_AC04
+    assert response.json() == {
+E   AssertionError: assert {'full_name':...t.local', ...} == {'full_name':...nditions': []}
+E     
+E     Omitting 4 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'email': '595b07a4-05e0-4231-a057-f20dcf4c522a@test.local'}
+E     Use -v to get more diff</failure></testcase></testsuite></testsuites>

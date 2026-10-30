@@ -1,0 +1,8 @@
+Protected files unchanged: 6 (01/03/05/06/integration/workbook)
+Backend branch: feat/4.12-ocr-text-normalization-catalog-index
+Old migration diff: none
+Legacy catalog builder/loader/DTOs removed from source; old untracked builder file absent
+Final full-suite failure comparison: current= 30 baseline= 30 introduced=0
+Full suite collected before five new U12 tests; all five also ran in final targeted 213 pass
+All backend working-tree paths belong to approved plan; integration hash unchanged
+Migration files added: 1

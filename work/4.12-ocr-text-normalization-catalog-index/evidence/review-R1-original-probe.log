@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime
+plugins: anyio-4.15.1
+collected 4 items
+
+work\4.12-ocr-text-normalization-catalog-index\scratch\test_review_regression.py . [ 25%]
+...                                                                      [100%]
+
+- generated xml file: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\evidence\review-R1-original-probe.xml -
+============================== 4 passed in 1.37s ==============================

@@ -1,0 +1,9 @@
+test-unit-architecture {"tests": 1496, "failure": 30, "error": 0, "skipped": 0}
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "C:\Users\admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\xml\etree\ElementTree.py", line 1204, in parse
+    tree.parse(source, parser)
+  File "C:\Users\admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\xml\etree\ElementTree.py", line 558, in parse
+    source = open(source, "rb")
+             ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\evidence\\test-baseline-unit.xml'

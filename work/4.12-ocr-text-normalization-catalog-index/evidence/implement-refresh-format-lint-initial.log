@@ -1,0 +1,216 @@
+E731 Do not assign a `lambda` expression, use a `def`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:28:9
+   |
+26 |         if a.name_key == b.name_key:
+27 |             return 1.0
+28 |         number_tokens = lambda s: tuple(re.findall(r"\b\w*\d\w*\b", s))
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+29 |         if number_tokens(a.name_key) != number_tokens(b.name_key):
+30 |             return -1.0
+   |
+help: Rewrite `number_tokens` as a `def`
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:49:60
+   |
+47 |         clusters: list[list[OcrLine]] = []
+48 |         for group in sorted(groups, key=lambda g: (-len(g), g[0].name_key, g[0].line_id)):
+49 |             matches = [(score(group, c), min(l.line_id for l in c), i)
+   |                                                            ^
+50 |                        for i, c in enumerate(clusters)]
+51 |             matches = [m for m in matches if m[0] >= threshold]
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:86:52
+   |
+84 |     result = []
+85 |     for cluster in complete:
+86 |         members = tuple(sorted(cluster, key=lambda l: l.line_id))
+   |                                                    ^
+87 |         counts = Counter(l.name_key for l in members)
+88 |         eligible = [l for l in members if l.query_eligible]
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:87:41
+   |
+85 |     for cluster in complete:
+86 |         members = tuple(sorted(cluster, key=lambda l: l.line_id))
+87 |         counts = Counter(l.name_key for l in members)
+   |                                         ^
+88 |         eligible = [l for l in members if l.query_eligible]
+89 |         representative = min(eligible or list(members), key=lambda l: (
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:88:27
+   |
+86 |         members = tuple(sorted(cluster, key=lambda l: l.line_id))
+87 |         counts = Counter(l.name_key for l in members)
+88 |         eligible = [l for l in members if l.query_eligible]
+   |                           ^
+89 |         representative = min(eligible or list(members), key=lambda l: (
+90 |             -counts[l.name_key],
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:89:68
+   |
+87 |         counts = Counter(l.name_key for l in members)
+88 |         eligible = [l for l in members if l.query_eligible]
+89 |         representative = min(eligible or list(members), key=lambda l: (
+   |                                                                    ^
+90 |             -counts[l.name_key],
+91 |             -sum(ratio(l.name_key, other.name_key) for other in members),
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\cluster_ocr_lines.py:95:53
+   |
+93 |         ))
+94 |         result.append(OcrCluster(
+95 |             members[0].line_id, tuple(l.line_id for l in members), len(members),
+   |                                                     ^
+96 |             representative.line_id, representative.name_key, bool(eligible),
+97 |             summarize_strengths(members),
+   |
+
+E741 Ambiguous variable name: `l`
+  --> src\drugtime\modules\catalog\application\lookup_ocr_candidates.py:41:44
+   |
+39 |         candidates, sources = {}, {}
+40 |         for key in keys:
+41 |             line_ids = tuple(l.line_id for l in members if l.name_key == key and l.query_eligible)
+   |                                            ^
+42 |             for kind in MatchKind:
+43 |                 pair = (key, kind)
+   |
+
+E501 Line too long (133 > 100)
+  --> src\drugtime\modules\catalog\application\normalize_ocr.py:60:101
+   |
+58 |     if _GROUPING.fullmatch(value) or Decimal(value.replace(",", ".")) <= 0:
+59 |         return None
+60 |     return format(Decimal(value.replace(",", ".")), "f").rstrip("0").rstrip(".") if "." in value or "," in value else str(int(value))
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+E501 Line too long (107 > 100)
+   --> src\drugtime\modules\catalog\application\normalize_ocr.py:200:101
+    |
+198 |     for reason, pattern in _FILTERS:
+199 |         for match in pattern.finditer("".join(working)):
+200 |             removed.append(RemovedSpan(match.start(), match.end(), key[match.start():match.end()], reason))
+    |                                                                                                     ^^^^^^^
+201 |             working[match.start():match.end()] = " " * (match.end() - match.start())
+202 |     name = " ".join("".join(working).split())
+    |
+
+E501 Line too long (101 > 100)
+   --> tests\unit\test_catalog_index.py:143:101
+    |
+141 |             for a in ([1, 2, 3] if kind == MatchKind.INGREDIENT_ALIAS else [1])]
+142 |     connection = Connection(rows)
+143 |     result = SqlCatalog().find_ocr_matches(SimpleNamespace(connection=connection), "thuoc_%\\", kind)
+    |                                                                                                     ^
+144 |     ids = {h.medication.id for h in result.hits}
+145 |     assert len(ids) == min(count, 200)
+    |
+
+E501 Line too long (111 > 100)
+   --> tests\unit\test_catalog_index.py:168:101
+    |
+166 |         raise RuntimeError("synthetic iterator failure")
+167 |     with pytest.raises(RuntimeError, match="iterator failure"):
+168 |         SqlCatalog().find_ocr_matches(SimpleNamespace(connection=Connection(broken())), "name", MatchKind.NAME)
+    |                                                                                                     ^^^^^^^^^^^
+
+E501 Line too long (110 > 100)
+  --> tests\unit\test_catalog_ocr_clusters.py:14:101
+   |
+13 | def members(text, threshold=0.86):
+14 |     return [c.member_line_ids for c in cluster_ocr_lines(normalize_ocr_text(text).lines, threshold=threshold)]
+   |                                                                                                     ^^^^^^^^^^
+
+E501 Line too long (119 > 100)
+  --> tests\unit\test_catalog_ocr_clusters.py:95:101
+   |
+94 | def test_synthetic_labelled_fixture():
+95 |     data = json.loads((Path(__file__).parents[1] / "fixtures/catalog_ocr_clustering.json").read_text(encoding="utf-8"))
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+96 |     for sample in data["synthetic"]:
+97 |         actual = members(sample["raw_text"], data["provisional_threshold"])
+   |
+
+E741 Ambiguous variable name: `l`
+  --> tests\unit\test_catalog_ocr_normalization.py:23:27
+   |
+21 |     doc = normalize_ocr_text(raw)
+22 |     assert doc.raw_text == raw
+23 |     assert [l.line_id for l in doc.lines] == [1, 2, 3, 4, 5]
+   |                           ^
+24 |     assert [l.line_ending for l in doc.lines] == ["\r\n", "\n", "\r", "\n", ""]
+25 |     assert "".join(l.raw + l.line_ending for l in doc.lines) == raw
+   |
+
+E741 Ambiguous variable name: `l`
+  --> tests\unit\test_catalog_ocr_normalization.py:24:31
+   |
+22 |     assert doc.raw_text == raw
+23 |     assert [l.line_id for l in doc.lines] == [1, 2, 3, 4, 5]
+24 |     assert [l.line_ending for l in doc.lines] == ["\r\n", "\n", "\r", "\n", ""]
+   |                               ^
+25 |     assert "".join(l.raw + l.line_ending for l in doc.lines) == raw
+26 |     for line in doc.lines:
+   |
+
+E741 Ambiguous variable name: `l`
+  --> tests\unit\test_catalog_ocr_normalization.py:25:46
+   |
+23 |     assert [l.line_id for l in doc.lines] == [1, 2, 3, 4, 5]
+24 |     assert [l.line_ending for l in doc.lines] == ["\r\n", "\n", "\r", "\n", ""]
+25 |     assert "".join(l.raw + l.line_ending for l in doc.lines) == raw
+   |                                              ^
+26 |     for line in doc.lines:
+27 |         assert raw[line.raw_start:line.raw_end] == line.raw
+   |
+
+E501 Line too long (542 > 100)
+  --> tests\unit\test_catalog_ocr_normalization.py:53:101
+   |
+53 | …500mg', '0mg', '0.0 mg', '5OOmg', '1e3mg', '1e-3mg…)', '500 mg,', '(500 mg)', '5/ml', '5 / ml'])
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^…^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+54 | …
+55 | …
+   |
+
+E501 Line too long (107 > 100)
+  --> tests\unit\test_catalog_ocr_normalization.py:70:101
+   |
+70 | @pytest.mark.parametrize("name", ["Vitamin B12", "Vitamin D3", "O0l1", "Metforrnin", "Long", "Log", "Ong"])
+   |                                                                                                     ^^^^^^^
+71 | def test_names_and_confusables(name):
+72 |     line = normalize_ocr_text(name).lines[0]
+   |
+
+E501 Line too long (115 > 100)
+   --> tests\unit\test_catalog_ocr_normalization.py:109:101
+    |
+107 |     assert tie.has_conflict
+108 |     assert normalize_ocr_text("500mg 250mg").strength_evidence.has_ambiguous_line
+109 |     assert [v.canonical for v in normalize_ocr_text("0.5g\n500mg").strength_evidence.values] == ["0.5 g", "500 mg"]
+    |                                                                                                     ^^^^^^^^^^^^^^^
+
+E741 Ambiguous variable name: `l`
+   --> tests\unit\test_catalog_ocr_normalization.py:115:41
+    |
+113 | def test_empty_and_noise_no_query(text):
+114 |     doc = normalize_ocr_text(text)
+115 |     assert not any(l.query_eligible for l in doc.lines)
+    |                                         ^
+116 |     assert not any(c.query_eligible for c in doc.clusters)
+117 |     if text == "":
+    |
+
+Found 26 errors (5 fixed, 21 remaining).
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

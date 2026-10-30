@@ -1,0 +1,18 @@
+Baseline backend HEAD: 2439aa66c914809d08c017f09379e03d0144da83
+Ruff version: ruff 0.16.10
+Current command: .venv/Scripts/python.exe -m ruff check . --output-format json --no-cache
+Current exit: 1; current findings: 32
+Comparison signature: code + message + stripped source line (line numbers may move)
+src/drugtime/modules/catalog/adapters/inbound/schemas.py: current=8, HEAD=8, existing=8, introduced=0; current_sha256=eed7d09e581a2f3ca21aadb00279651d43a13bc6d4e5ac99c75d3f768f8544e3; HEAD_sha256=eed7d09e581a2f3ca21aadb00279651d43a13bc6d4e5ac99c75d3f768f8544e3
+src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py: current=3, HEAD=2, existing=2, introduced=1; current_sha256=6fa749a6480b57c80b7cbad98de056d636d52b77480e26c5d2b26cf93aaf1107; HEAD_sha256=87164e4b0e93f8423be7079de80fe6d6a17a8795bb7e73c3e90460751e43403c
+  INTRODUCED 1x ('I001', 'Import block is un-sorted or un-formatted', 'from sqlalchemy import text')
+src/drugtime/modules/catalog/fetchers.py: current=1, HEAD=1, existing=1, introduced=0; current_sha256=a0b35800eab5737e1756dd72f40fd748f4f67ea7de0c5a347e514eb6e7b574c4; HEAD_sha256=a0b35800eab5737e1756dd72f40fd748f4f67ea7de0c5a347e514eb6e7b574c4
+src/drugtime/modules/catalog/normalize.py: current=2, HEAD=2, existing=2, introduced=0; current_sha256=d164acf366a1275dfa2a290ae24cb85c789a043cc48c37342e2410e4e2c0dd55; HEAD_sha256=d164acf366a1275dfa2a290ae24cb85c789a043cc48c37342e2410e4e2c0dd55
+src/drugtime/modules/consent/adapters/outbound/job_queue.py: current=1, HEAD=1, existing=1, introduced=0; current_sha256=accbb1b054adc1690a00949cc2d16ac1160719d125632d85c1bb8806c1251af1; HEAD_sha256=accbb1b054adc1690a00949cc2d16ac1160719d125632d85c1bb8806c1251af1
+src/drugtime/runtime/job_runner.py: current=1, HEAD=1, existing=1, introduced=0; current_sha256=061f865a3bec5d633f4b9c496a96edc735302856e3aa2b8569a49ceb41ea36d7; HEAD_sha256=061f865a3bec5d633f4b9c496a96edc735302856e3aa2b8569a49ceb41ea36d7
+src/drugtime/worker.py: current=2, HEAD=2, existing=2, introduced=0; current_sha256=996100de2bd4797f312f37445003ec0eae210506fe94d459ac407cf9128fdda5; HEAD_sha256=996100de2bd4797f312f37445003ec0eae210506fe94d459ac407cf9128fdda5
+tests/integration/conftest.py: current=3, HEAD=3, existing=3, introduced=0; current_sha256=4dcd8d01de9d008adbf3a2bbdc7f7ff1afc3c51c369067fa7cdc57ab7d259316; HEAD_sha256=4dcd8d01de9d008adbf3a2bbdc7f7ff1afc3c51c369067fa7cdc57ab7d259316
+tests/integration/test_alert_dispatch_api.py: current=5, HEAD=5, existing=5, introduced=0; current_sha256=337d24f4db3f087ee81c9123368394ece64a2810b650aa7028592b5830542070; HEAD_sha256=337d24f4db3f087ee81c9123368394ece64a2810b650aa7028592b5830542070
+tests/integration/test_family_links_access.py: current=5, HEAD=5, existing=5, introduced=0; current_sha256=17b1ad1aa483cce5fd4b27a28910d93d5aaacc5c1a4aaf5482d8565396920b22; HEAD_sha256=17b1ad1aa483cce5fd4b27a28910d93d5aaacc5c1a4aaf5482d8565396920b22
+tests/integration/test_family_links_concurrency.py: current=1, HEAD=1, existing=1, introduced=0; current_sha256=d033dd37d5fbafe23adbf1ced0efcf85032fb5cbf8d679e2063829f87cd9812c; HEAD_sha256=d033dd37d5fbafe23adbf1ced0efcf85032fb5cbf8d679e2063829f87cd9812c
+TOTAL: current=32, existing baseline=31, introduced=1

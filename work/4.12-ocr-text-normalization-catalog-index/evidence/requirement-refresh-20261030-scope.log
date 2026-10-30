@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'requirement' của 4.12-ocr-text-normalization-catalog-index:
+  [NGOÀI]     backend/src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py
+  [NGOÀI]     backend/src/drugtime/modules/catalog/api.py
+  [NGOÀI]     backend/src/drugtime/modules/catalog/application/build_catalog_index.py
+  [NGOÀI]     backend/src/drugtime/modules/catalog/application/normalize_ocr.py
+  [NGOÀI]     backend/src/drugtime/modules/catalog/domain/catalog_index.py
+  [NGOÀI]     backend/tests/integration/test_catalog_index.py
+  [NGOÀI]     backend/tests/unit/test_catalog_index.py
+  [NGOÀI]     backend/tests/unit/test_catalog_ocr_normalization.py
+  [NGOÀI]     backend/tests/unit/test_catalog_sync.py
+  [NGOÀI]     docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+CHẶN: 10 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

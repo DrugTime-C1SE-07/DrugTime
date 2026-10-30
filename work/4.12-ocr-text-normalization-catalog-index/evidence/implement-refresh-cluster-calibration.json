@@ -1,0 +1,344 @@
+{
+  "raw_samples_exercised": 49,
+  "raw_processing": [
+    {
+      "run_id": "06f91517-adb5-4f5d-906f-f68c1e5d2cdf",
+      "source_sha256": "0da9a5d498841b0176854fdd13452d1ea2b5520da69783a952678ef20e3bee16",
+      "line_count": 8,
+      "cluster_count": 7
+    },
+    {
+      "run_id": "07a91d95-ea4b-4cfa-b360-a2b42c0d39de",
+      "source_sha256": "e0c1cab69d7a3b8f6eb18e2d881982d1b1ab8b8ee444ac422fb2fe9cb3681fbe",
+      "line_count": 33,
+      "cluster_count": 25
+    },
+    {
+      "run_id": "10f8e81e-003f-4009-8bc5-f91f15cf37d9",
+      "source_sha256": "b304560c8849f2f11456311907df1520c6a409bf936ecbb6a3ba2ba237594fc9",
+      "line_count": 25,
+      "cluster_count": 14
+    },
+    {
+      "run_id": "1c687834-2fb4-401c-8a07-ecf580d32a3c",
+      "source_sha256": "635caa2a990bb3a4b10c5eb1a28d00fb06ce4fb080f8a578f5bdfce4a88fbfdf",
+      "line_count": 3,
+      "cluster_count": 3
+    },
+    {
+      "run_id": "2684aa88-a381-43ac-a331-9cd50c541444",
+      "source_sha256": "51ab3f306eb062cd07695ce74ac4d94d08482f3e8054a7e042266b48e96d4951",
+      "line_count": 16,
+      "cluster_count": 16
+    },
+    {
+      "run_id": "2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c",
+      "source_sha256": "1c2d4fe3948ca5f55ad2b004ecee872b98f560287c9d8697a2f10a6649568a66",
+      "line_count": 29,
+      "cluster_count": 22
+    },
+    {
+      "run_id": "2da6ca63-2bff-4b87-95f3-959067784a05",
+      "source_sha256": "3349e2f6dd337e24b7adb9f360879beec32c28f0699be7299bbafec0f9f85902",
+      "line_count": 11,
+      "cluster_count": 10
+    },
+    {
+      "run_id": "35596a5b-074c-416d-a2c5-e3f748adb9aa",
+      "source_sha256": "a92382a813683d3aaaca624dd2cfdec7b395c755e2f32341610618749ac1fa7b",
+      "line_count": 19,
+      "cluster_count": 18
+    },
+    {
+      "run_id": "36aab102-d3ae-4fd6-9902-2870f087a5a2",
+      "source_sha256": "0e211fda2481f23b080e550c084e29cdc30b98fc236acced08a669458d7fb9c8",
+      "line_count": 8,
+      "cluster_count": 8
+    },
+    {
+      "run_id": "37336c67-2a7d-49ff-819c-e7324e8c254b",
+      "source_sha256": "8afbe5187c1c256caf2de413c1abe9870823734b64b6a44075aecd8f8df688e1",
+      "line_count": 4,
+      "cluster_count": 3
+    },
+    {
+      "run_id": "3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0",
+      "source_sha256": "37036fef3f6306d9d678531f965112bd658679c45960a0914fea689d6a335b0b",
+      "line_count": 8,
+      "cluster_count": 7
+    },
+    {
+      "run_id": "4505fc7c-5241-4a40-bffb-14ffaa685fff",
+      "source_sha256": "903a3b17d58b2c7bbadeda083eb0b0ed35e49bbddea1acc348913c9ee58b79aa",
+      "line_count": 17,
+      "cluster_count": 14
+    },
+    {
+      "run_id": "5b7c3812-6896-4ebf-9e77-d904bacbceb3",
+      "source_sha256": "f4f0c9513ea4acb0b59c6e99ac2d998463dfd27a5a6653d821120b1385770358",
+      "line_count": 29,
+      "cluster_count": 24
+    },
+    {
+      "run_id": "64533465-627b-4e4c-b57a-9e97e71cd0e0",
+      "source_sha256": "439be8c5e115b5182df9dcc6bc9b854388d1864e7dd03cd5a1fa588b6fec6255",
+      "line_count": 5,
+      "cluster_count": 4
+    },
+    {
+      "run_id": "6799276d-9660-4172-823d-698ab37150a8",
+      "source_sha256": "c478afa791f04897e68ed5606e94dc471d756fac5cd9d3e45fd985dd6c99e73b",
+      "line_count": 41,
+      "cluster_count": 14
+    },
+    {
+      "run_id": "6c38adb0-5fee-4b4e-b70f-9d91f42e1422",
+      "source_sha256": "914ffd2bc78e892e1f58828a2547687561a37f40a16b76f92d02aca3e89c6268",
+      "line_count": 37,
+      "cluster_count": 25
+    },
+    {
+      "run_id": "7134a04f-fc31-41fb-bd01-227c95a2b108",
+      "source_sha256": "dfa323f7d37dfb6cd31d257880c092acf0d9cf45a9db41cbd8529e588e41543c",
+      "line_count": 21,
+      "cluster_count": 20
+    },
+    {
+      "run_id": "72147707-9021-4f94-a171-c1946e4a33d1",
+      "source_sha256": "5b569f17ec654aec4e9718ef04cdc131a26374e18ef027ab22bf6f9cb785a3cb",
+      "line_count": 5,
+      "cluster_count": 4
+    },
+    {
+      "run_id": "7da78f76-0b14-4a57-9642-1b5bd7c902f7",
+      "source_sha256": "e83c6c42826ae2e75a8ebe8eb7b700524e28c826ad0744fdc2c705defe2409e1",
+      "line_count": 4,
+      "cluster_count": 4
+    },
+    {
+      "run_id": "8d81e335-9dc0-4df6-9051-c73abf139f27",
+      "source_sha256": "c9a9ac09464b453d2d43a27140190a9035fa95c6ea1f2255a13a45b803b7e3fe",
+      "line_count": 6,
+      "cluster_count": 6
+    },
+    {
+      "run_id": "9045e139-e68d-4a56-beee-23f36e3f954f",
+      "source_sha256": "c88ed9253a17497ee611669af90592a169951f97047346b0ed461507980ddcc0",
+      "line_count": 13,
+      "cluster_count": 9
+    },
+    {
+      "run_id": "923f520b-99a8-4cbc-ac18-8fc06167a683",
+      "source_sha256": "0812ac4ffe27d79757709186d857f4025bcbad62afe76b6f9bacd3b9cb2c0dae",
+      "line_count": 10,
+      "cluster_count": 10
+    },
+    {
+      "run_id": "976ae91d-b79d-48a9-9444-3468c964a30a",
+      "source_sha256": "d8d208566c4e933c33cea2d53c094f7a5940565319157a886b4a3da3ffbf13ca",
+      "line_count": 7,
+      "cluster_count": 7
+    },
+    {
+      "run_id": "99eaa534-e48b-44f1-8bd6-f72a4d4be482",
+      "source_sha256": "9553da995fbc70dcf1e62062ef7b2fe63f736250d68bf37e9204808eb3e2031f",
+      "line_count": 27,
+      "cluster_count": 21
+    },
+    {
+      "run_id": "9d81f31b-7e89-4365-954a-0347c7c03fae",
+      "source_sha256": "e584fa908207867bd7e0c4205f095c339c4618c33c4a60c366bc28bc0588ef25",
+      "line_count": 4,
+      "cluster_count": 4
+    },
+    {
+      "run_id": "9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f",
+      "source_sha256": "2e49d688a3ec35b6b3d330870fe345f69b905375b1650b6c990801861d905597",
+      "line_count": 8,
+      "cluster_count": 7
+    },
+    {
+      "run_id": "a2a4ae32-c9e2-4703-8cee-0722430c6dee",
+      "source_sha256": "edd04df6f01ce924114077df5eff6a30cff1c36ecc6c67f436320d628784ea32",
+      "line_count": 6,
+      "cluster_count": 6
+    },
+    {
+      "run_id": "be5bdeed-37c9-4208-bcf9-9e4634ed4f30",
+      "source_sha256": "e9c810cf7107efae738e39d8abcb4f9ae2f2a00d2bb8fcb44901230abc514b8e",
+      "line_count": 0,
+      "cluster_count": 0
+    },
+    {
+      "run_id": "bf779f5c-16d3-417a-8c4b-6aedada08cd9",
+      "source_sha256": "0e30e0bbf2029e012a7fe9b8b143f837412a08b7d9a1631e6500294d192131c4",
+      "line_count": 13,
+      "cluster_count": 12
+    },
+    {
+      "run_id": "bfeb4070-46cc-4f72-82dc-59dd0e70fa15",
+      "source_sha256": "6b1148325cc359e9bae13e06754fdb191c596befdd9667973a0d1866429add54",
+      "line_count": 6,
+      "cluster_count": 5
+    },
+    {
+      "run_id": "c3ba9109-e0ef-4f08-8ede-e0401a6ee537",
+      "source_sha256": "3c0aaa73a9286037084cb43ac2bc8ecfc3e2c0feb495602c90d330c0eeb37dbe",
+      "line_count": 8,
+      "cluster_count": 8
+    },
+    {
+      "run_id": "d1b6702a-cc87-4373-b4b1-f1952e71c5be",
+      "source_sha256": "dc69dc9f62b5705a833a0d1135bbc4e51f647a3e33677a341fb4228fc0289d3b",
+      "line_count": 11,
+      "cluster_count": 11
+    },
+    {
+      "run_id": "ddd2955d-a5b0-4be5-85df-3b1716da4e63",
+      "source_sha256": "f09d11a5fa18839cc196e55ffcae0423f9c9554cca23ade0b05b7605b917d3fd",
+      "line_count": 4,
+      "cluster_count": 4
+    },
+    {
+      "run_id": "df88d05f-f180-4a73-85b9-ebc4eca02622",
+      "source_sha256": "8f45d177b6a5e94d80db841ab6fdfda5374b5badaac6d2d33f57324fb59454be",
+      "line_count": 32,
+      "cluster_count": 26
+    },
+    {
+      "run_id": "e0c21b32-8f62-4360-86df-f4ca7c2ac41e",
+      "source_sha256": "ba6136a9a862ff4c56c58803c4e21899f5bc484be1ee5bba2d31be485a0e6f5e",
+      "line_count": 22,
+      "cluster_count": 20
+    },
+    {
+      "run_id": "e10ce562-a06d-4e03-8991-a48310cb03f7",
+      "source_sha256": "549472d37320e9149a8668c0a2b161a5e4aab076f8912258d61bcab8b42606ea",
+      "line_count": 13,
+      "cluster_count": 12
+    },
+    {
+      "run_id": "e37b994a-67d7-459e-b067-0d75b4863a73",
+      "source_sha256": "ecfae1b61d50ab96544410245720c8280f1acb6fe8390626040ad745991a6e10",
+      "line_count": 12,
+      "cluster_count": 12
+    },
+    {
+      "run_id": "e43d4c3a-5e6e-42b7-8771-e3b88bf56306",
+      "source_sha256": "650c7395f8cf9655da95de7ebea47326a83946504cb37bee3cadec5a29f2138a",
+      "line_count": 8,
+      "cluster_count": 8
+    },
+    {
+      "run_id": "e70fc2a4-737d-4ab4-beb6-80d0fda31a0d",
+      "source_sha256": "9bd98ef913b3c6e877ae56d37c456ea65b0388eddacc462962ee1928cf5d1a70",
+      "line_count": 39,
+      "cluster_count": 26
+    },
+    {
+      "run_id": "e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1",
+      "source_sha256": "512a9cb1f3cc5b23778fe549d1d248f3c00d151652e23ba7a438e85484a14783",
+      "line_count": 29,
+      "cluster_count": 20
+    },
+    {
+      "run_id": "ef381c48-a299-40c4-86a6-0f5541d79dca",
+      "source_sha256": "c1e435c6448ca279385b3f0b01f296507f93e6e5e32bbdad839aa8371da53fa7",
+      "line_count": 3,
+      "cluster_count": 3
+    },
+    {
+      "run_id": "f06d9227-c843-4c16-9ae2-c8c923bedf35",
+      "source_sha256": "77254fcfdc6aa2eb25f147a0053545761a39e311635ad68223c3f41350ad4413",
+      "line_count": 13,
+      "cluster_count": 12
+    },
+    {
+      "run_id": "f23251be-4b45-407b-a928-a88dd3d02008",
+      "source_sha256": "ffdfad62b9795562b50a9dd8f39c2686b0561b5f3797b7fec3d5e78edda7bfd8",
+      "line_count": 13,
+      "cluster_count": 13
+    },
+    {
+      "run_id": "f2a05f89-d16b-4da0-9fe5-9e1023f45dd6",
+      "source_sha256": "d853d5c4757123f16571d77940aed3fb16fd4368d5b5e3b509afae2c48b76ffe",
+      "line_count": 20,
+      "cluster_count": 15
+    },
+    {
+      "run_id": "f2dbbcff-0e27-47c4-87b7-4edaac90ec94",
+      "source_sha256": "fef86132c9452eec8a20a962dbf315b2a4eeaa567104ae6ce56913829abd4e46",
+      "line_count": 18,
+      "cluster_count": 18
+    },
+    {
+      "run_id": "f52a04a9-6103-4dd4-a644-2f22c8031217",
+      "source_sha256": "55383953ba901fdba9be1441f0ff815e4fb3966f0002e895ff1ff907360229f9",
+      "line_count": 28,
+      "cluster_count": 19
+    },
+    {
+      "run_id": "f7a16f0e-9c18-4731-ad45-1c546e8acbd0",
+      "source_sha256": "3ee3a282e19ae97f1e3127222981d54fe1eeaf4b0670eb705fda77588d23f0ca",
+      "line_count": 10,
+      "cluster_count": 8
+    },
+    {
+      "run_id": "fea2622e-6a3e-4533-8dee-cd46826917a9",
+      "source_sha256": "27c4a38f05d89f94048b02ee7e596bf81bd0548e9cbe62cffccfaa30d1fa900d",
+      "line_count": 6,
+      "cluster_count": 5
+    },
+    {
+      "run_id": "ff0c4cb4-8066-4586-a00b-53f5ffb3cbba",
+      "source_sha256": "2e41e0222a79638c851450501345a492f289400d7f944e9074243e262ee252b5",
+      "line_count": 40,
+      "cluster_count": 32
+    }
+  ],
+  "real_pair_count": 4,
+  "synthetic_document_count": 4,
+  "labels_confirmed": true,
+  "results": [
+    {
+      "threshold": 0.8,
+      "real_pairs_correct": 3,
+      "false_merges": [
+        "metformin-cut-fragment"
+      ],
+      "missed_merges": [],
+      "synthetic_documents_correct": 4
+    },
+    {
+      "threshold": 0.83,
+      "real_pairs_correct": 4,
+      "false_merges": [],
+      "missed_merges": [],
+      "synthetic_documents_correct": 4
+    },
+    {
+      "threshold": 0.86,
+      "real_pairs_correct": 4,
+      "false_merges": [],
+      "missed_merges": [],
+      "synthetic_documents_correct": 4
+    },
+    {
+      "threshold": 0.89,
+      "real_pairs_correct": 4,
+      "false_merges": [],
+      "missed_merges": [],
+      "synthetic_documents_correct": 2
+    },
+    {
+      "threshold": 0.92,
+      "real_pairs_correct": 4,
+      "false_merges": [],
+      "missed_merges": [],
+      "synthetic_documents_correct": 2
+    }
+  ],
+  "selected_threshold": 0.86,
+  "proposed_threshold_pending_labels": null,
+  "limitation": "Small package-text calibration only, no matching/medical accuracy claim"
+}

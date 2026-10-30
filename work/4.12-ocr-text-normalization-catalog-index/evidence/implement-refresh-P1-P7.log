@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 156 items
+
+backend\tests\unit\test_catalog_ocr_normalization.py ................... [ 12%]
+........................................................................ [ 58%]
+.............                                                            [ 66%]
+backend\tests\unit\test_catalog_ocr_clusters.py .......................  [ 81%]
+backend\tests\unit\test_catalog_index.py .............................   [100%]
+
+============================= 156 passed in 6.96s =============================

@@ -1,0 +1,10 @@
+All 10 code/workbook hashes equal approved test snapshot.
+review-R1-targeted.xml: 184 pass, 0 failed/error/skipped.
+review-R1-integration.xml: 60 pass, 0 failed/error/skipped.
+review-R1-original-probe.xml: 4 pass, 0 failed/error/skipped.
+All 22 regression invocations that failed before the fix now pass.
+Approved unit evidence: 1524 invocations, 30 failures match executed baseline node IDs exactly; 0 skipped.
+Approved integration evidence: 1132 invocations, 18 failures match executed baseline node IDs exactly; 0 skipped.
+Spec function case counts: [('OCRNORM', 21), ('CATINDEX', 18)]
+Approved lint evidence: current=31, baseline=31, introduced=0.
+PASS: read-only evidence audit; full suite/baseline were not rerun in this review.

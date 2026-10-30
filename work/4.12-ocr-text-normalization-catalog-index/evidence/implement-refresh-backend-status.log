@@ -1,0 +1,13 @@
+ M src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py
+ M src/drugtime/modules/catalog/api.py
+ M tests/unit/test_catalog_sync.py
+?? src/drugtime/modules/catalog/application/cluster_ocr_lines.py
+?? src/drugtime/modules/catalog/application/lookup_ocr_candidates.py
+?? src/drugtime/modules/catalog/application/normalize_ocr.py
+?? src/drugtime/modules/catalog/domain/catalog_index.py
+?? supabase/migrations/20261030025813_catalog_ingredient_alias_search.sql
+?? tests/fixtures/
+?? tests/integration/test_catalog_index.py
+?? tests/unit/test_catalog_index.py
+?? tests/unit/test_catalog_ocr_clusters.py
+?? tests/unit/test_catalog_ocr_normalization.py

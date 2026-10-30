@@ -1,0 +1,235 @@
+Baseline backend HEAD: 2439aa66c914809d08c017f09379e03d0144da83
+Imported drugtime: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\baseline_backend\src\drugtime\__init__.py
+Verified original SqlCatalog has no list_for_index method
+Contract: current checkout api_contract/openapi.json, found by current absolute test paths
+pytest.main arguments: ['-o', 'pythonpath=', '--import-mode=importlib', '-p', 'no:cacheprovider', '--tb=short', '-q', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_contract_device_tokens.py', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_contract_medication.py', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_contract_notification.py', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_contract_openapi_semantics.py', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_contract_profile.py', 'D:\\DrugTime\\source\\DrugTime\\backend\\tests\\unit\\test_profile_http.py']
+FF..........F..FF..................FFF.FF.F.FFFFFFF.FFFFFF.............. [ 62%]
+.........................FFFFFF.............                             [100%]
+================================== FAILURES ===================================
+__ test_token_operations_match_approved_contract[put-registerMyDeviceToken] ___
+backend\tests\unit\test_contract_device_tokens.py:14: in test_token_operations_match_approved_contract
+    expected = contract["paths"]["/me/device-tokens"][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/me/device-tokens'
+_ test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken] _
+backend\tests\unit\test_contract_device_tokens.py:14: in test_token_operations_match_approved_contract
+    expected = contract["paths"]["/me/device-tokens"][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/me/device-tokens'
+___________ test_operations_match_contract[get-/medications/search] ___________
+backend\tests\unit\test_contract_medication.py:85: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+backend\tests\unit\test_contract_medication.py:119: in test_catalog_search_query_params_match_contract
+    assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+______________ test_catalog_search_operation_ids_match_contract _______________
+backend\tests\unit\test_contract_medication.py:126: in test_catalog_search_operation_ids_match_contract
+    assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/medications/search'
+_____________ test_operations_match_contract[get-/notifications] ______________
+backend\tests\unit\test_contract_notification.py:30: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications'
+___________ test_operations_match_contract[get-/notifications/{id}] ___________
+backend\tests\unit\test_contract_notification.py:30: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications/{id}'
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+backend\tests\unit\test_contract_notification.py:30: in test_operations_match_contract
+    c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications/{id}'
+________________ test_notification_query_params_match_contract ________________
+backend\tests\unit\test_contract_notification.py:52: in test_notification_query_params_match_contract
+    c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/notifications'
+________ test_contract_audit_passes_and_detects_broken_contract_guards ________
+backend\tests\unit\test_contract_openapi_semantics.py:126: in test_contract_audit_passes_and_detects_broken_contract_guards
+    assert _audit_spec(contract) == set()
+E   AssertionError: assert {'missing-bearer-security'} == set()
+E     
+E     Extra items in the left set:
+E     'missing-bearer-security'
+E     Use -v to get more diff
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+backend\tests\unit\test_contract_openapi_semantics.py:199: in test_interaction_contract_keeps_composition_versions_scale_and_q1
+    assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E   AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+backend\tests\unit\test_contract_openapi_semantics.py:240: in test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+    profile_get = _operation(contract, "get", "/profile")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\tests\unit\test_contract_openapi_semantics.py:63: in _operation
+    return spec["paths"][path][method]
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_____ test_profile_operation_inventory_matches_contract[/profile-get-200] _____
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_____ test_profile_operation_inventory_matches_contract[/profile-put-204] _____
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+___ test_profile_operation_inventory_matches_contract[/conditions-get-200] ____
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/conditions'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions-post-201] _
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200] _
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204] _
+backend\tests\unit\test_contract_profile.py:23: in test_profile_operation_inventory_matches_contract
+    expected = contract["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+__ test_request_and_success_response_shapes_match_contract[/profile-get-200] __
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+__ test_request_and_success_response_shapes_match_contract[/profile-put-204] __
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile'
+_ test_request_and_success_response_shapes_match_contract[/conditions-get-200] _
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/conditions'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201] _
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200] _
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204] _
+backend\tests\unit\test_contract_profile.py:96: in test_request_and_success_response_shapes_match_contract
+    expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/profile/conditions/{id}'
+___________ test_invalid_or_erased_auth[invalid-get-/profile-None] ____________
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+___________ test_invalid_or_erased_auth[invalid-put-/profile-body1] ___________
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+_____ test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2] _____
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+___ test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3] ____
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+___ test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None] ____
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+__________ test_invalid_or_erased_auth[invalid-get-/conditions-None] __________
+backend\tests\unit\test_profile_http.py:255: in test_invalid_or_erased_auth
+    assert response.status_code == 401
+E   assert 422 == 401
+E    +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+============================== warnings summary ===============================
+backend\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED backend\tests\unit\test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]
+FAILED backend\tests\unit\test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]
+FAILED backend\tests\unit\test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED backend\tests\unit\test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED backend\tests\unit\test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED backend\tests\unit\test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED backend\tests\unit\test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]
+FAILED backend\tests\unit\test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED backend\tests\unit\test_contract_notification.py::test_notification_query_params_match_contract
+FAILED backend\tests\unit\test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards
+FAILED backend\tests\unit\test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED backend\tests\unit\test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+FAILED backend\tests\unit\test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-put-/profile-body1]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None]
+FAILED backend\tests\unit\test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/conditions-None]
+30 failed, 86 passed, 1 warning in 19.89s
+BASELINE_FAILURE_NODEIDS:
+tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]
+tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]
+tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]
+tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards
+tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]
+tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-put-/profile-body1]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None]
+tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/conditions-None]
+Baseline pytest exit: 1
+Comparison with current full suite: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\evidence\implement-unit-architecture.log
+FAILURE SETS: baseline=30, current=30, introduced=0, baseline-only=0

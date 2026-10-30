@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\verify_test_R1.py", line 38, in <module>
+    assert signature(main[name]) == value, name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Android build

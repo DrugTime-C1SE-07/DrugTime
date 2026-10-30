@@ -1,0 +1,5 @@
+supabase_rest_DrugTime-backend
+supabase_inbucket_DrugTime-backend
+supabase_kong_DrugTime-backend
+status keys: ['ANON_KEY', 'API_URL', 'DB_URL', 'GRAPHQL_URL', 'INBUCKET_URL', 'JWT_SECRET', 'MAILPIT_URL', 'PUBLISHABLE_KEY', 'REST_URL', 'S3_PROTOCOL_ACCESS_KEY_ID', 'S3_PROTOCOL_ACCESS_KEY_SECRET', 'S3_PROTOCOL_REGION', 'SECRET_KEY', 'SERVICE_ROLE_KEY', 'STORAGE_S3_URL']
+API host: 127.0.0.1
