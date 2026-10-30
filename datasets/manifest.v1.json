@@ -1,0 +1,547 @@
+{
+  "version": "v1",
+  "created_at": "2026-10-29T09:29:53.559263+00:00",
+  "status": "visual_review_complete_human_review_and_publication_pending",
+  "labels_sha256": "41f59ab5071166c9bf75be4abd1190aff676e0bcc24c0177ac949522aa753865",
+  "images": [
+    {
+      "image_id": "atorvastatin_10_blister_001",
+      "relative_path": "images/atorvastatin_10/blister/atorvastatin_10_blister_001.jpg",
+      "drug_name": "Atorvastatin",
+      "strength": "10mg",
+      "image_sha256": "24f0fd2a84dde27d26cf5cc4a5592937295d733e738b77921000b8e46a36bc5e",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "atorvastatin_10_blister_002",
+      "relative_path": "images/atorvastatin_10/blister/atorvastatin_10_blister_002.jpg",
+      "drug_name": "Atorvastatin",
+      "strength": "10mg",
+      "image_sha256": "1b0172e287ffa887a7c53cb566bc947bee377d546198d505b3032dfbc6c7040f",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "atorvastatin_10_blister_003",
+      "relative_path": "images/atorvastatin_10/blister/atorvastatin_10_blister_003.jpg",
+      "drug_name": "Atorvastatin",
+      "strength": "10mg",
+      "image_sha256": "c95de0a99ce49dba8fa436dc59110cdae9861370324c729be19ad9715f30be0d",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "atorvastatin_10_box_001",
+      "relative_path": "images/atorvastatin_10/box/atorvastatin_10_box_001.jpg",
+      "drug_name": "A.TATORVASTATIN",
+      "strength": "10mg",
+      "image_sha256": "2b8d0d7e81211000e6a46d7a26347756f1f16aaee2671a13f17bf44030c64edc",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "atorvastatin_10_box_002",
+      "relative_path": "images/atorvastatin_10/box/atorvastatin_10_box_002.jpg",
+      "drug_name": "Atorvastatin",
+      "strength": "10mg",
+      "image_sha256": "a357ad90e54f99f10c552d652107ed5851bc7a8b5731d3d2d9c52fd7684ed833",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "atorvastatin_10_box_003",
+      "relative_path": "images/atorvastatin_10/box/atorvastatin_10_box_003.jpg",
+      "drug_name": "Atorvastatin",
+      "strength": "10mg",
+      "image_sha256": "3ab72d1a1798f1bcb84ea22d537ee4cfb289682fe1832004676519cc5828c97a",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "bisoprolol_2_point_5_blister_001",
+      "relative_path": "images/bisoprolol_2.5/blister/bisoprolol_2_point_5_blister_001.jpg",
+      "drug_name": "Bisoheart",
+      "strength": "2.5mg",
+      "image_sha256": "288fdba013e5b0aee68c487edcd5e80e55f736c12cb27cabb6826fc85d6e1d96",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "bisoprolol_2_point_5_blister_002",
+      "relative_path": "images/bisoprolol_2.5/blister/bisoprolol_2_point_5_blister_002.jpg",
+      "drug_name": "A.TBisoprolol",
+      "strength": "2.5mg",
+      "image_sha256": "322a15e35eae86d6135f08ae1a5dcd9ef27e033637da5e64eb55110186af2a24",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "bisoprolol_2_point_5_box_001",
+      "relative_path": "images/bisoprolol_2.5/box/bisoprolol_2_point_5_box_001.jpg",
+      "drug_name": "A.TBisoprolol",
+      "strength": "2.5mg",
+      "image_sha256": "311f5c75f7a2c6ab6ea060b62950854c93bacc27cd90e341bebc12340e54a314",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "bisoprolol_2_point_5_box_002",
+      "relative_path": "images/bisoprolol_2.5/box/bisoprolol_2_point_5_box_002.jpg",
+      "drug_name": "A.TBisoprolol",
+      "strength": "2.5mg",
+      "image_sha256": "93e12de187963e56f4fd4cfd650c09edd414c15c30907863841eaeb89f54bbc6",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "candesartan_htz_32_25_blister_001",
+      "relative_path": "images/candesartan_htz_32_25/blister/candesartan_htz_32_25_blister_001.jpg",
+      "drug_name": "Candesartan Krka",
+      "strength": "16mg",
+      "image_sha256": "114fbd306dbedf7a617992615d36d37d561bacd884643b5a38e1e7a85934af03",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "candesartan_htz_32_25_box_001",
+      "relative_path": "images/candesartan_htz_32_25/box/candesartan_htz_32_25_box_001.jpg",
+      "drug_name": "A.TCANDESARTAN HTZ",
+      "strength": "32mg + 25mg",
+      "image_sha256": "7700c98e15e0bb558d2f135c86ff5bcb5d2fa44a64659f46359f3cf3a210315d",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "candesartan_htz_32_25_box_002",
+      "relative_path": "images/candesartan_htz_32_25/box/candesartan_htz_32_25_box_002.jpg",
+      "drug_name": "ACANTANHTZ",
+      "strength": "8mg + 12.5mg",
+      "image_sha256": "3527c6c73e0f2a6b67772c38491678b2d3e16a6729d5a9ba6b406e6d673f6b78",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "cilnidipine_5_blister_001",
+      "relative_path": "images/cilnidipine_5/blister/cilnidipine_5_blister_001.jpg",
+      "drug_name": "Cildip",
+      "strength": "5mg",
+      "image_sha256": "f5f7ff7202768f044fe3928721f6361bb4998cc6f473ae4b0ec124016134f57c",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "cilnidipine_5_blister_002",
+      "relative_path": "images/cilnidipine_5/blister/cilnidipine_5_blister_002.jpg",
+      "drug_name": "Cilapress",
+      "strength": "5mg",
+      "image_sha256": "b22d09e64904e865789472e46f69ca47b0a73b8f3ac6f8f8904d3a3fbe7c7098",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "cilnidipine_5_box_001",
+      "relative_path": "images/cilnidipine_5/box/cilnidipine_5_box_001.jpg",
+      "drug_name": "Cilnidipine",
+      "strength": "5mg",
+      "image_sha256": "e4a2928a15a4efad9b3b8830847fddbcd020206947d04653725a2769fd6c1c54",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "cilnidipine_5_box_002",
+      "relative_path": "images/cilnidipine_5/box/cilnidipine_5_box_002.jpg",
+      "drug_name": "Clidipine",
+      "strength": "5mg",
+      "image_sha256": "d57275e1e30ebe83fbef532b6bb74f3dfd71f22bfd5003f7583cf74b300c1830",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "cilnidipine_5_box_003",
+      "relative_path": "images/cilnidipine_5/box/cilnidipine_5_box_003.jpg",
+      "drug_name": "CILPOL",
+      "strength": "5mg",
+      "image_sha256": "92ba02fcc9a97ffb6b8bc7cc58a4868acbe34e970db3a10f22c801d9a4506e2c",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_blister_001",
+      "relative_path": "images/decolgen_forte/blister/decolgen_forte_blister_001.jpg",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "ec0e5f035da68101d31ec591dd651fe434157ff3b92825d56b7784b72a617ab8",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_blister_002",
+      "relative_path": "images/decolgen_forte/blister/decolgen_forte_blister_002.jpg",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "0ad9abf2f3ba66699a7505ebc1438c7dca1631b5cf574aec6ef8b170a3eadcf3",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_blister_003",
+      "relative_path": "images/decolgen_forte/blister/decolgen_forte_blister_003.jpg",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "ea9377786678437de940458ccb67135bd256c10de7fa96e83e735aacdde34462",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_blister_004",
+      "relative_path": "images/decolgen_forte/blister/decolgen_forte_blister_004.png",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "999610a4767be5aff779fe4d27359d85ff247bcc5fa07a23f43de30f00fef83c",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_box_001",
+      "relative_path": "images/decolgen_forte/box/decolgen_forte_box_001.jpg",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "d5049169d63b43483520d37019ac3bf3e16ae9d8bc8a0b435315134023021115",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "decolgen_forte_box_002",
+      "relative_path": "images/decolgen_forte/box/decolgen_forte_box_002.jpg",
+      "drug_name": "Decolgen Forte",
+      "strength": "",
+      "image_sha256": "414fa5740a7d02b188994b4ad09b3df002019a3aefe129ccf127d74347aebd7e",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "efferalgan_blister_001",
+      "relative_path": "images/efferalgan/blister/efferalgan_blister_001.jpg",
+      "drug_name": "Efferalgan",
+      "strength": "500mg",
+      "image_sha256": "5f0c6abb3c1f0e58e42cae2d5c18db215ad9d35b93f75f7a3be183464a489215",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "efferalgan_blister_002",
+      "relative_path": "images/efferalgan/blister/efferalgan_blister_002.jpg",
+      "drug_name": "Efferalgan",
+      "strength": "500mg",
+      "image_sha256": "f62e97c5da484472be625fb7d53cb180b273fc2e2ecea1378cdaccfbd569325b",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "efferalgan_box_001",
+      "relative_path": "images/efferalgan/box/efferalgan_box_001.jpg",
+      "drug_name": "Efferalgan",
+      "strength": "500mg",
+      "image_sha256": "f40b20a49892fe45127da4586893e1c658a17052a88dc4e65f05b1107b458b80",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "efferalgan_box_002",
+      "relative_path": "images/efferalgan/box/efferalgan_box_002.jpg",
+      "drug_name": "Efferalgan",
+      "strength": "500mg",
+      "image_sha256": "3e1ed7d98b4ea98023462dccd83f99718ba42f50a330448fd8f7ef4a636b439c",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "levocetirizine_5_blister_001",
+      "relative_path": "images/levocetirizine_5/blister/levocetirizine_5_blister_001.jpg",
+      "drug_name": "1-AL",
+      "strength": "5mg",
+      "image_sha256": "2fc678a8e1d112c38c0e5ed340984c51fec3ca07987aed6183c04c3890cf9b00",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "levocetirizine_5_box_001",
+      "relative_path": "images/levocetirizine_5/box/levocetirizine_5_box_001.jpg",
+      "drug_name": "1-AL",
+      "strength": "5mg",
+      "image_sha256": "3c1d5b768a09fa7ef32c3a2f58a1ab2fd9ca92054696dbc039686843fffa2ab1",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "levocetirizine_5_box_002",
+      "relative_path": "images/levocetirizine_5/box/levocetirizine_5_box_002.jpg",
+      "drug_name": "1-AL",
+      "strength": "",
+      "image_sha256": "810acb71a530e65c912415be9c1d6da6573493601e4a33f766681eca1bfc47c4",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "levocetirizine_5_box_003",
+      "relative_path": "images/levocetirizine_5/box/levocetirizine_5_box_003.jpg",
+      "drug_name": "Lifezine",
+      "strength": "5mg",
+      "image_sha256": "73a4cdc053ec704d73a3c941e13296606324ffb20f83c14ec5c21e43519947a7",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "levocetirizine_5_box_004",
+      "relative_path": "images/levocetirizine_5/box/levocetirizine_5_box_004.jpg",
+      "drug_name": "Levocetirizin",
+      "strength": "5mg",
+      "image_sha256": "83754a1c956f92f02b30fe66b7c9fa31cf2ddba00fded52a0525b82089e8604d",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "loratadine_table_10_box_001",
+      "relative_path": "images/loratadine_tablet_10/box/loratadine_table_10_box_001.jpg",
+      "drug_name": "LoratadineSPM",
+      "strength": "10mg",
+      "image_sha256": "43ed76d6a6857ede6e2210410779650960230d4058795e14d1c8a13d2fc72065",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "loratadine_table_10_box_002",
+      "relative_path": "images/loratadine_tablet_10/box/loratadine_table_10_box_002.jpg",
+      "drug_name": "ALOR",
+      "strength": "10mg",
+      "image_sha256": "6ae78f6f43ff1df2daba1050bcbe8246e46cb3a825f058e3466417bc682fdba9",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "loratadine_table_10_box_003",
+      "relative_path": "images/loratadine_tablet_10/box/loratadine_table_10_box_003.jpg",
+      "drug_name": "Nó-lapin",
+      "strength": "10mg",
+      "image_sha256": "78dd262562d37254b5c2d01d7431fdc7057b99af0b52dfd2efeacedab283da19",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "metformin_500_blister_001",
+      "relative_path": "images/metformin_500/blister/metformin_500_blister_001.jpg",
+      "drug_name": "Metformin",
+      "strength": "500mg",
+      "image_sha256": "3c62c32e959bd4693df8d549d3d5986812fe15555578e441099d77da207453f7",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "metformin_500_blister_002",
+      "relative_path": "images/metformin_500/blister/metformin_500_blister_002.jpg",
+      "drug_name": "Metformin",
+      "strength": "500mg",
+      "image_sha256": "9832b7f21325233f8b90abc525e20bec647dd31a0a67abd7a63e6ee44d60f0cd",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "metformin_500_box_001",
+      "relative_path": "images/metformin_500/box/metformin_500_box_001.jpg",
+      "drug_name": "Metformin",
+      "strength": "500mg",
+      "image_sha256": "54d1d56bc2a05ad5cac83a95b2edc767c3c4f09a1248a649dde8605b3b270c25",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "metformin_500_box_002",
+      "relative_path": "images/metformin_500/box/metformin_500_box_002.jpg",
+      "drug_name": "Metformin",
+      "strength": "500mg",
+      "image_sha256": "2204eb5a544bfa935ae01e6519ab69bf7e7479189c723b83cca03da3dceff76f",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "metformin_500_box_003",
+      "relative_path": "images/metformin_500/box/metformin_500_box_003.png",
+      "drug_name": "Metformin",
+      "strength": "500mg",
+      "image_sha256": "36c6bf1e31d6dd374ddd988f487bef8f62a8f51797d443cc85107192212530ff",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "strepsils_blister_001",
+      "relative_path": "images/strepsils/blister/strepsils_blister_001.jpg",
+      "drug_name": "Strepsils Original",
+      "strength": "",
+      "image_sha256": "ac88ae27b2877ba8dc2ac8ef9fea63d5f8e40a68f236bba135c355ee67a4a871",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "strepsils_blister_002",
+      "relative_path": "images/strepsils/blister/strepsils_blister_002.jpg",
+      "drug_name": "Strepsils Original",
+      "strength": "",
+      "image_sha256": "ac4552719613acea5acd6ee8b784a9c1c07acbe86162c7d27336358fe55dead9",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "strepsils_box_001",
+      "relative_path": "images/strepsils/box/strepsils_box_001.jpg",
+      "drug_name": "Strepsils Original",
+      "strength": "",
+      "image_sha256": "5d7a88116c18c42c0cd92b760b7f44bbcc2ba3f441b8aff620bc0390179d6f0e",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "strepsils_box_002",
+      "relative_path": "images/strepsils/box/strepsils_box_002.jpg",
+      "drug_name": "Strepsils Original",
+      "strength": "",
+      "image_sha256": "c1e20e139516e505e114d9b1ee8bb530c954d3b1a617c552e4b12dc9c272e246",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "tiffy_dey_blister_001",
+      "relative_path": "images/tiffy_dey/blister/tiffy_dey_blister_001.jpg",
+      "drug_name": "Tiffy Dey",
+      "strength": "",
+      "image_sha256": "ba5c624444c310acaa2d85292aeca3eadea4be78259e7f352d2a9c1d444c4671",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "tiffy_dey_blister_002",
+      "relative_path": "images/tiffy_dey/blister/tiffy_dey_blister_002.jpg",
+      "drug_name": "Tiffy Dey",
+      "strength": "",
+      "image_sha256": "db9876b45a59457feedf5681c4ae0c576838528ce4c4263c2d98afde66011fa1",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "tiffy_dey_box_001",
+      "relative_path": "images/tiffy_dey/box/tiffy_dey_box_001.jpg",
+      "drug_name": "Tiffy Dey",
+      "strength": "",
+      "image_sha256": "323a9df30742c38241feaabeaf1d8bef49d00f5e8f8cf828cb63214038d6b650",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    },
+    {
+      "image_id": "tiffy_dey_box_002",
+      "relative_path": "images/tiffy_dey/box/tiffy_dey_box_002.jpg",
+      "drug_name": "Tiffy Dey",
+      "strength": "",
+      "image_sha256": "081af8ed109d9b0c21703adfbaa2b104e29bebe42d1f6a8ffa1a53c7067d4d1b",
+      "verification_status": "visually_reviewed",
+      "verified_by": "Codex visual inspection (AI, not independent human sign-off)",
+      "verified_at": "2026-10-29"
+    }
+  ],
+  "dataset_hash": "588a56f54a5155250ce6c5fc633b60d05351f20561d46ba49ed482eab1b77e7f",
+  "annotations_sha256": "15cab9612598cadd1359c2538fca60228334bd527cca8d16ca5fb068b3181163",
+  "statistics": {
+    "images": 49,
+    "product_labels": 23,
+    "by_product_label": {
+      "Decolgen Forte": 6,
+      "Efferalgan": 4,
+      "Strepsils Original": 4,
+      "Tiffy Dey": 4,
+      "Atorvastatin": 5,
+      "A.TATORVASTATIN": 1,
+      "Bisoheart": 1,
+      "A.TBisoprolol": 3,
+      "Candesartan Krka": 1,
+      "A.TCANDESARTAN HTZ": 1,
+      "ACANTANHTZ": 1,
+      "Cildip": 1,
+      "Cilapress": 1,
+      "Cilnidipine": 1,
+      "Clidipine": 1,
+      "CILPOL": 1,
+      "1-AL": 3,
+      "Lifezine": 1,
+      "Levocetirizin": 1,
+      "LoratadineSPM": 1,
+      "ALOR": 1,
+      "Nó-lapin": 1,
+      "Metformin": 5
+    },
+    "by_package_type": {
+      "box": 28,
+      "blister": 21
+    },
+    "source_type": {
+      "photograph_origin_unknown": 15,
+      "product_image_origin_unknown": 34
+    }
+  },
+  "exact_duplicate_groups": [],
+  "publication": {
+    "status": "local_only_not_committed_or_pushed"
+  },
+  "limitations": [
+    "Not an independent human verification or representative clinical benchmark.",
+    "Source URLs, devices and lighting settings unknown unless explicitly recorded.",
+    "No claim that visually different views are independent source products.",
+    "Strength occurrence does not establish ingredient/product equivalence."
+  ]
+}

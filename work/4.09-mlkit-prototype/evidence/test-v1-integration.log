@@ -1,0 +1,122 @@
+COMMAND: C:\Python313\python.exe D:\DrugTime\datasets\scripts\import_android_runs.py --source D:\DrugTime\datasets\results\pilot-002\raw --output D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1
+imported: 06f91517-adb5-4f5d-906f-f68c1e5d2cdf
+imported: 07a91d95-ea4b-4cfa-b360-a2b42c0d39de
+imported: 10f8e81e-003f-4009-8bc5-f91f15cf37d9
+imported: 1c687834-2fb4-401c-8a07-ecf580d32a3c
+imported: 2684aa88-a381-43ac-a331-9cd50c541444
+imported: 2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c
+imported: 2da6ca63-2bff-4b87-95f3-959067784a05
+imported: 35596a5b-074c-416d-a2c5-e3f748adb9aa
+imported: 36aab102-d3ae-4fd6-9902-2870f087a5a2
+imported: 37336c67-2a7d-49ff-819c-e7324e8c254b
+imported: 3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0
+imported: 4505fc7c-5241-4a40-bffb-14ffaa685fff
+imported: 5b7c3812-6896-4ebf-9e77-d904bacbceb3
+imported: 64533465-627b-4e4c-b57a-9e97e71cd0e0
+imported: 6799276d-9660-4172-823d-698ab37150a8
+imported: 6c38adb0-5fee-4b4e-b70f-9d91f42e1422
+imported: 7134a04f-fc31-41fb-bd01-227c95a2b108
+imported: 72147707-9021-4f94-a171-c1946e4a33d1
+imported: 7da78f76-0b14-4a57-9642-1b5bd7c902f7
+imported: 8d81e335-9dc0-4df6-9051-c73abf139f27
+imported: 9045e139-e68d-4a56-beee-23f36e3f954f
+imported: 923f520b-99a8-4cbc-ac18-8fc06167a683
+imported: 976ae91d-b79d-48a9-9444-3468c964a30a
+imported: 99eaa534-e48b-44f1-8bd6-f72a4d4be482
+imported: 9d81f31b-7e89-4365-954a-0347c7c03fae
+imported: 9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f
+imported: a2a4ae32-c9e2-4703-8cee-0722430c6dee
+imported: be5bdeed-37c9-4208-bcf9-9e4634ed4f30
+imported: bf779f5c-16d3-417a-8c4b-6aedada08cd9
+imported: bfeb4070-46cc-4f72-82dc-59dd0e70fa15
+imported: c3ba9109-e0ef-4f08-8ede-e0401a6ee537
+imported: d1b6702a-cc87-4373-b4b1-f1952e71c5be
+imported: ddd2955d-a5b0-4be5-85df-3b1716da4e63
+imported: df88d05f-f180-4a73-85b9-ebc4eca02622
+imported: e0c21b32-8f62-4360-86df-f4ca7c2ac41e
+imported: e10ce562-a06d-4e03-8991-a48310cb03f7
+imported: e37b994a-67d7-459e-b067-0d75b4863a73
+imported: e43d4c3a-5e6e-42b7-8771-e3b88bf56306
+imported: e70fc2a4-737d-4ab4-beb6-80d0fda31a0d
+imported: e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1
+imported: ef381c48-a299-40c4-86a6-0f5541d79dca
+imported: f06d9227-c843-4c16-9ae2-c8c923bedf35
+imported: f23251be-4b45-407b-a928-a88dd3d02008
+imported: f2a05f89-d16b-4da0-9fe5-9e1023f45dd6
+imported: f2dbbcff-0e27-47c4-87b7-4edaac90ec94
+imported: f52a04a9-6103-4dd4-a644-2f22c8031217
+imported: f7a16f0e-9c18-4731-ad45-1c546e8acbd0
+imported: fea2622e-6a3e-4533-8dee-cd46826917a9
+imported: ff0c4cb4-8066-4586-a00b-53f5ffb3cbba
+Indexed: 49; legacy skipped: 0; errors: 0
+EXIT: 0
+COMMAND: C:\Python313\python.exe D:\DrugTime\datasets\scripts\import_android_runs.py --source D:\DrugTime\datasets\results\pilot-002\raw --output D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1
+unchanged: 06f91517-adb5-4f5d-906f-f68c1e5d2cdf
+unchanged: 07a91d95-ea4b-4cfa-b360-a2b42c0d39de
+unchanged: 10f8e81e-003f-4009-8bc5-f91f15cf37d9
+unchanged: 1c687834-2fb4-401c-8a07-ecf580d32a3c
+unchanged: 2684aa88-a381-43ac-a331-9cd50c541444
+unchanged: 2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c
+unchanged: 2da6ca63-2bff-4b87-95f3-959067784a05
+unchanged: 35596a5b-074c-416d-a2c5-e3f748adb9aa
+unchanged: 36aab102-d3ae-4fd6-9902-2870f087a5a2
+unchanged: 37336c67-2a7d-49ff-819c-e7324e8c254b
+unchanged: 3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0
+unchanged: 4505fc7c-5241-4a40-bffb-14ffaa685fff
+unchanged: 5b7c3812-6896-4ebf-9e77-d904bacbceb3
+unchanged: 64533465-627b-4e4c-b57a-9e97e71cd0e0
+unchanged: 6799276d-9660-4172-823d-698ab37150a8
+unchanged: 6c38adb0-5fee-4b4e-b70f-9d91f42e1422
+unchanged: 7134a04f-fc31-41fb-bd01-227c95a2b108
+unchanged: 72147707-9021-4f94-a171-c1946e4a33d1
+unchanged: 7da78f76-0b14-4a57-9642-1b5bd7c902f7
+unchanged: 8d81e335-9dc0-4df6-9051-c73abf139f27
+unchanged: 9045e139-e68d-4a56-beee-23f36e3f954f
+unchanged: 923f520b-99a8-4cbc-ac18-8fc06167a683
+unchanged: 976ae91d-b79d-48a9-9444-3468c964a30a
+unchanged: 99eaa534-e48b-44f1-8bd6-f72a4d4be482
+unchanged: 9d81f31b-7e89-4365-954a-0347c7c03fae
+unchanged: 9df3f601-b3bb-4a4e-a5a4-3a7c7b132d4f
+unchanged: a2a4ae32-c9e2-4703-8cee-0722430c6dee
+unchanged: be5bdeed-37c9-4208-bcf9-9e4634ed4f30
+unchanged: bf779f5c-16d3-417a-8c4b-6aedada08cd9
+unchanged: bfeb4070-46cc-4f72-82dc-59dd0e70fa15
+unchanged: c3ba9109-e0ef-4f08-8ede-e0401a6ee537
+unchanged: d1b6702a-cc87-4373-b4b1-f1952e71c5be
+unchanged: ddd2955d-a5b0-4be5-85df-3b1716da4e63
+unchanged: df88d05f-f180-4a73-85b9-ebc4eca02622
+unchanged: e0c21b32-8f62-4360-86df-f4ca7c2ac41e
+unchanged: e10ce562-a06d-4e03-8991-a48310cb03f7
+unchanged: e37b994a-67d7-459e-b067-0d75b4863a73
+unchanged: e43d4c3a-5e6e-42b7-8771-e3b88bf56306
+unchanged: e70fc2a4-737d-4ab4-beb6-80d0fda31a0d
+unchanged: e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1
+unchanged: ef381c48-a299-40c4-86a6-0f5541d79dca
+unchanged: f06d9227-c843-4c16-9ae2-c8c923bedf35
+unchanged: f23251be-4b45-407b-a928-a88dd3d02008
+unchanged: f2a05f89-d16b-4da0-9fe5-9e1023f45dd6
+unchanged: f2dbbcff-0e27-47c4-87b7-4edaac90ec94
+unchanged: f52a04a9-6103-4dd4-a644-2f22c8031217
+unchanged: f7a16f0e-9c18-4731-ad45-1c546e8acbd0
+unchanged: fea2622e-6a3e-4533-8dee-cd46826917a9
+unchanged: ff0c4cb4-8066-4586-a00b-53f5ffb3cbba
+Indexed: 49; legacy skipped: 0; errors: 0
+EXIT: 0
+PASS HOST1: import and re-import preserve 49 original payloads.
+COMMAND: C:\Python313\python.exe D:\DrugTime\datasets\scripts\evaluate_ocr.py --labels D:\DrugTime\datasets\labels.xlsx --runs D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1\raw --output D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1
+Decision: not_decided; labels: 49/49; raw: 49; data errors: 0
+Reports: D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1
+EXIT: 0
+PASS HOST2: real-data 49/49 coverage, 27 exact, all errors/partials visible; CSV/JSON/Markdown generated.
+COMMAND: C:\Python313\python.exe D:\DrugTime\datasets\scripts\evaluate_ocr.py --labels D:\DrugTime\datasets\labels.xlsx --runs D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\pilot-v1\raw --output D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\benchmark-missing --mode benchmark
+Decision: pending; labels: 49/49; raw: 49; data errors: 0
+Reports: D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\benchmark-missing
+EXIT: 0
+PASS HOST3: missing frozen protocol cannot generate benchmark go; pilot automatic decision unchanged.
+COMMAND: C:\Python313\python.exe D:\DrugTime\datasets\scripts\evaluate_ocr.py --labels D:\DrugTime\datasets\labels.xlsx --runs D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\empty\raw --output D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\empty
+Decision: not_decided; labels: 49/49; raw: 0; data errors: 0
+Reports: D:\DrugTime\work\4.09-mlkit-prototype\scratch\test-v1-pipeline\empty
+EXIT: 0
+PASS HOST4: empty raw lists all 49 photos with N/A accuracy.
+PASS HOST5: original labels, annotations, manifest, images and 49 raw files unchanged.
+RESULT: 5 host integration checks passed; no device mutation or new OCR run.

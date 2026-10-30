@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e312bc09-4530-484e-b1ad-7d6e4632755b",
+  "imageId": "strepsils_blister_001",
+  "createdAt": "2026-10-29T13:43:49.738999+07:00",
+  "rawText": "STREPSILS\nORIGINAL\nLOT ABK9947\nEXP 30 06 29",
+  "status": "text",
+  "elapsedMs": 1182,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e312bc09-4530-484e-b1ad-7d6e4632755b/image.jpg",
+  "errorCode": null
+}

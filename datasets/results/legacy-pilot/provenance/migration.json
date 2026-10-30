@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "imported_at": "2026-10-28T04:06:30.516283+00:00",
+  "runs": {
+    "0fc116a2-7197-4b98-86f2-3989cf13ae56": {
+      "run_id": "0fc116a2-7197-4b98-86f2-3989cf13ae56",
+      "sha256": "2712756cbac4123be3e06c38afeb1e48a53e0a06bbf40d24d3ecfce8794833de",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\0fc116a2-7197-4b98-86f2-3989cf13ae56.json",
+      "raw_path": "raw/0fc116a2-7197-4b98-86f2-3989cf13ae56.json"
+    },
+    "15f29db3-510a-4f8f-a041-9d1ccfdf322c": {
+      "run_id": "15f29db3-510a-4f8f-a041-9d1ccfdf322c",
+      "sha256": "70d7480f7007fd403b315222ad27b569f37240383276f9ca59f726701e96f4f5",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\15f29db3-510a-4f8f-a041-9d1ccfdf322c.json",
+      "raw_path": "raw/15f29db3-510a-4f8f-a041-9d1ccfdf322c.json"
+    },
+    "37dcf60d-bd87-4ffc-95f8-8e9d3df71910": {
+      "run_id": "37dcf60d-bd87-4ffc-95f8-8e9d3df71910",
+      "sha256": "84201e33c8365442fd398f1642e961ed7c22226390fb50813d715bd806cd3444",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\37dcf60d-bd87-4ffc-95f8-8e9d3df71910.json",
+      "raw_path": "raw/37dcf60d-bd87-4ffc-95f8-8e9d3df71910.json"
+    },
+    "8a70835d-94a6-42b6-9ab5-b4bfb4dff96a": {
+      "run_id": "8a70835d-94a6-42b6-9ab5-b4bfb4dff96a",
+      "sha256": "9f770c7da31a12add3c636bbd30a978879e416b44f6c76af7a8208f5cc6c97f0",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\8a70835d-94a6-42b6-9ab5-b4bfb4dff96a.json",
+      "raw_path": "raw/8a70835d-94a6-42b6-9ab5-b4bfb4dff96a.json"
+    },
+    "91eead61-eecc-4ff4-840b-aa82beada99f": {
+      "run_id": "91eead61-eecc-4ff4-840b-aa82beada99f",
+      "sha256": "f00f926013ccdcbb6e70cdf8ed05b3510e4b92976bd2ed135a8de6da5d22976e",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\91eead61-eecc-4ff4-840b-aa82beada99f.json",
+      "raw_path": "raw/91eead61-eecc-4ff4-840b-aa82beada99f.json"
+    },
+    "c556914b-94d2-4c56-bdec-4ee2d1cb1cbd": {
+      "run_id": "c556914b-94d2-4c56-bdec-4ee2d1cb1cbd",
+      "sha256": "45d9bfeb5489c22423b904990c0195cb8d9b6963edbc3c92716ec8caa4902460",
+      "source": "work\\4.09-mlkit-prototype\\results\\runs\\c556914b-94d2-4c56-bdec-4ee2d1cb1cbd.json",
+      "raw_path": "raw/c556914b-94d2-4c56-bdec-4ee2d1cb1cbd.json"
+    }
+  },
+  "errors": [],
+  "skipped_legacy": []
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "8d81e335-9dc0-4df6-9051-c73abf139f27",
+  "imageId": "decolgen_forte_box_002",
+  "createdAt": "2026-10-29T15:43:15.103361+07:00",
+  "rawText": "Decolger\nVIÊN 3 LổP\nFOR TE\nTRỊ CÁC TRIỆU CHỦNG CAM\nR\nKMUC OẤu, HẢT HEL, so MIL NGNET AMUL, BAL SUY",
+  "status": "text",
+  "elapsedMs": 3130,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "8d81e335-9dc0-4df6-9051-c73abf139f27/image.jpg",
+  "errorCode": null
+}

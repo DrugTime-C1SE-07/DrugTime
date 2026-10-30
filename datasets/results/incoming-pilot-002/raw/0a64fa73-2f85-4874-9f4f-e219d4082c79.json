@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "0a64fa73-2f85-4874-9f4f-e219d4082c79",
+  "imageId": "efferalgan_box_002",
+  "createdAt": "2026-10-29T13:42:52.384061+07:00",
+  "rawText": "EFFERALGAN\nPARACETAMOL\nBAJVA SÓT\n500 mg\nĐAU\nSỐT\nDUNG ĐƯỜNG UỐNG\n-Cii đùng cho người\n\\bn và trề em căn\nHOPAXAVIEN\n500 mg\nEFFERALGAN\nPARACETAMOL",
+  "status": "text",
+  "elapsedMs": 2248,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "0a64fa73-2f85-4874-9f4f-e219d4082c79/image.jpg",
+  "errorCode": null
+}

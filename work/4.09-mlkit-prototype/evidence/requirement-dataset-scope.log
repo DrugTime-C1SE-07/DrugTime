@@ -1,0 +1,24 @@
+Phạm vi giai đoạn 'requirement' của 4.09-mlkit-prototype:
+  [NGOÀI]     .gitignore
+  [NGOÀI]     api_contract/README.md
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     datasets/README.md
+  [NGOÀI]     datasets/images/decolgen_forte/blister/decolgen_forte_blister_001.jpg
+  [NGOÀI]     datasets/images/decolgen_forte/blister/decolgen_forte_blister_002.jpg
+  [NGOÀI]     datasets/images/decolgen_forte/blister/decolgen_forte_blister_003.jpg
+  [NGOÀI]     datasets/images/decolgen_forte/box/decolgen_forte_box_001.jpg
+  [NGOÀI]     datasets/images/decolgen_forte/box/decolgen_forte_box_002.jpg
+  [NGOÀI]     datasets/images/efferalgan/blister/efferalgan_blister_001.jpg
+  [NGOÀI]     datasets/images/efferalgan/blister/efferalgan_blister_002.jpg
+  [NGOÀI]     datasets/images/efferalgan/box/efferalgan_box_001.jpg
+  [NGOÀI]     datasets/images/efferalgan/box/efferalgan_box_002.jpg
+  [NGOÀI]     datasets/images/strepsils/blister/strepsils_blister_001.jpg
+  [NGOÀI]     datasets/images/strepsils/blister/strepsils_blister_002.jpg
+  [NGOÀI]     datasets/images/strepsils/box/strepsils_box_001.jpg
+  [NGOÀI]     datasets/images/strepsils/box/strepsils_box_002.jpg
+  [NGOÀI]     datasets/images/tiffy_dey/blister/tiffy_dey_blister_001.jpg
+  [NGOÀI]     datasets/images/tiffy_dey/blister/tiffy_dey_blister_002.jpg
+  [NGOÀI]     datasets/images/tiffy_dey/box/tiffy_dey_box_001.jpg
+  [NGOÀI]     datasets/images/tiffy_dey/box/tiffy_dey_box_002.jpg
+  [NGOÀI]     datasets/labels.xlsx
+CHẶN: 22 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

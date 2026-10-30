@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e43d4c3a-5e6e-42b7-8771-e3b88bf56306",
+  "imageId": "loratadine_table_10_box_002",
+  "createdAt": "2026-10-29T15:32:38.773573+07:00",
+  "rawText": "ALLOR-10\nLoratadine Tablets USP 10mg.\nNhà thuốC Ngọc Anh\nnhathuocngocanh.com\nChính hâng\nHộp 10 vi x 10 vin\nHotline:\n0333.405.080",
+  "status": "text",
+  "elapsedMs": 1128,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e43d4c3a-5e6e-42b7-8771-e3b88bf56306/image.jpg",
+  "errorCode": null
+}

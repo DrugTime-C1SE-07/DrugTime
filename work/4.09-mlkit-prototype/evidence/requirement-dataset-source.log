@@ -1,0 +1,4 @@
+Sheets: ['Sheet1']
+Header: (None, 'image_id', 'relative_path', 'drug_name', 'strength')
+Label rows: 17
+Images: 17

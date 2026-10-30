@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f52a04a9-6103-4dd4-a644-2f22c8031217",
+  "imageId": "bisoprolol_2_point_5_blister_002",
+  "createdAt": "2026-10-29T15:39:13.547818+07:00",
+  "rawText": "srolo!\nste\nAN eN\nng\nsisoprolol2.5\nJl2.5\nATBisoprolol2.5\nprolol2.5\n2,5 mg\numurate\nBisoprolol Fumar\n2,5 mg\nATBisoprolol2.5\nBisoprolol Fumarate\n2,5 mg\nGONG Tv CP pUo edMAN T\nANtENa\nATBisoprolo'\nBisoprolol Fumarat\n2,5 m\nR\nATBisoprolol2\nBisoprolol Fumarate\n2,5 mg\nR\nATBiso\nAN a\nBisoproloi",
+  "status": "text",
+  "elapsedMs": 7057,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f52a04a9-6103-4dd4-a644-2f22c8031217/image.jpg",
+  "errorCode": null
+}

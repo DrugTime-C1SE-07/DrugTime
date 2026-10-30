@@ -1,0 +1,6 @@
+PASS task workbook: 4.08-ocr-capture-evaluation Packaging Dataset {'Pass': 6, 'Pending': 2}
+PASS task workbook: 4.09-mlkit-prototype OCR Prototype {'Pending': 8}
+PASS task workbook: 4.09-mlkit-prototype OCR Dataset {'Pass': 47, 'Pending': 1}
+PASS master: 64 {'Pass': 53, 'Pending': 11}
+PASS accidental workbook removed; correct master preserved and merged.
+Native Excel rendering/recalculation not performed.

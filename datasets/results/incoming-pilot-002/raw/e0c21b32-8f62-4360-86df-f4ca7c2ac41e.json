@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e0c21b32-8f62-4360-86df-f4ca7c2ac41e",
+  "imageId": "tiffy_dey_blister_001",
+  "createdAt": "2026-10-29T15:44:54.921925+07:00",
+  "rawText": "INDICATION :\nEach tablet contains\nPARACETAMOL\n500 mg\nCHLORPHENIRAMINE MALEATE ... 2 mg\nPHENYLEPHRINE HCI\n10 mg\nDOSAGE\nSymptomatic relief of common cold associated\nwith nasal congestion, running nose, sneezing,\nheadacthe and fever.\nAdults\n31-2 tablats every 4-6 hours\nChildren 6-12 years: 1 tablet every 4-6 hours\nManutechro by:\nTHAI NAKORN PATANA VIET NAM GOo, LTD\nTIFFYoEY\nTABLETS\nToy HoA, P) Yen, Viet Nan\nTHI NAKDRN PATANA CO D\nStrip o Tablets\n8ll93601 44 20973",
+  "status": "text",
+  "elapsedMs": 4437,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e0c21b32-8f62-4360-86df-f4ca7c2ac41e/image.jpg",
+  "errorCode": null
+}

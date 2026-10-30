@@ -1,0 +1,8 @@
+00:00 +0: loading D:/DrugTime/frontend/mobile/integration_test/ocr_prototype_test.dart
+Running Gradle task 'assembleDebug'...                             47.0s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,461ms
+00:00 +0: ML Kit native recognizes supplied packaging fixture offline
+00:03 +1: native blank image returns no text; invalid image rejected before engine
+00:04 +2: (tearDownAll)
+00:04 +2: All tests passed!

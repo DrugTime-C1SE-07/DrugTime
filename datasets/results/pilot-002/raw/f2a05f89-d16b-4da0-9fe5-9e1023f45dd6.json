@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f2a05f89-d16b-4da0-9fe5-9e1023f45dd6",
+  "imageId": "cilnidipine_5_box_003",
+  "createdAt": "2026-10-29T15:36:56.062990+07:00",
+  "rawText": "CILPOL-5\nTablets\nMK vEALTHCARE\nwww.ahathesh17opo\nacare.co in\nCilnidipine Tablets lP 5 mg\nCILPOL-5\nCILPOL-5\nTablets\nGILPOL-5\nCILPOL-5\nM\nB.NO MT446 MRP.Rs.55.00\neC O6/2026 PER 1O TAs\nEXP. O5/2028 NCL ALL\nMT446\noG2026\n10x10 Tablets\nCILPOL-5 CILPOL-S\nCILPOL6",
+  "status": "text",
+  "elapsedMs": 5712,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f2a05f89-d16b-4da0-9fe5-9e1023f45dd6/image.jpg",
+  "errorCode": null
+}

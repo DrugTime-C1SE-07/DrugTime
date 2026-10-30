@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "2da6ca63-2bff-4b87-95f3-959067784a05",
+  "imageId": "bisoprolol_2_point_5_box_002",
+  "createdAt": "2026-10-29T15:39:45.822110+07:00",
+  "rawText": "AT Bisoproloi 2.B-\nBisoprolounarate\nR\nA\nPRESCRIPTION DRUG\nAT Bisoprolol2.5-+\ntAT Bisoprolol Fumarate\n2.5 mg\nBox of 10 blisters 1t\nAN TEN a\nANE 34 Bng Se",
+  "status": "text",
+  "elapsedMs": 2533,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "2da6ca63-2bff-4b87-95f3-959067784a05/image.jpg",
+  "errorCode": null
+}

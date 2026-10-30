@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "07a91d95-ea4b-4cfa-b360-a2b42c0d39de",
+  "imageId": "metformin_500_blister_002",
+  "createdAt": "2026-10-29T15:30:00.669409+07:00",
+  "rawText": "Smg\nWARM\nformin 500mg\nTV.PHARM\nMetformin 500mg\nMettormin.HCI 5o0mg\nMetformin\n8mg\nFMetformin 500mg\nsooma\nTVPHARM\nMottormin.HCI S0Omg\n00mg\nMettarmin 500mg\nattormin HCI 500P\nformin 50Omg\nMettomn CIOomg\nMetformin 50Omg\nMotformin HCI500mg\nMote\nmin 500me\nCTY CPDP TV.PHARN\nMetformin 500mg\nMetformin.HCI 500mg\nMetforg\nMetformin 50Omg\nMetf\nCTYÇ\nMettotL\nTV.PHARM\nMetforp\nMett\nM",
+  "status": "text",
+  "elapsedMs": 3706,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "07a91d95-ea4b-4cfa-b360-a2b42c0d39de/image.jpg",
+  "errorCode": null
+}

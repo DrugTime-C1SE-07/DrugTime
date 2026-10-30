@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "5b7c3812-6896-4ebf-9e77-d904bacbceb3",
+  "imageId": "strepsils_blister_002",
+  "createdAt": "2026-10-29T15:46:18.965341+07:00",
+  "rawText": "at\nE85SES\ntrepsils\nOriginal\noenge cing\neyl Aicaot 1\netaceso0s me\nyimea\nStrepsils\nOriginal\nEach faege ea\nbtuing Thalan\nEach loeng cone\nOriginal\neican\nong T\nStrepsils\ntAlcatai 2 mg\n(Talan\nStrepsi.\nz40ehiaez Akaho L\nEach kpeegr ccais\nOriginal\necki Sencer e\nHnbune\nStre\nOrig\n240\nStrenc*",
+  "status": "text",
+  "elapsedMs": 3679,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "5b7c3812-6896-4ebf-9e77-d904bacbceb3/image.jpg",
+  "errorCode": null
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "c6da86d5-1496-4f70-9fb2-720ae357221c",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:33:09.936057+07:00",
+  "rawText": "HAPACOL\nCaM CUM\nHAPACOL\nPARACETAMOL S00 mg\nPHENYLEPHRIN HH S mg\nCAM CỦM\nJAPAN\nHAPACOL\nCAM CỦM\nHAPACOL\nCẢM CỦM\nDHG PHARMA\nPARACETAMOL 500 mg\nPHENYLEPHRIN HO 5 mg\nHAPACOL\nHAPACOL\nCAM CỦM\nCÁM CỦM\nSân xuất tạ: cÔNG TY Cổ PHÁN DƯỢc HẬU GIANG -\nChi nhánh nhà máy dược phẩm DHG tại Hậu Giang\nPARACETAMOL 500 mg\nPHENYLEPHRIN HcIs me\nHAPACOL\nHAPACCOL\nCAM CỦM\nJAPAN\n\"HAPACOL\nJAPAN\nCAM CUM\nPARACETAMOL S00 mg\nPHENYLEPMRIN HČI 5 mg\nCAM CUM\nHAPACOL\nCAM CUM",
+  "status": "text",
+  "elapsedMs": 4995,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "c6da86d5-1496-4f70-9fb2-720ae357221c/image.png",
+  "errorCode": null
+}

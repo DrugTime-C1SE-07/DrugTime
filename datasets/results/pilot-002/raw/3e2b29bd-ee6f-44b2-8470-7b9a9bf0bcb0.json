@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0",
+  "imageId": "candesartan_htz_32_25_box_001",
+  "createdAt": "2026-10-29T15:37:43.584245+07:00",
+  "rawText": "THUỐC BIỆT DUỢC\nTHUỐC BIỆT DUỢC OMP WHo\nACANDESARTAN HTZ 32-25\nVIÊN NÉN\nCandesartan cilexetil 32 mg\nHydrochlorothiazide 25 mg Hộp 3 vi x 10 viên\ncONG TY CÓ PHAN DƯỢc PHAM AN THIÊN\nu 24 6g Saa, Phưong s Ougn 8, TP. HỒ Chi Meh",
+  "status": "text",
+  "elapsedMs": 973,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "3e2b29bd-ee6f-44b2-8470-7b9a9bf0bcb0/image.jpg",
+  "errorCode": null
+}

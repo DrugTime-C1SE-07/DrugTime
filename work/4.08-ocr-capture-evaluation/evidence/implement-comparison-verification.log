@@ -1,0 +1,5 @@
+PASS hapacol_extra_original.png 20261026_202111_787415_18dbc2ef labels hash unchanged; CSV/evidence/ASCII verified
+STATUS [('visible_drug_name', 'Cần xác minh'), ('visible_ingredients', 'Sai'), ('visible_strength', 'Sai'), ('visible_manufacturer_text', 'Sai'), ('visible_other_text', 'Thiếu')]
+PASS hapacol_650_extra_original.png 20261026_202112_443546_2d99d7eb labels hash unchanged; CSV/evidence/ASCII verified
+STATUS [('visible_drug_name', 'Thiếu'), ('visible_ingredients', 'Đúng'), ('visible_strength', 'Đúng'), ('visible_manufacturer_text', 'Sai'), ('visible_other_text', 'Thiếu')]
+LABEL_SHA256 8a38c0dec1d03a0282698b935dd185f7f17375d2f15b35d94c5d3b9896dc51e5
