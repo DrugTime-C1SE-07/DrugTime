@@ -1,6 +1,0 @@
-Visual review: 49 images; corrected rows: 23
-Counts: {'images': 49, 'product_labels': 23, 'by_product_label': {'Decolgen Forte': 6, 'Efferalgan': 4, 'Strepsils Original': 4, 'Tiffy Dey': 4, 'Atorvastatin': 5, 'A.TATORVASTATIN': 1, 'Bisoheart': 1, 'A.TBisoprolol': 3, 'Candesartan Krka': 1, 'A.TCANDESARTAN HTZ': 1, 'ACANTANHTZ': 1, 'Cildip': 1, 'Cilapress': 1, 'Cilnidipine': 1, 'Clidipine': 1, 'CILPOL': 1, '1-AL': 3, 'Lifezine': 1, 'Levocetirizin': 1, 'LoratadineSPM': 1, 'ALOR': 1, 'N�-lapin': 1, 'Metformin': 5}, 'by_package_type': {'box': 28, 'blister': 21}, 'source_type': {'photograph_origin_unknown': 15, 'product_image_origin_unknown': 34}}
-Duplicate groups: []
-All 49 original image hashes unchanged; IDs and paths preserved.
-Workbook changes backed up at work\4.08-ocr-capture-evaluation\scratch\review-v1\labels-before-review.xlsx
-Dataset hash: 588a56f54a5155250ce6c5fc633b60d05351f20561d46ba49ed482eab1b77e7f

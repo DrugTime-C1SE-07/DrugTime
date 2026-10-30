@@ -1,8 +1,0 @@
-Core Medication Management: Manual entry or blister-pack scanning plus alarm-style local notifications for dose confirmation.
-OCR prescription scanning, partner-pharmacy integrations, Zalo OA reminders, voice confirmation, pharmacist consultations, wearable alerts, and Premium subscriptions.
-Add medication via manual input or on-device blister-pack scanning.
-Control access to data; process blister-pack scans on-device.
-Blister-pack scan with manual confirmation; Simple Mode; consent-withdrawal/deletion flow; access log.
-Blister-pack scan fails to match the licensed drug catalogue.
-Usage is monitored; on-device scanning has no cloud quota, and manual input stays available.
-DrugTime brings together medication reminders, Vietnamese-formulary interaction checking, and AI-based meal suggestions under one consent-driven platform. The 3-month MVP delivers manual and blister-pack-scan entry, local reminders, real-time family alerts, an Admin dashboard, and a Simple Mode UI for Android and iOS, treating consent and data-protection compliance as first-class requirements. The goal is fewer missed doses, informed family caregivers, and a safer way for Vietnamese patients to manage multi-drug regimens than existing international apps.
