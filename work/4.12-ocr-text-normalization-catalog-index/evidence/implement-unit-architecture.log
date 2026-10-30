@@ -1,0 +1,645 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 1480 items
+
+tests\unit\test_access_authorize.py .............................        [  1%]
+tests\unit\test_access_rules.py ...........                              [  2%]
+tests\unit\test_adherence_history.py ..............................      [  4%]
+tests\unit\test_adherence_history_http.py ..........................     [  6%]
+tests\unit\test_alert_dispatch.py ...............                        [  7%]
+tests\unit\test_alert_timing_and_naming.py ......                        [  7%]
+tests\unit\test_app.py .....                                             [  8%]
+tests\unit\test_catalog_active_ingredients.py .............              [  9%]
+tests\unit\test_catalog_conditions.py ..............                     [ 10%]
+tests\unit\test_catalog_crud.py ...................                      [ 11%]
+tests\unit\test_catalog_index.py ............                            [ 12%]
+tests\unit\test_catalog_ocr_normalization.py ........................... [ 13%]
+......................................................                   [ 17%]
+tests\unit\test_catalog_scheduling.py ........                           [ 18%]
+tests\unit\test_catalog_search.py ..........                             [ 18%]
+tests\unit\test_catalog_sync.py ...                                      [ 19%]
+tests\unit\test_catalog_sync_history.py ...                              [ 19%]
+tests\unit\test_catalog_sync_logging.py ...........                      [ 20%]
+tests\unit\test_celery_queues.py ...                                     [ 20%]
+tests\unit\test_confirm_doses.py .......                                 [ 20%]
+tests\unit\test_consent_domain.py ...........................            [ 22%]
+tests\unit\test_consent_http.py ..............                           [ 23%]
+tests\unit\test_consent_use_cases.py ..............                      [ 24%]
+tests\unit\test_contract_adherence.py ....................               [ 25%]
+tests\unit\test_contract_auth.py ...........                             [ 26%]
+tests\unit\test_contract_consent.py .......                              [ 26%]
+tests\unit\test_contract_device_tokens.py FF                             [ 27%]
+tests\unit\test_contract_family.py .................                     [ 28%]
+tests\unit\test_contract_family_caregivers.py .......                    [ 28%]
+tests\unit\test_contract_family_links.py ..........                      [ 29%]
+tests\unit\test_contract_interaction.py ............................     [ 31%]
+tests\unit\test_contract_medication.py ..........F..FF.................. [ 33%]
+                                                                         [ 33%]
+tests\unit\test_contract_notification.py FFF.F                           [ 33%]
+tests\unit\test_contract_openapi_semantics.py F.F.F                      [ 34%]
+tests\unit\test_contract_profile.py FFFFFF.FFFFFF                        [ 35%]
+tests\unit\test_cors.py ....                                             [ 35%]
+tests\unit\test_create_dev_admin.py ....                                 [ 35%]
+tests\unit\test_device_tokens.py .........                               [ 36%]
+tests\unit\test_dose_rules.py ..........                                 [ 36%]
+tests\unit\test_erasure_orchestration.py ...                             [ 37%]
+tests\unit\test_error_retry_after.py ...                                 [ 37%]
+tests\unit\test_family_delete_link.py ..........                         [ 37%]
+tests\unit\test_family_link_code.py ................                     [ 39%]
+tests\unit\test_family_link_persistence.py ....                          [ 39%]
+tests\unit\test_family_link_request_rules.py ........                    [ 39%]
+tests\unit\test_family_link_rules.py ......................              [ 41%]
+tests\unit\test_family_links_http.py ................................... [ 43%]
+........................................................................ [ 48%]
+........                                                                 [ 49%]
+tests\unit\test_family_list_caregivers.py ....                           [ 49%]
+tests\unit\test_family_manage_links.py ................................. [ 51%]
+............................................                             [ 54%]
+tests\unit\test_family_module_gateways.py .........                      [ 55%]
+tests\unit\test_family_pending_links.py ....                             [ 55%]
+tests\unit\test_family_send_link_request.py ..........................   [ 57%]
+tests\unit\test_family_throttle.py .......                               [ 57%]
+tests\unit\test_get_adherence_history.py .........                       [ 58%]
+tests\unit\test_identity_auth.py ........................                [ 59%]
+tests\unit\test_identity_bearer.py ..........                            [ 60%]
+tests\unit\test_identity_display_names.py ...                            [ 60%]
+tests\unit\test_identity_profile.py ........................             [ 62%]
+tests\unit\test_interaction_catalog_rules.py ..........................  [ 64%]
+tests\unit\test_interaction_catalog_use_cases.py ...............         [ 65%]
+tests\unit\test_interaction_http.py .................................... [ 67%]
+..............................                                           [ 69%]
+tests\unit\test_manage_notifications.py ......                           [ 70%]
+tests\unit\test_medication_alert_context.py ....                         [ 70%]
+tests\unit\test_medication_http.py ..................................... [ 72%]
+........................................                                 [ 75%]
+tests\unit\test_medication_rules.py .................................... [ 77%]
+...                                                                      [ 78%]
+tests\unit\test_medication_schedule_cursor.py ...............            [ 79%]
+tests\unit\test_medication_schedule_rules.py ........................... [ 81%]
+..                                                                       [ 81%]
+tests\unit\test_medication_schedule_use_cases.py ....................... [ 82%]
+....                                                                     [ 82%]
+tests\unit\test_medication_use_cases.py ................................ [ 85%]
+..........                                                               [ 85%]
+tests\unit\test_missed_dose_window.py .................                  [ 86%]
+tests\unit\test_notification_http.py ..................                  [ 88%]
+tests\unit\test_profile_http.py .......................................F [ 90%]
+FFFFF.............                                                       [ 92%]
+tests\unit\test_profile_use_cases.py .................                   [ 93%]
+tests\unit\test_scheduler.py .............                               [ 94%]
+tests\unit\test_sql_adherence.py ......                                  [ 94%]
+tests\unit\test_sql_family_link_attempts.py .......                      [ 95%]
+tests\unit\test_sql_family_link_codes.py .......                         [ 95%]
+tests\unit\test_sql_family_links.py ........................             [ 97%]
+tests\unit\test_supabase_auth_errors.py ............................     [ 98%]
+tests\architecture\test_family_route_enforcement.py .                    [ 99%]
+tests\architecture\test_health_route_enforcement.py ..                   [ 99%]
+tests\architecture\test_module_dependencies.py ...........               [ 99%]
+tests\architecture\test_notification_route_enforcement.py .              [100%]
+
+================================== FAILURES ===================================
+__ test_token_operations_match_approved_contract[put-registerMyDeviceToken] ___
+
+method = 'put', operation = 'registerMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+_ test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken] _
+
+method = 'delete', operation = 'unregisterMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+___________ test_operations_match_contract[get-/medications/search] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications/search'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:85: KeyError
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+path = '/medications/search'
+
+    @pytest.mark.parametrize("path", ["/catalog/medications", "/medications/search"])
+    def test_catalog_search_query_params_match_contract(specs, path):
+        contract, app = specs
+>       assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:119: KeyError
+______________ test_catalog_search_operation_ids_match_contract _______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_catalog_search_operation_ids_match_contract(specs):
+        contract, app = specs
+        paths = ("/catalog/medications", "/medications/search")
+        actual = [app["paths"][path]["get"]["operationId"] for path in paths]
+>       assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:126: KeyError
+_____________ test_operations_match_contract[get-/notifications] ______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:30: KeyError
+___________ test_operations_match_contract[get-/notifications/{id}] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+________________ test_notification_query_params_match_contract ________________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...y', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_notification_query_params_match_contract(specs):
+        contract, app = specs
+>       c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:52: KeyError
+________ test_contract_audit_passes_and_detects_broken_contract_guards ________
+
+    def test_contract_audit_passes_and_detects_broken_contract_guards():
+        contract = _read_contract()
+>       assert _audit_spec(contract) == set()
+E       AssertionError: assert {'missing-bearer-security'} == set()
+E         
+E         Extra items in the left set:
+E         'missing-bearer-security'
+E         Use -v to get more diff
+
+tests\unit\test_contract_openapi_semantics.py:126: AssertionError
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+
+    def test_interaction_contract_keeps_composition_versions_scale_and_q1():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        create = schemas["DrugInteractionCreate"]
+        assert len(create["oneOf"]) == 2
+        assert create["oneOf"][0]["required"] == ["ingredient_b_id"]
+        assert create["oneOf"][1]["required"] == ["ingredient_b_external_name"]
+        assert create["additionalProperties"] is False
+        assert "verification_status" not in create["properties"]
+    
+        update = schemas["DrugInteractionUpdate"]
+        assert update["minProperties"] == 2
+        assert update["properties"]["expected_version"]["minimum"] == 1
+        severity = schemas["InteractionSeverity"]
+        assert (severity["minimum"], severity["maximum"]) == (1, 4)
+        for label in (
+            "c\u1ea7n theo d\xf5i",
+            "c\u1ea7n th\u1eadn tr\u1ecdng",
+            "c\xe2n nh\u1eafc l\u1ee3i \xedch/nguy c\u01a1",
+            "ph\u1ed1i h\u1ee3p nguy hi\u1ec3m",
+        ):
+            assert label in severity["description"]
+    
+        for path in ("/admin/drug-interactions", "/admin/drug-food-interactions"):
+            description = _operation(contract, "post", path)["description"].lower()
+            assert "hi\u1ec7u l\u1ef1c ngay" in description
+>           assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E           AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+
+tests\unit\test_contract_openapi_semantics.py:199: AssertionError
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+
+    def test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+>       profile_get = _operation(contract, "get", "/profile")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_contract_openapi_semantics.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+spec = {'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend A...m\u1eadt kh\u1ea9u, ho\u1eb7c t\xe0i kho\u1ea3n kh\xf4ng t\u1ed3n t\u1ea1i, \u0111\u1ec1u tr\u1ea3 c\xf9ng m\u1ed9t 401 \u0111\u1ec3 kh\xf4ng l\u1ed9 email n\xe0o \u0111\xe3 c\xf3 t\xe0i kho\u1ea3n.', ...}}, ...}, ...}
+method = 'get', path = '/profile'
+
+    def _operation(spec: dict[str, Any], method: str, path: str) -> dict[str, Any]:
+>       return spec["paths"][path][method]
+               ^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_openapi_semantics.py:63: KeyError
+_____ test_profile_operation_inventory_matches_contract[/profile-get-200] _____
+
+path = '/profile', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_____ test_profile_operation_inventory_matches_contract[/profile-put-204] _____
+
+path = '/profile', method = 'put', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:23: KeyError
+___ test_profile_operation_inventory_matches_contract[/conditions-get-200] ____
+
+path = '/conditions', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/conditions'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions-post-201] _
+
+path = '/profile/conditions', method = 'post', success = 201
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200] _
+
+path = '/profile/conditions/{id}', method = 'patch', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:23: KeyError
+_ test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204] _
+
+path = '/profile/conditions/{id}', method = 'delete', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_profile_operation_inventory_matches_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        actual = create_app().openapi()["paths"][path][method]
+>       expected = contract["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:23: KeyError
+__ test_request_and_success_response_shapes_match_contract[/profile-get-200] __
+
+path = '/profile', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:96: KeyError
+__ test_request_and_success_response_shapes_match_contract[/profile-put-204] __
+
+path = '/profile', method = 'put', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/conditions-get-200] _
+
+path = '/conditions', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/conditions'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201] _
+
+path = '/profile/conditions', method = 'post', success = 201
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200] _
+
+path = '/profile/conditions/{id}', method = 'patch', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:96: KeyError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204] _
+
+path = '/profile/conditions/{id}', method = 'delete', success = 204
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+>       expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/profile/conditions/{id}'
+
+tests\unit\test_contract_profile.py:96: KeyError
+___________ test_invalid_or_erased_auth[invalid-get-/profile-None] ____________
+
+method = 'get', path = '/profile', body = None, kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F82AD03D0>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+___________ test_invalid_or_erased_auth[invalid-put-/profile-body1] ___________
+
+method = 'put', path = '/profile'
+body = {'full_name': 'Bao', 'date_of_birth': '2000-01-01', 'gender': 'nam'}
+kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F8291E660>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+_____ test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2] _____
+
+method = 'post', path = '/profile/conditions', body = {'condition_id': 1}
+kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F8291D320>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+___ test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3] ____
+
+method = 'patch', path = '/profile/conditions/1', body = {'stage': None}
+kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F8339A7B0>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+___ test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None] ____
+
+method = 'delete', path = '/profile/conditions/1', body = None, kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F808C6CF0>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+__________ test_invalid_or_erased_auth[invalid-get-/conditions-None] __________
+
+method = 'get', path = '/conditions', body = None, kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F82CDAAC0>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:255: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/unit/test_identity_auth.py::test_mobile_verify_auto_provisions_new_user_and_flags_incomplete_profile
+tests/unit/test_identity_auth.py::test_admin_session_expires_after_20_minutes
+tests/unit/test_identity_auth.py::test_mobile_session_targets_10_days
+tests/unit/test_identity_auth.py::test_mobile_verify_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_admin_login_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\jwt\api_jwt.py:149: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\jwt\api_jwt.py:370: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    decoded = self.decode_complete(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+FAILED tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards
+FAILED tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-put-/profile-body1]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None]
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/conditions-None]
+=========== 30 failed, 1450 passed, 8 warnings in 63.28s (0:01:03) ============

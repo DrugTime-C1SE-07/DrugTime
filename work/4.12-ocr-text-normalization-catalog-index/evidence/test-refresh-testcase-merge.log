@@ -1,0 +1,21 @@
+Spec 4.12-ocr-text-normalization-catalog-index/testcases.json hợp lệ:
+  OCRNORM: 32 test case — Pass 32, Fail 0, Pending 0
+  CATINDEX: 18 test case — Pass 18, Fail 0, Pending 0
+CẢNH BÁO: TC-OCRNORM-02: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-OCRNORM-13: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-OCRNORM-14: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-OCRNORM-15: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-OCRNORM-16: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-OCRNORM-20: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-01: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-02: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-03: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-04: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-05: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-06: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-10: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-11: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-13: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-17: file đích đang là Pass, spec là không còn
+CẢNH BÁO: TC-CATINDEX-18: file đích đang là Pass, spec là không còn
+OK: đã ghi D:\DrugTime\source\DrugTime\docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx

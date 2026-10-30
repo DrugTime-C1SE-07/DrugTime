@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="2.111" timestamp="2026-10-28T13:27:40.573861+07:00" hostname="DESKTOP-MND51E9"><testcase classname="work.4.12-ocr-text-normalization-catalog-index.scratch.test_review_regression" name="test_competing_ocr_corrupted_leading_digit_keeps_whole_text[O.5g]" time="0.001"><failure message="AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg o.5g', name_key='thuoc o.5g', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)&#10;assert 'thuoc o.5g' == 'thuoc 500mg o.5g'&#10;  &#10;  - thuoc 500mg o.5g&#10;  ?       ------&#10;  + thuoc o.5g">suspicious = 'O.5g'
+
+    @pytest.mark.parametrize('suspicious', ['O.5g', 'O.5 g', 'l0mg', 'l0 mg'])
+    def test_competing_ocr_corrupted_leading_digit_keeps_whole_text(suspicious):
+        text = f'Thuoc 500mg {suspicious}'
+        result = normalize_ocr_text(text)
+&gt;       assert result.name_key == result.normalized_text, result
+E       AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg o.5g', name_key='thuoc o.5g', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)
+E       assert 'thuoc o.5g' == 'thuoc 500mg o.5g'
+E         
+E         - thuoc 500mg o.5g
+E         ?       ------
+E         + thuoc o.5g
+
+work\4.12-ocr-text-normalization-catalog-index\scratch\test_review_regression.py:9: AssertionError</failure></testcase><testcase classname="work.4.12-ocr-text-normalization-catalog-index.scratch.test_review_regression" name="test_competing_ocr_corrupted_leading_digit_keeps_whole_text[O.5 g]" time="0.001"><failure message="AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg o.5 g', name_key='thuoc o.5 g', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)&#10;assert 'thuoc o.5 g' == 'thuoc 500mg o.5 g'&#10;  &#10;  - thuoc 500mg o.5 g&#10;  ?       ------&#10;  + thuoc o.5 g">suspicious = 'O.5 g'
+
+    @pytest.mark.parametrize('suspicious', ['O.5g', 'O.5 g', 'l0mg', 'l0 mg'])
+    def test_competing_ocr_corrupted_leading_digit_keeps_whole_text(suspicious):
+        text = f'Thuoc 500mg {suspicious}'
+        result = normalize_ocr_text(text)
+&gt;       assert result.name_key == result.normalized_text, result
+E       AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg o.5 g', name_key='thuoc o.5 g', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)
+E       assert 'thuoc o.5 g' == 'thuoc 500mg o.5 g'
+E         
+E         - thuoc 500mg o.5 g
+E         ?       ------
+E         + thuoc o.5 g
+
+work\4.12-ocr-text-normalization-catalog-index\scratch\test_review_regression.py:9: AssertionError</failure></testcase><testcase classname="work.4.12-ocr-text-normalization-catalog-index.scratch.test_review_regression" name="test_competing_ocr_corrupted_leading_digit_keeps_whole_text[l0mg]" time="0.001"><failure message="AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg l0mg', name_key='thuoc l0mg', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)&#10;assert 'thuoc l0mg' == 'thuoc 500mg l0mg'&#10;  &#10;  - thuoc 500mg l0mg&#10;  ?       ------&#10;  + thuoc l0mg">suspicious = 'l0mg'
+
+    @pytest.mark.parametrize('suspicious', ['O.5g', 'O.5 g', 'l0mg', 'l0 mg'])
+    def test_competing_ocr_corrupted_leading_digit_keeps_whole_text(suspicious):
+        text = f'Thuoc 500mg {suspicious}'
+        result = normalize_ocr_text(text)
+&gt;       assert result.name_key == result.normalized_text, result
+E       AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg l0mg', name_key='thuoc l0mg', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)
+E       assert 'thuoc l0mg' == 'thuoc 500mg l0mg'
+E         
+E         - thuoc 500mg l0mg
+E         ?       ------
+E         + thuoc l0mg
+
+work\4.12-ocr-text-normalization-catalog-index\scratch\test_review_regression.py:9: AssertionError</failure></testcase><testcase classname="work.4.12-ocr-text-normalization-catalog-index.scratch.test_review_regression" name="test_competing_ocr_corrupted_leading_digit_keeps_whole_text[l0 mg]" time="0.001"><failure message="AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg l0 mg', name_key='thuoc l0 mg', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)&#10;assert 'thuoc l0 mg' == 'thuoc 500mg l0 mg'&#10;  &#10;  - thuoc 500mg l0 mg&#10;  + thuoc l0 mg">suspicious = 'l0 mg'
+
+    @pytest.mark.parametrize('suspicious', ['O.5g', 'O.5 g', 'l0mg', 'l0 mg'])
+    def test_competing_ocr_corrupted_leading_digit_keeps_whole_text(suspicious):
+        text = f'Thuoc 500mg {suspicious}'
+        result = normalize_ocr_text(text)
+&gt;       assert result.name_key == result.normalized_text, result
+E       AssertionError: NormalizedOcrText(normalized_text='thuoc 500mg l0 mg', name_key='thuoc l0 mg', strength_text='500 mg', strength_parts=('500 mg',), strength_status=&lt;StrengthStatus.PARSED: 'parsed'&gt;)
+E       assert 'thuoc l0 mg' == 'thuoc 500mg l0 mg'
+E         
+E         - thuoc 500mg l0 mg
+E         + thuoc l0 mg
+
+work\4.12-ocr-text-normalization-catalog-index\scratch\test_review_regression.py:9: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,265 @@
+{
+  "head": "2439aa66c914809d08c017f09379e03d0144da83",
+  "drugtime_file": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\scratch\\baseline_backend\\src\\drugtime\\__init__.py",
+  "exit_code": 1,
+  "files": [
+    "test_alert_dispatch_api.py",
+    "test_dose_confirmation_api.py",
+    "test_migration_notification_snapshot.py",
+    "test_mobile_login.py",
+    "test_notification_access.py",
+    "test_notification_snapshot_flow.py",
+    "test_profile_api.py"
+  ],
+  "failed_only": true,
+  "selected_targets": [
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4",
+    "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04"
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    },
+    {
+      "nodeid": "tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04",
+      "phase": "call",
+      "outcome": "failed",
+      "wasxfail": null
+    }
+  ],
+  "current_failures": [
+    "tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7",
+    "tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18",
+    "tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4",
+    "tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]",
+    "tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4",
+    "tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4",
+    "tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04"
+  ],
+  "selected_current_failures": [
+    "tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7",
+    "tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18",
+    "tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4",
+    "tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]",
+    "tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4",
+    "tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4",
+    "tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04"
+  ],
+  "current_failure_kinds": {
+    "tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6": [
+      "FAILED"
+    ],
+    "tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7": [
+      "FAILED"
+    ],
+    "tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow": [
+      "FAILED"
+    ],
+    "tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18": [
+      "FAILED"
+    ],
+    "tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]": [
+      "FAILED"
+    ],
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]": [
+      "FAILED"
+    ],
+    "tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4": [
+      "FAILED"
+    ],
+    "tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4": [
+      "FAILED"
+    ],
+    "tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04": [
+      "FAILED"
+    ]
+  },
+  "baseline_failures": [
+    "tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6",
+    "tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7",
+    "tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18",
+    "tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4",
+    "tests/integration/test_mobile_login.py::test_injection_in_full_name_stored_verbatim__AC11[nul]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_invalid_phone_rejected_before_provider__AC6[0900000001\\n-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-0001-01-01]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ngay-1899-12-31]",
+    "tests/integration/test_mobile_login.py::test_profile_limits_255_and_1900__AC12[ten-256]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[arabic-indic-/auth/mobile/verify]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/otp]",
+    "tests/integration/test_mobile_login.py::test_unicode_digit_phone_rejected__AC7[fullwidth-/auth/mobile/verify]",
+    "tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4",
+    "tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4",
+    "tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04"
+  ],
+  "comparison_conclusive": true,
+  "unexecuted_selected_nodeids": [],
+  "introduced": [],
+  "baseline_only": []
+}

@@ -1,0 +1,3 @@
+{"path":"D:\\DrugTime\\source\\DrugTime\\backend\\supabase\\migrations\\20261030025813_catalog_ingredient_alias_search.sql","message":"Migration created"}
+A new version of Supabase CLI is available: v2.122.0 (currently installed v2.120.0)
+We recommend updating regularly for new features and bug fixes: https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli

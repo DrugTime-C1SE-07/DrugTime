@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 1 item
+
+tests\integration\test_catalog_index.py .                                [100%]
+
+- generated xml file: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\evidence\test-refresh-index-probe.xml -
+============================== 1 passed in 2.54s ==============================

@@ -1,0 +1,12 @@
+Rendered Chuẩn hóa OCR!A1:I10
+Rendered Chuẩn hóa OCR!A39:I45
+Rendered Chuẩn hóa OCR!K1:W14
+Rendered Index danh mục!A1:I10
+Rendered Index danh mục!A23:I31
+Rendered Index danh mục!K1:W12
+Rendered Report!A1:I14
+Rendered Report!A20:I25
+{"kind":"table","sheet":"Report","address":"A3:I12","rows":10,"cols":9,"values":[["Executed","Passed",39,39,null,null,null,null,null],[null,"Failed",0,0,null,null,null,null,null],[null,"(Total) Test executed (Passed + Failed)",39,39,null,null,null,null,null],["Pending",null,11,11,null,null,null,null,null],["(Sub-total) Test Planned",null,50,50,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],["Function","Description","Sheet Name","% TCs Executed","% TCs Passed","% TCs Failed","Priority","Remarks","Done by"],["Chuẩn hóa dòng và gom cụm OCR","Chuẩn hóa dòng và gom cụm OCR","Chuẩn hóa OCR",1,1,0,"High","Kết quả của lượt test 30/10 theo 23 AC mới; toàn suite còn lỗi nền tách riêng trong 05.","phucnguyenngoc"],["Tra cứu catalog bằng index DB","Tra cứu catalog bằng index DB","Index danh mục",0.3888888888888889,0.3888888888888889,0,"High","Kết quả của lượt test 30/10 theo 23 AC mới; toàn suite còn lỗi nền tách riêng trong 05.","phucnguyenngoc"]]}
+{"kind":"notice","message":"Cell search matched 0 entries."}
+Disposable recalculation probe before: [[0,0,null],[39,39,null]] after: [[0,0,null],[38,38,null]]
+Read-only QA, no export: authoritative XLSX authored only by testcase_xlsx.py

@@ -1,0 +1,8 @@
+Regression before fix: 22 failed, 6 passed. Targeted after fix: 184 passed, 0 skipped.
+Full unit/architecture: 1494 passed, 30 failed, 0 skipped.
+Exact failure set equals prior test XML and recorded original-HEAD baseline; 0 introduced.
+Baseline was read from prior evidence, not re-executed in this audit.
+Reopened implement delta: {"outside": [], "inside": ["backend/src/drugtime/modules/catalog/application/normalize_ocr.py", "backend/tests/unit/test_catalog_index.py", "backend/tests/unit/test_catalog_ocr_normalization.py"], "untouched": ["backend/src/drugtime/modules/catalog/domain/catalog_index.py", "backend/src/drugtime/modules/catalog/application/build_catalog_index.py", "backend/src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py", "backend/src/drugtime/modules/catalog/api.py", "backend/tests/unit/test_catalog_sync.py", "docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx"]}
+Unchanged snapshot files: 37/40.
+Integration test and workbook are unchanged from turn start; raw scope exit 1 is retained.
+Its integration file belongs to P8 in the approved plan and was created by the prior test stage.

@@ -1,0 +1,128 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 1120 items
+
+tests\integration\test_access_log_actor_identity.py .................... [  1%]
+.....                                                                    [  2%]
+tests\integration\test_access_qd32_admin.py ..                           [  2%]
+tests\integration\test_active_ingredients_api.py ....                    [  2%]
+tests\integration\test_adherence_history_access.py ..................... [  4%]
+...                                                                      [  4%]
+tests\integration\test_adherence_history_api.py ........................ [  7%]
+............                                                             [  8%]
+tests\integration\test_alert_dispatch_api.py F.FF                        [  8%]
+tests\integration\test_auth_flow.py 
+
+================================== FAILURES ===================================
+__ test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6 ___
+
+client_as = <function client_as.<locals>.factory at 0x0000027FBCB9C1A0>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+        """AC1/AC2/AC6: Dispatch c\u1ea3nh b\xe1o b\u1ecf l\u1ee1 v\xe0o notifications v\xe0 ng\u01b0\u1eddi th\xe2n \u0111\u1ecdc qua GET /notifications."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998877
+        scheduled_at = datetime(2026, 10, 19, 8, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        # Ng\u01b0\u1eddi th\xe2n g\u1ecdi GET /notifications
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:144: AssertionError
+___________ test_integration_patch_notification_marks_as_read__AC7 ____________
+
+client_as = <function client_as.<locals>.factory at 0x0000027FBCCBD2D0>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_patch_notification_marks_as_read__AC7(client_as, admin_engine):
+        """AC7: PATCH /notifications/{id} c\u1eadp nh\u1eadt is_read=true."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine)
+        dose_log_id = 998878
+        scheduled_at = datetime(2026, 10, 19, 9, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="C\u1ea3nh b\xe1o ki\u1ec3m tra",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        patch_resp = client.patch(f"/notifications/{nid}", json={"is_read": True})
+>       assert patch_resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:188: AssertionError
+________________ test_integration_alert_timing_and_naming_flow ________________
+
+client_as = <function client_as.<locals>.factory at 0x0000027FBCF93A00>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+        """AC8 / QD-25 / NFR05: \u0110o th\u1eddi gian dispatch v\xe0 truy v\u1ea5n tr\xean Postgres th\u1eadt < 2s, ki\u1ec3m tra t\xean b\u1ec7nh nh\xe2n."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998879
+        scheduled_at = datetime(2026, 10, 19, 10, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        start_time = perf_counter()
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:220: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\evidence\test-integration.xml -
+=========================== short test summary info ===========================
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow
+! _pytest.outcomes.Exit: Auth integration tests only run against local Supabase !
+================== 3 failed, 92 passed, 1 warning in 44.60s ===================

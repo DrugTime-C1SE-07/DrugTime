@@ -1,0 +1,9 @@
+{"case": "identical_repeated_strength", "input": "Metformin 500mg\nMetformin 500mg", "actual": {"normalized_text": "metformin 500mg metformin 500mg", "name_key": "metformin 500mg metformin 500mg", "strength_text": null, "strength_parts": [], "strength_status": "ambiguous"}}
+{"case": "near_duplicate_names", "input": "Metformin\nMetformi\nMetformin", "actual": {"normalized_text": "metformin metformi metformin", "name_key": "metformin metformi metformin", "strength_text": null, "strength_parts": [], "strength_status": "absent"}}
+{"case": "registration", "input": "Metformin 500mg\nSDK: VD-13882-11", "actual": {"normalized_text": "metformin 500mg sdk: vd-13882-11", "name_key": "metformin sdk: vd-13882-11", "strength_text": "500 mg", "strength_parts": ["500 mg"], "strength_status": "parsed"}}
+{"case": "packaging_noise", "input": "Metformin 500mg vien nen hop 10 vi", "actual": {"normalized_text": "metformin 500mg vien nen hop 10 vi", "name_key": "metformin vien nen hop 10 vi", "strength_text": "500 mg", "strength_parts": ["500 mg"], "strength_status": "parsed"}}
+{"case": "confusable_characters", "input": "Metforrnin 5OOmg", "actual": {"normalized_text": "metforrnin 5oomg", "name_key": "metforrnin 5oomg", "strength_text": null, "strength_parts": [], "strength_status": "unparsed"}}
+{"case": "accented_variant", "input": "THUỐC ĐỎ 500MG", "actual": {"normalized_text": "thuoc do 500mg", "name_key": "thuoc do", "strength_text": "500 mg", "strength_parts": ["500 mg"], "strength_status": "parsed"}}
+NormalizedOcrText fields: ['normalized_text', 'name_key', 'strength_text', 'strength_parts', 'strength_status']
+CatalogIndex fields: ['entries', 'name_to_ids', 'ingredient_to_ids']
+structured_input: TypeError OCR text must be a string

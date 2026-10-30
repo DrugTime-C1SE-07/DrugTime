@@ -1,0 +1,4 @@
+Upgrade on disposable full schema clone: PASS
+Payload/ACL/RLS/policies/function permissions unchanged: {'relations': 75, 'functions': 9, 'policies': 74, 'payload': 4}
+Alias GIN valid, ready, expression: CREATE INDEX ingredient_aliases_search_idx ON public.ingredient_aliases USING gin (catalog_search_key(alias_text) gin_trgm_ops)
+Disposable upgrade database removed

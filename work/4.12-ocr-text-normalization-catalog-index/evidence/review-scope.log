@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'implement' của 4.12-ocr-text-normalization-catalog-index:
+  [OK]        backend/src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py
+  [OK]        backend/src/drugtime/modules/catalog/api.py
+  [OK]        backend/src/drugtime/modules/catalog/application/build_catalog_index.py
+  [OK]        backend/src/drugtime/modules/catalog/application/normalize_ocr.py
+  [OK]        backend/src/drugtime/modules/catalog/domain/catalog_index.py
+  [OK]        backend/tests/unit/test_catalog_index.py
+  [OK]        backend/tests/unit/test_catalog_ocr_normalization.py
+  [OK]        backend/tests/unit/test_catalog_sync.py
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     backend/tests/integration/test_catalog_index.py
+CHẶN: 1 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

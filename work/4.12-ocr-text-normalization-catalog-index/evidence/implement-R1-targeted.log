@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 184 items
+
+tests\unit\test_catalog_ocr_normalization.py ........................... [ 14%]
+........................................................................ [ 53%]
+......................                                                   [ 65%]
+tests\unit\test_catalog_index.py ................                        [ 74%]
+tests\unit\test_catalog_sync.py ...                                      [ 76%]
+tests\unit\test_catalog_search.py ..........                             [ 81%]
+tests\unit\test_catalog_crud.py ...................                      [ 91%]
+tests\architecture\test_family_route_enforcement.py .                    [ 92%]
+tests\architecture\test_health_route_enforcement.py ..                   [ 93%]
+tests\architecture\test_module_dependencies.py ...........               [ 99%]
+tests\architecture\test_notification_route_enforcement.py .              [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\source\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\evidence\implement-R1-targeted.xml -
+======================= 184 passed, 1 warning in 5.09s ========================

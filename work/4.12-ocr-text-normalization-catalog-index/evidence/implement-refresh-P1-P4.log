@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\DrugTime\source\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 127 items
+
+backend\tests\unit\test_catalog_ocr_normalization.py ................... [ 14%]
+........................................................................ [ 71%]
+.............                                                            [ 81%]
+backend\tests\unit\test_catalog_ocr_clusters.py F......................  [100%]
+
+================================== FAILURES ===================================
+_____________ test_exact_repeats_counts_order_and_representative ______________
+backend\tests\unit\test_catalog_ocr_clusters.py:25: in test_exact_repeats_counts_order_and_representative
+    assert cluster.name_key == "metformin" and cluster.count == 3
+E   AssertionError: assert ('metformin' == 'metformin'
+E     
+E       metformin and 2 == 3)
+E    +  where 2 = OcrCluster(cluster_id=1, member_line_ids=(1, 2), count=2, representative_line_id=1, name_key='metformin', query_eligib...th_evidence=StrengthEvidence(values=(), unparsed=(), has_conflict=False, has_unparsed=False, has_ambiguous_line=False)).count
+=========================== short test summary info ===========================
+FAILED backend\tests\unit\test_catalog_ocr_clusters.py::test_exact_repeats_counts_order_and_representative
+======================== 1 failed, 126 passed in 0.70s ========================

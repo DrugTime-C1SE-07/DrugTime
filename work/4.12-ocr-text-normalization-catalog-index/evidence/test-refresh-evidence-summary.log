@@ -1,0 +1,6 @@
+test-refresh-unit.xml {'tests.unit.test_catalog_active_ingredients': 13, 'tests.unit.test_catalog_conditions': 14, 'tests.unit.test_catalog_crud': 19, 'tests.unit.test_catalog_index': 29, 'tests.unit.test_catalog_ocr_clusters': 28, 'tests.unit.test_catalog_ocr_normalization': 109, 'tests.unit.test_catalog_scheduling': 8, 'tests.unit.test_catalog_search': 10, 'tests.unit.test_catalog_sync': 3, 'tests.unit.test_catalog_sync_history': 3, 'tests.unit.test_catalog_sync_logging': 11, 'tests.unit.test_interaction_catalog_rules': 26, 'tests.unit.test_interaction_catalog_use_cases': 15, 'tests.architecture.test_family_route_enforcement': 1, 'tests.architecture.test_health_route_enforcement': 2, 'tests.architecture.test_module_dependencies': 11, 'tests.architecture.test_notification_route_enforcement': 1}
+test-refresh-integration.xml {'tests.integration.test_catalog_index': 31, 'tests.integration.test_catalog_search': 43, 'tests.integration.test_catalog_sync_history': 4, 'tests.integration.test_catalog_sync_logging': 4, 'tests.integration.test_catalog_sync_scheduling': 2}
+Report rows 36
+A35 Bug Report
+A36 Bug ID
+Integration baseline comparison conclusive:18=18,0 introduced

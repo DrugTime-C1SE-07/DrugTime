@@ -1,0 +1,9 @@
+Regression before fix: 22 failed, 6 passed. Targeted after fix: 184 passed, 0 skipped.
+Full unit/architecture: 1494 passed, 30 failed, 0 skipped.
+Exact failure set equals prior test XML and recorded original-HEAD baseline; 0 introduced.
+Baseline was read from prior evidence, not re-executed in this audit.
+Traceback (most recent call last):
+  File "D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\audit_implement_R1.py", line 65, in <module>
+    assert not result["outside"], result
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'outside': ['backend/src/drugtime/modules/catalog/application/normalize_ocr.py', 'backend/tests/unit/test_catalog_index.py', 'backend/tests/unit/test_catalog_ocr_normalization.py'], 'inside': [], 'untouched': []}

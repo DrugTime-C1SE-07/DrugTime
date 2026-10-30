@@ -1,0 +1,807 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "OCRNORM",
+      "name": "Chuẩn hóa văn bản OCR",
+      "sheet": "Chuẩn hóa OCR",
+      "description": "Chuẩn hóa tiếng Việt và parser hàm lượng MVP bảo thủ, không tự xác minh thuốc.",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-28",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "21 Pass, 0 Fail, 0 Pending sau sửa R1. R1/High đã sửa và regression pass, chờ review lại; Bug Report hiện không có lỗi mở của 4.12. Lịch sử lỗi: 06-review.md và evidence/implement-R1-before.log. Full suite có lỗi nền riêng, xem 05-test-report.md; không suy toàn suite xanh từ test case task.",
+      "ep": [
+        {
+          "field": "text",
+          "valid": [
+            "Tiếng Việt NFC/NFD/hoa thường/đ",
+            "Whitespace/nhiễu đã liệt kê/nhiều dòng",
+            "Chữ số trong tên và ký tự OCR nghi ngờ",
+            "Hàm lượng đơn MVP dương",
+            "Nồng độ/phối hợp/phần trăm MVP",
+            "Quy cách/metadata không phải hàm lượng",
+            "Rỗng/whitespace/chỉ nhiễu"
+          ],
+          "invalid": [
+            "Đầu vào không phải str",
+            "Hàm lượng sai/ngoài MVP/dang dở",
+            "Nhiều nhóm hàm lượng độc lập"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Phân loại hàm lượng",
+          "conditions": [
+            {
+              "name": "Có nhóm trông như hàm lượng?",
+              "values": [
+                "No",
+                "Yes",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Toàn biểu thức đúng MVP?",
+              "values": [
+                "-",
+                "Yes",
+                "No",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Nhiều nhóm độc lập?",
+              "values": [
+                "-",
+                "No",
+                "-",
+                "Yes"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "absent, giữ tên",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "parsed, tách toàn nhóm",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "unparsed, giữ toàn text",
+              "rules": [
+                3
+              ]
+            },
+            {
+              "name": "ambiguous, giữ toàn text",
+              "rules": [
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-OCRNORM-01",
+          "description": "Chuẩn hóa tiếng Việt NFC/NFD, chữ hoa và đ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_vietnamese_nfc_nfd_case_and_d_share_key__AC1.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "THUỐC ĐỎ; thuốc đỏ; NFD(THUỐC ĐỎ)",
+          "expected": "normalized_text=name_key='thuoc do'; strength_status=absent; chuẩn hóa lần hai không đổi.",
+          "actual": "Đạt toàn bộ assertion của 3 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · tests/unit/test_catalog_ocr_normalization.py::test_vietnamese_nfc_nfd_case_and_d_share_key__AC1 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-02",
+          "description": "Loại nhiễu và gộp khoảng trắng trên một vỏ nhiều dòng",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_noise_multiline_whitespace_and_key_idempotence__AC2.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Tab/newline; Thuốc•Đỏ®Vỉ™Nén; • Thuốc\\n Mẫu\\r\\n 500MG®\\n20 viên™",
+          "expected": "Nhiễu trở thành phân cách, không dính từ; 'thuoc do vi nen' và 'thuoc mau 500mg 20 vien'; một kết quả cho một vỏ.",
+          "actual": "Đạt toàn bộ assertion của 3 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC2 · EP (2) · tests/unit/test_catalog_ocr_normalization.py::test_noise_multiline_whitespace_and_key_idempotence__AC2 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-03",
+          "description": "Giữ chữ số trong tên và ký tự OCR nghi ngờ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_numbers_in_names_and_ocr_confusables_are_preserved__AC3.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Vitamin B12; Vitamin D3; Thuốc 123; O0l1 B12 D3; B12®D3",
+          "expected": "Giữ b12/d3/123/o0l1; không đổi O thành 0 hoặc l thành 1; strength_status=absent.",
+          "actual": "Đạt toàn bộ assertion của 5 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC3 · EP (3) · Decision Table Phân loại hàm lượng (R1) · tests/unit/test_catalog_ocr_normalization.py::test_numbers_in_names_and_ocr_confusables_are_preserved__AC3 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-04",
+          "description": "Tách hàm lượng đơn viết liền và cách đơn vị",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_simple_strength_spacing_units_and_decimal__AC4.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "• Thuốc Mẫu 500MG; 500 mg; 25 mcg; 25MCG",
+          "expected": "name_key='thuoc mau'; strength_text='500 mg' hoặc '25 mcg'; strength_parts có đúng một phần tử; parsed.",
+          "actual": "Đạt toàn bộ assertion của 7 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC4 · EP (4) · Decision Table Phân loại hàm lượng (R2) · tests/unit/test_catalog_ocr_normalization.py::test_simple_strength_spacing_units_and_decimal__AC4 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-05",
+          "description": "Chuẩn hóa thập phân mà không đổi đơn vị",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_simple_strength_spacing_units_and_decimal__AC4.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 0,5 g; 0.5g; 0.0005g",
+          "expected": "Giữ giá trị 0.5 g hoặc 0.0005 g, không đổi sang mg; parsed và idempotent.",
+          "actual": "Đạt toàn bộ assertion của 7 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC4 · EP (4) · BVA ngưỡng dương (0.0005 > 0); không có giới hạn trên được đặc tả · tests/unit/test_catalog_ocr_normalization.py::test_simple_strength_spacing_units_and_decimal__AC4 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-06",
+          "description": "Giữ cấu trúc nồng độ khi tách hàm lượng",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 5 mg/ml; 5 MG / ML; 250mg/5ml; 250 mg / 0,5 ml",
+          "expected": "Kết quả lần lượt 5 mg/ml; 250 mg/5 ml; 250 mg/0.5 ml; giữ đủ tử/mẫu, không chỉ tách tử số.",
+          "actual": "Đạt toàn bộ assertion của 8 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC5 · EP (5) · tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-07",
+          "description": "Giữ thứ tự mọi thành phần phối hợp",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 500mg + 65mg; 500 MG+65 MG+10mg",
+          "expected": "strength_text='500 mg + 65 mg' hoặc '500 mg + 65 mg + 10 mg'; strength_parts đúng từng phần tử theo thứ tự.",
+          "actual": "Đạt toàn bộ assertion của 8 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC5 · EP (5) · tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-08",
+          "description": "Giữ phần trăm như cú pháp được nhận diện",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 0,9%; 0.9 %",
+          "expected": "strength_text='0.9 %'; một phần tử, parsed; không tự đổi sang mg/ml.",
+          "actual": "Đạt toàn bộ assertion của 8 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC5 · EP (5) · tests/unit/test_catalog_ocr_normalization.py::test_concentration_combination_and_percent_preserve_structure__AC5 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-09",
+          "description": "Giữ nguyên nhóm số không dương và dấu số chưa hỗ trợ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "-5mg; - 500mg; −500mg; +5mg; 0mg; 0.0 mg",
+          "expected": "name_key giữ toàn text chuẩn hóa; unparsed; strength_text=None và strength_parts=(); không lấy lén số dương bên trong.",
+          "actual": "Đạt toàn bộ assertion của 46 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (9) · BVA ngưỡng 0 (âm, 0); không có giới hạn trên · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-10",
+          "description": "Không đoán số OCR sai và cách viết số chưa hỗ trợ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "5OOmg; 1e3mg; 1e-3mg; 1,000 mg; 1.000 mg; 5.5.5mg",
+          "expected": "Giữ nhóm chưa hiểu trong name_key; unparsed; không sửa O thành 0, không diễn giải dấu phân nhóm hoặc scientific notation.",
+          "actual": "Đạt toàn bộ assertion của 46 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (9) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-11",
+          "description": "Giữ biểu thức phối hợp và nồng độ dang dở",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "500mg +; 500mg + 5OOmg; 500/65mg; 250mg/0ml; 250mg/-5ml; 250mg/5OOml; 250mg/",
+          "expected": "Không tách một nhóm con có vẻ hợp lệ; toàn text còn trong name_key; unparsed, không có strength_parts.",
+          "actual": "Đạt toàn bộ assertion của 46 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC5, AC6 · EP (9) · Decision Table Phân loại hàm lượng (R3) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-12",
+          "description": "Không mở rộng đơn vị ngoài MVP",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "50 IU; 50UI; 25 µg; 25μg; 5kg; 5 ml; 5 g/ml; 5 mcg/ml; 5 mg/g",
+          "expected": "Giữ cách viết đã normalize, unparsed; không ánh xạ IU/UI/µg/μg thành mcg hoặc tự quy đổi.",
+          "actual": "Đạt toàn bộ assertion của 46 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (9) · tests/unit/test_catalog_ocr_normalization.py::test_invalid_unsupported_strengths_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-13",
+          "description": "Không chọn tùy tiện một trong nhiều hàm lượng độc lập",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_competing_strengths_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 500mg 250mg; 500 mg 250 mg; 5mg/ml 10mg/ml",
+          "expected": "strength_status=ambiguous; không tách hàm lượng, name_key giữ toàn text và strength_parts=().",
+          "actual": "Đạt toàn bộ assertion của 3 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (10) · Decision Table Phân loại hàm lượng (R4) · tests/unit/test_catalog_ocr_normalization.py::test_competing_strengths_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-14",
+          "description": "Không bỏ qua nhóm cạnh tranh bị che bởi dấu câu",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_malformed_competing_strength_is_never_ignored__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "500mg 250mg,; 500mg 25mcg.; 500mg (250mg); 500mg 5/ml; 500mg 5 / (ml)",
+          "expected": "Không lấy 500 mg rồi bỏ nhóm sau; unparsed và toàn text được giữ; idempotent.",
+          "actual": "Đạt toàn bộ assertion của 9 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (9) · Đoán lỗi dấu câu · tests/unit/test_catalog_ocr_normalization.py::test_malformed_competing_strength_is_never_ignored__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-15",
+          "description": "Giữ số lượng đóng gói và metadata",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_packaging_and_metadata_are_retained__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "20 viên; Số lô AB12, HSD 10/2027; Thuốc Mẫu\\nSố lô AB12, HSD 10/2027",
+          "expected": "name_key giữ '20 vien', số lô/HSD; strength_status=absent; không tạo hàm lượng từ ngày hoặc số trong metadata.",
+          "actual": "Đạt toàn bộ assertion của 3 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (6) · tests/unit/test_catalog_ocr_normalization.py::test_packaging_and_metadata_are_retained__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-16",
+          "description": "Tách hàm lượng hợp lệ mà vẫn giữ quy cách và metadata",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_valid_strength_does_not_remove_packaging_or_metadata__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu 500mg 20 viên Số lô AB12, HSD 10/2027",
+          "expected": "strength_text='500 mg'; name_key='thuoc mau 20 vien so lo ab12, hsd 10/2027'.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (6) · tests/unit/test_catalog_ocr_normalization.py::test_valid_strength_does_not_remove_packaging_or_metadata__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-17",
+          "description": "Trả kết quả rỗng cho text rỗng và chỉ nhiễu",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_blank_and_noise_only_inputs_are_empty__AC7.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "(blank); '  \\t\\n'; •®™; tab/bullet/khoảng trắng",
+          "expected": "normalized_text=name_key=''; absent; strength_text=None; không tạo tên/hàm lượng mặc định.",
+          "actual": "Đạt toàn bộ assertion của 4 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC7 · EP (7) · tests/unit/test_catalog_ocr_normalization.py::test_blank_and_noise_only_inputs_are_empty__AC7 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-18",
+          "description": "Từ chối đầu vào không phải chuỗi mà không echo dữ liệu",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_wrong_input_types_are_rejected_without_echo__AC7.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "None; 123; bytes('secret-ocr-marker'); ['secret-ocr-marker']",
+          "expected": "Phát sinh TypeError với message nguyên văn 'OCR text must be a string'; không echo marker trong exception.",
+          "actual": "Đạt toàn bộ assertion của 4 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC7 · EP (8) · tests/unit/test_catalog_ocr_normalization.py::test_wrong_input_types_are_rejected_without_echo__AC7 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-19",
+          "description": "Giữ normalizer thuần và không log text OCR",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_normalizer_has_no_ocr_persistence_or_external_calls__AC13.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "synthetic-ocr-private-marker 500mg; guard builtins.open/io.open/Path.open/socket.socket",
+          "expected": "Vẫn trả name_key='synthetic-ocr-private-marker', strength_text='500 mg'; không gọi I/O và marker không xuất hiện stdout/stderr/caplog.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC13 · Đoán lỗi riêng tư và I/O · tests/unit/test_catalog_ocr_normalization.py::test_normalizer_has_no_ocr_persistence_or_external_calls__AC13 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-20",
+          "description": "Giữ nhóm nghi ngờ bắt đầu bằng O/l và chặn tách nhóm cạnh tranh",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Thuốc Mẫu {bad}; Thuốc Mẫu 500mg {bad}; Thuốc Mẫu {bad} 500mg; bad = O.5g, o,5 G, O.5 g, l0mg, L0 MG, l0 mg (18 tổ hợp).",
+          "expected": "normalized_text=name_key giữ toàn text đã bỏ dấu/viết thường; status=unparsed; strength_text=None, strength_parts=(); chuẩn hóa lại không đổi; không tự sửa O/l thành số.",
+          "actual": "Đạt toàn bộ assertion của 18 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · EP (9,10) · Regression R1/High đã sửa, chờ review lại; 22 ca từng fail trước sửa: evidence/implement-R1-before.log; nguyên nhân detector bỏ sót tiền tố O/l · tests/unit/test_catalog_ocr_normalization.py::test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-OCRNORM-21",
+          "description": "Giữ tên thật và metadata khi detector nhận diện nhóm nghi ngờ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_ocr_normalization.py::test_names_do_not_become_corrupted_amounts__AC3.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Vitamin B12, Vitamin D3, Long, Log, Ong, O0l1 + '500mg 20 viên Số lô AB12, HSD 10/2027'.",
+          "expected": "Tách đúng 500 mg, status=parsed; giữ b12/d3/long/log/ong/o0l1, quy cách và metadata trong name_key; không gán từ Long/Log/Ong thành hàm lượng sai.",
+          "actual": "Đạt toàn bộ assertion của 6 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC3 · AC6 · EP (3,6) · Bảo vệ hồi quy R1 · tests/unit/test_catalog_ocr_normalization.py::test_names_do_not_become_corrupted_amounts__AC3 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        }
+      ]
+    },
+    {
+      "code": "CATINDEX",
+      "name": "Index danh mục thuốc nội bộ",
+      "sheet": "Index danh mục",
+      "description": "Giữ raw/ID và dựng index mới mỗi lượt từ toàn catalog active; hồi quy ingest/search.",
+      "created_by": "phucnguyenngoc",
+      "created_date": "2026-10-28",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "18 Pass, 0 Fail, 0 Pending sau sửa R1. R1/High đã sửa và regression pass, chờ review lại; Bug Report hiện không có lỗi mở của 4.12. Lịch sử lỗi: 06-review.md và evidence/implement-R1-before.log. Full suite có lỗi nền riêng, xem 05-test-report.md; không suy toàn suite xanh từ test case task.",
+      "ep": [
+        {
+          "field": "Nguồn catalog / snapshot",
+          "valid": [
+            "Đầy đủ raw/dữ liệu có dấu",
+            "Optional null/blank",
+            "Cùng khóa, khác ID/strength/form",
+            "Trên 50 active và có deleted",
+            "Catalog rỗng thành công",
+            "Nguồn thay đổi/khôi phục giữa các lượt"
+          ],
+          "invalid": [
+            "Lỗi đọc nguồn/connection bị ngắt"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Kết quả đọc catalog",
+          "conditions": [
+            {
+              "name": "Đọc DB thành công?",
+              "values": [
+                "Yes",
+                "Yes",
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "Có active?",
+              "values": [
+                "No",
+                "Yes",
+                "Yes",
+                "-"
+              ]
+            },
+            {
+              "name": "Có deleted cùng nguồn?",
+              "values": [
+                "-",
+                "No",
+                "Yes",
+                "-"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Trả index rỗng thành công",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Trả đủ và chỉ active",
+              "rules": [
+                2,
+                3
+              ]
+            },
+            {
+              "name": "Truyền lỗi, không fallback",
+              "rules": [
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-CATINDEX-01",
+          "description": "Giữ dữ liệu gốc và khóa chuẩn hóa thống nhất",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_index_preserves_original_fields_and_optional_values__AC8.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "ID1: Thuốc Đỏ 500MG / Hoạt Chất Đỏ / 500MG / Viên Nén; has_active_ingredients=False",
+          "expected": "Giữ nguyên object/trường raw có dấu/hoa thường; name_key='thuoc do', strength_key='500 mg', dosage_form_key='vien nen'; không tự bật ánh xạ hoạt chất.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC8 · EP (1) · tests/unit/test_catalog_index.py::test_index_preserves_original_fields_and_optional_values__AC8 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-02",
+          "description": "Giữ null, blank và không suy dữ liệu nguồn",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_index_preserves_original_fields_and_optional_values__AC8.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "ID2 Vitamin B12, optional=None; ID3 name='  ', ingredient='\\t', strength=' '; ID4 name chứa 500MG nhưng strength_text=None",
+          "expected": "Null vẫn None, blank thành khóa rỗng và không lập bucket ''; ID4 không tự điền strength_text nguồn; không crash.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC8 · EP (2) · tests/unit/test_catalog_index.py::test_index_preserves_original_fields_and_optional_values__AC8 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-03",
+          "description": "Giữ trạng thái parser và text hàm lượng thô",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_strength_keeps_parse_status_and_original_text__AC8.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "strength_text lần lượt 0,5 g; 5OOmg; 500mg 250mg",
+          "expected": "Raw giữ nguyên; strength_key lần lượt 0.5 g / 5oomg / 500mg 250mg; trạng thái parsed / unparsed / ambiguous.",
+          "actual": "Đạt toàn bộ assertion của 3 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC8 · EP (1) · tests/unit/test_catalog_index.py::test_strength_keeps_parse_status_and_original_text__AC8 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-04",
+          "description": "Giữ mọi ID khi trùng khóa tên và hoạt chất",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_equal_keys_keep_all_ids_forms_and_strengths__AC9.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "ID2 250 mg/Viên nang; ID1 500MG/Viên Nén, cùng Thuốc Đỏ",
+          "expected": "name_to_ids['thuoc do']=(1,2); ingredient_to_ids giữ cả ID; mỗi entry giữ strength/form riêng và snapshot frozen.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC9 · EP (3) · tests/unit/test_catalog_index.py::test_equal_keys_keep_all_ids_forms_and_strengths__AC9 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-05",
+          "description": "Cách ly snapshot với collection truyền từ ngoài",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_index_copies_external_mapping_collections__AC9.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "mapping={'same':[1,2]}, parts=['500 mg']; sau dựng append/clear collection nguồn",
+          "expected": "Mapping và tuple bên trong vẫn {'same':(1,2)} và ('500 mg',); collection nguồn không sửa được snapshot.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC9 · Đoán lỗi tham chiếu mutable · tests/unit/test_catalog_index.py::test_index_copies_external_mapping_collections__AC9 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-06",
+          "description": "Dựng thứ tự ổn định và đọc lại từng invocation",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_build_order_is_stable_and_loader_reads_each_time__AC11.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Dữ liệu [ID4,ID1] rồi đổi thành ID2; hai UoW khác nhau; builder input đảo thứ tự",
+          "expected": "Builder sort ID; reader được gọi hai lần với hai UoW; lần hai có dữ liệu mới, snapshot lần một giữ nguyên; [] cho entries=().",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC11 · EP (5,6) · tests/unit/test_catalog_index.py::test_build_order_is_stable_and_loader_reads_each_time__AC11 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-07",
+          "description": "Truyền lỗi nguồn đọc sau lần thành công",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_read_failure_after_success_propagates_without_fallback__AC11 tests/unit/test_catalog_index.py::test_lazy_read_failure_is_not_converted_to_partial_success__AC11.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Reader trả ID1 rồi ném RuntimeError('synthetic read failure'); generator yield ID1 rồi ném 'interrupted read'",
+          "expected": "Caller nhận lỗi gốc, không trả snapshot cũ, rỗng hay kết quả một phần.",
+          "actual": "Đạt toàn bộ assertion của 2 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC11 · EP (7) · Decision Table Kết quả đọc catalog (R4) · tests/unit/test_catalog_index.py::test_read_failure_after_success_propagates_without_fallback__AC11; tests/unit/test_catalog_index.py::test_lazy_read_failure_is_not_converted_to_partial_success__AC11 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-08",
+          "description": "Dùng chung facade cho hai consumer nội bộ",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_two_consumers_share_catalog_facade_contract__AC14.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Consumer matching/search; query THUỐC ĐỎ 500mg và thuốc đỏ 500MG; hai UoW; reader lần ID1 rồi ID2",
+          "expected": "Cùng DTO/hàm facade; query chuẩn hóa bằng nhau; reader nhận UoW tương ứng; index phản ánh lần đọc mới. Không cần endpoint/UI OCR.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC14 · EP (6) · tests/unit/test_catalog_index.py::test_two_consumers_share_catalog_facade_contract__AC14 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-09",
+          "description": "Không lưu OCR hoặc ghi catalog khi normalize/build",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_normalize_and_build_have_no_ocr_persistence_or_external_calls__AC13.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "SYNTHETIC_OCR_MARKER 500mg; guard file/network và SqlCatalog create/update/soft_delete/list_for_index",
+          "expected": "Normalize/build thuần chạy qua guard; giữ raw và ID; không gọi writer/dịch vụ ngoài; marker không nằm stdout/stderr/caplog.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC13 · Đoán lỗi riêng tư và hiệu ứng phụ · tests/unit/test_catalog_index.py::test_normalize_and_build_have_no_ocr_persistence_or_external_calls__AC13 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-10",
+          "description": "Đọc toàn bộ catalog active vượt giới hạn search",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_loads_all_active_medications_above_search_limit__AC10.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "PostgreSQL local: >=60 active thêm vào cùng seed, một deleted; trường raw/null, ánh xạ xác minh",
+          "expected": "Reader chạy bằng api_role; tập ID bằng toàn bộ active thực tế, sort ID, đủ dữ liệu nguồn, không có deleted, không cắt ở 50.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC10 · EP (4) · Decision Table Kết quả đọc catalog (R2,R3) · tests/integration/test_catalog_index.py::test_loads_all_active_medications_above_search_limit__AC10 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-11",
+          "description": "Phân biệt catalog rỗng thành công với lỗi đọc",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_empty_catalog_is_a_successful_empty_index__AC10.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Connection api_role riêng READ COMMITTED; tạm soft-delete toàn bộ active trong transaction rồi rollback; không SET ROLE qua postgres local.",
+          "expected": "Loader trả index rỗng thành công; rollback trong finally; ID/deleted_at được phục hồi đầy đủ sau test, không commit thao tác làm rỗng.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC10 · EP (5) · Decision Table Kết quả đọc catalog (R1) · tests/integration/test_catalog_index.py::test_empty_catalog_is_a_successful_empty_index__AC10 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-12",
+          "description": "Thấy ngay thay đổi catalog đã commit ở lượt gọi mới",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_committed_catalog_changes_are_visible_next_call__AC11.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "A đọc active; writer thêm/sửa name, ingredient, strength, form và soft-delete; B đọc bằng UoW mới; restore; C đọc mới",
+          "expected": "B phản ánh đầy đủ add/update/delete; C có ID restore; cùng process, không restart/sleep/TTL; A không bị đổi.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC11 · EP (6) · Chuyển trạng thái active → sửa → soft-delete → restore; loại soft-delete khỏi lượt chọn mới · tests/integration/test_catalog_index.py::test_committed_catalog_changes_are_visible_next_call__AC11 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-13",
+          "description": "Giữ snapshot cũ và thứ tự ổn định trong snapshot DB",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_same_snapshot_has_stable_order_and_old_index_is_unchanged__AC11.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Đọc lặp catalog trong cùng transaction REPEATABLE READ không có writer; thử sửa mapping/object snapshot thứ hai.",
+          "expected": "Hai index khác object nhưng bằng nội dung/thứ tự, ID và bucket được sort; sửa mapping gây TypeError, sửa DTO gây FrozenInstanceError; snapshot thứ nhất không đổi. Snapshot cũ sau B/C được kiểm thêm ở TC-CATINDEX-12.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC11 · EP (6) · tests/integration/test_catalog_index.py::test_same_snapshot_has_stable_order_and_old_index_is_unchanged__AC11 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-14",
+          "description": "Không trả cache/rỗng khi connection PostgreSQL thật bị ngắt",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_real_read_error_after_success_is_not_empty_or_cached__AC10_AC11.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "Loader thành công; mở connection api_role riêng, lấy pg_backend_pid; admin pg_terminate_backend đúng PID đó",
+          "expected": "Lượt đọc trên connection bị ngắt phát sinh lỗi DBAPI/OperationalError; không thành công rỗng/snapshot cũ; đóng/dispose tài nguyên test-owned.",
+          "actual": "Đạt toàn bộ assertion của 1 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC10, AC11 · EP (7) · Decision Table Kết quả đọc catalog (R4) · tests/integration/test_catalog_index.py::test_real_read_error_after_success_is_not_empty_or_cached__AC10_AC11 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-15",
+          "description": "Giữ ingest Unicode và ranh giới module",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_sync.py::test_ingest_preserves_vietnamese_case_accents_and_nfc__AC12 tests/architecture.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "NFD(THUỐC ĐỎ B12), Cao Đinh lăng, source_ref=' VD-VN-1 '; toàn bộ architecture tests",
+          "expected": "Ingest trả NFC có dấu, giữ hoa thường; source_ref='VD-VN-1'; architecture không có dependency mới sai ma trận/route bypass.",
+          "actual": "Đạt toàn bộ assertion của 16 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC12 · Hồi quy ingest và ranh giới module · tests/unit/test_catalog_sync.py::test_ingest_preserves_vietnamese_case_accents_and_nfc__AC12; tests/architecture · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-16",
+          "description": "Giữ search q/limit/Unicode/wildcard/thứ tự và hai route",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_search.py.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "GET /catalog/medications và /medications/search: q độ dài 0,1,100,101; limit 0,1,50,51; 100%, a_b, a\\b; q có 2 space; null/deleted",
+          "expected": "Hai route giữ contract: 200 cho q 1/100 ký tự, limit 1/50; 422 cho q rỗng/101 và limit 0/51; wildcard literal, trim ngoài giữ space trong; prefix/name order; null giữ null và deleted bị loại.",
+          "actual": "Đạt toàn bộ assertion của 43 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC12 · BVA q (min-1=0,min=1,max=100,max+1=101); limit (min-1=0,min=1,max=50,max+1=51) · Hồi quy contract · tests/integration/test_catalog_search.py · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        },
+        {
+          "id": "TC-CATINDEX-17",
+          "description": "Giữ nhóm cạnh tranh nghi ngờ trong cả ba khóa index",
+          "precondition": "Checkout task 4.12; backend/.venv đã có dependencies. Chạy từ thư mục backend; dùng fixture tổng hợp, không cần DB/mạng, không dùng ảnh hoặc dữ liệu bệnh nhân.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/unit/test_catalog_index.py::test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "DTO có name/active_ingredient/strength_text = 'Thuốc Mẫu 500mg {bad}'; bad = O.5g, O.5 g, l0mg, l0 mg; ID=1.",
+          "expected": "Giữ DTO raw/ID; cả ba kết quả unparsed, không tách strength; strength_key giữ toàn text; bucket tên/hoạt chất chứa đúng khóa đầy đủ và ID gốc.",
+          "actual": "Đạt toàn bộ assertion của 4 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-unit-architecture.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · AC8 · EP (1) · Regression R1/High đã sửa, chờ review lại · tests/unit/test_catalog_index.py::test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8 · evidence/test-R1-unit-architecture.xml",
+          "evidence": "evidence/test-R1-unit-architecture.log"
+        },
+        {
+          "id": "TC-CATINDEX-18",
+          "description": "Đọc catalog thật có nhóm cạnh tranh nghi ngờ qua api_role",
+          "precondition": "Supabase PostgreSQL local riêng cho test đã reset sạch; backend/.venv đã có dependencies. Chạy từ backend; dùng TEST_ADMIN_DATABASE_URL/TEST_API_ROLE_PASSWORD theo tests/integration/conftest.py. Không chạy trên DB deploy/chung; chạy tuần tự vì ca catalog rỗng rollback toàn bộ catalog active.",
+          "steps": [
+            "Mở terminal tại backend; kích hoạt môi trường .venv hoặc dùng .venv/Scripts/python.exe.",
+            "Chạy .venv/Scripts/python.exe -m pytest -vv tests/integration/test_catalog_index.py::test_corrupted_strength_from_database_stays_unparsed__AC6_AC8.",
+            "Đối chiếu assertion cho dữ liệu cụ thể và kết quả kỳ vọng dưới đây; lưu output vào evidence của task."
+          ],
+          "data": "12 tổ hợp: O.5g, o,5 G, O.5 g, l0mg, L0 MG, l0 mg đứng trước/sau 500mg; INSERT tên Thuốc Mẫu + tag, raw_active_ingredient Vitamin B12; UPDATE strength_text cùng chuỗi.",
+          "expected": "Reader đăng nhập api_role; tên/hoạt chất/hàm lượng raw giữ nguyên và mapping chưa xác minh vẫn false; ba kết quả unparsed/None/parts rỗng; bucket giữ cả nhóm nghi ngờ, không chọn riêng 500mg.",
+          "actual": "Đạt toàn bộ assertion của 12 invocation trong lượt test sau sửa R1, 28/10/2026; evidence/test-R1-catalog-integration.xml và .log; không skip.",
+          "status": "Pass",
+          "comments": "AC6 · AC8 · EP (1) · Regression R1 qua PostgreSQL thật · tests/integration/test_catalog_index.py::test_corrupted_strength_from_database_stays_unparsed__AC6_AC8 · evidence/test-R1-catalog-integration.xml",
+          "evidence": "evidence/test-R1-catalog-integration.log"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Task: 4.12-ocr-text-normalization-catalog-index  (size: L, contract_change: no)
+  01-requirement.md      approved
+  02-contract.md         bỏ qua
+  03-plan.md             draft
+  04-impl-notes.md       approved nhưng ĐÃ CŨ: 01-requirement.md đã thay đổi sau khi 04-impl-notes.md được duyệt. Cần duyệt lại 04-impl-notes.md. 03-plan.md đã thay đổi sau khi 04-impl-notes.md được duyệt. Cần duyệt lại 04-impl-notes.md.
+  05-test-report.md      approved nhưng ĐÃ CŨ: 01-requirement.md đã thay đổi sau khi 05-test-report.md được duyệt. Cần duyệt lại 05-test-report.md. 03-plan.md đã thay đổi sau khi 05-test-report.md được duyệt. Cần duyệt lại 05-test-report.md.
+  06-review.md           approved nhưng ĐÃ CŨ: 01-requirement.md đã thay đổi sau khi 06-review.md được duyệt. Cần duyệt lại 06-review.md. 03-plan.md đã thay đổi sau khi 06-review.md được duyệt. Cần duyệt lại 06-review.md.
+Giai đoạn cần làm hoặc chờ duyệt: plan

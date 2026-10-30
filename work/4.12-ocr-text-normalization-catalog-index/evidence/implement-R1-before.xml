@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="22" skipped="0" tests="28" time="4.158" timestamp="2026-10-28T13:50:19.509143+07:00" hostname="DESKTOP-MND51E9"><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-O.5g]" time="0.002"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'O.5g', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-o,5 G]" time="0.001"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'o,5 G', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-O.5 g]" time="0.001"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'O.5 g', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-l0mg]" time="0.001"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'l0mg', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-L0 MG]" time="0.001"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'L0 MG', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad}-l0 mg]" time="0.001"><failure message="AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;&#10;  &#10;  - unparsed&#10;  + absent">suspicious = 'l0 mg', template = '{bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+        assert result.normalized_text == result.name_key == normalize_key(text)
+&gt;       assert result.strength_status == StrengthStatus.UNPARSED
+E       AssertionError: assert &lt;StrengthStat...ENT: 'absent'&gt; == &lt;StrengthStat...D: 'unparsed'&gt;
+E         
+E         - unparsed
+E         + absent
+
+tests\unit\test_catalog_ocr_normalization.py:188: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-O.5g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg o.5g' == 'thuoc mau o.5g'&#10;  &#10;  - thuoc mau o.5g&#10;  + thuoc mau 500mg o.5g&#10;  ?          ++++++">suspicious = 'O.5g', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg o.5g' == 'thuoc mau o.5g'
+E         
+E         - thuoc mau o.5g
+E         + thuoc mau 500mg o.5g
+E         ?          ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-o,5 G]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg o,5 g' == 'thuoc mau o,5 g'&#10;  &#10;  - thuoc mau o,5 g&#10;  + thuoc mau 500mg o,5 g&#10;  ?           ++++++">suspicious = 'o,5 G', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg o,5 g' == 'thuoc mau o,5 g'
+E         
+E         - thuoc mau o,5 g
+E         + thuoc mau 500mg o,5 g
+E         ?           ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-O.5 g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg o.5 g' == 'thuoc mau o.5 g'&#10;  &#10;  - thuoc mau o.5 g&#10;  + thuoc mau 500mg o.5 g&#10;  ?           ++++++">suspicious = 'O.5 g', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg o.5 g' == 'thuoc mau o.5 g'
+E         
+E         - thuoc mau o.5 g
+E         + thuoc mau 500mg o.5 g
+E         ?           ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-l0mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg l0mg' == 'thuoc mau l0mg'&#10;  &#10;  - thuoc mau l0mg&#10;  + thuoc mau 500mg l0mg&#10;  ?          ++++++">suspicious = 'l0mg', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg l0mg' == 'thuoc mau l0mg'
+E         
+E         - thuoc mau l0mg
+E         + thuoc mau 500mg l0mg
+E         ?          ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-L0 MG]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'&#10;  &#10;  - thuoc mau l0 mg&#10;  + thuoc mau 500mg l0 mg&#10;  ?           ++++++">suspicious = 'L0 MG', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'
+E         
+E         - thuoc mau l0 mg
+E         + thuoc mau 500mg l0 mg
+E         ?           ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[500mg {bad}-l0 mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'&#10;  &#10;  - thuoc mau l0 mg&#10;  + thuoc mau 500mg l0 mg&#10;  ?           ++++++">suspicious = 'l0 mg', template = '500mg {bad}'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'
+E         
+E         - thuoc mau l0 mg
+E         + thuoc mau 500mg l0 mg
+E         ?           ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-O.5g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau o.5g 500mg' == 'thuoc mau o.5g'&#10;  &#10;  - thuoc mau o.5g&#10;  + thuoc mau o.5g 500mg&#10;  ?               ++++++">suspicious = 'O.5g', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau o.5g 500mg' == 'thuoc mau o.5g'
+E         
+E         - thuoc mau o.5g
+E         + thuoc mau o.5g 500mg
+E         ?               ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-o,5 G]" time="0.001"><failure message="AssertionError: assert 'thuoc mau o,5 g 500mg' == 'thuoc mau o,5 g'&#10;  &#10;  - thuoc mau o,5 g&#10;  + thuoc mau o,5 g 500mg&#10;  ?                ++++++">suspicious = 'o,5 G', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau o,5 g 500mg' == 'thuoc mau o,5 g'
+E         
+E         - thuoc mau o,5 g
+E         + thuoc mau o,5 g 500mg
+E         ?                ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-O.5 g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau o.5 g 500mg' == 'thuoc mau o.5 g'&#10;  &#10;  - thuoc mau o.5 g&#10;  + thuoc mau o.5 g 500mg&#10;  ?                ++++++">suspicious = 'O.5 g', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau o.5 g 500mg' == 'thuoc mau o.5 g'
+E         
+E         - thuoc mau o.5 g
+E         + thuoc mau o.5 g 500mg
+E         ?                ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-l0mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau l0mg 500mg' == 'thuoc mau l0mg'&#10;  &#10;  - thuoc mau l0mg&#10;  + thuoc mau l0mg 500mg&#10;  ?               ++++++">suspicious = 'l0mg', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau l0mg 500mg' == 'thuoc mau l0mg'
+E         
+E         - thuoc mau l0mg
+E         + thuoc mau l0mg 500mg
+E         ?               ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-L0 MG]" time="0.001"><failure message="AssertionError: assert 'thuoc mau l0 mg 500mg' == 'thuoc mau l0 mg'&#10;  &#10;  - thuoc mau l0 mg&#10;  + thuoc mau l0 mg 500mg&#10;  ?                ++++++">suspicious = 'L0 MG', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau l0 mg 500mg' == 'thuoc mau l0 mg'
+E         
+E         - thuoc mau l0 mg
+E         + thuoc mau l0 mg 500mg
+E         ?                ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6[{bad} 500mg-l0 mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau l0 mg 500mg' == 'thuoc mau l0 mg'&#10;  &#10;  - thuoc mau l0 mg&#10;  + thuoc mau l0 mg 500mg&#10;  ?                ++++++">suspicious = 'l0 mg', template = '{bad} 500mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "o,5 G", "O.5 g", "l0mg", "L0 MG", "l0 mg"])
+    @pytest.mark.parametrize("template", ["{bad}", "500mg {bad}", "{bad} 500mg"])
+    def test_ocr_corrupted_leading_digit_blocks_strength_extraction__AC6(suspicious, template):
+        text = f"Thuốc Mẫu {template.format(bad=suspicious)}"
+        result = assert_idempotent(text)
+&gt;       assert result.normalized_text == result.name_key == normalize_key(text)
+E       AssertionError: assert 'thuoc mau l0 mg 500mg' == 'thuoc mau l0 mg'
+E         
+E         - thuoc mau l0 mg
+E         + thuoc mau l0 mg 500mg
+E         ?                ++++++
+
+tests\unit\test_catalog_ocr_normalization.py:187: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[Vitamin B12]" time="0.001" /><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[Vitamin D3]" time="0.001" /><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[Long]" time="0.001" /><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[Log]" time="0.001" /><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[Ong]" time="0.001" /><testcase classname="tests.unit.test_catalog_ocr_normalization" name="test_names_do_not_become_corrupted_amounts__AC3[O0l1]" time="0.001" /><testcase classname="tests.unit.test_catalog_index" name="test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8[O.5g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg o.5g' == 'thuoc mau o.5g'&#10;  &#10;  - thuoc mau o.5g&#10;  + thuoc mau 500mg o.5g&#10;  ?          ++++++">suspicious = 'O.5g'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "O.5 g", "l0mg", "l0 mg"])
+    def test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8(suspicious):
+        text = f"Thuốc Mẫu 500mg {suspicious}"
+        raw = medication(name=text, active_ingredient=text, strength_text=text)
+        index = api.build_catalog_index([raw])
+        entry = index.entries[0]
+        key = f"thuoc mau 500mg {suspicious.lower()}"
+        assert entry.medication is raw
+        for normalized in (entry.name, entry.active_ingredient, entry.strength):
+&gt;           assert normalized.normalized_text == normalized.name_key == key
+E           AssertionError: assert 'thuoc mau 500mg o.5g' == 'thuoc mau o.5g'
+E             
+E             - thuoc mau o.5g
+E             + thuoc mau 500mg o.5g
+E             ?          ++++++
+
+tests\unit\test_catalog_index.py:85: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_index" name="test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8[O.5 g]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg o.5 g' == 'thuoc mau o.5 g'&#10;  &#10;  - thuoc mau o.5 g&#10;  + thuoc mau 500mg o.5 g&#10;  ?           ++++++">suspicious = 'O.5 g'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "O.5 g", "l0mg", "l0 mg"])
+    def test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8(suspicious):
+        text = f"Thuốc Mẫu 500mg {suspicious}"
+        raw = medication(name=text, active_ingredient=text, strength_text=text)
+        index = api.build_catalog_index([raw])
+        entry = index.entries[0]
+        key = f"thuoc mau 500mg {suspicious.lower()}"
+        assert entry.medication is raw
+        for normalized in (entry.name, entry.active_ingredient, entry.strength):
+&gt;           assert normalized.normalized_text == normalized.name_key == key
+E           AssertionError: assert 'thuoc mau 500mg o.5 g' == 'thuoc mau o.5 g'
+E             
+E             - thuoc mau o.5 g
+E             + thuoc mau 500mg o.5 g
+E             ?           ++++++
+
+tests\unit\test_catalog_index.py:85: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_index" name="test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8[l0mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg l0mg' == 'thuoc mau l0mg'&#10;  &#10;  - thuoc mau l0mg&#10;  + thuoc mau 500mg l0mg&#10;  ?          ++++++">suspicious = 'l0mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "O.5 g", "l0mg", "l0 mg"])
+    def test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8(suspicious):
+        text = f"Thuốc Mẫu 500mg {suspicious}"
+        raw = medication(name=text, active_ingredient=text, strength_text=text)
+        index = api.build_catalog_index([raw])
+        entry = index.entries[0]
+        key = f"thuoc mau 500mg {suspicious.lower()}"
+        assert entry.medication is raw
+        for normalized in (entry.name, entry.active_ingredient, entry.strength):
+&gt;           assert normalized.normalized_text == normalized.name_key == key
+E           AssertionError: assert 'thuoc mau 500mg l0mg' == 'thuoc mau l0mg'
+E             
+E             - thuoc mau l0mg
+E             + thuoc mau 500mg l0mg
+E             ?          ++++++
+
+tests\unit\test_catalog_index.py:85: AssertionError</failure></testcase><testcase classname="tests.unit.test_catalog_index" name="test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8[l0 mg]" time="0.001"><failure message="AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'&#10;  &#10;  - thuoc mau l0 mg&#10;  + thuoc mau 500mg l0 mg&#10;  ?           ++++++">suspicious = 'l0 mg'
+
+    @pytest.mark.parametrize("suspicious", ["O.5g", "O.5 g", "l0mg", "l0 mg"])
+    def test_index_keeps_corrupted_competing_strength_in_every_key__AC6_AC8(suspicious):
+        text = f"Thuốc Mẫu 500mg {suspicious}"
+        raw = medication(name=text, active_ingredient=text, strength_text=text)
+        index = api.build_catalog_index([raw])
+        entry = index.entries[0]
+        key = f"thuoc mau 500mg {suspicious.lower()}"
+        assert entry.medication is raw
+        for normalized in (entry.name, entry.active_ingredient, entry.strength):
+&gt;           assert normalized.normalized_text == normalized.name_key == key
+E           AssertionError: assert 'thuoc mau 500mg l0 mg' == 'thuoc mau l0 mg'
+E             
+E             - thuoc mau l0 mg
+E             + thuoc mau 500mg l0 mg
+E             ?           ++++++
+
+tests\unit\test_catalog_index.py:85: AssertionError</failure></testcase></testsuite></testsuites>

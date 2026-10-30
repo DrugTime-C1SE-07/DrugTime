@@ -1,0 +1,506 @@
+{
+  "head": "2439aa66c914809d08c017f09379e03d0144da83",
+  "drugtime_file": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\scratch\\baseline_backend\\src\\drugtime\\__init__.py",
+  "exit_code": 1,
+  "tests": [
+    {
+      "nodeid": "tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[post-/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/{id}]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[patch-/medications/{id}]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[delete-/medications/{id}]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[post-/medications/{id}/schedules]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[patch-/medications/{id}/schedules/{schedule_id}]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[delete-/medications/{id}/schedules/{schedule_id}]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/patients/{patient_id}/schedules]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_request_bodies_forbid_unknown_fields",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_requires_auth[/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_requires_auth[/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_alias_returns_same_catalog_without_id_collision",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params0-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params0-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params1-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params1-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params2-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params2-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params3-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params3-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params4-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params4-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params5-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params5-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params6-/catalog/medications]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_catalog_search_rejects_invalid_query[params6-/medications/search]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_medication.py::test_patient_schedules_query_params_match_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_notification.py::test_notification_patch_request_body_forbids_unknown_fields",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_notification.py::test_notification_query_params_match_contract",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_openapi_semantics.py::test_link_code_contract_keeps_code_and_qr_constraints",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_openapi_semantics.py::test_medication_schedule_contract_keeps_weekday_and_response_boundaries",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_schema_required_and_forbidden_fields",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[get-/profile-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[put-/profile-body1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[post-/profile/conditions-body2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[patch-/profile/conditions/1-body3]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[delete-/profile/conditions/1-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_unauthenticated_all_operations[get-/conditions-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_get_no_store_nullable",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_failure_never_acknowledges_or_leaks[get-/profile-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_failure_never_acknowledges_or_leaks[put-/profile-body1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_failure_never_acknowledges_or_leaks[post-/profile/conditions-body2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_failure_never_acknowledges_or_leaks[patch-/profile/conditions/1-body3]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_failure_never_acknowledges_or_leaks[delete-/profile/conditions/1-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_denied_all_profile_operations[get-/profile-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_denied_all_profile_operations[put-/profile-body1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_denied_all_profile_operations[post-/profile/conditions-body2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_denied_all_profile_operations[patch-/profile/conditions/1-body3]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_denied_all_profile_operations[delete-/profile/conditions/1-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_put_422[payload0]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_put_422[payload1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_put_422[payload2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_put_422[payload3]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_put_null_email_is_rejected_but_email_may_be_omitted",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_profile_put_declares_email_change_errors",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_profile_put_restores_auth_email_when_database_commit_fails",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_profile_put_returns_503_if_auth_compensation_fails",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_patch_empty_or_unknown_422[payload0]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_patch_empty_or_unknown_422[payload1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_patch_empty_or_unknown_422[payload2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[0]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[-1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[True]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[1.1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_invalid_id_422[9223372036854775808]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_patch_null_versus_omitted",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_204_bodyless[put-/profile-body0]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_204_bodyless[delete-/profile/conditions/1-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_create_conflict_and_link_missing",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_no_owner_selector",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-put-/profile-body1]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/conditions-None]",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-get-/profile-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-put-/profile-body1]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-post-/profile/conditions-body2]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-patch-/profile/conditions/1-body3]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-delete-/profile/conditions/1-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[erased-get-/conditions-None]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_exact_int64_maximum_validated",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_precedes_asgi_response_start[False]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_commit_precedes_asgi_response_start[True]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_nul_metadata_rejected_without_changing_schema[subtype-UserConditionCreateRequest]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_nul_metadata_rejected_without_changing_schema[subtype-UserConditionUpdateRequest]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_nul_metadata_rejected_without_changing_schema[stage-UserConditionCreateRequest]",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "tests/unit/test_profile_http.py::test_nul_metadata_rejected_without_changing_schema[stage-UserConditionUpdateRequest]",
+      "outcome": "passed"
+    }
+  ],
+  "compared_current_log": "D:\\DrugTime\\source\\DrugTime\\work\\4.12-ocr-text-normalization-catalog-index\\evidence\\test-refresh-unit.log",
+  "current_failures": [
+    "tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]",
+    "tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]",
+    "tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract",
+    "tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]",
+    "tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]",
+    "tests/unit/test_contract_notification.py::test_notification_query_params_match_contract",
+    "tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]",
+    "tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]",
+    "tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]",
+    "tests/unit/test_contract_openapi_semantics.py::test_contract_audit_passes_and_detects_broken_contract_guards",
+    "tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1",
+    "tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/conditions-get-200]",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-get-200]",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile-put-204]",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions-post-201]",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-delete-204]",
+    "tests/unit/test_contract_profile.py::test_profile_operation_inventory_matches_contract[/profile/conditions/{id}-patch-200]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-put-204]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-delete-204]",
+    "tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-delete-/profile/conditions/1-None]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/conditions-None]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-patch-/profile/conditions/1-body3]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-post-/profile/conditions-body2]",
+    "tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-put-/profile-body1]"
+  ],
+  "introduced": [],
+  "baseline_only": []
+}

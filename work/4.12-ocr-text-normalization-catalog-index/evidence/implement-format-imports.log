@@ -1,0 +1,23 @@
+E501 Line too long (104 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:104:101
+    |
+102 |                     VALUES
+103 |                       (:name, :raw_active_ingredient, :strength_text, :dosage_form,
+104 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+    |                                                                                                     ^^^^
+105 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+106 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:106:101
+    |
+104 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+105 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+106 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+107 |                 """),
+108 |                 data,
+    |
+
+Found 2 errors.

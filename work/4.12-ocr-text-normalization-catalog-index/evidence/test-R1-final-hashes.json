@@ -1,0 +1,12 @@
+{
+  "backend/src/drugtime/modules/catalog/domain/catalog_index.py": "d22ff582415d9d86a4e46a3196a2a7bae4feb7d8da59877e9b7ba6cc72f74705",
+  "backend/src/drugtime/modules/catalog/application/normalize_ocr.py": "d061c34d3acc162217235524936b3b7b5304e08c7862fc79dfe9afded8b1245f",
+  "backend/src/drugtime/modules/catalog/application/build_catalog_index.py": "bd4fb9361fa49b11739046283ec74ca5731302e234398faafd1780ef5a37e8e8",
+  "backend/src/drugtime/modules/catalog/adapters/outbound/sql_catalog.py": "c6df01d3ac925f48ac3e5137ab5d6937c49b089529dcae019cd1629d938a2c9f",
+  "backend/src/drugtime/modules/catalog/api.py": "edb575757764970b123ecaf5ed2b078e3786ffc4fa929d4b0906937559a96ba4",
+  "backend/tests/unit/test_catalog_ocr_normalization.py": "e2a15af9e7d7c7294b622a612ddfb8abd1db663b7a123b3f83baf9385e6002a4",
+  "backend/tests/unit/test_catalog_index.py": "a6be18af973e3ae9ece491e6873920f62fe2fa2cebdcc4b3ff35251b0b19bda2",
+  "backend/tests/unit/test_catalog_sync.py": "82d38816856f955c74a2a7f57a64a888e698284e4002dda2244517718a0f0ded",
+  "backend/tests/integration/test_catalog_index.py": "adf667df353a0597d1f89a26d86fe06244cf8cf1c169e03f1c391767a4788c7d",
+  "docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx": "efb80891b8e772955b0fed34977b576c50bf38844eb704941e59a115f2929419"
+}

@@ -1,0 +1,11 @@
+All 10 code/workbook hashes equal approved test snapshot.
+review-R1-targeted.xml: 184 pass, 0 failed/error/skipped.
+review-R1-integration.xml: 60 pass, 0 failed/error/skipped.
+review-R1-original-probe.xml: 4 pass, 0 failed/error/skipped.
+All 22 regression invocations that failed before the fix now pass.
+Approved unit evidence: 1524 invocations, 30 failures match executed baseline node IDs exactly; 0 skipped.
+Traceback (most recent call last):
+  File "D:\DrugTime\source\DrugTime\work\4.12-ocr-text-normalization-catalog-index\scratch\audit_review_R1.py", line 46, in <module>
+    assert len(actual_fail) == expected_fail and actual_fail == baseline_fail
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

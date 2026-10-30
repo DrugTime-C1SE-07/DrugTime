@@ -1,0 +1,973 @@
+[
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 23,
+      "row": 4
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from datetime import datetime\r\nfrom typing import Any\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 5
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 30,
+      "row": 10
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 10
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 10,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 2,
+      "row": 20
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from datetime import datetime\r\n\r\nfrom pydantic import BaseModel, ConfigDict, Field, model_validator\r\n\r\nfrom drugtime.modules.catalog.domain.medication import CatalogMedication\r\nfrom drugtime.modules.catalog.domain.sync_run import (\r\n    CatalogSyncRun,\r\n    CatalogSyncRunPage,\r\n    CatalogSyncSource,\r\n    CatalogSyncStatus,\r\n    CatalogSyncTrigger,\r\n)\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 23
+          },
+          "location": {
+            "column": 1,
+            "row": 10
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 10
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 10,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F811",
+    "end_location": {
+      "column": 30,
+      "row": 10
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 1,
+            "row": 11
+          },
+          "location": {
+            "column": 1,
+            "row": 10
+          }
+        }
+      ],
+      "message": "Remove definition: `datetime`"
+    },
+    "location": {
+      "column": 22,
+      "row": 10
+    },
+    "message": "Redefinition of unused `datetime` from line 3: `datetime` redefined here",
+    "name": "redefined-while-unused",
+    "noqa_row": 10,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/redefined-while-unused"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 67,
+      "row": 11
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 11
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 11,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 73,
+      "row": 13
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 13
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 13,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 2,
+      "row": 20
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 14
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 14,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 118,
+      "row": 101
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\inbound\\schemas.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 101
+    },
+    "message": "Line too long (117 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 101,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 105,
+      "row": 104
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\outbound\\sql_catalog.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 104
+    },
+    "message": "Line too long (104 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 107,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 118,
+      "row": 106
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\adapters\\outbound\\sql_catalog.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 106
+    },
+    "message": "Line too long (117 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 107,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E731",
+    "end_location": {
+      "column": 72,
+      "row": 28
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": {
+      "applicability": "unsafe",
+      "edits": [
+        {
+          "content": "def number_tokens(s):\r\n            return tuple(re.findall(r\"\\b\\w*\\d\\w*\\b\", s))",
+          "end_location": {
+            "column": 72,
+            "row": 28
+          },
+          "location": {
+            "column": 9,
+            "row": 28
+          }
+        }
+      ],
+      "message": "Rewrite `number_tokens` as a `def`"
+    },
+    "location": {
+      "column": 9,
+      "row": 28
+    },
+    "message": "Do not assign a `lambda` expression, use a `def`",
+    "name": "lambda-assignment",
+    "noqa_row": 28,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/lambda-assignment"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 61,
+      "row": 49
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 60,
+      "row": 49
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 49,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 53,
+      "row": 86
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 52,
+      "row": 86
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 86,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 42,
+      "row": 87
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 41,
+      "row": 87
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 87,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 28,
+      "row": 88
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 27,
+      "row": 88
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 88,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 69,
+      "row": 89
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 68,
+      "row": 89
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 89,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 54,
+      "row": 95
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\cluster_ocr_lines.py",
+    "fix": null,
+    "location": {
+      "column": 53,
+      "row": 95
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 95,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 2,
+      "row": 13
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\normalize_ocr.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import re\r\nimport string\r\nimport unicodedata\r\nfrom dataclasses import dataclass\r\nfrom decimal import Decimal\r\n\r\nfrom drugtime.modules.catalog.application.cluster_ocr_lines import cluster_ocr_lines\r\nfrom drugtime.modules.catalog.domain.catalog_index import (\r\n    NormalizedOcrText,\r\n    OcrLine,\r\n    RemovedSpan,\r\n    StrengthOccurrence,\r\n    StrengthStatus,\r\n    summarize_strengths,\r\n)\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 15
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 134,
+      "row": 56
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\normalize_ocr.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 56
+    },
+    "message": "Line too long (133 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 56,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 108,
+      "row": 196
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\application\\normalize_ocr.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 196
+    },
+    "message": "Line too long (107 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 196,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 13,
+      "row": 5
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\fetchers.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from collections.abc import Iterator\r\n\r\nimport httpx\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 34,
+      "row": 5
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\normalize.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import re\r\nimport unicodedata\r\nfrom dataclasses import dataclass\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 103,
+      "row": 34
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\catalog\\normalize.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 34
+    },
+    "message": "Line too long (102 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 34,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 46,
+      "row": 5
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\modules\\consent\\adapters\\outbound\\job_queue.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from uuid import UUID\r\n\r\nfrom drugtime.shared.celery import celery_app\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 8
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "F821",
+    "end_location": {
+      "column": 11,
+      "row": 50
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\runtime\\job_runner.py",
+    "fix": null,
+    "location": {
+      "column": 5,
+      "row": 50
+    },
+    "message": "Undefined name `health`",
+    "name": "undefined-name",
+    "noqa_row": 50,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/undefined-name"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 31,
+      "row": 6
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\worker.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "import os\r\nfrom pathlib import Path\r\n\r\nfrom dotenv import load_dotenv\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 9
+          },
+          "location": {
+            "column": 1,
+            "row": 3
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 3
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 3,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "I001",
+    "end_location": {
+      "column": 48,
+      "row": 22
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\src\\drugtime\\worker.py",
+    "fix": {
+      "applicability": "safe",
+      "edits": [
+        {
+          "content": "from drugtime.modules.catalog import tasks as catalog_tasks  # noqa: E402,F401\r\nfrom drugtime.runtime import job_runner  # noqa: E402\r\nfrom drugtime.shared.celery import celery_app  # noqa: E402\r\nfrom drugtime.shared.config import get_settings  # noqa: E402\r\n\r\n",
+          "end_location": {
+            "column": 1,
+            "row": 25
+          },
+          "location": {
+            "column": 1,
+            "row": 19
+          }
+        }
+      ],
+      "message": "Organize imports"
+    },
+    "location": {
+      "column": 1,
+      "row": 19
+    },
+    "message": "Import block is un-sorted or un-formatted",
+    "name": "unsorted-imports",
+    "noqa_row": 19,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unsorted-imports"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 105,
+      "row": 42
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\conftest.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 42
+    },
+    "message": "Line too long (104 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 42,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 107,
+      "row": 150
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\conftest.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 150
+    },
+    "message": "Line too long (106 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 150,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 109,
+      "row": 245
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\conftest.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 245
+    },
+    "message": "Line too long (108 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 245,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 103,
+      "row": 122
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 122
+    },
+    "message": "Line too long (102 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 122,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 107,
+      "row": 123
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 123
+    },
+    "message": "Line too long (106 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 123,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 104,
+      "row": 124
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 124
+    },
+    "message": "Line too long (103 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 124,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 114,
+      "row": 198
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 198
+    },
+    "message": "Line too long (113 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 198,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 104,
+      "row": 199
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_alert_dispatch_api.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 199
+    },
+    "message": "Line too long (103 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 199,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 104,
+      "row": 1
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_access.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 1
+    },
+    "message": "Line too long (103 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 4,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 104,
+      "row": 29
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_access.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 29
+    },
+    "message": "Line too long (103 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 29,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  },
+  {
+    "cell": null,
+    "code": "F841",
+    "end_location": {
+      "column": 12,
+      "row": 55
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_access.py",
+    "fix": {
+      "applicability": "unsafe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 15,
+            "row": 55
+          },
+          "location": {
+            "column": 5,
+            "row": 55
+          }
+        }
+      ],
+      "message": "Remove assignment to unused variable `link_id`"
+    },
+    "location": {
+      "column": 5,
+      "row": 55
+    },
+    "message": "Local variable `link_id` is assigned to but never used",
+    "name": "unused-variable",
+    "noqa_row": 55,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unused-variable"
+  },
+  {
+    "cell": null,
+    "code": "F841",
+    "end_location": {
+      "column": 12,
+      "row": 77
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_access.py",
+    "fix": {
+      "applicability": "unsafe",
+      "edits": [
+        {
+          "content": "",
+          "end_location": {
+            "column": 15,
+            "row": 77
+          },
+          "location": {
+            "column": 5,
+            "row": 77
+          }
+        }
+      ],
+      "message": "Remove assignment to unused variable `link_id`"
+    },
+    "location": {
+      "column": 5,
+      "row": 77
+    },
+    "message": "Local variable `link_id` is assigned to but never used",
+    "name": "unused-variable",
+    "noqa_row": 77,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/unused-variable"
+  },
+  {
+    "cell": null,
+    "code": "E741",
+    "end_location": {
+      "column": 33,
+      "row": 182
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_access.py",
+    "fix": null,
+    "location": {
+      "column": 32,
+      "row": 182
+    },
+    "message": "Ambiguous variable name: `l`",
+    "name": "ambiguous-variable-name",
+    "noqa_row": 182,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/ambiguous-variable-name"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 102,
+      "row": 18
+    },
+    "filename": "D:\\DrugTime\\source\\DrugTime\\backend\\tests\\integration\\test_family_links_concurrency.py",
+    "fix": null,
+    "location": {
+      "column": 101,
+      "row": 18
+    },
+    "message": "Line too long (101 > 100)",
+    "name": "line-too-long",
+    "noqa_row": 18,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  }
+]
