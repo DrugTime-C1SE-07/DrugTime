@@ -1,5 +1,0 @@
-Decision GO recorded separately; CLI decision remains not_decided.
-Report/snapshot hashes match; raw count=49; data_errors=0.
-Selected classifications: {'name_not_found': 14, 'exact_name': 27, 'tokens_present_noncontiguous': 2, 'partial_name': 5, 'no_text': 1}
-Scores: {'android/sdk_gphone16k_x86_64/17/emulator': {'correct': 27, 'evaluated': 49, 'labelled_images': 49, 'accuracy': 0.5510204081632653, 'coverage': 1.0, 'not_run': 0, 'classifications': {'name_not_found': 14, 'exact_name': 27, 'tokens_present_noncontiguous': 2, 'partial_name': 5, 'no_text': 1}, 'strength': {'correct': 23, 'evaluated': 32}, 'timing': {'n': 49, 'median_ms': 2615, 'p95_ms': 5267}}}
-Independent human review/native manual/remote publication are still pending.

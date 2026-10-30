@@ -1,6 +1,0 @@
-PASS staged scope: 408 entries; only datasets/task artifacts/docs/frontend/.gitattributes.
-PASS exact staged blobs match working bytes; scratch/cache/old research code excluded.
-PASS credential-pattern scan and individual GitHub blob size checks.
-PASS fresh index export with core.autocrlf=true preserves all 406 file byte hashes.
-Submodule entries: {'docs': '6fd7c599ef4d2570323f1cf77819fea78ff08360', 'frontend': '281f9ffccced9c238ffa6f31f97364eb37ff7a90'}
-Read-only source audit/export completed; no source data or approval files changed.

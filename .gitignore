@@ -40,4 +40,4 @@ chat_notes/
 .claude/skills
 .claude/settings.local.json
 work/*/scratch/
-work/
+/work/
