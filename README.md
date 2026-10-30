@@ -147,41 +147,102 @@ DrugTime cung cấp một nền tảng tập trung cho:
 
 ---
 
-## 🚀 Cài đặt & Chạy
+## 🚀 Cài đặt & khởi chạy toàn bộ dự án
+
+Tất cả lệnh bên dưới được chạy từ thư mục gốc `DrugTime/`, trừ khi có ghi chú khác.
 
 ### Yêu cầu
 
+- Git (có hỗ trợ submodule)
+- Docker Desktop đang chạy
+- Supabase CLI
+- Python >= 3.12
+- Node.js >= 18 và npm
 - Flutter SDK >= 3.x
-- Python >= 3.11
-- Node.js >= 18
-- Redis
-- Tài khoản Supabase
+- Redis tại `127.0.0.1:6379`
+- RabbitMQ tại `127.0.0.1:5672` (broker cho Celery)
 
-### Mobile App (Flutter)
+### 1. Khởi tạo submodule và cài dependency (chỉ cần làm lần đầu)
 
-```bash
-cd mobile
+```powershell
+git submodule update --init --recursive
+
+python -m venv backend/.venv
+backend/.venv/Scripts/python.exe -m pip install -r backend/requirements.txt
+
+npm --prefix frontend/admin install
+npm --prefix frontend/landing install
+
+Push-Location frontend/mobile
 flutter pub get
-flutter run
+Pop-Location
 ```
 
-### Backend API (FastAPI)
+Trên macOS/Linux, thay lệnh Python trong virtual environment bằng:
 
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload
+python3 -m venv backend/.venv
+backend/.venv/bin/python -m pip install -r backend/requirements.txt
 ```
 
-### Admin Dashboard (Next.js)
+### 2. Khởi chạy hạ tầng local
 
-```bash
-cd admin
-npm install
-npm run dev
+```powershell
+docker run --name drugtime-redis -p 6379:6379 -d redis:7-alpine
+docker run --name drugtime-rabbitmq -p 5672:5672 -p 15672:15672 -d rabbitmq:3-management-alpine
+
+Push-Location backend
+supabase start
+supabase db reset
+Pop-Location
 ```
+
+> **Ghi chú:** Hai lệnh `docker run` chỉ dùng khi chưa có container. Từ lần sau, dùng `docker start drugtime-redis drugtime-rabbitmq`. `supabase db reset` xóa dữ liệu local và chạy lại migration/seed; không cần chạy mỗi lần khởi động nếu không muốn làm mới dữ liệu.
+
+### 3. Khởi chạy các thành phần
+
+Mở các terminal riêng từ repo cha và chạy:
+
+**Terminal 1 — Backend API (http://localhost:8000):**
+
+```powershell
+$env:PYTHONPATH = "backend/src"
+backend/.venv/Scripts/python.exe -m uvicorn drugtime.main:app --reload --port 8000
+```
+
+**Terminal 2 — Celery Worker kèm scheduler:**
+
+```powershell
+$env:PYTHONPATH = "backend/src"
+$env:CELERY_BROKER_URL = "amqp://guest:guest@127.0.0.1:5672//"
+backend/.venv/Scripts/python.exe -m celery --app drugtime.worker:celery_app worker --beat --loglevel=INFO
+```
+
+**Terminal 3 — Admin Dashboard (http://localhost:3000):**
+
+```powershell
+npm --prefix frontend/admin run dev
+```
+
+**Terminal 4 — Landing Page (http://localhost:3001):**
+
+```powershell
+npm --prefix frontend/landing run dev -- --port 3001
+```
+
+**Terminal 5 — Mobile App:**
+
+```powershell
+Push-Location frontend/mobile
+flutter run --dart-define=DRUGTIME_API_BASE_URL=http://localhost:8000
+Pop-Location
+```
+
+> **Ghi chú cho mobile:** `localhost` chỉ trỏ đúng về máy host khi chạy Flutter Web/iOS Simulator. Android Emulator dùng `http://10.0.2.2:8000`; thiết bị thật dùng IP LAN của máy chạy backend, ví dụ `http://192.168.1.10:8000`, và cần cho phép cổng 8000 qua firewall.
+>
+> Swagger UI: http://localhost:8000/docs. Supabase Studio local: http://localhost:54323. RabbitMQ Management: http://localhost:15672 (mặc định `guest` / `guest`).
+
+Trên macOS/Linux, dùng `export PYTHONPATH=backend/src`, `export CELERY_BROKER_URL=...` và thay `backend/.venv/Scripts/python.exe` bằng `backend/.venv/bin/python`.
 
 ---
 
@@ -248,15 +309,13 @@ main
 
 **Team C1SE.07** — International School, Duy Tan University
 
-| Thành viên | MSSV | Vai trò |
-|---|---|---|
-| Nguyễn Ngọc Phúc | 29219051745 | Team Leader / Scrum Master, Dev, QA |
-| Nguyễn Quang Bảo | 29211158850 | Dev, QA, DevOps |
-| Nguyễn Tấn Đức | 29211156669 | Dev, QA, DevOps |
-| Nguyễn Văn Nguyên | 29211364802 | BA, Dev, QA |
-| Đặng Ngô Ngọc Việt | 29219064788 | Dev, QA, DevOps |
-
-**Mentor**: B.Eng. Nguyễn Trọng Giáp — Kaopiz Da Nang
+| Thành viên  | Vai trò |
+|---|---|
+| Nguyễn Ngọc Phúc | Team Leader / Scrum Master, Dev, QA |
+| Nguyễn Quang Bảo | Dev, QA, DevOps |
+| Nguyễn Tấn Đức | Dev, QA, DevOps |
+| Nguyễn Văn Nguyên | BA, Dev, QA |
+| Đặng Ngô Ngọc Việt | Dev, QA, DevOps |
 
 ---
 

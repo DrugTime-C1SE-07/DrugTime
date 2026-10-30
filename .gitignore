@@ -34,6 +34,7 @@ build/
 
 #docs
 docs/setup_git_submodule.md
+chat_notes/
 
 # .agents
 .claude/skills
