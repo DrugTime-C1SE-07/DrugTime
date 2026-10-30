@@ -1,8 +1,0 @@
-PASS staged scope: 408 entries; only datasets/task artifacts/docs/frontend/.gitattributes.
-PASS exact staged blobs match working bytes; scratch/cache/old research code excluded.
-PASS credential-pattern scan and individual GitHub blob size checks.
-Traceback (most recent call last):
-  File "D:\DrugTime\work\4.09-mlkit-prototype\scratch\audit_publication.py", line 50, in <module>
-    assert hashlib.sha256((export/name).read_bytes()).digest() == hashlib.sha256((root/name).read_bytes()).digest(), name
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: .gitattributes

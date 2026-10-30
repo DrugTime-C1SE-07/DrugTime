@@ -39,3 +39,4 @@ docs/setup_git_submodule.md
 .claude/skills
 .claude/settings.local.json
 work/*/scratch/
+/work/
