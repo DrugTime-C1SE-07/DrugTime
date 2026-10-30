@@ -30,7 +30,7 @@ Nguồn: `.agents/core.md`. Mọi đường dẫn tính từ gốc superproject.
 
 - **Task size S** (xếp ở `01`, tiêu chí trong `wf-requirement`): chỉ có requirement → implement → review. `01` chứa luôn bảng "File sẽ thay đổi" và checklist. Task chạm vùng rủi ro của dự án hoặc đổi contract không được xếp S.
 - Điều phối: `wf-status` (task đang ở đâu), `wf-next` (làm giai đoạn kế tiếp), `wf-handoff` (chuẩn bị bàn giao). Người dùng nói "làm task X" mà không nói giai đoạn thì dùng `wf-next`.
-- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe).
+- Skill chuyên đề, dùng bên trong giai đoạn: `wf-git` (mọi thao tác git, trước khi sửa file trong submodule), `wf-db-migration` (schema), `wf-health-endpoint` (endpoint dữ liệu sức khỏe), `wf-testcase` (bộ test case Excel và Bug Report, cuối giai đoạn test; task size S thì cuối implement).
 - Skill cần dùng mà không có trong `.agents/skills/`: dừng và báo, không tự ứng biến.
 
 ### 2. Cổng duyệt
@@ -102,6 +102,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - client: `frontend`
 - integration-test: `tests`, `backend/tests/integration`, `backend/tests/interaction_scenarios`
 - docs: `docs`
+- testcase-book: `docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx`
 
 ### Stack và lệnh
 
@@ -111,6 +112,7 @@ Artifact của task nằm ở `work/<task-id>/` tại gốc superproject.
 - Mobile: `cd frontend/mobile && flutter test`.
 - Admin Web: `cd frontend/admin && npm run lint`. TODO(team): chưa có lệnh test.
 - Test E2E: TODO(team): lệnh chạy trong `tests` (hiện chỉ có `test_smoke.py`).
+- Bộ test case Excel (skill `wf-testcase`): `python .agents/scripts/testcase_xlsx.py validate|build|merge <task-id>`; cần `openpyxl`. File tổng: vai trò `testcase-book`. Project Name trong spec: `DrugTime`.
 - Database: Supabase (PostgreSQL). Reset DB local: `cd backend && supabase db reset`. Role: `api_role` (API), `worker_role` (Worker).
 - Hạ tầng khác: Redis (RQ), FCM (Firebase Admin SDK).
 - `api_contract`: OpenAPI sinh từ backend bằng `backend/scripts/export_openapi.py`. TODO(team): script đang ghi ra `../api-contract/openapi.json` (gạch ngang), trong khi submodule tên `api_contract`; cần sửa một trong hai.
@@ -129,7 +131,7 @@ Không task nào được vi phạm các điều sau. Nguồn: quyết định k
 2. Mọi endpoint chạm dữ liệu sức khỏe đi qua PEP: `resolve_access → Consent Guard → Access Log Writer` (module `access`). Access Log Writer ghi đồng bộ và fail-closed; dòng `denied` ghi ở transaction riêng để không bị rollback theo. `patient_id` do client gửi luôn được đối chiếu với `caregiver_links`. Truy cập bị từ chối trả 403.
 3. Không role nào được UPDATE, DELETE hay TRUNCATE `access_logs`; thực thi bằng revoke và trigger, không chỉ grant.
 4. Quyết định phân quyền đọc từ DB ở mỗi request. JWT chỉ mang danh tính; không cache quyết định phân quyền ở API hay app.
-5. Ghi nhận liều idempotent: upsert theo `(medication_schedule_id, scheduled_at)`, khử trùng theo `client_uuid`. Worker không bao giờ ghi đè liều đã xác nhận; xác nhận đến muộn chuyển Bỏ lỡ thành Uống trễ.
+5. Ghi nhận liều idempotent: upsert theo `(medication_schedule_id, scheduled_at)`, khử trùng theo `client_uuid`. Worker chỉ ghi `bo_lo` khi đã xác minh (checkpoint đồng bộ của patient ≥ giờ dự kiến + 120 phút) và không bao giờ ghi đè liều đã xác nhận; xác nhận đến sau `bo_lo` tính trạng thái theo `taken_at` (QD-03).
 6. Engine kiểm tra tương tác thuốc là tất định, không có LLM trong đường xử lý, và có ba trạng thái kết quả: có tương tác, đã kiểm tra và không thấy, chưa đủ dữ liệu.
 7. Múi giờ cố định `Asia/Ho_Chi_Minh`.
 
@@ -161,7 +163,7 @@ Khi task chạm vùng tương ứng, test tích hợp phải phủ các kịch b
 - Truy cập chéo patient khi không có liên kết hoặc consent → 403, và có dòng `denied` trong `access_logs`.
 - Rút consent hoặc hủy liên kết, gửi request ngay sau đó → 403.
 - Gửi lại cùng `client_uuid` → chỉ có một bản ghi liều.
-- Worker quét bỏ lỡ chạy đua với xác nhận đến muộn → kết quả Uống trễ, không có bản ghi trùng.
+- Worker quét bỏ lỡ chạy đua với xác nhận đến muộn → kết quả theo `taken_at`, không có bản ghi trùng.
 - Thay đổi quy tắc tương tác → toàn bộ `sample_patient_scenarios` vẫn đúng.
 
 ### Definition of Done
