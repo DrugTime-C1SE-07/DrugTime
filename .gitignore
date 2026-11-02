@@ -17,6 +17,8 @@ venv/
 
 # Node / Admin
 node_modules/
+frontend/node_modules/
+application.yml
 .next/
 out/
 dist/
@@ -37,7 +39,11 @@ docs/setup_git_submodule.md
 chat_notes/
 
 # .agents
+.claude/
 .claude/skills
 .claude/settings.local.json
 work/*/scratch/
-/work/
+work/
+
+# graphify
+graphify-out/
