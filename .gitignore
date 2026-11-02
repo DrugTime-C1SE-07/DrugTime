@@ -41,3 +41,7 @@ chat_notes/
 .claude/settings.local.json
 work/*/scratch/
 /work/
+.claude/rules/
+
+# graphify
+graphify-out/
