@@ -1,0 +1,684 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "CAREGIVER",
+      "name": "Quản lý người giám sát",
+      "sheet": "Người giám sát",
+      "description": "Quản lý người giám sát và gỡ liên kết người thân trên mobile (task 3.27)",
+      "created_by": "DrugTime Team",
+      "created_date": "2026-10-24",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Hoàn thành 100% kiểm thử unit, widget và tích hợp controller. 35/36 test cases pass (1 manual pending trên 2 thiết bị thật).",
+      "ep": [
+        {
+          "field": "sharing_enabled (body PATCH)",
+          "valid": [
+            "true",
+            "false"
+          ],
+          "invalid": [
+            "\"true\" (chuỗi)",
+            "1",
+            "null",
+            "thiếu field",
+            "field lạ (patient_id)"
+          ]
+        },
+        {
+          "field": "link_id (path)",
+          "valid": [
+            "id liên kết active của chính mình"
+          ],
+          "invalid": [
+            "0",
+            "-1",
+            "abc",
+            "9223372036854775808",
+            "id không tồn tại",
+            "liên kết của patient khác",
+            "liên kết không active (pending/rejected/revoked)"
+          ]
+        },
+        {
+          "field": "action_dialog (thao tác hộp thoại gỡ liên kết)",
+          "valid": [
+            "Bấm \"Gỡ liên kết\" (xác nhận gọi API)",
+            "Bấm \"Hủy\" (đóng hộp thoại)"
+          ],
+          "invalid": [
+            "Bấm ngoài dialog khi đang loading",
+            "Gửi request trùng khi đang busy"
+          ]
+        },
+        {
+          "field": "revocation_event (nguồn phát hiện thu hồi quyền ở Family Member)",
+          "valid": [
+            "HTTP 403 Forbidden khi truy cập dữ liệu",
+            "Đồng bộ danh sách liên kết mới thiếu Patient"
+          ],
+          "invalid": [
+            "Lỗi mạng tạm thời hoặc 5xx",
+            "Token hết hạn 401"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền xem dữ liệu và thao tác gỡ liên kết của Patient",
+          "conditions": [
+            {
+              "name": "Người gọi là Patient sở hữu liên kết?",
+              "values": [
+                "Yes",
+                "Yes",
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "Trạng thái liên kết trước khi gỡ?",
+              "values": [
+                "active",
+                "active",
+                "revoked",
+                "active"
+              ]
+            },
+            {
+              "name": "Xác nhận trên hộp thoại gỡ liên kết?",
+              "values": [
+                "Yes (Gỡ)",
+                "No (Hủy)",
+                "Yes (Gỡ)",
+                "-"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "DELETE /family/links/{id} -> 204 No Content, gỡ khỏi UI, SnackBar",
+              "rules": [
+                1,
+                3
+              ]
+            },
+            {
+              "name": "Đóng dialog, giữ nguyên liên kết, không gọi API",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "HTTP 403 Forbidden khong_co_quyen",
+              "rules": [
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Xử lý cache & state khi Family Member bị thu hồi quyền truy cập",
+          "conditions": [
+            {
+              "name": "Nhận HTTP 403 Forbidden do bị thu hồi liên kết?",
+              "values": [
+                "Yes",
+                "No",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Dữ liệu/cache thuộc phạm vi Patient bị thu hồi?",
+              "values": [
+                "Yes",
+                "Yes",
+                "No (Patient khác)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Xóa Patient khỏi state & xóa SQLite cache & xóa RAM history & dọn alert",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Giữ nguyên dữ liệu & cache, không xóa nhầm",
+              "rules": [
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-CAREGIVER-01",
+          "description": "Xem danh sách người giám sát của chính mình",
+          "precondition": "P có 2 liên kết chấp thuận qua API (F1 bật chia sẻ, F2 chấp thuận sau), 1 liên kết cũ không bằng chứng (F3), và các liên kết pending/rejected/revoked; có liên kết của patient khác",
+          "steps": [
+            "1. Đăng nhập bằng P",
+            "2. GET /family/caregivers"
+          ],
+          "data": "-",
+          "expected": "200; items theo thứ tự F2, F1, F3; mỗi mục đúng 6 field, status=active; F1 sharing_enabled=true; F3 approved_at=null; không có liên kết khác; audit list_caregivers/allowed không có link_id",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC11 · test_list_only_own_active_ordered_minimal__AC11 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-02",
+          "description": "Xem danh sách khi chưa có người giám sát",
+          "precondition": "Tài khoản không có liên kết active",
+          "steps": [
+            "1. GET /family/caregivers"
+          ],
+          "data": "-",
+          "expected": "200; {\"items\": []}",
+          "actual": "200; {\"items\": []}",
+          "status": "Pass",
+          "comments": "AC11 · test_empty_list_returns_items_empty__AC11 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-03",
+          "description": "Gửi query patient_id để xem người giám sát của người khác",
+          "precondition": "Đã đăng nhập",
+          "steps": [
+            "1. GET /family/caregivers?patient_id=<UUID khác>"
+          ],
+          "data": "patient_id=<UUID>",
+          "expected": "422",
+          "actual": "422",
+          "status": "Pass",
+          "comments": "AC5 · Đoán lỗi (truy cập dữ liệu người khác) · test_caregivers_rejects_query_parameters__AC11 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-04",
+          "description": "Bật, bật lại và tắt chia sẻ",
+          "precondition": "Liên kết active chấp thuận qua API, chia sẻ đang tắt; P có family_sharing",
+          "steps": [
+            "1. PATCH /family/links/{id}/sharing true",
+            "2. PATCH lại true",
+            "3. PATCH false"
+          ],
+          "data": "{\"sharing_enabled\": true} / {\"sharing_enabled\": false}",
+          "expected": "200 trả Caregiver với sharing_enabled đúng giá trị; gửi lại true trả kết quả giống hệt; DB đổi theo; audit enable_sharing x2, disable_sharing",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC12 · EP (1,2,3) · Đoán lỗi (gửi trùng) · test_enable_disable_idempotent_and_audit__AC12 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-05",
+          "description": "Tắt chia sẻ khi đã rút family_sharing",
+          "precondition": "Liên kết active đang chia sẻ; P đã rút family_sharing",
+          "steps": [
+            "1. PATCH sharing false"
+          ],
+          "data": "{\"sharing_enabled\": false}",
+          "expected": "200; sharing_enabled=false",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC12 · test_disable_allowed_without_consent__AC12 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-06",
+          "description": "Bật chia sẻ khi chưa đồng ý family_sharing",
+          "precondition": "Liên kết active, chia sẻ tắt; P đã rút family_sharing",
+          "steps": [
+            "1. PATCH sharing true"
+          ],
+          "data": "{\"sharing_enabled\": true}",
+          "expected": "403 {\"detail\": \"consent_revoked\"}; công tắc vẫn tắt; audit enable_sharing/denied reason consent_revoked",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC7, AC10 · test_enable_without_consent_403_denied_audit__AC7_AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-07",
+          "description": "Bật chia sẻ cho liên kết cũ không có bằng chứng xác nhận",
+          "precondition": "Liên kết active tạo trước 3.16 (không có bằng chứng), chia sẻ bật",
+          "steps": [
+            "1. PATCH sharing true",
+            "2. PATCH sharing false"
+          ],
+          "data": "-",
+          "expected": "true: 409 {\"detail\": \"consent_confirmation_missing\"}; false: 200, approved_at=null",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC10 · test_enable_legacy_link_409_confirmation_missing_but_disable_ok__AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-08",
+          "description": "Bật/tắt chia sẻ cho liên kết không active",
+          "precondition": "Liên kết pending, rejected hoặc revoked",
+          "steps": [
+            "1. PATCH sharing true và false cho từng trạng thái"
+          ],
+          "data": "6 tổ hợp trạng thái × giá trị",
+          "expected": "409 {\"detail\": \"family_link_not_active\"}; dòng liên kết không đổi",
+          "actual": "Đúng như mong đợi (6/6)",
+          "status": "Pass",
+          "comments": "AC10 · EP (15) · Chuyển trạng thái (thao tác bị cấm) · test_sharing_on_non_active_link_409__AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-09",
+          "description": "Gửi body bật/tắt chia sẻ sai cấu trúc",
+          "precondition": "Đã đăng nhập",
+          "steps": [
+            "1. PATCH /family/links/1/sharing với từng body sai"
+          ],
+          "data": "(không body); {}; \"true\" (chuỗi); 1; null; {\"sharing_enabled\": true, \"patient_id\": \"…\"}",
+          "expected": "422 ValidationError; không gọi use case",
+          "actual": "422 cho mọi trường hợp",
+          "status": "Pass",
+          "comments": "AC22 · EP (4,5,6,7,8) · test_strict_sharing_body_rejected_before_use_case · evidence/implement-final-backend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-10",
+          "description": "Gọi bật/tắt chia sẻ và hủy với link_id không hợp lệ",
+          "precondition": "Đã đăng nhập",
+          "steps": [
+            "1. PATCH /family/links/{link_id}/sharing",
+            "2. POST /family/links/{link_id}/revoke"
+          ],
+          "data": "link_id = 0, -1, abc, 1.1, 9223372036854775808",
+          "expected": "422 cho mọi giá trị",
+          "actual": "422",
+          "status": "Pass",
+          "comments": "AC22 · EP (9,10,11,12) · BVA (min-1) · test_new_routes_invalid_path_id_is_422 · evidence/implement-final-backend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-11",
+          "description": "Thao tác trên liên kết không tồn tại",
+          "precondition": "P đã đăng nhập",
+          "steps": [
+            "1. PATCH sharing true cho id 2000000000",
+            "2. POST revoke cho id 2000000000"
+          ],
+          "data": "link_id=2000000000",
+          "expected": "404 {\"detail\": \"family_link_not_found\"}; không ghi audit",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC10 · EP (13) · test_missing_link_404_without_allowed_audit__AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-12",
+          "description": "Người thân, người lạ, admin bật/tắt chia sẻ hoặc hủy liên kết thay patient",
+          "precondition": "Liên kết active P←F đang chia sẻ; người lạ X; admin A",
+          "steps": [
+            "1. Gọi 3 endpoint không token",
+            "2. Với F, X, A: PATCH false, PATCH true, POST revoke",
+            "3. A gọi GET /family/caregivers",
+            "4. F, X gọi GET /family/caregivers",
+            "5. P gọi POST revoke"
+          ],
+          "data": "-",
+          "expected": "401 khi không token; 403 khong_co_quyen, liên kết không đổi, mỗi lượt 1 audit denied với actor là người gọi (admin không ghi patient/link); admin xem danh sách 403; F và X thấy items rỗng; P hủy được (200)",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC5 · EP (14) · test_new_endpoints_denied_caller_matrix__AC5 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-13",
+          "description": "Hủy liên kết và gửi lại lệnh hủy",
+          "precondition": "Liên kết active đang chia sẻ",
+          "steps": [
+            "1. POST /family/links/{id}/revoke",
+            "2. POST revoke lần 2",
+            "3. GET /family/caregivers"
+          ],
+          "data": "(không body)",
+          "expected": "200 {link_id, family_user_id, status: revoked, revoked_at}; lần 2 trả y hệt; bằng chứng đồng ý vẫn còn 1 dòng; audit revoke x2; danh sách rỗng",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC13 · Chuyển trạng thái (active→revoked) · test_revoke_keeps_history_and_replay_returns_same_time__AC13 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-14",
+          "description": "Liên kết lại sau khi hủy",
+          "precondition": "Liên kết đã chấp thuận, bật chia sẻ, rồi bị hủy",
+          "steps": [
+            "1. F gửi lại yêu cầu bằng mã của P",
+            "2. P chấp thuận"
+          ],
+          "data": "client_uuid mới",
+          "expected": "201 tạo liên kết mới pending (id khác); sau chấp thuận sharing_enabled=false; bằng chứng mới riêng, bằng chứng cũ còn; liên kết cũ vẫn revoked",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC13 · test_relink_after_revoke_starts_unshared_with_new_evidence__AC13 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-15",
+          "description": "Hủy liên kết đang chờ hoặc đã bị từ chối",
+          "precondition": "Liên kết pending hoặc rejected",
+          "steps": [
+            "1. POST revoke"
+          ],
+          "data": "-",
+          "expected": "409 {\"detail\": \"invalid_link_transition\"}; liên kết không đổi",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC10 · Chuyển trạng thái (chuyển bị cấm) · test_revoke_pending_or_rejected_409__AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-16",
+          "description": "Gửi body khi hủy liên kết",
+          "precondition": "Liên kết active",
+          "steps": [
+            "1. POST revoke với body {}"
+          ],
+          "data": "{}",
+          "expected": "422; liên kết vẫn active",
+          "actual": "422",
+          "status": "Pass",
+          "comments": "AC10 · Đoán lỗi · test_revoke_with_body_is_422__AC10 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-17",
+          "description": "Mỗi quyết định của patient có hiệu lực ngay ở request kế tiếp của người thân",
+          "precondition": "P có health_data và family_sharing, có một thuốc; F dùng một token duy nhất",
+          "steps": [
+            "1. F gửi yêu cầu (pending) → F đọc GET /medications/{id}",
+            "2. P chấp thuận → F đọc",
+            "3. P bật chia sẻ → F đọc",
+            "4. P tắt chia sẻ → F đọc",
+            "5. P bật lại → F đọc, P hủy liên kết → F đọc",
+            "6. F gửi lại, P từ chối → F đọc"
+          ],
+          "data": "-",
+          "expected": "403 + access_logs denied ở pending, chấp thuận (chia sẻ tắt), tắt chia sẻ, hủy, từ chối; 200 + allowed (actor_role family) khi đang chia sẻ; danh sách nhận cảnh báo (authorized_caregivers) có F đúng khi được 200",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC6 · Decision Table (R1, R2, R4) · test_every_decision_applies_on_next_request_same_token__AC6 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-18",
+          "description": "Rút family_sharing khi công tắc vẫn bật",
+          "precondition": "Liên kết active đang chia sẻ, F đọc được",
+          "steps": [
+            "1. P rút family_sharing",
+            "2. F đọc GET /medications/{id} ngay"
+          ],
+          "data": "-",
+          "expected": "403 + access_logs denied; F không còn trong danh sách nhận cảnh báo; công tắc không tự đổi",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC6 · Decision Table (R3) · test_consent_withdrawal_blocks_even_with_sharing_on__AC6 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-19",
+          "description": "Hủy liên kết và bật chia sẻ cùng lúc",
+          "precondition": "Liên kết active, chia sẻ tắt; giữ khóa dòng để hai request cùng chờ",
+          "steps": [
+            "1. Gửi đồng thời PATCH sharing true và POST revoke",
+            "2. Nhả khóa",
+            "3. F đọc dữ liệu"
+          ],
+          "data": "-",
+          "expected": "Revoke 200; PATCH 200 hoặc 409 family_link_not_active; trạng thái cuối revoked; F nhận 403 + denied",
+          "actual": "Đúng như mong đợi (chạy 5 lần đều pass)",
+          "status": "Pass",
+          "comments": "AC15 · Đoán lỗi (chạy đua) · test_concurrent_revoke_and_enable_sharing_ends_revoked__AC15 · evidence/test-integration.log"
+        },
+        {
+          "id": "TC-CAREGIVER-20",
+          "description": "Kiểm migration audit cho thao tác mới",
+          "precondition": "DB reset sạch (supabase db reset)",
+          "steps": [
+            "1. Chèn audit list_caregivers không link_id",
+            "2. Chèn enable_sharing/disable_sharing/revoke allowed và denied",
+            "3. Chèn operation lạ",
+            "4. Chèn allowed gắn link không có link_id",
+            "5. UPDATE/DELETE/TRUNCATE với mọi role"
+          ],
+          "data": "operation = update_sharing, delete, LIST_CAREGIVERS, (blank)",
+          "expected": "Operation mới được nhận; operation lạ và allowed gắn link thiếu link_id bị từ chối; mọi role không sửa/xóa được; ràng buộc đúng định nghĩa migration",
+          "actual": "Đúng như mong đợi (32 test)",
+          "status": "Pass",
+          "comments": "AC14 · test_migration_family_link_audit_operations.py · evidence/test-integration.log, evidence/test-db-reset.log"
+        },
+        {
+          "id": "TC-CAREGIVER-21",
+          "description": "Mở màn Người giám sát từ Hồ sơ",
+          "precondition": "App mobile; có 2 người giám sát (1 không tên, 1 liên kết cũ)",
+          "steps": [
+            "1. Hồ sơ > Người giám sát"
+          ],
+          "data": "approved_at = 2026-10-14T18:00:00Z",
+          "expected": "Không còn \"Sắp ra mắt\"; hiện tên, \"Chấp thuận ngày 15/10/2026\", \"Người dùng DrugTime\", \"Liên kết trước khi có bước xác nhận đồng ý\", công tắc đúng giá trị",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC20 · caregivers_screen_test.dart (AC20), profile_screens_test.dart (AC20) · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-22",
+          "description": "Màn trống: bấm Mở tab Người thân",
+          "precondition": "Chưa có người giám sát",
+          "steps": [
+            "1. Hồ sơ > Người giám sát",
+            "2. Bấm \"Mở tab Người thân\""
+          ],
+          "data": "-",
+          "expected": "Hiện \"Chưa có người giám sát\"; bấm nút thì đóng màn, shell chuyển sang tab Người thân và tải yêu cầu đang chờ",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC20 · app_shell_test.dart (AC20), caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-23",
+          "description": "Gạt công tắc chia sẻ trên app",
+          "precondition": "Có người giám sát",
+          "steps": [
+            "1. Gạt công tắc",
+            "2. Trong lúc chờ gạt lại",
+            "3. Lần khác: server trả lỗi mạng"
+          ],
+          "data": "-",
+          "expected": "Công tắc và nút hủy khóa khi đang gửi, chỉ 1 request; hiện giá trị server trả và báo \"Đã bật/tắt chia sẻ với …\"; lỗi mạng thì giữ giá trị cũ và báo lỗi",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC21 · Đoán lỗi (bấm liên tục, mất mạng) · caregivers_screen_test.dart (AC21) · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-24",
+          "description": "Gỡ liên kết trên app với hộp thoại xác nhận",
+          "precondition": "Có người giám sát trong danh sách liên kết active (ví dụ Bác An)",
+          "steps": [
+            "1. Mở màn Người thân đã liên kết (CaregiversScreen)",
+            "2. Bấm nút Gỡ liên kết tại mục Bác An",
+            "3. Tại hộp thoại Gỡ liên kết với người thân?, bấm Hủy",
+            "4. Bấm lại Gỡ liên kết và chọn Gỡ liên kết (xác nhận)"
+          ],
+          "data": "linkId=1, name='Bác An'",
+          "expected": "Hộp thoại nêu rõ người thân mất quyền xem ngay; chọn Hủy thì đóng hộp thoại không gọi API; xác nhận thì gọi DELETE /family/links/{id}, nút chuyển loading, gỡ mục khỏi danh sách và hiện SnackBar 'Đã gỡ liên kết với Bác An.'",
+          "actual": "Đúng như mong đợi (hộp thoại chuẩn, nút Hủy đóng dialog, xác nhận gọi DELETE 204 và hiện SnackBar)",
+          "status": "Pass",
+          "comments": "AC1, AC2, AC3 · caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-25",
+          "description": "Chưa bật family_sharing: chỉ tắt được, không bật được",
+          "precondition": "Tài khoản chưa bật family_sharing; 1 người giám sát đang tắt, 1 đang bật",
+          "steps": [
+            "1. Mở màn Người giám sát",
+            "2. Bấm \"Mở Quyền riêng tư\""
+          ],
+          "data": "-",
+          "expected": "Có dải nhắc; công tắc đang tắt bị khóa, công tắc đang bật vẫn tắt được; nút mở màn Quyền riêng tư",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC19 · caregivers_screen_test.dart (AC19) · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-26",
+          "description": "Xử lý lỗi khi bật chia sẻ trên app",
+          "precondition": "Có người giám sát; server trả lỗi",
+          "steps": [
+            "1. Bật chia sẻ khi server trả lần lượt 403 consent_revoked, 409, 404, 409 consent_confirmation_missing, lỗi mạng"
+          ],
+          "data": "-",
+          "expected": "Báo đúng câu cho từng lỗi; công tắc giữ giá trị cũ; 409/404 thì tải lại danh sách",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC22 · caregivers_screen_test.dart (AC22) · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-27",
+          "description": "Mở lại màn và kéo xuống luôn gọi lại API",
+          "precondition": "Có người giám sát",
+          "steps": [
+            "1. Kéo xuống",
+            "2. Đóng rồi mở lại màn"
+          ],
+          "data": "-",
+          "expected": "Mỗi lần gọi lại listCaregivers; không dùng dữ liệu cũ",
+          "actual": "Đúng như mong đợi",
+          "status": "Pass",
+          "comments": "AC22 · caregivers_screen_test.dart (AC20, AC22) · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-28",
+          "description": "Bật/tắt chia sẻ và hủy liên kết thật trên hai thiết bị",
+          "precondition": "P và F đã liên kết, chia sẻ bật; backend đang chạy",
+          "steps": [
+            "1. F mở dữ liệu thuốc của P",
+            "2. P tắt chia sẻ ở Hồ sơ > Người giám sát",
+            "3. F tải lại",
+            "4. P bật lại rồi Hủy liên kết",
+            "5. F tải lại; F gửi lại mã"
+          ],
+          "data": "-",
+          "expected": "F xem được khi đang chia sẻ; sau khi tắt hoặc hủy, lần tải kế tiếp F bị từ chối; sau khi hủy F gửi lại mã tạo được yêu cầu mới",
+          "actual": null,
+          "status": "Pending",
+          "comments": "AC23 · manual"
+        },
+        {
+          "id": "TC-CAREGIVER-29",
+          "description": "Màn hình Người thân đã liên kết hiển thị danh sách và nút Gỡ liên kết cho từng người; bấm Hủy không đổi dữ liệu",
+          "precondition": "Patient đã đăng nhập, có ít nhất một người thân liên kết hợp lệ",
+          "steps": [
+            "1. Mở màn hình Hồ sơ > Người thân đã liên kết",
+            "2. Kiểm tra danh sách hiển thị và sự xuất hiện của nút Gỡ liên kết",
+            "3. Bấm Gỡ liên kết, sau đó bấm Hủy trên dialog xác nhận"
+          ],
+          "data": "caregiver: Bác An (linkId=1)",
+          "expected": "Hiển thị đúng tên, ngày liên kết; mỗi item có nút Gỡ liên kết; khi bấm Hủy, dialog đóng lại, không gọi API DELETE và giữ nguyên danh sách.",
+          "actual": "Đúng như mong đợi (CaregiversScreen render đủ thông tin, dialog đóng khi hủy, không gọi API)",
+          "status": "Pass",
+          "comments": "AC1, AC2 · caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-30",
+          "description": "Xác nhận gỡ liên kết gọi đúng API DELETE /family/links/{id} nhận 204 No Content và cập nhật UI",
+          "precondition": "Patient đang mở dialog xác nhận gỡ liên kết với Bác An",
+          "steps": [
+            "1. Bấm nút Gỡ liên kết trên dialog xác nhận",
+            "2. Theo dõi request gửi đi từ RemoteCaregiverRepository",
+            "3. Kiểm tra phản hồi HTTP 204 No Content và cập nhật state/UI"
+          ],
+          "data": "linkId=1, method=DELETE, url=/family/links/1",
+          "expected": "Gửi đúng DELETE /family/links/1 (không body), nhận 204 No Content; mục Bác An biến mất khỏi danh sách và hiển thị SnackBar: Đã gỡ liên kết với Bác An.",
+          "actual": "Đúng như mong đợi (gọi DELETE 204, item được gỡ và SnackBar hiển thị chuẩn)",
+          "status": "Pass",
+          "comments": "AC3 · remote_caregiver_repository_test.dart, caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-31",
+          "description": "Xử lý khi API gỡ liên kết thất bại (lỗi mạng hoặc server)",
+          "precondition": "Patient xác nhận gỡ liên kết nhưng backend trả lỗi (ví dụ lỗi mạng hoặc 500)",
+          "steps": [
+            "1. Bấm nút Gỡ liên kết trên dialog xác nhận",
+            "2. Backend giả lập ném CaregiverFailureKind.network",
+            "3. Quan sát giao diện và danh sách hiển thị"
+          ],
+          "data": "linkId=1, failure=network",
+          "expected": "Giữ nguyên danh sách người thân, không xóa nhầm dữ liệu; hiển thị thông báo lỗi phù hợp trên SnackBar và cho phép người dùng thử lại.",
+          "actual": "Đúng như mong đợi (danh sách giữ nguyên, SnackBar báo lỗi và cho phép thử lại)",
+          "status": "Pass",
+          "comments": "AC4 · caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-32",
+          "description": "Khóa nút và hiển thị loading spinner chống bấm trùng; tự động tải lại nếu link đã bị gỡ từ trước",
+          "precondition": "Patient bấm nút Gỡ liên kết",
+          "steps": [
+            "1. Bấm xác nhận gỡ liên kết",
+            "2. Trong khi request đang pending, cố gắng bấm nút lần nữa",
+            "3. Kiểm tra trường hợp server trả 404 (đã bị gỡ từ trước)"
+          ],
+          "data": "linkId=1",
+          "expected": "Nút chuyển sang CircularProgressIndicator và bị khóa không cho bấm trùng; nếu server báo link không tồn tại (404), tự động gọi load() làm mới danh sách.",
+          "actual": "Đúng như mong đợi (loading spinner hiển thị, nút bị khóa, tự reload khi gặp lỗi transition/not found)",
+          "status": "Pass",
+          "comments": "AC5 · caregivers_screen_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-33",
+          "description": "Family Member gặp HTTP 403 Forbidden khi truy cập dữ liệu Patient bị gỡ: xóa khỏi state và dọn dẹp cache",
+          "precondition": "Family Member đang liên kết với Patient A và Patient B; Patient A đã gỡ liên kết",
+          "steps": [
+            "1. Family Member gửi request truy cập lịch sử tuân thủ hoặc cảnh báo của Patient A",
+            "2. API trả về HTTP 403 Forbidden (AdherenceFailureKind.denied)",
+            "3. LinkedPatientsController và AdherenceController xử lý phản hồi 403"
+          ],
+          "data": "patientId=patient-A-uuid",
+          "expected": "Patient A bị xóa khỏi danh sách linked patients; SQLite cache lịch uống của Patient A bị dọn sạch (clearPatientData); history trên RAM bị xóa (history=null); alerts của Patient A bị loại bỏ.",
+          "actual": "Đúng như mong đợi (state loại bỏ patientA, clearPatientData được gọi, history reset null, alert bị dọn)",
+          "status": "Pass",
+          "comments": "AC6 · linked_patients_controller_test.dart, adherence_controller_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-34",
+          "description": "Family Member đồng bộ danh sách liên kết mới từ backend: xóa bỏ các Patient không còn trong danh sách",
+          "precondition": "Family Member có state cục bộ gồm Patient A, Patient B, Patient C",
+          "steps": [
+            "1. Backend trả về danh sách liên kết mới chỉ gồm Patient B và Patient C",
+            "2. LinkedPatientsController.syncPatients được kích hoạt",
+            "3. Kiểm tra danh sách hiển thị và cache cục bộ"
+          ],
+          "data": "newActivePatients=[Patient B, Patient C]",
+          "expected": "Patient A tự động bị xóa khỏi state hiển thị; toàn bộ cache SQLite và alert của Patient A được dọn sạch; dữ liệu của Patient B và C giữ nguyên.",
+          "actual": "Đúng như mong đợi (Patient A bị loại bỏ, cache SQLite được dọn, Patient B và C còn nguyên)",
+          "status": "Pass",
+          "comments": "AC7 · linked_patients_controller_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-35",
+          "description": "Độc lập dữ liệu giữa các bệnh nhân khi gỡ liên kết",
+          "precondition": "Local database và alert store đang lưu dữ liệu của cả Patient A và Patient B",
+          "steps": [
+            "1. Kích hoạt thu hồi quyền truy cập đối với Patient A (clearPatientData và removePatient)",
+            "2. Truy vấn dữ liệu SQLite của schedulesTable",
+            "3. Kiểm tra danh sách alerts trong FamilyAlertController"
+          ],
+          "data": "patientA, patientB",
+          "expected": "Toàn bộ bản ghi của Patient A bị xóa sạch; toàn bộ bản ghi của Patient B được bảo toàn 100%, không bị ảnh hưởng.",
+          "actual": "Đúng như mong đợi (bản ghi Patient A bị xóa, Patient B còn nguyên vẹn)",
+          "status": "Pass",
+          "comments": "AC8 · local_medication_store_test.dart, linked_patients_controller_test.dart · evidence/implement-final-frontend.log"
+        },
+        {
+          "id": "TC-CAREGIVER-36",
+          "description": "An toàn khi nhiều request 403 thu hồi quyền diễn ra đồng thời hoặc lặp lại (concurrency & idempotency)",
+          "precondition": "LinkedPatientsController đang quản lý Patient A",
+          "steps": [
+            "1. Gửi đồng thời 5 lời gọi handleRevocation cho cùng Patient A",
+            "2. Chờ toàn bộ các lời gọi hoàn tất",
+            "3. Gửi thêm một lời gọi handleRevocation lặp lại khi Patient A đã bị gỡ"
+          ],
+          "data": "5 concurrent calls for patientA",
+          "expected": "Các lời gọi hoàn thành an toàn, không ném exception; patientA bị xóa sạch và không bị nhân bản hay hồi phục dữ liệu trái phép.",
+          "actual": "Đúng như mong đợi (5 concurrent calls hoàn thành an toàn, không có race condition)",
+          "status": "Pass",
+          "comments": "AC9 · linked_patients_controller_test.dart · evidence/implement-final-frontend.log"
+        }
+      ]
+    }
+  ]
+}
