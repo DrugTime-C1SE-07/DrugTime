@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "a2a4ae32-c9e2-4703-8cee-0722430c6dee",
+  "imageId": "strepsils_box_001",
+  "createdAt": "2026-10-29T15:46:44.661859+07:00",
+  "rawText": "Medicine for sore throats / Viên ngậm trị đau họng\nStrepsils\nOriginal\n24\nLozenges\nS",
+  "status": "text",
+  "elapsedMs": 1582,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "a2a4ae32-c9e2-4703-8cee-0722430c6dee/image.jpg",
+  "errorCode": null
+}

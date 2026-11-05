@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "8a70835d-94a6-42b6-9ab5-b4bfb4dff96a",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:20:37.007185+07:00",
+  "rawText": "HAPACOL\nPARACETAMOL 500 mg\nCAFFEINE 65 mg\nx 10\nExtra\nANALGESIC-ANTIPYRETIC\nGMP\nWHO",
+  "status": "text",
+  "elapsedMs": 5764,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "8a70835d-94a6-42b6-9ab5-b4bfb4dff96a/image.webp",
+  "errorCode": null
+}

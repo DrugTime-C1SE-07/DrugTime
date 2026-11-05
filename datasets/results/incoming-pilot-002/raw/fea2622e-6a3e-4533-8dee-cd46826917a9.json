@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "fea2622e-6a3e-4533-8dee-cd46826917a9",
+  "imageId": "atorvastatin_10_blister_003",
+  "createdAt": "2026-10-29T15:40:46.545496+07:00",
+  "rawText": "(\nNhà thuốc Ngọc Anh\nnhathuocngocanh.com\nChính hãng\nHotline:\n0333.405.080",
+  "status": "text",
+  "elapsedMs": 1081,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "fea2622e-6a3e-4533-8dee-cd46826917a9/image.jpg",
+  "errorCode": null
+}

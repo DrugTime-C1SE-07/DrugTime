@@ -1,0 +1,259 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "LINKREVOKE",
+      "name": "Gỡ hoặc tự rời liên kết người thân",
+      "sheet": "Gỡ liên kết người thân",
+      "description": "Thu hồi hoặc tự rời liên kết người thân qua DELETE /links/{id} (SCRUM-134)",
+      "created_by": "DrugTime Team",
+      "created_date": "2026-10-23",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Hoàn thành 100% kiểm thử tích hợp DB thật và unit test, 29/29 tests pass, bảo đảm QA.02 (< 5s)",
+      "ep": [
+        {
+          "field": "link_id",
+          "valid": ["ID hợp lệ tồn tại thuộc người gọi"],
+          "invalid": ["(blank)", "ID <= 0", "ID không phải số nguyên", "ID không tồn tại"]
+        },
+        {
+          "field": "caller_id",
+          "valid": [
+            "Bệnh nhân sở hữu liên kết (patient_user_id)",
+            "Người thân trong liên kết (family_user_id)"
+          ],
+          "invalid": [
+            "(blank) Không truyền token",
+            "Token hết hạn hoặc không hợp lệ",
+            "Người dùng khác không thuộc liên kết (stranger)"
+          ]
+        },
+        {
+          "field": "status_ban_dau",
+          "valid": [
+            "active (đang chia sẻ dữ liệu)",
+            "pending (chờ duyệt liên kết)",
+            "revoked (đã thu hồi trước đó - idempotent)"
+          ],
+          "invalid": ["rejected (đã bị từ chối)"]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền thu hồi liên kết và phản hồi API",
+          "conditions": [
+            {
+              "name": "Người gọi là thành viên của link?",
+              "values": ["Yes", "Yes", "Yes", "Yes", "No", "No", "-"]
+            },
+            {
+              "name": "Trạng thái link trước khi gọi?",
+              "values": [
+                "active",
+                "pending",
+                "revoked",
+                "rejected",
+                "active/pending/revoked",
+                "rejected/không tồn tại",
+                "-"
+              ]
+            },
+            {
+              "name": "Có Bearer Token hợp lệ?",
+              "values": ["Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "No"]
+            }
+          ],
+          "actions": [
+            {
+              "name": "HTTP 204, status='revoked', sharing_enabled=false",
+              "rules": [1, 2, 3]
+            },
+            {
+              "name": "HTTP 422 invalid_link_transition",
+              "rules": [4]
+            },
+            {
+              "name": "HTTP 403 khong_co_quyen",
+              "rules": [5, 6]
+            },
+            {
+              "name": "HTTP 401 Unauthorized",
+              "rules": [7]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-LINKREVOKE-01",
+          "description": "Bệnh nhân thu hồi liên kết active đang hoạt động",
+          "precondition": "Liên kết giữa Patient và Family Member có status='active', sharing_enabled=true",
+          "steps": [
+            "Gửi request DELETE /links/{id} với Bearer token của Patient sở hữu link",
+            "Kiểm tra mã trạng thái HTTP trả về",
+            "Truy vấn bản ghi caregiver_links trong cơ sở dữ liệu"
+          ],
+          "data": "link_id=1, token=Patient",
+          "expected": "HTTP 204 No Content. Trong DB: status='revoked', sharing_enabled=false, revoked_at được gán thời điểm hiện tại.",
+          "actual": "HTTP 204 No Content. Trong DB: status='revoked', sharing_enabled=false, revoked_at is not null.",
+          "status": "Pass",
+          "comments": "AC1 · Decision Table (R1) · test_revoke_active_link_sets_revoked_and_clears_sharing"
+        },
+        {
+          "id": "TC-LINKREVOKE-02",
+          "description": "Người thân tự rời khỏi liên kết active của chính mình",
+          "precondition": "Liên kết giữa Patient và Family Member có status='active'",
+          "steps": [
+            "Gửi request DELETE /links/{id} với Bearer token của Family Member trong link",
+            "Kiểm tra mã trạng thái HTTP trả về",
+            "Kiểm tra bản ghi trong CSDL"
+          ],
+          "data": "link_id=1, token=Family Member",
+          "expected": "HTTP 204 No Content. Trong DB: status='revoked', sharing_enabled=false, revoked_at được gán.",
+          "actual": "HTTP 204 No Content. Trong DB: status='revoked', sharing_enabled=false.",
+          "status": "Pass",
+          "comments": "AC2 · Decision Table (R1) · test_family_member_self_leave_db"
+        },
+        {
+          "id": "TC-LINKREVOKE-03",
+          "description": "Thu hồi liên kết đang ở trạng thái pending (chờ duyệt)",
+          "precondition": "Liên kết đang ở trạng thái pending (vừa gửi mã, chưa được duyệt)",
+          "steps": [
+            "Gửi request DELETE /links/{id} bằng token của Patient hoặc Family Member",
+            "Kiểm tra mã trạng thái HTTP và bản ghi DB"
+          ],
+          "data": "link_id=2, token=Patient",
+          "expected": "HTTP 204 No Content. Bản ghi không bị xóa, status chuyển sang 'revoked', revoked_at được cập nhật.",
+          "actual": "HTTP 204 No Content. Bản ghi được bảo toàn, status='revoked'.",
+          "status": "Pass",
+          "comments": "AC4 · Decision Table (R2) · test_revoke_pending_link_db"
+        },
+        {
+          "id": "TC-LINKREVOKE-04",
+          "description": "Idempotent - Thu hồi lần hai trên liên kết đã revoked giữ nguyên mốc thời gian ban đầu",
+          "precondition": "Liên kết đã ở trạng thái revoked tại thời điểm t1",
+          "steps": [
+            "Gửi request DELETE /links/{id} lần thứ hai tại thời điểm t2 > t1",
+            "Kiểm tra mã trạng thái và trường revoked_at trong DB"
+          ],
+          "data": "link_id=1, token=Patient",
+          "expected": "HTTP 204 No Content. Trong DB: revoked_at giữ nguyên mốc t1 ban đầu (không bị trôi mốc thời gian), sharing_enabled=false.",
+          "actual": "HTTP 204 No Content. revoked_at giữ nguyên mốc t1 ban đầu qua COALESCE.",
+          "status": "Pass",
+          "comments": "AC5 · Decision Table (R3) · test_sql_revoke_idempotent_preserves_revoked_at"
+        },
+        {
+          "id": "TC-LINKREVOKE-05",
+          "description": "Ép tắt sharing_enabled khi dữ liệu cũ đã revoked nhưng sharing_enabled=true",
+          "precondition": "Bản ghi cũ trong DB có status='revoked' nhưng sharing_enabled=true",
+          "steps": [
+            "Gửi request DELETE /links/{id}",
+            "Kiểm tra trường sharing_enabled trong DB"
+          ],
+          "data": "link_id=1, token=Patient",
+          "expected": "HTTP 204 No Content. DB cập nhật sharing_enabled=false, giữ nguyên revoked_at ban đầu.",
+          "actual": "HTTP 204 No Content. DB cập nhật sharing_enabled=false thành công.",
+          "status": "Pass",
+          "comments": "AC5 · test_revoke_already_revoked_with_sharing_enabled_true_clears_sharing_db"
+        },
+        {
+          "id": "TC-LINKREVOKE-06",
+          "description": "Thành viên liên quan gọi thu hồi trên liên kết rejected",
+          "precondition": "Liên kết có status='rejected'",
+          "steps": [
+            "Patient hoặc Family Member gửi request DELETE /links/{id}"
+          ],
+          "data": "link_id=3, token=Patient",
+          "expected": "HTTP 422 Unprocessable Entity kèm thông báo invalid_link_transition: cannot transition family link from rejected to revoked.",
+          "actual": "HTTP 422 Unprocessable Entity kèm detail invalid_link_transition.",
+          "status": "Pass",
+          "comments": "Decision Table (R4) · test_owner_revoke_rejected_link_gets_422"
+        },
+        {
+          "id": "TC-LINKREVOKE-07",
+          "description": "Người lạ gọi thu hồi trên liên kết active",
+          "precondition": "Liên kết thuộc về Patient A và Family B. User C (người lạ) đăng nhập.",
+          "steps": [
+            "User C gửi request DELETE /links/{id} của Patient A",
+            "Kiểm tra mã trạng thái và CSDL"
+          ],
+          "data": "link_id=1, token=Stranger (User C)",
+          "expected": "HTTP 403 Forbidden với body {\"detail\": \"khong_co_quyen\"}. Bản ghi trong DB hoàn toàn không bị thay đổi.",
+          "actual": "HTTP 403 Forbidden {\"detail\": \"khong_co_quyen\"}. CSDL không thay đổi.",
+          "status": "Pass",
+          "comments": "AC3 · Decision Table (R5) · test_stranger_revoke_active_link_gets_403_and_db_unchanged"
+        },
+        {
+          "id": "TC-LINKREVOKE-08",
+          "description": "Người lạ gọi thu hồi trên liên kết rejected",
+          "precondition": "Liên kết status='rejected' giữa User A và B",
+          "steps": [
+            "User C (người lạ) gửi request DELETE /links/{id}"
+          ],
+          "data": "link_id=3, token=Stranger",
+          "expected": "HTTP 403 Forbidden với body {\"detail\": \"khong_co_quyen\"} (không làm lộ mã 422 cho người ngoài).",
+          "actual": "HTTP 403 Forbidden {\"detail\": \"khong_co_quyen\"}.",
+          "status": "Pass",
+          "comments": "AC3 · Decision Table (R6) · test_stranger_revoke_rejected_link_gets_403"
+        },
+        {
+          "id": "TC-LINKREVOKE-09",
+          "description": "Gọi thu hồi với link_id không tồn tại trong hệ thống",
+          "precondition": "Hệ thống không có liên kết nào có id=999999",
+          "steps": [
+            "Gửi request DELETE /links/999999 với Bearer token hợp lệ"
+          ],
+          "data": "link_id=999999",
+          "expected": "HTTP 403 Forbidden với body {\"detail\": \"khong_co_quyen\"} (bảo mật: không trả 404 để chống dò quét id).",
+          "actual": "HTTP 403 Forbidden {\"detail\": \"khong_co_quyen\"}.",
+          "status": "Pass",
+          "comments": "AC3 · Decision Table (R6) · test_stranger_revoke_nonexistent_link_gets_403"
+        },
+        {
+          "id": "TC-LINKREVOKE-10",
+          "description": "Gọi API khi thiếu Bearer Token hoặc token không hợp lệ",
+          "precondition": "Client chưa đăng nhập",
+          "steps": [
+            "Gửi request DELETE /links/{id} không kèm header Authorization"
+          ],
+          "data": "Header Authorization: (blank)",
+          "expected": "HTTP 401 Unauthorized.",
+          "actual": "HTTP 401 Unauthorized.",
+          "status": "Pass",
+          "comments": "Decision Table (R7) · test_http_missing_token_returns_401"
+        },
+        {
+          "id": "TC-LINKREVOKE-11",
+          "description": "Mất quyền tức thì (< 5s) và Policy Enforcement Point (PEP) chặn truy cập dữ liệu sức khỏe (QA.02)",
+          "precondition": "Liên kết vừa bị revoke thành công",
+          "steps": [
+            "Family Member gửi ngay request GET /patients/{id}/schedules để xem lịch thuốc",
+            "Đo thời gian phản hồi",
+            "Kiểm tra bảng access_logs trong CSDL"
+          ],
+          "data": "token=Family Member vừa bị gỡ",
+          "expected": "HTTP 403 Forbidden trong vòng <= 5 giây. Bảng access_logs ghi nhận action='denied'.",
+          "actual": "HTTP 403 Forbidden trong < 5s. access_logs có bản ghi denied fail-closed.",
+          "status": "Pass",
+          "comments": "AC6 · QA.02 · test_http_revoke_e2e_flow_and_health_access_denied_under_5s"
+        },
+        {
+          "id": "TC-LINKREVOKE-12",
+          "description": "Background Worker quét bỏ lỡ không gửi thông báo cho người thân đã bị revoke",
+          "precondition": "Bệnh nhân bỏ lỡ liều thuốc. Liên kết với người thân đã bị revoked.",
+          "steps": [
+            "Kích hoạt Background Job Worker scan_missed_doses",
+            "Kiểm tra danh sách người thân nhận thông báo cảnh báo"
+          ],
+          "data": "patient_id có liều bỏ lỡ",
+          "expected": "Worker chỉ gửi cảnh báo cho bệnh nhân và người thân active (sharing_enabled=true), không gửi cho người thân revoked.",
+          "actual": "Worker không gửi thông báo cho người thân đã bị revoked.",
+          "status": "Pass",
+          "comments": "AC6 · test_worker_scan_missed_doses_does_not_alert_revoked_family_member"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f5ce68db-9f3b-4d8b-b297-aaf550df7e4b",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:58:28.610271+07:00",
+  "rawText": "Decolgen\nFORTE\nSAAEE MEHOO OF OMIISTRUAVA\ntastordien,\n10 Trg\n2 mg\n8. tor 1 tablet\n93602z4?1905\nUNIDED\nFORTE",
+  "status": "text",
+  "elapsedMs": 15690,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f5ce68db-9f3b-4d8b-b297-aaf550df7e4b/image.jpg",
+  "errorCode": null
+}

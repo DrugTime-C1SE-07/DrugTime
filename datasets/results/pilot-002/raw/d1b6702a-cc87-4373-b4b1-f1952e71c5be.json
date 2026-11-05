@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "d1b6702a-cc87-4373-b4b1-f1952e71c5be",
+  "imageId": "cilnidipine_5_box_001",
+  "createdAt": "2026-10-29T15:36:19.137767+07:00",
+  "rawText": "R, Thuốc kè đơn\nCILNIDIPINE 5\nCilnidipine 5 mg\nHộp 6 vì x 10 viên nén bao phim\nHerabiopharn\nSàn xuất tại:\nCÒNG TY TNHH SI\nDia chi: LÔ A17, KCN Tứ Hạ, Phuong Tử Hạ.\nHH SINH DƯỢC PHÂM HERA\nTK. Huong Trà, Tinh Thừa Thiên Huế, Việt Nam.\nCiLIDIlNE",
+  "status": "text",
+  "elapsedMs": 1597,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "d1b6702a-cc87-4373-b4b1-f1952e71c5be/image.jpg",
+  "errorCode": null
+}

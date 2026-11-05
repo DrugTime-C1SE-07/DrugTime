@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "f06d9227-c843-4c16-9ae2-c8c923bedf35",
+  "imageId": "levocetirizine_5_box_004",
+  "createdAt": "2026-10-29T15:34:57.541858+07:00",
+  "rawText": "LevOCetrZIn\nHộp 3 vi x 10 vien nén bao phim\nLevocetirizin\nĐiều trị:\n>Viém mũi dị ứng\n>Đau mất đỏ do dị ứng\n> Mày đay\nJAPAN)\nGMP\nLevocetiriz in ditydroclorid 5 mg\n24\ngio\nDG PHARMA",
+  "status": "text",
+  "elapsedMs": 2768,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "f06d9227-c843-4c16-9ae2-c8c923bedf35/image.jpg",
+  "errorCode": null
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "91eead61-eecc-4ff4-840b-aa82beada99f",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:28:30.506700+07:00",
+  "rawText": "ACOL\nHAPACOL\nCAM\nHOL SO0mg\nAFER\nPARA\nYLEPH\nPHENYLE\nHAPAC\nHAPA\nCOL\nHAPAC CU\nG PHARMA\nChi nhá nh nhà áy suợc pham\nL\nHAPACOL\nasmg\ncUM\nPARACETAMOL SO0 mg\nCAM CUM\nPARAFNH\nPHENYLEPHRI\nACOL\nHAPACUM\nwrsMO SO0\nPHENYLP ćiS g\nHAPACOL\nCAM C\nHAPAC\nRACETAMOL S00 mg\nFPAINE\nPARAC\nCAM CUN\nPHENYLEPHR",
+  "status": "text",
+  "elapsedMs": 3609,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "91eead61-eecc-4ff4-840b-aa82beada99f/image.jpg",
+  "errorCode": null
+}

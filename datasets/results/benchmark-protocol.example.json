@@ -1,0 +1,20 @@
+{
+  "status": "draft",
+  "version": null,
+  "frozenAt": null,
+  "dataset_hash": null,
+  "required_devices": [],
+  "required_conditions": [],
+  "required_config": {
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "nativeSdkVersion": null,
+    "script": "latin",
+    "preprocessing": "none",
+    "appRevision": null
+  },
+  "min_images_per_condition": null,
+  "repetitions": null,
+  "threshold_name": null,
+  "latency_p95_ms": null
+}

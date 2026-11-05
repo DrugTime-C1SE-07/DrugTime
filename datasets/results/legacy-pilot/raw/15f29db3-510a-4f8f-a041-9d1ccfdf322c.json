@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "runId": "15f29db3-510a-4f8f-a041-9d1ccfdf322c",
+  "imageId": "hapacol_extra_original.png",
+  "createdAt": "2026-10-27T14:41:31.285453+07:00",
+  "rawText": "CG HAPACOL\nExtra\nPARACETAMOL 500 mg\nCAFEIN 65 ng\nHAPACOL\nExtra\n\"HAPACOL\nHAPACOL\nExtra\nDHG PHARMA\nPARACETAMOL 500 mg\nCAFEIN 65 mg\nHAPACOL\nCo sở sản xuất: cÔNG TY Ccổ PHẦN DƯỢC HẬU GIANG -\nChi nhánh nhà máy dưdc phẩm DHG tại Hậu Giang\nHAPAcOL\nExtra\nExtra\nPARACETAMOL 500 mg\nCAFEIN 65 mg\nHAPACOL\nGMDHAPACOL\nExtra\nPARACETAMOL 500 mg\nCAFEIN 65 mg\nExtra\nHAPACOL\nExtra\nHAPACOL\nExtra",
+  "status": "text",
+  "elapsedMs": 3715,
+  "metadata": {
+    "platform": "Android",
+    "deviceModel": "sdk_gphone16k_x86_64",
+    "osVersion": "17",
+    "appRevision": "8ac790a9f6c253df0d8e8999d234c3bb935feb3d+4.09-working-tree",
+    "nativeSdkVersion": "com.google.mlkit:text-recognition:16.0.1",
+    "deviceKind": "emulator",
+    "purpose": "native_smoke_pilot",
+    "imageSource": "4.08 existing web pilot; unverified benchmark; labels unused",
+    "datasetVersion": "pilot_only_unverified",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "15f29db3-510a-4f8f-a041-9d1ccfdf322c/image.png",
+  "errorCode": null
+}

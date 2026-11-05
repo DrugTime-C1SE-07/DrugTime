@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Admin\orca\workspaces\DrugTime-backend\feat-3.26\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Admin\orca\workspaces\DrugTime-backend\feat-3.26
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 29 items
+
+tests/integration/test_sql_family_links.py::test_sql_revoke_idempotent_preserves_revoked_at PASSED                                        [  3%]
+tests/integration/test_sql_family_links.py::test_sql_revoke_stranger_cannot_modify PASSED                                                 [  6%]
+tests/integration/test_sql_family_links.py::test_sql_revoke_rejected_link_returns_none PASSED                                             [ 10%]
+tests/integration/test_revoke_active_link_sets_revoked_and_clears_sharing PASSED                                [ 13%]
+tests/integration/test_revoke_idempotent_via_use_case PASSED                                                    [ 17%]
+tests/integration/test_stranger_revoke_rejected_link_gets_403 PASSED                                            [ 20%]
+tests/integration/test_stranger_revoke_nonexistent_link_gets_403 PASSED                                         [ 24%]
+tests/integration/test_owner_revoke_rejected_link_gets_422 PASSED                                               [ 27%]
+tests/integration/test_revoke_already_revoked_with_sharing_enabled_true_clears_sharing_db PASSED                [ 31%]
+tests/integration/test_family_member_self_leave_db PASSED                                                       [ 34%]
+tests/integration/test_revoke_pending_link_db PASSED                                                            [ 37%]
+tests/integration/test_stranger_revoke_active_link_gets_403_and_db_unchanged PASSED                             [ 41%]
+tests/integration/test_http_revoke_e2e_flow_and_health_access_denied_under_5s PASSED                            [ 44%]
+tests/integration/test_worker_scan_missed_doses_does_not_alert_revoked_family_member PASSED                     [ 48%]
+tests/integration/test_medication_access.py::test_patient_can_view_own_schedules PASSED                        [ 51%]
+tests/integration/test_medication_access.py::test_family_member_with_active_sharing_can_view PASSED            [ 55%]
+tests/integration/test_medication_access.py::test_family_member_with_sharing_disabled_cannot_view PASSED       [ 58%]
+tests/integration/test_medication_access.py::test_family_member_with_revoked_link_cannot_view PASSED           [ 62%]
+tests/integration/test_medication_access.py::test_family_member_with_pending_link_cannot_view PASSED           [ 65%]
+tests/integration/test_medication_access.py::test_stranger_cannot_view_schedules PASSED                        [ 68%]
+tests/integration/test_medication_access.py::test_patient_can_log_dose PASSED                                  [ 72%]
+tests/integration/test_medication_access.py::test_caregiver_cannot_log_dose PASSED                              [ 75%]
+tests/integration/test_medication_access.py::test_stranger_cannot_log_dose PASSED                               [ 79%]
+tests/integration/test_medication_access.py::test_access_log_written_on_success PASSED                          [ 82%]
+tests/integration/test_medication_access.py::test_access_log_written_on_denial PASSED                           [ 86%]
+tests/integration/test_medication_access.py::test_access_log_denied_isolated_on_error PASSED                    [ 89%]
+tests/integration/test_medication_access.py::test_audit_trail_immutable PASSED                                  [ 93%]
+tests/integration/test_medication_access.py::test_policy_enforcement_fail_closed PASSED                         [ 96%]
+tests/integration/test_medication_access.py::test_unauthenticated_request_rejected PASSED                      [100%]
+
+============================== 29 passed in 5.57s ==============================

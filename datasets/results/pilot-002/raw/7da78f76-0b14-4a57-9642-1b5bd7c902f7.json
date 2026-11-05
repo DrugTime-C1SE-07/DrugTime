@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "7da78f76-0b14-4a57-9642-1b5bd7c902f7",
+  "imageId": "strepsils_blister_001",
+  "createdAt": "2026-10-29T15:46:03.102360+07:00",
+  "rawText": "STREPSILS\nORIGINAL\nLOT ABK9947\nEXP 30 06 29",
+  "status": "text",
+  "elapsedMs": 2615,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "7da78f76-0b14-4a57-9642-1b5bd7c902f7/image.jpg",
+  "errorCode": null
+}

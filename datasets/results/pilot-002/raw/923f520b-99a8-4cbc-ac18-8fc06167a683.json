@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "923f520b-99a8-4cbc-ac18-8fc06167a683",
+  "imageId": "cilnidipine_5_box_002",
+  "createdAt": "2026-10-29T15:36:38.097016+07:00",
+  "rawText": "oiente\nCooroted byrn laht\nGhitc\nStore protet\nescickve out o reach of\nCilnidipine Tablets IP 5 mg\nCidipine5\nfrstrg-5\n10 x 10 Tablets\nTablets",
+  "status": "text",
+  "elapsedMs": 3016,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "923f520b-99a8-4cbc-ac18-8fc06167a683/image.jpg",
+  "errorCode": null
+}

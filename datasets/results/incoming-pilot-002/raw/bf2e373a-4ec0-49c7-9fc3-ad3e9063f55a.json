@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a",
+  "imageId": "1",
+  "createdAt": "2026-10-27T16:03:38.999379+07:00",
+  "rawText": "itamine Ma\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nCÁH & Ct\nFORTE\nDecGten\nFORE\nPares\nPhérylpepe\nDecolgen\nunEne Malel8\nCT TNHH JNITED\nINTERNATION AL PHARMA\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\n500\neds 10 amc\n2 mis\nWierit\nCTY TIilau UNTED\nANATIOreAL PHARMA\nS00 mg\nDecol\nDecolger\nFORTE\nCTY TNHH\nSRNATION\nCTY TNHH UNTED\nINTERNATIOHALPHARIA",
+  "status": "text",
+  "elapsedMs": 10032,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "bf2e373a-4ec0-49c7-9fc3-ad3e9063f55a/image.jpg",
+  "errorCode": null
+}

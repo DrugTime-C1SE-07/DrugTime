@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "8d0f542b-bf86-4cc9-bbe5-d45a39392a6c",
+  "imageId": "tiffy_dey_box_001",
+  "createdAt": "2026-10-29T13:50:35.788253+07:00",
+  "rawText": "Each lablet coitalns\nPARACHIAMOLeostercetaseyetkevegtebevei\nChedren 12 vears\n12 toblets ovory 4-6hoirs\nPATANA (VIETN\n1 nblet enrefy 411e\nTIFFYoEY\nCHLORPHENIRAMINE MALEATE.ase mg\nPHENYLEPHRINE HOI. issihterkeietee0 mng\nINDICATION: Symptomatlc ralief of common cold\na9s0clat6d with nasal congestion, running nose,\nSheezing, headache and fever.\nD08AGE\nTABLETS\nbO0 g\n25 x 4 Tablets",
+  "status": "text",
+  "elapsedMs": 2748,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "8d0f542b-bf86-4cc9-bbe5-d45a39392a6c/image.jpg",
+  "errorCode": null
+}
