@@ -1,0 +1,5 @@
+# Preserve dataset and evidence bytes across platforms: their SHA-256 is recorded.
+/.gitattributes text eol=lf
+/datasets/** -text
+/work/4.08-ocr-capture-evaluation/** -text
+/work/4.09-mlkit-prototype/** -text

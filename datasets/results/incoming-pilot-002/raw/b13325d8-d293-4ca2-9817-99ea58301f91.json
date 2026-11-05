@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "b13325d8-d293-4ca2-9817-99ea58301f91",
+  "imageId": "strepsils_blister_002",
+  "createdAt": "2026-10-29T13:44:11.334221+07:00",
+  "rawText": "at\nE85SES\ntrepsils\nOriginal\noenge cing\neyl Aicaot 1\netaceso0s me\nyimea\nStrepsils\nOriginal\nEach faege ea\nbtuing Thalan\nEach loeng cone\nOriginal\neican\nong T\nStrepsils\ntAlcatai 2 mg\n(Talan\nStrepsi.\nz40ehiaez Akaho L\nEach kpeegr ccais\nOriginal\necki Sencer e\nHnbune\nStre\nOrig\n240\nStrenc*",
+  "status": "text",
+  "elapsedMs": 7942,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "b13325d8-d293-4ca2-9817-99ea58301f91/image.jpg",
+  "errorCode": null
+}

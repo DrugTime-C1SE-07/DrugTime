@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "0fc116a2-7197-4b98-86f2-3989cf13ae56",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:26:07.703128+07:00",
+  "rawText": "HAPACOL\nEFFERVESCENT\nANALGESIC-ANTIPYRETIC\nEACH TABLET CONTAINS\nEPARACETAMOL\nDG PHARMA\nPIes\nOmE PARACLTAMOL\nHAPACOL\nSÚ\narceamol S00 mg\ny gs\nHAPACOL\nSUI\nE9aracetamol 500 maR\nARACETAMOL\n90 mg PAR\nHAPACOL\nSUI\nParacetamol S00 mg\nSÜI\nHAPACOL\narcetamo SO0 ma,",
+  "status": "text",
+  "elapsedMs": 3282,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "0fc116a2-7197-4b98-86f2-3989cf13ae56/image.jpg",
+  "errorCode": null
+}

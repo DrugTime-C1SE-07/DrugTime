@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "9d81f31b-7e89-4365-954a-0347c7c03fae",
+  "imageId": "levocetirizine_5_box_003",
+  "createdAt": "2026-10-29T15:34:34.477835+07:00",
+  "rawText": "20 x 10 Tablets\nLevocetirizine Hdl 5 mg Tablets lP\nLifezine-5\nToblets",
+  "status": "text",
+  "elapsedMs": 856,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "9d81f31b-7e89-4365-954a-0347c7c03fae/image.jpg",
+  "errorCode": null
+}

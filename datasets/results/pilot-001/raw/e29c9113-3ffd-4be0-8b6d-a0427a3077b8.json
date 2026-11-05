@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e29c9113-3ffd-4be0-8b6d-a0427a3077b8",
+  "imageId": "decolgen_forte_blister_002",
+  "createdAt": "2026-10-29T13:40:55.888827+07:00",
+  "rawText": "itamine Ma\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nCÁH & Ct\nFORTE\nDecGten\nFORE\nPares\nPhérylpepe\nDecolgen\nunEne Malel8\nCT TNHH JNITED\nINTERNATION AL PHARMA\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\n500\neds 10 amc\n2 mis\nWierit\nCTY TIilau UNTED\nANATIOreAL PHARMA\nS00 mg\nDecol\nDecolger\nFORTE\nCTY TNHH\nSRNATION\nCTY TNHH UNTED\nINTERNATIOHALPHARIA",
+  "status": "text",
+  "elapsedMs": 3061,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e29c9113-3ffd-4be0-8b6d-a0427a3077b8/image.jpg",
+  "errorCode": null
+}

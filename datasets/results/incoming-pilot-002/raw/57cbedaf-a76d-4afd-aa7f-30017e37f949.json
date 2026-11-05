@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "57cbedaf-a76d-4afd-aa7f-30017e37f949",
+  "imageId": "efferalgan_blister_001",
+  "createdAt": "2026-10-29T13:41:52.772083+07:00",
+  "rawText": "SIPSA SAS-RANCE\nARACETAMOL\nF-FERALGAN EFFERALEAV\ncOMPRIME\nEFFERVESCENT I\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nHAEARACETAMOR\n500 mg\nCOMPRIME\nEFFERVESCENT\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nEFFERALGAN\nCABLET\nEFFERALGAN AERALOAN\ncOMPRIME\nEFERVESENT\nnAASRNT\nUPSA SAS FRANCE\n500 mg\nPARACETAMOL\ncOMPRIME\nEFFERVESCENT /\nEFFERVESCENT\nTABLET\nUPSA SAS FRANCE\nUPSA SAS FRANCE\n500 ng\nCOMPRIMÉ\nEFFERVESCENT I\nFFERVESCENT\nTABLET\nPARACETAMOL\n500 ng\nEFFERALGAN\nCOMPRIME\nBEFERVESCENT\nEFFERVESCEN",
+  "status": "text",
+  "elapsedMs": 3768,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "57cbedaf-a76d-4afd-aa7f-30017e37f949/image.jpg",
+  "errorCode": null
+}

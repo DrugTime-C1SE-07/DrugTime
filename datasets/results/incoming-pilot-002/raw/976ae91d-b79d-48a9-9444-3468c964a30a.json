@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "976ae91d-b79d-48a9-9444-3468c964a30a",
+  "imageId": "candesartan_htz_32_25_box_002",
+  "createdAt": "2026-10-29T15:38:16.815042+07:00",
+  "rawText": "Ry PRESCRPTION DRUG\nGMPWHO\nBOX OF 3 BLISTERS x 10 TABLETS\nACANTANHTZ 8-12.5\nCandesartan cilexetil 8 mg\nHydrochlorothiazide 12.5 mg\nAN THIEN PHARMACEUTcAL CORPORATION",
+  "status": "text",
+  "elapsedMs": 1124,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "976ae91d-b79d-48a9-9444-3468c964a30a/image.jpg",
+  "errorCode": null
+}

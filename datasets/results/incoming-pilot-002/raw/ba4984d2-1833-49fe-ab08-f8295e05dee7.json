@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "ba4984d2-1833-49fe-ab08-f8295e05dee7",
+  "imageId": "tiffy_dey_box_002",
+  "createdAt": "2026-10-29T13:50:12.915690+07:00",
+  "rawText": "ABLETS\n25 x 4 Tablets\nVEVNEN",
+  "status": "text",
+  "elapsedMs": 1350,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "ba4984d2-1833-49fe-ab08-f8295e05dee7/image.jpg",
+  "errorCode": null
+}

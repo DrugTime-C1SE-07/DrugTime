@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c",
+  "imageId": "decolgen_forte_blister_002",
+  "createdAt": "2026-10-29T15:43:59.981503+07:00",
+  "rawText": "itamine Ma\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\nCÁH & Ct\nFORTE\nDecGten\nFORE\nPares\nPhérylpepe\nDecolgen\nunEne Malel8\nCT TNHH JNITED\nINTERNATION AL PHARMA\nCTY TNHH UNITED\nINTERNATIONAL PHARMA\n500\neds 10 amc\n2 mis\nWierit\nCTY TIilau UNTED\nANATIOreAL PHARMA\nS00 mg\nDecol\nDecolger\nFORTE\nCTY TNHH\nSRNATION\nCTY TNHH UNTED\nINTERNATIOHALPHARIA",
+  "status": "text",
+  "elapsedMs": 5018,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "2c8f2b8e-9dde-4436-a6cf-9b6d5246d13c/image.jpg",
+  "errorCode": null
+}

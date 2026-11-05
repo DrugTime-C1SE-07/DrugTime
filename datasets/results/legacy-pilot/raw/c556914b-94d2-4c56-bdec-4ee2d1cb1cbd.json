@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "c556914b-94d2-4c56-bdec-4ee2d1cb1cbd",
+  "imageId": "1",
+  "createdAt": "2026-10-27T15:25:34.186246+07:00",
+  "rawText": "THÀNH PHẦN :\nParacetamol.\nCafein..\n.500 mg\n65 mg\n....1 viên\nCHỈ ĐỊNH: Thuốc giảm đau hạ sốt nhẹ được bào chế dể\ntăng cường tác dụng giảm dau. Thuốc đupC khuyền dùng\ndể diếu trị hắu hết các tình trang đau và sốt, chầng hạn\nnhư đau đẩu, bao gốm dau nủa đắu, đau lưng, đau răng.\nđau thấp khộp và đau bụng kinh, đống thời giảm các triệu\nchúng của cảm lạnh, cúm và đau họng.\nTá duợc vừa đủ\nCÁCH DÙNG - CHỐNG CHỈ ĐINH VÀ CÁC THÔNG TIN\nKHÁC: Xem trong tờ huớng dẫn sử dụng thuốc kèm theo.\nTIÊU CHUẤN: TCCS.\nĐẾ XA TẤM TAY TRẺ EM.\nDỌC KỸ HƯỞNG DẢN SỬ DỤNG TRƯỚC KHI DÙNG.\nĐIẾU KIỆN BẮO QUẢN: NOI KHÔ.\nNHIỆT ĐỘ KHÔNG QUÁ 3o'c, TRÁNH ÁNH SÁNG.\nMọi thác mác vò sản phâm\nO 0292.3899000\nSDK (Reg. No. ): VD-20570-14\ncOMPOSITION - INDICATIONS - METHOD OF\nADMINISTRATION - cONTRAINDICATIONS\nAND OTHER INFORMATION:\nPlease see the enclosed leaflet\nSPECIFICATIONS: Manulacturer's",
+  "status": "text",
+  "elapsedMs": 3673,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "pixel 9 pro",
+    "osVersion": "d",
+    "appRevision": "dd",
+    "nativeSdkVersion": "dd",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "c556914b-94d2-4c56-bdec-4ee2d1cb1cbd/image.jpg",
+  "errorCode": null
+}

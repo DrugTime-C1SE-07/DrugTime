@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "8454aea4-1990-4a2b-ae23-4872983aa75d",
+  "imageId": "decolgen_forte_box_002",
+  "createdAt": "2026-10-29T13:40:25.004746+07:00",
+  "rawText": "Decolger\nVIÊN 3 LổP\nFOR TE\nTRỊ CÁC TRIỆU CHỦNG CAM\nR\nKMUC OẤu, HẢT HEL, so MIL NGNET AMUL, BAL SUY",
+  "status": "text",
+  "elapsedMs": 1617,
+  "metadata": {
+    "platform": "android studio",
+    "deviceModel": "android",
+    "osVersion": "I don't know",
+    "appRevision": "I don't know",
+    "nativeSdkVersion": "I don't know",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "8454aea4-1990-4a2b-ae23-4872983aa75d/image.jpg",
+  "errorCode": null
+}

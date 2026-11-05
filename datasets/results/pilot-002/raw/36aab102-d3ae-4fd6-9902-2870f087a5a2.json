@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "36aab102-d3ae-4fd6-9902-2870f087a5a2",
+  "imageId": "tiffy_dey_blister_002",
+  "createdAt": "2026-10-29T15:45:09.070416+07:00",
+  "rawText": "NOCATION\nTABLETS\nPARADETAWL\nCHORPHENRAMINE ALEAIE2 ng\n500 90\nTIFFYDEY\n10 4n9\nStrip of 4 Tablets",
+  "status": "text",
+  "elapsedMs": 2625,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "36aab102-d3ae-4fd6-9902-2870f087a5a2/image.jpg",
+  "errorCode": null
+}

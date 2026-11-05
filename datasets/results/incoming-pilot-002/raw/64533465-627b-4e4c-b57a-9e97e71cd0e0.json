@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "64533465-627b-4e4c-b57a-9e97e71cd0e0",
+  "imageId": "metformin_500_box_001",
+  "createdAt": "2026-10-29T15:30:33.579138+07:00",
+  "rawText": "Hộp 4 vĨ x 15 viên nén bao phim\nMetformin\n500mg\nCÔNG TY CPDP TIPHARCO\n15 0še Binh Kiểu - P2 - TP. Mỹ Tho - Tinh Tiến Giang",
+  "status": "text",
+  "elapsedMs": 958,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "64533465-627b-4e4c-b57a-9e97e71cd0e0/image.webp",
+  "errorCode": null
+}

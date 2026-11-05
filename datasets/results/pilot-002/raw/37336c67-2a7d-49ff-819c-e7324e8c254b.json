@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "37336c67-2a7d-49ff-819c-e7324e8c254b",
+  "imageId": "metformin_500_box_003",
+  "createdAt": "2026-10-29T15:31:06.580427+07:00",
+  "rawText": "Box of 4 blisters of 15 film-coated tablets- 10\nMetformin\n500mg\nTIPHARcO PHAR4CEUTICA ONT SoCK CONPAY",
+  "status": "text",
+  "elapsedMs": 1693,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "37336c67-2a7d-49ff-819c-e7324e8c254b/image.png",
+  "errorCode": null
+}

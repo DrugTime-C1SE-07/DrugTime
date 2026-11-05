@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "ef381c48-a299-40c4-86a6-0f5541d79dca",
+  "imageId": "tiffy_dey_box_002",
+  "createdAt": "2026-10-29T15:45:42.450350+07:00",
+  "rawText": "ABLETS\n25 x 4 Tablets\nVEVNEN",
+  "status": "text",
+  "elapsedMs": 2272,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "ef381c48-a299-40c4-86a6-0f5541d79dca/image.jpg",
+  "errorCode": null
+}

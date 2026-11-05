@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1",
+  "imageId": "metformin_500_blister_001",
+  "createdAt": "2026-10-29T15:28:29.649545+07:00",
+  "rawText": "Vetlornin ydrocloid\nMetform\nTIPHARCO\nMetonin bydroclorid 5\nea byeocisót 500mg\nMetformin\nMetformi\nSDK: VD-13882-11\nSEK: VD-13882-11\nMeformin bydesck\nMelrmit bydeocoeid 500mg\nda yaand 50Omg\nMetformin\nMetformin\nMe.\nTPHARCO\nG2-WHO\nMetormin bydoco,\nSmg\nMedimia bydnstid 500mg\nMetformin\nMetformin Met.\nSDK VD-1388-11\ndma bynint 500mg\nMetfornin bydrock.\nMetformin\nMet.\nMecrmia bydck\n1 Met.",
+  "status": "text",
+  "elapsedMs": 3061,
+  "metadata": {
+    "platform": "android",
+    "deviceModel": "oppo",
+    "osVersion": "10",
+    "appRevision": "11",
+    "nativeSdkVersion": "1",
+    "engine": "google_mlkit_text_recognition",
+    "packageVersion": "0.17.1",
+    "script": "latin",
+    "preprocessing": "none",
+    "modelVersion": "not_exposed",
+    "metadataSource": "tester_confirmed",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "imagePath": "e7a80d6a-3cbe-4890-b07a-cfc29bc7e9a1/image.jpg",
+  "errorCode": null
+}
