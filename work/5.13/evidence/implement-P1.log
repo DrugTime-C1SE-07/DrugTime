@@ -1,0 +1,34 @@
+BEGIN;
+
+-- Commit before application code can use the new enum value.
+ALTER TYPE public.access_data_scope ADD VALUE 'danh_sach_benh_nhan_lien_ket';
+
+COMMIT;
+BEGIN;
+
+ALTER TABLE public.family_link_audit_events
+    DROP CONSTRAINT family_link_audit_events_operation_check,
+    DROP CONSTRAINT family_link_audit_events_check1,
+    DROP CONSTRAINT family_link_audit_events_allowed_link_check;
+
+ALTER TABLE public.family_link_audit_events
+    ADD CONSTRAINT family_link_audit_events_operation_check CHECK (operation IN (
+        'list_pending', 'approve', 'reject', 'list_caregivers',
+        'enable_sharing', 'disable_sharing', 'revoke', 'list_linked_patients'
+    )),
+    ADD CONSTRAINT family_link_audit_events_allowed_subject_check CHECK (
+        result <> 'allowed' OR patient_user_id IS NOT NULL
+        OR operation = 'list_linked_patients'
+    ),
+    ADD CONSTRAINT family_link_audit_events_allowed_link_check CHECK (
+        result <> 'allowed'
+        OR operation IN ('list_pending', 'list_caregivers', 'list_linked_patients')
+        OR link_id IS NOT NULL
+    ),
+    ADD CONSTRAINT family_link_audit_events_list_subject_check CHECK (
+        operation <> 'list_linked_patients'
+        OR (patient_user_id IS NULL AND link_id IS NULL)
+    );
+
+-- Existing result/reason checks, FKs, RLS, grants, revokes and append-only triggers stay intact.
+COMMIT;

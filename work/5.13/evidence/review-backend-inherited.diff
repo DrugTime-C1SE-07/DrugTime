@@ -1,0 +1,1006 @@
+diff --git a/src/drugtime/modules/identity/adapters/outbound/sql_users.py b/src/drugtime/modules/identity/adapters/outbound/sql_users.py
+index 6230c57..bca3d27 100644
+--- a/src/drugtime/modules/identity/adapters/outbound/sql_users.py
++++ b/src/drugtime/modules/identity/adapters/outbound/sql_users.py
+@@ -51,7 +51,7 @@ class SqlUsers:
+     def get_profile(self, user_id: UUID) -> ProfileRecord | None:
+         row = self._c.execute(
+             text(
+-                "SELECT full_name, date_of_birth, gender, email FROM users "
++                "SELECT full_name, date_of_birth, gender, email, phone_number FROM users "
+                 "WHERE id = :id AND erased_at IS NULL"
+             ),
+             {"id": user_id},
+@@ -66,19 +66,19 @@ class SqlUsers:
+         date_of_birth,
+         gender: str,
+         email: str | None = None,
++        phone_number: str | None = None,
+     ) -> None:
+         try:
+-            if email is None:
+-                statement = text(
+-                    "UPDATE users SET full_name = :full_name, date_of_birth = :dob, "
+-                    "gender = :gender WHERE id = :id AND erased_at IS NULL"
+-                )
+-            else:
+-                statement = text(
+-                    "UPDATE users SET full_name = :full_name, date_of_birth = :dob, "
+-                    "gender = :gender, email = :email "
+-                    "WHERE id = :id AND erased_at IS NULL"
+-                )
++            assignments = ["full_name = :full_name", "date_of_birth = :dob", "gender = :gender"]
++            if email is not None:
++                assignments.append("email = :email")
++            if phone_number is not None:
++                assignments.append("phone_number = :phone_number")
++            statement = text(
++                "UPDATE users SET "
++                + ", ".join(assignments)
++                + " WHERE id = :id AND erased_at IS NULL"
++            )
+             result = self._c.execute(
+                 statement,
+                 {
+@@ -87,9 +87,14 @@ class SqlUsers:
+                     "gender": gender,
+                     "id": user_id,
+                     **({"email": email} if email is not None else {}),
++                    **({"phone_number": phone_number} if phone_number is not None else {}),
+                 },
+             )
+         except IntegrityError as exc:
++            if getattr(getattr(exc.orig, "diag", None), "constraint_name", None) == (
++                "users_phone_number_key"
++            ):
++                raise Conflict("phone_change_unavailable") from exc
+             if getattr(getattr(exc.orig, "diag", None), "constraint_name", None) == (
+                 "users_email_lower_uq"
+             ):
+diff --git a/src/drugtime/modules/identity/api.py b/src/drugtime/modules/identity/api.py
+index ac6413c..2ad4131 100644
+--- a/src/drugtime/modules/identity/api.py
++++ b/src/drugtime/modules/identity/api.py
+@@ -53,6 +53,7 @@ def update_profile(
+     date_of_birth: date,
+     gender: str,
+     email: str | None = None,
++    phone_number: str | None = None,
+     at: datetime,
+ ) -> _profile.ProfileUpdateResult:
+     return _profile.update_profile(
+@@ -63,6 +64,7 @@ def update_profile(
+         date_of_birth=date_of_birth,
+         gender=gender,
+         email=email,
++        phone_number=phone_number,
+         at=at,
+     )
+ 
+diff --git a/src/drugtime/modules/identity/application/ports.py b/src/drugtime/modules/identity/application/ports.py
+index 241e10f..d292783 100644
+--- a/src/drugtime/modules/identity/application/ports.py
++++ b/src/drugtime/modules/identity/application/ports.py
+@@ -30,6 +30,7 @@ class UserRepository(Protocol):
+         date_of_birth: date,
+         gender: str,
+         email: str | None = None,
++        phone_number: str | None = None,
+     ) -> None: ...
+     def device_tokens(self, user_ids: list[UUID], platform: str) -> list[tuple[UUID, str]]: ...
+     def erase(self, user_id: UUID) -> None: ...
+diff --git a/src/drugtime/modules/identity/application/profile.py b/src/drugtime/modules/identity/application/profile.py
+index 3b9ef22..e202ee7 100644
+--- a/src/drugtime/modules/identity/application/profile.py
++++ b/src/drugtime/modules/identity/application/profile.py
+@@ -4,7 +4,11 @@ from datetime import date, datetime
+ from uuid import UUID
+ 
+ from drugtime.modules.identity.application.ports import AuthProvider, UserRepository
+-from drugtime.modules.identity.domain.profile import ProfileRecord, validate_profile
++from drugtime.modules.identity.domain.profile import (
++    ProfileRecord,
++    normalize_contact_phone,
++    validate_profile,
++)
+ from drugtime.shared.errors import ServiceUnavailable, Unauthorized
+ 
+ _LOGGER = logging.getLogger(__name__)
+@@ -32,6 +36,7 @@ def update_profile(
+     date_of_birth: date,
+     gender: str,
+     email: str | None = None,
++    phone_number: str | None = None,
+     at: datetime,
+ ) -> ProfileUpdateResult:
+     current = users.get_profile(user_id)
+@@ -47,6 +52,9 @@ def update_profile(
+     )
+     new_email = current.email if email is None else profile.email
+     email_changed = new_email != current.email
++    phone_fields = (
++        {"phone_number": normalize_contact_phone(phone_number)} if phone_number is not None else {}
++    )
+     if email_changed:
+         auth.update_email(user_id, new_email)
+ 
+@@ -57,6 +65,7 @@ def update_profile(
+             date_of_birth=date_of_birth,
+             gender=profile.gender,
+             email=new_email,
++            **phone_fields,
+         )
+     except Exception:
+         if email_changed:
+@@ -64,8 +73,7 @@ def update_profile(
+                 auth.update_email(user_id, current.email)
+             except Exception as rollback_error:
+                 _LOGGER.error(
+-                    "Could not restore Supabase email after profile DB update failed "
+-                    "for user %s",
++                    "Could not restore Supabase email after profile DB update failed for user %s",
+                     user_id,
+                 )
+                 raise ServiceUnavailable("auth_provider_unavailable") from rollback_error
+diff --git a/src/drugtime/modules/identity/domain/profile.py b/src/drugtime/modules/identity/domain/profile.py
+index 8393555..8b88b18 100644
+--- a/src/drugtime/modules/identity/domain/profile.py
++++ b/src/drugtime/modules/identity/domain/profile.py
+@@ -22,10 +22,7 @@ def validate_email(email: str | None) -> str | None:
+ 
+     normalized_email = email.strip().lower()
+ 
+-    if (
+-        len(normalized_email) > 254
+-        or not _EMAIL_PATTERN.fullmatch(normalized_email)
+-    ):
++    if len(normalized_email) > 254 or not _EMAIL_PATTERN.fullmatch(normalized_email):
+         raise DomainError("invalid_email")
+ 
+     return normalized_email
+@@ -37,6 +34,17 @@ class ProfileRecord:
+     date_of_birth: date | None
+     gender: str | None
+     email: str | None
++    phone_number: str | None = None
++
++
++def normalize_contact_phone(value: str) -> str:
++    """Normalize contact data only; never change Supabase Auth credentials."""
++    phone = value.strip().replace(" ", "").replace("-", "")
++    if phone.startswith("0"):
++        phone = "+84" + phone[1:]
++    if re.fullmatch(r"\+[1-9][0-9]{7,14}", phone) is None:
++        raise DomainError("invalid_phone")
++    return phone
+ 
+ 
+ def validate_profile(
+diff --git a/src/drugtime/modules/medication/adapters/inbound/profile_http.py b/src/drugtime/modules/medication/adapters/inbound/profile_http.py
+index 5a2e1de..45436d4 100644
+--- a/src/drugtime/modules/medication/adapters/inbound/profile_http.py
++++ b/src/drugtime/modules/medication/adapters/inbound/profile_http.py
+@@ -115,6 +115,7 @@ def put_profile(
+                 date_of_birth=body.date_of_birth,
+                 gender=body.gender,
+                 email=body.email,
++                phone_number=body.phone_number,
+                 at=datetime.now(UTC),
+             )
+             response = Response(status_code=204)
+diff --git a/src/drugtime/modules/medication/adapters/inbound/profile_schemas.py b/src/drugtime/modules/medication/adapters/inbound/profile_schemas.py
+index 774a335..271d809 100644
+--- a/src/drugtime/modules/medication/adapters/inbound/profile_schemas.py
++++ b/src/drugtime/modules/medication/adapters/inbound/profile_schemas.py
+@@ -38,6 +38,16 @@ def _health_profile_schema(schema: dict) -> None:
+ class ProfileUpdateRequest(BaseModel):
+     model_config = ConfigDict(extra="forbid")
+     full_name: StrictStr = Field(min_length=1, pattern=r"\S")
++    phone_number: StrictStr = Field(
++        default=None,
++        min_length=1,
++        max_length=64,
++        description=(
++            "Optional contact phone, normalized to E.164 (+84 for local 0-prefixed numbers). "
++            "Omit to preserve. Null and empty values are invalid. "
++            "Does not change login credentials or send SMS/OTP; ownership is not verified."
++        ),
++    )
+     date_of_birth: date
+     gender: Literal["nam", "nu", "khac", "male", "female", "other"]
+     # Omission means leave the current login email unchanged; explicit null is invalid.
+@@ -103,6 +113,7 @@ class HealthProfileResponse(BaseModel):
+     date_of_birth: date | None
+     gender: str | None
+     email: str | None
++    phone_number: str | None
+     conditions: list[UserConditionResponse]
+ 
+ 
+diff --git a/src/drugtime/modules/medication/adapters/outbound/other_modules.py b/src/drugtime/modules/medication/adapters/outbound/other_modules.py
+index 4a6e282..d7fe736 100644
+--- a/src/drugtime/modules/medication/adapters/outbound/other_modules.py
++++ b/src/drugtime/modules/medication/adapters/outbound/other_modules.py
+@@ -87,6 +87,7 @@ class IdentityProfileAdapter:
+             profile.date_of_birth,
+             profile.gender,
+             profile.email,
++            profile.phone_number,
+         )
+ 
+     def update(
+@@ -98,6 +99,7 @@ class IdentityProfileAdapter:
+         date_of_birth: date,
+         gender: str,
+         email: str | None,
++        phone_number: str | None = None,
+         at: datetime,
+     ) -> tuple[str | None, bool]:
+         result = identity.update_profile(
+@@ -107,6 +109,7 @@ class IdentityProfileAdapter:
+             date_of_birth=date_of_birth,
+             gender=gender,
+             email=email,
++            phone_number=phone_number,
+             at=at,
+         )
+         return result.previous_email, result.auth_email_changed
+diff --git a/src/drugtime/modules/medication/application/manage_profile.py b/src/drugtime/modules/medication/application/manage_profile.py
+index 58ec207..21c799e 100644
+--- a/src/drugtime/modules/medication/application/manage_profile.py
++++ b/src/drugtime/modules/medication/application/manage_profile.py
+@@ -36,6 +36,7 @@ def get_profile(
+             )
+             for link in links
+         ],
++        phone_number=profile.phone_number,
+     )
+ 
+ 
+@@ -50,6 +51,7 @@ def update_profile(
+     date_of_birth: date,
+     gender: str,
+     email: str | None = None,
++    phone_number: str | None = None,
+     at: datetime,
+ ) -> tuple[str | None, bool]:
+     access.authorize_write(uow, user_id, is_admin)
+@@ -60,5 +62,6 @@ def update_profile(
+         date_of_birth=date_of_birth,
+         gender=gender,
+         email=email,
++        phone_number=phone_number,
+         at=at,
+     )
+diff --git a/src/drugtime/modules/medication/application/profile_ports.py b/src/drugtime/modules/medication/application/profile_ports.py
+index 2390cca..787768e 100644
+--- a/src/drugtime/modules/medication/application/profile_ports.py
++++ b/src/drugtime/modules/medication/application/profile_ports.py
+@@ -26,6 +26,7 @@ class PersonalProfiles(Protocol):
+         date_of_birth: date,
+         gender: str,
+         email: str | None,
++        phone_number: str | None,
+         at: datetime,
+     ) -> tuple[str | None, bool]: ...
+ 
+diff --git a/src/drugtime/modules/medication/domain/user_condition.py b/src/drugtime/modules/medication/domain/user_condition.py
+index 12aada7..cadd6b1 100644
+--- a/src/drugtime/modules/medication/domain/user_condition.py
++++ b/src/drugtime/modules/medication/domain/user_condition.py
+@@ -32,6 +32,7 @@ class PersonalProfile:
+     date_of_birth: date | None
+     gender: str | None
+     email: str | None
++    phone_number: str | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -41,3 +42,4 @@ class HealthProfile:
+     gender: str | None
+     email: str | None
+     conditions: list[UserConditionView]
++    phone_number: str | None = None
+diff --git a/tests/integration/test_profile_api.py b/tests/integration/test_profile_api.py
+index a9802a0..bd3ed44 100644
+--- a/tests/integration/test_profile_api.py
++++ b/tests/integration/test_profile_api.py
+@@ -31,6 +31,7 @@ def test_profile_get_put_incomplete_complete__AC01_AC04(client, db, make, auth,
+     user = make.user()
+     db.execute(text("UPDATE users SET full_name=NULL WHERE id=:u"), {"u": user})
+     headers = auth(user)
++    email = db.execute(text("SELECT email FROM users WHERE id=:u"), {"u": user}).scalar_one()
+     response = client.get("/profile", headers=headers)
+     assert response.status_code == 200
+     assert response.headers["cache-control"] == "no-store"
+@@ -38,6 +39,8 @@ def test_profile_get_put_incomplete_complete__AC01_AC04(client, db, make, auth,
+         "full_name": None,
+         "date_of_birth": None,
+         "gender": None,
++        "email": email,
++        "phone_number": None,
+         "conditions": [],
+     }
+     link = add(client, auth, user, condition(db), subtype="  supplied  ", stage="old")
+@@ -56,6 +59,8 @@ def test_profile_get_put_incomplete_complete__AC01_AC04(client, db, make, auth,
+         "full_name": "Bao",
+         "date_of_birth": "2026-10-14",
+         "gender": "male",
++        "email": email,
++        "phone_number": None,
+         "conditions": [link],
+     }
+     for invalid in ({**body, "full_name": "  "}, {**body, "date_of_birth": "2026-10-15"}):
+diff --git a/tests/integration/test_profile_contact_phone.py b/tests/integration/test_profile_contact_phone.py
+new file mode 100644
+index 0000000..663aebd
+--- /dev/null
++++ b/tests/integration/test_profile_contact_phone.py
+@@ -0,0 +1,321 @@
++from concurrent.futures import ThreadPoolExecutor
++from contextlib import contextmanager
++from unittest.mock import Mock
++from uuid import uuid4
++
++import pytest
++from fastapi.testclient import TestClient
++from sqlalchemy import event, text
++
++from drugtime.main import create_app
++from drugtime.modules.medication.adapters.inbound import profile_http
++from drugtime.shared.db import get_engine
++
++BASE = {"full_name": "Bao", "date_of_birth": "2000-01-01", "gender": "nam"}
++
++
++def fresh_phone():
++    return "+84" + str(100000000 + uuid4().int % 900000000)
++
++
++def snapshot(db, user):
++    return db.execute(
++        text("SELECT full_name,date_of_birth,gender,email,phone_number FROM users WHERE id=:u"),
++        {"u": user},
++    ).one()
++
++
++@pytest.fixture
++def no_auth_phone_changes(monkeypatch):
++    from drugtime.modules.identity.adapters.outbound.supabase_auth import SupabaseAuth
++
++    calls = []
++    for name in ("update_email", "request_otp", "verify_otp"):
++        call = Mock(side_effect=AssertionError("Contact phone must not call Supabase Auth"))
++        monkeypatch.setattr(SupabaseAuth, name, call)
++        calls.append(call)
++    yield
++    for call in calls:
++        call.assert_not_called()
++
++
++def test_contact_phone_initially_null__AC19(client, make, auth):
++    user = make.user()
++    response = client.get("/profile", headers=auth(user))
++    assert response.status_code == 200
++    assert response.json()["phone_number"] is None
++    assert response.headers["cache-control"] == "no-store"
++    assert make.access_logs(user)[-1]["result"] == "allowed"
++
++
++@pytest.mark.parametrize("form", ["local", "international", "spaces_hyphens"])
++def test_contact_phone_round_trip__AC19_AC20_AC21(
++    client, db, make, auth, form, no_auth_phone_changes
++):
++    user = make.user()
++    before = snapshot(db, user)
++    phone = fresh_phone()
++    raw = {
++        "local": "0" + phone[3:],
++        "international": phone,
++        "spaces_hyphens": " 0" + phone[3:6] + " " + phone[6:9] + "-" + phone[9:] + " ",
++    }[form]
++    headers = auth(user)
++    result = client.put("/profile", json={**BASE, "phone_number": raw}, headers=headers)
++    assert result.status_code == 204 and result.content == b"", result.text
++    after = snapshot(db, user)
++    assert after.phone_number == phone and after.email == before.email
++    response = client.get("/profile", headers=headers)
++    assert response.status_code == 200
++    assert response.json()["phone_number"] == phone
++    assert response.json()["email"] == before.email
++    assert response.json()["conditions"] == []
++    assert response.headers["cache-control"] == "no-store"
++
++
++def test_contact_phone_omission_preserves__AC22(client, db, make, auth, no_auth_phone_changes):
++    user, phone = make.user(), fresh_phone()
++    headers = auth(user)
++    assert (
++        client.put("/profile", json={**BASE, "phone_number": phone}, headers=headers).status_code
++        == 204
++    )
++    assert client.put("/profile", json=BASE, headers=headers).status_code == 204
++    assert snapshot(db, user).phone_number == phone
++    assert client.get("/profile", headers=headers).json()["phone_number"] == phone
++
++
++@pytest.mark.parametrize("raw_length", [1, 64, 65])
++def test_contact_phone_raw_length_boundaries__AC22(client, db, make, auth, raw_length):
++    user, phone = make.user(), fresh_phone()
++    raw = "1" if raw_length == 1 else phone.ljust(raw_length)
++    before = snapshot(db, user)
++    response = client.put("/profile", headers=auth(user), json={**BASE, "phone_number": raw})
++    if raw_length == 64:
++        assert response.status_code == 204
++        assert snapshot(db, user).phone_number == phone
++    else:
++        assert response.status_code == 422
++        assert snapshot(db, user) == before
++
++
++def test_contact_phone_repeat_value__AC20(client, db, make, auth, no_auth_phone_changes):
++    user, phone = make.user(), fresh_phone()
++    headers = auth(user)
++    for _ in range(2):
++        response = client.put("/profile", headers=headers, json={**BASE, "phone_number": phone})
++        assert response.status_code == 204
++    assert snapshot(db, user).phone_number == phone
++    assert [log["result"] for log in make.access_logs(user)] == ["allowed", "allowed"]
++
++
++@pytest.mark.parametrize(
++    "value",
++    [
++        None,
++        "",
++        " ",
++        912345678,
++        True,
++        "bad",
++        "+012345678",
++        "+1234567",
++        "+1234567890123456",
++        "+84١٢٣٤٥٦٧٨٩",
++        "+84912345678\x00",
++        "1" * 64,
++        "1" * 65,
++    ],
++)
++def test_contact_phone_invalid_atomic__AC21_AC22(
++    client, db, make, auth, value, no_auth_phone_changes
++):
++    user = make.user()
++    before = snapshot(db, user)
++    # Include a new email to prove phone validation precedes Auth side effects.
++    response = client.put(
++        "/profile",
++        headers=auth(user),
++        json={
++            **BASE,
++            "full_name": "Must roll back",
++            "email": "new@example.com",
++            "phone_number": value,
++        },
++    )
++    assert response.status_code == 422, response.text
++    assert snapshot(db, user) == before
++    if isinstance(value, str) and 0 < len(value) <= 64:
++        assert response.json() == {"detail": "invalid_phone"}
++
++
++@pytest.mark.parametrize("digits", [8, 15])
++def test_contact_phone_e164_valid_boundaries__AC20(client, db, make, auth, digits):
++    user = make.user()
++    phone = "+" + "1" + str(uuid4().int % (10 ** (digits - 1))).zfill(digits - 1)
++    response = client.put("/profile", headers=auth(user), json={**BASE, "phone_number": phone})
++    assert response.status_code == 204, response.text
++    assert snapshot(db, user).phone_number == phone
++
++
++def test_contact_phone_duplicate_rollback__AC23(client, db, make, auth, no_auth_phone_changes):
++    owner, other, phone = make.user(), make.user(), fresh_phone()
++    db.execute(text("UPDATE users SET phone_number=:p WHERE id=:u"), {"p": phone, "u": owner})
++    before = snapshot(db, other)
++    response = client.put("/profile", headers=auth(other), json={**BASE, "phone_number": phone})
++    assert response.status_code == 409
++    assert response.json() == {"detail": "phone_change_unavailable"}
++    assert snapshot(db, other) == before
++    assert snapshot(db, owner).phone_number == phone
++
++
++def test_contact_phone_concurrent_duplicate__AC23(
++    db, admin_engine, make, auth, wait_for_lock_waiters
++):
++    users, phone = [make.user(), make.user()], fresh_phone()
++    before = {user: snapshot(db, user) for user in users}
++
++    def request(user):
++        with TestClient(create_app()) as local:
++            return local.put("/profile", headers=auth(user), json={**BASE, "phone_number": phone})
++
++    with admin_engine.execution_options(isolation_level="READ COMMITTED").connect() as blocker:
++        tx = blocker.begin()
++        blocker.execute(text("LOCK TABLE users IN SHARE MODE"))
++        with ThreadPoolExecutor(max_workers=2) as pool:
++            futures = [pool.submit(request, user) for user in users]
++            try:
++                wait_for_lock_waiters(2)
++            finally:
++                tx.rollback()
++            responses = [future.result(timeout=30) for future in futures]
++    assert sorted(r.status_code for r in responses) == [204, 409]
++    for user, response in zip(users, responses, strict=True):
++        if response.status_code == 409:
++            assert response.json() == {"detail": "phone_change_unavailable"}
++            assert snapshot(db, user) == before[user]
++    assert (
++        db.execute(
++            text("SELECT count(*) FROM users WHERE phone_number=:p"), {"p": phone}
++        ).scalar_one()
++        == 1
++    )
++
++
++@pytest.mark.parametrize("method", ["get", "put"])
++def test_contact_phone_revoked_immediately__AC24(client, db, make, auth, method):
++    user = make.user()
++    assert client.get("/profile", headers=auth(user)).status_code == 200
++    make.revoke_consent(user, "health_data")
++    before = snapshot(db, user)
++    payload = {**BASE, "phone_number": fresh_phone()} if method == "put" else None
++    response = client.request(method, "/profile", headers=auth(user), json=payload)
++    assert response.status_code == 403
++    assert response.json() == {"detail": "consent_revoked"}
++    assert snapshot(db, user) == before
++    assert make.access_logs(user)[-1]["result"] == "denied"
++
++
++@pytest.mark.parametrize("linked", [False, True])
++def test_contact_phone_self_only__AC24(client, db, make, auth, linked):
++    patient = make.user()
++    caller = make.family_of(patient) if linked else make.user()
++    patient_phone, caller_phone = fresh_phone(), fresh_phone()
++    for user, phone in ((patient, patient_phone), (caller, caller_phone)):
++        db.execute(text("UPDATE users SET phone_number=:p WHERE id=:u"), {"p": phone, "u": user})
++    own = client.get("/profile", headers=auth(caller))
++    assert own.status_code == 200
++    assert own.json()["phone_number"] == caller_phone
++    for selector in ("patient_id", "user_id"):
++        response = client.get(f"/profile?{selector}={patient}", headers=auth(caller))
++        assert response.status_code == 422
++        assert response.json() == {"detail": "profile_is_self_only"}
++        assert patient_phone not in response.text
++        denied_write = client.put(
++            f"/profile?{selector}={patient}",
++            headers=auth(caller),
++            json={**BASE, "phone_number": fresh_phone()},
++        )
++        assert denied_write.status_code == 422
++        assert denied_write.json() == {"detail": "profile_is_self_only"}
++    assert snapshot(db, patient).phone_number == patient_phone
++    assert snapshot(db, caller).phone_number == caller_phone
++    assert make.access_logs(patient) == []
++    assert make.access_logs(caller)[-1]["result"] == "allowed"
++
++
++@pytest.mark.parametrize("method", ["get", "put"])
++def test_contact_phone_admin_denied__AC24(client, db, admin_auth, make, method):
++    user, headers = admin_auth
++    before = snapshot(db, user)
++    payload = {**BASE, "phone_number": fresh_phone()} if method == "put" else None
++    response = client.request(method, "/profile", headers=headers, json=payload)
++    assert response.status_code == 403
++    assert snapshot(db, user) == before
++    assert make.access_logs(user)[-1]["result"] == "denied"
++
++
++@pytest.mark.parametrize("headers", [{}, {"Authorization": "Bearer bad-token"}])
++@pytest.mark.parametrize("method", ["get", "put"])
++def test_contact_phone_auth_required__AC24(client, headers, method):
++    payload = {**BASE, "phone_number": fresh_phone()} if method == "put" else None
++    response = client.request(method, "/profile", headers=headers, json=payload)
++    assert response.status_code == 401
++    assert "phone_number" not in response.text
++
++
++@pytest.mark.parametrize("method", ["get", "put"])
++@pytest.mark.parametrize("failure", ["audit", "commit"])
++def test_contact_phone_failure_no_data_or_ack__AC25(db, make, auth, monkeypatch, method, failure):
++    user, phone = make.user(), fresh_phone()
++    db.execute(text("UPDATE users SET phone_number=:p WHERE id=:u"), {"p": phone, "u": user})
++    before = snapshot(db, user)
++    real = profile_http.unit_of_work
++
++    @contextmanager
++    def fail_commit():
++        with real() as uow:
++            yield uow
++            raise RuntimeError("injected commit failure")
++
++    def fail_audit(conn, cursor, statement, parameters, context, executemany):
++        if "INSERT INTO access_logs" in statement:
++            raise RuntimeError("injected audit failure")
++
++    if failure == "commit":
++        monkeypatch.setattr(profile_http, "unit_of_work", fail_commit)
++    else:
++        event.listen(get_engine(), "before_cursor_execute", fail_audit)
++    try:
++        with TestClient(create_app(), raise_server_exceptions=False) as local:
++            payload = {**BASE, "phone_number": fresh_phone()} if method == "put" else None
++            response = local.request(method, "/profile", headers=auth(user), json=payload)
++        assert response.status_code == 500
++        assert response.json() == {"detail": "Internal server error"}
++        assert phone not in response.text
++        assert snapshot(db, user) == before
++    finally:
++        if failure == "audit":
++            event.remove(get_engine(), "before_cursor_execute", fail_audit)
++
++
++def test_contact_phone_audit_no_payload__AC25(client, db, make, auth):
++    user, phone = make.user(), fresh_phone()
++    email = snapshot(db, user).email
++    headers = auth(user)
++    assert (
++        client.put("/profile", headers=headers, json={**BASE, "phone_number": phone}).status_code
++        == 204
++    )
++    assert client.get("/profile", headers=headers).status_code == 200
++    rows = (
++        db.execute(
++            text("SELECT to_jsonb(a)::text FROM access_logs a WHERE patient_user_id=:u"),
++            {"u": user},
++        )
++        .scalars()
++        .all()
++    )
++    assert len(rows) == 2
++    assert all(phone not in row and email not in row and "Bao" not in row for row in rows)
++    assert [row["result"] for row in make.access_logs(user)] == ["allowed", "allowed"]
+diff --git a/tests/unit/test_profile_contact_phone.py b/tests/unit/test_profile_contact_phone.py
+new file mode 100644
+index 0000000..97c4b14
+--- /dev/null
++++ b/tests/unit/test_profile_contact_phone.py
+@@ -0,0 +1,280 @@
++from datetime import date, datetime
++from types import SimpleNamespace
++from unittest.mock import Mock
++from uuid import uuid4
++
++import pytest
++from sqlalchemy.exc import IntegrityError
++
++from drugtime.modules.identity.adapters.outbound.sql_users import SqlUsers
++from drugtime.modules.identity.application.profile import update_profile
++from drugtime.modules.identity.domain.profile import ProfileRecord, normalize_contact_phone
++from drugtime.modules.medication.adapters.inbound import profile_schemas
++from drugtime.modules.medication.domain.user_condition import HealthProfile
++from drugtime.shared.errors import Conflict, DomainError
++
++
++@pytest.mark.parametrize("value", ["0912345678", " 0912 345-678 ", "+84912345678"])
++def test_contact_phone_normalization(value):
++    assert normalize_contact_phone(value) == "+84912345678"
++
++
++@pytest.mark.parametrize(
++    "value",
++    ["", " ", "123", "+012345678", "+1234567", "+1234567890123456", "+84abc12345", "+84١٢٣٤٥٦٧٨٩"],
++)
++def test_invalid_contact_phone(value):
++    with pytest.raises(DomainError, match="invalid_phone"):
++        normalize_contact_phone(value)
++
++
++def test_contact_phone_update_does_not_change_auth_or_email():
++    users, auth, uid = Mock(), Mock(), uuid4()
++    users.get_profile.return_value = ProfileRecord("Bao", None, None, "bao@example.com")
++    result = update_profile(
++        users,
++        auth,
++        uid,
++        full_name="Bao",
++        date_of_birth=date(2000, 1, 1),
++        gender="nam",
++        phone_number="0912345678",
++        at=datetime(2026, 1, 1),
++    )
++    assert auth.mock_calls == []
++    assert not result.auth_email_changed
++    assert users.update_profile.call_args.kwargs["phone_number"] == "+84912345678"
++    assert users.update_profile.call_args.kwargs["email"] == "bao@example.com"
++
++
++def test_invalid_phone_rejected_before_auth_or_database_update():
++    users, auth = Mock(), Mock()
++    users.get_profile.return_value = ProfileRecord("Bao", None, None, "bao@example.com")
++    with pytest.raises(DomainError, match="invalid_phone"):
++        update_profile(
++            users,
++            auth,
++            uuid4(),
++            full_name="Bao",
++            date_of_birth=date(2000, 1, 1),
++            gender="nam",
++            phone_number="bad",
++            email="new@example.com",
++            at=datetime(2026, 1, 1),
++        )
++    assert auth.mock_calls == []
++    users.update_profile.assert_not_called()
++
++
++def test_omitted_phone_is_not_written():
++    uow = Mock()
++    uow.connection.execute.return_value.rowcount = 1
++    SqlUsers(uow).update_profile(uuid4(), full_name="Bao", date_of_birth=None, gender="nam")
++    statement, params = uow.connection.execute.call_args.args
++    assert "phone_number" not in str(statement)
++    assert "phone_number" not in params
++
++
++def test_phone_write_is_owner_scoped_and_parameterized():
++    uow, uid = Mock(), uuid4()
++    uow.connection.execute.return_value.rowcount = 1
++    SqlUsers(uow).update_profile(
++        uid,
++        full_name="Bao",
++        date_of_birth=None,
++        gender="nam",
++        phone_number="+84912345678",
++    )
++    statement, params = uow.connection.execute.call_args.args
++    assert "phone_number = :phone_number" in str(statement)
++    assert "WHERE id = :id AND erased_at IS NULL" in str(statement)
++    assert params["id"] == uid
++    assert params["phone_number"] == "+84912345678"
++
++
++def test_duplicate_phone_returns_generic_conflict():
++    uow = Mock()
++    original = SimpleNamespace(diag=SimpleNamespace(constraint_name="users_phone_number_key"))
++    uow.connection.execute.side_effect = IntegrityError("private SQL", {}, original)
++    with pytest.raises(Conflict, match="phone_change_unavailable"):
++        SqlUsers(uow).update_profile(
++            uuid4(),
++            full_name="Bao",
++            date_of_birth=None,
++            gender="nam",
++            phone_number="+84912345678",
++        )
++
++
++@pytest.mark.parametrize("value", [None, "", 912345678, True])
++def test_explicit_invalid_phone_shape_rejected(value):
++    from pydantic import ValidationError
++
++    with pytest.raises(ValidationError):
++        profile_schemas.ProfileUpdateRequest.model_validate(
++            {
++                "full_name": "Bao",
++                "date_of_birth": "2000-01-01",
++                "gender": "nam",
++                "phone_number": value,
++            }
++        )
++
++
++def test_profile_response_includes_contact_phone():
++    profile = HealthProfile("Bao", None, None, "bao@example.com", [], "+84912345678")
++    response = profile_schemas.HealthProfileResponse.model_validate(profile)
++    assert response.phone_number == "+84912345678"
++
++
++@pytest.mark.parametrize("digits,valid", [(7, False), (8, True), (15, True), (16, False)])
++def test_normalized_phone_digit_boundaries(digits, valid):
++    phone = "+" + "1" * digits
++    if valid:
++        assert normalize_contact_phone(phone) == phone
++    else:
++        with pytest.raises(DomainError, match="invalid_phone"):
++            normalize_contact_phone(phone)
++
++
++@pytest.mark.parametrize("size,valid", [(0, False), (1, True), (64, True), (65, False)])
++def test_raw_phone_schema_length_boundaries(size, valid):
++    from pydantic import ValidationError
++
++    body = {
++        "full_name": "Bao",
++        "date_of_birth": "2000-01-01",
++        "gender": "nam",
++        "phone_number": "1" * size,
++    }
++    if valid:
++        assert profile_schemas.ProfileUpdateRequest.model_validate(body).phone_number == "1" * size
++    else:
++        with pytest.raises(ValidationError):
++            profile_schemas.ProfileUpdateRequest.model_validate(body)
++
++
++@pytest.mark.parametrize(
++    "value", ["\x00", "+84912345678\x00", "---", "\t\n", "+84 １２３４５６７８９"]
++)
++def test_contact_phone_control_and_non_ascii_rejected(value):
++    with pytest.raises(DomainError, match="invalid_phone"):
++        normalize_contact_phone(value)
++
++
++def test_omitted_phone_application_does_not_overwrite_existing_phone():
++    users, auth = Mock(), Mock()
++    users.get_profile.return_value = ProfileRecord(
++        "Bao", None, None, "bao@example.com", "+84912345678"
++    )
++    update_profile(
++        users,
++        auth,
++        uuid4(),
++        full_name="Bao",
++        date_of_birth=date(2000, 1, 1),
++        gender="nam",
++        at=datetime(2026, 1, 1),
++    )
++    assert "phone_number" not in users.update_profile.call_args.kwargs
++    assert auth.mock_calls == []
++
++
++def test_sql_profile_reads_contact_phone_only_for_current_active_owner():
++    uow, uid = Mock(), uuid4()
++    uow.connection.execute.return_value.first.return_value = (
++        "Bao",
++        None,
++        "nam",
++        "bao@example.com",
++        "+84912345678",
++    )
++    profile = SqlUsers(uow).get_profile(uid)
++    assert profile.phone_number == "+84912345678"
++    statement, params = uow.connection.execute.call_args.args
++    assert "phone_number" in str(statement)
++    assert "WHERE id = :id AND erased_at IS NULL" in str(statement)
++    assert params == {"id": uid}
++
++
++def test_unrelated_integrity_error_is_not_misreported_as_phone_conflict():
++    uow = Mock()
++    original = SimpleNamespace(diag=SimpleNamespace(constraint_name="some_other_constraint"))
++    error = IntegrityError("private SQL", {}, original)
++    uow.connection.execute.side_effect = error
++    with pytest.raises(IntegrityError) as exc:
++        SqlUsers(uow).update_profile(
++            uuid4(), full_name="Bao", date_of_birth=None, gender="nam", phone_number="+84912345678"
++        )
++    assert exc.value is error
++
++
++def test_phone_conflict_restores_simultaneously_changed_email():
++    users, auth, uid = Mock(), Mock(), uuid4()
++    users.get_profile.return_value = ProfileRecord("Bao", None, None, "old@example.com")
++    users.update_profile.side_effect = Conflict("phone_change_unavailable")
++    with pytest.raises(Conflict, match="phone_change_unavailable"):
++        update_profile(
++            users,
++            auth,
++            uid,
++            full_name="Bao",
++            date_of_birth=date(2000, 1, 1),
++            gender="nam",
++            email="new@example.com",
++            phone_number="0912345678",
++            at=datetime(2026, 1, 1),
++        )
++    assert auth.update_email.call_args_list == [
++        ((uid, "new@example.com"),),
++        ((uid, "old@example.com"),),
++    ]
++
++
++def test_phone_propagates_through_identity_adapter_and_medication_read(monkeypatch):
++    from drugtime.modules.identity import api as identity
++    from drugtime.modules.medication.adapters.outbound.other_modules import IdentityProfileAdapter
++    from drugtime.modules.medication.application.manage_profile import get_profile
++
++    record = ProfileRecord("Bao", None, "nam", "bao@example.com", "+84912345678")
++    monkeypatch.setattr(identity, "get_profile", lambda *a: record)
++    conditions, catalog, access = Mock(), Mock(), Mock()
++    conditions.list.return_value = []
++    catalog.names.return_value = {}
++    result = get_profile(
++        object(),
++        user_id=uuid4(),
++        is_admin=False,
++        access=access,
++        profiles=IdentityProfileAdapter(),
++        conditions=conditions,
++        catalog=catalog,
++    )
++    assert result.phone_number == record.phone_number
++    access.authorize_read.assert_called_once()
++
++
++def test_identity_adapter_and_medication_write_forward_phone(monkeypatch):
++    from drugtime.modules.identity import api as identity
++    from drugtime.modules.identity.application.profile import ProfileUpdateResult
++    from drugtime.modules.medication.adapters.outbound.other_modules import IdentityProfileAdapter
++    from drugtime.modules.medication.application.manage_profile import update_profile as write
++
++    update = Mock(return_value=ProfileUpdateResult("bao@example.com", False))
++    monkeypatch.setattr(identity, "update_profile", update)
++    access = Mock()
++    write(
++        object(),
++        user_id=uuid4(),
++        is_admin=False,
++        access=access,
++        profiles=IdentityProfileAdapter(),
++        full_name="Bao",
++        date_of_birth=date(2000, 1, 1),
++        gender="nam",
++        phone_number="0912345678",
++        at=datetime(2026, 1, 1),
++    )
++    assert update.call_args.kwargs["phone_number"] == "0912345678"
++    assert update.call_args.kwargs["email"] is None
++    access.authorize_write.assert_called_once()
+diff --git a/tests/unit/test_profile_http.py b/tests/unit/test_profile_http.py
+index 041e1f9..5af8a59 100644
+--- a/tests/unit/test_profile_http.py
++++ b/tests/unit/test_profile_http.py
+@@ -10,7 +10,7 @@ from drugtime.modules.identity import api as identity
+ from drugtime.modules.medication.adapters.inbound import profile_http as http
+ from drugtime.modules.medication.domain.user_condition import HealthProfile, UserConditionView
+ from drugtime.shared.db import get_uow
+-from drugtime.shared.errors import Conflict, Forbidden, NotFound
++from drugtime.shared.errors import Conflict, DomainError, Forbidden, NotFound
+ 
+ OPERATIONS = [
+     ("get", "/profile", None),
+@@ -50,6 +50,46 @@ def test_get_no_store_nullable(client, monkeypatch):
+     assert response.status_code == 200
+     assert response.headers["cache-control"] == "no-store"
+     assert response.json()["full_name"] is None
++    assert response.json()["phone_number"] is None
++
++
++def test_put_contact_phone_forwarded_without_changing_email(client, monkeypatch):
++    update = Mock(return_value=(None, False))
++    monkeypatch.setattr(http, "update_profile", update)
++    response = client.put(
++        "/profile",
++        json={
++            "full_name": "Bao",
++            "date_of_birth": "2000-01-01",
++            "gender": "nam",
++            "phone_number": "0912345678",
++        },
++    )
++    assert response.status_code == 204
++    assert update.call_args.kwargs["phone_number"] == "0912345678"
++    assert update.call_args.kwargs["email"] is None
++
++
++@pytest.mark.parametrize(
++    "error,status",
++    [
++        (DomainError("invalid_phone"), 422),
++        (Conflict("phone_change_unavailable"), 409),
++    ],
++)
++def test_put_contact_phone_errors_are_sanitized(client, monkeypatch, error, status):
++    monkeypatch.setattr(http, "update_profile", Mock(side_effect=error))
++    response = client.put(
++        "/profile",
++        json={
++            "full_name": "Bao",
++            "date_of_birth": "2000-01-01",
++            "gender": "nam",
++            "phone_number": "0912345678",
++        },
++    )
++    assert response.status_code == status
++    assert response.json() == {"detail": str(error)}
+ 
+ 
+ @pytest.mark.parametrize("method,path,body", OPERATIONS)

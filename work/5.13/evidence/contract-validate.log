@@ -1,0 +1,6 @@
+PASS: JSON parse, unique keys and OpenAPI 3.1 version
+PASS: 450 local references resolve; 55 unique operationIds
+PASS: only one new endpoint and two new schemas; all existing definitions unchanged
+PASS: Draft 2020-12 schemas and 6 success/error examples (including UUID formats)
+PASS: required fields, strict response projection and cache headers
+LIMIT: full OpenAPI meta-schema validation not run; openapi_spec_validator is not installed
