@@ -1,0 +1,64 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Python313\python.exe
+rootdir: D:\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 49 items
+
+tests/integration/test_deletion_creation_flow.py::test_confirm_creates_one_request_with_server_deadline__AC1_AC3 PASSED [  2%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_identity_and_unverified_email_never_create_request__AC2 PASSED [  4%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[short] PASSED [  6%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[long] PASSED [  8%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[unicode] PASSED [ 10%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[wrong] PASSED [ 12%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[expired] PASSED [ 14%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[replaced] PASSED [ 16%]
+tests/integration/test_deletion_creation_flow.py::test_rate_limit_persists_after_wrong_otp_and_resend__AC2 PASSED [ 18%]
+tests/integration/test_deletion_creation_flow.py::test_delivery_failure_does_not_create_request__AC1_AC2 PASSED [ 20%]
+tests/integration/test_deletion_creation_flow.py::test_insert_failure_leaves_otp_usable_and_never_acknowledges__AC1 PASSED [ 22%]
+tests/integration/test_deletion_creation_flow.py::test_concurrent_confirm_with_same_otp_only_commits_once__AC1_AC3 PASSED [ 24%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[-1-200] PASSED [ 26%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[0-409] PASSED [ 28%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[1-409] PASSED [ 30%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_revokes_family_reads_immediately_and_keeps_other_patient_visible__AC4_AC6 PASSED [ 32%]
+tests/integration/test_deletion_creation_flow.py::test_pending_deletion_blocks_meal_creation_and_family_alert_dispatch__AC4_AC5 PASSED [ 34%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_commit_races_fcm_send__AC4[dispatch] PASSED [ 36%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_commit_races_fcm_send__AC4[deletion] PASSED [ 38%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_lock_timeout_returns_503_and_allows_retry__AC1_AC3[issue] PASSED [ 40%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_lock_timeout_returns_503_and_allows_retry__AC1_AC3[confirm] PASSED [ 42%]
+tests/integration/test_deletion_creation_flow.py::test_fcm_lock_timeout_skips_only_the_locked_patient__AC4 PASSED [ 44%]
+tests/integration/test_deletion_creation_flow.py::test_migration_limits_roles_and_enforces_open_request_uniqueness__AC1_AC3 PASSED [ 46%]
+tests/integration/test_email_change_flow.py::test_change_email_with_both_proofs_and_invalidate_deletion_otp__AC2 PASSED [ 48%]
+tests/integration/test_email_change_flow.py::test_email_resend_cooldown_and_replaced_expired_otp__AC2 PASSED [ 51%]
+tests/integration/test_email_change_flow.py::test_email_change_recovery_blocks_deletion_until_addresses_agree__AC2[before_auth] PASSED [ 53%]
+tests/integration/test_email_change_flow.py::test_email_change_recovery_blocks_deletion_until_addresses_agree__AC2[after_auth] PASSED [ 55%]
+tests/integration/test_email_change_flow.py::test_email_change_recovery_blocks_deletion_until_addresses_agree__AC2[db_rollback] PASSED [ 57%]
+tests/integration/test_email_change_flow.py::test_email_change_holds_deletion_confirmation_until_old_otp_invalidated__AC2 PASSED [ 59%]
+tests/integration/test_profile_api.py::test_profile_get_put_incomplete_complete__AC01_AC04 PASSED [ 61%]
+tests/integration/test_profile_api.py::test_profile_rejects_unverified_email_change_and_preserves_fields__AC2 PASSED [ 63%]
+tests/integration/test_profile_api.py::test_conditions_pagination_no_patient_data__AC05 PASSED [ 65%]
+tests/integration/test_profile_api.py::test_conditions_offset_at_or_beyond_total_returns_empty__AC05_AC16[total] PASSED [ 67%]
+tests/integration/test_profile_api.py::test_conditions_offset_at_or_beyond_total_returns_empty__AC05_AC16[beyond] PASSED [ 69%]
+tests/integration/test_profile_api.py::test_conditions_offset_at_or_beyond_total_returns_empty__AC05_AC16[9223372036854775808] PASSED [ 71%]
+tests/integration/test_profile_api.py::test_conditions_offset_at_or_beyond_total_returns_empty__AC05_AC16[10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000] PASSED [ 73%]
+tests/integration/test_profile_api.py::test_create_missing_duplicate_patch_and_hard_delete__AC06_AC11 PASSED [ 75%]
+tests/integration/test_profile_api.py::test_concurrent_duplicate_single_link__AC08 PASSED [ 77%]
+tests/integration/test_profile_api.py::test_extra_fields_and_invalid_ids__AC16[put-/profile-body0] PASSED [ 79%]
+tests/integration/test_profile_api.py::test_extra_fields_and_invalid_ids__AC16[post-/profile/conditions-body1] PASSED [ 81%]
+tests/integration/test_profile_api.py::test_extra_fields_and_invalid_ids__AC16[post-/profile/conditions-body2] PASSED [ 83%]
+tests/integration/test_profile_api.py::test_extra_fields_and_invalid_ids__AC16[patch-/profile/conditions/0-body3] PASSED [ 85%]
+tests/integration/test_profile_api.py::test_extra_fields_and_invalid_ids__AC16[delete-/profile/conditions/9223372036854775808-None] PASSED [ 87%]
+tests/integration/test_profile_api.py::test_unstorable_nul_text_returns_validation_error__AC16[put] PASSED [ 89%]
+tests/integration/test_profile_api.py::test_unstorable_nul_text_returns_validation_error__AC16[post] PASSED [ 91%]
+tests/integration/test_profile_api.py::test_unstorable_nul_text_returns_validation_error__AC16[patch] PASSED [ 93%]
+tests/unit/test_email_change_http.py::test_email_change_http_enforces_shape_no_store_and_no_sensitive_echo PASSED [ 95%]
+tests/unit/test_email_change_http.py::test_email_change_operations_exist_in_approved_contract PASSED [ 97%]
+tests/unit/test_profile_http.py::test_profile_put_returns_safe_500_if_database_commit_fails PASSED [100%]
+
+============================== warnings summary ===============================
+..\work\5.03\scratch\deps\fastapi\testclient.py:1
+  D:\DrugTime\work\5.03\scratch\deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 49 passed, 1 warning in 23.11s ========================

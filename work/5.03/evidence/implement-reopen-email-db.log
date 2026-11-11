@@ -1,0 +1,114 @@
+D:\DrugTime\work\5.03\scratch\deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+Traceback (most recent call last):
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\impl.py", line 176, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\impl.py", line 174, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 932, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\psycopg\connection.py", line 126, in connect
+    raise last_ex.with_traceback(None)
+psycopg.errors.ConnectionTimeout: connection timeout expired
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\DrugTime\work\5.03\scratch\verify_email_change.py", line 23, in <module>
+    with engine.begin() as conn:
+         ~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 3243, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 3279, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 156, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\impl.py", line 176, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\impl.py", line 174, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 932, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\pool\base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\sqlalchemy\engine\default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\DrugTime\work\5.03\scratch\deps\psycopg\connection.py", line 126, in connect
+    raise last_ex.with_traceback(None)
+sqlalchemy.exc.OperationalError: (psycopg.errors.ConnectionTimeout) connection timeout expired
+(Background on this error at: https://sqlalche.me/e/21/e3q8)
