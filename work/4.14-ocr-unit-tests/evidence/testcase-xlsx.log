@@ -1,0 +1,19 @@
+$ python .agents/scripts/testcase_xlsx.py validate 4.14-ocr-unit-tests
+exit=0
+Spec 4.14-ocr-unit-tests/testcases.json hợp lệ:
+  OCRREAL: 10 test case — Pass 9, Fail 0, Pending 1
+
+
+$ python .agents/scripts/testcase_xlsx.py build 4.14-ocr-unit-tests
+exit=0
+Spec 4.14-ocr-unit-tests/testcases.json hợp lệ:
+  OCRREAL: 10 test case — Pass 9, Fail 0, Pending 1
+OK: đã ghi C:\Users\Admin\.gemini\antigravity\worktrees\DrugTIme_main\execute_ducnt_plan\work\4.14-ocr-unit-tests\testcases.xlsx
+
+
+$ python .agents/scripts/testcase_xlsx.py merge 4.14-ocr-unit-tests
+exit=0
+Spec 4.14-ocr-unit-tests/testcases.json hợp lệ:
+  OCRREAL: 10 test case — Pass 9, Fail 0, Pending 1
+OK: đã ghi C:\Users\Admin\.gemini\antigravity\worktrees\DrugTIme_main\execute_ducnt_plan\docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx
+

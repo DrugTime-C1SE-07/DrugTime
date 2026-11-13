@@ -1,0 +1,34 @@
+=== RUN 1: test_ocr_real_output.py ===
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Admin\.gemini\antigravity\worktrees\DrugTIme_main\execute_ducnt_plan\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 8 items
+
+tests/unit/test_ocr_real_output.py::test_ac1_fixtures_match_source_raw_json_byte_for_byte PASSED [ 12%]
+tests/unit/test_ocr_real_output.py::test_ac1_normalize_real_blister_and_box_samples_integrity PASSED [ 25%]
+tests/unit/test_ocr_real_output.py::test_ac2_registration_numbers_filtered_and_not_parsed_as_strengths PASSED [ 37%]
+tests/unit/test_ocr_real_output.py::test_ac3_conservative_strength_handling_on_confusables PASSED [ 50%]
+tests/unit/test_ocr_real_output.py::test_ac3_valid_strength_extraction_on_real_samples PASSED [ 62%]
+tests/unit/test_ocr_real_output.py::test_ac4_vietnamese_diacritic_removal_and_normalization PASSED [ 75%]
+tests/unit/test_ocr_real_output.py::test_packaging_span_removal_on_real_samples PASSED [ 87%]
+tests/unit/test_ocr_real_output.py::test_lot_and_expiry_numbers_not_falsely_extracted_as_strengths PASSED [100%]
+
+============================== 8 passed in 0.22s ==============================
+
+=== RUN 2: full OCR normalization suite ===
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\Admin\.gemini\antigravity\worktrees\DrugTIme_main\execute_ducnt_plan\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collected 117 items
+
+tests\unit\test_catalog_ocr_normalization.py ........................... [ 23%]
+........................................................................ [ 84%]
+..........                                                               [ 93%]
+tests\unit\test_ocr_real_output.py ........                              [100%]
+
+============================= 117 passed in 0.29s =============================
