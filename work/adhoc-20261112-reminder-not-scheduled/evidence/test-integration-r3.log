@@ -1,0 +1,95 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: (setUpAll)
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh schedules full-screen reminders for schedules fetched from the API (regression)
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh cancels reminders of a schedule removed on the server
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh still schedules from local data when the API fails
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh skips schedules with reminders disabled
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh keeps a snoozed reminder; clear still cancels it (regression)
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: refresh skips occurrences already recorded in the dose log
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: clear cancels medication reminders only
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart: (tearDownAll)
+00:00 +7: loading D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart
+00:01 +7: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: maps every field of a schedule item
+00:01 +8: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: follows next_cursor until the last page
+00:01 +9: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: throws on a malformed item instead of dropping it
+00:01 +10: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: throws ApiException when days_of_week has the wrong type
+00:01 +11: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: throws ApiException when strength_text has the wrong type
+00:01 +12: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: throws ApiException when dosage_form has the wrong type
+00:01 +13: D:/Captone/DrugTime/frontend/mobile/test/core/sync/api_schedule_remote_data_source_test.dart: propagates API errors
+00:01 +14: loading D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart
+00:02 +14: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: an active session asks for notification then full-screen permission and schedules reminders (regression)
+00:03 +15: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: permissions already asked after install: no prompt, reminders still scheduled
+00:04 +16: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: first launch after install asks for both permissions
+00:04 +17: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: a successful medication change refreshes reminders again
+00:04 +18: loading D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart
+00:05 +18: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: load lỗi đặt loadError và giữ danh sách cũ
+00:05 +19: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: thao tác thành công tải lại danh sách từ repository
+00:05 +20: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: thao tác lỗi ném MedicationFailure, danh sách không đổi, không tải lại
+00:05 +21: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: ghi thành công gọi onChanged, ghi lỗi thì không
+00:05 +22: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: add cùng clientUuid hai lần chỉ có một thuốc (AC9)
+00:05 +23: D:/Captone/DrugTime/frontend/mobile/test/features/medication/medication_controller_test.dart: clear bỏ dữ liệu và lỗi (đăng xuất)
+00:05 +24: loading D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart
+00:06 +24: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: (setUpAll)
+00:06 +24: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC1: schedules N future occurrences via zonedSchedule with exactAllowWhileIdle, correct ID, payload, Vietnam timezone, channel and action button
+00:06 +25: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC2: skips occurrences scheduled in the past or at current clock time (scheduledAt <= now)
+00:06 +26: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) iOS 64-cap (Task 2.07 / SCRUM-58): limits scheduled notifications to closest 64 on iOS
+00:06 +27: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC3: detects hash ID collisions, drops second colliding occurrence with log, keeps original scheduledAt
+00:06 +28: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.scheduleOccurrences (AC1, AC2, AC3, AC7) AC7: falls back to inexactAllowWhileIdle and logs warning when exact alarm throws exception
+00:06 +29: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.cancelOccurrence (AC4) AC4: cancels exact notification ID idempotently
+00:06 +30: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.cancelAllForSchedule (AC5) AC5: cancels only matching pending requests, ignores corrupt payloads
+00:06 +31: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.handleNotificationResponse (AC6) AC6: invokes onTakeDose callback and cancels notification
+00:06 +32: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.handleNotificationResponse (AC6) AC6: safely ignores corrupt payload or other action without error
+00:06 +33: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.snooze (AC5, AC8) schedules snooze notification at remindAt with fullScreenIntent, category alarm, correct id and payload
+00:06 +34: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: ReminderNotificationScheduler.snooze (AC5, AC8) falls back to inexactAllowWhileIdle on snooze if exact alarm throws
+00:06 +35: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: Static source code checks (AC8) AC8: scheduler source does not reference forbidden APIs
+00:06 +36: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart: (tearDownAll)
+00:06 +36: loading D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart
+00:07 +36: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: family namespace handles taps and clears family without replacing reminder handler
+00:07 +37: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.requestNotificationsPermission (M1) forwards to a platform that can request the permission
+00:07 +38: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.requestNotificationsPermission (M1) returns true when the platform has no permission API
+00:07 +39: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.init (AC7 & AC8) AC7: initializes Asia/Ho_Chi_Minh and configures Android & Darwin channels
+00:07 +40: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.init (AC7 & AC8) AC8: is idempotent when called repeatedly
+00:07 +41: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService actions (AC9) AC9: forwards parsed NotificationPayload when action is received
+00:07 +42: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService actions (AC9) AC9: ignores corrupt or invalid payload safely without throwing
+00:07 +43: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: Static source code checks (AC10) AC10: notification files do not reference forbidden APIs
+00:07 +44: loading D:/Captone/DrugTime/frontend/mobile/test/core/sync/schedule_sync_service_test.dart
+00:07 +44: D:/Captone/DrugTime/frontend/mobile/test/core/sync/schedule_sync_service_test.dart: syncSchedulesFromServer replaces local schedules and records sync time
+00:08 +45: D:/Captone/DrugTime/frontend/mobile/test/core/sync/schedule_sync_service_test.dart: syncSchedulesFromServer supports empty server response
+00:08 +46: D:/Captone/DrugTime/frontend/mobile/test/core/sync/schedule_sync_service_test.dart: syncSchedulesFromServer does not write local data when remote fails
+00:08 +47: D:/Captone/DrugTime/frontend/mobile/test/core/sync/schedule_sync_service_test.dart: syncSchedulesFromServer does not record sync time when replace fails
+00:08 +48: loading D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart
+00:08 +48: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: start syncs pending dose logs immediately when already online
+00:08 +49: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: syncs pending dose logs when connectivity comes back
+00:08 +50: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: retries transient upload failures with bounded backoff
+00:08 +51: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: keeps transient failures pending after max attempts
+00:08 +52: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: does not retry non-transient failures
+00:08 +53: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: keeps top-level unauthorized batch pending
+00:08 +54: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: does not upload a record again after it is marked synced
+00:08 +55: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: syncs successful dose results without rolling back failed item
+00:08 +56: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: keeps dose logs pending when batch response omits their client uuid
+00:08 +57: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: does not treat empty batch response as full success
+00:08 +58: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: ignores response item whose client uuid was not uploaded in batch
+00:08 +59: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: does not re-upload dose log after item-level failed state
+00:08 +60: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: preserves client uuid when the same scheduled dose is upserted locally
+00:08 +61: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: DoseApiRemoteDataSource posts backend batch payload and parses json
+00:08 +62: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: DoseApiRemoteDataSource parses contract batch item success and failure
+00:08 +63: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) checkpoint after all final results
+00:08 +64: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) 404 item failure counts as final
+00:08 +65: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) 409 item failure counts as final
+00:08 +66: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) 422 item failure counts as final
+00:08 +67: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) 403 item failure is not final
+00:08 +68: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on network failure
+00:08 +69: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on 500 failure
+00:08 +70: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on 408 failure
+00:08 +71: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on 429 failure
+00:08 +72: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on 401 failure
+00:08 +73: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint on 403 failure
+00:08 +74: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) checkpoint when outbox empty, on start and syncNow
+00:08 +75: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) no checkpoint while offline; checkpoint when network returns
+00:09 +76: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) periodic 15 minutes while app is open
+00:09 +77: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) checkpoint failure is retried on next sync
+00:09 +78: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) DoseApiRemoteDataSource parses item http_status
+00:09 +79: D:/Captone/DrugTime/frontend/mobile/test/core/sync/sync_engine_test.dart: sync checkpoint (3.19, AC15) ApiDoseSyncCheckpointSource posts without body
+00:09 +80: loading D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart
+00:09 +80: D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart: markReminderPermissionsAsked is true only on the first call
+00:09 +81: All tests passed!

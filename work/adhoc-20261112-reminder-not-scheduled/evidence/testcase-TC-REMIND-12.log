@@ -1,0 +1,6 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: ReminderNotificationScheduler.snooze (AC5, AC8) schedules snooze notification at remindAt with fullScreenIntent, category alarm, correct id and payload
+00:00 +1: ReminderNotificationScheduler.snooze (AC5, AC8) falls back to inexactAllowWhileIdle on snooze if exact alarm throws
+00:00 +2: (tearDownAll)
+00:00 +2: All tests passed!

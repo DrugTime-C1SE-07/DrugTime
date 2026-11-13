@@ -1,0 +1,38 @@
+## frontend branch fix/adhoc-20261112-reminder-not-scheduled @ f7c2efb4 (origin/main)
+## analysis in 01/03 was done on ec755c64 (feat/4.15-ocr-manual-search, not in main)
+## commits on main since then touching reminder wiring:
+48b227be Merge branch 'main' into feat/mlkit-call-pass-result
+95161629 Complete task 4.11 mlkit call & pass result, display top n candidate
+9d734d35 Merge pull request #51 from DrugTime-C1SE-07/feat/sprint2-mobile-completion
+95e40fc2 feat(interaction): implement medication interaction check flow and warning UI
+b29f3d50 test(reminder): add latency benchmark logging and accuracy test (task 2.09)
+a3072bf0 feat(reminder): wire scheduler and outbox into main, add ios 64-notification cap (task 2.07, 2.24)
+## callers on main:
+lib/app/app.dart:372:    final allSchedules = await store.getActiveSchedules(
+lib/core/notification/notification_service.dart:41:  Future<bool?> requestFullScreenIntentPermission() async => true;
+lib/core/notification/notification_service.dart:146:  Future<bool?> requestFullScreenIntentPermission() async {
+lib/core/notification/notification_service.dart:150:        ?.requestFullScreenIntentPermission();
+lib/core/notification/notification_service.dart:238:  Future<bool?> requestFullScreenIntentPermission() async {
+lib/core/notification/notification_service.dart:239:    return _platform.requestFullScreenIntentPermission();
+lib/core/notification/reminder_notification_scheduler.dart:70:  Future<void> scheduleOccurrences(
+lib/core/storage/local_db/local_medication_store.dart:11:  Future<List<LocalMedicationSchedule>> getActiveSchedules({
+lib/core/storage/local_db/local_medication_store.dart:100:  Future<List<LocalMedicationSchedule>> getActiveSchedules({
+lib/core/sync/schedule_sync_service.dart:11:  ScheduleSyncService({
+lib/core/sync/schedule_sync_service.dart:22:  Future<void> syncSchedulesFromServer({required String patientId}) async {
+lib/main.dart:85:      final activeSchedules = await localStore.getActiveSchedules();
+lib/main.dart:93:        await scheduler.scheduleOccurrences(occurrences);
+lib/main.dart:174:    localMedicationStore: localStore,
+lib/main.dart:176:    reminderScheduler: scheduler,
+
+  @override
+  Future<List<LocalMedicationSchedule>> getActiveSchedules({
+    String? patientId,
+  }) async {
+    final db = await _localDb.database;
+    final List<Map<String, Object?>> rows;
+    if (patientId != null) {
+      rows = await db.query(
+        LocalDb.schedulesTable,
+        where:
+            'patient_user_id = ? AND reminder_enabled = 1 AND ended_at IS NULL',
+        whereArgs: [patientId],

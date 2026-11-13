@@ -1,0 +1,22 @@
+## frontend HEAD ec755c64
+## callers in lib/ (constructor/schedule/FSI permission)
+lib/core/notification/notification_service.dart:41:  Future<bool?> requestFullScreenIntentPermission() async => true;
+lib/core/notification/notification_service.dart:146:  Future<bool?> requestFullScreenIntentPermission() async {
+lib/core/notification/notification_service.dart:150:        ?.requestFullScreenIntentPermission();
+lib/core/notification/notification_service.dart:237:  Future<bool?> requestFullScreenIntentPermission() async {
+lib/core/notification/notification_service.dart:238:    return _platform.requestFullScreenIntentPermission();
+lib/core/notification/reminder_notification_scheduler.dart:18:  ReminderNotificationScheduler({
+lib/core/notification/reminder_notification_scheduler.dart:65:  Future<void> scheduleOccurrences(
+## reminderScheduler in main.dart
+(none)
+## fallback in app.dart
+428:    final scheduler = widget.reminderScheduler ?? _FallbackReminderScheduler();
+685:class _FallbackReminderScheduler implements ReminderScheduler {
+## origin/feat/2.07-fullscreen-reminder: unmerged commits=0, wiring in main.dart:
+(none)
+## origin/feat/2.07-notification-scheduling: unmerged commits=0, wiring in main.dart:
+(none)
+## origin/feat/2.07-notification-service: unmerged commits=0, wiring in main.dart:
+(none)
+## origin/feat/2.07-reminder-occurrences: unmerged commits=0, wiring in main.dart:
+(none)

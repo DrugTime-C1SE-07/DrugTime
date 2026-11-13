@@ -1,0 +1,444 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "REMIND",
+      "name": "Nhắc uống thuốc toàn màn hình",
+      "sheet": "Nhắc uống thuốc",
+      "description": "Tải lịch uống về máy, lập nhắc cục bộ 7 ngày (full-screen intent), lập lại khi sửa thuốc, hủy khi đăng xuất, xin quyền toàn màn hình",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-11-12",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Test tự động pass (78/78, lần sửa sau review). Các case trên thiết bị Android 14+ đang Pending, cần người chạy.",
+      "ep": [
+        {
+          "field": "Lịch uống từ API",
+          "valid": [
+            "Lịch bật nhắc, giờ uống trong tương lai",
+            "Danh sách rỗng"
+          ],
+          "invalid": [
+            "Lịch tắt nhắc (reminder_enabled = false)",
+            "Item sai định dạng",
+            "API lỗi / mất mạng"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Lập nhắc khi refresh",
+          "conditions": [
+            {
+              "name": "Tải lịch từ API thành công?",
+              "values": [
+                "Yes",
+                "No",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Lịch cục bộ có lịch bật nhắc?",
+              "values": [
+                "Yes",
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Lập nhắc từ lịch mới",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "Ghi log, lập nhắc từ lịch cục bộ cũ",
+              "rules": [
+                2
+              ]
+            },
+            {
+              "name": "Hủy nhắc cũ, không lập nhắc mới",
+              "rules": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-REMIND-01",
+          "description": "Lập nhắc toàn màn hình cho lịch tải từ API (hồi quy)",
+          "precondition": "Patient patient-1 có 1 lịch bật nhắc 08:00 mỗi ngày; giờ hiện tại 07:00 (Asia/Ho_Chi_Minh)",
+          "steps": [
+            "Gọi ReminderSyncCoordinator.refresh('patient-1')",
+            "Đọc các lần gọi zonedSchedule"
+          ],
+          "data": "intake_time 08:00:00, days_of_week 1..7, reminder_enabled true",
+          "expected": "Có lời gọi zonedSchedule; lượt đầu 2026-11-12T01:00Z; fullScreenIntent = true; channel drugtime_reminder_channel; tiêu đề 'Nhắc uống thuốc', không có tên thuốc; mọi lượt trong 7 ngày",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · Decision Table (R1) · reminder_sync_coordinator_test"
+        },
+        {
+          "id": "TC-REMIND-02",
+          "description": "Hủy nhắc của lịch đã bị xóa trên server",
+          "precondition": "Đã refresh một lần với 1 lịch; các nhắc đang chờ",
+          "steps": [
+            "Server trả danh sách rỗng",
+            "Gọi refresh('patient-1')"
+          ],
+          "data": "Danh sách lịch: (blank)",
+          "expected": "Mọi nhắc cũ bị cancel; không lập nhắc mới",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC3 · EP (2) · Decision Table (R3) · reminder_sync_coordinator_test"
+        },
+        {
+          "id": "TC-REMIND-03",
+          "description": "Vẫn lập nhắc từ lịch cục bộ khi API lỗi",
+          "precondition": "Đã refresh thành công một lần, lịch lưu trên máy",
+          "steps": [
+            "API ném lỗi 'offline'",
+            "Gọi refresh('patient-1')"
+          ],
+          "data": "Exception('offline')",
+          "expected": "Không ném lỗi ra ngoài; có log chứa 'offline'; nhắc vẫn được lập",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · QD-33 · EP (5) · Decision Table (R2) · reminder_sync_coordinator_test"
+        },
+        {
+          "id": "TC-REMIND-04",
+          "description": "Không lập nhắc cho lịch tắt nhắc",
+          "precondition": "API trả 1 lịch reminder_enabled = false",
+          "steps": [
+            "Gọi refresh('patient-1')"
+          ],
+          "data": "reminder_enabled false",
+          "expected": "Không có lời gọi zonedSchedule",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (3) · reminder_sync_coordinator_test"
+        },
+        {
+          "id": "TC-REMIND-05",
+          "description": "Đăng xuất chỉ hủy nhắc thuốc, giữ thông báo người thân",
+          "precondition": "Đang chờ: 1 nhắc thuốc (id 11), 1 thông báo người thân (id 22), 1 thông báo không payload (id 33)",
+          "steps": [
+            "Gọi ReminderSyncCoordinator.clear()"
+          ],
+          "data": "payload id 22: family:5; id 33: (blank)",
+          "expected": "Chỉ cancel id 11",
+          "actual": "cancelCalls = [11] (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · reminder_sync_coordinator_test"
+        },
+        {
+          "id": "TC-REMIND-06",
+          "description": "Map đủ trường lịch từ GET /patients/{id}/schedules",
+          "precondition": "API trả 1 item đủ trường, ended_at null, quantity_per_dose 1.5",
+          "steps": [
+            "Gọi ApiScheduleRemoteDataSource.fetchSchedules('p-1')"
+          ],
+          "data": "id 7, medication Paracetamol 500mg Viên nén, days_of_week [1,3,5]",
+          "expected": "Gọi /patients/p-1/schedules; mọi trường map đúng; quantityPerDose '1.5'; endedAt null",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · api_schedule_remote_data_source_test"
+        },
+        {
+          "id": "TC-REMIND-07",
+          "description": "Đi hết các trang theo next_cursor",
+          "precondition": "API trả 2 trang: trang 1 next_cursor 'c2', trang 2 next_cursor null",
+          "steps": [
+            "Gọi fetchSchedules('p-1')"
+          ],
+          "data": "cursor: (blank), c2",
+          "expected": "Gọi 2 lần với cursor null rồi 'c2'; trả 2 lịch",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · api_schedule_remote_data_source_test"
+        },
+        {
+          "id": "TC-REMIND-08",
+          "description": "Báo lỗi khi item lịch sai định dạng",
+          "precondition": "API trả item {'id': 'x'}",
+          "steps": [
+            "Gọi fetchSchedules('p-1')"
+          ],
+          "data": "{\"id\": \"x\"}",
+          "expected": "Ném ApiException, không trả danh sách thiếu",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (4) · api_schedule_remote_data_source_test"
+        },
+        {
+          "id": "TC-REMIND-09",
+          "description": "Báo lỗi khi API từ chối truy cập",
+          "precondition": "API trả 403",
+          "steps": [
+            "Gọi fetchSchedules('p-1')"
+          ],
+          "data": "HTTP 403 {\"detail\": \"forbidden\"}",
+          "expected": "Ném ApiException; lịch cục bộ không bị thay",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (5) · api_schedule_remote_data_source_test"
+        },
+        {
+          "id": "TC-REMIND-10",
+          "description": "Kích hoạt phiên xin quyền thông báo, rồi quyền toàn màn hình, và lập nhắc (hồi quy)",
+          "precondition": "App mở với phiên đã lưu của người dùng A",
+          "steps": [
+            "Dựng DrugTimeApp",
+            "Chờ app ổn định",
+            "Dựng lại một khung hình"
+          ],
+          "data": "userId A",
+          "expected": "Xin quyền thông báo rồi quyền toàn màn hình, mỗi loại 1 lần; refresh('A') gọi 1 lần, không lặp khi dựng lại",
+          "actual": "requests = [notifications, full_screen]; refreshed = [A] (test pass)",
+          "status": "Pass",
+          "comments": "AC1, AC4 · M1 · reminder_wiring_test"
+        },
+        {
+          "id": "TC-REMIND-11",
+          "description": "Sửa thuốc thành công thì lập lại nhắc, lỗi thì không",
+          "precondition": "Danh sách thuốc đã tải",
+          "steps": [
+            "Ngưng 1 thuốc thành công",
+            "Xóa 1 thuốc khi repository báo forbidden"
+          ],
+          "data": "MedicationFailureKind.forbidden",
+          "expected": "onChanged gọi 1 lần sau lần thành công, không gọi sau lần lỗi",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC3 · medication_controller_test"
+        },
+        {
+          "id": "TC-REMIND-12",
+          "description": "Hoãn cữ lập lại nhắc ở thời điểm hoãn",
+          "precondition": "Đang có nhắc liều 08:00",
+          "steps": [
+            "Gọi snooze với remindAt 08:10"
+          ],
+          "data": "remindAt 08:10",
+          "expected": "zonedSchedule ở 08:10, payload giữ scheduledAt gốc",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC2 · reminder_notification_scheduler_test"
+        },
+        {
+          "id": "TC-REMIND-13",
+          "description": "Chỉ hỏi quyền thông báo và toàn màn hình ở lần đăng nhập đầu sau khi cài",
+          "precondition": "Android 14+, cài mới app, chưa cấp quyền",
+          "steps": [
+            "Đăng nhập tài khoản patient",
+            "Quan sát hộp thoại quyền thông báo",
+            "Quan sát màn cài đặt 'Thông báo toàn màn hình'",
+            "Cấp cả hai quyền",
+            "Đóng hẳn app rồi mở lại"
+          ],
+          "data": "Tài khoản patient test",
+          "expected": "Lần đầu: hỏi quyền thông báo và mở cài đặt quyền toàn màn hình ngay sau đăng nhập. Mở lại app: không hỏi lại",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC4 · Q1 · M3 · manual"
+        },
+        {
+          "id": "TC-REMIND-14",
+          "description": "Hiện nhắc toàn màn hình khi máy khóa",
+          "precondition": "Đã cấp quyền; có lịch uống 2 phút sau giờ hiện tại",
+          "steps": [
+            "Thêm lịch uống 2 phút sau",
+            "Khóa màn hình",
+            "Chờ tới giờ"
+          ],
+          "data": "Giờ uống = giờ hiện tại + 2 phút",
+          "expected": "Màn hình bật, hiện nhắc toàn màn hình, chỉ nội dung chung, không tên thuốc",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · QD-26 · manual"
+        },
+        {
+          "id": "TC-REMIND-15",
+          "description": "Bấm nhắc mở danh sách xác nhận từng thuốc",
+          "precondition": "Hai thuốc cùng giờ đang hiện nhắc",
+          "steps": [
+            "Mở khóa",
+            "Bấm vào nhắc"
+          ],
+          "data": "2 thuốc cùng 08:00",
+          "expected": "Mở màn xác nhận liệt kê từng thuốc, không có nút xác nhận tất cả",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · QD-21 · manual"
+        },
+        {
+          "id": "TC-REMIND-16",
+          "description": "Hoãn cữ trên thiết bị nhắc lại đúng giờ",
+          "precondition": "Đang hiện nhắc toàn màn hình",
+          "steps": [
+            "Bấm hoãn",
+            "Chờ tới thời điểm hoãn"
+          ],
+          "data": "Hoãn 10 phút",
+          "expected": "Nhắc hiện lại sau 10 phút",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC2 · QD-20 · manual"
+        },
+        {
+          "id": "TC-REMIND-17",
+          "description": "Đăng xuất thì không còn nhắc của người dùng cũ",
+          "precondition": "Có nhắc đang chờ trong vài phút tới",
+          "steps": [
+            "Đăng xuất",
+            "Chờ qua giờ nhắc"
+          ],
+          "data": "Giờ uống = giờ hiện tại + 2 phút",
+          "expected": "Không có nhắc nào hiện",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1 · manual"
+        },
+        {
+          "id": "TC-REMIND-18",
+          "description": "Từ chối quyền toàn màn hình rồi mở lại app",
+          "precondition": "Android 14+, đã từ chối quyền toàn màn hình",
+          "steps": [
+            "Đóng hẳn app",
+            "Mở lại app (phiên còn hạn)"
+          ],
+          "data": "Quyền FSI: từ chối",
+          "expected": "Ghi nhận app có mở lại màn cài đặt hay không (PS3); nhắc vẫn hiện dạng heads-up",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC4 · PS3 · Đoán lỗi · manual"
+        },
+        {
+          "id": "TC-REMIND-19",
+          "description": "Giữ nhắc hoãn cữ khi lập lại nhắc; đăng xuất vẫn hủy nó (hồi quy H1)",
+          "precondition": "Đang chờ: nhắc hoãn cữ của liều 06:30 VN (giờ gốc đã qua) và nhắc lượt 08:00 VN; giờ hiện tại 07:00 VN",
+          "steps": [
+            "Gọi refresh('patient-1')",
+            "Đọc danh sách cancel",
+            "Gọi clear()"
+          ],
+          "data": "payload hoãn: scheduled_at 2026-11-11T23:30Z; payload tương lai: 2026-11-12T01:00Z",
+          "expected": "refresh không cancel nhắc hoãn, có cancel lượt tương lai (rồi lập lại); clear() cancel cả hai",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC2 · QD-20 · Đoán lỗi · reminder_sync_coordinator_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-20",
+          "description": "Không lập nhắc cho liều đã ghi nhận (M2)",
+          "precondition": "Lịch 08:00 VN mỗi ngày; liều 2026-11-12 08:00 VN đã có dose log",
+          "steps": [
+            "Gọi refresh('patient-1')"
+          ],
+          "data": "dose log: schedule 1 @ 2026-11-12T01:00Z",
+          "expected": "Không lập nhắc 2026-11-12T01:00Z; vẫn lập 2026-11-13T01:00Z",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC3 · QD-21 · reminder_sync_coordinator_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-21",
+          "description": "Báo ApiException khi trường của lịch sai kiểu (L1)",
+          "precondition": "API trả item có một trường sai kiểu",
+          "steps": [
+            "Gọi fetchSchedules('p-1') lần lượt với từng dữ liệu"
+          ],
+          "data": "days_of_week ['1']; strength_text 5; dosage_form true",
+          "expected": "Cả ba lần đều ném ApiException (không phải TypeError)",
+          "actual": "Đúng như mong đợi (3 test pass)",
+          "status": "Pass",
+          "comments": "AC1 · EP (4) · api_schedule_remote_data_source_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-22",
+          "description": "Xin quyền thông báo qua nền tảng hỗ trợ (M1)",
+          "precondition": "NotificationService dùng nền tảng có API xin quyền, nền tảng trả false",
+          "steps": [
+            "Gọi requestNotificationsPermission()"
+          ],
+          "data": "Kết quả nền tảng: false",
+          "expected": "Chuyển tiếp 1 lần, trả false",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC4 · M1 · notification_service_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-23",
+          "description": "Coi như có quyền khi nền tảng không có API xin quyền (M1)",
+          "precondition": "NotificationService dùng nền tảng không cài NotificationPermissionPlatform",
+          "steps": [
+            "Gọi requestNotificationsPermission()"
+          ],
+          "data": "(blank)",
+          "expected": "Trả true, không lỗi",
+          "actual": "Đúng như mong đợi (test pass)",
+          "status": "Pass",
+          "comments": "AC4 · M1 · notification_service_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-24",
+          "description": "Sửa thuốc trong app thì lập lại nhắc (L2)",
+          "precondition": "App đang có phiên của A, danh sách thuốc đã tải",
+          "steps": [
+            "Ngưng 1 thuốc qua MedicationController của app",
+            "Chờ app ổn định"
+          ],
+          "data": "userId A",
+          "expected": "refresh được gọi lần hai với 'A'",
+          "actual": "refreshed = [A, A] (test pass)",
+          "status": "Pass",
+          "comments": "AC3 · QD-22 · reminder_wiring_test",
+          "evidence": "evidence/test-integration-r2.log"
+        },
+        {
+          "id": "TC-REMIND-25",
+          "description": "Đã hỏi quyền sau khi cài thì không hỏi lại, vẫn lập nhắc (M3)",
+          "precondition": "App có phiên của A; cờ đã hỏi quyền đã ghi",
+          "steps": [
+            "Mở app (shouldAskReminderPermissions trả false)",
+            "Chờ app ổn định"
+          ],
+          "data": "userId A",
+          "expected": "Không gọi xin quyền nào; refresh('A') được gọi 1 lần",
+          "actual": "requests = [], refreshed = [A] (test pass)",
+          "status": "Pass",
+          "comments": "AC4, AC1 · M3 · reminder_wiring_test",
+          "evidence": "evidence/test-integration-r3.log"
+        },
+        {
+          "id": "TC-REMIND-26",
+          "description": "Cờ đã hỏi quyền chỉ trả true ở lần đầu, giữ qua lần mở app sau (M3)",
+          "precondition": "Secure storage trống (vừa cài app)",
+          "steps": [
+            "Gọi markReminderPermissionsAsked",
+            "Gọi lại",
+            "Tạo SecureStorage mới và gọi lại"
+          ],
+          "data": "Khóa reminder_permissions_asked",
+          "expected": "true, false, false",
+          "actual": "true, false, false (test pass)",
+          "status": "Pass",
+          "comments": "AC4 · M3 · secure_storage_test",
+          "evidence": "evidence/test-integration-r3.log"
+        }
+      ]
+    }
+  ]
+}

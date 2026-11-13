@@ -1,0 +1,7 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart: markReminderPermissionsAsked is true only on the first call
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: an active session asks for notification then full-screen permission and schedules reminders (regression)
+00:02 +2: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: permissions already asked after install: no prompt, reminders still scheduled
+00:02 +3: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: first launch after install asks for both permissions
+00:03 +4: D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: a successful medication change refreshes reminders again
+00:03 +5: All tests passed!

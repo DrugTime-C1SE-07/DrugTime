@@ -1,0 +1,73 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart
+test/core/storage/secure_storage_test.dart:10:26: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+ - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+    expect(await storage.markReminderPermissionsAsked(), isTrue);
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/storage/secure_storage_test.dart:11:26: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+ - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+    expect(await storage.markReminderPermissionsAsked(), isFalse);
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/core/storage/secure_storage_test.dart:13:34: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+ - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+    expect(await SecureStorage().markReminderPermissionsAsked(), isFalse);
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart [E]
+  Failed to load "D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart":
+  Compilation failed for testPath=D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart: test/core/storage/secure_storage_test.dart:10:26: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+   - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+      expect(await storage.markReminderPermissionsAsked(), isTrue);
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/storage/secure_storage_test.dart:11:26: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+   - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+      expect(await storage.markReminderPermissionsAsked(), isFalse);
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/core/storage/secure_storage_test.dart:13:34: Error: The method 'markReminderPermissionsAsked' isn't defined for the type 'SecureStorage'.
+   - 'SecureStorage' is from 'package:drugtime_mobile/core/storage/secure_storage.dart' ('lib/core/storage/secure_storage.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'markReminderPermissionsAsked'.
+      expect(await SecureStorage().markReminderPermissionsAsked(), isFalse);
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+test/app/reminder_wiring_test.dart:33:7: Error: No named parameter with the name 'shouldAskReminderPermissions'.
+      shouldAskReminderPermissions: shouldAsk,
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/app/app.dart:57:9: Context: Found this candidate, but the arguments don't match.
+  const DrugTimeApp({
+        ^^^^^^^^^^^
+00:00 +0 -2: loading D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart [E]
+  Failed to load "D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart":
+  Compilation failed for testPath=D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: test/app/reminder_wiring_test.dart:33:7: Error: No named parameter with the name 'shouldAskReminderPermissions'.
+        shouldAskReminderPermissions: shouldAsk,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/app/app.dart:57:9: Context: Found this candidate, but the arguments don't match.
+    const DrugTimeApp({
+          ^^^^^^^^^^^
+  .
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart: loading D:/Captone/DrugTime/frontend/mobile/test/app/reminder_wiring_test.dart
+  D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart: loading D:/Captone/DrugTime/frontend/mobile/test/core/storage/secure_storage_test.dart
