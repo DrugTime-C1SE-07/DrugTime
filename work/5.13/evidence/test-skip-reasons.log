@@ -1,0 +1,61 @@
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 41%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 82%]
+sssssssssssssssssssssss.......                                           [100%]
+============================== warnings summary ===============================
+tests/integration/test_knowledge_seed.py::test_seed_food_lists_all_rules__AC5
+  D:\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests\integration\test_auth_flow.py:171: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:209: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:225: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:243: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:255: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:265: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:281: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:292: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:311: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:320: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:329: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:343: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:357: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:369: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:236: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:263: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:278: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:307: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:345: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [18] tests\integration\test_mobile_login.py:373: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:385: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:397: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:417: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [16] tests\integration\test_mobile_login.py:442: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:464: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:477: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:483: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:490: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [20] tests\integration\test_mobile_login.py:507: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [9] tests\integration\test_mobile_login.py:532: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:553: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [14] tests\integration\test_mobile_login.py:592: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:603: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:615: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:628: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:637: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [5] tests\integration\test_mobile_login.py:651: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:671: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [3] tests\integration\test_mobile_login.py:703: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:727: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:747: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:789: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:102: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:148: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:173: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:200: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:215: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:250: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:271: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:358: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+7 passed, 167 skipped, 1 warning in 14.60s

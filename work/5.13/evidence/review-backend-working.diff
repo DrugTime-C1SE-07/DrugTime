@@ -1,0 +1,334 @@
+diff --git a/src/drugtime/main.py b/src/drugtime/main.py
+index ca56e9f..c77f99e 100644
+--- a/src/drugtime/main.py
++++ b/src/drugtime/main.py
+@@ -51,7 +51,13 @@ _STATUS = {
+ 
+ # Responses never cached; failures become the generic 500 without re-raising, so the
+ # server log never gets a traceback with sensitive SQL parameters (health data, OCR text).
+-_NO_STORE_ROUTES = frozenset({("GET", "/adherence"), ("POST", "/catalog/medications/match")})
++_NO_STORE_ROUTES = frozenset(
++    {
++        ("GET", "/adherence"),
++        ("POST", "/catalog/medications/match"),
++        ("GET", "/family/patients"),
++    }
++)
+ 
+ 
+ def create_app() -> FastAPI:
+diff --git a/src/drugtime/modules/access/api.py b/src/drugtime/modules/access/api.py
+index 4150266..549a1b5 100644
+--- a/src/drugtime/modules/access/api.py
++++ b/src/drugtime/modules/access/api.py
+@@ -2,7 +2,10 @@
+ 
+ from uuid import UUID
+ 
+-from drugtime.modules.access.adapters.inbound.http import router
++from fastapi import APIRouter
++
++from drugtime.modules.access.adapters.inbound.http import router as admin_router
++from drugtime.modules.access.adapters.inbound.linked_patients_http import router as patients_router
+ from drugtime.modules.access.adapters.outbound.facts import ModuleFactsReader
+ from drugtime.modules.access.adapters.outbound.sql_access_log import SqlAccessLog
+ from drugtime.modules.access.application import authorize as _authorize
+@@ -11,6 +14,10 @@ from drugtime.shared.uow import UnitOfWork
+ 
+ __all__ = ["Action", "Scope", "authorize", "authorized_caregivers", "router"]
+ 
++router = APIRouter()
++router.include_router(admin_router)
++router.include_router(patients_router)
++
+ 
+ def authorize(
+     uow: UnitOfWork,
+diff --git a/src/drugtime/modules/access/application/authorize.py b/src/drugtime/modules/access/application/authorize.py
+index 14c88cb..b24e635 100644
+--- a/src/drugtime/modules/access/application/authorize.py
++++ b/src/drugtime/modules/access/application/authorize.py
+@@ -1,15 +1,14 @@
+ from uuid import UUID
+ 
+ from drugtime.modules.access.application.ports import AccessLog, FactsReader
+-from drugtime.modules.access.domain.rules import SCOPE_PURPOSE, Action, Scope, decide
++from drugtime.modules.access.domain.rules import SCOPE_PURPOSE, Action, Decision, Scope, decide
+ from drugtime.shared.errors import Forbidden
+ from drugtime.shared.uow import UnitOfWork
+ 
+ 
+-def authorize(
++def resolve_access(
+     uow: UnitOfWork,
+     facts: FactsReader,
+-    log: AccessLog,
+     *,
+     caller_id: UUID,
+     caller_is_admin: bool,
+@@ -17,12 +16,37 @@ def authorize(
+     scope: Scope,
+     action: Action = Action.READ,
+     audit_self: bool = False,
+-) -> None:
+-    decision = decide(
++) -> Decision:
++    """Shared PEP resolution; a decision alone never reads a payload or persists audit."""
++    return decide(
+         facts.read(uow, caller_id, caller_is_admin, patient_id, scope),
+         action,
+         audit_self=(scope is Scope.HEALTH_PROFILE) or audit_self,
+     )
++
++
++def authorize(
++    uow: UnitOfWork,
++    facts: FactsReader,
++    log: AccessLog,
++    *,
++    caller_id: UUID,
++    caller_is_admin: bool,
++    patient_id: UUID,
++    scope: Scope,
++    action: Action = Action.READ,
++    audit_self: bool = False,
++) -> None:
++    decision = resolve_access(
++        uow,
++        facts,
++        caller_id=caller_id,
++        caller_is_admin=caller_is_admin,
++        patient_id=patient_id,
++        scope=scope,
++        action=action,
++        audit_self=audit_self,
++    )
+     if decision.allowed:
+         if decision.log_role is not None:
+             # Cùng transaction với request: ghi log lỗi thì request lỗi (fail-closed).
+diff --git a/src/drugtime/modules/access/application/ports.py b/src/drugtime/modules/access/application/ports.py
+index 61f8326..aa6a06f 100644
+--- a/src/drugtime/modules/access/application/ports.py
++++ b/src/drugtime/modules/access/application/ports.py
+@@ -29,3 +29,18 @@ class AccessLog(Protocol):
+     ) -> None:
+         """Ghi ở transaction riêng để dòng denied còn lại dù request bị rollback."""
+         ...
++
++
++class PatientCandidates(Protocol):
++    def ids(self, uow: UnitOfWork, family_id: UUID) -> list[UUID]: ...
++
++
++class PatientNames(Protocol):
++    def get(self, uow: UnitOfWork, patient_ids: list[UUID]) -> dict[UUID, str | None]: ...
++
++
++class PatientListAudit(Protocol):
++    def empty(self, uow: UnitOfWork, actor_id: UUID) -> None: ...
++    def denied(self, actor_id: UUID) -> None:
++        """Persist request-level denial in an independent transaction, without a patient."""
++        ...
+diff --git a/src/drugtime/modules/access/domain/rules.py b/src/drugtime/modules/access/domain/rules.py
+index e480d8d..0d3b7dd 100644
+--- a/src/drugtime/modules/access/domain/rules.py
++++ b/src/drugtime/modules/access/domain/rules.py
+@@ -11,6 +11,7 @@ class Scope(StrEnum):
+     ADHERENCE = "lich_su_tuan_thu"
+     INTERACTIONS = "canh_bao_tuong_tac"
+     MEAL = "goi_y_bua_an"
++    LINKED_PATIENTS = "danh_sach_benh_nhan_lien_ket"
+ 
+ 
+ # Purpose consent của patient cần có cho từng scope.
+@@ -20,6 +21,7 @@ SCOPE_PURPOSE: dict[Scope, str] = {
+     Scope.ADHERENCE: "health_data",
+     Scope.INTERACTIONS: "health_data",
+     Scope.MEAL: "ai_meal",
++    Scope.LINKED_PATIENTS: "health_data",
+ }
+ 
+ 
+diff --git a/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py b/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
+index 1b52215..81287f3 100644
+--- a/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
++++ b/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
+@@ -17,7 +17,7 @@ class SqlLinkAudit:
+         self,
+         uow: UnitOfWork,
+         actor_id: UUID,
+-        patient_id: UUID,
++        patient_id: UUID | None,
+         link_id: int | None,
+         operation: str,
+     ) -> None:
+diff --git a/src/drugtime/modules/family/adapters/outbound/sql_links.py b/src/drugtime/modules/family/adapters/outbound/sql_links.py
+index a52c342..badbbef 100644
+--- a/src/drugtime/modules/family/adapters/outbound/sql_links.py
++++ b/src/drugtime/modules/family/adapters/outbound/sql_links.py
+@@ -255,6 +255,16 @@ class SqlLinks:
+         )
+         return [r.family_user_id for r in rows]
+ 
++    def sharing_patient_ids(self, uow: UnitOfWork, family_id: UUID) -> list[UUID]:
++        rows = uow.connection.execute(
++            text(
++                "SELECT DISTINCT patient_user_id FROM caregiver_links "
++                f"WHERE family_user_id = :f AND {_ACTIVE}"
++            ),
++            {"f": family_id},
++        )
++        return [r.patient_user_id for r in rows]
++
+     def erase(self, uow: UnitOfWork, user_id: UUID) -> None:
+         c = uow.connection
+         c.execute(
+diff --git a/src/drugtime/modules/family/api.py b/src/drugtime/modules/family/api.py
+index 574d93f..28bc759 100644
+--- a/src/drugtime/modules/family/api.py
++++ b/src/drugtime/modules/family/api.py
+@@ -23,6 +23,9 @@ __all__ = [
+     "revoke_link_as_member",
+     "router",
+     "sharing_family_ids",
++    "sharing_patient_ids",
++    "audit_empty_patient_list",
++    "audit_denied_patient_list",
+ ]
+ 
+ 
+@@ -101,6 +104,19 @@ def sharing_family_ids(uow: UnitOfWork, patient_id: UUID) -> list[UUID]:
+     return SqlLinks().sharing_family_ids(uow, patient_id)
+ 
+ 
++def sharing_patient_ids(uow: UnitOfWork, family_id: UUID) -> list[UUID]:
++    """Candidate IDs only; access still resolves current purpose/link consent via PEP."""
++    return SqlLinks().sharing_patient_ids(uow, family_id)
++
++
++def audit_empty_patient_list(uow: UnitOfWork, actor_id: UUID) -> None:
++    SqlLinkAudit().allowed(uow, actor_id, None, None, "list_linked_patients")
++
++
++def audit_denied_patient_list(actor_id: UUID) -> None:
++    SqlLinkAudit().denied(actor_id, None, None, "list_linked_patients", "khong_co_quyen")
++
++
+ class _Eraser:
+     name = "family"
+ 
+diff --git a/src/drugtime/modules/family/application/ports.py b/src/drugtime/modules/family/application/ports.py
+index 94d04df..0c0df46 100644
+--- a/src/drugtime/modules/family/application/ports.py
++++ b/src/drugtime/modules/family/application/ports.py
+@@ -68,10 +68,10 @@ class Links(Protocol):
+         self, uow: UnitOfWork, patient_id: UUID, family_id: UUID
+     ) -> bool: ...
+     def sharing_family_ids(self, uow: UnitOfWork, patient_id: UUID) -> list[UUID]: ...
++    def sharing_patient_ids(self, uow: UnitOfWork, family_id: UUID) -> list[UUID]: ...
+     def erase(self, uow: UnitOfWork, user_id: UUID) -> None: ...
+ 
+ 
+-
+ class LinkCodes(Protocol):
+     def find_by_patient(self, uow: UnitOfWork, patient_id: UUID) -> str | None:
+         """Mã liên kết hiện có của user, hoặc None."""
+@@ -134,7 +134,7 @@ class LinkAudit(Protocol):
+         self,
+         uow: UnitOfWork,
+         actor_id: UUID,
+-        patient_id: UUID,
++        patient_id: UUID | None,
+         link_id: int | None,
+         operation: str,
+     ) -> None: ...
+diff --git a/tests/architecture/test_health_route_enforcement.py b/tests/architecture/test_health_route_enforcement.py
+index 3696a30..50c6530 100644
+--- a/tests/architecture/test_health_route_enforcement.py
++++ b/tests/architecture/test_health_route_enforcement.py
+@@ -14,6 +14,11 @@ from drugtime.modules.identity import api as identity
+ # (scope, operationId, audit_self): ghi liều và checkpoint chính chủ không ghi access_logs khi
+ # được phép (theo PEP chung); đọc lịch sử thì có (3.23).
+ PROTECTED_HEALTH_ROUTES = {
++    ("GET", "/family/patients"): (
++        "danh_sach_benh_nhan_lien_ket",
++        "listMyLinkedPatients",
++        False,
++    ),
+     ("GET", "/adherence"): ("lich_su_tuan_thu", "getAdherenceHistory", True),
+     ("POST", "/doses/batch"): ("lich_su_tuan_thu", "confirmDoseBatch", False),
+     ("POST", "/doses/sync-checkpoints"): ("lich_su_tuan_thu", "recordDoseSyncCheckpoint", False),
+diff --git a/tests/unit/test_access_authorize.py b/tests/unit/test_access_authorize.py
+index 753072d..c69a6a6 100644
+--- a/tests/unit/test_access_authorize.py
++++ b/tests/unit/test_access_authorize.py
+@@ -56,6 +56,23 @@ def test_allowed_log_failure_fails_request():
+         _call(Facts(), Log(fail_allowed=True))
+ 
+ 
++def test_resolve_uses_current_facts_each_call():
++    from dataclasses import replace
++
++    from drugtime.modules.access.application.authorize import resolve_access
++
++    facts = Facts()
++    log = Log()
++    args = dict(caller_id=C, caller_is_admin=False, patient_id=P, scope=Scope.LINKED_PATIENTS)
++    assert resolve_access(object(), facts, **args).allowed
++    for field in ("active_sharing_link", "purpose_consent", "family_sharing_consent"):
++        original = facts.f
++        facts.f = replace(original, **{field: False})
++        assert not resolve_access(object(), facts, **args).allowed
++        facts.f = original
++    assert log.allowed == log.denied == []
++
++
+ def test_family_read_appends_allowed():
+     log = Log()
+     _call(Facts(), log)
+diff --git a/tests/unit/test_access_rules.py b/tests/unit/test_access_rules.py
+index f6abb17..ab70432 100644
+--- a/tests/unit/test_access_rules.py
++++ b/tests/unit/test_access_rules.py
+@@ -6,6 +6,13 @@ from drugtime.modules.access.domain.rules import AccessFacts, Action, ActorRole,
+ P, C = uuid4(), uuid4()
+ 
+ 
++def test_scope_maps_to_health_data():
++    from drugtime.modules.access.domain.rules import SCOPE_PURPOSE, Scope
++
++    assert SCOPE_PURPOSE[Scope.LINKED_PATIENTS] == "health_data"
++    assert str(Scope.LINKED_PATIENTS) == "danh_sach_benh_nhan_lien_ket"
++
++
+ def facts(**kw):
+     base = dict(
+         caller_id=C,
+diff --git a/tests/unit/test_sql_family_links.py b/tests/unit/test_sql_family_links.py
+index 5183799..2892196 100644
+--- a/tests/unit/test_sql_family_links.py
++++ b/tests/unit/test_sql_family_links.py
+@@ -380,3 +380,23 @@ def test_sql_revoke_returns_none_when_no_match():
+     result = SqlLinks().revoke(uow, link_id=999, caller_id=patient_id, now=now)
+ 
+     assert result is None
++
++
++def test_sharing_patient_ids_are_caller_scoped():
++    family, patient = uuid4(), uuid4()
++    uow = FakeUow([[SimpleNamespace(patient_user_id=patient)]])
++    assert SqlLinks().sharing_patient_ids(uow, family) == [patient]
++    sql = _sql(uow)
++    assert "SELECT DISTINCT patient_user_id" in sql
++    assert "WHERE family_user_id = :f" in sql
++    assert "status = 'active' AND sharing_enabled = true" in sql
++    assert "EXISTS ( SELECT 1 FROM family_link_consent_confirmations" in sql
++    assert "evidence.patient_user_id = caregiver_links.patient_user_id" in sql
++    assert "evidence.family_user_id = caregiver_links.family_user_id" in sql
++    assert "evidence.link_id = caregiver_links.id" in sql
++    assert "LIMIT" not in sql
++    assert uow.connection.calls[0][1] == {"f": family}
++
++
++def test_sharing_patient_ids_empty():
++    assert SqlLinks().sharing_patient_ids(FakeUow([[]]), uuid4()) == []
