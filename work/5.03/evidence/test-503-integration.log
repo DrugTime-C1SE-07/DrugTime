@@ -1,0 +1,33 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Python313\python.exe
+rootdir: D:\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 18 items
+
+tests/integration/test_deletion_creation_flow.py::test_confirm_creates_one_request_with_server_deadline__AC1_AC3 PASSED [  5%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_identity_and_unverified_email_never_create_request__AC2 PASSED [ 11%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[short] PASSED [ 16%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[long] PASSED [ 22%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[unicode] PASSED [ 27%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[wrong] PASSED [ 33%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[expired] PASSED [ 38%]
+tests/integration/test_deletion_creation_flow.py::test_invalid_otp_cannot_create_request__AC2[replaced] PASSED [ 44%]
+tests/integration/test_deletion_creation_flow.py::test_rate_limit_persists_after_wrong_otp_and_resend__AC2 PASSED [ 50%]
+tests/integration/test_deletion_creation_flow.py::test_delivery_failure_does_not_create_request__AC1_AC2 PASSED [ 55%]
+tests/integration/test_deletion_creation_flow.py::test_insert_failure_leaves_otp_usable_and_never_acknowledges__AC1 PASSED [ 61%]
+tests/integration/test_deletion_creation_flow.py::test_concurrent_confirm_with_same_otp_only_commits_once__AC1_AC3 PASSED [ 66%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[-1-200] PASSED [ 72%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[0-409] PASSED [ 77%]
+tests/integration/test_deletion_creation_flow.py::test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[1-409] PASSED [ 83%]
+tests/integration/test_deletion_creation_flow.py::test_deletion_revokes_family_reads_immediately_and_keeps_other_patient_visible__AC4_AC6 PASSED [ 88%]
+tests/integration/test_deletion_creation_flow.py::test_pending_deletion_blocks_meal_creation_and_family_alert_dispatch__AC4_AC5 PASSED [ 94%]
+tests/integration/test_deletion_creation_flow.py::test_migration_limits_roles_and_enforces_open_request_uniqueness__AC1_AC3 PASSED [100%]
+
+============================== warnings summary ===============================
+tests/integration/test_deletion_creation_flow.py::test_confirm_creates_one_request_with_server_deadline__AC1_AC3
+  D:\DrugTime\work\5.03\scratch\deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 18 passed, 1 warning in 2.42s ========================
