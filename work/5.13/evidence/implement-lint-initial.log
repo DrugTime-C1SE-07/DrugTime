@@ -1,0 +1,795 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:1
+  |
+1 |   """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+2 |
+3 | / from datetime import datetime
+4 | | from typing import Any
+  | |______________________^
+5 |   """Schemas của catalog module:
+6 |   1. Response của /catalog/medications (Mobile K04, khớp api_contract/openapi.json).
+  |
+help: Organize imports
+  |
+4 | from typing import Any
+5 +
+6 | """Schemas của catalog module:
+  |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:1
+   |
+ 8 |   """
+ 9 |
+10 | / from datetime import datetime
+11 | | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 | |
+13 | | from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | | from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Organize imports
+   |
+10 | from datetime import datetime
+11 +
+12 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+--------------------------------------------------------------------------------
+21 | )
+   -
+22 |
+   |
+
+F811 [*] Redefinition of unused `datetime` from line 3
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:10:22
+   |
+ 8 | """
+ 9 |
+10 | from datetime import datetime
+   |                      ^^^^^^^^ `datetime` redefined here
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+  ::: src\drugtime\modules\catalog\adapters\inbound\schemas.py:3:22
+   |
+ 1 | """Catalog HTTP response schemas, matching api_contract/openapi.json."""
+ 2 |
+ 3 | from datetime import datetime
+   |                      -------- previous definition of `datetime` here
+ 4 | from typing import Any
+ 5 | """Schemas của catalog module:
+   |
+help: Remove definition: `datetime`
+   |
+9  |
+   - from datetime import datetime
+10 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   |
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:11:1
+   |
+10 | from datetime import datetime
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:13:1
+   |
+11 | from pydantic import BaseModel, ConfigDict, Field, model_validator
+12 |
+13 | from drugtime.modules.catalog.domain.medication import CatalogMedication
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+14 | from drugtime.modules.catalog.domain.sync_run import (
+15 |     CatalogSyncRun,
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:14:1
+   |
+13 |   from drugtime.modules.catalog.domain.medication import CatalogMedication
+14 | / from drugtime.modules.catalog.domain.sync_run import (
+15 | |     CatalogSyncRun,
+16 | |     CatalogSyncRunPage,
+17 | |     CatalogSyncSource,
+18 | |     CatalogSyncStatus,
+19 | |     CatalogSyncTrigger,
+20 | | )
+   | |_^
+help: Move module level imports to top of file
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\inbound\schemas.py:101:101
+    |
+ 99 |     @model_validator(mode="after")
+100 |     def _source_pair(self) -> "MedicationBase":
+101 |         """source và source_ref phải cùng có giá trị hoặc cùng NULL (CHECK (source IS NULL)=(source_ref IS NULL))."""
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+102 |         if (self.source is None) != (self.source_ref is None):
+103 |             raise ValueError("source and source_ref must both be null or both set")
+    |
+
+E501 Line too long (104 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:187:101
+    |
+185 |                     VALUES
+186 |                       (:name, :raw_active_ingredient, :strength_text, :dosage_form,
+187 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+    |                                                                                                     ^^^^
+188 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+189 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |
+
+E501 Line too long (117 > 100)
+   --> src\drugtime\modules\catalog\adapters\outbound\sql_catalog.py:189:101
+    |
+187 |                        :manufacturer_name, :manufacturer_country, :packaging_spec, :source, :source_ref)
+188 |                     RETURNING id, name, raw_active_ingredient, strength_text, dosage_form,
+189 |                               manufacturer_name, manufacturer_country, packaging_spec, source, source_ref, deleted_at
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+190 |                 """),
+191 |                 data,
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\fetchers.py:3:1
+  |
+1 |   """Network-only clients for catalog sources."""
+2 |
+3 | / from collections.abc import Iterator
+4 | |
+5 | | import httpx
+  | |____________^
+help: Organize imports
+  |
+6 |
+  -
+7 | DAV_PUBLIC_API = (
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\catalog\normalize.py:3:1
+  |
+1 |   """Pure normalization of external medication records."""
+2 |
+3 | / import re
+4 | | import unicodedata
+5 | | from dataclasses import dataclass
+  | |_________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | _SPACE = re.compile(r"\s+")
+  |
+
+E501 Line too long (102 > 100)
+  --> src\drugtime\modules\catalog\normalize.py:34:101
+   |
+32 | def normalize_record(record: dict[str, object]) -> NormalizedMedication:
+33 |     """Normalize a canonical raw record produced by a source parser."""
+34 |     values = {name: normalize_text(record.get(name)) for name in NormalizedMedication.__annotations__}
+   |                                                                                                     ^^
+35 |     source_ref = values.get("source_ref")
+36 |     name = values.get("name")
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\modules\consent\adapters\outbound\job_queue.py:3:1
+  |
+1 |   """Celery producer for consent background tasks."""
+2 |
+3 | / from uuid import UUID
+4 | |
+5 | | from drugtime.shared.celery import celery_app
+  | |_____________________________________________^
+help: Organize imports
+  |
+6 |
+  -
+7 | ERASURE_TASK = "consent.erasure"
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> src\drugtime\worker.py:3:1
+  |
+1 |   """Composition root for the Celery worker and Celery Beat."""
+2 |
+3 | / import os
+4 | | from pathlib import Path
+5 | |
+6 | | from dotenv import load_dotenv
+  | |______________________________^
+help: Organize imports
+  |
+7 |
+  -
+8 | BACKEND_ROOT = Path(__file__).resolve().parents[2]
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> src\drugtime\worker.py:19:1
+   |
+17 |       load_dotenv(BACKEND_ROOT / ".env")
+18 |
+19 | / from drugtime.modules.catalog import tasks as catalog_tasks  # noqa: E402,F401
+20 | | from drugtime.runtime import job_runner  # noqa: E402
+21 | | from drugtime.shared.celery import celery_app  # noqa: E402
+22 | | from drugtime.shared.config import get_settings  # noqa: E402
+   | |_______________________________________________^
+help: Organize imports
+   |
+23 |
+   -
+24 | # Kênh báo thiếu hoặc hỏng credential: dừng khi khởi động thay vì gửi giả (3.19).
+   |
+
+E501 Line too long (104 > 100)
+  --> tests\integration\conftest.py:42:101
+   |
+40 |     if make_url(ADMIN_URL).host not in _LOCAL_HOSTS:
+41 |         pytest.exit("Integration tests only run against a local database", returncode=2)
+42 |     engine = create_engine(ADMIN_URL, isolation_level="AUTOCOMMIT", connect_args={"connect_timeout": 2})
+   |                                                                                                     ^^^^
+43 |     try:
+44 |         with engine.connect() as c:
+   |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\conftest.py:150:101
+    |
+148 |                 text(
+149 |                     "INSERT INTO caregiver_links "
+150 |                     "(patient_user_id, family_user_id, status, sharing_enabled, revoked_at, rejected_at) "
+    |                                                                                                     ^^^^^^
+151 |                     "VALUES (:p, :f, CAST(:st AS link_status), :s, "
+152 |                     "CASE WHEN :is_revoked THEN now() END, "
+    |
+
+E501 Line too long (108 > 100)
+   --> tests\integration\conftest.py:245:101
+    |
+243 |             text(
+244 |                 f"SELECT id, link_id, patient_user_id, family_user_id, purpose, "
+245 |                 f"document_version, confirmed_at FROM family_link_consent_confirmations {where} ORDER BY id"
+    |                                                                                                     ^^^^^^^^
+246 |             ),
+247 |             params,
+    |
+
+E501 Line too long (102 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:125:101
+    |
+125 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+    |                                                                                                     ^^
+126 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+127 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |
+
+E501 Line too long (106 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:126:101
+    |
+125 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+126 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+    |                                                                                                     ^^^^^^
+127 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+128 |     dose_log_id = 998877
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:127:101
+    |
+125 | def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+126 |     """AC1/AC2/AC6: Dispatch cảnh báo bỏ lỡ vào notifications và người thân đọc qua GET /notifications."""
+127 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+128 |     dose_log_id = 998877
+129 |     scheduled_at = datetime(2026, 10, 19, 8, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    |
+
+E501 Line too long (113 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:201:101
+    |
+200 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+201 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+    |                                                                                                     ^^^^^^^^^^^^^
+202 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+203 |     dose_log_id = 998879
+    |
+
+E501 Line too long (103 > 100)
+   --> tests\integration\test_alert_dispatch_api.py:202:101
+    |
+200 | def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+201 |     """AC8 / QD-25 / NFR05: Đo thời gian dispatch và truy vấn trên Postgres thật < 2s, kiểm tra tên bệnh nhân."""
+202 |     patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+    |                                                                                                     ^^^
+203 |     dose_log_id = 998879
+204 |     scheduled_at = datetime(2026, 10, 19, 10, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    |
+
+E501 Line too long (118 > 100)
+  --> tests\integration\test_catalog_lookup_3_06.py:40:101
+   |
+38 | )
+39 | def test_sql_catalog_search_key_unaccent_and_casing(db, input_val, expected):
+40 |     """SCRUM-166: Bước bỏ dấu nằm ở SQL: SELECT public.catalog_search_key(:s) xử lý unaccent, đ/Đ -> d, chữ thường."""
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^
+41 |     res = db.execute(text("SELECT public.catalog_search_key(:s)"), {"s": input_val}).scalar_one()
+42 |     assert res == expected
+   |
+
+E501 Line too long (116 > 100)
+  --> tests\integration\test_catalog_lookup_3_06.py:48:101
+   |
+46 |     """Seed 'Paracetamol' với tag ở đầu tên thuốc:
+47 |     f'{tag} Paracetamol 500mg'
+48 |     - 'tag paracetamol', 'tag Paracetamol', 'tag para', '  tag Paracetamol  ' đều trả đúng thuốc (assert ID cụ thể).
+   |                                                                                                     ^^^^^^^^^^^^^^^^
+49 |     - AC4: Khoảng trắng giữa chuỗi được giữ nguyên: 'tag  paracetamol' (2 khoảng trắng) không khớp thuốc (trả về rỗng).
+50 |     """
+   |
+
+E501 Line too long (119 > 100)
+  --> tests\integration\test_catalog_lookup_3_06.py:49:101
+   |
+47 |     f'{tag} Paracetamol 500mg'
+48 |     - 'tag paracetamol', 'tag Paracetamol', 'tag para', '  tag Paracetamol  ' đều trả đúng thuốc (assert ID cụ thể).
+49 |     - AC4: Khoảng trắng giữa chuỗi được giữ nguyên: 'tag  paracetamol' (2 khoảng trắng) không khớp thuốc (trả về rỗng).
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+50 |     """
+51 |     user = make.user()
+   |
+
+E501 Line too long (103 > 100)
+  --> tests\integration\test_catalog_lookup_3_06.py:76:101
+   |
+75 |     # AC4: Khẳng định khoảng trắng giữa chuỗi KHÔNG gộp.
+76 |     # f"{tag}  paracetamol" (2 khoảng trắng giữa) không khớp "{tag} Paracetamol 500mg" (1 khoảng trắng)
+   |                                                                                                     ^^^
+77 |     r_double_space = client.get(
+78 |         "/catalog/medications",
+   |
+
+E501 Line too long (107 > 100)
+  --> tests\integration\test_catalog_lookup_3_06.py:94:101
+   |
+92 |     client, make, auth, tag
+93 | ):
+94 |     """Thuốc deleted_at NOT NULL bị loại khi truy vấn ĐÚNG tên nó; đối chứng bản chưa xóa vẫn xuất hiện."""
+   |                                                                                                     ^^^^^^^
+95 |     user = make.user()
+96 |     exact_deleted_name = f"{tag} Paracetamol Deleted"
+   |
+
+E501 Line too long (102 > 100)
+   --> tests\integration\test_catalog_lookup_3_06.py:109:101
+    |
+107 |     deleted_items = r_del.json()["items"]
+108 |     deleted_ids = [m["id"] for m in deleted_items]
+109 |     assert deleted_id not in deleted_ids, f"Deleted medication {deleted_id} was unexpectedly returned"
+    |                                                                                                     ^^
+110 |
+111 |     # Truy vấn bản đối chứng chưa xóa -> xuất hiện
+    |
+
+E501 Line too long (105 > 100)
+   --> tests\integration\test_catalog_lookup_3_06.py:177:101
+    |
+175 |     )
+176 |     assert r_limit0.status_code == 422
+177 |     locs0 = [item.get("loc", []) for item in r_limit0.json().get("detail", []) if isinstance(item, dict)]
+    |                                                                                                     ^^^^^
+178 |     assert any("limit" in loc for loc in locs0)
+    |
+
+E501 Line too long (107 > 100)
+   --> tests\integration\test_catalog_lookup_3_06.py:185:101
+    |
+183 |     )
+184 |     assert r_limit51.status_code == 422
+185 |     locs51 = [item.get("loc", []) for item in r_limit51.json().get("detail", []) if isinstance(item, dict)]
+    |                                                                                                     ^^^^^^^
+186 |     assert any("limit" in loc for loc in locs51)
+    |
+
+E501 Line too long (112 > 100)
+   --> tests\integration\test_catalog_lookup_3_06.py:210:101
+    |
+208 |     ho_unaccented_ids = [m["id"] for m in r_unaccented.json()["items"]]
+209 |     assert med_ho_id in ho_unaccented_ids, (
+210 |         f"Expected med_ho_id {med_ho_id} in {ho_unaccented_ids} for unaccented query '{tag} thuoc ho bao thanh'"
+    |                                                                                                     ^^^^^^^^^^^^
+211 |     )
+    |
+
+E501 Line too long (110 > 100)
+ --> tests\integration\test_family_consent_on_link__3_18.py:4:101
+  |
+3 | Các kịch bản kiểm thử:
+4 | - T1: Luồng chính tuần tự (cùng family token): request -> pending (403) -> approve (403) -> bật sharing (200).
+  |                                                                                                     ^^^^^^^^^^
+5 |       Kiểm tra chặt chẽ đúng 1 dòng access_logs mới ở mỗi bước.
+6 | - T2: Bệnh nhân từ chối (reject) qua API -> link chuyển rejected, rejected_at NOT NULL -> family 403 + denied log.
+  |
+
+E501 Line too long (114 > 100)
+ --> tests\integration\test_family_consent_on_link__3_18.py:6:101
+  |
+4 | - T1: Luồng chính tuần tự (cùng family token): request -> pending (403) -> approve (403) -> bật sharing (200).
+5 |       Kiểm tra chặt chẽ đúng 1 dòng access_logs mới ở mỗi bước.
+6 | - T2: Bệnh nhân từ chối (reject) qua API -> link chuyển rejected, rejected_at NOT NULL -> family 403 + denied log.
+  |                                                                                                     ^^^^^^^^^^^^^^
+7 | - T3a: Bệnh nhân rút consent 'family_sharing' qua API (QD-28) -> family bị 403 ngay ở request kế tiếp (cùng token).
+8 | - T3b: Bệnh nhân rút consent 'health_data' qua API (PEP purpose) -> family bị 403 ngay ở request kế tiếp (cùng token).
+  |
+
+E501 Line too long (115 > 100)
+ --> tests\integration\test_family_consent_on_link__3_18.py:7:101
+  |
+5 |       Kiểm tra chặt chẽ đúng 1 dòng access_logs mới ở mỗi bước.
+6 | - T2: Bệnh nhân từ chối (reject) qua API -> link chuyển rejected, rejected_at NOT NULL -> family 403 + denied log.
+7 | - T3a: Bệnh nhân rút consent 'family_sharing' qua API (QD-28) -> family bị 403 ngay ở request kế tiếp (cùng token).
+  |                                                                                                     ^^^^^^^^^^^^^^^
+8 | - T3b: Bệnh nhân rút consent 'health_data' qua API (PEP purpose) -> family bị 403 ngay ở request kế tiếp (cùng token).
+9 | - T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> family bị 403 ngay ở request kế tiếp + denied log.
+  |
+
+E501 Line too long (118 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:8:101
+   |
+ 6 | - T2: Bệnh nhân từ chối (reject) qua API -> link chuyển rejected, rejected_at NOT NULL -> family 403 + denied log.
+ 7 | - T3a: Bệnh nhân rút consent 'family_sharing' qua API (QD-28) -> family bị 403 ngay ở request kế tiếp (cùng token).
+ 8 | - T3b: Bệnh nhân rút consent 'health_data' qua API (PEP purpose) -> family bị 403 ngay ở request kế tiếp (cùng token).
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^
+ 9 | - T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> family bị 403 ngay ở request kế tiếp + denied log.
+10 | - T4_delete: Kiểm tra DELETE /family/links/{id} (PR #39 / commit 5bb4e457). Tự động skip có bằng chứng nếu baseline chưa có route này.
+   |
+
+E501 Line too long (117 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:9:101
+   |
+ 7 | - T3a: Bệnh nhân rút consent 'family_sharing' qua API (QD-28) -> family bị 403 ngay ở request kế tiếp (cùng token).
+ 8 | - T3b: Bệnh nhân rút consent 'health_data' qua API (PEP purpose) -> family bị 403 ngay ở request kế tiếp (cùng token).
+ 9 | - T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> family bị 403 ngay ở request kế tiếp + denied log.
+   |                                                                                                     ^^^^^^^^^^^^^^^^^
+10 | - T4_delete: Kiểm tra DELETE /family/links/{id} (PR #39 / commit 5bb4e457). Tự động skip có bằng chứng nếu baseline chưa có route này.
+11 | - T5 (QD-30): Thu hồi rồi liên kết lại -> approve link mới không tự khôi phục sharing_enabled=True cũ,
+   |
+
+E501 Line too long (134 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:10:101
+   |
+ 8 | - T3b: Bệnh nhân rút consent 'health_data' qua API (PEP purpose) -> family bị 403 ngay ở request kế tiếp (cùng token).
+ 9 | - T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> family bị 403 ngay ở request kế tiếp + denied log.
+10 | - T4_delete: Kiểm tra DELETE /family/links/{id} (PR #39 / commit 5bb4e457). Tự động skip có bằng chứng nếu baseline chưa có route này.
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 | - T5 (QD-30): Thu hồi rồi liên kết lại -> approve link mới không tự khôi phục sharing_enabled=True cũ,
+12 |               family vẫn 403 cho đến khi bệnh nhân bật chia sẻ lại.
+   |
+
+E501 Line too long (102 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:11:101
+   |
+ 9 | - T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> family bị 403 ngay ở request kế tiếp + denied log.
+10 | - T4_delete: Kiểm tra DELETE /family/links/{id} (PR #39 / commit 5bb4e457). Tự động skip có bằng chứng nếu baseline chưa có route này.
+11 | - T5 (QD-30): Thu hồi rồi liên kết lại -> approve link mới không tự khôi phục sharing_enabled=True cũ,
+   |                                                                                                     ^^
+12 |               family vẫn 403 cho đến khi bệnh nhân bật chia sẻ lại.
+13 | """
+   |
+
+E501 Line too long (110 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:53:101
+   |
+51 |     1. Người thân gửi link request -> link ở trạng thái pending.
+52 |     2. Người thân gọi GET /medications/{id} -> 403 khong_co_quyen.
+53 |        Assert đúng 1 log mới: result='denied', actor_role='khong_co_quyen', rejection_reason='khong_co_quyen'.
+   |                                                                                                     ^^^^^^^^^^
+54 |     3. Bệnh nhân approve link -> link active, nhưng sharing_enabled=False (thiết kế an toàn mặc định).
+55 |        Người thân gọi lại -> vẫn 403 khong_co_quyen.
+   |
+
+E501 Line too long (102 > 100)
+  --> tests\integration\test_family_consent_on_link__3_18.py:54:101
+   |
+52 |     2. Người thân gọi GET /medications/{id} -> 403 khong_co_quyen.
+53 |        Assert đúng 1 log mới: result='denied', actor_role='khong_co_quyen', rejection_reason='khong_co_quyen'.
+54 |     3. Bệnh nhân approve link -> link active, nhưng sharing_enabled=False (thiết kế an toàn mặc định).
+   |                                                                                                     ^^
+55 |        Người thân gọi lại -> vẫn 403 khong_co_quyen.
+56 |        Assert thêm đúng 1 log mới: result='denied'.
+   |
+
+E501 Line too long (113 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:144:101
+    |
+142 |     # Xác minh bằng chứng phê duyệt được lưu vào family_link_consent_confirmations
+143 |     conf = db.execute(
+144 |         text("SELECT document_version, confirmed_at FROM family_link_consent_confirmations WHERE link_id = :id"),
+    |                                                                                                     ^^^^^^^^^^^^^
+145 |         {"id": link_id},
+146 |     ).one()
+    |
+
+E501 Line too long (101 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:207:101
+    |
+205 |     3. Xác minh trạng thái 'rejected', rejected_at NOT NULL.
+206 |     4. Người thân gọi GET /medications/{id} -> 403 khong_co_quyen.
+207 |     5. Xác minh chính xác 1 dòng denied access log mới (actor_role, scope, result, rejection_reason).
+    |                                                                                                     ^
+208 |     """
+209 |     patient = make.user(consents=("health_data", "family_sharing"))
+    |
+
+E501 Line too long (102 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:237:101
+    |
+235 |     # Kiểm tra DB constraints và timestamps
+236 |     row = db.execute(
+237 |         text("SELECT status, rejected_at, revoked_at, linked_at FROM caregiver_links WHERE id = :id"),
+    |                                                                                                     ^^
+238 |         {"id": link_id},
+239 |     ).one()
+    |
+
+E501 Line too long (105 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:271:101
+    |
+269 |     """T3a: Bệnh nhân rút consent family_sharing qua API thật -> chặn ngay lập tức (QD-28, QD-29).
+270 |
+271 |     QD-28: Chia sẻ chỉ khi ĐỒNG THỜI link active + sharing_enabled + consent family_sharing còn hiệu lực.
+    |                                                                                                     ^^^^^
+272 |     1. Thiết lập link active, sharing bật, consent hợp lệ -> family đọc 200 OK.
+273 |     2. Bệnh nhân rút consent family_sharing qua POST /consents/family_sharing/withdraw.
+    |
+
+F841 Local variable `link_id` is assigned to but never used
+   --> tests\integration\test_family_consent_on_link__3_18.py:284:5
+    |
+283 |     # Tạo link active và bật sharing
+284 |     link_id = make.link(patient, family, status="active", sharing=True)
+    |     ^^^^^^^
+285 |
+286 |     # 1. Truy cập ban đầu thành công 200 OK
+    |
+help: Remove assignment to unused variable `link_id`
+
+E501 Line too long (101 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:380:101
+    |
+379 | def test_revoke_link_via_post_endpoint_takes_effect_immediately__T4__3_18(client, db, make, auth):
+380 |     """T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> chặn 403 ngay (QD-28, QD-29).
+    |                                                                                                     ^
+381 |
+382 |     Route POST /family/links/{id}/revoke là endpoint thu hồi link hiện diện trên baseline commit 33867bf.
+    |
+
+E501 Line too long (105 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:382:101
+    |
+380 |     """T4: Bệnh nhân thu hồi link qua POST /family/links/{id}/revoke -> chặn 403 ngay (QD-28, QD-29).
+381 |
+382 |     Route POST /family/links/{id}/revoke là endpoint thu hồi link hiện diện trên baseline commit 33867bf.
+    |                                                                                                     ^^^^^
+383 |     1. Thiết lập link active, sharing bật -> family truy cập 200 OK.
+384 |     2. Bệnh nhân thu hồi link qua POST /family/links/{link_id}/revoke -> 200, status='revoked'.
+    |
+
+E501 Line too long (114 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:448:101
+    |
+446 |     1. Bệnh nhân có link được chia sẻ hợp lệ; family truy cập thành công trước revoke (200 OK).
+447 |     2. Bệnh nhân gọi DELETE /links/{id} -> 204 No Content.
+448 |     3. Database row chuyển sang status='revoked', revoked_at NOT NULL, rejected_at IS NULL, sharing_enabled=False.
+    |                                                                                                     ^^^^^^^^^^^^^^
+449 |     4. Request kế tiếp bằng cùng token family bị 403 khong_co_quyen ngay lập tức.
+450 |     5. Đúng một denied access log mới được ghi nhận (actor_role='khong_co_quyen', data_scope, result='denied', rejection_reason='khon…
+    |
+
+E501 Line too long (146 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:450:101
+    |
+448 | …_at NOT NULL, rejected_at IS NULL, sharing_enabled=False.
+449 | …g_co_quyen ngay lập tức.
+450 | …r_role='khong_co_quyen', data_scope, result='denied', rejection_reason='khong_co_quyen').
+    |                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+451 | …
+452 | …sharing"))
+    |
+
+E501 Line too long (108 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:484:101
+    |
+482 |     # 4. Database row chuyển sang 'revoked', revoked_at NOT NULL, rejected_at IS NULL
+483 |     link_row = db.execute(
+484 |         text("SELECT status, revoked_at, rejected_at, sharing_enabled FROM caregiver_links WHERE id = :id"),
+    |                                                                                                     ^^^^^^^^
+485 |         {"id": link_id},
+486 |     ).one()
+    |
+
+E501 Line too long (107 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:522:101
+    |
+520 |        Xác minh link2_id != link1_id.
+521 |     5. Bệnh nhân approve Link 2 -> Link 2 active, nhưng sharing_enabled bắt đầu là False.
+522 |     6. Family gọi dữ liệu y tế -> vẫn 403 khong_co_quyen (không khôi phục sharing_enabled=True của Link 1).
+    |                                                                                                     ^^^^^^^
+523 |     7. Bệnh nhân bật chia sẻ lại cho Link 2 -> Family mới truy cập được 200 OK.
+524 |     8. Sau khi sharing bật, nếu rút consent family_sharing -> quyền bị tước bỏ ngay lập tức.
+    |
+
+E501 Line too long (119 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:568:101
+    |
+567 |     link2_row_req = db.execute(
+568 |         text("SELECT status, sharing_enabled, linked_at, revoked_at, rejected_at FROM caregiver_links WHERE id = :id"),
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+569 |         {"id": link2_id},
+570 |     ).one()
+    |
+
+E501 Line too long (119 > 100)
+   --> tests\integration\test_family_consent_on_link__3_18.py:592:101
+    |
+591 |     link2_row_appr = db.execute(
+592 |         text("SELECT status, sharing_enabled, linked_at, revoked_at, rejected_at FROM caregiver_links WHERE id = :id"),
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+593 |         {"id": link2_id},
+594 |     ).one()
+    |
+
+E501 Line too long (103 > 100)
+ --> tests\integration\test_family_links_access.py:1:101
+  |
+1 | """Kiểm tra tích hợp phân quyền y tế qua PEP, thu hồi quyền tức thì và truy vấn người thân (task 3.16).
+  |                                                                                                     ^^^
+2 |
+3 | Bao phủ kịch bản I10, I11, I12 theo AC6, AC7, AC10, AC11.
+  |
+
+E501 Line too long (103 > 100)
+  --> tests\integration\test_family_links_access.py:29:101
+   |
+27 | def _create_user_medication(db, patient_id: UUID, med_id: int) -> int:
+28 |     rx_id = db.execute(
+29 |         text("INSERT INTO prescriptions (user_id, entry_source) VALUES (:u, 'mac_dinh') RETURNING id"),
+   |                                                                                                     ^^^
+30 |         {"u": patient_id},
+31 |     ).scalar_one()
+   |
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:55:5
+   |
+53 |     family = make.user()
+54 |     # Tạo link active có bằng chứng evidence nhưng sharing_enabled=False
+55 |     link_id = make.link(patient, family, status="active", sharing=False)
+   |     ^^^^^^^
+56 |     med_id = make.catalog_medication()
+57 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+
+F841 Local variable `link_id` is assigned to but never used
+  --> tests\integration\test_family_links_access.py:77:5
+   |
+75 |     family = make.user()
+76 |     # Tạo link active có bằng chứng evidence và sharing_enabled=True
+77 |     link_id = make.link(patient, family, status="active", sharing=True)
+   |     ^^^^^^^
+78 |     med_id = make.catalog_medication()
+79 |     user_med_id = _create_user_medication(db, patient, med_id)
+   |
+help: Remove assignment to unused variable `link_id`
+
+E741 Ambiguous variable name: `l`
+   --> tests\integration\test_family_links_access.py:182:32
+    |
+180 |     # Khẳng định access_logs ghi nhận 1 allowed và 1 denied
+181 |     logs = make.access_logs(patient)
+182 |     results = [l["result"] for l in logs]
+    |                                ^
+183 |     assert results == ["allowed", "denied"]
+    |
+
+E501 Line too long (101 > 100)
+  --> tests\integration\test_family_links_concurrency.py:18:101
+   |
+16 |     return db.execute(
+17 |         text(
+18 |             "INSERT INTO caregiver_links (patient_user_id, family_user_id, status, sharing_enabled) "
+   |                                                                                                     ^
+19 |             "VALUES (:p, :f, 'pending', false) RETURNING id"
+20 |         ),
+   |
+
+F401 [*] `drugtime.modules.catalog.application.search_medications.escape_like` imported but unused
+  --> tests\unit\test_catalog_keyword_normalization.py:17:5
+   |
+16 | from drugtime.modules.catalog.application.search_medications import (
+17 |     escape_like,
+   |     ^^^^^^^^^^^
+18 |     search_medications,
+19 | )
+   |
+help: Remove unused import: `drugtime.modules.catalog.application.search_medications.escape_like`
+   |
+16 | from drugtime.modules.catalog.application.search_medications import (
+   -     escape_like,
+17 |     search_medications,
+   |
+
+E501 Line too long (103 > 100)
+   --> tests\unit\test_catalog_keyword_normalization.py:107:101
+    |
+105 |     raw_query: str, expected_escaped: str
+106 | ):
+107 |     """Ký tự đặc biệt của LIKE (% _ \\) được escape đúng, đồng thời bảo toàn khoảng trắng bên trong."""
+    |                                                                                                     ^^^
+108 |     port = FakeSearch()
+109 |     search_medications(None, raw_query, 15, port)
+    |
+
+F401 [*] `uuid.uuid4` imported but unused
+ --> tests\unit\test_linked_patients.py:4:24
+  |
+2 | from types import SimpleNamespace
+3 | from unittest.mock import Mock
+4 | from uuid import UUID, uuid4
+  |                        ^^^^^
+5 |
+6 | import pytest
+  |
+help: Remove unused import: `uuid.uuid4`
+  |
+3 | from unittest.mock import Mock
+  - from uuid import UUID, uuid4
+4 + from uuid import UUID
+5 |
+  |
+
+E501 Line too long (112 > 100)
+  --> tests\unit\test_linked_patients_gateway.py:56:101
+   |
+55 |     uow, caller, patient = object(), uuid4(), uuid4()
+56 |     ids, names, empty, denied = Mock(return_value=[patient]), Mock(return_value={patient: None}), Mock(), Mock()
+   |                                                                                                     ^^^^^^^^^^^^
+57 |     monkeypatch.setattr(gateway.family, "sharing_patient_ids", ids)
+58 |     monkeypatch.setattr(gateway.identity, "display_names", names)
+   |
+
+E501 Line too long (103 > 100)
+   --> tests\unit\test_linked_patients_http.py:152:101
+    |
+150 |             assert response.status_code == 401
+151 |             assert response.headers["cache-control"] == "no-store"
+152 |         response = harness.client.get("/family/patients", headers={"Authorization": "Bearer " + token})
+    |                                                                                                     ^^^
+153 |         assert response.status_code == 200
+154 |     finally:
+    |
+
+Found 66 errors.
+[*] 10 fixable with the `--fix` option (3 hidden fixes can be enabled with the `--unsafe-fixes` option).

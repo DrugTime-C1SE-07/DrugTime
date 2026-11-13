@@ -1,0 +1,218 @@
+diff --git a/README.md b/README.md
+index 8ca0611..55e3ced 100644
+--- a/README.md
++++ b/README.md
+@@ -33,6 +33,14 @@ links unchanged. Omit `email` to preserve it; `null` is invalid. A supplied vali
+ email updates the login address without sending OTP. This operation is separate
+ from onboarding's existing `POST /auth/profile`.
+ 
++`GET /profile` also returns nullable `phone_number` for the caller. This is contact
++information, not a verified login identifier. `PUT /profile` accepts an optional
++`phone_number`; omission preserves it, while null and empty values are invalid.
++Local `0`-prefixed numbers normalize to `+84`, with spaces/hyphens removed; the
++result must be E.164. Invalid format returns `422 invalid_phone`; an unavailable
++number returns `409 phone_change_unavailable`. Contact phone changes do not
++update Supabase Auth, change the login email, or send SMS/OTP.
++
+ The condition-link `{id}` is `user_conditions.id`, not the catalog condition ID.
+ For PATCH, omitted fields are unchanged and explicit `null` clears the value; an
+ empty body or a field other than `subtype`/`stage` is invalid. A duplicate POST
+diff --git a/openapi.json b/openapi.json
+index 4da09dc..d60d854 100644
+--- a/openapi.json
++++ b/openapi.json
+@@ -6050,7 +6050,7 @@
+         ],
+         "operationId": "getOwnHealthProfile",
+         "summary": "Get own health profile",
+-        "description": "Self only: the authenticated identity determines the owner; no patient_id or user_id selector is accepted. Requires current health_data consent and Scope.HEALTH_PROFILE authorization, checked against the database on every request. Persist minimal audit metadata for allowed and PEP-denied access, including self access, according to QD-33. Fail closed if audit cannot be durably persisted. Never include medical payloads, email values, or profile payloads in audit. Personal fields can be null before onboarding is complete. email is the current login address. Conditions are ordered by link id ASC. Do not cache health responses (Cache-Control: no-store). Do not send user_id or patient_id query selectors: their presence returns 422 profile_is_self_only. Admin status grants no health-profile access; PEP denial returns 403 (including consent_revoked).",
++        "description": "Self only: the authenticated identity determines the owner; no patient_id or user_id selector is accepted. Requires current health_data consent and Scope.HEALTH_PROFILE authorization, checked against the database on every request. Persist minimal audit metadata for allowed and PEP-denied access, including self access, according to QD-33. Fail closed if audit cannot be durably persisted. Never include medical payloads, email values, or profile payloads in audit. Personal fields can be null before onboarding is complete. email is the current login address. Conditions are ordered by link id ASC. Do not cache health responses (Cache-Control: no-store). Do not send user_id or patient_id query selectors: their presence returns 422 profile_is_self_only. Admin status grants no health-profile access; PEP denial returns 403 (including consent_revoked).\n\nIncludes the current contact phone_number (nullable). This is not proof of phone ownership.",
+         "security": [
+           {
+             "bearerAuth": []
+@@ -6088,7 +6088,8 @@
+                           "subtype": null,
+                           "stage": null
+                         }
+-                      ]
++                      ],
++                      "phone_number": "+84912345678"
+                     }
+                   },
+                   "incomplete": {
+@@ -6097,7 +6098,8 @@
+                       "date_of_birth": null,
+                       "gender": null,
+                       "email": null,
+-                      "conditions": []
++                      "conditions": [],
++                      "phone_number": null
+                     }
+                   }
+                 }
+@@ -6123,8 +6125,8 @@
+           "profile"
+         ],
+         "operationId": "updateOwnProfile",
+-        "summary": "Update own personal profile and login email",
+-        "description": "Self only. Requires current health_data consent and Scope.HEALTH_PROFILE write authorization on every request. Replace full_name, date_of_birth, and gender; do not modify conditions, phone, role or consent. The optional email field, when present, immediately updates the login email of the authenticated Supabase Auth user and the matching users.email value. Omission preserves the current email; null is invalid. The profile operation does not send OTP. The existing OTP login flow subsequently sends codes to the new email, and the same user_id remains in use. Return a generic conflict if the address is unavailable; never reveal another account. Trim full_name, reject whitespace-only names. Trim and lowercase gender using the existing accepted values. Validate DOB against today's date in Asia/Ho_Chi_Minh; today is allowed. Persist minimal audit metadata durably before acknowledging the transaction; audit failure must not be reported as success. Audit must not contain email or request payload. No offline queue or idempotency key is introduced; repeated PUT rechecks consent and may create another audit event. Concurrent PUTs use the last committed update. No response body on success; client may GET /profile to refresh the current email. Do not send user_id or patient_id query selectors: their presence returns 422 profile_is_self_only. Admin status grants no health-profile access; PEP denial returns 403 (including consent_revoked).",
++        "summary": "Update own personal profile, contact phone and optional login email",
++        "description": "Self only. Requires current health_data consent and Scope.HEALTH_PROFILE write authorization on every request. Replace full_name, date_of_birth, and gender; do not modify conditions, role or consent. The optional email field, when present, immediately updates the login email of the authenticated Supabase Auth user and the matching users.email value. Omission preserves the current email; null is invalid. The profile operation does not send OTP. The existing OTP login flow subsequently sends codes to the new email, and the same user_id remains in use. Return a generic conflict if the address is unavailable; never reveal another account. Trim full_name, reject whitespace-only names. Trim and lowercase gender using the existing accepted values. Validate DOB against today's date in Asia/Ho_Chi_Minh; today is allowed. Persist minimal audit metadata durably before acknowledging the transaction; audit failure must not be reported as success. Audit must not contain email or request payload. No offline queue or idempotency key is introduced; repeated PUT rechecks consent and may create another audit event. Concurrent PUTs use the last committed update. No response body on success; client may GET /profile to refresh the current email. Do not send user_id or patient_id query selectors: their presence returns 422 profile_is_self_only. Admin status grants no health-profile access; PEP denial returns 403 (including consent_revoked).\n\nContact/identification phone only, not a verified login identifier. Does not change Supabase Auth or send SMS/OTP. Local numbers starting with 0 are normalized to +84; E.164 is accepted. Omit to preserve the current phone; null and empty values are invalid. Invalid phone returns 422 invalid_phone. The existing unique phone constraint is retained; an unavailable phone returns 409 phone_change_unavailable without identifying another account. Audit must not contain phone numbers. Phone normalization trims surrounding whitespace, removes ASCII spaces and hyphens, and replaces one leading 0 with +84. The resulting value must match ^\\+[1-9][0-9]{7,14}$ (8 to 15 ASCII digits after +). Whitespace-only and NUL-containing values are invalid. When email is omitted, phone-only changes leave both the login email and Auth identity unchanged. The contact phone is stored only in public.users.phone_number, not auth.users.phone. On a concurrent collision the unique constraint permits at most one account to save the number; the conflicting request must roll back all profile changes. Retrying the same phone preserves the final value but rechecks authorization and writes audit metadata on every request.",
+         "security": [
+           {
+             "bearerAuth": []
+@@ -6152,6 +6154,14 @@
+                     "gender": "nam",
+                     "email": "hoa.new@example.com"
+                   }
++                },
++                "withContactPhone": {
++                  "value": {
++                    "full_name": "Nguyen Van A",
++                    "date_of_birth": "1990-05-20",
++                    "gender": "nam",
++                    "phone_number": "0912345678"
++                  }
+                 }
+               }
+             }
+@@ -6168,20 +6178,98 @@
+             "$ref": "#/components/responses/ProfileForbidden"
+           },
+           "409": {
+-            "description": "The requested email is unavailable or belongs to another account; no profile or login email is changed. The response does not reveal the other account.",
++            "description": "The requested email or contact phone is unavailable. No profile change is committed; never reveal the account that owns the identifier. Phone-only changes do not modify Auth.",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "$ref": "#/components/schemas/ErrorDetail"
+                 },
+-                "example": {
+-                  "detail": "email_change_unavailable"
++                "examples": {
++                  "emailUnavailable": {
++                    "value": {
++                      "detail": "email_change_unavailable"
++                    }
++                  },
++                  "phoneUnavailable": {
++                    "value": {
++                      "detail": "phone_change_unavailable"
++                    }
++                  }
+                 }
+               }
+             }
+           },
+           "422": {
+-            "$ref": "#/components/responses/ProfileValidationError"
++            "description": "Invalid request/path/query. Domain errors use detail as a string; HTTP input validation uses detail as an array. Codes include invalid_full_name, invalid_date_of_birth, invalid_gender, condition_not_found and empty_condition_update. date_of_birth must be an ISO date no later than today in Asia/Ho_Chi_Minh. Unknown body fields are rejected. No business mutation is committed. A user_id or patient_id query selector on /profile or /profile/conditions routes returns 422 profile_is_self_only. Text metadata and full_name cannot contain NUL. An invalid supplied login email returns invalid_email. Contact phone null, empty or invalid type returns ValidationError; invalid normalized format returns invalid_phone. No changes are committed.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "oneOf": [
++                    {
++                      "$ref": "#/components/schemas/ValidationError"
++                    },
++                    {
++                      "$ref": "#/components/schemas/ErrorDetail"
++                    }
++                  ]
++                },
++                "examples": {
++                  "emptyName": {
++                    "value": {
++                      "detail": "invalid_full_name"
++                    }
++                  },
++                  "futureDob": {
++                    "value": {
++                      "detail": "invalid_date_of_birth"
++                    }
++                  },
++                  "missingCondition": {
++                    "value": {
++                      "detail": "condition_not_found"
++                    }
++                  },
++                  "emptyPatch": {
++                    "value": {
++                      "detail": "empty_condition_update"
++                    }
++                  },
++                  "invalidInput": {
++                    "value": {
++                      "detail": [
++                        {
++                          "loc": [
++                            "body",
++                            "condition_id"
++                          ],
++                          "msg": "Input should be greater than or equal to 1",
++                          "type": "greater_than_equal",
++                          "input": 0,
++                          "ctx": {
++                            "ge": 1
++                          }
++                        }
++                      ]
++                    }
++                  },
++                  "selfOnly": {
++                    "value": {
++                      "detail": "profile_is_self_only"
++                    }
++                  },
++                  "invalidEmail": {
++                    "value": {
++                      "detail": "invalid_email"
++                    }
++                  },
++                  "invalidPhone": {
++                    "value": {
++                      "detail": "invalid_phone"
++                    }
++                  }
++                }
++              }
++            }
+           },
+           "503": {
+             "description": "Supabase Auth is unavailable or could not update the login email; the request is not reported as successful.",
+@@ -9825,6 +9913,12 @@
+             "minLength": 3,
+             "maxLength": 254,
+             "description": "Optional login email change. Omitted preserves the current email; a valid string is trimmed/lowercased and immediately updates the authenticated account's login email. Null is invalid. Profile update does not send OTP; the existing OTP login flow uses the new email afterward."
++          },
++          "phone_number": {
++            "type": "string",
++            "minLength": 1,
++            "maxLength": 64,
++            "description": "Contact/identification phone only, not a verified login identifier. Does not change Supabase Auth or send SMS/OTP. Local numbers starting with 0 are normalized to +84; E.164 is accepted. Omit to preserve the current phone; null and empty values are invalid. Raw input is limited to 64 characters. After normalization the value must match ^\\+[1-9][0-9]{7,14}$ (8 to 15 ASCII digits after +). Spaces and hyphens are removed; whitespace-only or NUL-containing input is rejected."
+           }
+         }
+       },
+@@ -9836,7 +9930,8 @@
+           "date_of_birth",
+           "gender",
+           "email",
+-          "conditions"
++          "conditions",
++          "phone_number"
+         ],
+         "properties": {
+           "full_name": {
+@@ -9879,6 +9974,13 @@
+               "$ref": "#/components/schemas/UserConditionResponse"
+             },
+             "description": "Own condition links, id ASC; empty array if none."
++          },
++          "phone_number": {
++            "type": [
++              "string",
++              "null"
++            ],
++            "description": "Own contact phone in E.164, null if not provided. Not verified by SMS."
+           }
+         }
+       },

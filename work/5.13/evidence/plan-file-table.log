@@ -1,0 +1,26 @@
+Plan scope entries: 25
+backend/supabase/migrations/*_linked_patient_access_scope.sql
+backend/supabase/migrations/*_linked_patient_request_audit.sql
+backend/src/drugtime/modules/family/application/ports.py
+backend/src/drugtime/modules/family/adapters/outbound/sql_links.py
+backend/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
+backend/src/drugtime/modules/family/api.py
+backend/src/drugtime/modules/access/domain/rules.py
+backend/src/drugtime/modules/access/application/authorize.py
+backend/src/drugtime/modules/access/application/ports.py
+backend/src/drugtime/modules/access/application/list_linked_patients.py
+backend/src/drugtime/modules/access/adapters/outbound/linked_patients_gateway.py
+backend/src/drugtime/modules/access/adapters/inbound/linked_patients_http.py
+backend/src/drugtime/modules/access/api.py
+backend/src/drugtime/main.py
+backend/tests/unit/test_access_rules.py
+backend/tests/unit/test_access_authorize.py
+backend/tests/unit/test_sql_family_links.py
+backend/tests/unit/test_linked_patients.py
+backend/tests/unit/test_linked_patients_http.py
+backend/tests/unit/test_linked_patients_gateway.py
+backend/tests/unit/test_contract_linked_patients.py
+backend/tests/architecture/test_health_route_enforcement.py
+backend/tests/integration/test_linked_patients_api.py
+backend/tests/integration/test_linked_patients_fail_closed.py
+backend/tests/integration/test_migration_linked_patients.py

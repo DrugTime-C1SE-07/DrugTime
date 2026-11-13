@@ -1,0 +1,663 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "LINKPAT",
+      "name": "Danh sách bệnh nhân được theo dõi",
+      "sheet": "DS bệnh nhân liên kết",
+      "description": "GET /family/patients: danh sách chọn bệnh nhân theo quyền hiện hành, PEP và audit.",
+      "created_by": "Bao Nguyen",
+      "created_date": "2026-11-10",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "75 integration tests task pass; full suite/baseline được ghi riêng trong test report.",
+      "ep": [
+        {
+          "field": "Token",
+          "valid": [
+            "app session user cá nhân"
+          ],
+          "invalid": [
+            "thiếu",
+            "sai",
+            "hết hạn",
+            "user erased"
+          ]
+        },
+        {
+          "field": "Liên kết",
+          "valid": [
+            "active có bằng chứng"
+          ],
+          "invalid": [
+            "pending",
+            "rejected",
+            "revoked",
+            "legacy thiếu bằng chứng",
+            "của caller khác"
+          ]
+        },
+        {
+          "field": "Sharing",
+          "valid": [
+            "bật"
+          ],
+          "invalid": [
+            "tắt"
+          ]
+        },
+        {
+          "field": "Consent patient",
+          "valid": [
+            "cả health_data và family_sharing"
+          ],
+          "invalid": [
+            "thiếu health_data",
+            "thiếu family_sharing"
+          ]
+        },
+        {
+          "field": "Query/body",
+          "valid": [
+            "không gửi"
+          ],
+          "invalid": [
+            "query bất kỳ",
+            "body bất kỳ"
+          ]
+        },
+        {
+          "field": "Tên",
+          "valid": [
+            "Unicode",
+            "trùng",
+            "null",
+            "chỉ khoảng trắng"
+          ],
+          "invalid": []
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền liệt kê bệnh nhân",
+          "conditions": [
+            {
+              "name": "Token hợp lệ?",
+              "values": [
+                "Y",
+                "Y",
+                "Y",
+                "Y",
+                "Y",
+                "Y",
+                "Y",
+                "N"
+              ]
+            },
+            {
+              "name": "Caller là admin?",
+              "values": [
+                "N",
+                "N",
+                "N",
+                "N",
+                "N",
+                "N",
+                "Y",
+                "-"
+              ]
+            },
+            {
+              "name": "Có liên kết đúng caller?",
+              "values": [
+                "Y",
+                "N",
+                "Y",
+                "Y",
+                "Y",
+                "Y",
+                "-",
+                "-"
+              ]
+            },
+            {
+              "name": "Liên kết hợp lệ active?",
+              "values": [
+                "Y",
+                "-",
+                "N",
+                "Y",
+                "Y",
+                "Y",
+                "-",
+                "-"
+              ]
+            },
+            {
+              "name": "Sharing bật?",
+              "values": [
+                "Y",
+                "-",
+                "-",
+                "N",
+                "Y",
+                "Y",
+                "-",
+                "-"
+              ]
+            },
+            {
+              "name": "health_data còn?",
+              "values": [
+                "Y",
+                "-",
+                "-",
+                "-",
+                "N",
+                "Y",
+                "-",
+                "-"
+              ]
+            },
+            {
+              "name": "family_sharing còn?",
+              "values": [
+                "Y",
+                "-",
+                "-",
+                "-",
+                "Y",
+                "N",
+                "-",
+                "-"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "200 gồm patient",
+              "rules": [
+                1
+              ]
+            },
+            {
+              "name": "200 loại patient/empty",
+              "rules": [
+                2,
+                3,
+                4,
+                5,
+                6
+              ]
+            },
+            {
+              "name": "403 và request denied",
+              "rules": [
+                7
+              ]
+            },
+            {
+              "name": "401",
+              "rules": [
+                8
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-LINKPAT-01",
+          "description": "Liệt kê nhiều bệnh nhân có quyền và tên trùng",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A không có consent riêng; P1=' An ', P2='An', P3=null; cả 3 đủ active/sharing/hai consent.",
+          "expected": "200; đúng 3 patient_id khác nhau, chỉ ID/tên; 3 allowed đúng actor/subject/scope; không thêm request audit.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200; đúng 3 patient_id khác nhau, chỉ ID/tên; 3 allowed đúng actor/subject/scope; không thêm request audit.",
+          "status": "Pass",
+          "comments": "AC1, AC8, AC10 · EP (1,2,3,4,5,7) · Decision Table (R1) · BVA (nhiều) · test_linked_patients_api.py::test_returns_multiple_patients_with_minimal_fields_and_allowed_logs__AC1_AC8_AC10 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-02",
+          "description": "Trả tên null mà không lộ thông tin liên lạc",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "P3.full_name=null; P3 đủ quyền.",
+          "expected": "P3 vẫn xuất hiện, patient_full_name=null; không có email, số điện thoại hoặc hồ sơ.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: P3 vẫn xuất hiện, patient_full_name=null; không có email, số điện thoại hoặc hồ sơ.",
+          "status": "Pass",
+          "comments": "AC8 · EP (8) · test_linked_patients_api.py::test_returns_multiple_patients_with_minimal_fields_and_allowed_logs__AC1_AC8_AC10 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-03",
+          "description": "Trả danh sách rỗng với audit mức request",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A chưa có bệnh nhân liên kết.",
+          "expected": "200 items=[]; đúng 1 request audit allowed, subject/link null; không có access_logs patient giả.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 items=[]; đúng 1 request audit allowed, subject/link null; không có access_logs patient giả.",
+          "status": "Pass",
+          "comments": "AC2, AC11 · BVA (0) · test_linked_patients_api.py::test_empty_list_and_admin_denial_durable_request_audit__AC2_AC4_AC6_AC11[False] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-04",
+          "description": "Loại bệnh nhân pending",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: pending",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (14) · Decision Table (R3) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[pending] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-05",
+          "description": "Loại bệnh nhân rejected",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: rejected",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (15) · Decision Table (R3) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[rejected] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-06",
+          "description": "Loại bệnh nhân revoked",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: revoked",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (16) · Decision Table (R3) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[revoked] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-07",
+          "description": "Loại bệnh nhân active nhưng sharing_enabled=false",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: active nhưng sharing_enabled=false",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (19) · Decision Table (R4) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[unshared] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-08",
+          "description": "Loại bệnh nhân family_sharing có, health_data thiếu",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: family_sharing có, health_data thiếu",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC9 · EP (20) · Decision Table (R5) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[no_health] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-09",
+          "description": "Loại bệnh nhân health_data có, family_sharing thiếu",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: health_data có, family_sharing thiếu",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (21) · Decision Table (R6) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[no_family] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-10",
+          "description": "Loại bệnh nhân P liên kết với user B, không liên kết A",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: P liên kết với user B, không liên kết A",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (18) · Decision Table (R2) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[unrelated] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-11",
+          "description": "Loại bệnh nhân active/sharing nhưng thiếu bằng chứng xác nhận đúng cặp",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A có P_good đủ quyền; P_other: active/sharing nhưng thiếu bằng chứng xác nhận đúng cặp",
+          "expected": "200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200 chỉ có P_good; P_other không xuất hiện và không phát sinh denied chỉ vì bị lọc.",
+          "status": "Pass",
+          "comments": "AC7 · EP (17) · Decision Table (R3) · test_linked_patients_api.py::test_filters_unrelated_inactive_unshared_and_missing_consents__AC2_AC7_AC9[legacy] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-12",
+          "description": "Áp dụng thu hồi sharing ngay với cùng token",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P đủ bốn điều kiện; gọi GET /family/patients, giữ nguyên token.",
+            "Tắt sharing, rút consent hoặc revoke liên kết theo Test Data.",
+            "Gọi lại ngay với token cũ; đối chiếu response và audit, sau đó kiểm trạng thái khôi phục trong test."
+          ],
+          "data": "A đã xem P; thay đổi sharing",
+          "expected": "Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "status": "Pass",
+          "comments": "AC3, AC7, AC9 · State transition (được xem → không được xem) · test_linked_patients_api.py::test_revocation_applies_next_request_with_same_token__AC3_AC7_AC9[sharing] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-13",
+          "description": "Áp dụng thu hồi health_data ngay với cùng token",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P đủ bốn điều kiện; gọi GET /family/patients, giữ nguyên token.",
+            "Tắt sharing, rút consent hoặc revoke liên kết theo Test Data.",
+            "Gọi lại ngay với token cũ; đối chiếu response và audit, sau đó kiểm trạng thái khôi phục trong test."
+          ],
+          "data": "A đã xem P; thay đổi health_data",
+          "expected": "Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "status": "Pass",
+          "comments": "AC3, AC7, AC9 · State transition (được xem → không được xem) · test_linked_patients_api.py::test_revocation_applies_next_request_with_same_token__AC3_AC7_AC9[health_data] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-14",
+          "description": "Áp dụng thu hồi family_sharing ngay với cùng token",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P đủ bốn điều kiện; gọi GET /family/patients, giữ nguyên token.",
+            "Tắt sharing, rút consent hoặc revoke liên kết theo Test Data.",
+            "Gọi lại ngay với token cũ; đối chiếu response và audit, sau đó kiểm trạng thái khôi phục trong test."
+          ],
+          "data": "A đã xem P; thay đổi family_sharing",
+          "expected": "Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "status": "Pass",
+          "comments": "AC3, AC7, AC9 · State transition (được xem → không được xem) · test_linked_patients_api.py::test_revocation_applies_next_request_with_same_token__AC3_AC7_AC9[family_sharing] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-15",
+          "description": "Áp dụng thu hồi revoke ngay với cùng token",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P đủ bốn điều kiện; gọi GET /family/patients, giữ nguyên token.",
+            "Tắt sharing, rút consent hoặc revoke liên kết theo Test Data.",
+            "Gọi lại ngay với token cũ; đối chiếu response và audit, sau đó kiểm trạng thái khôi phục trong test."
+          ],
+          "data": "A đã xem P; thay đổi revoke",
+          "expected": "Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Request ngay tiếp theo với cùng token trả items=[]; không thêm allowed cho P; có audit empty-list. Liên kết lại chưa bật sharing vẫn bị loại.",
+          "status": "Pass",
+          "comments": "AC3, AC7, AC9 · State transition (được xem → không được xem) · test_linked_patients_api.py::test_revocation_applies_next_request_with_same_token__AC3_AC7_AC9[revoke] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-16",
+          "description": "Từ chối admin và giữ denied sau rollback",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A.system_role=admin, có hoặc không liên kết với P.",
+          "expected": "403 detail=khong_co_quyen; request denied bền vững với subject/link null; không có access_logs patient.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 403 detail=khong_co_quyen; request denied bền vững với subject/link null; không có access_logs patient.",
+          "status": "Pass",
+          "comments": "AC4, AC6, AC11 · Decision Table (R7) · test_linked_patients_api.py::test_empty_list_and_admin_denial_durable_request_audit__AC2_AC4_AC6_AC11[True] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-17",
+          "description": "Từ chối token thiếu, sai, hết hạn hoặc user đã xóa",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "Authorization=(blank)/Bearer invalid; token app cấp 2000-01-01; token của user erased.",
+          "expected": "401, không có danh sách; có Cache-Control: no-store.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 401, không có danh sách; có Cache-Control: no-store.",
+          "status": "Pass",
+          "comments": "AC4 · EP (10,11,12,13) · Decision Table (R8) · test_linked_patients_api.py::test_missing_invalid_and_deleted_token__AC4 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-18",
+          "description": "Từ chối query/selector không được đặc tả",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "?patient_id=x, ?user_id=x, ?limit=1, ?cursor=x, ?x=1&x=2",
+          "expected": "422 detail là mảng ValidationError; Cache-Control: no-store; không chọn patient theo input.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 422 detail là mảng ValidationError; Cache-Control: no-store; không chọn patient theo input.",
+          "status": "Pass",
+          "comments": "AC4, AC8 · EP (22) · test_linked_patients_api.py::test_rejects_selectors_and_body_and_returns_no_store__AC4_AC8 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-19",
+          "description": "Từ chối body không được đặc tả",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "Body={} hoặc null",
+          "expected": "422 detail là mảng ValidationError; Cache-Control: no-store; không chọn patient theo input.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 422 detail là mảng ValidationError; Cache-Control: no-store; không chọn patient theo input.",
+          "status": "Pass",
+          "comments": "AC4, AC8 · EP (23) · test_linked_patients_api.py::test_rejects_selectors_and_body_and_returns_no_store__AC4_AC8 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-20",
+          "description": "Chặn trả dữ liệu khi lỗi audit second_insert",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P1/P2 đủ quyền trên DB local.",
+            "Chạy test tự động inject lỗi ghi allowed thứ hai hoặc trước commit transaction.",
+            "Kiểm HTTP 503/no-store và truy vấn access_logs theo A từ connection khác."
+          ],
+          "data": "A có P1/P2 đủ quyền; inject SQLAlchemyError ở second_insert",
+          "expected": "503 detail=service_unavailable, không có danh sách một phần; không allowed nào của request được commit.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 503 detail=service_unavailable, không có danh sách một phần; không allowed nào của request được commit.",
+          "status": "Pass",
+          "comments": "AC5, AC10, AC14 · Error guessing (audit/transaction failure) · test_linked_patients_fail_closed.py::test_audit_insert_or_commit_failure_never_returns_partial_list__AC5_AC10_AC14[second_insert] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-21",
+          "description": "Chặn trả dữ liệu khi lỗi audit commit",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo A liên kết P1/P2 đủ quyền trên DB local.",
+            "Chạy test tự động inject lỗi ghi allowed thứ hai hoặc trước commit transaction.",
+            "Kiểm HTTP 503/no-store và truy vấn access_logs theo A từ connection khác."
+          ],
+          "data": "A có P1/P2 đủ quyền; inject SQLAlchemyError ở commit",
+          "expected": "503 detail=service_unavailable, không có danh sách một phần; không allowed nào của request được commit.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 503 detail=service_unavailable, không có danh sách một phần; không allowed nào của request được commit.",
+          "status": "Pass",
+          "comments": "AC5, AC10, AC14 · Error guessing (audit/transaction failure) · test_linked_patients_fail_closed.py::test_audit_insert_or_commit_failure_never_returns_partial_list__AC5_AC10_AC14[commit] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-22",
+          "description": "Chặn request khi audit empty-list lỗi",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A là user chưa có patient; writer audit bị lỗi SQL.",
+          "expected": "503 detail=service_unavailable; không trả thành công và không tạo audit giả.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 503 detail=service_unavailable; không trả thành công và không tạo audit giả.",
+          "status": "Pass",
+          "comments": "AC5, AC6, AC11 · Error guessing (request audit unavailable) · test_linked_patients_fail_closed.py::test_empty_or_denied_audit_failure_returns_503__AC5_AC6_AC11[False] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-23",
+          "description": "Chặn request khi audit denied lỗi",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A là admin; writer audit bị lỗi SQL.",
+          "expected": "503 detail=service_unavailable; không trả thành công và không tạo audit giả.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 503 detail=service_unavailable; không trả thành công và không tạo audit giả.",
+          "status": "Pass",
+          "comments": "AC5, AC6, AC11 · Error guessing (request audit unavailable) · test_linked_patients_fail_closed.py::test_empty_or_denied_audit_failure_returns_503__AC5_AC6_AC11[True] · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-24",
+          "description": "Chặn request khi DB hoặc PEP đọc lỗi",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "A liên kết P; inject SQLAlchemyError ở candidate reader hoặc facts reader.",
+          "expected": "503; không có dữ liệu danh sách và không có allowed audit đã commit.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 503; không có dữ liệu danh sách và không có allowed audit đã commit.",
+          "status": "Pass",
+          "comments": "AC5 · Error guessing (DB/PEP read failure) · test_linked_patients_fail_closed.py::test_database_or_pep_read_failure_returns_503__AC5 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-25",
+          "description": "Nhận scope mới và giữ mọi scope audit cũ",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "5 scope cũ và danh_sach_benh_nhan_lien_ket; request event allowed/denied không có subject.",
+          "expected": "DB nhận đủ 6 scope và cả hai request-level event hợp lệ.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: DB nhận đủ 6 scope và cả hai request-level event hợp lệ.",
+          "status": "Pass",
+          "comments": "AC10, AC11, AC12 · EP (schema hợp lệ) · test_migration_linked_patients.py::test_new_scope_and_request_operation_accepted__AC10_AC11_AC12 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-26",
+          "description": "Giữ nguyên audit cũ khi nâng cấp ràng buộc",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "Bảng fixture tạm theo schema audit cũ có list_caregivers allowed.",
+          "expected": "Áp DDL migration mới vào bảng fixture; snapshot các dòng cũ trước/sau bằng nhau.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Áp DDL migration mới vào bảng fixture; snapshot các dòng cũ trước/sau bằng nhau.",
+          "status": "Pass",
+          "comments": "AC12 · State transition (schema cũ → mới) · test_migration_linked_patients.py::test_old_constraints_and_records_preserved_after_upgrade__AC12 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-27",
+          "description": "Chặn sửa, xóa và truncate nhật ký với mọi role",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "2 bảng access_logs/family_link_audit_events × 6 role × UPDATE/DELETE/TRUNCATE.",
+          "expected": "Cả 36 tổ hợp bị DB chặn bởi quyền hoặc trigger; rollback test không xóa dữ liệu audit thật.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Cả 36 tổ hợp bị DB chặn bởi quyền hoặc trigger; rollback test không xóa dữ liệu audit thật.",
+          "status": "Pass",
+          "comments": "AC13 · Security (append-only) · test_migration_linked_patients.py::test_audit_remains_append_only_for_all_roles__AC13 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-28",
+          "description": "Giữ quyền DB tối thiểu và RLS",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "api_role, worker_role, anon, authenticated; hai bảng audit.",
+          "expected": "api_role insert request audit được; worker/anon/authenticated không có insert mới; hai bảng vẫn bật RLS.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: api_role insert request audit được; worker/anon/authenticated không có insert mới; hai bảng vẫn bật RLS.",
+          "status": "Pass",
+          "comments": "AC13 · Security (least privilege) · test_migration_linked_patients.py::test_minimal_grants_and_request_subject_constraints__AC13 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-29",
+          "description": "Từ chối tổ hợp audit sai operation, subject, link, reason",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "6 tổ hợp sai: list mới có subject/link; operation cũ thiếu subject/link; operation lạ; allowed có reason.",
+          "expected": "Cả 6 trường hợp bị CHECK constraint chặn, không nới operation cũ.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: Cả 6 trường hợp bị CHECK constraint chặn, không nới operation cũ.",
+          "status": "Pass",
+          "comments": "AC11, AC12 · Decision Table (audit constraints) · test_migration_linked_patients.py::test_request_subject_constraints__AC11_AC12 · evidence/test-task-final.log"
+        },
+        {
+          "id": "TC-LINKPAT-30",
+          "description": "Sắp tên Unicode và chuẩn hóa tên trắng",
+          "precondition": "DB Supabase local đã áp migration 5.13; có phiên app của user A.",
+          "steps": [
+            "Tạo dữ liệu thử theo Test Data bằng fixture hoặc công cụ quản trị local.",
+            "Gửi GET /family/patients với Authorization: Bearer <app session của A>.",
+            "Đối chiếu response và audit DB của actor A với Expected Result."
+          ],
+          "data": "P1=Án, P2=an, P3=' An ', P4=' ', P5=💊.",
+          "expected": "200; thứ tự An, an, Án, 💊, null; giữ đủ UUID của 5 bệnh nhân.",
+          "actual": "Đã chạy test tự động trên Postgres thật, đạt các assertion: 200; thứ tự An, an, Án, 💊, null; giữ đủ UUID của 5 bệnh nhân.",
+          "status": "Pass",
+          "comments": "AC1, AC8 · EP (6,9) · BVA (tên rỗng/1 ký tự) · test_linked_patients_api.py::test_unicode_blank_name_order_is_stable__AC1_AC8 · evidence/test-task-final.log"
+        }
+      ]
+    }
+  ]
+}

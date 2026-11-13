@@ -1,0 +1,24 @@
+E501 Line too long (112 > 100)
+  --> tests\unit\test_linked_patients_gateway.py:56:101
+   |
+55 |     uow, caller, patient = object(), uuid4(), uuid4()
+56 |     ids, names, empty, denied = Mock(return_value=[patient]), Mock(return_value={patient: None}), Mock(), Mock()
+   |                                                                                                     ^^^^^^^^^^^^
+57 |     monkeypatch.setattr(gateway.family, "sharing_patient_ids", ids)
+58 |     monkeypatch.setattr(gateway.identity, "display_names", names)
+   |
+
+E501 Line too long (103 > 100)
+   --> tests\unit\test_linked_patients_http.py:152:101
+    |
+150 |             assert response.status_code == 401
+151 |             assert response.headers["cache-control"] == "no-store"
+152 |         response = harness.client.get("/family/patients", headers={"Authorization": "Bearer " + token})
+    |                                                                                                     ^^^
+153 |         assert response.status_code == 200
+154 |     finally:
+    |
+
+Found 3 errors (1 fixed, 2 remaining).
+8 files reformatted, 12 files left unchanged
+All checks passed!
