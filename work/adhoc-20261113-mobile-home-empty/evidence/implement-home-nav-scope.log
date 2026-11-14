@@ -1,0 +1,37 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261113-mobile-home-empty:
+  [OK]        frontend/mobile/assets/fonts/Inter-Bold.ttf
+  [OK]        frontend/mobile/assets/fonts/Inter-Medium.ttf
+  [OK]        frontend/mobile/assets/fonts/Inter-Regular.ttf
+  [OK]        frontend/mobile/assets/fonts/Inter-SemiBold.ttf
+  [OK]        frontend/mobile/assets/fonts/OFL-Inter.txt
+  [OK]        frontend/mobile/assets/icons/home/banner.svg
+  [OK]        frontend/mobile/assets/icons/home/capsule.svg
+  [OK]        frontend/mobile/assets/icons/home/empty-art.svg
+  [OK]        frontend/mobile/assets/icons/home/scan.svg
+  [OK]        frontend/mobile/assets/icons/home/sun.svg
+  [OK]        frontend/mobile/assets/icons/navigation/LICENSE-Lucide.txt
+  [OK]        frontend/mobile/assets/icons/navigation/calendar-clock-filled.svg
+  [OK]        frontend/mobile/assets/icons/navigation/calendar-clock-outline.svg
+  [OK]        frontend/mobile/assets/icons/navigation/house-filled.svg
+  [OK]        frontend/mobile/assets/icons/navigation/house-outline.svg
+  [OK]        frontend/mobile/assets/icons/navigation/pill-filled.svg
+  [OK]        frontend/mobile/assets/icons/navigation/pill-outline.svg
+  [OK]        frontend/mobile/assets/icons/navigation/user-filled.svg
+  [OK]        frontend/mobile/assets/icons/navigation/user-outline.svg
+  [OK]        frontend/mobile/assets/icons/navigation/users-outline.svg
+  [OK]        frontend/mobile/assets/icons/welcome/alert-triangle.svg
+  [OK]        frontend/mobile/assets/icons/welcome/bell.svg
+  [OK]        frontend/mobile/assets/icons/welcome/users.svg
+  [OK]        frontend/mobile/lib/app/app_shell.dart
+  [OK]        frontend/mobile/lib/app/router.dart
+  [OK]        frontend/mobile/lib/features/auth/presentation/widgets/welcome_onboarding_sheet.dart
+  [OK]        frontend/mobile/lib/features/home/presentation/screens/home_screen.dart
+  [OK]        frontend/mobile/lib/features/home/presentation/widgets/home_navigation_bar.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/state/medication_controller.dart
+  [OK]        frontend/mobile/pubspec.yaml
+  [OK]        frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart
+  [OK]        frontend/mobile/test/features/home/home_screen_test.dart
+  [CHƯA SỬA]  frontend/mobile/test/app/app_shell_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/medication/medication_controller_test.dart  (có trong plan)
+OK: mọi thay đổi nằm trong phạm vi.

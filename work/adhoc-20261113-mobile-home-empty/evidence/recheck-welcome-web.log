@@ -1,0 +1,8 @@
+Launching D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/recheck_welcome_preview.dart on Web Server in debug mode...
+Waiting for connection from debug service on Web Server...      
+lib/features/medication_capture/domain/ocr_models.dart:111:37: Error: The integer literal 9223372036854775807 can't be represented exactly in JavaScript.
+Try changing the literal to something that can be represented in JavaScript. In JavaScript 9223372036854775808 is the nearest value that can be represented exactly.
+      if (v is! int || v < 1 || v > 9223372036854775807) bad();
+                                    ^^^^^^^^^^^^^^^^^^^
+Waiting for connection from debug service on Web Server...         70.4s
+Failed to compile application.

@@ -1,0 +1,8 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/home_acceptance_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 01 renders unobscured empty Home at 375 x 812 (variant: TargetPlatform.iOS)
+00:05 +1: 05 Home retries after initial load failure
+00:08 +2: 06 Home updates after returning from add with a populated repository
+00:10 +3: 14 empty Home tabs return and Family shortcut opens Family
+00:16 +4: (tearDownAll)
+00:16 +4: All tests passed!

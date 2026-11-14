@@ -1,0 +1,250 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "HOMEEMPTY",
+      "name": "Trang chủ trống và popup chào mừng",
+      "sheet": "Trang chủ trống",
+      "description": "S05-empty, điều hướng và popup chào mừng",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-11-14",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Medium",
+      "remarks": "Navbar và biểu tượng quét đạt trên fixture iOS. Đối chiếu toàn màn còn khác kiểu chữ và một số biểu tượng. Camera, lưu qua form và cử chỉ thật còn chờ.",
+      "cases": [
+        {
+          "id": "TC-HOMEEMPTY-01",
+          "description": "Kiểm bố cục Trang chủ theo Figma",
+          "precondition": "Danh sách thuốc rỗng đã tải",
+          "steps": [
+            "Mở Trang chủ",
+            "So banner, ba thẻ, mascot, bóng và navbar với Figma"
+          ],
+          "data": "375 × 812",
+          "expected": "Bố cục và các thành phần khớp Figma",
+          "actual": "Navbar đã ở y734 và biểu tượng quét đã có bốn góc cùng nét ngang. Mẫu Figma vẫn có chữ CTA đậm hơn và biểu tượng chuông, Hồ sơ khác ảnh Flutter. Fixture không có thanh hệ thống iOS.",
+          "status": "Fail",
+          "comments": "AC1 · Kiểm trực quan",
+          "severity": "Low",
+          "root_cause": "Các CTA dùng kiểu chữ từ theme Flutter. Biểu tượng chuông và Hồ sơ còn khác mẫu Figma.",
+          "evidence": "evidence/test-home-nav-comparison.png"
+        },
+        {
+          "id": "TC-HOMEEMPTY-02",
+          "description": "Kiểm hình học popup đã mở",
+          "precondition": "Trang chủ trống",
+          "steps": [
+            "Chạm Bắt đầu nào!",
+            "Đối chiếu vị trí mép trên, nút và góc"
+          ],
+          "data": "375 × 812, inset dưới 34 dp",
+          "expected": "Mép trên y332, hai góc trên bo 24 dp và nền phủ kín hai góc dưới tới y812. Hai nút nằm trong vùng an toàn",
+          "actual": "Mép trên y332, hai góc trên bo 24 dp và nền phủ kín hai góc dưới tới y812. Hai nút nằm trong vùng an toàn. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC1 · matches_figma_geometry_on_reference_viewport"
+        },
+        {
+          "id": "TC-HOMEEMPTY-03",
+          "description": "Kiểm chỉ hiện màn trống sau tải",
+          "precondition": "Fixture thuốc rỗng",
+          "steps": [
+            "Mở Trang chủ trước khi tải",
+            "Hoàn thành tải danh sách rỗng"
+          ],
+          "data": "Danh sách []",
+          "expected": "Chỉ hiện Chưa có lịch uống thuốc sau khi tải thành công",
+          "actual": "Chỉ hiện Chưa có lịch uống thuốc sau khi tải thành công. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC2 · Empty home waits for data and opens the welcome popup"
+        },
+        {
+          "id": "TC-HOMEEMPTY-04",
+          "description": "Kiểm controller khi tải thất bại",
+          "precondition": "Danh sách cũ đã có thuốc",
+          "steps": [
+            "Mô phỏng repository lỗi",
+            "Yêu cầu tải lại"
+          ],
+          "data": "Fixture đã có dữ liệu",
+          "expected": "Có loadError và giữ dữ liệu cũ",
+          "actual": "Có loadError và giữ dữ liệu cũ. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC2 · load lỗi đặt loadError và giữ danh sách cũ"
+        },
+        {
+          "id": "TC-HOMEEMPTY-05",
+          "description": "Kiểm lỗi tải trên Trang chủ",
+          "precondition": "Ứng dụng có thể mô phỏng lỗi mạng",
+          "steps": [
+            "Mở Trang chủ khi request lỗi",
+            "Quan sát giao diện",
+            "Bấm thử lại"
+          ],
+          "data": "Lỗi mạng rồi kết nối lại",
+          "expected": "Hiển thị lỗi, không hiện sai trạng thái trống và có thể thử lại",
+          "actual": "Fixture lỗi mạng hiển thị Thử lại. Khi phục hồi, nhấn thử lại hiển thị trạng thái trống. Log evidence/test-home-acceptance.log.",
+          "status": "Pass",
+          "comments": "AC2 · Chuyển trạng thái"
+        },
+        {
+          "id": "TC-HOMEEMPTY-06",
+          "description": "Kiểm Trang chủ sau khi thêm thuốc",
+          "precondition": "Trang chủ trống",
+          "steps": [
+            "Thêm thuốc",
+            "Lưu",
+            "Trở về Trang chủ"
+          ],
+          "data": "Một thuốc hợp lệ",
+          "expected": "Trang chủ cập nhật danh sách và bỏ trạng thái trống",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC2 · Chuyển trạng thái · Fixture đã xác nhận quay về sau khi lưu qua controller. Thao tác lưu qua form còn Pending. Log evidence/test-home-acceptance.log."
+        },
+        {
+          "id": "TC-HOMEEMPTY-07",
+          "description": "Mở popup rồi trở về Trang chủ",
+          "precondition": "Trang chủ trống đã tải",
+          "steps": [
+            "Chạm Bắt đầu nào!",
+            "Chạm Để sau"
+          ],
+          "data": "Fixture rỗng",
+          "expected": "Popup mở và Để sau trả về cùng Trang chủ",
+          "actual": "Popup mở và Để sau trả về cùng Trang chủ. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · Empty home waits for data and opens the welcome popup"
+        },
+        {
+          "id": "TC-HOMEEMPTY-08",
+          "description": "Vuốt để đóng popup",
+          "precondition": "Popup đang mở",
+          "steps": [
+            "Vuốt tay nắm xuống rồi thả"
+          ],
+          "data": "360 dp, 900 dp/giây",
+          "expected": "Popup đóng và callback CTA không chạy",
+          "actual": "Popup đóng và callback CTA không chạy. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · later_and_drag_dismiss_without_setup"
+        },
+        {
+          "id": "TC-HOMEEMPTY-09",
+          "description": "Giữ popup khi đang vuốt đóng",
+          "precondition": "Popup đang mở",
+          "steps": [
+            "Vuốt xuống rồi thả",
+            "Giữ tay nắm giữa lúc đang trượt và kéo lên"
+          ],
+          "data": "120 dp, 900 dp/giây, kéo lại sau 40 ms trong test",
+          "expected": "Popup trở về vị trí mở",
+          "actual": "Popup trở về vị trí mở. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · dragging back up interrupts a closing sheet"
+        },
+        {
+          "id": "TC-HOMEEMPTY-10",
+          "description": "Gọi CTA đúng một lần",
+          "precondition": "Popup đang mở",
+          "steps": [
+            "Bấm liên tiếp Thiết lập hồ sơ sức khỏe"
+          ],
+          "data": "Hai lần bấm",
+          "expected": "Popup đóng và callback chỉ chạy một lần",
+          "actual": "Popup đóng và callback chỉ chạy một lần. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · setup_closes_sheet_and_invokes_callback_once"
+        },
+        {
+          "id": "TC-HOMEEMPTY-11",
+          "description": "Kiểm mở và đóng khi bật Giảm chuyển động",
+          "precondition": "Widget mô phỏng hệ thống tắt animation",
+          "steps": [
+            "Mở popup",
+            "Chạm Để sau"
+          ],
+          "data": "disableAnimations = true",
+          "expected": "Popup hiện ở frame đầu và đóng ngay",
+          "actual": "Popup hiện ở frame đầu và đóng ngay. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · reduced_motion_opens_and_closes_without_sliding"
+        },
+        {
+          "id": "TC-HOMEEMPTY-12",
+          "description": "Quét vỏ hộp từ Trang chủ",
+          "precondition": "Điện thoại có camera và quyền truy cập",
+          "steps": [
+            "Chạm Quét vỏ hộp",
+            "Quét ảnh mẫu",
+            "Xác nhận và quan sát form"
+          ],
+          "data": "Hộp thuốc có chữ đọc được",
+          "expected": "Mở camera từ Trang chủ và trả dữ liệu vào form",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC3 · Kiểm camera thật"
+        },
+        {
+          "id": "TC-HOMEEMPTY-13",
+          "description": "Đọc CTA ở màn hẹp và chữ lớn",
+          "precondition": "Popup mở trên viewport nhỏ",
+          "steps": [
+            "Cuộn đến CTA",
+            "Cuộn đến Để sau"
+          ],
+          "data": "320 × 568, chữ 200%",
+          "expected": "Hai nút đều có vùng chạm",
+          "actual": "Hai nút đều có vùng chạm. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC4 · narrow_and_scaled_viewports_keep_actions_reachable"
+        },
+        {
+          "id": "TC-HOMEEMPTY-14",
+          "description": "Đi tới Người thân và đổi tab từ S05-empty",
+          "precondition": "Trang chủ trống trên AppShell",
+          "steps": [
+            "Đổi Thuốc, Lịch nhắc và Hồ sơ",
+            "Trở về Trang chủ",
+            "Mở Người thân và chuông"
+          ],
+          "data": "Fixture đã đăng nhập và tải xong",
+          "expected": "Tới đúng đích, thanh điều hướng và Trang chủ hoạt động",
+          "actual": "Fixture AppShell chuyển qua Thuốc, Lịch nhắc, Hồ sơ, quay lại Trang chủ, mở Người thân và chuông. Log evidence/test-home-acceptance.log.",
+          "status": "Pass",
+          "comments": "AC3–AC4 · Điều hướng thực tế"
+        },
+        {
+          "id": "TC-HOMEEMPTY-15",
+          "description": "Kiểm cử chỉ và vùng an toàn trên điện thoại",
+          "precondition": "Bản Flutter cài trên điện thoại",
+          "steps": [
+            "Mở popup",
+            "Kiểm hai góc dưới vuông và nền phủ đến mép dưới",
+            "Kéo ngược giữa lúc đóng",
+            "Bật Giảm chuyển động và mở lại"
+          ],
+          "data": "iOS có chỉ báo Home hoặc Android điều hướng cử chỉ",
+          "expected": "Góc và nút trong vùng an toàn, cử chỉ mượt, Giảm chuyển động bỏ trượt tự động",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1–AC4 · Kiểm thiết bị thật"
+        },
+        {
+          "id": "TC-HOMEEMPTY-16",
+          "description": "Kéo nhẹ và đóng bằng nút Back",
+          "precondition": "Popup đang mở",
+          "steps": [
+            "Kéo tay nắm xuống 60 dp rồi thả",
+            "Bấm Back"
+          ],
+          "data": "60 dp",
+          "expected": "Popup trở về vị trí mở, Back đóng popup",
+          "actual": "Popup trở về vị trí mở, Back đóng popup. Xác nhận qua widget hoặc unit test trong evidence/test-square-popup-suite.log.",
+          "status": "Pass",
+          "comments": "AC3 · short drag settles open and system back dismisses"
+        }
+      ]
+    }
+  ]
+}

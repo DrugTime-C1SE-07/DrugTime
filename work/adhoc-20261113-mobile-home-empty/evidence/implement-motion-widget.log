@@ -1,0 +1,9 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart: (setUpAll)
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart: matches_figma_geometry_on_reference_viewport
+00:01 +1: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/home/home_screen_test.dart: Empty home waits for data and opens the welcome popup
+00:02 +2: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/home/home_screen_test.dart: Empty home waits for data and opens the welcome popup
+00:02 +3: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/home/home_screen_test.dart: Empty home waits for data and opens the welcome popup
+00:02 +4: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart: narrow_and_scaled_viewports_keep_actions_reachable
+00:02 +5: D:/Captone/DrugTime/work/adhoc-20261113-mobile-home-empty/scratch/checkout/frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart: (tearDownAll)
+00:02 +5: All tests passed!

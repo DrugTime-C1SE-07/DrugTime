@@ -1,0 +1,6 @@
+Analyzing 6 items...                                            
+
+warning - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator - lib\features\home\presentation\screens\home_screen.dart:172:45 - unnecessary_non_null_assertion
+warning - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator - lib\features\home\presentation\screens\home_screen.dart:175:41 - unnecessary_non_null_assertion
+
+2 issues found. (ran in 42.4s)

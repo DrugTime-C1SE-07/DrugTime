@@ -1,0 +1,35 @@
+Phạm vi giai đoạn 'test' của adhoc-20261113-mobile-home-empty:
+  [NGOÀI]     frontend/mobile/assets/fonts/Inter-Bold.ttf
+  [NGOÀI]     frontend/mobile/assets/fonts/Inter-Medium.ttf
+  [NGOÀI]     frontend/mobile/assets/fonts/Inter-Regular.ttf
+  [NGOÀI]     frontend/mobile/assets/fonts/Inter-SemiBold.ttf
+  [NGOÀI]     frontend/mobile/assets/fonts/OFL-Inter.txt
+  [NGOÀI]     frontend/mobile/assets/icons/home/banner.svg
+  [NGOÀI]     frontend/mobile/assets/icons/home/capsule.svg
+  [NGOÀI]     frontend/mobile/assets/icons/home/empty-art.svg
+  [NGOÀI]     frontend/mobile/assets/icons/home/scan.svg
+  [NGOÀI]     frontend/mobile/assets/icons/home/sun.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/LICENSE-Lucide.txt
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/calendar-clock-filled.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/calendar-clock-outline.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/house-filled.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/house-outline.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/pill-filled.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/pill-outline.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/user-filled.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/user-outline.svg
+  [NGOÀI]     frontend/mobile/assets/icons/navigation/users-outline.svg
+  [NGOÀI]     frontend/mobile/assets/icons/welcome/alert-triangle.svg
+  [NGOÀI]     frontend/mobile/assets/icons/welcome/bell.svg
+  [NGOÀI]     frontend/mobile/assets/icons/welcome/users.svg
+  [NGOÀI]     frontend/mobile/lib/app/app_shell.dart
+  [NGOÀI]     frontend/mobile/lib/app/router.dart
+  [NGOÀI]     frontend/mobile/lib/features/auth/presentation/widgets/welcome_onboarding_sheet.dart
+  [NGOÀI]     frontend/mobile/lib/features/home/presentation/screens/home_screen.dart
+  [NGOÀI]     frontend/mobile/lib/features/home/presentation/widgets/home_navigation_bar.dart
+  [NGOÀI]     frontend/mobile/lib/features/medication/presentation/screens/add_medication_screen.dart
+  [NGOÀI]     frontend/mobile/lib/features/medication/presentation/state/medication_controller.dart
+  [NGOÀI]     frontend/mobile/pubspec.yaml
+  [NGOÀI]     frontend/mobile/test/features/auth/welcome_onboarding_sheet_test.dart
+  [NGOÀI]     frontend/mobile/test/features/home/home_screen_test.dart
+CHẶN: 33 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.
