@@ -1,0 +1,72 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-9.1.1, pluggy-1.6.0 -- D:\DrugTime\backend\.venv\Scripts\python.exe
+rootdir: D:\DrugTime\backend
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 1 item
+
+Timeout (0:00:15)!
+Thread 0x00003c40 (most recent call first):
+  File "C:\Python313\Lib\socket.py", line 295 in accept
+  File "C:\Python313\Lib\socket.py", line 627 in _fallback_socketpair
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 786 in _make_self_pipe
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 639 in __init__
+  File "C:\Python313\Lib\asyncio\windows_events.py", line 316 in __init__
+  File "C:\Python313\Lib\asyncio\events.py", line 734 in new_event_loop
+  File "C:\Python313\Lib\asyncio\events.py", line 837 in new_event_loop
+  File "C:\Python313\Lib\asyncio\runners.py", line 137 in _lazy_init
+  File "C:\Python313\Lib\asyncio\runners.py", line 58 in __enter__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2547 in run
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\anyio\_core\_eventloop.py", line 83 in run
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\anyio\from_thread.py", line 538 in run_blocking_portal
+  File "C:\Python313\Lib\threading.py", line 994 in run
+  File "C:\Python313\Lib\threading.py", line 1043 in _bootstrap_inner
+  File "C:\Python313\Lib\threading.py", line 1014 in _bootstrap
+
+Thread 0x0000555c (most recent call first):
+  File "C:\Python313\Lib\threading.py", line 359 in wait
+  File "C:\Python313\Lib\concurrent\futures\_base.py", line 451 in result
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\anyio\from_thread.py", line 554 in start_blocking_portal
+  File "C:\Python313\Lib\contextlib.py", line 141 in __enter__
+  File "C:\Python313\Lib\contextlib.py", line 530 in enter_context
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\starlette\testclient.py", line 504 in __enter__
+  File "D:\DrugTime\backend\tests\unit\test_linked_patients_http.py", line 56 in harness
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 998 in call_fixture_func
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 1328 in pytest_fixture_setup
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_callers.py", line 121 in _multicall
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_manager.py", line 120 in _hookexec
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_hooks.py", line 512 in __call__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 1232 in execute
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 726 in _get_active_fixturedef
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 630 in getfixturevalue
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\fixtures.py", line 806 in _fillfixtures
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\python.py", line 1710 in setup
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 536 in setup
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 170 in pytest_runtest_setup
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_callers.py", line 121 in _multicall
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_manager.py", line 120 in _hookexec
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_hooks.py", line 512 in __call__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 250 in <lambda>
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 361 in from_call
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 249 in call_and_report
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 132 in runtestprotocol
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\runner.py", line 118 in pytest_runtest_protocol
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_callers.py", line 121 in _multicall
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_manager.py", line 120 in _hookexec
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_hooks.py", line 512 in __call__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\main.py", line 408 in pytest_runtestloop
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_callers.py", line 121 in _multicall
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_manager.py", line 120 in _hookexec
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_hooks.py", line 512 in __call__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\main.py", line 384 in _main
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\main.py", line 330 in wrap_session
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\main.py", line 377 in pytest_cmdline_main
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_callers.py", line 121 in _multicall
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_manager.py", line 120 in _hookexec
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pluggy\_hooks.py", line 512 in __call__
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\config\__init__.py", line 229 in _main
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\_pytest\config\__init__.py", line 253 in _console_main
+  File "D:\DrugTime\backend\.venv\Lib\site-packages\pytest\__main__.py", line 9 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+tests/unit/test_linked_patients_http.py::test_success_commits_before_response 

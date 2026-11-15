@@ -1,0 +1,371 @@
+........................................................................ [  4%]
+.......................F.FF.ssssssssssssss.............................. [  9%]
+........................................................................ [ 14%]
+........................................................................ [ 19%]
+........F......X.............F.......................................... [ 24%]
+........................................................................ [ 29%]
+........................................................................ [ 34%]
+................................................ssssssss................ [ 39%]
+........................................................................ [ 44%]
+........................................................................ [ 49%]
+........................................................................ [ 54%]
+........................................................................ [ 59%]
+........................................................................ [ 64%]
+........................................................................ [ 69%]
+......................F................................................. [ 74%]
+......ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 79%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 84%]
+sssssssF................................................F............... [ 89%]
+........................................................................ [ 94%]
+........................................................................ [ 99%]
+....                                                                     [100%]
+================================== FAILURES ===================================
+__ test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6 ___
+
+client_as = <function client_as.<locals>.factory at 0x000001FA2450AE80>
+admin_engine = Engine(postgresql+psycopg://postgres@127.0.0.1:55403/task_503_test)
+
+    def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+        """AC1/AC2/AC6: Dispatch c\u1ea3nh b\xe1o b\u1ecf l\u1ee1 v\xe0o notifications v\xe0 ng\u01b0\u1eddi th\xe2n \u0111\u1ecdc qua GET /notifications."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998877
+        scheduled_at = datetime(2026, 10, 19, 8, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        # Ng\u01b0\u1eddi th\xe2n g\u1ecdi GET /notifications
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:147: AssertionError
+___________ test_integration_patch_notification_marks_as_read__AC7 ____________
+
+client_as = <function client_as.<locals>.factory at 0x000001FA243CF560>
+admin_engine = Engine(postgresql+psycopg://postgres@127.0.0.1:55403/task_503_test)
+
+    def test_integration_patch_notification_marks_as_read__AC7(client_as, admin_engine):
+        """AC7: PATCH /notifications/{id} c\u1eadp nh\u1eadt is_read=true."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine)
+        dose_log_id = 998878
+        scheduled_at = datetime(2026, 10, 19, 9, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="C\u1ea3nh b\xe1o ki\u1ec3m tra",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        patch_resp = client.patch(f"/notifications/{nid}", json={"is_read": True})
+>       assert patch_resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:191: AssertionError
+________________ test_integration_alert_timing_and_naming_flow ________________
+
+client_as = <function client_as.<locals>.factory at 0x000001FA24C79D00>
+admin_engine = Engine(postgresql+psycopg://postgres@127.0.0.1:55403/task_503_test)
+
+    def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+        """AC8 / QD-25 / NFR05: \u0110o th\u1eddi gian dispatch v\xe0 truy v\u1ea5n tr\xean Postgres th\u1eadt < 2s, ki\u1ec3m tra t\xean b\u1ec7nh nh\xe2n."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998879
+        scheduled_at = datetime(2026, 10, 19, 10, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        start_time = perf_counter()
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:223: AssertionError
+_ test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18 _
+
+client_as = <function client_as.<locals>.factory at 0x000001FA23E125C0>
+
+    def test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18(
+        client_as,
+    ):
+        patient_id, schedule_id = _seed_patient_schedule()
+        client_uuid = str(uuid4())
+    
+        payload = {
+            "client_uuid": client_uuid,
+            "schedule_id": schedule_id,
+            "scheduled_at": "2026-10-02T01:00:59.999Z",
+            "taken_at": "2026-10-02T01:05:59.999Z",
+        }
+        body = _post_item(client_as(patient_id), payload)
+    
+        assert body["summary"] == {"total": 1, "synced": 1, "failed": 0}
+        item = body["items"][0]
+        assert item["result"] == "synced"
+        assert item["dose_status"] == "da_uong"
+>       assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E       AssertionError: assert '2026-10-02T0....999000+07:00' == '2026-10-02T01:00:00Z'
+E         
+E         - 2026-10-02T01:00:00Z
+E         + 2026-10-02T08:00:59.999000+07:00
+
+tests\integration\test_dose_confirmation_api.py:175: AssertionError
+_______________ test_duplicate_food_case_insensitive__AC10_AC5 ________________
+
+client = <starlette.testclient.TestClient object at 0x000001FA244D5E10>
+admin_auth = (UUID('37d5c5fc-4c90-4fae-91bc-370416a230a1'), {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi...IsInR5cCI6ImFkbWluX3dlYiIsImlhdCI6MTc5NDM2ODM5NywiZXhwIjoxNzk0MzY5NTk3fQ.YmMjZ-MZDBNjVmhRM6aV1KYsrtmJMYhekEBJaQGNR0E'})
+make = Factory(db=<sqlalchemy.engine.base.Connection object at 0x000001FA24D11640>)
+
+    def test_duplicate_food_case_insensitive__AC10_AC5(client, admin_auth, make):
+        _, h = admin_auth
+        ing = make.ingredient()
+        assert client.post(BASE, json=_body(ing, food="B\u01b0\u1edfi"), headers=h).status_code == 201
+        r = client.post(BASE, json=_body(ing, food="B\u01af\u1edeI"), headers=h)
+>       assert (r.status_code, r.json()) == (409, {"detail": "interaction_rule_exists"})
+E       AssertionError: assert (201, {'id': ...urrent', ...}) == (409, {'detai...rule_exists'})
+E         
+E         At index 0 diff: 201 != 409
+E         Use -v to get more diff
+
+tests\integration\test_drug_food_rules_api.py:90: AssertionError
+__________ test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4 __________
+
+inbox = namespace(db=<sqlalchemy.engine.base.Connection object at 0x000001FA2485F380>, make=Factory(db=<sqlalchemy.engine.base...Q._hfCq1_kMIZqlDeVaoxGB_tZPqxE5WslDLd82pXi5uo'}, client=<starlette.testclient.TestClient object at 0x000001FA24CF9B70>)
+
+    def test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4(inbox):
+        d = inbox
+        # Simulate retained legacy rows; never backfill from current schedules.
+        d.db.execute(
+            text("UPDATE notifications SET medication_name=NULL,scheduled_at=NULL WHERE id=:i"),
+            {"i": d.nid},
+        )
+>       body = assert_item(d.client.get(f"/notifications/{d.nid}", headers=d.headers))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_migration_notification_snapshot.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'medication_name'
+E         'scheduled_at'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+______ test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4 ______
+
+inbox = namespace(db=<sqlalchemy.engine.base.Connection object at 0x000001FA24856EA0>, make=Factory(db=<sqlalchemy.engine.base...Q.sZohf7pBZWFrj11XCf908wBYfi6JJ4_j--gOXhOBZUE'}, client=<starlette.testclient.TestClient object at 0x000001FA24456350>)
+
+    def test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4(inbox):
+        d = inbox
+        before_doses = d.db.execute(text("SELECT count(*) FROM dose_logs")).scalar_one()
+        body = call(d, "list").json()
+        assert (body["total"], body["unread_count"]) == (1, 1)
+>       item = assert_item(call(d, "detail"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_notification_access.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'medication_name'
+E         'scheduled_at'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+__ test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4 __
+
+db = <sqlalchemy.engine.base.Connection object at 0x000001FA24F4DD90>
+make = Factory(db=<sqlalchemy.engine.base.Connection object at 0x000001FA24F4DD90>)
+client = <starlette.testclient.TestClient object at 0x000001FA23FB4050>
+auth = <function _auth at 0x000001FA1E7F16C0>
+role_engines = {'api_role': Engine(postgresql+psycopg://api_role:***@127.0.0.1:55403/task_503_test), 'worker_role': Engine(postgresql+psycopg://worker_role:***@127.0.0.1:55403/task_503_test)}
+
+    def test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4(
+        db, make, client, auth, role_engines
+    ):
+        patient = make.user()
+        family = make.family_of(patient)  # No Android token: iOS still gets inbox rows.
+        data = HistoryData(db, make, client, auth, patient)
+        occurrence = data.schedule(at=AT)
+        data.sync(AT + LATE_CONFIRMATION_WINDOW)  # 3.19: patient \u0111\xe3 \u0111\u1ed3ng b\u1ed9 sau h\u1ea1n ch\xf3t
+        schedules = Mock(wraps=SchedulesAdapter())
+        schedules.occurrences_between.return_value = [occurrence]
+        ports = dict(
+            now=AT + timedelta(hours=3),
+            grace=timedelta(hours=2),
+            overlap=timedelta(minutes=10),
+            cursor=Mock(),
+            schedules=schedules,
+            dose_logs=SqlDoseLogs(),
+            access=AccessGuardAdapter(),
+            tokens=DeviceTokensAdapter(),
+            notifications=SqlNotifications(),
+            patient_names=PatientNamesAdapter(),
+            checkpoints=SqlSyncCheckpoints(),
+            pending=SqlPendingVerifications(LATE_CONFIRMATION_WINDOW),
+        )
+        ports["cursor"].get.return_value = None
+        for _ in range(2):
+            with role_engines["worker_role"].begin() as connection:
+                assert scan(SqlUnitOfWork(connection), **ports).alerts == []
+        headers = auth(family)
+        response = client.get("/notifications", headers=headers)
+        assert response.status_code == 200
+        body = response.json()
+        assert body["total"] == body["unread_count"] == 1
+        nid = body["items"][0]["id"]
+>       original = assert_item(client.get(f"/notifications/{nid}", headers=headers))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_notification_snapshot_flow.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'medication_name'
+E         'scheduled_at'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+============================== warnings summary ===============================
+..\work\5.03\scratch\deps\fastapi\testclient.py:1
+  D:\DrugTime\work\5.03\scratch\deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+tests/integration/test_profile_api.py::test_concurrent_duplicate_single_link__AC08
+  D:\DrugTime\work\5.03\scratch\deps\pydantic\_internal\_generate_schema.py:2422: UnsupportedFieldAttributeWarning: The 'alias' attribute with value 'id' was provided to the `Field()` function, which has no effect in the context it was used. 'alias' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] tests\integration\test_auth_flow.py:171: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:209: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:225: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:243: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:255: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:265: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:281: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:292: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:311: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:320: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:329: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:343: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:357: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_auth_flow.py:369: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:102: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:148: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:173: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:200: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:215: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:250: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:271: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\\integration\\test_knowledge_seed.py:358: DB ch\u01b0a n\u1ea1p seed th\u1eadt (c\u1ea7n `supabase db reset`)
+SKIPPED [1] tests\integration\test_mobile_login.py:236: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:263: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:278: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:307: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:345: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [18] tests\integration\test_mobile_login.py:373: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:385: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:397: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:417: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [16] tests\integration\test_mobile_login.py:442: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:464: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:477: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:483: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [4] tests\integration\test_mobile_login.py:490: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [20] tests\integration\test_mobile_login.py:507: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [9] tests\integration\test_mobile_login.py:532: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:553: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [14] tests\integration\test_mobile_login.py:592: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:603: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:615: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:628: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:637: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [5] tests\integration\test_mobile_login.py:651: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:671: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [3] tests\integration\test_mobile_login.py:703: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [2] tests\integration\test_mobile_login.py:727: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [1] tests\integration\test_mobile_login.py:747: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+SKIPPED [7] tests\integration\test_mobile_login.py:789: Cannot read `supabase status` (Command '['C:\\Program Files\\nodejs\\npx.CMD', '--no-install', 'supabase', 'status', '-o', 'env']' returned non-zero exit status 1.); run `supabase start`
+8 failed, 1268 passed, 167 skipped, 1 xpassed, 5860 warnings in 109.75s (0:01:49)

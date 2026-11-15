@@ -1,0 +1,3 @@
+Phạm vi giai đoạn 'implement' của 4.14-ocr-unit-tests:
+  [OK]        backend/tests/unit/test_ocr_real_output.py
+OK: mọi thay đổi nằm trong phạm vi.

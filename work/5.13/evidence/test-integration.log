@@ -1,0 +1,306 @@
+........................................................................ [  5%]
+.......................F.FF.ssssssssssssss.............................. [ 10%]
+........................................................................ [ 15%]
+..............................................................F......X.. [ 20%]
+........................................................................ [ 25%]
+........................................................................ [ 30%]
+........................................................................ [ 35%]
+..............................ssssssss.................................. [ 40%]
+........................................................................ [ 45%]
+........................................................................ [ 50%]
+........................................................................ [ 55%]
+........................................................................ [ 60%]
+........................................................................ [ 65%]
+........................................................................ [ 70%]
+...F.......................................................sssssssssssss [ 75%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 80%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssF........... [ 85%]
+.....................................F.................................. [ 90%]
+........................................................................ [ 96%]
+.........................................................                [100%]
+================================== FAILURES ===================================
+__ test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6 ___
+
+client_as = <function client_as.<locals>.factory at 0x00000191AA1F28E0>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6(client_as, admin_engine):
+        """AC1/AC2/AC6: Dispatch c\u1ea3nh b\xe1o b\u1ecf l\u1ee1 v\xe0o notifications v\xe0 ng\u01b0\u1eddi th\xe2n \u0111\u1ecdc qua GET /notifications."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998877
+        scheduled_at = datetime(2026, 10, 19, 8, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        # Ng\u01b0\u1eddi th\xe2n g\u1ecdi GET /notifications
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:147: AssertionError
+___________ test_integration_patch_notification_marks_as_read__AC7 ____________
+
+client_as = <function client_as.<locals>.factory at 0x00000191AB0BEA20>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_patch_notification_marks_as_read__AC7(client_as, admin_engine):
+        """AC7: PATCH /notifications/{id} c\u1eadp nh\u1eadt is_read=true."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine)
+        dose_log_id = 998878
+        scheduled_at = datetime(2026, 10, 19, 9, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="C\u1ea3nh b\xe1o ki\u1ec3m tra",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        patch_resp = client.patch(f"/notifications/{nid}", json={"is_read": True})
+>       assert patch_resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:191: AssertionError
+________________ test_integration_alert_timing_and_naming_flow ________________
+
+client_as = <function client_as.<locals>.factory at 0x00000191AA5A4B80>
+admin_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:54322/postgres)
+
+    def test_integration_alert_timing_and_naming_flow(client_as, admin_engine):
+        """AC8 / QD-25 / NFR05: \u0110o th\u1eddi gian dispatch v\xe0 truy v\u1ea5n tr\xean Postgres th\u1eadt < 2s, ki\u1ec3m tra t\xean b\u1ec7nh nh\xe2n."""
+        patient_id, caregiver_id = _seed_patient_caregiver_pair(admin_engine, caregiver_platform="android")
+        dose_log_id = 998879
+        scheduled_at = datetime(2026, 10, 19, 10, tzinfo=ZoneInfo("Asia/Ho_Chi_Minh"))
+    
+        start_time = perf_counter()
+    
+        notifications = SqlNotifications()
+        with _admin_uow(admin_engine) as uow:
+            nid = notifications.create_missed_alert(
+                uow,
+                recipient_id=caregiver_id,
+                patient_id=patient_id,
+                dedupe_key=dedupe_key(dose_log_id, caregiver_id),
+                content="B\xe1c Nguy\u1ec5n V\u0103n B\u1ec7nh Nh\xe2n ch\u01b0a ghi nh\u1eadn li\u1ec1u thu\u1ed1c \u0111\xfang gi\u1edd",
+                medication_name="Integration medicine",
+                scheduled_at=scheduled_at,
+            )
+            assert nid is not None
+    
+        client = client_as(caregiver_id)
+        resp = client.get("/notifications")
+>       assert resp.status_code == 200
+E       assert 401 == 200
+E        +  where 401 = <Response [401 Unauthorized]>.status_code
+
+tests\integration\test_alert_dispatch_api.py:223: AssertionError
+_ test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18 _
+
+client_as = <function client_as.<locals>.factory at 0x00000191AA6FD9E0>
+
+    def test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18(
+        client_as,
+    ):
+        patient_id, schedule_id = _seed_patient_schedule()
+        client_uuid = str(uuid4())
+    
+        payload = {
+            "client_uuid": client_uuid,
+            "schedule_id": schedule_id,
+            "scheduled_at": "2026-10-02T01:00:59.999Z",
+            "taken_at": "2026-10-02T01:05:59.999Z",
+        }
+        body = _post_item(client_as(patient_id), payload)
+    
+        assert body["summary"] == {"total": 1, "synced": 1, "failed": 0}
+        item = body["items"][0]
+        assert item["result"] == "synced"
+        assert item["dose_status"] == "da_uong"
+>       assert item["scheduled_at"] == "2026-10-02T01:00:00Z"
+E       AssertionError: assert '2026-10-02T01:00:59.999000Z' == '2026-10-02T01:00:00Z'
+E         
+E         - 2026-10-02T01:00:00Z
+E         + 2026-10-02T01:00:59.999000Z
+E         ?                  +++++++
+
+tests\integration\test_dose_confirmation_api.py:175: AssertionError
+__________ test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4 __________
+
+inbox = <fixture representation redacted>
+
+    def test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4(inbox):
+        d = inbox
+        # Simulate retained legacy rows; never backfill from current schedules.
+        d.db.execute(
+            text("UPDATE notifications SET medication_name=NULL,scheduled_at=NULL WHERE id=:i"),
+            {"i": d.nid},
+        )
+>       body = assert_item(d.client.get(f"/notifications/{d.nid}", headers=d.headers))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_migration_notification_snapshot.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'scheduled_at'
+E         'medication_name'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+______ test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4 ______
+
+inbox = <fixture representation redacted>
+
+    def test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4(inbox):
+        d = inbox
+        before_doses = d.db.execute(text("SELECT count(*) FROM dose_logs")).scalar_one()
+        body = call(d, "list").json()
+        assert (body["total"], body["unread_count"]) == (1, 1)
+>       item = assert_item(call(d, "detail"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_notification_access.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'scheduled_at'
+E         'medication_name'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+__ test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4 __
+
+db = <sqlalchemy.engine.base.Connection object at 0x00000191AC274C80>
+make = Factory(db=<sqlalchemy.engine.base.Connection object at 0x00000191AC274C80>)
+client = <starlette.testclient.TestClient object at 0x00000191AA805C50>
+auth = <function _auth at 0x00000191A51D6DE0>
+role_engines = {'api_role': Engine(postgresql+psycopg://api_role:***@127.0.0.1:54322/postgres), 'worker_role': Engine(postgresql+psycopg://worker_role:***@127.0.0.1:54322/postgres)}
+
+    def test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4(
+        db, make, client, auth, role_engines
+    ):
+        patient = make.user()
+        family = make.family_of(patient)  # No Android token: iOS still gets inbox rows.
+        data = HistoryData(db, make, client, auth, patient)
+        occurrence = data.schedule(at=AT)
+        data.sync(AT + LATE_CONFIRMATION_WINDOW)  # 3.19: patient \u0111\xe3 \u0111\u1ed3ng b\u1ed9 sau h\u1ea1n ch\xf3t
+        schedules = Mock(wraps=SchedulesAdapter())
+        schedules.occurrences_between.return_value = [occurrence]
+        ports = dict(
+            now=AT + timedelta(hours=3),
+            grace=timedelta(hours=2),
+            overlap=timedelta(minutes=10),
+            cursor=Mock(),
+            schedules=schedules,
+            dose_logs=SqlDoseLogs(),
+            access=AccessGuardAdapter(),
+            tokens=DeviceTokensAdapter(),
+            notifications=SqlNotifications(),
+            patient_names=PatientNamesAdapter(),
+            checkpoints=SqlSyncCheckpoints(),
+            pending=SqlPendingVerifications(LATE_CONFIRMATION_WINDOW),
+        )
+        ports["cursor"].get.return_value = None
+        for _ in range(2):
+            with role_engines["worker_role"].begin() as connection:
+                assert scan(SqlUnitOfWork(connection), **ports).alerts == []
+        headers = auth(family)
+        response = client.get("/notifications", headers=headers)
+        assert response.status_code == 200
+        body = response.json()
+        assert body["total"] == body["unread_count"] == 1
+        nid = body["items"][0]["id"]
+>       original = assert_item(client.get(f"/notifications/{nid}", headers=headers))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_notification_snapshot_flow.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <Response [200 OK]>
+
+    def assert_item(response):
+        assert response.status_code == 200, response.text
+        assert response.headers["cache-control"] == "no-store"
+        body = response.json()
+        schema = CONTRACT["components"]["schemas"]["NotificationItem"]
+>       assert set(body) == set(schema["required"])
+E       AssertionError: assert {'about_patie...is_read', ...} == {'about_patie...is_read', ...}
+E         
+E         Extra items in the left set:
+E         'scheduled_at'
+E         'medication_name'
+E         Use -v to get more diff
+
+tests\integration\test_notification_access.py:32: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 2337 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:69: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    by_time.setdefault(r.t, []).append(r)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row.t attribute is deprecated in favor of Row._t; all Row methods and library-level attributes are intended to be underscored to avoid name conflicts.  Please use Row._t. (deprecated since: 2.0.19)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+tests/integration/test_medication_schedule_invariants.py: 592 warnings
+  D:\DrugTime\backend\tests\integration\test_medication_schedule_invariants.py:83: SADeprecationWarning: The Row._t attribute is deprecated, Row now behaves like a tuple and can unpack types directly. (deprecated since: 2.1.0)
+    assert opened and len({r.t for r in opened}) == len(opened), ("I4", where, opened)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_missed_dose_alert_dispatch_and_inbox_fetch__AC1_AC2_AC6
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_patch_notification_marks_as_read__AC7
+FAILED tests/integration/test_alert_dispatch_api.py::test_integration_alert_timing_and_naming_flow
+FAILED tests/integration/test_dose_confirmation_api.py::test_post_doses_batch_creates_dose_log_for_authenticated_patient__AC1_AC10_AC18
+FAILED tests/integration/test_migration_notification_snapshot.py::test_legacy_null_snapshot_can_be_read_and_marked__AC3_AC4
+FAILED tests/integration/test_notification_access.py::test_allowed_list_detail_patch_use_read_audit_and_replay__AC3_AC4
+FAILED tests/integration/test_notification_snapshot_flow.py::test_scan_snapshot_survives_catalog_schedule_edit_and_replay__AC2_AC3_AC4
+7 failed, 1250 passed, 167 skipped, 1 xpassed, 5859 warnings in 234.65s (0:03:54)

@@ -1,0 +1,649 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "DELREQ",
+      "name": "Yêu cầu xóa tài khoản",
+      "sheet": "Yêu cầu xóa tài khoản",
+      "description": "OTP email, yêu cầu chờ xóa 30 ngày và tạm dừng chia sẻ dữ liệu.",
+      "created_by": "Bao Nguyen",
+      "created_date": "2026-11-11",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "32 ca đạt. 5 ca cần Auth/SMTP thật hoặc các đầu việc đăng nhập, worker và gợi ý món.",
+      "ep": [
+        {
+          "field": "OTP và challenge",
+          "valid": [
+            "Mã 6 chữ số đúng, challenge còn hạn của tài khoản"
+          ],
+          "invalid": [
+            "Độ dài khác 6",
+            "Unicode không phải chữ số ASCII",
+            "Mã sai",
+            "Hết hạn",
+            "Đã bị thay hoặc đã dùng",
+            "Challenge của tài khoản khác"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Quyền đọc của người thân",
+          "conditions": [
+            {
+              "name": "Liên kết và chia sẻ hiệu lực?",
+              "values": [
+                "Có",
+                "Có",
+                "Có",
+                "Không",
+                "Có"
+              ]
+            },
+            {
+              "name": "Consent còn hiệu lực?",
+              "values": [
+                "Có",
+                "Có",
+                "Có",
+                "Có",
+                "Không"
+              ]
+            },
+            {
+              "name": "Yêu cầu đang chờ xóa?",
+              "values": [
+                "Không",
+                "Có",
+                "Đã hủy",
+                "Có",
+                "Đã hủy"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "200 và audit allowed",
+              "rules": [
+                1,
+                3
+              ]
+            },
+            {
+              "name": "403 và audit denied",
+              "rules": [
+                2,
+                4,
+                5
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-DELREQ-01",
+          "description": "Phát OTP rồi tạo một yêu cầu xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đọc bản ghi của A và thử dùng lại mã."
+          ],
+          "data": "Đồng hồ 2026-11-11T03:00:00Z. Dùng challenge và OTP từ email thử.",
+          "expected": "201 cho cả hai API, hạn 2026-12-11T03:00:00Z. Dùng lại mã trả 422 và chỉ có một bản ghi.",
+          "actual": "201, hạn cách đúng 30 ngày, dùng lại trả 422. DB có một bản ghi.",
+          "status": "Pass",
+          "comments": "AC1 · EP (1) · Chuyển trạng thái · test_confirm_creates_one_request_with_server_deadline__AC1_AC3 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-02",
+          "description": "Xác nhận lại bằng mã mới khi đã chờ xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đặt đồng hồ thêm 60 giây.",
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests"
+          ],
+          "data": "Cùng tài khoản A, hai challenge khác nhau.",
+          "expected": "Lần đầu 201. Lần sau 200, cùng phản hồi và hạn gốc.",
+          "actual": "201 rồi 200 với cùng hạn. DB chỉ có một yêu cầu.",
+          "status": "Pass",
+          "comments": "AC3 · Chuyển trạng thái · test_confirm_creates_one_request_with_server_deadline__AC1_AC3 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-03",
+          "description": "Từ chối gửi OTP khi thiếu phiên hoặc email đã xác minh",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp khi chưa đăng nhập.",
+            "POST /data-deletion-requests/otp với phiên Admin.",
+            "POST /data-deletion-requests/otp với tài khoản B không có email đã xác minh."
+          ],
+          "data": "Phiên thiếu, phiên Admin, phiên Mobile của B.",
+          "expected": "401, 403 và 409 verified_email_required. Không gửi email hoặc ghi yêu cầu.",
+          "actual": "Nhận 401, 403, 409 theo từng nhánh. Không có email hay bản ghi được tạo.",
+          "status": "Pass",
+          "comments": "AC2 · Phân lớp tương đương · test_invalid_identity_and_unverified_email_never_create_request__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-04",
+          "description": "Từ chối dùng OTP cho tài khoản khác",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp bằng tài khoản A.",
+            "POST /data-deletion-requests bằng phiên B với challenge và mã của A.",
+            "POST /data-deletion-requests bằng phiên A nhưng thêm user_id của B."
+          ],
+          "data": "A và B có ID khác nhau.",
+          "expected": "Cả hai lần 422 và không có yêu cầu xóa.",
+          "actual": "422 ở cả hai nhánh. Không có yêu cầu cho A hoặc B.",
+          "status": "Pass",
+          "comments": "AC2 · EP (7) · test_invalid_identity_and_unverified_email_never_create_request__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-05",
+          "description": "Từ chối OTP 5 ký tự",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests với chuỗi 5 chữ số."
+          ],
+          "data": "12345",
+          "expected": "422 lỗi cấu trúc. Phản hồi không chứa chuỗi OTP.",
+          "actual": "422, không lộ đầu vào và không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · EP (2) · BVA (min−1) · test_invalid_otp_cannot_create_request__AC2[short] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-06",
+          "description": "Từ chối OTP 7 ký tự",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests với chuỗi 7 chữ số."
+          ],
+          "data": "1234567",
+          "expected": "422 lỗi cấu trúc. Phản hồi không chứa chuỗi OTP.",
+          "actual": "422, không lộ đầu vào và không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · EP (2) · BVA (max+1) · test_invalid_otp_cannot_create_request__AC2[long] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-07",
+          "description": "Từ chối OTP gồm chữ số Unicode",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests với chữ số fullwidth."
+          ],
+          "data": "１２３４５６",
+          "expected": "422 lỗi cấu trúc và không có bản ghi.",
+          "actual": "422, không lộ đầu vào và không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · EP (3) · test_invalid_otp_cannot_create_request__AC2[unicode] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-08",
+          "description": "Từ chối OTP sai",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests với mã sai."
+          ],
+          "data": "Mã sai = (mã thật + 1) mod 1.000.000, giữ đủ 6 số.",
+          "expected": "422 deletion_otp_invalid và không có yêu cầu.",
+          "actual": "422 deletion_otp_invalid. Không có bản ghi.",
+          "status": "Pass",
+          "comments": "AC2 · EP (4) · test_invalid_otp_cannot_create_request__AC2[wrong] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-09",
+          "description": "Từ chối OTP tại đúng thời điểm hết hạn",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "Đặt đồng hồ bằng expires_at.",
+            "POST /data-deletion-requests"
+          ],
+          "data": "Mã đã phát, thời gian bằng expires_at.",
+          "expected": "422 deletion_otp_invalid và không có yêu cầu.",
+          "actual": "422 và không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · EP (5) · BVA (TTL) · test_invalid_otp_cannot_create_request__AC2[expired] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-10",
+          "description": "Từ chối challenge bị thay thế",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "Đặt đồng hồ thêm 60 giây.",
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests với challenge đầu."
+          ],
+          "data": "OTP và challenge trước lần gửi lại.",
+          "expected": "422 deletion_otp_invalid và không có yêu cầu.",
+          "actual": "422 và không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · EP (6) · test_invalid_otp_cannot_create_request__AC2[replaced] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-11",
+          "description": "Giữ giới hạn thử sau khi gửi lại OTP",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests/otp ngay.",
+            "POST /data-deletion-requests với mã sai 4 lần.",
+            "Đặt đồng hồ thêm 60 giây và xin mã mới.",
+            "Gửi lần sai thứ 5 rồi xác nhận mã mới."
+          ],
+          "data": "Cùng tài khoản A.",
+          "expected": "Gửi liền trả 429. Thử sai trả 422. Lần thử sau ngưỡng trả 429 deletion_otp_rate_limited.",
+          "actual": "Nhận 429 cho gửi liền và lần thử vượt ngưỡng. Không ghi yêu cầu.",
+          "status": "Pass",
+          "comments": "AC2 · BVA (4,5,6) · test_rate_limit_persists_after_wrong_otp_and_resend__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-12",
+          "description": "Từ chối tiếp nhận khi dịch vụ email lỗi",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "Giả lập lỗi gửi email.",
+            "POST /data-deletion-requests/otp",
+            "Kiểm số yêu cầu xóa của A."
+          ],
+          "data": "Dịch vụ email trả lỗi tạm thời.",
+          "expected": "503 service_unavailable và không có yêu cầu.",
+          "actual": "503 service_unavailable. DB không có yêu cầu.",
+          "status": "Pass",
+          "comments": "AC1 AC2 · Đoán lỗi · test_delivery_failure_does_not_create_request__AC1_AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-13",
+          "description": "Giữ OTP khả dụng nếu giao dịch ghi lỗi",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "Giả lập lỗi INSERT yêu cầu.",
+            "POST /data-deletion-requests",
+            "Gỡ lỗi rồi gửi lại cùng challenge và mã."
+          ],
+          "data": "Cùng payload ở hai lần xác nhận.",
+          "expected": "503 và không có yêu cầu ở lần đầu. Lần sau 201, chỉ có một yêu cầu.",
+          "actual": "503 rồi 201. DB ghi đúng một yêu cầu.",
+          "status": "Pass",
+          "comments": "AC1 · Đoán lỗi · test_insert_failure_leaves_otp_usable_and_never_acknowledges__AC1 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-14",
+          "description": "Giới hạn một lần xác nhận khi gọi đồng thời",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "Gửi đồng thời hai yêu cầu POST /data-deletion-requests.",
+            "Đếm bản ghi cho A."
+          ],
+          "data": "Cùng phiên, challenge và mã cho hai request.",
+          "expected": "Một 201, một 422. Chỉ có một yêu cầu.",
+          "actual": "Một 201 và một 422. DB có một yêu cầu.",
+          "status": "Pass",
+          "comments": "AC1 AC3 · Chạy đua · test_concurrent_confirm_with_same_otp_only_commits_once__AC1_AC3 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-15",
+          "description": "Trả hạn gốc ngay trước mốc xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đặt giờ tại hạn trừ 1 giây, xin mã mới và xác nhận."
+          ],
+          "data": "Giờ xác nhận lại 2026-12-11T02:59:59Z.",
+          "expected": "200 với hạn ban đầu. Worker cũ không nhận bản ghi.",
+          "actual": "200, hạn giữ nguyên và worker cũ không chọn.",
+          "status": "Pass",
+          "comments": "AC8 · BVA (hạn−1 giây) · test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[-1-200] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-16",
+          "description": "Từ chối yêu cầu mới tại đúng mốc xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đặt giờ tại hạn, xin mã mới và xác nhận."
+          ],
+          "data": "Giờ xác nhận lại 2026-12-11T03:00:00Z.",
+          "expected": "409 deletion_request_due, không gia hạn.",
+          "actual": "409 đúng mã. Hạn giữ nguyên.",
+          "status": "Pass",
+          "comments": "AC8 · BVA (hạn) · test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[0-409] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-17",
+          "description": "Từ chối yêu cầu mới sau mốc xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đặt giờ sau hạn 1 giây, xin mã mới và xác nhận."
+          ],
+          "data": "Giờ xác nhận lại 2026-12-11T03:00:01Z.",
+          "expected": "409 deletion_request_due, không gia hạn.",
+          "actual": "409 đúng mã. Hạn giữ nguyên.",
+          "status": "Pass",
+          "comments": "AC8 · BVA (hạn+1 giây) · test_deadline_handoff_keeps_request_out_of_legacy_worker__AC8[1-409] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-18",
+          "description": "Chặn đọc chéo và ẩn tài khoản chờ xóa",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "Người thân B đọc lịch của A trước khi A gửi yêu cầu.",
+            "POST /data-deletion-requests/otp và POST /data-deletion-requests bằng A.",
+            "B đọc lại lịch, danh sách bệnh nhân và hộp thư. Kiểm access_logs."
+          ],
+          "data": "Liên kết A–B hoạt động, consent hợp lệ. B có thêm bệnh nhân C. Tài khoản D không liên kết.",
+          "expected": "Trước: 200. Sau: B và D nhận 403 với lịch A và audit denied. Danh sách chỉ còn C, không trả cảnh báo A.",
+          "actual": "Đúng 200 trước, 403 và denied sau. Danh sách chỉ còn C, hộp thư không trả dữ liệu A.",
+          "status": "Pass",
+          "comments": "AC4 · Decision Table (R1,R2,R4) · test_deletion_revokes_family_reads_immediately_and_keeps_other_patient_visible__AC4_AC6 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-19",
+          "description": "Khôi phục quyền theo consent hiện tại khi có bản ghi hủy",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Đặt cancelled_at trước hạn bằng fixture.",
+            "B đọc lịch A. Rút family_sharing rồi đọc lại ngay."
+          ],
+          "data": "A–B có liên kết hoạt động và chia sẻ bật.",
+          "expected": "Sau hủy trả 200. Sau rút consent trả 403 và có denied.",
+          "actual": "200 sau hủy fixture, 403 sau rút consent với denied trong DB.",
+          "status": "Pass",
+          "comments": "AC6 · Decision Table (R3,R5) · test_deletion_revokes_family_reads_immediately_and_keeps_other_patient_visible__AC4_AC6 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-20",
+          "description": "Chặn tạo gợi ý mới qua PEP và chặn gửi cảnh báo đã chọn",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "POST /data-deletion-requests",
+            "Gọi PEP với scope MEAL, action WRITE và chạy dispatch cho cảnh báo đã chọn trước đó."
+          ],
+          "data": "A có consent ai_meal. B là người nhận trước khi A chờ xóa.",
+          "expected": "PEP từ chối và gateway không gửi cảnh báo.",
+          "actual": "PEP từ chối WRITE và số cảnh báo gửi bằng 0.",
+          "status": "Pass",
+          "comments": "AC4 AC5 · Decision Table (R2) · test_pending_deletion_blocks_meal_creation_and_family_alert_dispatch__AC4_AC5 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-21",
+          "description": "Giới hạn quyền DB và ràng buộc yêu cầu mở",
+          "precondition": "Database kiểm thử sạch. Tài khoản A có phiên Mobile và email đã xác minh giả lập.",
+          "steps": [
+            "Kiểm quyền đọc/ghi bảng OTP của các role.",
+            "Thử INSERT hạn 29 ngày.",
+            "Tạo yêu cầu 30 ngày rồi lặp INSERT."
+          ],
+          "data": "Role anon, authenticated, service_role và worker_role.",
+          "expected": "Các role trên không có quyền OTP. DB từ chối hạn sai và yêu cầu mở trùng.",
+          "actual": "RLS bật, quyền bị thu hồi, cả hai INSERT sai bị DB từ chối.",
+          "status": "Pass",
+          "comments": "AC1 AC3 · Phân lớp tương đương · test_migration_limits_roles_and_enforces_open_request_uniqueness__AC1_AC3 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-22",
+          "description": "Kiểm email OTP nhận thật",
+          "precondition": "Môi trường test có Auth và SMTP đã cấu hình. Dùng hộp thư kiểm thử.",
+          "steps": [
+            "POST /data-deletion-requests/otp",
+            "Mở hộp thư test và nhập mã mới bằng POST /data-deletion-requests."
+          ],
+          "data": "Email đã xác minh của A, OTP mới.",
+          "expected": "Email đến đúng hộp thư test. Xác nhận 201 và hạn 30 ngày.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC2 · manual"
+        },
+        {
+          "id": "TC-DELREQ-23",
+          "description": "Đăng nhập lại trước hạn và hủy yêu cầu",
+          "precondition": "Tích hợp luồng đăng nhập tự hủy và đã tạo yêu cầu chờ xóa.",
+          "steps": [
+            "Đăng nhập sai mã rồi kiểm trạng thái.",
+            "Đăng nhập thành công trước hạn và xem dữ liệu cũ.",
+            "Dùng một OTP xóa cũ để gửi lại yêu cầu."
+          ],
+          "data": "Tài khoản A, hạn còn một giây, mã đăng nhập thử và OTP xóa cũ.",
+          "expected": "Sai mã không hủy. Đăng nhập thành công hủy và giữ dữ liệu cũ, OTP xóa cũ không dùng được.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC7 · Chuyển trạng thái · manual"
+        },
+        {
+          "id": "TC-DELREQ-24",
+          "description": "Tự động xóa sau hạn và thiết lập tài khoản mới",
+          "precondition": "Tích hợp worker xóa, chính sách xử lý dữ liệu và luồng đăng nhập mới.",
+          "steps": [
+            "Tạo yêu cầu xóa.",
+            "Đặt đồng hồ đến đúng hạn và đăng nhập.",
+            "Chạy worker rồi đăng ký bằng email cũ."
+          ],
+          "data": "Không hủy yêu cầu trong 30 ngày.",
+          "expected": "Đăng nhập tại hạn không hủy. Worker tự xóa. Tài khoản thiết lập mới không lấy lại dữ liệu cũ.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC8 · Chuyển trạng thái · manual"
+        },
+        {
+          "id": "TC-DELREQ-25",
+          "description": "Từ chối thao tác gợi ý món qua API thực",
+          "precondition": "API gợi ý món đã được tích hợp. A đang chờ xóa và có gợi ý cũ.",
+          "steps": [
+            "Gọi API gợi ý món để tạo từ dữ liệu A.",
+            "Dùng phiên người thân B gọi API xem gợi ý cũ của A."
+          ],
+          "data": "A chờ xóa, B có liên kết và consent gợi ý món hợp lệ.",
+          "expected": "Không tạo gợi ý mới. Người thân nhận 403 và không có dữ liệu gợi ý cũ.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC5 · Decision Table (R2) · manual"
+        },
+        {
+          "id": "TC-DELREQ-26",
+          "description": "Từ chối đổi email qua API sửa hồ sơ",
+          "precondition": "A có phiên Mobile và email cũ trong hồ sơ.",
+          "steps": [
+            "GET /profile để ghi lại dữ liệu.",
+            "PUT /profile với email mới và tên mới.",
+            "PUT /profile với cùng dữ liệu nhưng giữ email cũ."
+          ],
+          "data": "Tên Changed, sinh 2000-01-01, giới tính male, email thay thế replacement@example.test.",
+          "expected": "Email mới trả 409 email_change_verification_required và toàn bộ hồ sơ giữ nguyên. Gửi lại với email cũ trả 204 và lưu các trường hồ sơ.",
+          "actual": "409 và hồ sơ giữ nguyên. Sau khi giữ email cũ, 204 và lưu các trường còn lại.",
+          "status": "Pass",
+          "comments": "AC2 · test_profile_rejects_unverified_email_change_and_preserves_fields__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-27",
+          "description": "Đổi email bằng hai OTP rồi thử OTP xóa cũ",
+          "precondition": "A có phiên Mobile và email cũ khớp Auth và hồ sơ.",
+          "steps": [
+            "Gọi POST /data-deletion-requests/otp và giữ mã cũ.",
+            "POST /me/email-change/otp để lấy mã hộp thư cũ. Thử gửi thẳng tới /me/email-change/confirm.",
+            "POST /me/email-change/verify-current rồi gửi lại cùng mã.",
+            "Gọi POST /me/email-change/confirm đồng thời hai lần với mã hộp thư mới.",
+            "Thử OTP xóa cũ. Sau 60 giây, xin OTP xóa mới và tạo yêu cầu."
+          ],
+          "data": "Hai hộp thư test, hai request xác nhận đồng thời với cùng challenge và OTP mới.",
+          "expected": "Chỉ gửi mã hộp thư mới sau khi xác thực mã cũ. Hai xác nhận cho một 204 và một 422. OTP xóa cũ trả 422; OTP mới đến email mới và tạo yêu cầu 201.",
+          "actual": "Một lần cập nhật Auth và hồ sơ. Mã dùng lại trả 422. OTP xóa mới đến email mới và trả 201.",
+          "status": "Pass",
+          "comments": "AC2 · EP (1,6) · test_change_email_with_both_proofs_and_invalidate_deletion_otp__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-28",
+          "description": "Chặn gửi lại sớm và từ chối mã đã thay, sai hoặc hết hạn",
+          "precondition": "A có phiên Mobile và email đã xác minh.",
+          "steps": [
+            "POST /me/email-change/otp hai lần liên tiếp.",
+            "Tăng đồng hồ 60 giây và xin mã mới.",
+            "POST /me/email-change/verify-current với mã cũ rồi với mã mới sai một chữ số.",
+            "Tăng đồng hồ đúng 5 phút và thử mã mới đúng."
+          ],
+          "data": "Gửi lại sau 0 và 60 giây. Xác nhận lúc hết hạn đúng 5 phút.",
+          "expected": "Gửi lại sớm trả 429 email_change_rate_limited. Ba lần xác minh đều 422. Không gửi mã đến địa chỉ mới.",
+          "actual": "Đúng 429 và ba lần 422. Hai email thử chỉ đến hộp thư cũ.",
+          "status": "Pass",
+          "comments": "AC2 · EP (4,5,6) · BVA (đúng hạn) · test_email_resend_cooldown_and_replaced_expired_otp__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-29",
+          "description": "Đối soát sau khi Auth lỗi trước khi đổi email",
+          "precondition": "A có OTP xóa còn hạn và đã chứng minh hai hộp thư.",
+          "steps": [
+            "Cho dịch vụ Auth trả lỗi trước khi đổi email rồi POST /me/email-change/confirm.",
+            "Gọi hai endpoint OTP xóa và tạo yêu cầu với mã còn hạn.",
+            "Chạy đối soát nội bộ rồi thử OTP xóa cũ."
+          ],
+          "data": "Giả lập lỗi trước khi Auth ghi email. Auth và hồ sơ đều giữ địa chỉ cũ.",
+          "expected": "Xác nhận đổi email và hai API xóa trả 503 khi đang dang dở. Không gửi email. Sau đối soát, OTP xóa cũ của email vẫn hiện hành tạo yêu cầu 201.",
+          "actual": "Giữ trạng thái applying, chặn cả hai API với 503. Sau đối soát, địa chỉ cũ nhất quán và OTP cũ trả 201.",
+          "status": "Pass",
+          "comments": "AC2 · Chuyển trạng thái · test_email_change_recovery_blocks_deletion_until_addresses_agree__AC2[before_auth] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-30",
+          "description": "Đối soát khi Auth đã đổi email nhưng hồ sơ chưa đổi",
+          "precondition": "A có OTP xóa còn hạn và đã chứng minh hai hộp thư.",
+          "steps": [
+            "POST /me/email-change/confirm, giả lập mất phản hồi Auth sau cập nhật. Chạy lại ca với lỗi transaction DB sau khi ghi hồ sơ.",
+            "Gọi hai API xóa khi đối soát tiếp tục lỗi.",
+            "Bỏ lỗi DB, chạy đối soát và thử lại OTP xóa cũ."
+          ],
+          "data": "Hai biến thể. Auth đã đổi địa chỉ rồi trả lỗi. Hoặc PostgreSQL rollback trước commit.",
+          "expected": "Auth và hồ sơ chưa khớp thì API xóa trả 503 và không gửi email. Đối soát thành công cập nhật hồ sơ và OTP xóa cũ trả 422.",
+          "actual": "Cả hai biến thể cho 503 khi dang dở, giữ applying sau rollback. Đối soát đồng bộ email mới và OTP cũ trả 422.",
+          "status": "Pass",
+          "comments": "AC2 · Chuyển trạng thái · test_email_change_recovery_blocks_deletion_until_addresses_agree__AC2[after_auth, db_rollback] · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-31",
+          "description": "Xác nhận xóa đồng thời với đổi email",
+          "precondition": "A có OTP xóa cấp qua email cũ và đã xác thực cả hai địa chỉ.",
+          "steps": [
+            "Dừng POST /me/email-change/confirm tại bước gọi Auth bằng barrier.",
+            "Gọi POST /data-deletion-requests với OTP xóa cũ và kiểm phiên đợi khóa PostgreSQL.",
+            "Cho thao tác đổi email tiếp tục."
+          ],
+          "data": "Cùng tài khoản, hai request đồng thời, OTP xóa từ địa chỉ cũ.",
+          "expected": "Xác nhận xóa đợi khóa. Đổi email trả 204. Xác nhận xóa trả 422 và không có bản ghi xóa.",
+          "actual": "204, 422 và không có yêu cầu xóa trong DB.",
+          "status": "Pass",
+          "comments": "AC2 · Chạy đua · test_email_change_holds_deletion_confirmation_until_old_otp_invalidated__AC2 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-32",
+          "description": "Kiểm thông báo cho người thân khi tạo yêu cầu xóa đồng thời",
+          "precondition": "A và C đều chia sẻ cho người thân. Cảnh báo của cả hai đã được chọn để gửi.",
+          "steps": [
+            "Giữ dispatch A trong hàm gửi và xác nhận xóa A. Kiểm lệnh xác nhận đợi khóa.",
+            "Lặp lại với INSERT yêu cầu xóa giữ trước commit và cho dispatch A đợi khóa.",
+            "Trong mỗi thứ tự, gửi cảnh báo của C và thử gửi A lại sau commit."
+          ],
+          "data": "Hai thứ tự lấy khóa trên A, C là tài khoản độc lập. Notifier giả lập, khóa DB thật.",
+          "expected": "Nếu dispatch lấy khóa trước thì gửi A xong trước commit xóa. Nếu xóa lấy khóa trước thì A không được gửi. Sau commit, A luôn bị chặn. C gửi được trong cả hai thứ tự.",
+          "actual": "Hai thứ tự đúng kỳ vọng, C gửi được khi A còn bị giữ khóa.",
+          "status": "Pass",
+          "comments": "AC4 · Chạy đua · test_deletion_commit_races_fcm_send__AC4 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-33",
+          "description": "Bỏ cảnh báo bị khóa quá hạn và gửi cảnh báo của tài khoản khác",
+          "precondition": "Hai tài khoản có liên kết và consent chia sẻ đang hiệu lực.",
+          "steps": [
+            "Giữ advisory lock của A trong phiên PostgreSQL riêng.",
+            "Gọi dispatch với hai cảnh báo của A rồi C.",
+            "Kiểm số lượt gửi và giải phóng khóa."
+          ],
+          "data": "Giữ khóa A đến lúc dispatch trả về. Backend có lock_timeout 5 giây.",
+          "expected": "Chỉ cảnh báo của C được gửi.",
+          "actual": "Kết quả một lượt gửi. Notifier nhận cảnh báo C.",
+          "status": "Pass",
+          "comments": "AC4 · Giá trị biên · test_fcm_lock_timeout_skips_only_the_locked_patient__AC4 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-34",
+          "description": "Đổi email qua hai hộp thư thật và nhận OTP xóa ở email mới",
+          "precondition": "Môi trường test có Supabase Auth, SMTP và hai hộp thư kiểm thử.",
+          "steps": [
+            "Đăng nhập bằng email cũ và gọi POST /me/email-change/otp.",
+            "Nhập mã nhận ở hộp thư cũ qua POST /me/email-change/verify-current.",
+            "Nhập mã ở hộp thư mới qua POST /me/email-change/confirm.",
+            "Đọc hồ sơ và xin OTP xóa qua POST /data-deletion-requests/otp."
+          ],
+          "data": "Hai email kiểm thử khác nhau, cùng một tài khoản A.",
+          "expected": "Cả hai mã đến đúng hộp thư. Sau 204, Auth và hồ sơ có email mới, OTP xóa đến email mới.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC2 · manual"
+        },
+        {
+          "id": "TC-DELREQ-35",
+          "description": "Đối chiếu cấu trúc lỗi 422 của ba API đổi email",
+          "precondition": "Backend đang chạy với OpenAPI tự sinh.",
+          "steps": [
+            "Mở /openapi.json và tìm POST /me/email-change/otp, /verify-current và /confirm.",
+            "Mở các component được tham chiếu bởi response 422.",
+            "Gửi OTP sai định dạng tới /me/email-change/verify-current."
+          ],
+          "data": "OTP secret-value với challenge UUID hợp lệ.",
+          "expected": "Cả ba schema 422 có detail dạng chuỗi và dạng mảng. Lỗi nhập liệu có detail dạng mảng và không lộ OTP.",
+          "actual": "Hai dạng detail có mặt trong cả ba schema. Lỗi 422 không trả OTP.",
+          "status": "Pass",
+          "comments": "AC2 · test_email_change_operations_exist_in_approved_contract · test_email_change_http_enforces_shape_no_store_and_no_sensitive_echo · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-36",
+          "description": "Thử lại API xóa sau khi chờ khóa quá hạn",
+          "precondition": "A và B có email xác minh giả lập và phiên Mobile. PostgreSQL thật.",
+          "steps": [
+            "Giữ khóa tài khoản A trong kết nối PostgreSQL riêng.",
+            "Gọi POST /data-deletion-requests/otp cho A. Sau khi nhận 503, kiểm B tạo yêu cầu được khi khóa A vẫn còn giữ.",
+            "Giải phóng khóa và thử lại. Lặp ca với POST /data-deletion-requests cho A bằng OTP đã cấp trước khi khóa."
+          ],
+          "data": "Giữ khóa A đến khi API trả về, cấu hình chờ 5 giây.",
+          "expected": "A nhận 503 service_unavailable và no-store, không gửi OTP hay ghi yêu cầu. B nhận 201 khi A còn khóa. A thử lại thành công, mã xác nhận trước đó vẫn dùng được.",
+          "actual": "Cả hai API xóa trả 503 cho A. B tạo yêu cầu thành công, A thử lại nhận 201 sau khi nhả khóa.",
+          "status": "Pass",
+          "comments": "AC1 AC3 · Chạy đua · test_deletion_lock_timeout_returns_503_and_allows_retry__AC1_AC3 · evidence/test-r4-r6-focused.log"
+        },
+        {
+          "id": "TC-DELREQ-37",
+          "description": "Trả lỗi chung nếu giao dịch sửa hồ sơ không commit",
+          "precondition": "A có phiên Mobile và giữ nguyên email hiện tại.",
+          "steps": [
+            "Giả lập lỗi lúc commit giao dịch hồ sơ.",
+            "Gọi PUT /profile để đổi tên, giữ email hiện tại.",
+            "Kiểm mã lỗi và nội dung phản hồi."
+          ],
+          "data": "Tên Bao, ngày sinh 2000-01-01, giới tính nam. Lỗi giả lập chứa private database details.",
+          "expected": "Trả 500 và không gửi chi tiết lỗi database trong phản hồi.",
+          "actual": "500, chi tiết lỗi database không xuất hiện.",
+          "status": "Pass",
+          "comments": "AC2 · Đoán lỗi · test_profile_put_returns_safe_500_if_database_commit_fails · evidence/test-r4-r6-focused.log"
+        }
+      ]
+    }
+  ]
+}

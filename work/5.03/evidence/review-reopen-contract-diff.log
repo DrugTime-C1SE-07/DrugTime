@@ -1,0 +1,15 @@
+servers None
+changed top-level info
+changed path /data-deletion-requests
+changed path /data-deletion-requests/otp
+changed path /me/email-change/confirm
+changed path /me/email-change/otp
+changed path /me/email-change/verify-current
+changed path /profile
+changed component schemas CreateDeletionRequest
+changed component schemas DeletionOtpChallenge
+changed component schemas EmailChangeChallenge
+changed component schemas EmailChangeStart
+changed component schemas EmailChangeVerify
+changed component schemas PendingDeletionRequest
+changed component schemas ProfileUpdateRequest

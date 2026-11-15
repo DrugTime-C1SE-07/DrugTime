@@ -1,0 +1,35 @@
+Phạm vi giai đoạn 'plan' của 5.03:
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     backend/src/drugtime/main.py
+  [NGOÀI]     backend/src/drugtime/modules/access/adapters/outbound/facts.py
+  [NGOÀI]     backend/src/drugtime/modules/access/application/authorize.py
+  [NGOÀI]     backend/src/drugtime/modules/access/application/ports.py
+  [NGOÀI]     backend/src/drugtime/modules/access/domain/rules.py
+  [NGOÀI]     backend/src/drugtime/modules/adherence/api.py
+  [NGOÀI]     backend/src/drugtime/modules/adherence/application/scan_missed_doses.py
+  [NGOÀI]     backend/src/drugtime/modules/adherence/domain/alert.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/adapters/inbound/deletion_http.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/adapters/outbound/email_otp.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/adapters/outbound/sql_deletion_creation.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/api.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/application/create_deletion_request.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/application/ports.py
+  [NGOÀI]     backend/src/drugtime/modules/consent/domain/deletion_creation.py
+  [NGOÀI]     backend/src/drugtime/modules/identity/adapters/inbound/dependencies.py
+  [NGOÀI]     backend/src/drugtime/modules/identity/adapters/outbound/supabase_auth.py
+  [NGOÀI]     backend/src/drugtime/modules/identity/api.py
+  [NGOÀI]     backend/src/drugtime/shared/config.py
+  [NGOÀI]     backend/supabase/migrations/20261111031400_deletion_request_creation.sql
+  [NGOÀI]     backend/tests/architecture/test_health_route_enforcement.py
+  [NGOÀI]     backend/tests/integration/test_deletion_creation_flow.py
+  [NGOÀI]     backend/tests/unit/test_access_authorize.py
+  [NGOÀI]     backend/tests/unit/test_access_rules.py
+  [NGOÀI]     backend/tests/unit/test_alert_dispatch.py
+  [NGOÀI]     backend/tests/unit/test_deletion_creation_email.py
+  [NGOÀI]     backend/tests/unit/test_deletion_creation_http.py
+  [NGOÀI]     backend/tests/unit/test_deletion_creation_otp.py
+  [NGOÀI]     docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     frontend/mobile/android/app/google-services.json
+  [NGOÀI]     frontend/mobile/firebase.json
+  [NGOÀI]     frontend/mobile/lib/firebase_options.dart
+CHẶN: 33 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

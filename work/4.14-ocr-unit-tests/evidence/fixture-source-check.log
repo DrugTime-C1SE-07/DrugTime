@@ -1,0 +1,3 @@
+Compared 12 fixture samples against 49 raw JSON records
+Exact rawText matches: 12/12
+All fixtures match source raw JSON records byte-for-byte with 100% fidelity.

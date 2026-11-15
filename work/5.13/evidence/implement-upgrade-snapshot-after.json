@@ -1,0 +1,126 @@
+{
+  "access_logs": [
+    {
+      "id": 1,
+      "actor_user_id": "178804c8-81e2-4e53-ab96-2f1f9af09de3",
+      "actor_role": "family",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "data_scope": "ho_so_suc_khoe",
+      "result": "allowed",
+      "rejection_reason": null,
+      "accessed_at": "2026-11-10 06:35:11.340124+00:00"
+    },
+    {
+      "id": 2,
+      "actor_user_id": "178804c8-81e2-4e53-ab96-2f1f9af09de3",
+      "actor_role": "family",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "data_scope": "danh_sach_thuoc",
+      "result": "allowed",
+      "rejection_reason": null,
+      "accessed_at": "2026-11-10 06:35:11.340124+00:00"
+    },
+    {
+      "id": 3,
+      "actor_user_id": "178804c8-81e2-4e53-ab96-2f1f9af09de3",
+      "actor_role": "family",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "data_scope": "lich_su_tuan_thu",
+      "result": "allowed",
+      "rejection_reason": null,
+      "accessed_at": "2026-11-10 06:35:11.340124+00:00"
+    },
+    {
+      "id": 4,
+      "actor_user_id": "178804c8-81e2-4e53-ab96-2f1f9af09de3",
+      "actor_role": "family",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "data_scope": "canh_bao_tuong_tac",
+      "result": "allowed",
+      "rejection_reason": null,
+      "accessed_at": "2026-11-10 06:35:11.340124+00:00"
+    },
+    {
+      "id": 5,
+      "actor_user_id": "178804c8-81e2-4e53-ab96-2f1f9af09de3",
+      "actor_role": "family",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "data_scope": "goi_y_bua_an",
+      "result": "allowed",
+      "rejection_reason": null,
+      "accessed_at": "2026-11-10 06:35:11.340124+00:00"
+    }
+  ],
+  "family_link_audit_events": [
+    {
+      "id": 1,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "list_pending",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.364068+00:00"
+    },
+    {
+      "id": 2,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "approve",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.366929+00:00"
+    },
+    {
+      "id": 3,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "reject",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.368952+00:00"
+    },
+    {
+      "id": 4,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "list_caregivers",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.371030+00:00"
+    },
+    {
+      "id": 5,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "enable_sharing",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.372625+00:00"
+    },
+    {
+      "id": 6,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "disable_sharing",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.375207+00:00"
+    },
+    {
+      "id": 7,
+      "actor_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "patient_user_id": "d6e0001b-a822-45b4-b8d5-4ce47cd324be",
+      "link_id": 42,
+      "operation": "revoke",
+      "result": "allowed",
+      "reason": null,
+      "recorded_at": "2026-11-10 06:35:11.376715+00:00"
+    }
+  ]
+}

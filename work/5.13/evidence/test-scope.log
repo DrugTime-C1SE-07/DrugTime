@@ -1,0 +1,33 @@
+Phạm vi giai đoạn 'test' của 5.13:
+  [OK]        backend/tests/integration/test_linked_patients_api.py
+  [OK]        backend/tests/integration/test_linked_patients_fail_closed.py
+  [OK]        backend/tests/integration/test_migration_linked_patients.py
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     api_contract/README.md
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     backend/src/drugtime/main.py
+  [NGOÀI]     backend/src/drugtime/modules/access/adapters/inbound/linked_patients_http.py
+  [NGOÀI]     backend/src/drugtime/modules/access/adapters/outbound/linked_patients_gateway.py
+  [NGOÀI]     backend/src/drugtime/modules/access/api.py
+  [NGOÀI]     backend/src/drugtime/modules/access/application/authorize.py
+  [NGOÀI]     backend/src/drugtime/modules/access/application/list_linked_patients.py
+  [NGOÀI]     backend/src/drugtime/modules/access/application/ports.py
+  [NGOÀI]     backend/src/drugtime/modules/access/domain/rules.py
+  [NGOÀI]     backend/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
+  [NGOÀI]     backend/src/drugtime/modules/family/adapters/outbound/sql_links.py
+  [NGOÀI]     backend/src/drugtime/modules/family/api.py
+  [NGOÀI]     backend/src/drugtime/modules/family/application/ports.py
+  [NGOÀI]     backend/supabase/migrations/20261110061954_linked_patient_access_scope.sql
+  [NGOÀI]     backend/supabase/migrations/20261110062000_linked_patient_request_audit.sql
+  [NGOÀI]     backend/tests/architecture/test_health_route_enforcement.py
+  [NGOÀI]     backend/tests/unit/test_access_authorize.py
+  [NGOÀI]     backend/tests/unit/test_access_rules.py
+  [NGOÀI]     backend/tests/unit/test_contract_linked_patients.py
+  [NGOÀI]     backend/tests/unit/test_linked_patients.py
+  [NGOÀI]     backend/tests/unit/test_linked_patients_gateway.py
+  [NGOÀI]     backend/tests/unit/test_linked_patients_http.py
+  [NGOÀI]     backend/tests/unit/test_sql_family_links.py
+  [NGOÀI]     frontend/mobile/android/app/google-services.json
+  [NGOÀI]     frontend/mobile/firebase.json
+  [NGOÀI]     frontend/mobile/lib/firebase_options.dart
+CHẶN: 27 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

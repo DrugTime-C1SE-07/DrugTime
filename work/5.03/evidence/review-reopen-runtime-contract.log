@@ -1,0 +1,26 @@
+/profile put ['204', '401', '403', '409', '422', '500', '503'] ['204', '401', '403', '409', '422', '500', '503']
+  request differs: False
+  schema differs 401
+  schema differs 403
+  schema differs 422
+  schema differs 500
+/data-deletion-requests/otp post ['201', '401', '403', '409', '422', '429', '503'] ['201', '401', '403', '409', '422', '429', '503']
+  request differs: False
+  schema differs 201
+  schema differs 422
+/data-deletion-requests post ['200', '201', '401', '403', '409', '422', '429', '503'] ['200', '201', '401', '403', '409', '422', '429', '503']
+  request differs: False
+  schema differs 200
+  schema differs 201
+  schema differs 422
+/me/email-change/otp post ['201', '401', '403', '409', '422', '429', '503'] ['201', '401', '403', '409', '422', '429', '503']
+  request differs: False
+  schema differs 201
+  schema differs 422
+/me/email-change/verify-current post ['200', '401', '403', '409', '422', '429', '503'] ['200', '401', '403', '409', '422', '429', '503']
+  request differs: False
+  schema differs 200
+  schema differs 422
+/me/email-change/confirm post ['204', '401', '403', '409', '422', '429', '503'] ['204', '401', '403', '409', '422', '429', '503']
+  request differs: False
+  schema differs 422

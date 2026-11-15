@@ -1,0 +1,251 @@
+diff --git a/README.md b/README.md
+index 55e3ced..3a0e5ea 100644
+--- a/README.md
++++ b/README.md
+@@ -9,6 +9,28 @@ clients. `openapi.generated.json` is an ignored comparison artifact, not a
+ replacement for this contract. Authentication, medication matching, and all other
+ existing operations retain their current definitions.
+ 
++## Linked patients for the family patient switcher
++
++`GET /family/patients` supplies PB22's patient switcher. It requires an app session
++bearer token and returns `items` containing only `patient_id` and nullable
++`patient_full_name`. Each patient must have an active link to the caller, sharing
++enabled, and current `family_sharing` and `health_data` consent. The caller's own
++consents do not grant or remove access to another patient's data.
++
++No query parameters or body are accepted (422); there is no pagination or silent
++truncation. Names sort by Unicode code point ascending, null last, with patient ID
++as the tie-breaker. No eligible patients returns 200 with an empty list. Admins
++receive 403 `khong_co_quyen`; missing or invalid tokens receive 401.
++
++Permissions are checked from the database on every call. Successful patient reads
++are audited per returned patient under `danh_sach_benh_nhan_lien_ket`; empty lists
++and admin denials use request-level metadata audit without fabricated patient IDs.
++Audit or database failure returns 503 `service_unavailable`, never a partial list.
++Allowed access logs for one request commit together; an audit failure rolls back
++all of that request's allowed entries. Denied audit uses its separate transaction.
++All responses carry `Cache-Control: no-store`. This list does not grant permission
++to subsequent health requests: those endpoints recheck their own authorization.
++
+ ## Health profile and conditions
+ 
+ | Method and path | Purpose | Success |
+diff --git a/openapi.json b/openapi.json
+index d60d854..e87897e 100644
+--- a/openapi.json
++++ b/openapi.json
+@@ -5287,6 +5287,162 @@
+         }
+       }
+     },
++    "/family/patients": {
++      "get": {
++        "tags": [
++          "family"
++        ],
++        "operationId": "listMyLinkedPatients",
++        "summary": "Người thân lấy danh sách bệnh nhân hiện được phép theo dõi",
++        "description": "Nguồn dữ liệu cho bộ chọn bệnh nhân PB22 (task 5.13). Chỉ trả bệnh nhân mà người gọi có liên kết active, sharing_enabled=true, và bệnh nhân có cả consent family_sharing lẫn health_data còn hiệu lực. Thiếu bất kỳ điều kiện nào thì loại bệnh nhân đó; pending, rejected, revoked và quan hệ của tài khoản khác không xuất hiện. Mỗi patient_id xuất hiện một lần, không tự thêm chính người gọi. Không cấp hay thay đổi quyền chia sẻ.\n\nXác thực bằng app session bearer token của tài khoản cá nhân. Tài khoản cá nhân có thể đóng vai người bệnh và người thân ở các quan hệ khác nhau; không đòi hỏi một role family riêng trong token. Không kiểm consent của người gọi cho dữ liệu của họ để quyết định quyền xem bệnh nhân khác. Admin nhận 403 khong_co_quyen. Token chỉ xác định danh tính; quyền và cả hai consent của từng bệnh nhân được đọc lại từ DB ở mỗi request qua PEP hiện có. Tắt chia sẻ, hủy liên kết hoặc rút một trong hai consent có hiệu lực ngay ở request kế tiếp với cùng token.\n\nKhông có query parameter, path parameter hoặc body. Có bất kỳ query hay body nào, kể cả patient_id, user_id, family_user_id, limit hoặc cursor: 422 ValidationError; không dùng selector từ client để chọn chủ danh sách. Token được kiểm trước quyền gọi; cấu trúc request có thể bị từ chối 422 trước kiểm admin.\n\nResponse chỉ có patient_id và patient_full_name; không có thông tin liên lạc, hồ sơ hay dữ liệu thuốc/lịch/liều. Tên hiện tại được trim; thiếu tên hoặc tên chỉ có khoảng trắng được trả null, không thay bằng email hay số điện thoại. Không lọc bỏ patient chỉ vì thiếu hoặc trùng tên. Sắp theo patient_full_name tăng dần theo mã Unicode, phân biệt hoa/thường, không bỏ dấu; null cuối cùng, tên bằng nhau thì patient_id tăng dần. Không phân trang, không cắt ngầm; items=[] khi không có ai đủ quyền, HTTP 200. Không trả lý do loại của từng bệnh nhân.\n\nAudit: mỗi bệnh nhân thực sự được trả có một access_logs allowed, actor là người thân gọi API và data_scope=danh_sach_benh_nhan_lien_ket; không ghi sai thành xem thuốc hoặc hồ sơ. Bệnh nhân bị bộ lọc loại không phải một lần truy cập dữ liệu của họ: không tạo access_logs denied chỉ vì lọc, và không biến toàn bộ request thành 403. Danh sách rỗng ghi một sự kiện audit metadata ở mức request, không tạo access_logs với patient giả. Admin bị từ chối ghi một sự kiện denied bền vững ở mức request trong transaction riêng, không duyệt các bệnh nhân để ghi log. Audit chỉ có metadata cần truy vết; không ghi tên, dữ liệu y tế, token hoặc danh sách tên. Mọi audit bắt buộc phải ghi bền vững trước khi trả response. Các access_logs allowed của một request nằm trong cùng transaction: lỗi giữa chừng thì rollback toàn bộ các allowed của request, không commit một phần; không ảnh hưởng denied đã ghi bền vững ở transaction riêng. DB, PEP hoặc audit không khả dụng: 503 service_unavailable, không trả danh sách một phần.\n\nCache-Control: no-store trên mọi response của endpoint. Client người thân chỉ giữ danh sách trong bộ nhớ phiên, không lưu bền; tải lại khi mở bộ chọn. Có mặt trong danh sách không phải bằng chứng quyền cho request sau: mỗi endpoint theo patient_id vẫn kiểm quyền hiện hành độc lập.",
++        "security": [
++          {
++            "bearerAuth": []
++          }
++        ],
++        "x-health-scope": "danh_sach_benh_nhan_lien_ket",
++        "x-health-audit-self": false,
++        "responses": {
++          "200": {
++            "description": "Toàn bộ bệnh nhân hiện được phép theo dõi; danh sách rỗng là thành công.",
++            "headers": {
++              "Cache-Control": {
++                "description": "Không cache danh sách quan hệ và quyền bệnh nhân.",
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            },
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/LinkedPatientList"
++                },
++                "examples": {
++                  "patients": {
++                    "value": {
++                      "items": [
++                        {
++                          "patient_id": "3f0c2a9e-7b1d-4e58-9c6a-2d4b8e1f0a73",
++                          "patient_full_name": "Nguyễn Văn An"
++                        },
++                        {
++                          "patient_id": "b7dd501a-4ebe-4564-a171-d317710effaa",
++                          "patient_full_name": "Nguyễn Văn An"
++                        },
++                        {
++                          "patient_id": "e4c7f2a9-1d30-4b86-9a50-7c3e6d8f1204",
++                          "patient_full_name": null
++                        }
++                      ]
++                    }
++                  },
++                  "empty": {
++                    "value": {
++                      "items": []
++                    }
++                  }
++                }
++              }
++            }
++          },
++          "401": {
++            "description": "Thiếu hoặc sai app session token, phiên hết hạn hoặc tài khoản đã bị xóa. Không trả danh sách; detail là câu mô tả, client không so khớp nội dung.",
++            "headers": {
++              "Cache-Control": {
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            },
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                "example": {
++                  "detail": "Missing bearer token"
++                }
++              }
++            }
++          },
++          "403": {
++            "description": "Admin gọi chức năng người thân: khong_co_quyen, ghi denied bền vững ở mức request. Không có bệnh nhân đủ quyền là 200 items=[], không phải 403. Không trả consent_revoked cho consent của bệnh nhân khác.",
++            "headers": {
++              "Cache-Control": {
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            },
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                "example": {
++                  "detail": "khong_co_quyen"
++                }
++              }
++            }
++          },
++          "422": {
++            "description": "Có query parameter hoặc body: ValidationError. Không nhận bất kỳ selector, bộ lọc hay tham số phân trang nào.",
++            "headers": {
++              "Cache-Control": {
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            },
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ValidationError"
++                },
++                "example": {
++                  "detail": [
++                    {
++                      "loc": [
++                        "query",
++                        "patient_id"
++                      ],
++                      "msg": "Extra inputs are not permitted",
++                      "type": "extra_forbidden"
++                    }
++                  ]
++                }
++              }
++            }
++          },
++          "503": {
++            "description": "DB, kiểm quyền hoặc audit không khả dụng; kể cả không ghi bền vững được denied khi từ chối admin. Không trả danh sách hay kết quả một phần; client có thể retry GET và mỗi lần gọi lại vẫn kiểm quyền, ghi audit.",
++            "headers": {
++              "Cache-Control": {
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            },
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                "example": {
++                  "detail": "service_unavailable"
++                }
++              }
++            }
++          }
++        }
++      }
++    },
+     "/family/caregivers": {
+       "get": {
+         "tags": [
+@@ -8795,6 +8951,50 @@
+           }
+         }
+       },
++      "LinkedPatient": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "patient_id",
++          "patient_full_name"
++        ],
++        "description": "Thông tin tối thiểu của một bệnh nhân mà caller hiện được phép theo dõi. patient_id là khóa kỹ thuật; giao diện chỉ hiển thị tên.",
++        "properties": {
++          "patient_id": {
++            "type": "string",
++            "format": "uuid",
++            "description": "Định danh bệnh nhân dùng cho các API theo patient_id; mỗi API vẫn kiểm quyền lại."
++          },
++          "patient_full_name": {
++            "anyOf": [
++              {
++                "type": "string",
++                "minLength": 1
++              },
++              {
++                "type": "null"
++              }
++            ],
++            "description": "Tên hiện tại đã trim; null khi chưa có hoặc chỉ có khoảng trắng. Không thay bằng thông tin liên lạc. Tên trùng vẫn là các mục riêng theo patient_id."
++          }
++        }
++      },
++      "LinkedPatientList": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "items"
++        ],
++        "properties": {
++          "items": {
++            "type": "array",
++            "items": {
++              "$ref": "#/components/schemas/LinkedPatient"
++            },
++            "description": "Danh sách đầy đủ, không phân trang/cắt ngầm, không trùng patient_id. Chỉ quan hệ active + sharing bật + cả family_sharing và health_data còn hiệu lực. Sắp tên tăng dần theo mã Unicode, phân biệt hoa/thường và dấu, null cuối; tie-break patient_id tăng dần."
++          }
++        }
++      },
+       "Caregiver": {
+         "type": "object",
+         "additionalProperties": false,

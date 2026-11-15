@@ -1,0 +1,2 @@
+PASS: all 36 existing function sheets retain identical cell values/formulas
+PASS: task/master LINKPAT has 30 Pass, 0 Fail, 0 Pending; report charts/count formulas exist

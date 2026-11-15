@@ -1,0 +1,199 @@
+/data-deletion-requests 201
+--- contract
+
++++ runtime
+
+@@ -1,7 +1,6 @@
+
+ {
+   "application/json": {
+     "schema": {
+-      "additionalProperties": false,
+       "properties": {
+         "requested_at": {
+           "format": "date-time",
+/data-deletion-requests 422
+--- contract
+
++++ runtime
+
+@@ -1,7 +1,18 @@
+
+ {
+   "application/json": {
+     "schema": {
+-      "oneOf": [
++      "anyOf": [
++        {
++          "properties": {
++            "detail": {
++              "type": "string"
++            }
++          },
++          "required": [
++            "detail"
++          ],
++          "type": "object"
++        },
+         {
+           "properties": {
+             "detail": {
+@@ -9,9 +20,13 @@
+
+                 "properties": {
+                   "loc": {
+                     "items": {
+-                      "type": [
+-                        "string",
+-                        "integer"
++                      "anyOf": [
++                        {
++                          "type": "string"
++                        },
++                        {
++                          "type": "integer"
++                        }
+                       ]
+                     },
+                     "type": "array"
+@@ -37,17 +52,6 @@
+
+             "detail"
+           ],
+           "type": "object"
+-        },
+-        {
+-          "properties": {
+-            "detail": {
+-              "type": "string"
+-            }
+-          },
+-          "required": [
+-            "detail"
+-          ],
+-          "type": "object"
+         }
+       ]
+     }
+/data-deletion-requests/otp 201
+--- contract
+
++++ runtime
+
+@@ -1,7 +1,6 @@
+
+ {
+   "application/json": {
+     "schema": {
+-      "additionalProperties": false,
+       "properties": {
+         "challenge_id": {
+           "format": "uuid",
+/me/email-change/otp 201
+--- contract
+
++++ runtime
+
+@@ -1,7 +1,6 @@
+
+ {
+   "application/json": {
+     "schema": {
+-      "additionalProperties": false,
+       "properties": {
+         "challenge_id": {
+           "format": "uuid",
+/me/email-change/confirm 422
+--- contract
+
++++ runtime
+
+@@ -1,43 +1,7 @@
+
+ {
+   "application/json": {
+     "schema": {
+-      "oneOf": [
+-        {
+-          "properties": {
+-            "detail": {
+-              "items": {
+-                "properties": {
+-                  "loc": {
+-                    "items": {
+-                      "type": [
+-                        "string",
+-                        "integer"
+-                      ]
+-                    },
+-                    "type": "array"
+-                  },
+-                  "msg": {
+-                    "type": "string"
+-                  },
+-                  "type": {
+-                    "type": "string"
+-                  }
+-                },
+-                "required": [
+-                  "loc",
+-                  "msg",
+-                  "type"
+-                ],
+-                "type": "object"
+-              },
+-              "type": "array"
+-            }
+-          },
+-          "required": [
+-            "detail"
+-          ],
+-          "type": "object"
+-        },
++      "anyOf": [
+         {
+           "properties": {
+             "detail": {
+@@ -48,6 +12,39 @@
+
+             "detail"
+           ],
+           "type": "object"
++        },
++        {
++          "properties": {
++            "ctx": {
++              "type": "object"
++            },
++            "input": {},
++            "loc": {
++              "items": {
++                "anyOf": [
++                  {
++                    "type": "string"
++                  },
++                  {
++                    "type": "integer"
++                  }
++                ]
++              },
++              "type": "array"
++            },
++            "msg": {
++              "type": "string"
++            },
++            "type": {
++              "type": "string"
++            }
++          },
++          "required": [
++            "loc",
++            "msg",
++            "type"
++          ],
++          "type": "object"
+         }
+       ]
+     }
+/profile 409
+

@@ -1,0 +1,228 @@
+........................................................................ [  3%]
+........................................................................ [  7%]
+........................................................................ [ 10%]
+........................................................................ [ 14%]
+........................................................................ [ 18%]
+........................................................................ [ 21%]
+........................................................................ [ 25%]
+........................................................................ [ 29%]
+........................................................................ [ 32%]
+......FF................................................................ [ 36%]
+.................F..FF..................FFF.F......F.F.................. [ 40%]
+........................................................................ [ 43%]
+........................................................................ [ 47%]
+........................................................................ [ 51%]
+........................................................................ [ 54%]
+........................................................................ [ 58%]
+........................................................................ [ 61%]
+........................................................................ [ 65%]
+........................................................................ [ 69%]
+........................................................................ [ 72%]
+........................................................................ [ 76%]
+........................................................................ [ 80%]
+........................................................................ [ 83%]
+........................................................................ [ 87%]
+........................................................................ [ 91%]
+........................................................................ [ 94%]
+........................................................................ [ 98%]
+...............................                                          [100%]
+================================== FAILURES ===================================
+__ test_token_operations_match_approved_contract[put-registerMyDeviceToken] ___
+
+method = 'put', operation = 'registerMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+_ test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken] _
+
+method = 'delete', operation = 'unregisterMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+___________ test_operations_match_contract[get-/medications/search] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications/search'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:85: KeyError
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+path = '/medications/search'
+
+    @pytest.mark.parametrize("path", ["/catalog/medications", "/medications/search"])
+    def test_catalog_search_query_params_match_contract(specs, path):
+        contract, app = specs
+>       assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:119: KeyError
+______________ test_catalog_search_operation_ids_match_contract _______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_catalog_search_operation_ids_match_contract(specs):
+        contract, app = specs
+        paths = ("/catalog/medications", "/medications/search")
+        actual = [app["paths"][path]["get"]["operationId"] for path in paths]
+>       assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:126: KeyError
+_____________ test_operations_match_contract[get-/notifications] ______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:30: KeyError
+___________ test_operations_match_contract[get-/notifications/{id}] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+________________ test_notification_query_params_match_contract ________________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_notification_query_params_match_contract(specs):
+        contract, app = specs
+>       c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:52: KeyError
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+
+    def test_interaction_contract_keeps_composition_versions_scale_and_q1():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        create = schemas["DrugInteractionCreate"]
+        assert len(create["oneOf"]) == 2
+        assert create["oneOf"][0]["required"] == ["ingredient_b_id"]
+        assert create["oneOf"][1]["required"] == ["ingredient_b_external_name"]
+        assert create["additionalProperties"] is False
+        assert "verification_status" not in create["properties"]
+    
+        update = schemas["DrugInteractionUpdate"]
+        assert update["minProperties"] == 2
+        assert update["properties"]["expected_version"]["minimum"] == 1
+        severity = schemas["InteractionSeverity"]
+        assert (severity["minimum"], severity["maximum"]) == (1, 4)
+        for label in (
+            "c\u1ea7n theo d\xf5i",
+            "c\u1ea7n th\u1eadn tr\u1ecdng",
+            "c\xe2n nh\u1eafc l\u1ee3i \xedch/nguy c\u01a1",
+            "ph\u1ed1i h\u1ee3p nguy hi\u1ec3m",
+        ):
+            assert label in severity["description"]
+    
+        for path in ("/admin/drug-interactions", "/admin/drug-food-interactions"):
+            description = _operation(contract, "post", path)["description"].lower()
+            assert "hi\u1ec7u l\u1ef1c ngay" in description
+>           assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E           AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+
+tests\unit\test_contract_openapi_semantics.py:200: AssertionError
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+
+    def test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        profile_get = _operation(contract, "get", "/profile")
+        cache_control = profile_get["responses"]["200"]["headers"]["Cache-Control"]["schema"]
+        assert cache_control.get("const", cache_control.get("enum")) in ("no-store", ["no-store"])
+        profile = schemas["HealthProfileResponse"]
+>       assert set(profile["required"]) == {"full_name", "date_of_birth", "gender", "conditions"}
+E       AssertionError: assert {'conditions'...phone_number'} == {'conditions'...me', 'gender'}
+E         
+E         Extra items in the left set:
+E         'phone_number'
+E         'email'
+E         Use -v to get more diff
+
+tests\unit\test_contract_openapi_semantics.py:245: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/unit/test_identity_auth.py::test_mobile_verify_auto_provisions_new_user_and_flags_incomplete_profile
+tests/unit/test_identity_auth.py::test_admin_session_expires_after_20_minutes
+tests/unit/test_identity_auth.py::test_mobile_session_targets_10_days
+tests/unit/test_identity_auth.py::test_mobile_verify_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_admin_login_response_has_no_supabase_field
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\DrugTime\backend\.venv\Lib\site-packages\jwt\api_jwt.py:149: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+tests/unit/test_identity_auth.py::test_refresh_rejects_user_whose_admin_role_was_removed
+  D:\DrugTime\backend\.venv\Lib\site-packages\jwt\api_jwt.py:370: InsecureKeyLengthWarning: The HMAC key is 11 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    decoded = self.decode_complete(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+FAILED tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+11 failed, 1964 passed, 1 skipped, 8 warnings in 96.45s (0:01:36)

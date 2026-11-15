@@ -1,0 +1,190 @@
+..............F......................................................... [ 43%]
+................................................................F.FF.... [ 86%]
+......................                                                   [100%]
+================================== FAILURES ===================================
+___________ test_dispatch_rechecks_caregiver_after_scan_transaction ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F21F6C29C0>
+
+    def test_dispatch_rechecks_caregiver_after_scan_transaction(monkeypatch):
+        from drugtime.modules.adherence.application import scan_missed_doses as module
+    
+        pending_patient, active_patient, recipient = uuid4(), uuid4(), uuid4()
+        blocked = Alert(1, recipient, "blocked-token", patient_id=pending_patient)
+        allowed = Alert(2, recipient, "allowed-token", patient_id=active_patient)
+        monkeypatch.setattr(module, "scan", lambda *a, **kw: module.ScanResult([blocked, allowed]))
+        monkeypatch.setattr(
+            api, "get_settings", lambda: Settings(_env_file=None, missed_dose_grace_minutes=120)
+        )
+        monkeypatch.setattr(
+            api, "AccessGuardAdapter", lambda: FakeAccessGuard({active_patient: [recipient]})
+        )
+        notifier = Mock()
+        notifier.send.return_value = []
+        count = api.scan_missed_doses(lambda: nullcontext(object()), notifier=notifier)
+>       assert count == 1
+E       assert 0 == 1
+
+tests\unit\test_alert_dispatch.py:64: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  drugtime.modules.adherence.application.scan_missed_doses:scan_missed_doses.py:199 Push permission check or delivery failed; family alert skipped
+WARNING  drugtime.modules.adherence.application.scan_missed_doses:scan_missed_doses.py:199 Push permission check or delivery failed; family alert skipped
+______ test_profile_update_changes_auth_and_database_email_for_same_user ______
+
+    def test_profile_update_changes_auth_and_database_email_for_same_user():
+        user_id = uuid4()
+        users = Mock()
+        users.get_profile.return_value = ProfileRecord(
+            "Bao", date(2000, 1, 1), "nam", "old@example.com"
+        )
+        auth = Mock()
+    
+>       result = update_profile(
+            users,
+            auth,
+            user_id,
+            full_name="Bao Nguyen",
+            date_of_birth=date(2000, 1, 1),
+            gender="nam",
+            email=" New@example.com ",
+            at=datetime(2026, 1, 1),
+        )
+
+tests\unit\test_identity_profile.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+users = <Mock id='2139420256848'>, auth = <Mock id='2139420249120'>
+user_id = UUID('bb28fa18-b930-4489-9ef9-b5f1dc21a86a'), full_name = 'Bao Nguyen'
+date_of_birth = datetime.date(2000, 1, 1), gender = 'nam'
+email = ' New@example.com ', phone_number = None
+at = datetime.datetime(2026, 1, 1, 0, 0)
+
+    def update_profile(
+        users: UserRepository,
+        auth: AuthProvider,
+        user_id: UUID,
+        *,
+        full_name: str,
+        date_of_birth: date,
+        gender: str,
+        email: str | None = None,
+        phone_number: str | None = None,
+        at: datetime,
+    ) -> ProfileUpdateResult:
+        current = users.get_profile(user_id)
+        if current is None:
+            raise Unauthorized("Account does not exist or has been deleted")
+    
+        profile = validate_profile(
+            full_name,
+            date_of_birth,
+            gender,
+            current.email if email is None else email,
+            at=at,
+        )
+        new_email = current.email if email is None else profile.email
+        email_changed = new_email != current.email
+        phone_fields = (
+            {"phone_number": normalize_contact_phone(phone_number)} if phone_number is not None else {}
+        )
+        if email_changed:
+>           raise Conflict("email_change_verification_required")
+E           drugtime.shared.errors.Conflict: email_change_verification_required
+
+src\drugtime\modules\identity\application\profile.py:59: Conflict
+_____ test_profile_update_restores_auth_email_when_database_update_fails ______
+
+    def test_profile_update_restores_auth_email_when_database_update_fails():
+        user_id = uuid4()
+        users = Mock()
+        users.get_profile.return_value = ProfileRecord(
+            "Bao", date(2000, 1, 1), "nam", "old@example.com"
+        )
+        users.update_profile.side_effect = Conflict("email_change_unavailable")
+        auth = Mock()
+    
+>       with pytest.raises(Conflict, match="email_change_unavailable"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'email_change_unavailable'
+E         Actual message: 'email_change_verification_required'
+
+tests\unit\test_identity_profile.py:125: AssertionError
+____________ test_profile_update_reports_failed_auth_compensation _____________
+
+    def test_profile_update_reports_failed_auth_compensation():
+        user_id = uuid4()
+        users = Mock()
+        users.get_profile.return_value = ProfileRecord(
+            "Bao", date(2000, 1, 1), "nam", "old@example.com"
+        )
+        users.update_profile.side_effect = Conflict("email_change_unavailable")
+        auth = Mock()
+        auth.update_email.side_effect = [None, ServiceUnavailable("auth_provider_unavailable")]
+    
+        with pytest.raises(ServiceUnavailable, match="auth_provider_unavailable"):
+>           update_profile(
+                users,
+                auth,
+                user_id,
+                full_name="Bao",
+                date_of_birth=date(2000, 1, 1),
+                gender="nam",
+                email="new@example.com",
+                at=datetime(2026, 1, 1),
+            )
+
+tests\unit\test_identity_profile.py:154: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+users = <Mock id='2139461307088'>, auth = <Mock id='2139461308096'>
+user_id = UUID('3209fc2e-969b-41c2-b49a-da2a1f2c8418'), full_name = 'Bao'
+date_of_birth = datetime.date(2000, 1, 1), gender = 'nam'
+email = 'new@example.com', phone_number = None
+at = datetime.datetime(2026, 1, 1, 0, 0)
+
+    def update_profile(
+        users: UserRepository,
+        auth: AuthProvider,
+        user_id: UUID,
+        *,
+        full_name: str,
+        date_of_birth: date,
+        gender: str,
+        email: str | None = None,
+        phone_number: str | None = None,
+        at: datetime,
+    ) -> ProfileUpdateResult:
+        current = users.get_profile(user_id)
+        if current is None:
+            raise Unauthorized("Account does not exist or has been deleted")
+    
+        profile = validate_profile(
+            full_name,
+            date_of_birth,
+            gender,
+            current.email if email is None else email,
+            at=at,
+        )
+        new_email = current.email if email is None else profile.email
+        email_changed = new_email != current.email
+        phone_fields = (
+            {"phone_number": normalize_contact_phone(phone_number)} if phone_number is not None else {}
+        )
+        if email_changed:
+>           raise Conflict("email_change_verification_required")
+E           drugtime.shared.errors.Conflict: email_change_verification_required
+
+src\drugtime\modules\identity\application\profile.py:59: Conflict
+============================== warnings summary ===============================
+..\work\5.03\scratch\deps\fastapi\testclient.py:1
+  D:\DrugTime\work\5.03\scratch\deps\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_alert_dispatch.py::test_dispatch_rechecks_caregiver_after_scan_transaction
+FAILED tests/unit/test_identity_profile.py::test_profile_update_changes_auth_and_database_email_for_same_user
+FAILED tests/unit/test_identity_profile.py::test_profile_update_restores_auth_email_when_database_update_fails
+FAILED tests/unit/test_identity_profile.py::test_profile_update_reports_failed_auth_compensation
+4 failed, 162 passed, 1 warning in 9.05s

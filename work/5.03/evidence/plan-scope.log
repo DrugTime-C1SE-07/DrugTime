@@ -1,0 +1,6 @@
+Phạm vi giai đoạn 'plan' của 5.03:
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     frontend/mobile/android/app/google-services.json
+  [NGOÀI]     frontend/mobile/firebase.json
+  [NGOÀI]     frontend/mobile/lib/firebase_options.dart
+CHẶN: 4 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

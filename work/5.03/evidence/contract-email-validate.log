@@ -1,0 +1,7 @@
+/me/email-change/otp OK
+/me/email-change/verify-current OK
+/me/email-change/confirm OK
+PUT /profile 409 contract OK
+/data-deletion-requests/otp: request/response examples and status codes valid
+/data-deletion-requests: request/response examples and status codes valid
+OK: OpenAPI JSON, local references, operation IDs, schemas and deletion deadline.

@@ -1,0 +1,7 @@
+Phạm vi giai đoạn 'contract' của 5.13:
+  [OK]        api_contract/README.md
+  [OK]        api_contract/openapi.json
+  [NGOÀI]     frontend/mobile/android/app/google-services.json
+  [NGOÀI]     frontend/mobile/firebase.json
+  [NGOÀI]     frontend/mobile/lib/firebase_options.dart
+CHẶN: 3 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

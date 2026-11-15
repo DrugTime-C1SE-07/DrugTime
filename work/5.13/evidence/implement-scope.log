@@ -1,0 +1,29 @@
+Phạm vi giai đoạn 'implement' của 5.13:
+  [OK]        backend/src/drugtime/main.py
+  [OK]        backend/src/drugtime/modules/access/adapters/inbound/linked_patients_http.py
+  [OK]        backend/src/drugtime/modules/access/adapters/outbound/linked_patients_gateway.py
+  [OK]        backend/src/drugtime/modules/access/api.py
+  [OK]        backend/src/drugtime/modules/access/application/authorize.py
+  [OK]        backend/src/drugtime/modules/access/application/list_linked_patients.py
+  [OK]        backend/src/drugtime/modules/access/application/ports.py
+  [OK]        backend/src/drugtime/modules/access/domain/rules.py
+  [OK]        backend/src/drugtime/modules/family/adapters/outbound/sql_link_audit.py
+  [OK]        backend/src/drugtime/modules/family/adapters/outbound/sql_links.py
+  [OK]        backend/src/drugtime/modules/family/api.py
+  [OK]        backend/src/drugtime/modules/family/application/ports.py
+  [OK]        backend/supabase/migrations/20261110061954_linked_patient_access_scope.sql
+  [OK]        backend/supabase/migrations/20261110062000_linked_patient_request_audit.sql
+  [OK]        backend/tests/architecture/test_health_route_enforcement.py
+  [OK]        backend/tests/unit/test_access_authorize.py
+  [OK]        backend/tests/unit/test_access_rules.py
+  [OK]        backend/tests/unit/test_contract_linked_patients.py
+  [OK]        backend/tests/unit/test_linked_patients.py
+  [OK]        backend/tests/unit/test_linked_patients_gateway.py
+  [OK]        backend/tests/unit/test_linked_patients_http.py
+  [OK]        backend/tests/unit/test_sql_family_links.py
+  [NGOÀI]     api_contract/README.md
+  [NGOÀI]     api_contract/openapi.json
+  [NGOÀI]     frontend/mobile/android/app/google-services.json
+  [NGOÀI]     frontend/mobile/firebase.json
+  [NGOÀI]     frontend/mobile/lib/firebase_options.dart
+CHẶN: 5 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

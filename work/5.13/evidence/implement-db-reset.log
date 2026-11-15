@@ -1,0 +1,148 @@
+WARN: auth.email.enable_signup is deprecated and will be removed in v4, use auth.email.enabled instead.
+WARN: auth.sms.enable_signup is deprecated and will be removed in v4, use auth.sms.enabled instead.
+Target: local stack (127.0.0.1:54322)
+Resetting local database...
+Recreating database...
+17.11.0.018: Pulling from supabase/postgres
+558da21df5ff: Pulling fs layer
+f764dee38eb9: Pulling fs layer
+fa33d6f02ba2: Pulling fs layer
+db04625bb825: Pulling fs layer
+b2ae74461bfa: Pulling fs layer
+4eeff15172a8: Pulling fs layer
+ee70790e49f2: Pulling fs layer
+7e6d01e66c1c: Pulling fs layer
+98c87e7d48da: Pulling fs layer
+a278b50bba20: Pulling fs layer
+9d4f5a31dafe: Pulling fs layer
+0620d22b0132: Pulling fs layer
+f013a10a80d8: Pulling fs layer
+60bf8bfe16a7: Pulling fs layer
+55b3e3c4d2d2: Pulling fs layer
+e8a84a3e8749: Pulling fs layer
+eedd6c22469d: Pulling fs layer
+8a2ae6d764fb: Pulling fs layer
+cad2b0c06910: Pulling fs layer
+21c9ccd4d650: Pulling fs layer
+c358fb44e004: Pulling fs layer
+a65000170b43: Pulling fs layer
+75fff1994592: Pulling fs layer
+22f6016db27a: Pulling fs layer
+5e9b4a97f639: Pulling fs layer
+4d67901a1695: Pulling fs layer
+0a88acd31a7e: Pulling fs layer
+b6cb2d7131ef: Pulling fs layer
+fa33d6f02ba2: Download complete
+558da21df5ff: Download complete
+a278b50bba20: Download complete
+9d4f5a31dafe: Download complete
+4eeff15172a8: Download complete
+55b3e3c4d2d2: Download complete
+7e6d01e66c1c: Download complete
+98c87e7d48da: Download complete
+f013a10a80d8: Download complete
+0620d22b0132: Download complete
+db04625bb825: Download complete
+ee70790e49f2: Download complete
+f764dee38eb9: Download complete
+21c9ccd4d650: Download complete
+a65000170b43: Download complete
+eedd6c22469d: Download complete
+b2ae74461bfa: Download complete
+60bf8bfe16a7: Download complete
+75fff1994592: Download complete
+cad2b0c06910: Download complete
+e8a84a3e8749: Download complete
+4d67901a1695: Download complete
+0a88acd31a7e: Download complete
+c358fb44e004: Download complete
+22f6016db27a: Download complete
+8a2ae6d764fb: Download complete
+5e9b4a97f639: Download complete
+b6cb2d7131ef: Download complete
+Digest: sha256:7c31363a3f7434ff14945f1b8a4880e6eca8b362e197e88b87c476c77aa3cf8c
+Status: Downloaded newer image for public.ecr.aws/supabase/postgres:17.11.0.018
+public.ecr.aws/supabase/postgres:17.11.0.018
+Initialising schema...
+v2.154.0: Pulling from supabase/realtime
+4f4fb700ef54: Pulling fs layer
+78b3f7edad35: Pulling fs layer
+632438462ff3: Pulling fs layer
+6f54f1dd9f06: Pulling fs layer
+e87ae8c8f0b6: Pulling fs layer
+c8643991b1ea: Pulling fs layer
+ac69af806a7e: Pulling fs layer
+ae8863254b88: Pulling fs layer
+188279791455: Pulling fs layer
+16c36e0c68b5: Pulling fs layer
+4f4fb700ef54: Already exists
+632438462ff3: Download complete
+188279791455: Download complete
+e87ae8c8f0b6: Download complete
+ac69af806a7e: Download complete
+16c36e0c68b5: Download complete
+78b3f7edad35: Download complete
+c8643991b1ea: Download complete
+6f54f1dd9f06: Download complete
+ae8863254b88: Download complete
+Digest: sha256:c56af0fbfd06362a1d3bea30a6419cc616240852d2a50cb4c2f41aeef5ee7b00
+Status: Downloaded newer image for public.ecr.aws/supabase/realtime:v2.154.0
+public.ecr.aws/supabase/realtime:v2.154.0
+v1.90.1: Pulling from supabase/storage-api
+93d564aadd8f: Pulling fs layer
+e6974051c57c: Pulling fs layer
+fab7ead19d67: Pulling fs layer
+685243d7de60: Pulling fs layer
+18b6b0747bdd: Pulling fs layer
+579f8f5b671b: Pulling fs layer
+f76f6799fcd0: Pulling fs layer
+33481234c54b: Pulling fs layer
+7b229517ed22: Pulling fs layer
+edeba950eb1a: Pulling fs layer
+e731957ed974: Pulling fs layer
+46f115b2e1ef: Pulling fs layer
+111b01c580b5: Pulling fs layer
+46f115b2e1ef: Download complete
+edeba950eb1a: Download complete
+111b01c580b5: Download complete
+18b6b0747bdd: Download complete
+f76f6799fcd0: Download complete
+93d564aadd8f: Download complete
+fab7ead19d67: Download complete
+7b229517ed22: Download complete
+33481234c54b: Download complete
+579f8f5b671b: Download complete
+e731957ed974: Download complete
+685243d7de60: Download complete
+e6974051c57c: Download complete
+Digest: sha256:b2a04ca607b6cfdeafc47f5fa8cc22fc386d40cc25e7f11bbfda65954f3ae949
+Status: Downloaded newer image for public.ecr.aws/supabase/storage-api:v1.90.1
+public.ecr.aws/supabase/storage-api:v1.90.1
+Seeding globals from roles.sql...
+Applying migration 20260920032207_first_deploy.sql...
+Applying migration 20260927082912_rebuild_schema_v11.sql...
+Applying migration 20261001141348_user_medications_dosing_stock_idempotency.sql...
+Applying migration 20261002101031_user_medications_soft_delete.sql...
+Applying migration 20261002101033_catalog_search_unaccent.sql...
+Applying migration 20261005065417_consent_type_terms.sql...
+Applying migration 20261007152051_add_rejected_family_link_status.sql...
+Applying migration 20261009065232_medication_schedules_closed_by_stop.sql...
+Applying migration 20261011164026_interaction_rule_versions.sql...
+Applying migration 20261013022742_access_actor_patient.sql...
+Applying migration 20261013022744_access_logs_self_audit.sql...
+Applying migration 20261013040307_link_codes_one_fixed_code_per_user.sql...
+Applying migration 20261015030157_family_link_consent.sql...
+Applying migration 20261016083732_caregiver_links_reopenable_pairs.sql...
+Applying migration 20261016083734_link_request_attempts.sql...
+Applying migration 20261021030401_family_link_audit_caregiver_operations.sql...
+Applying migration 20261021093454_family_alert_event_snapshot.sql...
+Applying migration 20261021115000_access_logs_admin_self_denied.sql...
+Applying migration 20261026164155_dose_sync_checkpoints.sql...
+Applying migration 20261026164158_missed_dose_pending_verifications.sql...
+Applying migration 20261030025813_catalog_ingredient_alias_search.sql...
+Applying migration 20261110061954_linked_patient_access_scope.sql...
+Applying migration 20261110062000_linked_patient_request_audit.sql...
+Restarting containers...
+Finished supabase db reset on branch feat/list-linked-patients.
+{"version":"","message":"Reset local database.","target":{"kind":"local","host":"127.0.0.1","port":54322}}
+Supabase local db reset exit code: 0
