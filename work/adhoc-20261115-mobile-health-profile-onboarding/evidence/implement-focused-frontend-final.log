@@ -1,0 +1,13 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: (setUpAll)
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via skip
+00:01 +1: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via skip
+00:02 +2: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:02 +3: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro actions remain reachable at 320 dp and 200% text
+00:02 +4: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via system back
+00:02 +5: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via system back
+00:02 +6: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via system back
+00:02 +7: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Empty home waits for data and opens the welcome popup
+00:02 +8: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Home navigation matches the iOS reference inset
+00:02 +9: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: (tearDownAll)
+00:02 +9: All tests passed!

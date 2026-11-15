@@ -1,0 +1,41 @@
+Applied 20260920032207_first_deploy.sql
+Applied 20260927082912_rebuild_schema_v11.sql
+Applied 20261001141348_user_medications_dosing_stock_idempotency.sql
+Applied 20261002101031_user_medications_soft_delete.sql
+Applied 20261002101033_catalog_search_unaccent.sql
+Applied 20261005065417_consent_type_terms.sql
+Applied 20261007152051_add_rejected_family_link_status.sql
+Applied 20261009065232_medication_schedules_closed_by_stop.sql
+Applied 20261011164026_interaction_rule_versions.sql
+Applied 20261013022742_access_actor_patient.sql
+Applied 20261013022744_access_logs_self_audit.sql
+Applied 20261013040307_link_codes_one_fixed_code_per_user.sql
+Applied 20261015030157_family_link_consent.sql
+Applied 20261016083732_caregiver_links_reopenable_pairs.sql
+Applied 20261016083734_link_request_attempts.sql
+Applied 20261021030401_family_link_audit_caregiver_operations.sql
+Applied 20261021093454_family_alert_event_snapshot.sql
+Applied 20261021115000_access_logs_admin_self_denied.sql
+Applied 20261026164155_dose_sync_checkpoints.sql
+Applied 20261026164158_missed_dose_pending_verifications.sql
+Applied 20261030025813_catalog_ingredient_alias_search.sql
+Applied 20261110061954_linked_patient_access_scope.sql
+Applied 20261110062000_linked_patient_request_audit.sql
+Applied 20261115110000_health_profile_onboarding.sql
+Applied seed 10_knowledge_base.sql
+D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+...............                                                          [100%]
+============================== warnings summary ===============================
+tests/integration/test_health_setup_api.py::test_catalog_and_legacy_selection_roundtrip__AC04_AC05_AC06_AC10
+  D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 1 warning in 6.74s
+waiting for server to shut down.... done
+server stopped
+Current condition catalog count: 0
+Mutually exclusive selections rejected by DB.
+RLS, minimum grants, constraints and worker erasure verified.
+API roundtrip verified using the real PostgreSQL repository and a synthetic patient.

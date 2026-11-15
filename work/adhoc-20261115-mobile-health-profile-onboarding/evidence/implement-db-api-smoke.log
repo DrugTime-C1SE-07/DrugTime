@@ -1,0 +1,207 @@
+Applied 20260920032207_first_deploy.sql
+Applied 20260927082912_rebuild_schema_v11.sql
+Applied 20261001141348_user_medications_dosing_stock_idempotency.sql
+Applied 20261002101031_user_medications_soft_delete.sql
+Applied 20261002101033_catalog_search_unaccent.sql
+Applied 20261005065417_consent_type_terms.sql
+Applied 20261007152051_add_rejected_family_link_status.sql
+Applied 20261009065232_medication_schedules_closed_by_stop.sql
+Applied 20261011164026_interaction_rule_versions.sql
+Applied 20261013022742_access_actor_patient.sql
+Applied 20261013022744_access_logs_self_audit.sql
+Applied 20261013040307_link_codes_one_fixed_code_per_user.sql
+Applied 20261015030157_family_link_consent.sql
+Applied 20261016083732_caregiver_links_reopenable_pairs.sql
+Applied 20261016083734_link_request_attempts.sql
+Applied 20261021030401_family_link_audit_caregiver_operations.sql
+Applied 20261021093454_family_alert_event_snapshot.sql
+Applied 20261021115000_access_logs_admin_self_denied.sql
+Applied 20261026164155_dose_sync_checkpoints.sql
+Applied 20261026164158_missed_dose_pending_verifications.sql
+Applied 20261030025813_catalog_ingredient_alias_search.sql
+Applied 20261110061954_linked_patient_access_scope.sql
+Applied 20261110062000_linked_patient_request_audit.sql
+Applied 20261115110000_health_profile_onboarding.sql
+Applied seed 10_knowledge_base.sql
+D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+waiting for server to shut down.... done
+server stopped
+Current condition catalog count: 0
+Mutually exclusive selections rejected by DB.
+RLS, minimum grants, constraints and worker erasure verified.
+Traceback (most recent call last):
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1977, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.CheckViolation: new row for relation "access_logs" violates check constraint "access_logs_actor_identity_check"
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\run_database_check.py", line 30, in <module>
+    runpy.run_path(str(scratch / "check_database.py"))
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\check_database.py", line 82, in <module>
+    assert client.get("/profile/health-setup", params={"patient_id": str(uuid4())}).status_code == 403
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\testclient.py", line 518, in request
+    return super().request(
+           ^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_client.py", line 928, in send
+    raise exc
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_client.py", line 922, in send
+    response.read()
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_models.py", line 881, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_models.py", line 897, in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_models.py", line 951, in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\httpx\_client.py", line 153, in __iter__
+    for chunk in self._stream:
+                 ^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\testclient.py", line 384, in iter_body
+    exit_stack.close()
+  File "C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 618, in close
+    self.__exit__(None, None, None)
+  File "C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 610, in __exit__
+    raise exc_details[1]
+  File "C:\Users\VietD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 595, in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\testclient.py", line 399, in close_app
+    raise exception
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\anyio\from_thread.py", line 272, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\testclient.py", line 366, in run_app
+    await self.app(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\base.py", line 203, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\main.py", line 96, in sensitive_no_store
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\base.py", line 179, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 1850, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 1865, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 1328, in handle
+    await effective_context.app(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\routing.py", line 374, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2779, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1124, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\telemetry\_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\medication\adapters\inbound\health_setup_http.py", line 85, in get_health_setup
+    _authorize(uow, request, user, writes=False)
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\medication\adapters\inbound\health_setup_http.py", line 56, in _authorize
+    _ACCESS.authorize_setup(
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\medication\adapters\outbound\other_modules.py", line 70, in authorize_setup
+    access.authorize(
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\access\api.py", line 36, in authorize
+    _authorize.authorize(
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\access\application\authorize.py", line 68, in authorize
+    log.append_denied(caller_id, decision.log_role, patient_id, scope, decision.reason or "")
+  File "D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\backend\src\drugtime\modules\access\adapters\outbound\sql_access_log.py", line 35, in append_denied
+    own.connection.execute(
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1494, in execute
+    return meth(
+           ^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 534, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1714, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1868, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1977, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) new row for relation "access_logs" violates check constraint "access_logs_actor_identity_check"
+[SQL: INSERT INTO access_logs (actor_user_id, actor_role, patient_user_id, data_scope, result, rejection_reason, accessed_at) VALUES (%(a)s, %(r)s, %(p)s, %(s)s, %(res)s, %(reason)s, now())]
+[parameters: {'a': UUID('ff2c5e44-dd7f-4507-9711-37e3e4a78992'), 'r': 'khong_co_quyen', 'p': UUID('ff2c5e44-dd7f-4507-9711-37e3e4a78992'), 's': 'ho_so_suc_khoe', 'res': 'denied', 'reason': 'khong_co_quyen'}]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)

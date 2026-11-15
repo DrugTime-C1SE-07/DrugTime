@@ -1,0 +1,27 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: (setUpAll)
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via skip
+00:02 +1: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via skip
+00:02 +2: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:02 +3: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:02 +4: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:03 +5: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:03 +6: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-9725 375x812
+00:03 +7: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Empty home waits for data and opens the welcome popup
+00:03 +8: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:03 +9: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:04 +10: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:04 +11: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:04 +12: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10167 375x812
+00:04 +13: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10167 375x812
+00:04 +14: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10167 375x812
+00:04 +15: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-9946 375x812
+00:05 +16: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 38-5045 375x812
+00:05 +17: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10839 375x812
+00:05 +18: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10644 375x812
+00:06 +19: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-10449 375x812
+00:06 +20: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-11229 375x812
+00:06 +21: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-11034 375x812
+00:06 +22: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: Render 547-11556 375x812
+00:07 +23: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/capture_health_setup_test.dart: (tearDownAll)
+00:07 +23: All tests passed!

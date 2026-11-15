@@ -1,0 +1,37 @@
+F
+================================== FAILURES ===================================
+___________ test_invalid_or_erased_auth[invalid-get-/profile-None] ____________
+
+method = 'get', path = '/profile', body = None, kind = 'invalid'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000247672D5010>
+
+    @pytest.mark.parametrize("method,path,body", OPERATIONS + [("get", "/conditions", None)])
+    @pytest.mark.parametrize("kind", ["invalid", "erased"])
+    def test_invalid_or_erased_auth(method, path, body, kind, monkeypatch):
+        from drugtime.modules.identity.adapters.inbound import dependencies
+    
+        app = create_app()
+        app.dependency_overrides[get_uow] = lambda: object()
+        if kind == "erased":
+            monkeypatch.setattr(dependencies, "_decode", lambda _: {"sub": str(uuid4())})
+            users = Mock()
+            users.get.return_value = Mock(erased=True)
+            monkeypatch.setattr(dependencies, "SqlUsers", lambda _: users)
+        response = TestClient(app).request(
+            method, path, json=body, headers={"Authorization": "Bearer not-a-real-token"}
+        )
+>       assert response.status_code == 401
+E       assert 422 == 401
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\unit\test_profile_http.py:295: AssertionError
+============================== warnings summary ===============================
+..\..\..\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\Captone\DrugTime\work\5.06-admin-queue-api\scratch\venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_profile_http.py::test_invalid_or_erased_auth[invalid-get-/profile-None]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 49 deselected, 1 warning in 2.14s

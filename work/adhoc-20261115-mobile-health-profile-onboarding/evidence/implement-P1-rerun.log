@@ -1,0 +1,63 @@
+Unhandled exception:
+By default, this package downloads a pre-compiled SQLite library.
+This failed (attepted to download https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-3.5.2/sqlite3.x64.windows.dll).
+For alternatives to downloading SQLite, see https://pub.dev/documentation/sqlite3/latest/topics/hook-topic.html
+Original cause: SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = github.com, port = 55782
+#0      _NativeSocket.startConnect (dart:io-patch/socket_patch.dart:849:35)
+#1      _RawSocket.startConnect (dart:io-patch/socket_patch.dart:2313:26)
+#2      RawSocket.startConnect (dart:io-patch/socket_patch.dart:41:23)
+#3      RawSecureSocket.startConnect (dart:io/secure_socket.dart:334:22)
+#4      SecureSocket.startConnect (dart:io/secure_socket.dart:85:28)
+#5      _ConnectionTarget.connect (dart:_http/http_impl.dart:2694:26)
+#6      _HttpClient._getConnection.connect (dart:_http/http_impl.dart:3200:12)
+#7      _HttpClient._getConnection (dart:_http/http_impl.dart:3205:12)
+#8      _HttpClient._openUrl (dart:_http/http_impl.dart:3026:12)
+#9      _HttpClient.getUrl (dart:_http/http_impl.dart:2873:48)
+#10     PrecompiledFromGithubAssets._fetchFromSource (package:sqlite3/src/hook/compile/description.dart:265:36)
+<asynchronous suspension>
+#11     PrecompiledBinary.fetch.<anonymous closure>.<anonymous closure> (package:sqlite3/src/hook/compile/description.dart:160:9)
+<asynchronous suspension>
+
+  Building assets for package:sqlite3 failed.
+  build.dart returned with exit code: 255.
+  To reproduce run:
+  (cd C:\Users\VietD\AppData\Local\Pub\Cache\hosted\pub.dev\sqlite3-3.5.2\; D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-intro\scratch\flutter-sdk\bin\cache\dart-sdk\bin\dart --packages=D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\frontend\mobile\.dart_tool\package_config.json D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\frontend\mobile\.dart_tool\hooks_runner\sqlite3\8e04c28b44\hook.dill --config=D:\Captone\DrugTime\work\adhoc-20261115-mobile-health-profile-onboarding\scratch\frontend\mobile\.dart_tool\hooks_runner\sqlite3\8e04c28b44\input.json )
+  stderr:
+  Unhandled exception:
+By default, this package downloads a pre-compiled SQLite library.
+This failed (attepted to download https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-3.5.2/sqlite3.x64.windows.dll).
+For alternatives to downloading SQLite, see https://pub.dev/documentation/sqlite3/latest/topics/hook-topic.html
+Original cause: SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = github.com, port = 55782
+#0      _NativeSocket.startConnect (dart:io-patch/socket_patch.dart:849:35)
+#1      _RawSocket.startConnect (dart:io-patch/socket_patch.dart:2313:26)
+#2      RawSocket.startConnect (dart:io-patch/socket_patch.dart:41:23)
+#3      RawSecureSocket.startConnect (dart:io/secure_socket.dart:334:22)
+#4      SecureSocket.startConnect (dart:io/secure_socket.dart:85:28)
+#5      _ConnectionTarget.connect (dart:_http/http_impl.dart:2694:26)
+#6      _HttpClient._getConnection.connect (dart:_http/http_impl.dart:3200:12)
+#7      _HttpClient._getConnection (dart:_http/http_impl.dart:3205:12)
+#8      _HttpClient._openUrl (dart:_http/http_impl.dart:3026:12)
+#9      _HttpClient.getUrl (dart:_http/http_impl.dart:2873:48)
+#10     PrecompiledFromGithubAssets._fetchFromSource (package:sqlite3/src/hook/compile/description.dart:265:36)
+<asynchronous suspension>
+#11     PrecompiledBinary.fetch.<anonymous closure>.<anonymous closure> (package:sqlite3/src/hook/compile/description.dart:160:9)
+<asynchronous suspension>
+
+  stdout:
+
+
+Building native assets failed. See the logs for more details.
+The Flutter CLI developer tool uses Google Analytics to report usage and diagnostic
+data along with package dependencies, and crash reporting to send basic crash
+reports. This data is used to help improve the Dart platform, Flutter framework,
+and related tools.
+
+Telemetry is not sent on the very first run. To disable reporting of telemetry,
+run this terminal command:
+
+    flutter --disable-analytics
+
+If you opt out of telemetry, an opt-out event will be sent, and then no further
+information will be sent. This data is collected in accordance with the Google
+Privacy Policy (https://policies.google.com/privacy).
+

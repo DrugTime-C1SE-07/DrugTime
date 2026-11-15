@@ -1,0 +1,5 @@
+OpenAPI JSON parsed; local references resolve; operation IDs unique.
+Existing paths and component definitions unchanged.
+Checked health setup response codes, step variants and example consistency.
+git diff --check: passed
+git apply --check against current api_contract checkout: passed

@@ -1,0 +1,687 @@
+diff --git a/openapi.json b/openapi.json
+index 4da09dc..0e69dc6 100644
+--- a/openapi.json
++++ b/openapi.json
+@@ -6202,6 +6202,240 @@
+         }
+       }
+     },
++    "/allergens": {
++      "get": {
++        "tags": [
++          "catalog"
++        ],
++        "operationId": "listAllergens",
++        "summary": "Read shared allergen catalog",
++        "description": "Bearer authentication required. Returns the full curated catalog for the two groups. It contains no patient records and does not require health_data consent. No query parameters. Preserve response order within each group; drug entries precede food entries.",
++        "security": [
++          {
++            "bearerAuth": []
++          }
++        ],
++        "responses": {
++          "200": {
++            "description": "Successful response.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/AllergenCatalogResponse"
++                },
++                "example": {
++                  "items": [
++                    {
++                      "id": "penicillin",
++                      "category": "drug",
++                      "name": "Penicillin"
++                    },
++                    {
++                      "id": "seafood",
++                      "category": "food",
++                      "name": "Hải sản"
++                    }
++                  ]
++                }
++              }
++            }
++          },
++          "401": {
++            "$ref": "#/components/responses/ProfileUnauthorized"
++          },
++          "422": {
++            "$ref": "#/components/responses/HealthSetupValidationError"
++          },
++          "500": {
++            "description": "Internal error. No internal exception details are returned.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                "example": {
++                  "detail": "internal_error"
++                }
++              }
++            }
++          }
++        }
++      }
++    },
++    "/profile/health-setup": {
++      "get": {
++        "tags": [
++          "profile"
++        ],
++        "operationId": "getOwnHealthSetup",
++        "summary": "Read own health onboarding selections",
++        "description": "Patient self only, using the authenticated app identity. Current health_data consent and Scope.HEALTH_PROFILE authorization are checked against the database at every request via PEP. Admin and caregiver-role callers are denied even with a caregiver link; a linked patient account acting for itself accesses only its own record. Audit allowed and denied attempts with minimal metadata; persist denied audit independently. Fail closed if durable audit fails, without returning medical data or committing a write. Never log request or response medical payloads. Success has Cache-Control: no-store. No query parameters. A cross-patient selector is rejected with 403 khong_co_quyen and audited; any other query parameter, including an owner selector equal to the caller, returns 422. Successful reads return both steps and a consistent revision. unreported means there is no record of a declaration; none_known is an explicit declaration. Existing condition links are reflected in reported even for accounts predating onboarding. Use GET /allergens and GET /conditions for shared catalog labels. IDs sort ascending (ASCII for strings), and custom_names sort by Unicode code point in the stored form.",
++        "security": [
++          {
++            "bearerAuth": []
++          }
++        ],
++        "responses": {
++          "200": {
++            "description": "Successful response.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/HealthSetupResponse"
++                },
++                "examples": {
++                  "unreported": {
++                    "value": {
++                      "revision": "v1",
++                      "allergies": {
++                        "status": "unreported"
++                      },
++                      "conditions": {
++                        "status": "unreported"
++                      }
++                    }
++                  },
++                  "saved": {
++                    "value": {
++                      "revision": "v2",
++                      "allergies": {
++                        "status": "reported",
++                        "catalog_ids": [
++                          "penicillin",
++                          "seafood"
++                        ],
++                        "custom_names": []
++                      },
++                      "conditions": {
++                        "status": "none_known"
++                      }
++                    }
++                  }
++                }
++              }
++            },
++            "headers": {
++              "Cache-Control": {
++                "required": true,
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            }
++          },
++          "401": {
++            "$ref": "#/components/responses/ProfileUnauthorized"
++          },
++          "403": {
++            "$ref": "#/components/responses/ProfileForbidden"
++          },
++          "422": {
++            "$ref": "#/components/responses/HealthSetupValidationError"
++          },
++          "500": {
++            "$ref": "#/components/responses/ProfileInternalError"
++          }
++        }
++      },
++      "put": {
++        "tags": [
++          "profile"
++        ],
++        "operationId": "replaceOwnHealthSetupSteps",
++        "summary": "Save health onboarding steps atomically",
++        "description": "Patient self only, using the authenticated app identity. Current health_data consent and Scope.HEALTH_PROFILE authorization are checked against the database at every request via PEP. Admin and caregiver-role callers are denied even with a caregiver link; a linked patient account acting for itself accesses only its own record. Audit allowed and denied attempts with minimal metadata; persist denied audit independently. Fail closed if durable audit fails, without returning medical data or committing a write. Never log request or response medical payloads. Success has Cache-Control: no-store. No query parameters. A cross-patient selector is rejected with 403 khong_co_quyen and audited; any other query parameter, including an owner selector equal to the caller, returns 422. Supply the latest revision and at least one step. Replace the complete selection of each supplied step; omit a skipped or unchanged step to preserve it. Reject null. none_known clears selections in that step and records the explicit declaration. reported requires at least one catalog or custom entry. Conditions selected by ID share the same links as /profile/conditions: preserve IDs and subtype/stage of retained links, remove links no longer selected, create new links with null metadata. Custom condition names are returned here; legacy /profile conditions retains its existing shape and lists only catalog links. Serialize all changes affecting this snapshot, including writes via legacy condition endpoints, and apply the two supplied steps in one transaction. Adding a legacy catalog link makes conditions reported; deleting the last item leaves conditions unreported if no custom names remain. Trim custom names, normalize to NFC and reject empty names, NUL and duplicates under Unicode casefold after normalization. Catalog IDs must exist. If a revision is stale, return 409 without mutation. A write with the current revision and identical normalized selection returns the current snapshot without duplicating records or advancing the revision. After an uncertain result or 409, re-read: if supplied steps already match, consider them saved; otherwise review current values before retrying with a new revision. No offline write queue.",
++        "security": [
++          {
++            "bearerAuth": []
++          }
++        ],
++        "responses": {
++          "200": {
++            "description": "Successful response.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/HealthSetupResponse"
++                },
++                "example": {
++                  "revision": "v2",
++                  "allergies": {
++                    "status": "reported",
++                    "catalog_ids": [
++                      "penicillin",
++                      "seafood"
++                    ],
++                    "custom_names": []
++                  },
++                  "conditions": {
++                    "status": "none_known"
++                  }
++                }
++              }
++            },
++            "headers": {
++              "Cache-Control": {
++                "required": true,
++                "schema": {
++                  "type": "string",
++                  "const": "no-store"
++                }
++              }
++            }
++          },
++          "401": {
++            "$ref": "#/components/responses/ProfileUnauthorized"
++          },
++          "403": {
++            "$ref": "#/components/responses/ProfileForbidden"
++          },
++          "422": {
++            "$ref": "#/components/responses/HealthSetupValidationError"
++          },
++          "500": {
++            "$ref": "#/components/responses/ProfileInternalError"
++          },
++          "409": {
++            "description": "Revision is stale. Re-read before attempting any further write.",
++            "content": {
++              "application/json": {
++                "schema": {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                "example": {
++                  "detail": "health_setup_revision_conflict"
++                }
++              }
++            }
++          }
++        },
++        "requestBody": {
++          "required": true,
++          "content": {
++            "application/json": {
++              "schema": {
++                "$ref": "#/components/schemas/HealthSetupUpdateRequest"
++              },
++              "example": {
++                "revision": "v1",
++                "allergies": {
++                  "status": "reported",
++                  "catalog_ids": [
++                    "penicillin",
++                    "seafood"
++                  ],
++                  "custom_names": []
++                },
++                "conditions": {
++                  "status": "none_known"
++                }
++              }
++            }
++          }
++        }
++      }
++    },
+     "/conditions": {
+       "get": {
+         "tags": [
+@@ -9882,6 +10116,391 @@
+           }
+         }
+       },
++      "AllergenCatalogItem": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "id",
++          "category",
++          "name"
++        ],
++        "properties": {
++          "id": {
++            "type": "string",
++            "pattern": "^[a-z][a-z0-9_]{0,63}$"
++          },
++          "category": {
++            "type": "string",
++            "enum": [
++              "drug",
++              "food"
++            ]
++          },
++          "name": {
++            "type": "string",
++            "minLength": 1
++          }
++        }
++      },
++      "AllergenCatalogResponse": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "items"
++        ],
++        "properties": {
++          "items": {
++            "type": "array",
++            "items": {
++              "$ref": "#/components/schemas/AllergenCatalogItem"
++            }
++          }
++        }
++      },
++      "HealthSetupCustomName": {
++        "type": "string",
++        "minLength": 1,
++        "maxLength": 120,
++        "pattern": "^[^\\u0000]+$"
++      },
++      "HealthSetupAllergies": {
++        "oneOf": [
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "unreported"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "none_known"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status",
++              "catalog_ids",
++              "custom_names"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "reported"
++              },
++              "catalog_ids": {
++                "type": "array",
++                "items": {
++                  "type": "string",
++                  "pattern": "^[a-z][a-z0-9_]{0,63}$"
++                },
++                "uniqueItems": true
++              },
++              "custom_names": {
++                "type": "array",
++                "items": {
++                  "$ref": "#/components/schemas/HealthSetupCustomName"
++                },
++                "maxItems": 30,
++                "uniqueItems": true
++              }
++            },
++            "anyOf": [
++              {
++                "properties": {
++                  "catalog_ids": {
++                    "minItems": 1
++                  }
++                }
++              },
++              {
++                "properties": {
++                  "custom_names": {
++                    "minItems": 1
++                  }
++                }
++              }
++            ]
++          }
++        ]
++      },
++      "HealthSetupConditions": {
++        "oneOf": [
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "unreported"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "none_known"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status",
++              "catalog_ids",
++              "custom_names"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "reported"
++              },
++              "catalog_ids": {
++                "type": "array",
++                "items": {
++                  "type": "integer",
++                  "minimum": 1
++                },
++                "uniqueItems": true
++              },
++              "custom_names": {
++                "type": "array",
++                "items": {
++                  "$ref": "#/components/schemas/HealthSetupCustomName"
++                },
++                "maxItems": 30,
++                "uniqueItems": true
++              }
++            },
++            "anyOf": [
++              {
++                "properties": {
++                  "catalog_ids": {
++                    "minItems": 1
++                  }
++                }
++              },
++              {
++                "properties": {
++                  "custom_names": {
++                    "minItems": 1
++                  }
++                }
++              }
++            ]
++          }
++        ]
++      },
++      "HealthSetupAllergiesUpdate": {
++        "oneOf": [
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "none_known"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status",
++              "catalog_ids",
++              "custom_names"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "reported"
++              },
++              "catalog_ids": {
++                "type": "array",
++                "items": {
++                  "type": "string",
++                  "pattern": "^[a-z][a-z0-9_]{0,63}$"
++                },
++                "uniqueItems": true
++              },
++              "custom_names": {
++                "type": "array",
++                "items": {
++                  "$ref": "#/components/schemas/HealthSetupCustomName"
++                },
++                "maxItems": 30,
++                "uniqueItems": true
++              }
++            },
++            "anyOf": [
++              {
++                "properties": {
++                  "catalog_ids": {
++                    "minItems": 1
++                  }
++                }
++              },
++              {
++                "properties": {
++                  "custom_names": {
++                    "minItems": 1
++                  }
++                }
++              }
++            ]
++          }
++        ]
++      },
++      "HealthSetupConditionsUpdate": {
++        "oneOf": [
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "none_known"
++              }
++            }
++          },
++          {
++            "type": "object",
++            "additionalProperties": false,
++            "required": [
++              "status",
++              "catalog_ids",
++              "custom_names"
++            ],
++            "properties": {
++              "status": {
++                "type": "string",
++                "const": "reported"
++              },
++              "catalog_ids": {
++                "type": "array",
++                "items": {
++                  "type": "integer",
++                  "minimum": 1
++                },
++                "uniqueItems": true
++              },
++              "custom_names": {
++                "type": "array",
++                "items": {
++                  "$ref": "#/components/schemas/HealthSetupCustomName"
++                },
++                "maxItems": 30,
++                "uniqueItems": true
++              }
++            },
++            "anyOf": [
++              {
++                "properties": {
++                  "catalog_ids": {
++                    "minItems": 1
++                  }
++                }
++              },
++              {
++                "properties": {
++                  "custom_names": {
++                    "minItems": 1
++                  }
++                }
++              }
++            ]
++          }
++        ]
++      },
++      "HealthSetupResponse": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "revision",
++          "allergies",
++          "conditions"
++        ],
++        "properties": {
++          "revision": {
++            "type": "string",
++            "minLength": 1,
++            "maxLength": 128,
++            "description": "Opaque per-patient version for both steps. Changes when either step or an existing condition link changes. Clients only echo or compare it."
++          },
++          "allergies": {
++            "$ref": "#/components/schemas/HealthSetupAllergies"
++          },
++          "conditions": {
++            "$ref": "#/components/schemas/HealthSetupConditions"
++          }
++        }
++      },
++      "HealthSetupUpdateRequest": {
++        "type": "object",
++        "additionalProperties": false,
++        "required": [
++          "revision"
++        ],
++        "properties": {
++          "revision": {
++            "type": "string",
++            "minLength": 1,
++            "maxLength": 128,
++            "description": "Opaque per-patient version for both steps. Changes when either step or an existing condition link changes. Clients only echo or compare it."
++          },
++          "allergies": {
++            "$ref": "#/components/schemas/HealthSetupAllergiesUpdate"
++          },
++          "conditions": {
++            "$ref": "#/components/schemas/HealthSetupConditionsUpdate"
++          }
++        },
++        "anyOf": [
++          {
++            "required": [
++              "allergies"
++            ]
++          },
++          {
++            "required": [
++              "conditions"
++            ]
++          }
++        ]
++      },
+       "ConditionResponse": {
+         "type": "object",
+         "additionalProperties": false,
+@@ -10771,6 +11390,49 @@
+           }
+         }
+       },
++      "HealthSetupValidationError": {
++        "description": "Invalid shape/query uses the FastAPI field-error array. Business validation uses stable string codes: allergen_not_found, condition_not_found, invalid_custom_name, duplicate_custom_name. HTTP 422 leaves both steps unchanged.",
++        "content": {
++          "application/json": {
++            "schema": {
++              "oneOf": [
++                {
++                  "$ref": "#/components/schemas/ErrorDetail"
++                },
++                {
++                  "$ref": "#/components/schemas/ValidationError"
++                }
++              ]
++            },
++            "examples": {
++              "unknown_allergen": {
++                "value": {
++                  "detail": "allergen_not_found"
++                }
++              },
++              "duplicate_name": {
++                "value": {
++                  "detail": "duplicate_custom_name"
++                }
++              },
++              "missing_revision": {
++                "value": {
++                  "detail": [
++                    {
++                      "loc": [
++                        "body",
++                        "revision"
++                      ],
++                      "msg": "Field required",
++                      "type": "missing"
++                    }
++                  ]
++                }
++              }
++            }
++          }
++        }
++      },
+       "ProfileUnauthorized": {
+         "description": "Missing, invalid or expired bearer token, or erased account. No personal data is returned.",
+         "content": {

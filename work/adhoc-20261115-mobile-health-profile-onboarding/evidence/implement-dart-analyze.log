@@ -1,0 +1,9 @@
+Analyzing mobile...
+
+   info - lib\features\medication\presentation\screens\edit_medication_screen.dart:570:17 - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - lib\features\profile\data\repositories\remote_health_setup_repository.dart:32:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\features\profile\data\repositories\remote_health_setup_repository.dart:86:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\core\notification\reminder_edge_cases_test.dart:1:8 - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive. - unnecessary_import
+   info - test\core\notification\reminder_edge_cases_test.dart:199:25 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+
+5 issues found.

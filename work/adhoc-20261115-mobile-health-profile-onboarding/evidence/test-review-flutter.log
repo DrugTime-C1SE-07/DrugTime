@@ -1,0 +1,14 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:06 +1: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:07 +2: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:08 +3: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: empty backend condition catalog still allows custom declaration
+00:09 +4: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/home/home_screen_test.dart: Welcome setup opens S08a once and returns via system back
+00:09 +5: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:10 +6: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:11 +7: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: selects two allergens, keeps draft on back and saves none known
+00:11 +8: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: load error offers retry and does not show form
+00:12 +9: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: readback confirms a lost save response without sending twice
+00:12 +10: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: lost save response with stored name "Hải sản"
+00:12 +11: D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: lost save response with stored name "Hải Sản"
+00:12 +12: All tests passed!

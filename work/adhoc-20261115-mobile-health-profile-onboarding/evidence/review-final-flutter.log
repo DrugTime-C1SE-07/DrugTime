@@ -1,0 +1,8 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart
+00:00 +0: empty backend condition catalog still allows custom declaration
+00:02 +1: selects two allergens, keeps draft on back and saves none known
+00:02 +2: load error offers retry and does not show form
+00:03 +3: readback confirms a lost save response without sending twice
+00:03 +4: lost save response with stored name "Hải sản"
+00:03 +5: lost save response with stored name "Hải Sản"
+00:03 +6: All tests passed!

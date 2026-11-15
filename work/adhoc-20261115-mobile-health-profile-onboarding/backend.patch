@@ -1,0 +1,1094 @@
+diff --git a/src/drugtime/modules/access/api.py b/src/drugtime/modules/access/api.py
+index 549a1b5..54c18de 100644
+--- a/src/drugtime/modules/access/api.py
++++ b/src/drugtime/modules/access/api.py
+@@ -28,6 +28,7 @@ def authorize(
+     scope: Scope,
+     action: Action = Action.READ,
+     audit_self: bool = False,
++    rejected_owner_selector: bool = False,
+ ) -> None:
+     """Raise Forbidden nếu không có quyền; ghi access_logs khi cần.
+     action=WRITE: chỉ chính chủ được ghi. Người thân chỉ đọc theo chia sẻ;
+@@ -42,6 +43,7 @@ def authorize(
+         scope=scope,
+         action=action,
+         audit_self=audit_self,
++        rejected_owner_selector=rejected_owner_selector,
+     )
+ 
+ 
+diff --git a/src/drugtime/modules/access/application/authorize.py b/src/drugtime/modules/access/application/authorize.py
+index b24e635..2741758 100644
+--- a/src/drugtime/modules/access/application/authorize.py
++++ b/src/drugtime/modules/access/application/authorize.py
+@@ -1,7 +1,14 @@
+ from uuid import UUID
+ 
+ from drugtime.modules.access.application.ports import AccessLog, FactsReader
+-from drugtime.modules.access.domain.rules import SCOPE_PURPOSE, Action, Decision, Scope, decide
++from drugtime.modules.access.domain.rules import (
++    SCOPE_PURPOSE,
++    Action,
++    ActorRole,
++    Decision,
++    Scope,
++    decide,
++)
+ from drugtime.shared.errors import Forbidden
+ from drugtime.shared.uow import UnitOfWork
+ 
+@@ -36,6 +43,7 @@ def authorize(
+     scope: Scope,
+     action: Action = Action.READ,
+     audit_self: bool = False,
++    rejected_owner_selector: bool = False,
+ ) -> None:
+     decision = resolve_access(
+         uow,
+@@ -47,6 +55,13 @@ def authorize(
+         action=action,
+         audit_self=audit_self,
+     )
++    if rejected_owner_selector:
++        if decision.log_role is None:
++            patient_id = caller_id
++        role = decision.log_role or ActorRole.NO_ACCESS
++        if patient_id == caller_id:
++            role = ActorRole.ADMIN if caller_is_admin else ActorRole.PATIENT
++        decision = Decision(False, role, "khong_co_quyen")
+     if decision.allowed:
+         if decision.log_role is not None:
+             # Cùng transaction với request: ghi log lỗi thì request lỗi (fail-closed).
+diff --git a/src/drugtime/modules/catalog/adapters/inbound/allergens_http.py b/src/drugtime/modules/catalog/adapters/inbound/allergens_http.py
+new file mode 100644
+index 0000000..76fc870
+--- /dev/null
++++ b/src/drugtime/modules/catalog/adapters/inbound/allergens_http.py
+@@ -0,0 +1,59 @@
++from typing import Literal
++
++from fastapi import APIRouter, Depends, Request
++from fastapi.exceptions import RequestValidationError
++from fastapi.security import HTTPBearer
++from pydantic import BaseModel, Field
++
++from drugtime.modules.catalog.domain.allergen import ALLERGENS
++from drugtime.modules.identity import api as identity
++
++
++class AllergenResponse(BaseModel):
++    id: str = Field(pattern=r"^[a-z][a-z0-9_]{0,63}$")
++    category: Literal["drug", "food"]
++    name: str = Field(min_length=1)
++
++
++class AllergensResponse(BaseModel):
++    items: list[AllergenResponse]
++
++
++class CatalogError(BaseModel):
++    detail: str
++
++
++class CatalogValidationError(BaseModel):
++    detail: list[dict]
++
++
++router = APIRouter(
++    tags=["catalog"],
++    dependencies=[
++        Depends(HTTPBearer(auto_error=False, scheme_name="bearerAuth", bearerFormat="JWT"))
++    ],
++)
++
++
++@router.get(
++    "/allergens",
++    operation_id="listAllergens",
++    response_model=AllergensResponse,
++    responses={
++        401: {"model": CatalogError},
++        422: {"model": CatalogValidationError},
++        500: {"model": CatalogError},
++    },
++)
++def list_allergens(request: Request, _user: identity.CurrentUser = Depends(identity.current_user)):
++    if request.query_params:
++        raise RequestValidationError(
++            [
++                {
++                    "loc": ("query",),
++                    "type": "extra_forbidden",
++                    "msg": "Query parameters are not accepted",
++                }
++            ]
++        )
++    return {"items": ALLERGENS}
+diff --git a/src/drugtime/modules/catalog/api.py b/src/drugtime/modules/catalog/api.py
+index b53b808..38361d5 100644
+--- a/src/drugtime/modules/catalog/api.py
++++ b/src/drugtime/modules/catalog/api.py
+@@ -5,6 +5,7 @@ from datetime import datetime
+ 
+ from fastapi import APIRouter
+ 
++from drugtime.modules.catalog.adapters.inbound.allergens_http import router as _allergens_router
+ from drugtime.modules.catalog.adapters.inbound.conditions_http import router as _conditions_router
+ from drugtime.modules.catalog.adapters.inbound.http import router as _catalog_router
+ from drugtime.modules.catalog.adapters.inbound.ocr_match_http import router as _ocr_match_router
+@@ -18,6 +19,7 @@ from drugtime.modules.catalog.application.lookup_ocr_candidates import (
+ )
+ from drugtime.modules.catalog.application.normalize_ocr import normalize_ocr_text
+ from drugtime.modules.catalog.application.scheduling import is_sync_due
++from drugtime.modules.catalog.domain.allergen import allergen_exists
+ from drugtime.modules.catalog.domain.catalog_index import (
+     MatchKind,
+     MatchSource,
+@@ -56,6 +58,7 @@ __all__ = [
+     "lookup_ocr_candidates",
+     "normalize_ocr_text",
+     "Condition",
++    "allergen_exists",
+     "get_condition",
+     "condition_names",
+     "CatalogMedication",
+@@ -72,6 +75,7 @@ router = APIRouter()
+ router.include_router(_catalog_router)
+ router.include_router(_ocr_match_router)
+ router.include_router(_conditions_router)
++router.include_router(_allergens_router)
+ 
+ 
+ def lookup_ocr_candidates(uow: UnitOfWork, normalized: NormalizedOcrText) -> OcrCatalogLookup:
+diff --git a/src/drugtime/modules/catalog/domain/allergen.py b/src/drugtime/modules/catalog/domain/allergen.py
+new file mode 100644
+index 0000000..c3d6545
+--- /dev/null
++++ b/src/drugtime/modules/catalog/domain/allergen.py
+@@ -0,0 +1,24 @@
++from dataclasses import dataclass
++
++
++@dataclass(frozen=True)
++class Allergen:
++    id: str
++    category: str
++    name: str
++
++
++ALLERGENS = (
++    Allergen("penicillin", "drug", "Penicillin"),
++    Allergen("aspirin", "drug", "Aspirin"),
++    Allergen("sulfa", "drug", "Sulfa"),
++    Allergen("cephalosporin", "drug", "Cephalosporin"),
++    Allergen("seafood", "food", "Hải sản"),
++    Allergen("peanuts", "food", "Đậu phộng"),
++    Allergen("eggs", "food", "Trứng"),
++    Allergen("milk", "food", "Sữa"),
++)
++
++
++def allergen_exists(allergen_id: str) -> bool:
++    return any(item.id == allergen_id for item in ALLERGENS)
+diff --git a/src/drugtime/modules/medication/adapters/inbound/health_setup_http.py b/src/drugtime/modules/medication/adapters/inbound/health_setup_http.py
+new file mode 100644
+index 0000000..b535e5d
+--- /dev/null
++++ b/src/drugtime/modules/medication/adapters/inbound/health_setup_http.py
+@@ -0,0 +1,161 @@
++from uuid import UUID
++
++from fastapi import APIRouter, Depends, Request
++from fastapi.concurrency import run_in_threadpool
++from fastapi.exceptions import RequestValidationError
++from fastapi.responses import JSONResponse
++from fastapi.security import HTTPBearer
++from pydantic import ValidationError
++
++from drugtime.modules.identity import api as identity
++from drugtime.modules.medication.adapters.inbound.health_setup_schemas import (
++    HealthSetupRequest,
++    HealthSetupResponse,
++    decode_step,
++)
++from drugtime.modules.medication.adapters.inbound.profile_schemas import (
++    ProfileError,
++    ProfileValidationError,
++)
++from drugtime.modules.medication.adapters.outbound.other_modules import (
++    ConditionCatalogAdapter,
++    HealthProfileAccessAdapter,
++)
++from drugtime.modules.medication.adapters.outbound.sql_health_setup import SqlHealthSetup
++from drugtime.modules.medication.adapters.outbound.sql_user_conditions import SqlUserConditions
++from drugtime.modules.medication.application.manage_health_setup import read_setup, save_setup
++from drugtime.shared.db import unit_of_work
++
++router = APIRouter(
++    tags=["profile"],
++    dependencies=[
++        Depends(HTTPBearer(auto_error=False, scheme_name="bearerAuth", bearerFormat="JWT"))
++    ],
++)
++_ACCESS = HealthProfileAccessAdapter()
++_STORE = SqlHealthSetup()
++_LINKS = SqlUserConditions()
++_CATALOG = ConditionCatalogAdapter()
++_ERRORS = {code: {"model": ProfileError} for code in (401, 403, 500)}
++_ERRORS[422] = {"model": ProfileValidationError}
++_NO_STORE = {"headers": {"Cache-Control": {"schema": {"type": "string", "const": "no-store"}}}}
++_HEALTH_ROUTE = {"x-health-scope": "ho_so_suc_khoe", "x-health-audit-self": True}
++
++# The response registers the same step schemas in OpenAPI components.
++_UPDATE_SCHEMA = HealthSetupRequest.model_json_schema(ref_template="#/components/schemas/{model}")
++_UPDATE_SCHEMA.pop("$defs")
++
++
++def _other_owner(value: str, owner: UUID) -> bool:
++    try:
++        return UUID(value) != owner
++    except ValueError:
++        return True
++
++
++def _target_id(value: str | None, owner: UUID) -> UUID:
++    if value is not None:
++        try:
++            return UUID(value)
++        except ValueError:
++            return owner
++    return owner
++
++
++def _authorize(uow, request: Request, user: identity.CurrentUser, *, writes: bool) -> None:
++    selectors = request.query_params.multi_items()
++    other_owner = next(
++        (
++            value
++            for name, value in selectors
++            if name in {"user_id", "patient_id"} and _other_owner(value, user.id)
++        ),
++        None,
++    )
++    _ACCESS.authorize_setup(
++        uow,
++        user.id,
++        user.is_admin,
++        writes=writes,
++        rejected_owner_selector=other_owner is not None,
++        target_id=_target_id(other_owner, user.id),
++    )
++    if selectors:
++        raise RequestValidationError(
++            [
++                {
++                    "loc": ("query",),
++                    "type": "extra_forbidden",
++                    "msg": "Query parameters are not accepted",
++                }
++            ]
++        )
++
++
++def _response(snapshot):
++    body = HealthSetupResponse.from_setup(snapshot).model_dump(mode="json")
++    return JSONResponse(body, headers={"Cache-Control": "no-store"})
++
++
++@router.get(
++    "/profile/health-setup",
++    operation_id="getOwnHealthSetup",
++    response_model=HealthSetupResponse,
++    responses={**_ERRORS, 200: _NO_STORE},
++    openapi_extra=_HEALTH_ROUTE,
++)
++def get_health_setup(request: Request, user: identity.CurrentUser = Depends(identity.current_user)):
++    with unit_of_work() as uow:
++        _authorize(uow, request, user, writes=False)
++        return _response(read_setup(uow, user.id, _STORE, _LINKS))
++
++
++@router.put(
++    "/profile/health-setup",
++    operation_id="replaceOwnHealthSetupSteps",
++    response_model=HealthSetupResponse,
++    responses={**_ERRORS, 200: _NO_STORE, 409: {"model": ProfileError}},
++    openapi_extra={
++        **_HEALTH_ROUTE,
++        "requestBody": {
++            "required": True,
++            "content": {"application/json": {"schema": _UPDATE_SCHEMA}},
++        },
++    },
++)
++async def put_health_setup(
++    request: Request,
++    user: identity.CurrentUser = Depends(identity.current_user),
++):
++    raw_body = await request.body()
++    return await run_in_threadpool(_authorize_and_save, request, user, raw_body)
++
++
++def _authorize_and_save(request: Request, user: identity.CurrentUser, raw_body: bytes):
++    # Parse and validate only after authorization, in the same transaction as the write.
++    with unit_of_work() as uow:
++        _authorize(uow, request, user, writes=True)
++        try:
++            body = HealthSetupRequest.model_validate_json(raw_body)
++        except ValidationError as exc:
++            raise RequestValidationError(
++                [
++                    {**error, "loc": ("body", *error["loc"])}
++                    for error in exc.errors(
++                        include_input=False, include_context=False, include_url=False
++                    )
++                ]
++            ) from None
++        return _response(
++            save_setup(
++                uow,
++                user.id,
++                _STORE,
++                _LINKS,
++                _CATALOG,
++                _CATALOG.allergen_exists,
++                body.revision,
++                decode_step(body.allergies),
++                decode_step(body.conditions),
++            )
++        )
+diff --git a/src/drugtime/modules/medication/adapters/inbound/health_setup_schemas.py b/src/drugtime/modules/medication/adapters/inbound/health_setup_schemas.py
+new file mode 100644
+index 0000000..045077d
+--- /dev/null
++++ b/src/drugtime/modules/medication/adapters/inbound/health_setup_schemas.py
+@@ -0,0 +1,83 @@
++from typing import Annotated, Literal
++
++from pydantic import BaseModel, ConfigDict, Field, model_validator
++
++from drugtime.modules.medication.domain.health_setup import HealthSetup, SetupStep
++
++AllergenId = Annotated[str, Field(pattern=r"^[a-z][a-z0-9_]{0,63}$")]
++ConditionId = Annotated[int, Field(strict=True, ge=1)]
++CustomName = Annotated[str, Field(min_length=1, max_length=120, pattern=r"^[^\x00]+$")]
++
++
++class StepModel(BaseModel):
++    model_config = ConfigDict(extra="forbid")
++
++
++class Unreported(StepModel):
++    status: Literal["unreported"]
++
++
++class NoneKnown(StepModel):
++    status: Literal["none_known"]
++
++
++class Reported[CatalogId: (int, str)](StepModel):
++    status: Literal["reported"]
++    catalog_ids: list[CatalogId]
++    custom_names: list[CustomName] = Field(max_length=30)
++
++    @model_validator(mode="after")
++    def validate_selection(self):
++        if not self.catalog_ids and not self.custom_names:
++            raise ValueError("reported requires at least one selection")
++        if len(set(self.catalog_ids)) != len(self.catalog_ids):
++            raise ValueError("catalog IDs must be unique")
++        if len(set(self.custom_names)) != len(self.custom_names):
++            raise ValueError("custom names must be unique")
++        return self
++
++
++class HealthSetupRequest(StepModel):
++    revision: str = Field(min_length=1, max_length=128)
++    allergies: NoneKnown | Reported[AllergenId] | None = None
++    conditions: NoneKnown | Reported[ConditionId] | None = None
++
++    @model_validator(mode="after")
++    def validate_steps(self):
++        steps = self.model_fields_set & {"allergies", "conditions"}
++        if not steps or any(getattr(self, step) is None for step in steps):
++            raise ValueError("supply at least one step and omit skipped steps")
++        return self
++
++
++class HealthSetupResponse(StepModel):
++    revision: str = Field(min_length=1, max_length=128)
++    allergies: Unreported | NoneKnown | Reported[AllergenId]
++    conditions: Unreported | NoneKnown | Reported[ConditionId]
++
++    @classmethod
++    def from_setup(cls, snapshot: HealthSetup):
++        def encode(step):
++            if step.status != "reported":
++                return {"status": step.status}
++            return {
++                "status": step.status,
++                "catalog_ids": list(step.catalog_ids),
++                "custom_names": list(step.custom_names),
++            }
++
++        return cls.model_validate(
++            {
++                "revision": snapshot.revision,
++                "allergies": encode(snapshot.allergies),
++                "conditions": encode(snapshot.conditions),
++            }
++        )
++
++
++def decode_step(step):
++    if step is None:
++        return None
++    if isinstance(step, NoneKnown):
++        return SetupStep("none_known")
++    return SetupStep("reported", tuple(step.catalog_ids), tuple(step.custom_names))
+diff --git a/src/drugtime/modules/medication/adapters/inbound/profile_http.py b/src/drugtime/modules/medication/adapters/inbound/profile_http.py
+index 45436d4..8766569 100644
+--- a/src/drugtime/modules/medication/adapters/inbound/profile_http.py
++++ b/src/drugtime/modules/medication/adapters/inbound/profile_http.py
+@@ -21,6 +21,7 @@ from drugtime.modules.medication.adapters.outbound.other_modules import (
+     HealthProfileAccessAdapter,
+     IdentityProfileAdapter,
+ )
++from drugtime.modules.medication.adapters.outbound.sql_health_setup import SqlHealthSetup
+ from drugtime.modules.medication.adapters.outbound.sql_user_conditions import SqlUserConditions
+ from drugtime.modules.medication.application.manage_profile import get_profile, update_profile
+ from drugtime.modules.medication.application.manage_user_conditions import (
+@@ -45,6 +46,7 @@ _ACCESS = HealthProfileAccessAdapter()
+ _PROFILES = IdentityProfileAdapter()
+ _CONDITIONS = SqlUserConditions()
+ _CATALOG = ConditionCatalogAdapter()
++_SETUP = SqlHealthSetup()
+ _ERRORS = {code: {"model": ProfileError} for code in (401, 403, 500)}
+ _ERRORS[422] = {"model": ProfileValidationError}
+ _PROFILE_WRITE_ERRORS = {
+@@ -155,6 +157,7 @@ def post_condition(
+             conditions=_CONDITIONS,
+             catalog=_CATALOG,
+             cmd=NewUserCondition(**body.model_dump()),
++            setup=_SETUP,
+         )
+         response = _json(UserConditionResponse.model_validate(result), 201)
+     return response
+@@ -183,6 +186,7 @@ def patch_condition(
+             catalog=_CATALOG,
+             link_id=id,
+             fields=body.model_dump(exclude_unset=True),
++            setup=_SETUP,
+         )
+         response = _json(UserConditionResponse.model_validate(result))
+     return response
+@@ -206,6 +210,7 @@ def remove_condition(
+             access=_ACCESS,
+             conditions=_CONDITIONS,
+             link_id=id,
++            setup=_SETUP,
+         )
+         response = Response(status_code=204)
+     return response
+diff --git a/src/drugtime/modules/medication/adapters/outbound/other_modules.py b/src/drugtime/modules/medication/adapters/outbound/other_modules.py
+index d7fe736..ec178a1 100644
+--- a/src/drugtime/modules/medication/adapters/outbound/other_modules.py
++++ b/src/drugtime/modules/medication/adapters/outbound/other_modules.py
+@@ -58,6 +58,26 @@ class CatalogAdapter:
+ 
+ 
+ class HealthProfileAccessAdapter:
++    def authorize_setup(
++        self,
++        uow: UnitOfWork,
++        user_id: UUID,
++        is_admin: bool,
++        *,
++        writes: bool,
++        rejected_owner_selector: bool,
++        target_id: UUID,
++    ) -> None:
++        access.authorize(
++            uow,
++            caller_id=user_id,
++            caller_is_admin=is_admin,
++            patient_id=target_id,
++            scope=access.Scope.HEALTH_PROFILE,
++            action=access.Action.WRITE if writes else access.Action.READ,
++            rejected_owner_selector=rejected_owner_selector,
++        )
++
+     def authorize_read(self, uow: UnitOfWork, user_id: UUID, is_admin: bool) -> None:
+         access.authorize(
+             uow,
+@@ -116,6 +136,9 @@ class IdentityProfileAdapter:
+ 
+ 
+ class ConditionCatalogAdapter:
++    def allergen_exists(self, allergen_id: str) -> bool:
++        return catalog.allergen_exists(allergen_id)
++
+     def get_name(self, uow: UnitOfWork, condition_id: int) -> str | None:
+         condition = catalog.get_condition(uow, condition_id)
+         return None if condition is None else condition.name
+diff --git a/src/drugtime/modules/medication/adapters/outbound/sql_health_setup.py b/src/drugtime/modules/medication/adapters/outbound/sql_health_setup.py
+new file mode 100644
+index 0000000..f6eb2d0
+--- /dev/null
++++ b/src/drugtime/modules/medication/adapters/outbound/sql_health_setup.py
+@@ -0,0 +1,90 @@
++from uuid import UUID
++
++from sqlalchemy import text
++
++from drugtime.modules.medication.domain.health_setup import HealthSetup, SetupStep
++from drugtime.modules.medication.domain.user_condition import UserConditionRecord
++from drugtime.shared.errors import Forbidden
++from drugtime.shared.uow import UnitOfWork
++
++
++class SqlHealthSetup:
++    def lock(self, uow: UnitOfWork, user_id: UUID) -> None:
++        active = uow.connection.execute(
++            text("SELECT erased_at IS NULL FROM users WHERE id = :id FOR NO KEY UPDATE"),
++            {"id": user_id},
++        ).scalar_one_or_none()
++        if not active:
++            raise Forbidden("khong_co_quyen")
++
++    def read(self, uow: UnitOfWork, user_id: UUID, links: list[UserConditionRecord]) -> HealthSetup:
++        row = (
++            uow.connection.execute(
++                text(
++                    "SELECT revision, allergies_none_known, conditions_none_known, allergen_ids, "
++                    "custom_allergies, custom_conditions "
++                    "FROM health_profile_setup WHERE user_id = :id"
++                ),
++                {"id": user_id},
++            )
++            .mappings()
++            .first()
++        )
++        condition_ids = [link.condition_id for link in links]
++        if row is None:
++            return HealthSetup(
++                "0", SetupStep("unreported"), SetupStep.from_values(False, condition_ids, ())
++            )
++        return HealthSetup(
++            str(row["revision"]),
++            SetupStep.from_values(
++                row["allergies_none_known"], row["allergen_ids"], row["custom_allergies"]
++            ),
++            SetupStep.from_values(
++                row["conditions_none_known"] and not condition_ids,
++                condition_ids,
++                row["custom_conditions"],
++            ),
++        )
++
++    def save(
++        self, uow: UnitOfWork, user_id: UUID, allergies: SetupStep[str], conditions: SetupStep[int]
++    ) -> str:
++        revision = uow.connection.execute(
++            text("""
++                INSERT INTO health_profile_setup (
++                    user_id, revision, allergies_none_known, conditions_none_known,
++                    allergen_ids, custom_allergies, custom_conditions
++                ) VALUES (
++                    :id, 1, :allergies_none, :conditions_none, :allergens, :custom_a, :custom_c
++                )
++                ON CONFLICT (user_id) DO UPDATE SET
++                    revision = health_profile_setup.revision + 1,
++                    allergies_none_known = EXCLUDED.allergies_none_known,
++                    conditions_none_known = EXCLUDED.conditions_none_known,
++                    allergen_ids = EXCLUDED.allergen_ids,
++                    custom_allergies = EXCLUDED.custom_allergies,
++                    custom_conditions = EXCLUDED.custom_conditions
++                RETURNING revision
++            """),
++            {
++                "id": user_id,
++                "allergies_none": allergies.status == "none_known",
++                "conditions_none": conditions.status == "none_known",
++                "allergens": list(allergies.catalog_ids),
++                "custom_a": list(allergies.custom_names),
++                "custom_c": list(conditions.custom_names),
++            },
++        ).scalar_one()
++        return str(revision)
++
++    def touch_condition_links(self, uow: UnitOfWork, user_id: UUID) -> None:
++        uow.connection.execute(
++            text("""
++                INSERT INTO health_profile_setup (user_id, revision) VALUES (:id, 1)
++                ON CONFLICT (user_id) DO UPDATE SET
++                    revision = health_profile_setup.revision + 1,
++                    conditions_none_known = false
++            """),
++            {"id": user_id},
++        )
+diff --git a/src/drugtime/modules/medication/adapters/outbound/sql_medication.py b/src/drugtime/modules/medication/adapters/outbound/sql_medication.py
+index 18915fc..fa5a788 100644
+--- a/src/drugtime/modules/medication/adapters/outbound/sql_medication.py
++++ b/src/drugtime/modules/medication/adapters/outbound/sql_medication.py
+@@ -510,6 +510,8 @@ class SqlMedication:
+ 
+     def erase(self, uow: UnitOfWork, user_id: UUID) -> None:
+         c = uow.connection
++        c.execute(text("SELECT id FROM users WHERE id = :u FOR NO KEY UPDATE"), {"u": user_id})
++        c.execute(text("DELETE FROM health_profile_setup WHERE user_id = :u"), {"u": user_id})
+         c.execute(
+             text(
+                 "DELETE FROM medication_schedules WHERE user_medication_id IN "
+diff --git a/src/drugtime/modules/medication/api.py b/src/drugtime/modules/medication/api.py
+index eab1f25..d63a3ee 100644
+--- a/src/drugtime/modules/medication/api.py
++++ b/src/drugtime/modules/medication/api.py
+@@ -5,6 +5,9 @@ from uuid import UUID
+ 
+ from fastapi import APIRouter
+ 
++from drugtime.modules.medication.adapters.inbound.health_setup_http import (
++    router as _health_setup_router,
++)
+ from drugtime.modules.medication.adapters.inbound.http import (
+     patients_router,
+     set_recorded_doses,
+@@ -39,6 +42,7 @@ router = APIRouter()
+ router.include_router(_medications_router)
+ router.include_router(patients_router)
+ router.include_router(_profile_router)
++router.include_router(_health_setup_router)
+ 
+ 
+ def configure(*, recorded_doses: RecordedDoses) -> None:
+diff --git a/src/drugtime/modules/medication/application/manage_health_setup.py b/src/drugtime/modules/medication/application/manage_health_setup.py
+new file mode 100644
+index 0000000..565eb25
+--- /dev/null
++++ b/src/drugtime/modules/medication/application/manage_health_setup.py
+@@ -0,0 +1,70 @@
++from dataclasses import replace
++from uuid import UUID
++
++from drugtime.modules.medication.application.profile_ports import (
++    ConditionCatalog,
++    HealthSetupStore,
++    UserConditions,
++)
++from drugtime.modules.medication.domain.health_setup import (
++    HealthSetup,
++    SetupStep,
++    normalize_custom_names,
++)
++from drugtime.modules.medication.domain.user_condition import NewUserCondition
++from drugtime.shared.errors import Conflict, DomainError
++from drugtime.shared.uow import UnitOfWork
++
++
++def read_setup(
++    uow: UnitOfWork, user_id: UUID, store: HealthSetupStore, links: UserConditions
++) -> HealthSetup:
++    store.lock(uow, user_id)
++    return store.read(uow, user_id, links.list(uow, user_id))
++
++
++def save_setup(
++    uow: UnitOfWork,
++    user_id: UUID,
++    store: HealthSetupStore,
++    links: UserConditions,
++    catalog: ConditionCatalog,
++    allergen_exists,
++    revision: str,
++    allergies: SetupStep[str] | None,
++    conditions: SetupStep[int] | None,
++) -> HealthSetup:
++    store.lock(uow, user_id)
++    existing_links = links.list(uow, user_id)
++    current = store.read(uow, user_id, existing_links)
++    if revision != current.revision:
++        raise Conflict("health_setup_revision_conflict")
++    if allergies is not None:
++        if any(not allergen_exists(item) for item in allergies.catalog_ids):
++            raise DomainError("allergen_not_found")
++        allergies = replace(
++            allergies,
++            catalog_ids=tuple(sorted(allergies.catalog_ids)),
++            custom_names=normalize_custom_names(allergies.custom_names),
++        )
++    if conditions is not None:
++        if any(catalog.get_name(uow, item) is None for item in conditions.catalog_ids):
++            raise DomainError("condition_not_found")
++        conditions = replace(
++            conditions,
++            catalog_ids=tuple(sorted(conditions.catalog_ids)),
++            custom_names=normalize_custom_names(conditions.custom_names),
++        )
++    next_allergies = allergies or current.allergies
++    next_conditions = conditions or current.conditions
++    if (next_allergies, next_conditions) == (current.allergies, current.conditions):
++        return current
++    if conditions is not None:
++        by_condition = {link.condition_id: link.id for link in existing_links}
++        selected = set(conditions.catalog_ids)
++        for removed in sorted(by_condition.keys() - selected):
++            links.delete(uow, user_id, by_condition[removed])
++        for added in sorted(selected - by_condition.keys()):
++            links.insert(uow, user_id, NewUserCondition(added))
++    next_revision = store.save(uow, user_id, next_allergies, next_conditions)
++    return HealthSetup(next_revision, next_allergies, next_conditions)
+diff --git a/src/drugtime/modules/medication/application/manage_user_conditions.py b/src/drugtime/modules/medication/application/manage_user_conditions.py
+index aad54f7..6c5a565 100644
+--- a/src/drugtime/modules/medication/application/manage_user_conditions.py
++++ b/src/drugtime/modules/medication/application/manage_user_conditions.py
+@@ -3,6 +3,7 @@ from uuid import UUID
+ from drugtime.modules.medication.application.profile_ports import (
+     ConditionCatalog,
+     HealthProfileAccess,
++    HealthSetupStore,
+     UserConditions,
+ )
+ from drugtime.modules.medication.domain.user_condition import (
+@@ -32,13 +33,18 @@ def create_condition(
+     conditions: UserConditions,
+     catalog: ConditionCatalog,
+     cmd: NewUserCondition,
++    setup: HealthSetupStore | None = None,
+ ) -> UserConditionView:
+     access.authorize_write(uow, user_id, is_admin)
+     if catalog.get_name(uow, cmd.condition_id) is None:
+         raise DomainError("condition_not_found")
++    if setup is not None:
++        setup.lock(uow, user_id)
+     link = conditions.insert(uow, user_id, cmd)
+     if link is None:
+         raise Conflict("condition_already_exists")
++    if setup is not None:
++        setup.touch_condition_links(uow, user_id)
+     return _view(uow, catalog, link)
+ 
+ 
+@@ -52,15 +58,20 @@ def update_condition(
+     catalog: ConditionCatalog,
+     link_id: int,
+     fields: dict[str, str | None],
++    setup: HealthSetupStore | None = None,
+ ) -> UserConditionView:
+     access.authorize_write(uow, user_id, is_admin)
+     if not fields:
+         raise DomainError("empty_condition_update")
+     if not fields.keys() <= {"subtype", "stage"}:
+         raise DomainError("invalid_condition_update")
++    if setup is not None:
++        setup.lock(uow, user_id)
+     link = conditions.update(uow, user_id, link_id, fields)
+     if link is None:
+         raise NotFound("user_condition_not_found")
++    if setup is not None:
++        setup.touch_condition_links(uow, user_id)
+     return _view(uow, catalog, link)
+ 
+ 
+@@ -72,7 +83,12 @@ def delete_condition(
+     access: HealthProfileAccess,
+     conditions: UserConditions,
+     link_id: int,
++    setup: HealthSetupStore | None = None,
+ ) -> None:
+     access.authorize_write(uow, user_id, is_admin)
++    if setup is not None:
++        setup.lock(uow, user_id)
+     if not conditions.delete(uow, user_id, link_id):
+         raise NotFound("user_condition_not_found")
++    if setup is not None:
++        setup.touch_condition_links(uow, user_id)
+diff --git a/src/drugtime/modules/medication/application/profile_ports.py b/src/drugtime/modules/medication/application/profile_ports.py
+index 787768e..5f9a092 100644
+--- a/src/drugtime/modules/medication/application/profile_ports.py
++++ b/src/drugtime/modules/medication/application/profile_ports.py
+@@ -2,6 +2,7 @@ from datetime import date, datetime
+ from typing import Protocol
+ from uuid import UUID
+ 
++from drugtime.modules.medication.domain.health_setup import HealthSetup, SetupStep
+ from drugtime.modules.medication.domain.user_condition import (
+     NewUserCondition,
+     PersonalProfile,
+@@ -52,3 +53,14 @@ class UserConditions(Protocol):
+         fields: dict[str, str | None],
+     ) -> UserConditionRecord | None: ...
+     def delete(self, uow: UnitOfWork, user_id: UUID, link_id: int) -> bool: ...
++
++
++class HealthSetupStore(Protocol):
++    def lock(self, uow: UnitOfWork, user_id: UUID) -> None: ...
++    def read(
++        self, uow: UnitOfWork, user_id: UUID, links: list[UserConditionRecord]
++    ) -> HealthSetup: ...
++    def save(
++        self, uow: UnitOfWork, user_id: UUID, allergies: SetupStep[str], conditions: SetupStep[int]
++    ) -> str: ...
++    def touch_condition_links(self, uow: UnitOfWork, user_id: UUID) -> None: ...
+diff --git a/src/drugtime/modules/medication/domain/health_setup.py b/src/drugtime/modules/medication/domain/health_setup.py
+new file mode 100644
+index 0000000..81e7365
+--- /dev/null
++++ b/src/drugtime/modules/medication/domain/health_setup.py
+@@ -0,0 +1,36 @@
++from dataclasses import dataclass
++from typing import Literal
++from unicodedata import normalize
++
++from drugtime.shared.errors import DomainError
++
++
++@dataclass(frozen=True)
++class SetupStep[CatalogId: (int, str)]:
++    status: Literal["unreported", "none_known", "reported"]
++    catalog_ids: tuple[CatalogId, ...] = ()
++    custom_names: tuple[str, ...] = ()
++
++    @classmethod
++    def from_values(cls, none_known, catalog_ids, custom_names):
++        if none_known:
++            return cls("none_known")
++        if catalog_ids or custom_names:
++            return cls("reported", tuple(sorted(catalog_ids)), tuple(sorted(custom_names)))
++        return cls("unreported")
++
++
++@dataclass(frozen=True)
++class HealthSetup:
++    revision: str
++    allergies: SetupStep[str]
++    conditions: SetupStep[int]
++
++
++def normalize_custom_names(names: tuple[str, ...]) -> tuple[str, ...]:
++    normalized = [normalize("NFC", name.strip()) for name in names]
++    if any(not name or "\x00" in name or len(name) > 120 for name in normalized):
++        raise DomainError("invalid_custom_name")
++    if len({name.casefold() for name in normalized}) != len(normalized):
++        raise DomainError("duplicate_custom_name")
++    return tuple(sorted(normalized))
+diff --git a/supabase/migrations/20261115110000_health_profile_onboarding.sql b/supabase/migrations/20261115110000_health_profile_onboarding.sql
+new file mode 100644
+index 0000000..50e1a93
+--- /dev/null
++++ b/supabase/migrations/20261115110000_health_profile_onboarding.sql
+@@ -0,0 +1,34 @@
++BEGIN;
++
++CREATE TABLE public.health_profile_setup (
++    user_id uuid PRIMARY KEY REFERENCES public.users (id) ON DELETE CASCADE,
++    revision bigint NOT NULL CHECK (revision > 0),
++    allergies_none_known boolean NOT NULL DEFAULT false,
++    conditions_none_known boolean NOT NULL DEFAULT false,
++    allergen_ids text[] NOT NULL DEFAULT '{}',
++    custom_allergies text[] NOT NULL DEFAULT '{}',
++    custom_conditions text[] NOT NULL DEFAULT '{}',
++    CHECK (array_position(allergen_ids, NULL) IS NULL),
++    CHECK (array_position(custom_allergies, NULL) IS NULL),
++    CHECK (array_position(custom_conditions, NULL) IS NULL),
++    CHECK (cardinality(custom_allergies) <= 30 AND cardinality(custom_conditions) <= 30),
++    CHECK (NOT allergies_none_known OR
++           (cardinality(allergen_ids) = 0 AND cardinality(custom_allergies) = 0)),
++    CHECK (NOT conditions_none_known OR cardinality(custom_conditions) = 0)
++);
++
++ALTER TABLE public.health_profile_setup ENABLE ROW LEVEL SECURITY;
++REVOKE ALL ON public.health_profile_setup FROM PUBLIC, anon, authenticated, service_role, api_role, worker_role;
++GRANT SELECT, INSERT, UPDATE ON public.health_profile_setup TO api_role;
++GRANT DELETE ON public.health_profile_setup TO worker_role;
++GRANT SELECT (user_id) ON public.health_profile_setup TO worker_role;
++
++CREATE POLICY health_profile_setup_api
++    ON public.health_profile_setup FOR ALL TO api_role
++    USING (true) WITH CHECK (true);
++CREATE POLICY health_profile_setup_worker_owner_id
++    ON public.health_profile_setup FOR SELECT TO worker_role USING (true);
++CREATE POLICY health_profile_setup_worker_erase
++    ON public.health_profile_setup FOR DELETE TO worker_role USING (true);
++
++COMMIT;
+diff --git a/tests/architecture/test_health_route_enforcement.py b/tests/architecture/test_health_route_enforcement.py
+index 50c6530..f5fd13f 100644
+--- a/tests/architecture/test_health_route_enforcement.py
++++ b/tests/architecture/test_health_route_enforcement.py
+@@ -14,6 +14,8 @@ from drugtime.modules.identity import api as identity
+ # (scope, operationId, audit_self): ghi liều và checkpoint chính chủ không ghi access_logs khi
+ # được phép (theo PEP chung); đọc lịch sử thì có (3.23).
+ PROTECTED_HEALTH_ROUTES = {
++    ("GET", "/profile/health-setup"): ("ho_so_suc_khoe", "getOwnHealthSetup", True),
++    ("PUT", "/profile/health-setup"): ("ho_so_suc_khoe", "replaceOwnHealthSetupSteps", True),
+     ("GET", "/family/patients"): (
+         "danh_sach_benh_nhan_lien_ket",
+         "listMyLinkedPatients",
+diff --git a/tests/unit/test_health_setup_http.py b/tests/unit/test_health_setup_http.py
+new file mode 100644
+index 0000000..05e1385
+--- /dev/null
++++ b/tests/unit/test_health_setup_http.py
+@@ -0,0 +1,96 @@
++from contextlib import contextmanager
++from unittest.mock import Mock
++from uuid import uuid4
++
++import pytest
++from fastapi.testclient import TestClient
++
++from drugtime.main import create_app
++from drugtime.modules.identity import api as identity
++from drugtime.modules.medication.adapters.inbound import health_setup_http as http
++from drugtime.modules.medication.domain.health_setup import HealthSetup, SetupStep
++from drugtime.shared.errors import Forbidden
++
++
++def test_get_snapshot_does_not_cache_and_protects_before_reading(monkeypatch):
++    user = identity.CurrentUser(uuid4(), False)
++    app = create_app()
++    app.dependency_overrides[identity.current_user] = lambda: user
++    authorize = Mock()
++    read = Mock(return_value=HealthSetup("0", SetupStep("unreported"), SetupStep("none_known")))
++
++    @contextmanager
++    def uow():
++        yield object()
++
++    monkeypatch.setattr(http, "unit_of_work", uow)
++    monkeypatch.setattr(http._ACCESS, "authorize_setup", authorize)
++    monkeypatch.setattr(http, "read_setup", read)
++
++    with TestClient(app) as client:
++        response = client.get("/profile/health-setup")
++        assert response.status_code == 200
++        assert response.headers["cache-control"] == "no-store"
++        assert response.json()["conditions"] == {"status": "none_known"}
++        authorize.side_effect = Forbidden("khong_co_quyen")
++        response = client.get("/profile/health-setup", params={"patient_id": str(uuid4())})
++        assert response.status_code == 403
++        assert authorize.call_args.kwargs["rejected_owner_selector"] is True
++        read.assert_called_once()
++
++
++def test_put_declares_expected_response_codes_and_authentication():
++    spec = create_app().openapi()
++    operation = spec["paths"]["/profile/health-setup"]["put"]
++    assert operation["operationId"] == "replaceOwnHealthSetupSteps"
++    assert operation["security"] == [{"bearerAuth": []}]
++    assert set(operation["responses"]) == {"200", "401", "403", "409", "422", "500"}
++    assert operation["requestBody"]["required"] is True
++    schema = operation["requestBody"]["content"]["application/json"]["schema"]
++    assert schema["required"] == ["revision"]
++    assert schema["additionalProperties"] is False
++    for step in ("allergies", "conditions"):
++        options = schema["properties"][step]["anyOf"]
++        for option in options:
++            if "$ref" in option:
++                assert option["$ref"].rsplit("/", 1)[-1] in spec["components"]["schemas"]
++
++
++@pytest.mark.parametrize("body", [b"{}", b"{", b""])
++def test_put_authorization_precedes_payload_validation(monkeypatch, body):
++    user = identity.CurrentUser(uuid4(), False)
++    app = create_app()
++    app.dependency_overrides[identity.current_user] = lambda: user
++    authorize = Mock(side_effect=Forbidden("khong_co_quyen"))
++    save = Mock()
++
++    @contextmanager
++    def uow():
++        yield object()
++
++    monkeypatch.setattr(http, "unit_of_work", uow)
++    monkeypatch.setattr(http._ACCESS, "authorize_setup", authorize)
++    monkeypatch.setattr(http, "save_setup", save)
++
++    with TestClient(app) as client:
++        response = client.put(
++            "/profile/health-setup",
++            params={"patient_id": str(uuid4())},
++            content=body,
++            headers={"Content-Type": "application/json"},
++        )
++        assert response.status_code == 403
++        assert response.json() == {"detail": "khong_co_quyen"}
++        authorize.assert_called_once()
++        assert authorize.call_args.kwargs["rejected_owner_selector"] is True
++
++        authorize.side_effect = None
++        response = client.put(
++            "/profile/health-setup",
++            content=body,
++            headers={"Content-Type": "application/json"},
++        )
++        assert response.status_code == 422
++        assert "input" not in response.json()["detail"][0]
++        assert authorize.call_count == 2
++        save.assert_not_called()
+diff --git a/tests/unit/test_health_setup_use_cases.py b/tests/unit/test_health_setup_use_cases.py
+new file mode 100644
+index 0000000..3ba6a20
+--- /dev/null
++++ b/tests/unit/test_health_setup_use_cases.py
+@@ -0,0 +1,58 @@
++from unittest.mock import Mock
++from uuid import uuid4
++
++import pytest
++
++from drugtime.modules.medication.application.manage_health_setup import save_setup
++from drugtime.modules.medication.domain.health_setup import (
++    HealthSetup,
++    SetupStep,
++    normalize_custom_names,
++)
++from drugtime.modules.medication.domain.user_condition import NewUserCondition, UserConditionRecord
++from drugtime.shared.errors import Conflict, DomainError
++
++
++def test_custom_names_normalize_and_reject_duplicate_or_blank():
++    assert normalize_custom_names(("  Ha\u0309i sản ",)) == ("Hải sản",)
++    with pytest.raises(DomainError, match="duplicate_custom_name"):
++        normalize_custom_names(("Tôm", " TÔM "))
++    with pytest.raises(DomainError, match="invalid_custom_name"):
++        normalize_custom_names(("  ",))
++
++
++def test_save_preserves_existing_link_and_skipped_step():
++    user = uuid4()
++    uow, store, links, catalog = Mock(), Mock(), Mock(), Mock()
++    link = UserConditionRecord(3, 8, "Type 2", "Recorded")
++    links.list.return_value = [link]
++    current = HealthSetup("1", SetupStep("none_known"), SetupStep("reported", (8,)))
++    store.read.return_value = current
++    store.save.return_value = "2"
++    after = save_setup(
++        uow,
++        user,
++        store,
++        links,
++        catalog,
++        lambda _: True,
++        "1",
++        None,
++        SetupStep("reported", (9, 8), (" Bệnh khác ",)),
++    )
++    assert after.allergies == current.allergies
++    assert after.conditions == SetupStep("reported", (8, 9), ("Bệnh khác",))
++    links.insert.assert_called_once_with(uow, user, NewUserCondition(9))
++    links.delete.assert_not_called()
++
++
++def test_stale_or_unchanged_request_does_not_write():
++    store, links = Mock(), Mock()
++    current = HealthSetup("2", SetupStep("none_known"), SetupStep("unreported"))
++    store.read.return_value = current
++    args = (Mock(), uuid4(), store, links, Mock(), lambda _: True)
++    with pytest.raises(Conflict, match="health_setup_revision_conflict"):
++        save_setup(*args, "1", SetupStep("none_known"), None)
++    assert save_setup(*args, "2", SetupStep("none_known"), None) is current
++    store.save.assert_not_called()
++    links.insert.assert_not_called()

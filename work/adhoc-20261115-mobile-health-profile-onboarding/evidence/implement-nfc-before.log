@@ -1,0 +1,15 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart
+00:00 +0: lost save response with stored name "Hải sản"
+00:00 +0 -1: lost save response with stored name "Hải sản" [E]
+  Expected: HealthSetupSaveResult:<HealthSetupSaveResult.saved>
+    Actual: HealthSetupSaveResult:<HealthSetupSaveResult.failed>
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test\features\profile\health_setup_screen_test.dart 171:9  main.<fn>
+  
+00:00 +0 -1: lost save response with stored name "Hải Sản"
+00:00 +1 -1: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/work/adhoc-20261115-mobile-health-profile-onboarding/scratch/frontend/mobile/test/features/profile/health_setup_screen_test.dart: lost save response with stored name "Hải sản"

@@ -1,0 +1,252 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "HSETUP",
+      "name": "Thiết lập hồ sơ sức khỏe",
+      "sheet": "Thiết lập hồ sơ",
+      "description": "Kiểm tra luồng S08b–S08e",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-11-15",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Đã kiểm lại khoảng cách, audit cho request chéo và đọc lại tên Unicode. Còn ca chạy trên thiết bị với API staging.",
+      "ep": [
+        {
+          "field": "Tên tự nhập",
+          "valid": [
+            "Tên hợp lệ khi danh mục rỗng"
+          ],
+          "invalid": [
+            "Chỉ khoảng trắng",
+            "Trùng sau chuẩn hóa"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-HSETUP-01",
+          "description": "Mở wizard qua popup chào mừng",
+          "precondition": "Trang chủ rỗng; popup có CTA thiết lập",
+          "steps": [
+            "Chọn Thiết lập hồ sơ sức khỏe",
+            "Chọn Tiếp tục đến dị ứng",
+            "Quay lại S08a"
+          ],
+          "data": "Tài khoản widget test",
+          "expected": "S08a và S08b mở đúng một lần; back về S08a",
+          "actual": "Widget test mở popup → S08a và S08a điều hướng route S08b qua fixture đạt.",
+          "status": "Pass",
+          "comments": "AC1 · Chuyển trạng thái · evidence/test-review-flutter.log"
+        },
+        {
+          "id": "TC-HSETUP-02",
+          "description": "Kiểm hồi quy vị trí hàng thêm bệnh nền và mép trên bottom sheet",
+          "precondition": "Fixture đủ danh mục, canvas 375 × 812",
+          "steps": [
+            "Dựng ảnh S08c mặc định và trạng thái mở Thêm bệnh nền khác",
+            "So tọa độ hai mép tại x=92 với ảnh Figma"
+          ],
+          "data": "38:5045; 547:11229",
+          "expected": "Sai số mỗi vị trí không quá 1 px",
+          "actual": "Hàng thêm bệnh nền y=579 và mép sheet y=545, trùng ảnh Figma.",
+          "status": "Pass",
+          "comments": "AC2 · Hồi quy BUG-HSETUP-02 · evidence/test-review-spacing.log"
+        },
+        {
+          "id": "TC-HSETUP-03",
+          "description": "Chọn hai dị ứng và giữ nháp khi quay lại",
+          "precondition": "Widget fixture có Penicillin, Hải sản",
+          "steps": [
+            "Chọn Penicillin và Hải sản",
+            "Sang Bệnh nền rồi bấm Quay lại",
+            "Tiếp tục và xác nhận không có bệnh nền"
+          ],
+          "data": "penicillin, seafood",
+          "expected": "Hai dị ứng còn trong payload; S08e đúng kết quả",
+          "actual": "Widget xác nhận payload hai ID, S08e xuất hiện và Vào ứng dụng quay lại Home.",
+          "status": "Pass",
+          "comments": "AC3, AC6 · Chuyển trạng thái · evidence/test-review-flutter.log"
+        },
+        {
+          "id": "TC-HSETUP-04",
+          "description": "Lưu tên tự nhập khi danh mục rỗng",
+          "precondition": "GET danh mục trong fixture trả []",
+          "steps": [
+            "Bỏ qua Dị ứng",
+            "Bấm Thêm bệnh nền khác",
+            "Nhập và lưu"
+          ],
+          "data": "Bệnh nền đã khai",
+          "expected": "Tên lưu trong custom_names, không tự thêm ID; S08e báo đã lưu",
+          "actual": "Widget xác nhận tên đã khai được lưu, danh sách ID rỗng.",
+          "status": "Pass",
+          "comments": "AC4–AC6 · EP (1) · evidence/test-review-flutter.log"
+        },
+        {
+          "id": "TC-HSETUP-05",
+          "description": "Từ chối tên trống hoặc trùng sau chuẩn hóa",
+          "precondition": "Người bệnh có consent, snapshot chưa khai",
+          "steps": [
+            "PUT gửi cả hai bước",
+            "Đọc lại snapshot"
+          ],
+          "data": "' ' ; 'Tôm' và ' TÔM '",
+          "expected": "422 invalid_custom_name hoặc duplicate_custom_name; cả hai bước giữ nguyên",
+          "actual": "API trả đúng hai mã 422; đọc lại giữ snapshot cũ.",
+          "status": "Pass",
+          "comments": "AC4, AC7 · EP (2,3) · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-06",
+          "description": "Đọc lại hồ sơ cũ, lưu và bỏ qua một bước",
+          "precondition": "Có liên kết bệnh nền cũ kèm metadata",
+          "steps": [
+            "GET /profile/health-setup",
+            "PUT danh mục và tên tự khai",
+            "GET lại rồi PUT chỉ bước Bệnh nền"
+          ],
+          "data": "Penicillin, Hải sản, Bệnh nền tự khai",
+          "expected": "Lưu đủ; giữ ID/metadata cũ khi còn chọn; bỏ qua giữ bước dị ứng",
+          "actual": "API đối chiếu snapshot, metadata cũ và bước bỏ qua đúng kỳ vọng.",
+          "status": "Pass",
+          "comments": "AC4–AC6, AC10 · Chuyển trạng thái · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-07",
+          "description": "Giữ đúng dữ liệu khi hai request lưu cạnh tranh",
+          "precondition": "Hai request dùng cùng revision",
+          "steps": [
+            "Gửi PUT đồng thời",
+            "GET để đối chiếu",
+            "Gửi lại nội dung giống snapshot và sửa liên kết qua API cũ"
+          ],
+          "data": "Cùng revision và ID thật của fixture",
+          "expected": "Một 200, một 409; một liên kết; gửi lại không đổi revision; sau API cũ revision cũ bị từ chối",
+          "actual": "Đúng mã và số bản ghi; request trùng nội dung trả snapshot hiện tại.",
+          "status": "Pass",
+          "comments": "AC7 · Bảng quyết định revision · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-08",
+          "description": "Chặn request kế tiếp khi consent bị rút",
+          "precondition": "Người bệnh có phiên hợp lệ và consent ban đầu",
+          "steps": [
+            "GET chính chủ",
+            "Rút health_data",
+            "Gửi lại GET và PUT"
+          ],
+          "data": "Cùng app token",
+          "expected": "403 consent_revoked, có audit denied, không ghi snapshot",
+          "actual": "Cả GET và PUT trả 403; audit và DB đúng kỳ vọng.",
+          "status": "Pass",
+          "comments": "AC8 · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-09",
+          "description": "Chặn truy cập chéo và quyền admin",
+          "precondition": "Có hoặc không có link chia sẻ đang bật",
+          "steps": [
+            "GET hoặc PUT kèm patient_id của người khác",
+            "Thử GET với quyền admin"
+          ],
+          "data": "Token người thân, admin và selector ngoài chính chủ",
+          "expected": "403 khong_co_quyen, audit denied",
+          "actual": "Các case có/không có link, admin và selector không tồn tại bị từ chối và audit.",
+          "status": "Pass",
+          "comments": "AC8 · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-10",
+          "description": "Chặn đọc và rollback ghi khi audit hoặc giao dịch lỗi",
+          "precondition": "Người bệnh có quyền; tiêm lỗi có kiểm soát",
+          "steps": [
+            "Gọi GET khi ghi audit lỗi",
+            "Gọi PUT khi audit lỗi hoặc lỗi trước commit",
+            "Đọc lại DB"
+          ],
+          "data": "Hai bước none_known",
+          "expected": "500, không lộ chi tiết, không phát sinh ghi",
+          "actual": "Cả lỗi audit và lỗi sau thao tác ghi đều trả 500; snapshot không đổi.",
+          "status": "Pass",
+          "comments": "AC9 · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-11",
+          "description": "Kiểm DB sạch và quyền truy cập bảng snapshot",
+          "precondition": "PostgreSQL portable mới",
+          "steps": [
+            "Chạy toàn bộ migration và seed",
+            "Kiểm RLS, quyền role và xóa bởi worker"
+          ],
+          "data": "health_profile_setup",
+          "expected": "Schema triển khai được; client không xem trực tiếp; ràng buộc từ chối trạng thái mâu thuẫn",
+          "actual": "24 migration và seed đạt; kiểm RLS, quyền và xóa worker đạt.",
+          "status": "Pass",
+          "comments": "AC10 · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-12",
+          "description": "Chạy luồng trên thiết bị với API staging",
+          "precondition": "Có tài khoản test và staging triển khai migrations",
+          "steps": [
+            "Mở popup, đi qua S08a, chọn, lưu",
+            "Mở lại luồng",
+            "Thử mất mạng khi lưu"
+          ],
+          "data": "Dữ liệu staging đã xác nhận",
+          "expected": "Giao diện theo tiếng Việt, dữ liệu đọc lại đúng, lỗi lưu giữ nháp",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1, AC2, AC5–AC7 · manual"
+        },
+        {
+          "id": "TC-HSETUP-13",
+          "description": "Kiểm bố cục toàn wizard ở 320 dp và chữ 200%",
+          "precondition": "Widget fixture đã tải font Inter, mô phỏng vùng bàn phím",
+          "steps": [
+            "Chuyển giữa S08b và S08c",
+            "Mở hai sheet rồi cuộn để nhập",
+            "Thao tác CTA để hoàn tất luồng"
+          ],
+          "data": "320 dp, cỡ chữ 200%",
+          "expected": "Không overflow, thao tác chính cuộn tới được",
+          "actual": "Cả hai sheet mở, nhập và gửi được khi mô phỏng inset bàn phím. Hai CTA tiếp tục và màn xác nhận hoạt động. Không có lỗi layout.",
+          "status": "Pass",
+          "comments": "AC2 · Biên viewport và chữ lớn · evidence/test-review-render.log"
+        },
+        {
+          "id": "TC-HSETUP-14",
+          "description": "Từ chối PUT chéo bệnh nhân dù body sai hoặc rỗng",
+          "precondition": "Hai tài khoản có liên kết chia sẻ đang hoạt động. Cả hai chưa có snapshot.",
+          "steps": [
+            "Dùng token người thân gọi PUT /profile/health-setup với patient_id của bệnh nhân",
+            "Thử riêng từng body sai schema, JSON sai cú pháp và body rỗng",
+            "Kiểm số dòng audit denied phát sinh và kiểm snapshot của cả hai tài khoản"
+          ],
+          "data": "{}; {; (blank)",
+          "expected": "Mỗi request trả 403 khong_co_quyen, ghi đúng một audit denied và không tạo snapshot",
+          "actual": "Cả ba biến thể trả 403, mỗi ca có đúng một audit denied. Cả hai tài khoản không có snapshot.",
+          "status": "Pass",
+          "comments": "AC8 · Đoán lỗi · test_cross_patient_invalid_body_audits_denial__AC08 · evidence/test-review-api.log"
+        },
+        {
+          "id": "TC-HSETUP-15",
+          "description": "Đối chiếu tên tự nhập đã chuẩn hóa sau khi mất phản hồi PUT",
+          "precondition": "Fixture Flutter giữ dữ liệu đã gửi và mô phỏng mất phản hồi lưu.",
+          "steps": [
+            "Nhập Hải sản với dấu hỏi dạng ký tự tổ hợp rồi lưu",
+            "Mô phỏng GET trả tên ở dạng NFC, ghi nhận kết quả và số PUT",
+            "Lặp với GET trả tên khác chữ hoa, kiểm kết quả và bản nháp"
+          ],
+          "data": "Nháp Ha + U+0309 + i sản; GET Hải sản hoặc Hải Sản",
+          "expected": "Tên tương đương xác nhận đã lưu với một PUT. Tên khác giữ nháp và báo xung đột sau một PUT.",
+          "actual": "Tên Hải sản xác nhận đã lưu, tên Hải Sản báo xung đột và giữ nháp. Mỗi ca chỉ gửi một PUT.",
+          "status": "Pass",
+          "comments": "AC7 · Phân lớp Unicode và tên khác · evidence/test-review-flutter.log"
+        }
+      ]
+    }
+  ]
+}
