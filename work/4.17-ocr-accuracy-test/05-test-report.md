@@ -1,7 +1,14 @@
 ---
 task: 4.17-ocr-accuracy-test
 stage: test
-status: draft
+status: approved
+approved_by: Duc1445
+approved_at: 2026-11-16 14:45 +0700
+content_hash: sha256:6acf81f997930b3f
+inputs:
+  01-requirement.md: sha256:95d4f73b8f3d2a81
+  03-plan.md: sha256:91a7c5f2ee7e1d5d
+  04-impl-notes.md: sha256:f858084690ba58c3
 ---
 
 # 4.17 · Test Report: OCR accuracy across multiple packaging samples (PB31)
