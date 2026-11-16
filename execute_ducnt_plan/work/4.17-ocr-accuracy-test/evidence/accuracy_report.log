@@ -1,7 +1,7 @@
 =========================================================================================================
 DRUGTIME OCR ACCURACY & SAFETY FALLBACK BENCHMARK REPORT (PB31 / TASK 4.17)
 =========================================================================================================
-Execution timestamp: 2026-11-16 13:34:07 +0700
+Execution timestamp: 2026-11-16 13:46:03 +0700
 Execution mode: MOCK MODE (In-memory FakeCatalogReader & decoupled pilot-002 rawText)
 Dataset: 33 unique physical packaging samples (pilot-002)
 Seed Source: backend/supabase/seeds/10_knowledge_base.sql (59 medications)
@@ -9,39 +9,39 @@ Diagnostic Vocabulary: 14 ground-truth drug pairs
 ---------------------------------------------------------------------------------------------------------
 Image ID                            | Drug Name          | Grp | Seed Stat   | PreSel | Diag Stat   | T1  | T3  | Score  | ms    
 -------------------------------------------------------------------------------------------------------------------
-decolgen_forte_box_001              | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.521  | 4.56  
-decolgen_forte_box_002              | Decolgen Forte     | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 2.42  
-decolgen_forte_blister_001          | Decolgen Forte     | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 6.72  
-decolgen_forte_blister_002          | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.510  | 11.45 
-decolgen_forte_blister_003          | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.512  | 10.60 
-efferalgan_box_001                  | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.958  | 7.35  
-efferalgan_box_002                  | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.975  | 3.47  
-efferalgan_blister_001              | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.959  | 13.01 
-efferalgan_blister_002              | Efferalgan         | A1  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.653  | 7.70  
-strepsils_box_001                   | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.525  | 2.16  
-strepsils_box_002                   | Strepsils Original | A4  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.42  
-strepsils_blister_001               | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.550  | 0.83  
-strepsils_blister_002               | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.519  | 10.55 
-tiffy_dey_box_001                   | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 7.88  
-tiffy_dey_box_002                   | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.20  
-tiffy_dey_blister_001               | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 13.83 
-tiffy_dey_blister_002               | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 2.62  
-atorvastatin_10_blister_001         | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.968  | 10.51 
-atorvastatin_10_blister_002         | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.772  | 14.07 
-atorvastatin_10_blister_003         | Atorvastatin       | A1  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.93  
-atorvastatin_10_box_001             | A.TATORVASTATIN    | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.971  | 4.03  
-atorvastatin_10_box_002             | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.965  | 5.04  
-atorvastatin_10_box_003             | Atorvastatin       | A1  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.965  | 5.23  
-bisoprolol_2_point_5_blister_001    | Bisoheart          | A2  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 0.02  
+decolgen_forte_box_001              | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.521  | 4.00  
+decolgen_forte_box_002              | Decolgen Forte     | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 2.52  
+decolgen_forte_blister_001          | Decolgen Forte     | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 7.20  
+decolgen_forte_blister_002          | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.510  | 11.67 
+decolgen_forte_blister_003          | Decolgen Forte     | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.512  | 10.10 
+efferalgan_box_001                  | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.958  | 6.22  
+efferalgan_box_002                  | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.975  | 3.43  
+efferalgan_blister_001              | Efferalgan         | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.959  | 12.67 
+efferalgan_blister_002              | Efferalgan         | A1  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.653  | 7.61  
+strepsils_box_001                   | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.525  | 2.24  
+strepsils_box_002                   | Strepsils Original | A4  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.55  
+strepsils_blister_001               | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.550  | 0.94  
+strepsils_blister_002               | Strepsils Original | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.519  | 10.04 
+tiffy_dey_box_001                   | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 7.83  
+tiffy_dey_box_002                   | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.23  
+tiffy_dey_blister_001               | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 13.84 
+tiffy_dey_blister_002               | Tiffy Dey          | A3  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 2.72  
+atorvastatin_10_blister_001         | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.968  | 10.52 
+atorvastatin_10_blister_002         | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.772  | 13.14 
+atorvastatin_10_blister_003         | Atorvastatin       | A1  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 1.85  
+atorvastatin_10_box_001             | A.TATORVASTATIN    | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.971  | 4.04  
+atorvastatin_10_box_002             | Atorvastatin       | A1  | LOW_CONFIDENCE | null   | LOW_CONFIDENCE | Y   | Y   | 0.965  | 5.27  
+atorvastatin_10_box_003             | Atorvastatin       | A1  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.965  | 5.76  
+bisoprolol_2_point_5_blister_001    | Bisoheart          | A2  | NO_MATCH    | null   | NO_MATCH    | N   | N   | None   | 0.03  
 bisoprolol_2_point_5_blister_002    | A.TBisoprolol      | A2  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.753  | 7.65  
-bisoprolol_2_point_5_box_001        | A.TBisoprolol      | A2  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.585  | 2.95  
-bisoprolol_2_point_5_box_002        | A.TBisoprolol      | A2  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.521  | 3.16  
-candesartan_htz_32_25_blister_001   | Candesartan Krka   | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.975  | 10.48 
-candesartan_htz_32_25_box_001       | A.TCANDESARTAN HTZ | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.642  | 5.59  
-candesartan_htz_32_25_box_002       | ACANTANHTZ         | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.971  | 6.85  
-cilnidipine_5_blister_001           | Cildip             | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.960  | 18.80 
-cilnidipine_5_blister_002           | Cilapress          | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.957  | 8.10  
-hapacol_extra_front_01              | Hapacol Extra      | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.993  | 7.25  
+bisoprolol_2_point_5_box_001        | A.TBisoprolol      | A2  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.585  | 3.00  
+bisoprolol_2_point_5_box_002        | A.TBisoprolol      | A2  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.521  | 3.14  
+candesartan_htz_32_25_blister_001   | Candesartan Krka   | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.975  | 8.10  
+candesartan_htz_32_25_box_001       | A.TCANDESARTAN HTZ | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.642  | 4.08  
+candesartan_htz_32_25_box_002       | ACANTANHTZ         | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.971  | 3.36  
+cilnidipine_5_blister_001           | Cildip             | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.960  | 17.09 
+cilnidipine_5_blister_002           | Cilapress          | A4  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.957  | 7.64  
+hapacol_extra_front_01              | Hapacol Extra      | A3  | NO_MATCH    | null   | LOW_CONFIDENCE | Y   | Y   | 0.993  | 7.30  
 -------------------------------------------------------------------------------------------------------------------
 
 ================================================== SUMMARY RESULTS ==================================================
@@ -61,11 +61,11 @@ hapacol_extra_front_01              | Hapacol Extra      | A3  | NO_MATCH    | n
   * Mean Reciprocal Rank (MRR): 0.727
 
 [ĐỘ TRỄ XỬ LÝ (LATENCY BENCHMARK)]
-  * Average: 6.65 ms
-  * Median (p50): 6.72 ms
-  * P90: 13.01 ms
-  * P95: 14.07 ms
-  * P99: 18.80 ms
+  * Average: 6.30 ms
+  * Median (p50): 5.76 ms
+  * P90: 12.67 ms
+  * P95: 13.84 ms
+  * P99: 17.09 ms
 
 [PHÂN TÍCH 9 TRƯỜNG HỢP KHÔNG KHỚP TOP-3 TRONG BENCHMARK CHẨN ĐOÁN]
   1. bisoprolol_2_point_5_blister_001: raw OCR text rỗng (ảnh vỉ chụp quá tối/mờ).
