@@ -1,0 +1,869 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: (setUpAll)
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_matches_test.dart: tên tự nhập NFC và NFD của cùng chữ được coi là trùng
+00:00 +1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:00 +2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:01 +8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_profile_intro_screen_test.dart: Intro shows the reference content and opens allergy setup
+00:03 +9: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +10: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +11: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +12: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +13: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +14: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +15: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +16: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +17: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +18: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +19: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +20: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +21: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:03 +22: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:04 +23: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/health_setup_screen_test.dart: Authenticated onboarding returns home directly after saving
+00:06 +24: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:07 +25: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:08 +26: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:08 +27: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:09 +28: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:09 +29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:09 +30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +31: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +32: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +33: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +34: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +35: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +36: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +37: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +38: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:10 +39: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:11 +40: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:12 +41: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:12 +42: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:12 +43: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:12 +44: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:13 +45: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:13 +46: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +47: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +48: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +49: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +50: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +51: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +52: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +53: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +54: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +55: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +56: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +57: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +58: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:14 +59: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:15 +60: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:15 +61: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:16 +62: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:16 +63: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:16 +64: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +65: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +66: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +67: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +68: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +69: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:17 +70: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:18 +71: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:18 +72: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:18 +73: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:18 +74: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:18 +75: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:19 +76: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:19 +77: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:19 +78: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:19 +79: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:20 +80: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:20 +81: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:20 +82: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +83: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +84: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +85: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +86: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +87: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +88: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:21 +89: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +90: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +91: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +92: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +93: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +94: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +95: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +96: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +97: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:22 +98: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +99: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +100: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +101: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +102: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +103: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:23 +104: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +105: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +106: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +107: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +108: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +109: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:24 +110: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:25 +111: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:25 +112: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:25 +113: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:25 +114: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:26 +115: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:26 +116: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:26 +117: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:26 +118: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:26 +119: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +120: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +121: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +122: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +123: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +124: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +125: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +126: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +127: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:27 +128: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:28 +129: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:28 +130: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:28 +131: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:28 +131: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building FamilyTabScreen(dirty, dependencies: [FamilyAlertScope],
+state: _FamilyTabScreenState#12be8):
+Không tìm thấy ConsentScope phía trên widget này
+'package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart':
+Failed assertion: line 86 pos 12: 'scope != null'
+
+The relevant error-causing widget was:
+  FamilyTabScreen
+  FamilyTabScreen:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:21:55
+
+When the exception was thrown, this was the stack:
+#2      ConsentScope.of (package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart:86:12)
+#3      _FamilyTabScreenState.build (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:73:22)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5944:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5830:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5812:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5986:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5806:5)
+...     Normal element mounting (260 frames)
+#270    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#271    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7277:36)
+#272    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7292:32)
+...     Normal element mounting (473 frames)
+#745    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#746    Element.updateChild (package:flutter/src/widgets/framework.dart:4066:20)
+#747    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#748    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#749    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#750    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#751    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#752    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#753    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#754    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#755    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#756    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#757    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#758    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#759    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#760    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#761    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#762    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#763    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#764    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#765    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#766    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#767    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#768    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#769    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#770    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#771    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#772    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#773    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#774    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#775    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#776    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#777    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#778    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#779    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#780    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#781    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#782    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#783    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#784    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#785    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#786    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#787    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#788    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#789    _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:488:16)
+#790    _RawViewElement.update (package:flutter/src/widgets/view.dart:575:5)
+#791    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#792    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#793    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#794    StatelessElement.update (package:flutter/src/widgets/framework.dart:5908:5)
+#795    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#796    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#797    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#798    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#799    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#800    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#801    RootElement._rebuild (package:flutter/src/widgets/binding.dart:2091:16)
+#802    RootElement.update (package:flutter/src/widgets/binding.dart:2069:5)
+#803    RootElement.performRebuild (package:flutter/src/widgets/binding.dart:2083:7)
+#804    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#805    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2763:15)
+#806    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2820:11)
+#807    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3124:18)
+#808    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2432:19)
+#809    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)
+#810    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#811    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#812    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#815    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#816    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#817    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#820    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#821    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#822    main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#823    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#824    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY SCHEDULER LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during a scheduler callback:
+Không tìm thấy FamilyLinkScope phía trên widget này
+'package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart':
+Failed assertion: line 38 pos 12: 'scope != null'
+
+When the exception was thrown, this was the stack:
+#2      FamilyLinkScope.read (package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart:38:12)
+#3      _FamilyTabScreenState._controller (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:42:52)
+#4      _FamilyTabScreenState._queueLoad.<anonymous closure> (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:58:32)
+#5      SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#6      SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1357:11)
+#7      AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#12     WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#15     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#16     WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#17     main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#18     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#19     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "1 chưa đọc": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:22:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart line 22
+The test description was:
+  alert entry displays server unread count and removes it after clear
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (3) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:28 +131 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:28 +131 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear [E]
+  Test failed. See exception logs above.
+  The test description was: alert entry displays server unread count and removes it after clear
+  
+00:28 +132 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:29 +133 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:29 +134 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:29 +135 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +136 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +137 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +138 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +139 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +140 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +141 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +142 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +143 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:30 +144 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:31 +145 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:31 +146 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:31 +147 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:31 +148 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +149 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +150 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +151 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +152 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +153 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +154 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +155 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +156 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +157 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +158 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +159 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:32 +160 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:33 +161 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:33 +162 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:33 +163 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:33 +164 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +165 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +166 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +167 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +168 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +169 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +170 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +171 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +172 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +173 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +174 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +175 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +176 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +177 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +178 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:34 +179 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +180 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +181 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +182 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +183 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +184 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:35 +185 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:36 +186 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:36 +187 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:36 +188 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:36 +189 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:36 +190 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +191 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +192 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +193 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +194 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +195 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +196 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +197 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +198 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +199 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +200 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:37 +201 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/lib/features/auth/presentation/screens/login_mobile_screen.dart:231:36
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#e671d relayoutBoundary=up2 OVERFLOWING:
+  needs compositing
+  creator: Column ← ConstrainedBox ← Align ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'login-sheet'>] ← Opacity ← Transform ← AnimatedBuilder ← ColoredBox ← Expanded ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:37 +202 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart:46:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  app clears profile/avatar and delayed response on logout
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:37 +202 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +202 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout [E]
+  Test failed. See exception logs above.
+  The test description was: app clears profile/avatar and delayed response on logout
+  
+00:37 +203 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +204 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +205 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +206 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +207 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +208 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:37 +209 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +210 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +211 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +212 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +213 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +214 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +215 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +216 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +217 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +218 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +219 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +220 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:38 +221 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:39 +222 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:39 +223 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+00:40 +224 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+Redeem request was sent before confirmation
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart:36:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart line 36
+The test description was:
+  AC2: valid QR fills code and waits for explicit confirmation
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:40 +224 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:40 +224 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation [E]
+  Test failed. See exception logs above.
+  The test description was: AC2: valid QR fills code and waits for explicit confirmation
+  
+00:40 +225 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:40 +226 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:40 +227 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:40 +228 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:42 +229 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:42 +230 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:42 +231 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:42 +232 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:42 +233 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:43 +234 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:43 +235 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:43 +236 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:43 +237 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:44 +238 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +239 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +240 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +241 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +242 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +243 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:45 +244 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:46 +245 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:46 +246 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:46 +247 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:46 +248 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:46 +249 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:47 +250 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:47 +251 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:47 +252 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:47 +253 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:48 +254 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:48 +255 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:48 +256 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:49 +257 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:49 +258 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:49 +259 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:50 +260 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:50 +261 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:50 +262 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:50 +263 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:51 +264 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:51 +265 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:51 +266 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:53 +267 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:54 +268 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:54 +269 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:54 +270 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +271 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +272 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +273 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +274 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +275 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +276 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +277 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +278 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +279 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:55 +280 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +281 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +282 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +283 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +284 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +285 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:56 +286 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:57 +287 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:57 +288 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:57 +289 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:57 +290 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:57 +291 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +292 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +293 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +294 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +295 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +296 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +297 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +298 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +299 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +300 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:58 +301 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:59 +302 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:02 +303 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:02 +303 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on 401
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/lib/features/auth/presentation/screens/login_mobile_screen.dart:231:36
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#ea8f9 relayoutBoundary=up2 OVERFLOWING:
+  needs compositing
+  creator: Column ← ConstrainedBox ← Align ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'login-sheet'>] ← Opacity ← Transform ← AnimatedBuilder ← ColoredBox ← Expanded ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart:46:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  app clears profile/avatar and delayed response on 401
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:02 +303 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:02 +303 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on 401 [E]
+  Test failed. See exception logs above.
+  The test description was: app clears profile/avatar and delayed response on 401
+  
+01:03 +304 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:05 +305 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:06 +305 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PATIENT10X": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart:221:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart line 221
+The test description was:
+  4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại
+  mã ổn định
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:06 +305 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:06 +305 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định [E]
+  Test failed. See exception logs above.
+  The test description was: 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  
+01:06 +306 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+01:07 +307 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.pumpApp (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:72:5)
+<asynchronous suspension>
+#3      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:98:5)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:07 +307 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:07 +307 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã [E]
+  Test failed. See exception logs above.
+  The test description was: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+  
+01:07 +308 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:09 +309 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:09 +310 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:09 +311 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:09 +312 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:10 +313 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:10 +314 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:11 +315 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:11 +316 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:12 +317 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:12 +318 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:12 +319 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:12 +320 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:13 +321 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:13 +322 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:13 +323 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:13 +324 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:14 +325 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +326 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +327 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +328 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +329 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +330 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +331 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +332 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:15 +333 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:16 +334 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:16 +335 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:17 +336 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:17 +337 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:17 +338 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:18 +339 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:18 +340 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:18 +341 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:19 +342 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:19 +343 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:20 +344 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:20 +345 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:20 +346 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:21 +347 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:23 +348 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:24 +349 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:25 +350 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+01:25 +351 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#8040a DISPOSED OVERFLOWING:
+  needs compositing
+  creator: MultiChildRenderObjectElement#0fec4(DEFUNCT) ←
+    SingleChildRenderObjectElement#b52e2(DEFUNCT) ← SingleChildRenderObjectElement#d772b(DEFUNCT) ←
+    SingleChildRenderObjectElement#90aa9(DEFUNCT) ← SingleChildRenderObjectElement#970e4(DEFUNCT) ←
+    SingleChildRenderObjectElement#dd0a5(DEFUNCT) ← StatelessElement#edbb3(DEFUNCT) ←
+    SingleChildRenderObjectElement#37965(DEFUNCT) ← SingleChildRenderObjectElement#eb5f1(DEFUNCT) ←
+    StatefulElement#49209(DEFUNCT) ← SingleChildRenderObjectElement#2764e(DEFUNCT) ←
+    ParentDataElement<FlexParentData>#4f162(DEFUNCT) ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart:238:9)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AC6 QD-29: logout removes health data from the actual app
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:26 +351 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:26 +351 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app [E]
+  Test failed. See exception logs above.
+  The test description was: AC6 QD-29: logout removes health data from the actual app
+  
+══╡ EXCEPTION CAUGHT BY WIDGET INSPECTOR ╞══════════════════════════════════════════════════════════
+The following assertion was thrown:
+Looking up a deactivated widget's ancestor is unsafe.
+At this point the state of the widget's element tree is no longer stable.
+To safely refer to a widget's ancestor in its dispose() method, save a reference to the ancestor by
+calling dependOnInheritedWidgetOfExactType() in the widget's didChangeDependencies() method.
+
+When the exception was thrown, this was the stack:
+#0      Element._debugCheckStateIsActiveForAncestorLookup.<anonymous closure> (package:flutter/src/widgets/framework.dart:5062:9)
+#1      Element._debugCheckStateIsActiveForAncestorLookup (package:flutter/src/widgets/framework.dart:5076:6)
+#2      Element.visitAncestorElements (package:flutter/src/widgets/framework.dart:5187:12)
+#3      _describeRelevantUserCode (package:flutter/src/widgets/widget_inspector.dart:4342:13)
+#4      _parseDiagnosticsNode (package:flutter/src/widgets/widget_inspector.dart:4261:12)
+#5      debugTransformDebugCreator (package:flutter/src/widgets/widget_inspector.dart:4240:21)
+#6      _FlutterErrorDetailsNode.builder (package:flutter/src/foundation/assertions.dart:1300:31)
+#7      DiagnosticableNode.emptyBodyDescription (package:flutter/src/foundation/diagnostics.dart:2939:45)
+#8      TextTreeRenderer._debugRender (package:flutter/src/foundation/diagnostics.dart:1307:14)
+#9      TextTreeRenderer.render (package:flutter/src/foundation/diagnostics.dart:1137:14)
+#10     FlutterError.dumpErrorToConsole (package:flutter/src/foundation/assertions.dart:1030:13)
+#11     TestWidgetsFlutterBinding._runTest.<anonymous closure> (package:flutter_test/src/binding.dart:1780:24)
+#12     FlutterError.reportError (package:flutter/src/foundation/assertions.dart:1193:14)
+#13     TestWidgetsFlutterBinding._runTest.handleUncaughtError (package:flutter_test/src/binding.dart:1879:20)
+#14     TestWidgetsFlutterBinding._runTest.<anonymous closure> (package:flutter_test/src/binding.dart:1921:13)
+<asynchronous suspension>
+(elided 5 frames from dart:async)
+
+This exception was caught while trying to describe the user-relevant code of another error.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:26 +352 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:26 +353 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:27 +354 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:27 +355 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:27 +356 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:27 +357 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+01:28 +358 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:145:5)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  đăng xuất xóa link mời đang chờ
+════════════════════════════════════════════════════════════════════════════════════════════════════
+01:28 +358 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+01:28 +358 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ [E]
+  Test failed. See exception logs above.
+  The test description was: đăng xuất xóa link mời đang chờ
+  
+01:28 +359 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+01:28 +360 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+01:29 +361 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC20: Người giám sát trống → Mở tab Người thân về đúng tab
+01:30 +362 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: selected pill stays inside bar for all four tabs
+01:31 +363 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC25: không còn route /dev-catalog
+01:31 +364 -8: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+  ... and 4 more

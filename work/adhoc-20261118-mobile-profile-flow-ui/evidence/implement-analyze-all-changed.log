@@ -1,0 +1,20 @@
+Analyzing mobile...                                             
+
+warning - Unused import: '../features/home/presentation/widgets/home_navigation_bar.dart'. Try removing the import directive - lib\app\app_shell.dart:15:8 - unused_import
+warning - Duplicate import. Try removing all but one import of the library - lib\app\app_shell.dart:20:8 - duplicate_import
+warning - Duplicate import. Try removing all but one import of the library - lib\app\app_shell.dart:21:8 - duplicate_import
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal - lib\app\app_shell.dart:240:33 - prefer_const_literals_to_create_immutables
+warning - Unused import: '../utils/adherence_history_format.dart'. Try removing the import directive - lib\features\adherence_history\presentation\screens\adherence_history_screen.dart:6:8 - unused_import
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\adherence_history\presentation\screens\adherence_month_screen.dart:143:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\adherence_history\presentation\screens\adherence_month_screen.dart:144:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\auth\presentation\widgets\otp_resend_row.dart:85:13 - prefer_const_constructors
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre. Try replacing the use of the deprecated member with the replacement - lib\features\medication\presentation\screens\edit_medication_screen.dart:606:17 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\features\medication_capture\domain\ocr_models.dart:115:65 - curly_braces_in_flow_control_structures
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive - test\core\notification\reminder_edge_cases_test.dart:1:8 - unnecessary_import
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\core\notification\reminder_edge_cases_test.dart:199:25 - prefer_const_constructors
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\features\adherence_history\schedule_occurrences_test.dart:2:8 - avoid_relative_lib_imports
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\features\adherence_history\schedule_occurrences_test.dart:3:8 - avoid_relative_lib_imports
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\features\family_link\share_invite_link_screen_test.dart:77:9 - curly_braces_in_flow_control_structures
+warning - Unused import: 'package:drugtime_mobile/app/theme/app_theme.dart'. Try removing the import directive - test\features\medication\medication_step_progress_test.dart:3:8 - unused_import
+
+16 issues found. (ran in 22.5s)

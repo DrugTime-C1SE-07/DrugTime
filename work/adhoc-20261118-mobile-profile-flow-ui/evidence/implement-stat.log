@@ -1,0 +1,26 @@
+warning: in the working copy of 'mobile/lib/app/app_shell.dart', LF will be replaced by CRLF the next time Git touches it
+ mobile/lib/app/app_shell.dart                      |   9 +-
+ mobile/lib/app/router.dart                         |  21 ++
+ .../screens/privacy_settings_screen.dart           |  58 ++-
+ .../screens/family_link_code_screen.dart           |  75 ++--
+ .../presentation/screens/caregivers_screen.dart    |  73 +++-
+ .../screens/enter_link_code_screen.dart            |  33 +-
+ .../screens/link_consent_confirmation_screen.dart  | 118 ++++---
+ .../screens/link_request_result_screen.dart        |  82 +++--
+ .../presentation/screens/scan_link_qr_screen.dart  | 192 +++++-----
+ .../screens/share_invite_link_screen.dart          | 140 +++++---
+ .../presentation/widgets/approve_link_sheet.dart   |  18 +-
+ .../widgets/incoming_requests_section.dart         |  40 ++-
+ .../screens/medical_profile_screen.dart            | 123 +++++--
+ .../screens/personal_profile_screen.dart           |  35 +-
+ .../presentation/screens/profile_screen.dart       | 391 ++++++++++++---------
+ .../presentation/widgets/avatar_picker_sheet.dart  |   3 +
+ .../widgets/condition_catalog_sheet.dart           |   3 +
+ .../widgets/condition_editor_sheet.dart            |   3 +
+ .../presentation/widgets/profile_icons.dart        |  12 +-
+ mobile/test/app/app_shell_test.dart                |   4 +-
+ .../consent/privacy_settings_screen_test.dart      |  32 +-
+ .../family_link/share_invite_link_screen_test.dart |  42 ++-
+ .../test/features/profile/profile_layout_test.dart | 124 +++++--
+ .../features/profile/profile_screens_test.dart     |  11 +-
+ 24 files changed, 1062 insertions(+), 580 deletions(-)

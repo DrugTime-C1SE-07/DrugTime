@@ -1,0 +1,10 @@
+$ AGENTS_ROOT=work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace python .agents/scripts/scope.py adhoc-20261118-mobile-profile-flow-ui --stage test
+Phạm vi giai đoạn 'test' của adhoc-20261118-mobile-profile-flow-ui:
+  (không có thay đổi nào ngoài work/)
+OK: mọi thay đổi nằm trong phạm vi.
+exit=0
+$ AGENTS_ROOT=work/adhoc-20261118-mobile-profile-flow-ui/scratch/qa-workspace python .agents/scripts/scope.py adhoc-20261118-mobile-profile-flow-ui --stage test
+Phạm vi giai đoạn 'test' của adhoc-20261118-mobile-profile-flow-ui:
+  (không có thay đổi nào ngoài work/)
+OK: mọi thay đổi nằm trong phạm vi.
+exit=0

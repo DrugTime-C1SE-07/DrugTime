@@ -1,0 +1,7 @@
+Analyzing 6 items...                                            
+
+   info - Use interpolation to compose strings and values. Try using string interpolation to build the composite string - lib\features\family_link\presentation\screens\caregivers_screen.dart:111:15 - prefer_interpolation_to_compose_strings
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\features\family_link\presentation\screens\scan_link_qr_screen.dart:256:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\features\profile\presentation\screens\profile_screen.dart:146:27 - curly_braces_in_flow_control_structures
+
+3 issues found. (ran in 23.8s)

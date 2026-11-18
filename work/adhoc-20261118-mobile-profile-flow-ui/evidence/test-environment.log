@@ -1,0 +1,3 @@
+Unable to create process using '"D:\Captone\DrugTime\backend\.venv\Scripts\python.exe" -c "import socket,importlib.util; s=socket.socket();s.settimeout(1);r=s.connect_ex(('127.0.0.1',54322));print('Local Postgres 54322 reachable:',r==0);s.close();print('pytest installed:',importlib.util.find_spec('pytest') is not None);print('sqlalchemy installed:',importlib.util.find_spec('sqlalchemy') is not None)"': Access is denied.
+
+

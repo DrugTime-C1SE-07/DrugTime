@@ -1,0 +1,596 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  _flutterfire_internals 1.3.79 (1.4.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  app_links 6.4.1 (7.2.2 available)
+  app_links_linux 1.0.4 (1.0.5 available)
+  archive 4.5.2 (4.7.1 available)
+  camera_platform_interface 2.15.0 (2.15.1 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  coverage 1.16.0 (1.16.1 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  crypto 3.0.7 (3.0.8 available)
+  cryptography 2.8.1 (2.9.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  dbus 0.7.15 (0.8.0 available)
+  firebase_core 5.1.0 (5.2.0 available)
+  firebase_core_platform_interface 8.1.1 (8.2.0 available)
+  firebase_core_web 4.1.0 (4.2.0 available)
+  firebase_messaging 17.0.1 (17.1.0 available)
+  firebase_messaging_platform_interface 4.11.1 (4.12.0 available)
+  firebase_messaging_web 4.3.1 (4.4.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (23.0.3 available)
+  flutter_local_notifications_linux 4.0.1 (9.0.0 available)
+  flutter_local_notifications_platform_interface 7.2.0 (13.0.0 available)
+  flutter_secure_storage 10.3.4 (11.2.0 available)
+  flutter_secure_storage_darwin 0.3.2 (0.4.3 available)
+  flutter_secure_storage_windows 4.1.0 (4.2.2 available)
+  flutter_svg 2.3.0 (2.4.0 available)
+  google_mlkit_commons 0.13.0 (1.0.3 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.3 available)
+  hooks 2.0.2 (2.2.0 available)
+  image 4.12.0 (4.13.1 available)
+  image_picker_ios 0.8.13+13 (0.8.13+15 available)
+  jni 1.1.0 (1.1.2 available)
+  lints 3.0.0 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  mobile_scanner 7.4.2 (7.5.0 available)
+  native_toolchain_c 0.19.2 (0.19.6 available)
+  objective_c 9.5.0 (9.6.4 available)
+  package_config 2.2.0 (3.0.0 available)
+  permission_handler 12.0.3 (13.0.2 available)
+  permission_handler_android 13.0.1 (14.1.1 available)
+  permission_handler_apple 9.6.4 (9.6.5 available)
+  permission_handler_windows 0.2.2 (0.2.4 available)
+  petitparser 7.0.2 (7.1.0 available)
+  qr 3.0.2 (4.0.1 available)
+  record_use 0.6.0 (1.1.1 available)
+  share_plus 12.0.2 (13.3.1 available)
+  share_plus_platform_interface 6.1.0 (7.2.0 available)
+  sqflite_common 2.5.14 (2.5.17 available)
+  sqflite_common_ffi 2.4.5 (2.4.7 available)
+  sqlite3 3.5.2 (3.9.1 available)
+  synchronized 3.5.0 (3.6.1+1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  timezone 0.9.4 (0.11.2 available)
+  vector_graphics 1.2.4 (1.3.1 available)
+  vector_graphics_codec 1.1.13 (1.2.0 available)
+  vector_graphics_compiler 1.3.2 (1.3.6 available)
+  vector_math 2.4.0 (2.4.4 available)
+  win32 5.15.0 (6.4.0 available)
+  xml 7.0.1 (7.1.0 available)
+Got dependencies!
+65 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart
+00:00 +0: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6: the family view has data and no dose or schedule writes
+00:01 +1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 1. UI/Controller cô lập trạng thái: hai controller nhận mã khác nhau từ repository thì hiển thị tách biệt, không dùng lẫn cache
+00:01 +2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 1. UI/Controller cô lập trạng thái: hai controller nhận mã khác nhau từ repository thì hiển thị tách biệt, không dùng lẫn cache
+00:02 +3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+00:02 +4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+00:02 +5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown building FamilyTabScreen(dirty, dependencies: [FamilyAlertScope],
+state: _FamilyTabScreenState#73f6c):
+Không tìm thấy ConsentScope phía trên widget này
+'package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart':
+Failed assertion: line 86 pos 12: 'scope != null'
+
+The relevant error-causing widget was:
+  FamilyTabScreen
+  FamilyTabScreen:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:21:55
+
+When the exception was thrown, this was the stack:
+#2      ConsentScope.of (package:drugtime_mobile/features/consent/presentation/state/consent_controller.dart:86:12)
+#3      _FamilyTabScreenState.build (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:73:22)
+#4      StatefulElement.build (package:flutter/src/widgets/framework.dart:5944:27)
+#5      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5830:15)
+#6      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#8      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5812:5)
+#9      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5986:11)
+#10     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5806:5)
+...     Normal element mounting (260 frames)
+#270    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#271    MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7277:36)
+#272    MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7292:32)
+...     Normal element mounting (473 frames)
+#745    Element.inflateWidget (package:flutter/src/widgets/framework.dart:4600:20)
+#746    Element.updateChild (package:flutter/src/widgets/framework.dart:4066:20)
+#747    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#748    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#749    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#750    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#751    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#752    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#753    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#754    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#755    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#756    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#757    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#758    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#759    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#760    _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#761    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#762    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#763    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#764    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#765    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#766    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#767    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#768    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#769    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#770    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#771    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#772    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#773    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#774    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#775    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#776    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#777    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#778    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#779    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#780    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#781    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#782    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#783    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#784    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#785    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#786    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#787    ProxyElement.update (package:flutter/src/widgets/framework.dart:6162:5)
+#788    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#789    _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:488:16)
+#790    _RawViewElement.update (package:flutter/src/widgets/view.dart:575:5)
+#791    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#792    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#793    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#794    StatelessElement.update (package:flutter/src/widgets/framework.dart:5908:5)
+#795    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#796    ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5854:16)
+#797    StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5995:11)
+#798    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#799    StatefulElement.update (package:flutter/src/widgets/framework.dart:6020:5)
+#800    Element.updateChild (package:flutter/src/widgets/framework.dart:4050:15)
+#801    RootElement._rebuild (package:flutter/src/widgets/binding.dart:2091:16)
+#802    RootElement.update (package:flutter/src/widgets/binding.dart:2069:5)
+#803    RootElement.performRebuild (package:flutter/src/widgets/binding.dart:2083:7)
+#804    Element.rebuild (package:flutter/src/widgets/framework.dart:5542:7)
+#805    BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2763:15)
+#806    BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2820:11)
+#807    BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3124:18)
+#808    AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:2432:19)
+#809    RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)
+#810    SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#811    SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)
+#812    AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#815    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#816    AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#817    WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#820    TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#821    WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#822    main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#823    testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#824    TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY SCHEDULER LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during a scheduler callback:
+Không tìm thấy FamilyLinkScope phía trên widget này
+'package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart':
+Failed assertion: line 38 pos 12: 'scope != null'
+
+When the exception was thrown, this was the stack:
+#2      FamilyLinkScope.read (package:drugtime_mobile/features/family_link/presentation/state/family_link_scope.dart:38:12)
+#3      _FamilyTabScreenState._controller (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:42:52)
+#4      _FamilyTabScreenState._queueLoad.<anonymous closure> (package:drugtime_mobile/features/family_link/presentation/screens/family_tab_screen.dart:58:32)
+#5      SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)
+#6      SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1357:11)
+#7      AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2261:9)
+#10     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#11     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+#12     WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#15     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#16     WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#17     main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:20:18)
+<asynchronous suspension>
+#18     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#19     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "1 chưa đọc": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart:22:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart line 22
+The test description was:
+  alert entry displays server unread count and removes it after clear
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (3) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +5 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:02 +5 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear [E]
+  Test failed. See exception logs above.
+  The test description was: alert entry displays server unread count and removes it after clear
+  
+00:02 +6 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:02 +7 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:02 +8 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:03 +9 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:03 +10 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:04 +11 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:04 +12 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:05 +13 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:06 +14 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: đã đăng nhập, mở link mời → màn nhập mã điền sẵn, chưa gửi
+00:06 +15 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+00:06 +15 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+Redeem request was sent before confirmation
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart:36:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart line 36
+The test description was:
+  AC2: valid QR fills code and waits for explicit confirmation
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:06 +15 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+00:06 +15 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/redeem_acceptance_test.dart: AC2: valid QR fills code and waits for explicit confirmation [E]
+  Test failed. See exception logs above.
+  The test description was: AC2: valid QR fills code and waits for explicit confirmation
+  
+00:07 +16 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "PATIENT10X": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart:221:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart line 221
+The test description was:
+  4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại
+  mã ổn định
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +16 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:07 +16 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định [E]
+  Test failed. See exception logs above.
+  The test description was: 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  
+00:07 +17 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:07 +18 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+00:07 +19 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/lib/features/auth/presentation/screens/login_mobile_screen.dart:231:36
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#fdc75 relayoutBoundary=up2 OVERFLOWING:
+  needs compositing
+  creator: Column ← ConstrainedBox ← Align ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'login-sheet'>] ← Opacity ← Transform ← AnimatedBuilder ← ColoredBox ← Expanded ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart:46:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  app clears profile/avatar and delayed response on logout
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:20 +19 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+00:20 +19 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on logout [E]
+  Test failed. See exception logs above.
+  The test description was: app clears profile/avatar and delayed response on logout
+  
+00:20 +19 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#363b5 DISPOSED OVERFLOWING:
+  needs compositing
+  creator: MultiChildRenderObjectElement#cb8a7(DEFUNCT) ←
+    SingleChildRenderObjectElement#8a272(DEFUNCT) ← SingleChildRenderObjectElement#3d4ac(DEFUNCT) ←
+    SingleChildRenderObjectElement#ebdbc(DEFUNCT) ← SingleChildRenderObjectElement#f964f(DEFUNCT) ←
+    SingleChildRenderObjectElement#542d1(DEFUNCT) ← StatelessElement#be581(DEFUNCT) ←
+    SingleChildRenderObjectElement#f99d4(DEFUNCT) ← SingleChildRenderObjectElement#bb13a(DEFUNCT) ←
+    StatefulElement#f1fb5(DEFUNCT) ← SingleChildRenderObjectElement#602a5(DEFUNCT) ←
+    ParentDataElement<FlexParentData>#0b2fb(DEFUNCT) ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart:238:9)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AC6 QD-29: logout removes health data from the actual app
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:20 +19 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+00:20 +19 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app [E]
+  Test failed. See exception logs above.
+  The test description was: AC6 QD-29: logout removes health data from the actual app
+  
+══╡ EXCEPTION CAUGHT BY WIDGET INSPECTOR ╞══════════════════════════════════════════════════════════
+The following assertion was thrown:
+Looking up a deactivated widget's ancestor is unsafe.
+At this point the state of the widget's element tree is no longer stable.
+To safely refer to a widget's ancestor in its dispose() method, save a reference to the ancestor by
+calling dependOnInheritedWidgetOfExactType() in the widget's didChangeDependencies() method.
+
+When the exception was thrown, this was the stack:
+#0      Element._debugCheckStateIsActiveForAncestorLookup.<anonymous closure> (package:flutter/src/widgets/framework.dart:5062:9)
+#1      Element._debugCheckStateIsActiveForAncestorLookup (package:flutter/src/widgets/framework.dart:5076:6)
+#2      Element.visitAncestorElements (package:flutter/src/widgets/framework.dart:5187:12)
+#3      _describeRelevantUserCode (package:flutter/src/widgets/widget_inspector.dart:4342:13)
+#4      _parseDiagnosticsNode (package:flutter/src/widgets/widget_inspector.dart:4261:12)
+#5      debugTransformDebugCreator (package:flutter/src/widgets/widget_inspector.dart:4240:21)
+#6      _FlutterErrorDetailsNode.builder (package:flutter/src/foundation/assertions.dart:1300:31)
+#7      DiagnosticableNode.emptyBodyDescription (package:flutter/src/foundation/diagnostics.dart:2939:45)
+#8      TextTreeRenderer._debugRender (package:flutter/src/foundation/diagnostics.dart:1307:14)
+#9      TextTreeRenderer.render (package:flutter/src/foundation/diagnostics.dart:1137:14)
+#10     FlutterError.dumpErrorToConsole (package:flutter/src/foundation/assertions.dart:1030:13)
+#11     TestWidgetsFlutterBinding._runTest.<anonymous closure> (package:flutter_test/src/binding.dart:1780:24)
+#12     FlutterError.reportError (package:flutter/src/foundation/assertions.dart:1193:14)
+#13     TestWidgetsFlutterBinding._runTest.handleUncaughtError (package:flutter_test/src/binding.dart:1879:20)
+#14     TestWidgetsFlutterBinding._runTest.<anonymous closure> (package:flutter_test/src/binding.dart:1921:13)
+<asynchronous suspension>
+(elided 5 frames from dart:async)
+
+This exception was caught while trying to describe the user-relevant code of another error.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:21 +19 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.pumpApp (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:72:5)
+<asynchronous suspension>
+#3      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:98:5)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:21 +19 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on 401
+00:21 +19 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã [E]
+  Test failed. See exception logs above.
+  The test description was: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+  
+00:21 +20 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on 401
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 28 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/lib/features/auth/presentation/screens/login_mobile_screen.dart:231:36
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#7b48a relayoutBoundary=up2 OVERFLOWING:
+  needs compositing
+  creator: Column ← ConstrainedBox ← Align ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'login-sheet'>] ← Opacity ← Transform ← AnimatedBuilder ← ColoredBox ← Expanded ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(0.0<=w<=430.0, 0.0<=h<=355.0)
+  size: Size(430.0, 355.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart:46:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  app clears profile/avatar and delayed response on 401
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:30 +20 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+00:30 +20 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app clears profile/avatar and delayed response on 401 [E]
+  Test failed. See exception logs above.
+  The test description was: app clears profile/avatar and delayed response on 401
+  
+00:30 +20 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart:145:5)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  đăng xuất xóa link mời đang chờ
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:30 +20 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_app_lifecycle_test.dart: app consent withdrawal clears form without waiting for next HTTP response
+00:30 +20 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: đăng xuất xóa link mời đang chờ [E]
+  Test failed. See exception logs above.
+  The test description was: đăng xuất xóa link mời đang chờ
+  
+00:30 +21 -8: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_adherence_screen_test.dart: AC6 QD-29: logout removes health data from the actual app
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_stability_test.dart: FamilyLinkCode stability & lifecycle tests 4. Tích hợp vòng đời phiên: Đăng xuất qua AuthController.signOut() xóa mã, đăng nhập lại nạp lại mã ổn định
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/family_tab_screen_test.dart: alert entry displays server unread count and removes it after clear
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/invite_link_flow_test.dart: AC16: chưa đăng nhập → đăng nhập OTP xong mới tới màn nhập mã với đúng mã
+  ... and 4 more

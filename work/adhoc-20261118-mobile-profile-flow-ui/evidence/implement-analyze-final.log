@@ -1,0 +1,12 @@
+Analyzing 11 items...                                           
+
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\profile\presentation\screens\medical_profile_screen.dart:34:28 - prefer_const_constructors
+   info - Use interpolation to compose strings and values. Try using string interpolation to build the composite string - test\features\profile\profile_flow_visual_test.dart:60:11 - prefer_interpolation_to_compose_strings
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\profile\profile_flow_visual_test.dart:101:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\profile\profile_flow_visual_test.dart:104:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\profile\profile_flow_visual_test.dart:107:42 - prefer_const_constructors
+   info - Use interpolation to compose strings and values. Try using string interpolation to build the composite string - test\features\profile\profile_flow_visual_test.dart:158:24 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values. Try using string interpolation to build the composite string - test\features\profile\profile_flow_visual_test.dart:158:40 - prefer_interpolation_to_compose_strings
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\profile\profile_flow_visual_test.dart:188:39 - prefer_const_constructors
+
+8 issues found. (ran in 67.8s)

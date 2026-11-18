@@ -1,0 +1,2 @@
+warning: in the working copy of 'mobile/lib/app/app_shell.dart', LF will be replaced by CRLF the next time Git touches it
+git diff --check exit: 0

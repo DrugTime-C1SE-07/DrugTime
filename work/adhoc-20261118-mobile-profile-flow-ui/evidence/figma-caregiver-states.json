@@ -1,0 +1,3855 @@
+[
+  {
+    "id": "804:12437",
+    "name": "S08-3 · Còn Nguyễn Văn Nam",
+    "type": "FRAME",
+    "x": 10500,
+    "y": 9620,
+    "w": 375,
+    "h": 812,
+    "clipsContent": true,
+    "fill": "#fcfcfc",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12438",
+        "name": "content",
+        "type": "FRAME",
+        "x": 0,
+        "y": 100,
+        "w": 375,
+        "h": 712,
+        "layoutMode": "VERTICAL",
+        "itemSpacing": 16,
+        "padding": {
+          "l": 20,
+          "r": 20,
+          "t": 12,
+          "b": 34
+        },
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "clipsContent": true,
+        "fill": "#fcfcfc",
+        "childCount": 6,
+        "children": [
+          {
+            "id": "804:12439",
+            "name": "intro",
+            "type": "TEXT",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 60,
+            "visible": false,
+            "characters": "Người thân được mời sẽ nhận cảnh báo khi bạn bỏ lỡ liều thuốc và có thể xem lịch uống thuốc của bạn.",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 14,
+            "fill": "#5b6169"
+          },
+          {
+            "id": "804:12440",
+            "name": "section-head",
+            "type": "FRAME",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 20,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 0,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "clipsContent": true,
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12441",
+                "name": "heading",
+                "type": "TEXT",
+                "x": 0,
+                "y": 0,
+                "w": 112,
+                "h": 20,
+                "characters": "ĐANG THEO DÕI",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              },
+              {
+                "id": "804:12442",
+                "name": "count",
+                "type": "TEXT",
+                "x": 287,
+                "y": 0,
+                "w": 48,
+                "h": 20,
+                "characters": "1 người",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12443",
+            "name": "family-list",
+            "type": "FRAME",
+            "x": 20,
+            "y": 48,
+            "w": 335,
+            "h": 139,
+            "layoutMode": "VERTICAL",
+            "itemSpacing": 12,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "FIXED",
+            "childCount": 1,
+            "children": [
+              {
+                "id": "804:12444",
+                "name": "family-card",
+                "type": "FRAME",
+                "x": 0,
+                "y": 0,
+                "w": 335,
+                "h": 139,
+                "layoutMode": "VERTICAL",
+                "itemSpacing": 10,
+                "padding": {
+                  "l": 14,
+                  "r": 14,
+                  "t": 14,
+                  "b": 14
+                },
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "FIXED",
+                "clipsContent": true,
+                "fill": "#ffffff",
+                "childCount": 3,
+                "children": [
+                  {
+                    "id": "804:12445",
+                    "name": "top-row",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 14,
+                    "w": 307,
+                    "h": 42,
+                    "layoutMode": "HORIZONTAL",
+                    "itemSpacing": 10,
+                    "padding": {
+                      "l": 0,
+                      "r": 0,
+                      "t": 0,
+                      "b": 0
+                    },
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "AUTO",
+                    "clipsContent": true,
+                    "childCount": 4
+                  },
+                  {
+                    "id": "804:12454",
+                    "name": "divider",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 66,
+                    "w": 307,
+                    "h": 1,
+                    "clipsContent": true,
+                    "fill": "#e4e4e1",
+                    "childCount": 0
+                  },
+                  {
+                    "id": "804:12455",
+                    "name": "bottom-row",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 77,
+                    "w": 307,
+                    "h": 48,
+                    "layoutMode": "HORIZONTAL",
+                    "itemSpacing": 6,
+                    "padding": {
+                      "l": 0,
+                      "r": 0,
+                      "t": 0,
+                      "b": 0
+                    },
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "FIXED",
+                    "clipsContent": true,
+                    "childCount": 4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "804:12484",
+            "name": "privacy-note",
+            "type": "FRAME",
+            "x": 20,
+            "y": 203,
+            "w": 335,
+            "h": 108,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 10,
+            "padding": {
+              "l": 14,
+              "r": 14,
+              "t": 12,
+              "b": 12
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#f2f1ed",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12485",
+                "name": "shield",
+                "type": "FRAME",
+                "x": 14,
+                "y": 12,
+                "w": 15,
+                "h": 15,
+                "childCount": 2,
+                "children": [
+                  {
+                    "id": "804:12486",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 15,
+                    "h": 15,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        15,
+                        0
+                      ],
+                      [
+                        15,
+                        15
+                      ],
+                      [
+                        0,
+                        15
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12487",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 1.88,
+                    "y": 1.88,
+                    "w": 11.23,
+                    "h": 11.25
+                  }
+                ]
+              },
+              {
+                "id": "804:12488",
+                "name": "label",
+                "type": "TEXT",
+                "x": 39,
+                "y": 12,
+                "w": 282,
+                "h": 84,
+                "characters": "Sau khi bạn xác nhận, người thân có thể xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều. Hồ sơ sức khỏe của bạn vẫn riên…",
+                "textAutoResize": "NONE",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12489",
+            "name": "btn/invite",
+            "type": "FRAME",
+            "x": 20,
+            "y": 327,
+            "w": 335,
+            "h": 48,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 8,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#01554f",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12490",
+                "name": "user-plus",
+                "type": "FRAME",
+                "x": 106,
+                "y": 16,
+                "w": 16,
+                "h": 16,
+                "childCount": 5,
+                "children": [
+                  {
+                    "id": "804:12491",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 16,
+                    "h": 16,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        16,
+                        0
+                      ],
+                      [
+                        16,
+                        16
+                      ],
+                      [
+                        0,
+                        16
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12492",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 5.33,
+                    "y": 2,
+                    "w": 5.33,
+                    "h": 5.33
+                  },
+                  {
+                    "id": "804:12493",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 10.67,
+                    "y": 12.67,
+                    "w": 4,
+                    "h": 0,
+                    "points": [
+                      [
+                        10.67,
+                        12.67
+                      ],
+                      [
+                        14.67,
+                        12.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12494",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 12.67,
+                    "y": 10.67,
+                    "w": 0,
+                    "h": 4,
+                    "points": [
+                      [
+                        12.67,
+                        10.67
+                      ],
+                      [
+                        12.67,
+                        14.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12495",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 4,
+                    "y": 10,
+                    "w": 5.33,
+                    "h": 4
+                  }
+                ]
+              },
+              {
+                "id": "804:12496",
+                "name": "label",
+                "type": "TEXT",
+                "x": 130,
+                "y": 13.5,
+                "w": 99,
+                "h": 21,
+                "characters": "Mời người thân",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#ffffff"
+              }
+            ]
+          },
+          {
+            "id": "804:12497",
+            "name": "spacer",
+            "type": "FRAME",
+            "x": 20,
+            "y": 391,
+            "w": 1,
+            "h": 287,
+            "clipsContent": true,
+            "childCount": 0
+          }
+        ]
+      },
+      {
+        "id": "804:12498",
+        "name": "header",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 44,
+        "w": 375,
+        "h": 56,
+        "childCount": 3,
+        "children": [
+          {
+            "id": "I804:12498;492:286",
+            "name": "title",
+            "type": "TEXT",
+            "x": 76,
+            "y": 16,
+            "w": 223,
+            "h": 24,
+            "characters": "Người giám sát",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 20,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12498;492:287",
+            "name": "back",
+            "type": "INSTANCE",
+            "x": 20,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12498;492:287;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:287;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:287;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "I804:12498;492:318",
+            "name": "option",
+            "type": "INSTANCE",
+            "x": 307,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "visible": false,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12498;492:318;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12498;492:318;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12498;492:318;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12499",
+        "name": "status-bar",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 44,
+        "childCount": 4,
+        "children": [
+          {
+            "id": "I804:12499;492:196",
+            "name": "time",
+            "type": "TEXT",
+            "x": 28,
+            "y": 13,
+            "w": 34,
+            "h": 24,
+            "characters": "9:41",
+            "textAutoResize": "WIDTH_AND_HEIGHT",
+            "fontSize": 16,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12499;492:197",
+            "name": "signal",
+            "type": "FRAME",
+            "x": 292,
+            "y": 17,
+            "w": 18,
+            "h": 11,
+            "clipsContent": true,
+            "childCount": 4,
+            "children": [
+              {
+                "id": "I804:12499;492:198",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 0,
+                "y": 7,
+                "w": 3,
+                "h": 4,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12499;492:199",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 5,
+                "y": 5,
+                "w": 3,
+                "h": 6,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12499;492:200",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 10,
+                "y": 2.5,
+                "w": 3,
+                "h": 8.5,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12499;492:201",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 15,
+                "y": 0,
+                "w": 3,
+                "h": 11,
+                "fill": "#211d1d"
+              }
+            ]
+          },
+          {
+            "id": "I804:12499;492:202",
+            "name": "wifi",
+            "type": "FRAME",
+            "x": 314,
+            "y": 15,
+            "w": 16,
+            "h": 16,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12499;492:203",
+                "name": "Vector",
+                "type": "VECTOR",
+                "x": 1.33,
+                "y": 3,
+                "w": 13.33,
+                "h": 10
+              }
+            ]
+          },
+          {
+            "id": "I804:12499;492:204",
+            "name": "battery",
+            "type": "FRAME",
+            "x": 334,
+            "y": 16,
+            "w": 25,
+            "h": 12,
+            "clipsContent": true,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12499;492:205",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 2,
+                "y": 2,
+                "w": 19,
+                "h": 8,
+                "fill": "#211d1d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12500",
+        "name": "home-indicator",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 778,
+        "w": 375,
+        "h": 34,
+        "childCount": 1,
+        "children": [
+          {
+            "id": "I804:12500;492:218",
+            "name": "bar",
+            "type": "RECTANGLE",
+            "x": 120.5,
+            "y": 21,
+            "w": 134,
+            "h": 5,
+            "fill": "#211d1d"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12587",
+    "name": "S08-3 · Còn Trần Thị Lan",
+    "type": "FRAME",
+    "x": 10955,
+    "y": 9620,
+    "w": 375,
+    "h": 812,
+    "clipsContent": true,
+    "fill": "#fcfcfc",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12588",
+        "name": "content",
+        "type": "FRAME",
+        "x": 0,
+        "y": 100,
+        "w": 375,
+        "h": 712,
+        "layoutMode": "VERTICAL",
+        "itemSpacing": 16,
+        "padding": {
+          "l": 20,
+          "r": 20,
+          "t": 12,
+          "b": 34
+        },
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "clipsContent": true,
+        "fill": "#fcfcfc",
+        "childCount": 6,
+        "children": [
+          {
+            "id": "804:12589",
+            "name": "intro",
+            "type": "TEXT",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 60,
+            "visible": false,
+            "characters": "Người thân được mời sẽ nhận cảnh báo khi bạn bỏ lỡ liều thuốc và có thể xem lịch uống thuốc của bạn.",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 14,
+            "fill": "#5b6169"
+          },
+          {
+            "id": "804:12590",
+            "name": "section-head",
+            "type": "FRAME",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 20,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 0,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "clipsContent": true,
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12591",
+                "name": "heading",
+                "type": "TEXT",
+                "x": 0,
+                "y": 0,
+                "w": 112,
+                "h": 20,
+                "characters": "ĐANG THEO DÕI",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              },
+              {
+                "id": "804:12592",
+                "name": "count",
+                "type": "TEXT",
+                "x": 287,
+                "y": 0,
+                "w": 48,
+                "h": 20,
+                "characters": "1 người",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12593",
+            "name": "family-list",
+            "type": "FRAME",
+            "x": 20,
+            "y": 48,
+            "w": 335,
+            "h": 139,
+            "layoutMode": "VERTICAL",
+            "itemSpacing": 12,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "FIXED",
+            "childCount": 1,
+            "children": [
+              {
+                "id": "804:12614",
+                "name": "family-card",
+                "type": "FRAME",
+                "x": 0,
+                "y": 0,
+                "w": 335,
+                "h": 139,
+                "layoutMode": "VERTICAL",
+                "itemSpacing": 10,
+                "padding": {
+                  "l": 14,
+                  "r": 14,
+                  "t": 14,
+                  "b": 14
+                },
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "FIXED",
+                "clipsContent": true,
+                "fill": "#ffffff",
+                "childCount": 3,
+                "children": [
+                  {
+                    "id": "804:12615",
+                    "name": "top-row",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 14,
+                    "w": 307,
+                    "h": 42,
+                    "layoutMode": "HORIZONTAL",
+                    "itemSpacing": 10,
+                    "padding": {
+                      "l": 0,
+                      "r": 0,
+                      "t": 0,
+                      "b": 0
+                    },
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "AUTO",
+                    "clipsContent": true,
+                    "childCount": 4
+                  },
+                  {
+                    "id": "804:12624",
+                    "name": "divider",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 66,
+                    "w": 307,
+                    "h": 1,
+                    "clipsContent": true,
+                    "fill": "#e4e4e1",
+                    "childCount": 0
+                  },
+                  {
+                    "id": "804:12625",
+                    "name": "bottom-row",
+                    "type": "FRAME",
+                    "x": 14,
+                    "y": 77,
+                    "w": 307,
+                    "h": 48,
+                    "layoutMode": "HORIZONTAL",
+                    "itemSpacing": 6,
+                    "padding": {
+                      "l": 0,
+                      "r": 0,
+                      "t": 0,
+                      "b": 0
+                    },
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "FIXED",
+                    "clipsContent": true,
+                    "childCount": 4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "804:12634",
+            "name": "privacy-note",
+            "type": "FRAME",
+            "x": 20,
+            "y": 203,
+            "w": 335,
+            "h": 108,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 10,
+            "padding": {
+              "l": 14,
+              "r": 14,
+              "t": 12,
+              "b": 12
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#f2f1ed",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12635",
+                "name": "shield",
+                "type": "FRAME",
+                "x": 14,
+                "y": 12,
+                "w": 15,
+                "h": 15,
+                "childCount": 2,
+                "children": [
+                  {
+                    "id": "804:12636",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 15,
+                    "h": 15,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        15,
+                        0
+                      ],
+                      [
+                        15,
+                        15
+                      ],
+                      [
+                        0,
+                        15
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12637",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 1.88,
+                    "y": 1.88,
+                    "w": 11.23,
+                    "h": 11.25
+                  }
+                ]
+              },
+              {
+                "id": "804:12638",
+                "name": "label",
+                "type": "TEXT",
+                "x": 39,
+                "y": 12,
+                "w": 282,
+                "h": 84,
+                "characters": "Sau khi bạn xác nhận, người thân có thể xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều. Hồ sơ sức khỏe của bạn vẫn riên…",
+                "textAutoResize": "NONE",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12639",
+            "name": "btn/invite",
+            "type": "FRAME",
+            "x": 20,
+            "y": 327,
+            "w": 335,
+            "h": 48,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 8,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#01554f",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12640",
+                "name": "user-plus",
+                "type": "FRAME",
+                "x": 106,
+                "y": 16,
+                "w": 16,
+                "h": 16,
+                "childCount": 5,
+                "children": [
+                  {
+                    "id": "804:12641",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 16,
+                    "h": 16,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        16,
+                        0
+                      ],
+                      [
+                        16,
+                        16
+                      ],
+                      [
+                        0,
+                        16
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12642",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 5.33,
+                    "y": 2,
+                    "w": 5.33,
+                    "h": 5.33
+                  },
+                  {
+                    "id": "804:12643",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 10.67,
+                    "y": 12.67,
+                    "w": 4,
+                    "h": 0,
+                    "points": [
+                      [
+                        10.67,
+                        12.67
+                      ],
+                      [
+                        14.67,
+                        12.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12644",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 12.67,
+                    "y": 10.67,
+                    "w": 0,
+                    "h": 4,
+                    "points": [
+                      [
+                        12.67,
+                        10.67
+                      ],
+                      [
+                        12.67,
+                        14.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12645",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 4,
+                    "y": 10,
+                    "w": 5.33,
+                    "h": 4
+                  }
+                ]
+              },
+              {
+                "id": "804:12646",
+                "name": "label",
+                "type": "TEXT",
+                "x": 130,
+                "y": 13.5,
+                "w": 99,
+                "h": 21,
+                "characters": "Mời người thân",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#ffffff"
+              }
+            ]
+          },
+          {
+            "id": "804:12647",
+            "name": "spacer",
+            "type": "FRAME",
+            "x": 20,
+            "y": 391,
+            "w": 1,
+            "h": 287,
+            "clipsContent": true,
+            "childCount": 0
+          }
+        ]
+      },
+      {
+        "id": "804:12648",
+        "name": "header",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 44,
+        "w": 375,
+        "h": 56,
+        "childCount": 3,
+        "children": [
+          {
+            "id": "I804:12648;492:286",
+            "name": "title",
+            "type": "TEXT",
+            "x": 76,
+            "y": 16,
+            "w": 223,
+            "h": 24,
+            "characters": "Người giám sát",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 20,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12648;492:287",
+            "name": "back",
+            "type": "INSTANCE",
+            "x": 20,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12648;492:287;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:287;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:287;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "I804:12648;492:318",
+            "name": "option",
+            "type": "INSTANCE",
+            "x": 307,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "visible": false,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12648;492:318;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12648;492:318;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12648;492:318;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12649",
+        "name": "status-bar",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 44,
+        "childCount": 4,
+        "children": [
+          {
+            "id": "I804:12649;492:196",
+            "name": "time",
+            "type": "TEXT",
+            "x": 28,
+            "y": 13,
+            "w": 34,
+            "h": 24,
+            "characters": "9:41",
+            "textAutoResize": "WIDTH_AND_HEIGHT",
+            "fontSize": 16,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12649;492:197",
+            "name": "signal",
+            "type": "FRAME",
+            "x": 292,
+            "y": 17,
+            "w": 18,
+            "h": 11,
+            "clipsContent": true,
+            "childCount": 4,
+            "children": [
+              {
+                "id": "I804:12649;492:198",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 0,
+                "y": 7,
+                "w": 3,
+                "h": 4,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12649;492:199",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 5,
+                "y": 5,
+                "w": 3,
+                "h": 6,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12649;492:200",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 10,
+                "y": 2.5,
+                "w": 3,
+                "h": 8.5,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12649;492:201",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 15,
+                "y": 0,
+                "w": 3,
+                "h": 11,
+                "fill": "#211d1d"
+              }
+            ]
+          },
+          {
+            "id": "I804:12649;492:202",
+            "name": "wifi",
+            "type": "FRAME",
+            "x": 314,
+            "y": 15,
+            "w": 16,
+            "h": 16,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12649;492:203",
+                "name": "Vector",
+                "type": "VECTOR",
+                "x": 1.33,
+                "y": 3,
+                "w": 13.33,
+                "h": 10
+              }
+            ]
+          },
+          {
+            "id": "I804:12649;492:204",
+            "name": "battery",
+            "type": "FRAME",
+            "x": 334,
+            "y": 16,
+            "w": 25,
+            "h": 12,
+            "clipsContent": true,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12649;492:205",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 2,
+                "y": 2,
+                "w": 19,
+                "h": 8,
+                "fill": "#211d1d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12650",
+        "name": "home-indicator",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 778,
+        "w": 375,
+        "h": 34,
+        "childCount": 1,
+        "children": [
+          {
+            "id": "I804:12650;492:218",
+            "name": "bar",
+            "type": "RECTANGLE",
+            "x": 120.5,
+            "y": 21,
+            "w": 134,
+            "h": 5,
+            "fill": "#211d1d"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12737",
+    "name": "S08-3 · Chưa có người giám sát",
+    "type": "FRAME",
+    "x": 11410,
+    "y": 9620,
+    "w": 375,
+    "h": 812,
+    "clipsContent": true,
+    "fill": "#fcfcfc",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12738",
+        "name": "content",
+        "type": "FRAME",
+        "x": 0,
+        "y": 100,
+        "w": 375,
+        "h": 712,
+        "layoutMode": "VERTICAL",
+        "itemSpacing": 16,
+        "padding": {
+          "l": 20,
+          "r": 20,
+          "t": 12,
+          "b": 34
+        },
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "clipsContent": true,
+        "fill": "#fcfcfc",
+        "childCount": 6,
+        "children": [
+          {
+            "id": "804:12739",
+            "name": "intro",
+            "type": "TEXT",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 60,
+            "visible": false,
+            "characters": "Người thân được mời sẽ nhận cảnh báo khi bạn bỏ lỡ liều thuốc và có thể xem lịch uống thuốc của bạn.",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 14,
+            "fill": "#5b6169"
+          },
+          {
+            "id": "804:12740",
+            "name": "section-head",
+            "type": "FRAME",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 20,
+            "visible": false,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 0,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "clipsContent": true,
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12741",
+                "name": "heading",
+                "type": "TEXT",
+                "x": 0,
+                "y": 0,
+                "w": 112,
+                "h": 20,
+                "characters": "ĐANG THEO DÕI",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              },
+              {
+                "id": "804:12742",
+                "name": "count",
+                "type": "TEXT",
+                "x": 285,
+                "y": 0,
+                "w": 50,
+                "h": 20,
+                "characters": "2 người",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12887",
+            "name": "Trạng thái trống",
+            "type": "FRAME",
+            "x": 20,
+            "y": 12,
+            "w": 335,
+            "h": 84,
+            "clipsContent": true,
+            "fill": "#e7f3f1",
+            "childCount": 1,
+            "children": [
+              {
+                "id": "804:12888",
+                "name": "Tiêu đề",
+                "type": "TEXT",
+                "x": 16,
+                "y": 28,
+                "w": 303,
+                "h": 28,
+                "characters": "Chưa có người giám sát",
+                "textAutoResize": "NONE",
+                "fontSize": 18,
+                "fill": "#01554f"
+              }
+            ]
+          },
+          {
+            "id": "804:12784",
+            "name": "privacy-note",
+            "type": "FRAME",
+            "x": 20,
+            "y": 112,
+            "w": 335,
+            "h": 108,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 10,
+            "padding": {
+              "l": 14,
+              "r": 14,
+              "t": 12,
+              "b": 12
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#f2f1ed",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12785",
+                "name": "shield",
+                "type": "FRAME",
+                "x": 14,
+                "y": 12,
+                "w": 15,
+                "h": 15,
+                "childCount": 2,
+                "children": [
+                  {
+                    "id": "804:12786",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 15,
+                    "h": 15,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        15,
+                        0
+                      ],
+                      [
+                        15,
+                        15
+                      ],
+                      [
+                        0,
+                        15
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12787",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 1.88,
+                    "y": 1.88,
+                    "w": 11.23,
+                    "h": 11.25
+                  }
+                ]
+              },
+              {
+                "id": "804:12788",
+                "name": "label",
+                "type": "TEXT",
+                "x": 39,
+                "y": 12,
+                "w": 282,
+                "h": 84,
+                "characters": "Sau khi bạn xác nhận, người thân có thể xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều. Hồ sơ sức khỏe của bạn vẫn riên…",
+                "textAutoResize": "NONE",
+                "fontSize": 14,
+                "fill": "#5b6169"
+              }
+            ]
+          },
+          {
+            "id": "804:12789",
+            "name": "btn/invite",
+            "type": "FRAME",
+            "x": 20,
+            "y": 236,
+            "w": 335,
+            "h": 48,
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 8,
+            "padding": {
+              "l": 0,
+              "r": 0,
+              "t": 0,
+              "b": 0
+            },
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "clipsContent": true,
+            "fill": "#01554f",
+            "childCount": 2,
+            "children": [
+              {
+                "id": "804:12790",
+                "name": "user-plus",
+                "type": "FRAME",
+                "x": 106,
+                "y": 16,
+                "w": 16,
+                "h": 16,
+                "childCount": 5,
+                "children": [
+                  {
+                    "id": "804:12791",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 0,
+                    "y": 0,
+                    "w": 16,
+                    "h": 16,
+                    "points": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        16,
+                        0
+                      ],
+                      [
+                        16,
+                        16
+                      ],
+                      [
+                        0,
+                        16
+                      ],
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12792",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 5.33,
+                    "y": 2,
+                    "w": 5.33,
+                    "h": 5.33
+                  },
+                  {
+                    "id": "804:12793",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 10.67,
+                    "y": 12.67,
+                    "w": 4,
+                    "h": 0,
+                    "points": [
+                      [
+                        10.67,
+                        12.67
+                      ],
+                      [
+                        14.67,
+                        12.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12794",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 12.67,
+                    "y": 10.67,
+                    "w": 0,
+                    "h": 4,
+                    "points": [
+                      [
+                        12.67,
+                        10.67
+                      ],
+                      [
+                        12.67,
+                        14.67
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "804:12795",
+                    "name": "Vector",
+                    "type": "VECTOR",
+                    "x": 4,
+                    "y": 10,
+                    "w": 5.33,
+                    "h": 4
+                  }
+                ]
+              },
+              {
+                "id": "804:12796",
+                "name": "label",
+                "type": "TEXT",
+                "x": 130,
+                "y": 13.5,
+                "w": 99,
+                "h": 21,
+                "characters": "Mời người thân",
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fill": "#ffffff"
+              }
+            ]
+          },
+          {
+            "id": "804:12797",
+            "name": "spacer",
+            "type": "FRAME",
+            "x": 20,
+            "y": 300,
+            "w": 1,
+            "h": 378,
+            "clipsContent": true,
+            "childCount": 0
+          }
+        ]
+      },
+      {
+        "id": "804:12798",
+        "name": "header",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 44,
+        "w": 375,
+        "h": 56,
+        "childCount": 3,
+        "children": [
+          {
+            "id": "I804:12798;492:286",
+            "name": "title",
+            "type": "TEXT",
+            "x": 76,
+            "y": 16,
+            "w": 223,
+            "h": 24,
+            "characters": "Người giám sát",
+            "textAutoResize": "HEIGHT",
+            "fontSize": 20,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12798;492:287",
+            "name": "back",
+            "type": "INSTANCE",
+            "x": 20,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12798;492:287;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:287;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:287;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "I804:12798;492:318",
+            "name": "option",
+            "type": "INSTANCE",
+            "x": 307,
+            "y": 4,
+            "w": 48,
+            "h": 48,
+            "visible": false,
+            "fill": "#e7f3f1",
+            "childCount": 12,
+            "children": [
+              {
+                "id": "I804:12798;492:318;492:222",
+                "name": "icon/chevron-left",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:222;492:39",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:225",
+                "name": "icon/plus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:225;492:45",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:228",
+                "name": "icon/bell",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:228;492:57",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:231",
+                "name": "icon/settings",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:231;492:60",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:234",
+                "name": "icon/pencil",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:234;492:102",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:237",
+                "name": "icon/x",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:237;492:51",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:240",
+                "name": "icon/ellipsis-vertical",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:240;492:105",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:243",
+                "name": "icon/search",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:243;492:54",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:246",
+                "name": "icon/calendar-clock",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:246;492:69",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:249",
+                "name": "icon/zap",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:249;492:123",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:6924",
+                "name": "icon/minus",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:6924;492:6922",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              },
+              {
+                "id": "I804:12798;492:318;492:9040",
+                "name": "icon/info",
+                "type": "INSTANCE",
+                "x": 12,
+                "y": 12,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "childCount": 1,
+                "children": [
+                  {
+                    "id": "I804:12798;492:318;492:9040;492:9038",
+                    "name": "glyph",
+                    "type": "FRAME",
+                    "x": 0,
+                    "y": 0,
+                    "w": 24,
+                    "h": 24,
+                    "childCount": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12799",
+        "name": "status-bar",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 44,
+        "childCount": 4,
+        "children": [
+          {
+            "id": "I804:12799;492:196",
+            "name": "time",
+            "type": "TEXT",
+            "x": 28,
+            "y": 13,
+            "w": 34,
+            "h": 24,
+            "characters": "9:41",
+            "textAutoResize": "WIDTH_AND_HEIGHT",
+            "fontSize": 16,
+            "fill": "#211d1d"
+          },
+          {
+            "id": "I804:12799;492:197",
+            "name": "signal",
+            "type": "FRAME",
+            "x": 292,
+            "y": 17,
+            "w": 18,
+            "h": 11,
+            "clipsContent": true,
+            "childCount": 4,
+            "children": [
+              {
+                "id": "I804:12799;492:198",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 0,
+                "y": 7,
+                "w": 3,
+                "h": 4,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12799;492:199",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 5,
+                "y": 5,
+                "w": 3,
+                "h": 6,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12799;492:200",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 10,
+                "y": 2.5,
+                "w": 3,
+                "h": 8.5,
+                "fill": "#211d1d"
+              },
+              {
+                "id": "I804:12799;492:201",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 15,
+                "y": 0,
+                "w": 3,
+                "h": 11,
+                "fill": "#211d1d"
+              }
+            ]
+          },
+          {
+            "id": "I804:12799;492:202",
+            "name": "wifi",
+            "type": "FRAME",
+            "x": 314,
+            "y": 15,
+            "w": 16,
+            "h": 16,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12799;492:203",
+                "name": "Vector",
+                "type": "VECTOR",
+                "x": 1.33,
+                "y": 3,
+                "w": 13.33,
+                "h": 10
+              }
+            ]
+          },
+          {
+            "id": "I804:12799;492:204",
+            "name": "battery",
+            "type": "FRAME",
+            "x": 334,
+            "y": 16,
+            "w": 25,
+            "h": 12,
+            "clipsContent": true,
+            "childCount": 1,
+            "children": [
+              {
+                "id": "I804:12799;492:205",
+                "name": "Rectangle",
+                "type": "RECTANGLE",
+                "x": 2,
+                "y": 2,
+                "w": 19,
+                "h": 8,
+                "fill": "#211d1d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "804:12800",
+        "name": "home-indicator",
+        "type": "INSTANCE",
+        "x": 0,
+        "y": 778,
+        "w": 375,
+        "h": 34,
+        "childCount": 1,
+        "children": [
+          {
+            "id": "I804:12800;492:218",
+            "name": "bar",
+            "type": "RECTANGLE",
+            "x": 120.5,
+            "y": 21,
+            "w": 134,
+            "h": 5,
+            "fill": "#211d1d"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12890",
+    "name": "S08-3 · Xác nhận thu hồi — Nguyễn Văn Nam",
+    "type": "FRAME",
+    "x": 10500,
+    "y": 10520,
+    "w": 326,
+    "h": 236,
+    "clipsContent": true,
+    "fill": "#ffffff",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12891",
+        "name": "Tiêu đề",
+        "type": "TEXT",
+        "x": 20,
+        "y": 20,
+        "w": 286,
+        "h": 32,
+        "characters": "Thu hồi quyền?",
+        "textAutoResize": "NONE",
+        "fontSize": 20,
+        "fill": "#211d1d"
+      },
+      {
+        "id": "804:12892",
+        "name": "Hệ quả",
+        "type": "TEXT",
+        "x": 20,
+        "y": 68,
+        "w": 286,
+        "h": 78,
+        "characters": "Nguyễn Văn Nam sẽ mất quyền xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều của bạn.",
+        "textAutoResize": "NONE",
+        "fontSize": 15,
+        "fill": "#454f55"
+      },
+      {
+        "id": "804:12893",
+        "name": "Hủy",
+        "type": "FRAME",
+        "x": 20,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#eef2f1",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12894",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Hủy",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#344d47"
+          }
+        ]
+      },
+      {
+        "id": "804:12895",
+        "name": "Thu hồi quyền",
+        "type": "FRAME",
+        "x": 171,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#a12e39",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12896",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Thu hồi quyền",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#ffffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12900",
+    "name": "S08-3 · Xác nhận thu hồi — Trần Thị Lan",
+    "type": "FRAME",
+    "x": 10890,
+    "y": 10520,
+    "w": 326,
+    "h": 236,
+    "clipsContent": true,
+    "fill": "#ffffff",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12901",
+        "name": "Tiêu đề",
+        "type": "TEXT",
+        "x": 20,
+        "y": 20,
+        "w": 286,
+        "h": 32,
+        "characters": "Thu hồi quyền?",
+        "textAutoResize": "NONE",
+        "fontSize": 20,
+        "fill": "#211d1d"
+      },
+      {
+        "id": "804:12902",
+        "name": "Hệ quả",
+        "type": "TEXT",
+        "x": 20,
+        "y": 68,
+        "w": 286,
+        "h": 78,
+        "characters": "Trần Thị Lan sẽ mất quyền xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều của bạn.",
+        "textAutoResize": "NONE",
+        "fontSize": 15,
+        "fill": "#454f55"
+      },
+      {
+        "id": "804:12903",
+        "name": "Hủy",
+        "type": "FRAME",
+        "x": 20,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#eef2f1",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12904",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Hủy",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#344d47"
+          }
+        ]
+      },
+      {
+        "id": "804:12905",
+        "name": "Thu hồi quyền",
+        "type": "FRAME",
+        "x": 171,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#a12e39",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12906",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Thu hồi quyền",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#ffffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12910",
+    "name": "S08-3 · Xác nhận thu hồi — Nguyễn Văn Nam (người cuối)",
+    "type": "FRAME",
+    "x": 11280,
+    "y": 10520,
+    "w": 326,
+    "h": 236,
+    "clipsContent": true,
+    "fill": "#ffffff",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12911",
+        "name": "Tiêu đề",
+        "type": "TEXT",
+        "x": 20,
+        "y": 20,
+        "w": 286,
+        "h": 32,
+        "characters": "Thu hồi quyền?",
+        "textAutoResize": "NONE",
+        "fontSize": 20,
+        "fill": "#211d1d"
+      },
+      {
+        "id": "804:12912",
+        "name": "Hệ quả",
+        "type": "TEXT",
+        "x": 20,
+        "y": 68,
+        "w": 286,
+        "h": 78,
+        "characters": "Nguyễn Văn Nam sẽ mất quyền xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều của bạn.",
+        "textAutoResize": "NONE",
+        "fontSize": 15,
+        "fill": "#454f55"
+      },
+      {
+        "id": "804:12913",
+        "name": "Hủy",
+        "type": "FRAME",
+        "x": 20,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#eef2f1",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12914",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Hủy",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#344d47"
+          }
+        ]
+      },
+      {
+        "id": "804:12915",
+        "name": "Thu hồi quyền",
+        "type": "FRAME",
+        "x": 171,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#a12e39",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12916",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Thu hồi quyền",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#ffffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "804:12920",
+    "name": "S08-3 · Xác nhận thu hồi — Trần Thị Lan (người cuối)",
+    "type": "FRAME",
+    "x": 11670,
+    "y": 10520,
+    "w": 326,
+    "h": 236,
+    "clipsContent": true,
+    "fill": "#ffffff",
+    "childCount": 4,
+    "children": [
+      {
+        "id": "804:12921",
+        "name": "Tiêu đề",
+        "type": "TEXT",
+        "x": 20,
+        "y": 20,
+        "w": 286,
+        "h": 32,
+        "characters": "Thu hồi quyền?",
+        "textAutoResize": "NONE",
+        "fontSize": 20,
+        "fill": "#211d1d"
+      },
+      {
+        "id": "804:12922",
+        "name": "Hệ quả",
+        "type": "TEXT",
+        "x": 20,
+        "y": 68,
+        "w": 286,
+        "h": 78,
+        "characters": "Trần Thị Lan sẽ mất quyền xem lịch uống thuốc và nhận cảnh báo bỏ lỡ liều của bạn.",
+        "textAutoResize": "NONE",
+        "fontSize": 15,
+        "fill": "#454f55"
+      },
+      {
+        "id": "804:12923",
+        "name": "Hủy",
+        "type": "FRAME",
+        "x": 20,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#eef2f1",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12924",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Hủy",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#344d47"
+          }
+        ]
+      },
+      {
+        "id": "804:12925",
+        "name": "Thu hồi quyền",
+        "type": "FRAME",
+        "x": 171,
+        "y": 168,
+        "w": 135,
+        "h": 48,
+        "clipsContent": true,
+        "fill": "#a12e39",
+        "childCount": 1,
+        "children": [
+          {
+            "id": "804:12926",
+            "name": "label",
+            "type": "TEXT",
+            "x": 4,
+            "y": 12,
+            "w": 127,
+            "h": 24,
+            "characters": "Thu hồi quyền",
+            "textAutoResize": "NONE",
+            "fontSize": 14,
+            "fill": "#ffffff"
+          }
+        ]
+      }
+    ]
+  }
+]

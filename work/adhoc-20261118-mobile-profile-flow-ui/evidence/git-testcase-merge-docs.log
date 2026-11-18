@@ -1,0 +1,10 @@
+$ testcase_xlsx.py merge adhoc-20261118-mobile-profile-flow-ui (root docs, branch feat/adhoc-20261118-mobile-profile-flow-ui from origin/main)
+Spec adhoc-20261118-mobile-profile-flow-ui/testcases.json hợp lệ:
+  PROFUI: 24 test case — Pass 18, Fail 2, Pending 4
+  CAREGIVER: 42 test case — Pass 38, Fail 0, Pending 4
+  LINKFOLLOW: 43 test case — Pass 36, Fail 3, Pending 4
+  INVITELINK: 19 test case — Pass 11, Fail 2, Pending 6
+  LINKAPPROVE: 31 test case — Pass 26, Fail 0, Pending 5
+  APPNAV: 15 test case — Pass 13, Fail 1, Pending 1
+OK: đã ghi D:\Captone\DrugTime\docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx
+exit=0

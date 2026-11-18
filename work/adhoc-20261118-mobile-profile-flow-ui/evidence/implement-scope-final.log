@@ -1,0 +1,42 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261118-mobile-profile-flow-ui:
+  [OK]        frontend/mobile/lib/app/app_shell.dart
+  [OK]        frontend/mobile/lib/app/router.dart
+  [OK]        frontend/mobile/lib/features/consent/presentation/screens/privacy_settings_screen.dart
+  [OK]        frontend/mobile/lib/features/family/presentation/screens/family_link_code_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/caregivers_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/enter_link_code_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/invite_caregiver_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/link_consent_confirmation_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/link_request_result_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/scan_link_qr_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/screens/share_invite_link_screen.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/widgets/approve_link_sheet.dart
+  [OK]        frontend/mobile/lib/features/family_link/presentation/widgets/incoming_requests_section.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/medical_profile_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/notification_preferences_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/personal_profile_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/profile_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/profile_settings_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/reminder_sound_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/widgets/avatar_picker_sheet.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/widgets/condition_catalog_sheet.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/widgets/condition_editor_sheet.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/widgets/profile_icons.dart
+  [OK]        frontend/mobile/lib/shared/widgets/profile_flow_widgets.dart
+  [OK]        frontend/mobile/test/app/app_shell_test.dart
+  [OK]        frontend/mobile/test/features/consent/privacy_settings_screen_test.dart
+  [OK]        frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_flow_navigation_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_flow_visual_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_layout_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_screens_test.dart
+  [CHƯA SỬA]  frontend/mobile/lib/features/profile/presentation/widgets/profile_form_fields.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/profile/profile_widget_helpers.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/caregivers_screen_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/scan_link_qr_screen_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/incoming_requests_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/invite_link_flow_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/test/features/family/family_link_code_screen_test.dart  (có trong plan)
+OK: mọi thay đổi nằm trong phạm vi.

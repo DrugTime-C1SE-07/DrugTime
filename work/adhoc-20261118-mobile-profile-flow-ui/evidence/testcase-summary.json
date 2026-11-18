@@ -1,0 +1,76 @@
+{
+  "PROFUI": {
+    "retained": 14,
+    "total": {
+      "Pass": 18,
+      "Pending": 4,
+      "Fail": 2
+    },
+    "new": {
+      "Pass": 5,
+      "Fail": 2,
+      "Pending": 3
+    }
+  },
+  "CAREGIVER": {
+    "retained": 36,
+    "total": {
+      "Pass": 38,
+      "Pending": 4
+    },
+    "new": {
+      "Pass": 3,
+      "Pending": 3
+    }
+  },
+  "LINKFOLLOW": {
+    "retained": 35,
+    "total": {
+      "Pass": 36,
+      "Pending": 4,
+      "Fail": 3
+    },
+    "new": {
+      "Pass": 4,
+      "Fail": 3,
+      "Pending": 1
+    }
+  },
+  "INVITELINK": {
+    "retained": 13,
+    "total": {
+      "Pass": 11,
+      "Pending": 6,
+      "Fail": 2
+    },
+    "new": {
+      "Pass": 2,
+      "Pending": 2,
+      "Fail": 2
+    }
+  },
+  "LINKAPPROVE": {
+    "retained": 27,
+    "total": {
+      "Pass": 26,
+      "Pending": 5
+    },
+    "new": {
+      "Pass": 3,
+      "Pending": 1
+    }
+  },
+  "APPNAV": {
+    "retained": 9,
+    "total": {
+      "Pass": 13,
+      "Fail": 1,
+      "Pending": 1
+    },
+    "new": {
+      "Pass": 4,
+      "Fail": 1,
+      "Pending": 1
+    }
+  }
+}

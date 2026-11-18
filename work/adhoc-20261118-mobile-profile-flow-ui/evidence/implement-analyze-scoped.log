@@ -1,0 +1,9 @@
+Analyzing 31 items...                                           
+
+warning - Unused import: '../features/home/presentation/widgets/home_navigation_bar.dart'. Try removing the import directive - lib\app\app_shell.dart:15:8 - unused_import
+warning - Duplicate import. Try removing all but one import of the library - lib\app\app_shell.dart:20:8 - duplicate_import
+warning - Duplicate import. Try removing all but one import of the library - lib\app\app_shell.dart:21:8 - duplicate_import
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal - lib\app\app_shell.dart:240:33 - prefer_const_literals_to_create_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\features\family_link\share_invite_link_screen_test.dart:77:9 - curly_braces_in_flow_control_structures
+
+5 issues found. (ran in 13.3s)

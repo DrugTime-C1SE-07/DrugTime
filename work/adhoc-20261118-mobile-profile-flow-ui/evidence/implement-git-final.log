@@ -1,0 +1,33 @@
+## feat/adhoc-20261118-mobile-profile-flow-ui
+ M mobile/lib/app/app_shell.dart
+ M mobile/lib/app/router.dart
+ M mobile/lib/features/consent/presentation/screens/privacy_settings_screen.dart
+ M mobile/lib/features/family/presentation/screens/family_link_code_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/caregivers_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/enter_link_code_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/link_consent_confirmation_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/link_request_result_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/scan_link_qr_screen.dart
+ M mobile/lib/features/family_link/presentation/screens/share_invite_link_screen.dart
+ M mobile/lib/features/family_link/presentation/widgets/approve_link_sheet.dart
+ M mobile/lib/features/family_link/presentation/widgets/incoming_requests_section.dart
+ M mobile/lib/features/profile/presentation/screens/medical_profile_screen.dart
+ M mobile/lib/features/profile/presentation/screens/personal_profile_screen.dart
+ M mobile/lib/features/profile/presentation/screens/profile_screen.dart
+ M mobile/lib/features/profile/presentation/widgets/avatar_picker_sheet.dart
+ M mobile/lib/features/profile/presentation/widgets/condition_catalog_sheet.dart
+ M mobile/lib/features/profile/presentation/widgets/condition_editor_sheet.dart
+ M mobile/lib/features/profile/presentation/widgets/profile_icons.dart
+ M mobile/test/app/app_shell_test.dart
+ M mobile/test/features/consent/privacy_settings_screen_test.dart
+ M mobile/test/features/family_link/share_invite_link_screen_test.dart
+ M mobile/test/features/profile/profile_layout_test.dart
+ M mobile/test/features/profile/profile_screens_test.dart
+?? mobile/lib/features/family_link/presentation/screens/invite_caregiver_screen.dart
+?? mobile/lib/features/profile/presentation/screens/notification_preferences_screen.dart
+?? mobile/lib/features/profile/presentation/screens/profile_settings_screen.dart
+?? mobile/lib/features/profile/presentation/screens/reminder_sound_screen.dart
+?? mobile/lib/shared/widgets/profile_flow_widgets.dart
+?? mobile/test/features/profile/profile_flow_navigation_test.dart
+?? mobile/test/features/profile/profile_flow_visual_test.dart
+8156650965a4f4bebe60b84ec4568ba3e8810195

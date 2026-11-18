@@ -1,0 +1,795 @@
+00:00 +0: loading D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart
+00:00 +0 -1: loading D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_logout_retry_test.dart [E]
+  Failed to load "D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_logout_retry_test.dart": Does not exist.
+00:00 +0 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -1: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-1 layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-1 layout and reachable content scale 1.0
+  
+00:01 +0 -2: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-1 layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-1 layout and reachable content scale 2.0
+  
+00:01 +0 -3: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-2 layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-2 layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-2 layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-2 layout and reachable content scale 1.0
+  
+00:01 +0 -4: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-2 layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-2 layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-2 layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-2 layout and reachable content scale 2.0
+  
+00:01 +0 -5: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3-empty layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3-empty layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:01 +0 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3-empty layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3-empty layout and reachable content scale 1.0
+  
+00:02 +0 -6: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3-empty layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3-empty layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3-empty layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3-empty layout and reachable content scale 2.0
+  
+00:02 +0 -7: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3a layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3a layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3a layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3a layout and reachable content scale 1.0
+  
+00:02 +0 -8: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3a layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3a layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -9: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -9: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3a layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3a layout and reachable content scale 2.0
+  
+00:02 +0 -9: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3b layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3b layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -10: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -10: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3b layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3b layout and reachable content scale 1.0
+  
+00:02 +0 -10: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3b layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3b layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -11: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -11: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3b layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3b layout and reachable content scale 2.0
+  
+00:02 +0 -11: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3g layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3g layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -12: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -12: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3g layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3g layout and reachable content scale 1.0
+  
+00:02 +0 -12: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3g layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3g layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -13: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -13: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3g layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3g layout and reachable content scale 2.0
+  
+00:02 +0 -13: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3d layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3d layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -14: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:02 +0 -14: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3d layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3d layout and reachable content scale 1.0
+  
+00:03 +0 -14: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3d layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3d layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -15: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -15: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3d layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3d layout and reachable content scale 2.0
+  
+00:03 +0 -15: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3f layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3f layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -16: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -16: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3f layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3f layout and reachable content scale 1.0
+  
+00:03 +0 -16: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3f layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3f layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -17: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -17: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3f layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3f layout and reachable content scale 2.0
+  
+00:03 +0 -17: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4 layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-4 layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -18: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -18: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4 layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-4 layout and reachable content scale 1.0
+  
+00:03 +0 -18: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4 layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-4 layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -19: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -19: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4 layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-4 layout and reachable content scale 2.0
+  
+00:03 +0 -19: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4a layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-4a layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -20: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -20: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4a layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-4a layout and reachable content scale 1.0
+  
+00:03 +0 -20: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4a layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-4a layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +0 -21: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:03 +0 -21: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-4a layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-4a layout and reachable content scale 2.0
+  
+00:04 +0 -21: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-5 layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-5 layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -22: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:04 +0 -22: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-5 layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-5 layout and reachable content scale 1.0
+  
+00:04 +0 -22: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-5 layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-5 layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -23: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:04 +0 -23: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-5 layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-5 layout and reachable content scale 2.0
+  
+00:04 +0 -23: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-6 layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-6 layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -24: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:04 +0 -24: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-6 layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-6 layout and reachable content scale 1.0
+  
+00:04 +0 -24: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-6 layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-6 layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -25: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:04 +0 -25: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-6 layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-6 layout and reachable content scale 2.0
+  
+00:04 +0 -25: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3c layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3c layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +0 -26: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_navigation_test.dart: notification controls cannot change or save; sound route and back work
+00:04 +0 -26: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3c layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3c layout and reachable content scale 1.0
+  
+00:04 +1 -26: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:04 +1 -26: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3c layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3c layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +1 -27: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:04 +1 -27: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3c layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3c layout and reachable content scale 2.0
+  
+00:05 +1 -27: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3e layout and reachable content scale 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3e layout and reachable content scale 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +1 -28: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:05 +1 -28: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3e layout and reachable content scale 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3e layout and reachable content scale 1.0
+  
+00:05 +1 -28: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3e layout and reachable content scale 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following _TypeError was thrown running a test:
+Null check operator used on a null value
+
+When the exception was thrown, this was the stack:
+#0      main.<anonymous closure> (file:///D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart:103:55)
+<asynchronous suspension>
+#1      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  s08-3e layout and reachable content scale 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +1 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:05 +1 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-3e layout and reachable content scale 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: s08-3e layout and reachable content scale 2.0
+  
+00:05 +2 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:06 +3 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:07 +4 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:07 +5 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:08 +6 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:08 +7 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:08 +7 -29: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: approval sheet large text stays scrollable and requires explicit agreement
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The value of a painting debug variable was changed by the test.
+
+When the exception was thrown, this was the stack:
+#0      debugAssertAllPaintingVarsUnset.<anonymous closure> (package:flutter/src/painting/debug.dart:203:7)
+#1      debugAssertAllPaintingVarsUnset (package:flutter/src/painting/debug.dart:206:4)
+#2      TestWidgetsFlutterBinding._verifyInvariants (package:flutter_test/src/binding.dart:2007:7)
+#3      AutomatedTestWidgetsFlutterBinding._verifyInvariants (package:flutter_test/src/binding.dart:2525:11)
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1974:7)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  approval sheet large text stays scrollable and requires explicit agreement
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +7 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:08 +7 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: approval sheet large text stays scrollable and requires explicit agreement [E]
+  Test failed. See exception logs above.
+  The test description was: approval sheet large text stays scrollable and requires explicit agreement
+  
+00:09 +8 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: save snackbar floats above save footer and system navigation
+00:09 +9 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:10 +10 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:10 +11 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: form validates name, keeps draft on error and shows success only after ACK
+00:10 +12 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/caregivers_screen_test.dart: AC20, AC22: kéo xuống và mở lại màn đều gọi lại API (không cache)
+00:10 +13 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/caregivers_screen_test.dart: AC20, AC22: kéo xuống và mở lại màn đều gọi lại API (không cache)
+00:10 +14 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:11 +15 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:11 +16 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:11 +17 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:11 +18 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:12 +19 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:12 +20 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:12 +21 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:13 +22 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:13 +23 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:13 +24 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:13 +25 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:14 +26 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:15 +27 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:15 +28 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:15 +29 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:16 +30 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/share_invite_link_screen_test.dart: AC22: từ tab Người thân mở Gửi link mời, hiện đúng link từ mã
+00:16 +31 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: profile only loads when tab is activated, opens personal route
+00:16 +32 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: layout Size(320.0, 640.0) text 1.0 with keyboard, save reachable
+00:16 +33 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: layout Size(320.0, 640.0) text 1.0 with keyboard, save reachable
+00:17 +34 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: layout Size(320.0, 640.0) text 1.0 with keyboard, save reachable
+00:17 +35 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: kéo xuống thì tải lại từ server
+00:17 +36 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: kéo xuống thì tải lại từ server
+00:17 +37 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC16: kéo xuống thì tải lại từ server
+00:17 +38 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:17 +39 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:17 +40 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:18 +41 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:18 +42 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:18 +43 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:18 +44 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:18 +45 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:19 +46 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:19 +47 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:19 +48 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:19 +49 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/consent_confirmation_screen_test.dart: Task 3.17 - LinkConsentConfirmationScreen Màn xác nhận hiển thị đầy đủ tên, SĐT, Email và giờ Việt Nam
+00:19 +50 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+00:20 +51 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+00:20 +52 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+00:20 +53 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_screens_test.dart: medical catalog adds, edits metadata and confirms delete
+00:20 +54 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC17: chấp thuận gửi đúng người thân và phiên bản, mục biến mất, hỏi bật chia sẻ
+00:20 +55 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:21 +56 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:21 +57 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:22 +58 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:22 +59 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:22 +60 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:22 +61 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_layout_test.dart: S08 opens in the shell with the selected floating navbar
+00:23 +62 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:24 +63 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:24 +64 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +65 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +66 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +67 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +68 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +69 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:25 +70 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:26 +71 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/enter_link_code_screen_test.dart: AC3: mã gõ thường có khoảng trắng/gạch nối được chuẩn hóa và chia nhóm
+00:26 +72 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:26 +73 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:26 +74 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:26 +75 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:26 +76 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:27 +77 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family/family_link_code_screen_test.dart: hiển thị đúng code và QR dùng nguyên payload API
+00:27 +78 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC22: chấp thuận lỗi conflict → báo lỗi và tải lại danh sách
+00:27 +79 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/family_link/incoming_requests_test.dart: AC22: chấp thuận lỗi conflict → báo lỗi và tải lại danh sách
+00:27 +80 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:27 +81 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:27 +82 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:27 +83 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:27 +84 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:28 +85 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:28 +86 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:28 +87 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:28 +88 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:28 +89 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:29 +90 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:29 +91 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:29 +92 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:30 +93 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:30 +94 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:31 +95 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:31 +96 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/consent/privacy_settings_screen_test.dart: hiện trạng thái hiện tại của ba mục đích
+00:31 +97 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:31 +98 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:32 +99 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:32 +100 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:32 +101 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:32 +102 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:33 +103 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:33 +104 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:34 +105 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:34 +106 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:34 +107 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:34 +108 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:35 +109 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Lịch nhắc mở lịch sử tuân thủ, không dùng dữ liệu mẫu
+00:36 +110 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC24: tab Hồ sơ là ProfileScreen, không còn danh sách dev
+00:37 +111 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: S08: menu cài đặt mở màn mới và giữ Đăng xuất
+00:38 +112 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: tab Người thân là FamilyTabScreen
+00:38 +113 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC16: chuyển sang tab Người thân thì tải lại yêu cầu đang chờ
+00:40 +114 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC20: Người giám sát trống → Mở tab Người thân về đúng tab
+00:40 +115 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: selected pill stays inside bar for all four tabs
+00:41 +116 -30: D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/app/app_shell_test.dart: AC25: không còn route /dev-catalog
+00:41 +117 -30: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: approval sheet large text stays scrollable and requires explicit agreement
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 1.0
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-1 layout and reachable content scale 2.0
+  D:/Captone/DrugTime/work/adhoc-20261118-mobile-profile-flow-ui/scratch/workspace/frontend/mobile/test/features/profile/profile_flow_visual_test.dart: s08-2 layout and reachable content scale 1.0
+  ... and 26 more

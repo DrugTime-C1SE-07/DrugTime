@@ -1,0 +1,11 @@
+Wed Nov 18 22:56:26 SEAST 2026
+$ command -v supabase docker
+exit=1
+$ tcp 127.0.0.1:54322
+/usr/bin/bash: connect: Connection refused
+/usr/bin/bash: line 1: /dev/tcp/127.0.0.1/54322: Connection refused
+closed
+$ .venv python -c 'import anthropic'
+ModuleNotFoundError: No module named 'anthropic'
+$ dart/flutter processes
+none
