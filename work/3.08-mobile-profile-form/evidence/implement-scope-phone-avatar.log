@@ -1,0 +1,6 @@
+Phạm vi giai đoạn 'implement' của 3.08-mobile-profile-form:
+  [CHƯA SỬA]  frontend/mobile/lib/app/app.dart`; `mobile/lib/features/profile/domain/entities/health_profile.dart`; `domain/entities/profile_failure.dart`; `domain/repositories/profile_avatar_preferences.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/lib/features/profile/data/models/profile_api_mapper.dart`; `data/repositories/profile_preview_repository.dart`; `data/repositories/secure_profile_avatar_preferences.dart  (có trong plan)
+  [CHƯA SỬA]  frontend/mobile/lib/features/profile/presentation/state/profile_controller.dart`; `presentation/screens/personal_profile_screen.dart`; `presentation/widgets/avatar_picker_sheet.dart`; `presentation/widgets/profile_avatar.dart  (có trong plan)
+  (không có thay đổi nào ngoài work/)
+OK: mọi thay đổi nằm trong phạm vi.
