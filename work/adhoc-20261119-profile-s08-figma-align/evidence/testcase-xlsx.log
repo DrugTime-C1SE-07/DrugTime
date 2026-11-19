@@ -1,0 +1,14 @@
+## validate
+Spec adhoc-20261119-profile-s08-figma-align/testcases.json hợp lệ:
+  S08: 21 test case — Pass 16, Fail 2, Pending 3
+exit=0
+## build
+Spec adhoc-20261119-profile-s08-figma-align/testcases.json hợp lệ:
+  S08: 21 test case — Pass 16, Fail 2, Pending 3
+OK: đã ghi D:\Captone\DrugTime\work\adhoc-20261119-profile-s08-figma-align\testcases.xlsx
+exit=0
+## merge
+Spec adhoc-20261119-profile-s08-figma-align/testcases.json hợp lệ:
+  S08: 21 test case — Pass 16, Fail 2, Pending 3
+OK: đã ghi D:\Captone\DrugTime\docs\Team1_DTU\04_Quality_&_Testing\Test_Cases.xlsx
+exit=0

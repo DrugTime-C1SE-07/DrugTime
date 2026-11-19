@@ -1,0 +1,6 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261119-profile-s08-figma-align:
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/profile_screen.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/widgets/profile_avatar.dart
+  [OK]        frontend/mobile/test/features/profile/profile_layout_test.dart
+OK: mọi thay đổi nằm trong phạm vi.

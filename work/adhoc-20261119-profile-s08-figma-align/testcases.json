@@ -1,0 +1,330 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "S08",
+      "name": "Hồ sơ cá nhân",
+      "sheet": "Hồ sơ S08",
+      "description": "Kiểm giao diện Flutter S08, dữ liệu hồ sơ và điều hướng.",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-11-18",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "Medium",
+      "remarks": "Task adhoc-20261119: 10 test mới về avatar, độ đậm tên, icon cài đặt, màu icon, bóng, line-height đều Pass. TC-S08-07/08 vẫn Fail như baseline.",
+      "cases": [
+        {
+          "id": "TC-S08-01",
+          "description": "Đối chiếu bố cục Hồ sơ với Figma S08",
+          "precondition": "Đăng nhập bằng fixture có hồ sơ, mở AppShell.",
+          "steps": [
+            "Đặt viewport 375 × 812 với inset trên 44 và dưới 24.",
+            "Mở tab Hồ sơ rồi chụp ảnh.",
+            "Đối chiếu vị trí thẻ, sáu hàng, icon màu và thanh điều hướng với Figma S08."
+          ],
+          "data": "Nguyễn Mai; navbar dự kiến x12/y712, 351 × 68.",
+          "expected": "Thẻ bắt đầu tại x20/y116. Navbar có bốn mục, tab Hồ sơ được chọn. Sáu mục hiển thị theo thứ tự Figma.",
+          "actual": "Widget test xác nhận tọa độ và tab chọn. Ảnh test-s08-shell.png có sáu hàng và icon màu theo nhóm.",
+          "status": "Pass",
+          "comments": "AC1 · Đối chiếu ảnh · profile_layout_test.dart"
+        },
+        {
+          "id": "TC-S08-02",
+          "description": "Mở Hồ sơ trên màn hẹp và cỡ chữ lớn",
+          "precondition": "Ứng dụng với hồ sơ fixture đang hoạt động.",
+          "steps": [
+            "Đặt màn hình rộng 320 dp.",
+            "Đặt cỡ chữ 200%.",
+            "Mở Hồ sơ và kiểm tra lỗi bố cục."
+          ],
+          "data": "320 dp; text scale 2.0.",
+          "expected": "Flutter dựng màn Hồ sơ không báo lỗi tràn bố cục.",
+          "actual": "Widget test layout ở 320 dp / 200% không báo exception.",
+          "status": "Pass",
+          "comments": "AC1 · Giá trị biên · profile_layout_test.dart"
+        },
+        {
+          "id": "TC-S08-03",
+          "description": "Hiển thị tên và điện thoại từ hồ sơ hiện có",
+          "precondition": "Hồ sơ fixture có tên, điện thoại và danh sách bệnh nền.",
+          "steps": [
+            "Mở tab Hồ sơ.",
+            "Đối chiếu tên, số điện thoại và mô tả Hồ sơ sức khỏe với dữ liệu fixture.",
+            "Kiểm tra dữ liệu minh họa của Figma."
+          ],
+          "data": "Nguyễn Mai; 0912345678; 0 bệnh nền.",
+          "expected": "Thông tin trên thẻ khớp fixture; mô tả dùng số bệnh nền, không hiện nhóm máu, số dị ứng hay số người giám sát mẫu.",
+          "actual": "Ảnh widget hiển thị Nguyễn Mai, 0912345678 và 0 bệnh nền. Test kiểm không có trường Figma chưa hỗ trợ.",
+          "status": "Pass",
+          "comments": "AC2 · Phân lớp tương đương · profile_layout_test.dart"
+        },
+        {
+          "id": "TC-S08-04",
+          "description": "Hiển thị nhãn thay thế khi chưa có điện thoại",
+          "precondition": "Hồ sơ fixture có tên và không có số điện thoại.",
+          "steps": [
+            "Mở tab Hồ sơ.",
+            "Đọc tên và dòng mô tả trong thẻ."
+          ],
+          "data": "Nguyễn Mai; phone=null.",
+          "expected": "Tên vẫn là Nguyễn Mai, dòng điện thoại hiện Chưa có số điện thoại.",
+          "actual": "Widget test tìm thấy Chưa có số điện thoại và không thấy Chưa cung cấp.",
+          "status": "Pass",
+          "comments": "AC2 · Phân lớp tương đương · profile_layout_test.dart"
+        },
+        {
+          "id": "TC-S08-05",
+          "description": "Mở màn cá nhân từ thẻ và giữ nhịp tải hồ sơ",
+          "precondition": "Widget bắt đầu với tab Hồ sơ chưa hoạt động.",
+          "steps": [
+            "Kiểm số lượt đọc trước khi chọn tab.",
+            "Chọn tab Hồ sơ.",
+            "Chạm thẻ Hồ sơ, kiểm màn Thông tin cá nhân và số lượt đọc."
+          ],
+          "data": "Bộ đếm FakeProfileRepository, tab active false → true.",
+          "expected": "Trước khi kích hoạt có 0 lượt đọc, sau kích hoạt có 1, mở màn cá nhân thì có 2 lượt đọc tổng cộng.",
+          "actual": "Widget test qua cả ba mốc và tìm thấy trường profile-name.",
+          "status": "Pass",
+          "comments": "AC3 · Chuyển trạng thái · profile_screens_test.dart"
+        },
+        {
+          "id": "TC-S08-06",
+          "description": "Xóa dữ liệu hồ sơ khi quyền bị rút hoặc trả 403",
+          "precondition": "Fixture đã tải hồ sơ hợp lệ và có consent dữ liệu sức khỏe.",
+          "steps": [
+            "Mở Thông tin cá nhân.",
+            "Rút consent hoặc cho nguồn dữ liệu trả 403 theo fixture.",
+            "Kiểm hồ sơ đã tải và phản hồi đến muộn."
+          ],
+          "data": "Hồ sơ fixture; consent healthData; lỗi 403.",
+          "expected": "Hồ sơ bị xóa khỏi controller, widget ẩn dữ liệu nhạy cảm; callback đến muộn không khôi phục hồ sơ.",
+          "actual": "Widget test consent withdrawal và unit test 403/revoke qua.",
+          "status": "Pass",
+          "comments": "AC4 · Chuyển trạng thái · profile_app_lifecycle_test.dart / profile_controller_test.dart"
+        },
+        {
+          "id": "TC-S08-07",
+          "description": "Kiểm tra dữ liệu hồ sơ sau khi đăng xuất",
+          "precondition": "Đăng nhập bằng fixture, mở Hồ sơ và giữ một yêu cầu đọc chưa hoàn thành.",
+          "steps": [
+            "Đăng xuất.",
+            "Đợi giao diện chuyển về đăng nhập.",
+            "Hoàn thành phản hồi cũ và xác nhận hồ sơ cũ không được phục hồi."
+          ],
+          "data": "Phiên one; hồ sơ Nguyễn Mai; đọc đang chờ.",
+          "expected": "Màn đăng nhập dựng thành công và assertion xác nhận không xuất hiện dữ liệu phiên cũ.",
+          "actual": "Test lỗi RenderFlex tràn 28 px ở LoginMobileScreen, sau đó pumpAndSettle hết thời gian. Baseline tái hiện cùng lỗi.",
+          "status": "Fail",
+          "comments": "AC4 · Chuyển trạng thái · profile_app_lifecycle_test.dart",
+          "severity": "Low",
+          "root_cause": "Nghi vấn lỗi bố cục sẵn có ở màn đăng nhập trong viewport test; timeout xảy ra trước assertion dữ liệu hồ sơ.",
+          "evidence": "evidence/test-integration.log"
+        },
+        {
+          "id": "TC-S08-08",
+          "description": "Kiểm tra dữ liệu hồ sơ sau khi phiên trả 401",
+          "precondition": "Đăng nhập bằng fixture, mở Hồ sơ và giữ một yêu cầu đọc chưa hoàn thành.",
+          "steps": [
+            "Giả lập app nhận 401.",
+            "Đợi giao diện chuyển về đăng nhập.",
+            "Hoàn thành phản hồi cũ và xác nhận hồ sơ cũ không được phục hồi."
+          ],
+          "data": "Phiên one; 401; hồ sơ Nguyễn Mai; đọc đang chờ.",
+          "expected": "Màn đăng nhập dựng thành công và assertion xác nhận không xuất hiện dữ liệu phiên cũ.",
+          "actual": "Test lỗi RenderFlex tràn 28 px ở LoginMobileScreen, sau đó pumpAndSettle hết thời gian. Baseline tái hiện cùng lỗi.",
+          "status": "Fail",
+          "comments": "AC4 · Chuyển trạng thái · profile_app_lifecycle_test.dart",
+          "severity": "Low",
+          "root_cause": "Nghi vấn lỗi bố cục sẵn có ở màn đăng nhập trong viewport test; timeout xảy ra trước assertion dữ liệu hồ sơ.",
+          "evidence": "evidence/test-integration.log"
+        },
+        {
+          "id": "TC-S08-09",
+          "description": "Kiểm tra vùng chạm, chữ lớn và safe area trên thiết bị",
+          "precondition": "Cài app trên điện thoại hoặc trình giả lập Android/iOS, có tài khoản thử nghiệm.",
+          "steps": [
+            "Mở tab Hồ sơ ở cỡ chữ mặc định.",
+            "Tăng cỡ chữ hệ thống đến 200% hoặc mức gần nhất hỗ trợ.",
+            "Cuộn đến Trợ giúp và kiểm các điểm chạm cạnh vùng điều hướng hệ thống."
+          ],
+          "data": "Điện thoại có thanh cử chỉ, cỡ chữ mặc định và lớn.",
+          "expected": "Cuộn tới hàng cuối. Icon, tên hàng và thanh điều hướng không chồng lấn; mục chạm vẫn hoạt động.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC1 · Giá trị biên · manual"
+        },
+        {
+          "id": "TC-S08-10",
+          "description": "Kiểm tra đủ đích menu và kéo làm mới trong app",
+          "precondition": "Cài app với tài khoản thử nghiệm có hồ sơ, kết nối môi trường QA.",
+          "steps": [
+            "Mở lần lượt sáu hàng trên Hồ sơ và quay lại sau mỗi lần.",
+            "Mở menu Cài đặt hồ sơ và kiểm Đăng xuất.",
+            "Kéo làm mới; đối chiếu dữ liệu và quan sát lời gọi trong trace QA."
+          ],
+          "data": "Sáu mục S08; profile hợp lệ.",
+          "expected": "Sáu hàng giữ đích hiện có; menu Cài đặt có Đăng xuất. Kéo làm mới tải hồ sơ hiện hành, không có endpoint mới.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC3 · Chuyển trạng thái · manual"
+        },
+        {
+          "id": "TC-S08-11",
+          "description": "Hiển thị avatar thẻ hồ sơ là hình tròn brand đặc",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Quan sát avatar trong thẻ hồ sơ"
+          ],
+          "data": "fullName = \"Nguyễn Mai\"",
+          "expected": "Avatar 56×56 nền #01554F, không vòng tint; chữ \"NM\" 17/700 màu trắng, line-height 26",
+          "actual": "Avatar 56×56 nền brand, ClipOval 56; \"NM\" fontSize 17, w700, height 26/17, onBrand",
+          "status": "Pass",
+          "comments": "AC1 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 card avatar is a solid 56 brand circle with 17/700 initials"
+        },
+        {
+          "id": "TC-S08-12",
+          "description": "Hiển thị tên trong thẻ với độ đậm 700",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Quan sát tên và tiêu đề dòng menu"
+          ],
+          "data": "fullName = \"Nguyễn Mai\"",
+          "expected": "Tên 17/700, line-height 24, #211D1D; tiêu đề dòng menu vẫn 17/600",
+          "actual": "Tên 17/w700/height 24/17/ink; \"Thông tin cá nhân\" w600",
+          "status": "Pass",
+          "comments": "AC2 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 name is 17/700, menu titles stay 17/600"
+        },
+        {
+          "id": "TC-S08-13",
+          "description": "Hiển thị icon cài đặt 24 trong nút header",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Đo icon trong nút tròn góc phải header"
+          ],
+          "data": "(không có)",
+          "expected": "Icon 24×24 màu #01554F; nút 48×48 nền #E7F3F1",
+          "actual": "Icon 24×24, màu brand; nút 48×48",
+          "status": "Pass",
+          "comments": "AC3 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 settings icon is 24 inside the 48 tinted action"
+        },
+        {
+          "id": "TC-S08-14",
+          "description": "Hiển thị màu nét icon từng dòng menu theo Figma",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Quan sát màu icon của 7 dòng menu"
+          ],
+          "data": "7 dòng: Thông tin cá nhân, Hồ sơ sức khỏe, Người giám sát, Chia sẻ và liên kết, Thông báo & Nhắc nhở, Quyền riêng tư & Bảo mật, Trợ giúp",
+          "expected": "#20568F, #A12E50, #624394, #624394, #8A4E0B, #01554F, #256749",
+          "actual": "Cả 7 màu khớp",
+          "status": "Pass",
+          "comments": "AC4 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 menu icon strokes match Figma"
+        },
+        {
+          "id": "TC-S08-15",
+          "description": "Hiển thị bóng đổ riêng cho thẻ và nhóm menu",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Đọc bóng của thẻ hồ sơ và nhóm menu"
+          ],
+          "data": "(không có)",
+          "expected": "Thẻ: 0 1 3 rgba(1,85,79,.039) + 0 4 12 rgba(1,85,79,.078); menu: 0 1 3 rgba(33,54,49,.031) + 0 3 12 rgba(33,54,49,.051)",
+          "actual": "Hai danh sách BoxShadow khớp",
+          "status": "Pass",
+          "comments": "AC5 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 card and menu use their own Figma shadows"
+        },
+        {
+          "id": "TC-S08-16",
+          "description": "Hiển thị line-height tiêu đề và phụ đề theo Figma",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Đọc style tiêu đề \"Hồ sơ\", số điện thoại, phụ đề menu"
+          ],
+          "data": "(không có)",
+          "expected": "Tiêu đề 28/700, line-height 34; phụ đề 14/400, line-height 20, #5B6169",
+          "actual": "Tiêu đề height 34/28; \"0912345678\" và \"Họ tên, ngày sinh, giới tính\" height 20/14, inkMuted",
+          "status": "Pass",
+          "comments": "AC6 · Đối chiếu Figma · test/features/profile/profile_layout_test.dart: S08 title 28/34 and subtitles 14/20"
+        },
+        {
+          "id": "TC-S08-17",
+          "description": "Hiển thị \"?\" ở avatar khi chưa có tên, màn hẹp chữ thường",
+          "precondition": "Đăng nhập patient; hồ sơ chưa có fullName",
+          "steps": [
+            "Đặt viewport 320×812, text scale 1.0",
+            "Mở tab Hồ sơ"
+          ],
+          "data": "fullName = (blank)",
+          "expected": "Avatar hiện \"?\" 700, không lỗi layout",
+          "actual": "\"?\" trong avatar, w700, không exception",
+          "status": "Pass",
+          "comments": "AC7 · Giá trị biên (320, 1.0) · test/features/profile/profile_layout_test.dart: S08 nameless avatar shows ? at 320.0 scale 1.0"
+        },
+        {
+          "id": "TC-S08-18",
+          "description": "Hiển thị \"?\" ở avatar khi chưa có tên, chữ phóng 2.0",
+          "precondition": "Đăng nhập patient; hồ sơ chưa có fullName",
+          "steps": [
+            "Đặt viewport 320 và 375 rộng, text scale 2.0",
+            "Mở tab Hồ sơ"
+          ],
+          "data": "fullName = (blank); width 320 / 375; text scale 2.0",
+          "expected": "Avatar hiện \"?\", không lỗi layout ở cả hai độ rộng",
+          "actual": "Không exception, \"?\" w700 ở 320 và 375",
+          "status": "Pass",
+          "comments": "AC7 · Giá trị biên (2.0) · test/features/profile/profile_layout_test.dart: S08 nameless avatar shows ? at 320.0/375.0 scale 2.0"
+        },
+        {
+          "id": "TC-S08-19",
+          "description": "Giữ vòng tint cho avatar màn Thông tin cá nhân",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Từ Hồ sơ bấm \"Thông tin cá nhân\"",
+            "Quan sát avatar 72"
+          ],
+          "data": "fullName = \"Nguyễn Mai\"",
+          "expected": "Avatar vẫn có vòng #E7F3F1, lõi 60",
+          "actual": "Vòng brandTint, ClipOval 60×60",
+          "status": "Pass",
+          "comments": "AC8 · Hồi quy · test/features/profile/profile_layout_test.dart: personal profile avatar keeps its tint ring"
+        },
+        {
+          "id": "TC-S08-21",
+          "description": "Mở Chia sẻ và liên kết từ dòng menu được giữ lại",
+          "precondition": "Đăng nhập patient; viewport 375×812",
+          "steps": [
+            "Mở tab Hồ sơ",
+            "Cuộn tới dòng \"Chia sẻ và liên kết\"",
+            "Bấm dòng đó"
+          ],
+          "data": "(không có)",
+          "expected": "Mở màn Chia sẻ và liên kết (AppRoutes.shareAndLink)",
+          "actual": "Mở màn R1 (Chia sẻ và liên kết); 3/3 test pass",
+          "status": "Pass",
+          "comments": "AC9 · Hồi quy (Q1 = A giữ dòng) · test/features/family_link/patient_switcher_home_entry_test.dart · evidence/implement-P5.log"
+        },
+        {
+          "id": "TC-S08-20",
+          "description": "So ảnh màn Hồ sơ trên thiết bị với Figma S08",
+          "precondition": "Đăng nhập patient; hồ sơ: fullName \"Nguyễn Mai\", phone +84912345678; viewport 375×812",
+          "steps": [
+            "Chạy app trên máy/emulator rộng 375",
+            "Mở tab Hồ sơ",
+            "Đặt cạnh khung Figma S08 và so D2–D7"
+          ],
+          "data": "Tài khoản patient có tên và số điện thoại",
+          "expected": "Không lệch thấy được ở avatar, chữ, icon, màu, bóng",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC11 · manual · ảnh test widget: evidence/implement-profile-shell.png (font test không phải Inter)"
+        }
+      ]
+    }
+  ]
+}
