@@ -46,9 +46,10 @@ Không có.
 - Không sửa backend hoặc API contract; API PUT `/profile` hiện đã hỗ trợ `phone_number`.
 - Không chạy test/lint theo yêu cầu của người dùng.
 - `git status` submodule lỗi `fatal: cannot chdir to '.git/modules/frontend': Permission denied`; scope script vẫn exit 0 nhưng báo file frontend `[CHƯA SỬA]`.
+- Để xử lý conflict PR, đã merge `origin/main` vào nhánh frontend. Hai file conflict `mobile/lib/app/app.dart` và `mobile/lib/features/profile/presentation/screens/personal_profile_screen.dart` được lấy UI/composition mới từ main rồi áp lại riêng persistence avatar, phone editable và bỏ height/weight. Diff code còn lại so với main nằm trong 11 file frontend đã liệt kê ở trên. Conflict resolution đã push ở frontend commit `e3ccc31`.
 
 ## Bước tiếp theo
 
 - Đang chờ: người duyệt.
-- Việc cần làm: người duyệt xem diff frontend (cần terminal có quyền đọc git metadata submodule) và chạy `python .agents/scripts/gate.py approve 3.08-mobile-profile-form implement`.
+- Việc cần làm: người duyệt xem diff frontend so với main và chạy `python .agents/scripts/gate.py approve 3.08-mobile-profile-form implement`.
 - Cập nhật lần cuối: 2026-11-19 22:14 +0700, Codex.
