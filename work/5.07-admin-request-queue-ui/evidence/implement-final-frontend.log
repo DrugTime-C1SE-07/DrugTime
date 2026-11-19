@@ -1,0 +1,74 @@
+
+> drugtime-admin@0.1.0 test:deletion-queue
+> node --test scripts/deletion-queue.test.mjs
+
+(node:23476) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Captone/DrugTime/frontend/admin/lib/deletion-requests/queue.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\D:\Captone\DrugTime\frontend\admin\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ parsePage
+  ✔ falls back to page 1 for missing or invalid values (0.7848ms)
+  ✔ accepts positive integers (0.3051ms)
+✔ parsePage (2.2802ms)
+▶ skipFor
+  ✔ maps page to offset with PAGE_SIZE 20 (1.5407ms)
+✔ skipFor (1.8397ms)
+▶ pageCount
+  ✔ is at least 1 and rounds up (0.3507ms)
+✔ pageCount (0.5322ms)
+▶ overflowTarget
+  ✔ returns the last valid page when the current page is past the end (0.3086ms)
+  ✔ returns null when no redirect is needed (0.1914ms)
+✔ overflowTarget (0.7822ms)
+▶ formatRequestedAt
+  ✔ renders in Asia/Ho_Chi_Minh as dd/MM/yyyy HH:mm (0.3942ms)
+✔ formatRequestedAt (0.638ms)
+▶ queueErrorView
+  ✔ maps API status to a view without data (0.3258ms)
+✔ queueErrorView (0.4898ms)
+ℹ tests 8
+ℹ suites 6
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184.9836
+
+> drugtime-admin@0.1.0 test:chart
+> node --test scripts/chart-geometry.test.mjs
+
+(node:24324) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Captone/DrugTime/frontend/admin/lib/chart/geometry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\D:\Captone\DrugTime\frontend\admin\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ niceTicks
+  ✔ cho vạch tròn số bao phủ min và max (2.3126ms)
+  ✔ dữ liệu phẳng (min = max) không chia cho 0 (0.1925ms)
+✔ niceTicks (3.5698ms)
+▶ scaleLinear
+  ✔ ánh xạ hai đầu domain vào hai đầu range (trục y ngược) (0.1805ms)
+✔ scaleLinear (0.3995ms)
+▶ layoutPoints
+  ✔ đặt điểm i tại tâm cột i (khớp tâm nhãn ngày) (0.3047ms)
+  ✔ điểm đầu/cuối cách mép SVG ≥ bán kính + nửa nét, y nằm trong vùng vẽ (0.2186ms)
+  ✔ giữ giá trị gốc để tooltip đọc (0.869ms)
+  ✔ mảng rỗng trả [] (nhánh lỗi) (0.182ms)
+✔ layoutPoints (1.9896ms)
+▶ monotonePath
+  ✔ đi qua đúng mọi điểm (lệch 0) (0.4884ms)
+  ✔ không vọt quá: điểm điều khiển nằm trong khoảng y của hai điểm kề với dữ liệu đơn điệu (0.3994ms)
+  ✔ dữ liệu có đỉnh: không vọt quá đỉnh (0.7537ms)
+  ✔ một điểm hoặc rỗng không lỗi (0.3585ms)
+✔ monotonePath (2.4193ms)
+▶ areaPath
+  ✔ khép kín về đường đáy (0.3779ms)
+✔ areaPath (0.5466ms)
+ℹ tests 12
+ℹ suites 5
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.8357

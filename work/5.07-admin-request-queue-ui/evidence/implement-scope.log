@@ -1,0 +1,26 @@
+Phạm vi giai đoạn 'implement' của 5.07-admin-request-queue-ui:
+  [OK]        frontend/admin/app/dashboard/dashboard-theme.css
+  [OK]        frontend/admin/app/dashboard/deletion-requests/loading.tsx
+  [OK]        frontend/admin/app/dashboard/deletion-requests/page.tsx
+  [OK]        frontend/admin/components/deletion-requests/DeletionQueueTable.tsx
+  [OK]        frontend/admin/components/deletion-requests/QueueStatus.tsx
+  [OK]        frontend/admin/components/deletion-requests/RefreshButton.tsx
+  [OK]        frontend/admin/components/layout/Sidebar.tsx
+  [OK]        frontend/admin/lib/api/deletion-requests.ts
+  [OK]        frontend/admin/lib/deletion-requests/queue.ts
+  [OK]        frontend/admin/package.json
+  [OK]        frontend/admin/scripts/deletion-queue.test.mjs
+  [NGOÀI]     .agents/skills/speckit-analyze/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-checklist/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-clarify/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-constitution/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-converge/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-implement/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-plan/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-specify/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-tasks/SKILL.md
+  [NGOÀI]     .agents/skills/speckit-taskstoissues/SKILL.md
+  [NGOÀI]     .specify/feature.json
+  [NGOÀI]     docs/Team1_DTU/01_Proposal_&_Planning/Product-and-Sprint-backlog-DrugTime.ods
+  [NGOÀI]     docs/Team1_DTU/01_Proposal_&_Planning/Product-and-Sprint-backlog-DrugTime.xlsx
+CHẶN: 13 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

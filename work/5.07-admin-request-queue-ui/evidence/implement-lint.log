@@ -1,0 +1,4 @@
+
+> drugtime-admin@0.1.0 lint
+> eslint . --ext .ts,.tsx
+

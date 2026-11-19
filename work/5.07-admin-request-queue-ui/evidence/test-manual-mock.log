@@ -1,0 +1,29 @@
+5.07 manual checks, 2026-11-19, Claude Code (in-app browser)
+Env: work/5.07-admin-request-queue-ui/scratch/run-admin-mock.mjs
+  - fake GET /admin/deletion-requests on 127.0.0.1:8799 (contract 5.06 shape), mode switch /__mode
+  - next dev on :3107 with DRUGTIME_API_BASE_URL=http://127.0.0.1:8799
+  - cookie dt_admin_session = unsigned test JWT, exp = now+24h (middleware only checks exp)
+NOT the real backend: no Supabase/Docker on this machine. Real-backend checks remain Pending.
+Mock request log (last 20): evidence/test-mock-api-requests.json
+
+[TC-DELQUEUE-01] mode=ok total=45, GET /dashboard/deletion-requests
+  rows=20, first row: 1000 | 0f8fe2b1-5c4e-4a8e-9d2a-000000000000 | 19/11/2026 00:30 | Chờ duyệt
+  last row: 1019 ... 19/11/2026 00:49; text "Tổng số yêu cầu chờ duyệt: 45"; "Trang 1 / 3"; "Trang sau"; no "Trang trước"
+  sidebar aria-current=page: "Yêu cầu xóa dữ liệu"
+  mock received ?skip=0&limit=20 with Authorization header
+[TC-DELQUEUE-03] ?page=3 -> rows=5, first=1040, nav "Trang trướcTrang 3 / 3"; mock received ?skip=40&limit=20
+[TC-DELQUEUE-05] ?page=9 -> mock received ?skip=160&limit=20, then browser at ?page=3, rows=5
+[TC-DELQUEUE-04] ?page=abc -> rows=20, first=1000 (page 1), mock received ?skip=0&limit=20
+[TC-DELQUEUE-06] reload with total=46 -> "Tổng số yêu cầu chờ duyệt: 46"; set total=47, click "Làm mới"
+  -> "Tổng số yêu cầu chờ duyệt: 47", window marker kept (no full page reload)
+[TC-DELQUEUE-07] mode=empty, ?page=2 -> <p class="deletion-queue__status" role="status">Không có yêu cầu chờ duyệt.</p>
+  table=false, "Tổng số yêu cầu chờ duyệt: 0", URL stays ?page=2
+[TC-DELQUEUE-08] mode=503 -> role=alert "Không tải được hàng chờ. Vui lòng thử lại." + button "Thử lại"; table=false; no total
+  set mode=ok, click "Thử lại" -> rows=20, first=1020 (page 2), total 45, marker kept
+[TC-DELQUEUE-10] mode=403 -> role=alert "Tài khoản này không có quyền xem hàng chờ yêu cầu xóa dữ liệu."
+  table=false, total=null, main HTML contains no user_id
+[TC-DELQUEUE-11] mode=401 -> role=alert "Phiên đăng nhập đã hết hiệu lực. Đăng xuất rồi đăng nhập lại để tiếp tục."
+  button aria-label "Đăng xuất"; URL stays /dashboard/deletion-requests?page=2 (no redirect loop); table=false; no user_id
+[TC-DELQUEUE-12] focus "Làm mới", Tab -> focused "Trang sau" (href ?page=2, outline solid); Enter -> ?page=2, first=1020
+  table: caption "Yêu cầu xóa dữ liệu đang chờ duyệt", 4 th[scope=col]
+  viewport 700x800: user_id text 36 chars, scrollWidth<=clientWidth, no card overflow, no page horizontal scroll

@@ -1,0 +1,36 @@
+
+> drugtime-admin@0.1.0 test:deletion-queue
+> node --test scripts/deletion-queue.test.mjs
+
+(node:23264) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Captone/DrugTime/frontend/admin/lib/deletion-requests/queue.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\D:\Captone\DrugTime\frontend\admin\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ parsePage
+  ✔ falls back to page 1 for missing or invalid values (1.4537ms)
+  ✔ accepts positive integers (0.388ms)
+✔ parsePage (5.1783ms)
+▶ skipFor
+  ✔ maps page to offset with PAGE_SIZE 20 (0.2724ms)
+✔ skipFor (1.0027ms)
+▶ pageCount
+  ✔ is at least 1 and rounds up (0.462ms)
+✔ pageCount (0.7793ms)
+▶ overflowTarget
+  ✔ returns the last valid page when the current page is past the end (0.3359ms)
+  ✔ returns null when no redirect is needed (0.2455ms)
+✔ overflowTarget (0.9378ms)
+▶ formatRequestedAt
+  ✔ renders in Asia/Ho_Chi_Minh as dd/MM/yyyy HH:mm (1.57ms)
+✔ formatRequestedAt (1.9043ms)
+▶ queueErrorView
+  ✔ maps API status to a view without data (0.4234ms)
+✔ queueErrorView (0.591ms)
+ℹ tests 8
+ℹ suites 6
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 283.0101
