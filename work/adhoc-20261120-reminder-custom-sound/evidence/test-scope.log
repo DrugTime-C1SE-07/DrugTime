@@ -1,0 +1,31 @@
+Phạm vi giai đoạn 'test' của adhoc-20261120-reminder-custom-sound:
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [NGOÀI]     frontend/mobile/android/app/src/main/kotlin/vn/drugtime/drugtime_mobile/MainActivity.kt
+  [NGOÀI]     frontend/mobile/android/app/src/main/kotlin/vn/drugtime/drugtime_mobile/ReminderSoundChannel.kt
+  [NGOÀI]     frontend/mobile/android/app/src/main/res/raw/keep.xml
+  [NGOÀI]     frontend/mobile/android/app/src/main/res/raw/reminder_chime.wav
+  [NGOÀI]     frontend/mobile/android/app/src/main/res/raw/reminder_friendly.wav
+  [NGOÀI]     frontend/mobile/android/app/src/main/res/raw/reminder_gentle.wav
+  [NGOÀI]     frontend/mobile/android/app/src/main/res/raw/reminder_urgent.wav
+  [NGOÀI]     frontend/mobile/lib/app/app.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/notification_service.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_notification_scheduler.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sound.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sound_controller.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sound_native.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sound_store.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sound_validator.dart
+  [NGOÀI]     frontend/mobile/lib/core/notification/reminder_sync_coordinator.dart
+  [NGOÀI]     frontend/mobile/lib/features/profile/presentation/screens/reminder_sound_screen.dart
+  [NGOÀI]     frontend/mobile/lib/main.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/notification_service_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_sound_catalog_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_sound_controller_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_sound_store_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_sound_validator_test.dart
+  [NGOÀI]     frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart
+  [NGOÀI]     frontend/mobile/test/features/profile/profile_flow_navigation_test.dart
+  [NGOÀI]     frontend/mobile/test/features/profile/profile_widget_helpers.dart
+  [NGOÀI]     frontend/mobile/test/features/profile/reminder_sound_screen_test.dart
+CHẶN: 28 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

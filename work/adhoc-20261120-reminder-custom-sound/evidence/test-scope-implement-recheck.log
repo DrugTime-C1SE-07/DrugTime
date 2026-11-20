@@ -1,0 +1,32 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261120-reminder-custom-sound:
+  [OK]        docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx
+  [OK]        frontend/mobile/android/app/src/main/kotlin/vn/drugtime/drugtime_mobile/MainActivity.kt
+  [OK]        frontend/mobile/android/app/src/main/kotlin/vn/drugtime/drugtime_mobile/ReminderSoundChannel.kt
+  [OK]        frontend/mobile/android/app/src/main/res/raw/keep.xml
+  [OK]        frontend/mobile/android/app/src/main/res/raw/reminder_chime.wav
+  [OK]        frontend/mobile/android/app/src/main/res/raw/reminder_friendly.wav
+  [OK]        frontend/mobile/android/app/src/main/res/raw/reminder_gentle.wav
+  [OK]        frontend/mobile/android/app/src/main/res/raw/reminder_urgent.wav
+  [OK]        frontend/mobile/lib/app/app.dart
+  [OK]        frontend/mobile/lib/core/notification/notification_service.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_notification_scheduler.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sound.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sound_controller.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sound_native.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sound_store.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sound_validator.dart
+  [OK]        frontend/mobile/lib/core/notification/reminder_sync_coordinator.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/reminder_sound_screen.dart
+  [OK]        frontend/mobile/lib/main.dart
+  [OK]        frontend/mobile/test/core/notification/notification_service_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_notification_scheduler_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_sound_catalog_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_sound_controller_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_sound_store_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_sound_validator_test.dart
+  [OK]        frontend/mobile/test/core/notification/reminder_sync_coordinator_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_flow_navigation_test.dart
+  [OK]        frontend/mobile/test/features/profile/profile_widget_helpers.dart
+  [OK]        frontend/mobile/test/features/profile/reminder_sound_screen_test.dart
+  [CHƯA SỬA]  frontend/mobile/test/features/profile/profile_flow_visual_test.dart  (có trong plan)
+OK: mọi thay đổi nằm trong phạm vi.

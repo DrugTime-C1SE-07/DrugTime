@@ -1,0 +1,250 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  _flutterfire_internals 1.3.79 (1.4.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  app_links 6.4.1 (7.2.2 available)
+  app_links_linux 1.0.4 (1.0.5 available)
+  archive 4.5.2 (4.7.1 available)
+  camera_platform_interface 2.15.0 (2.15.1 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  coverage 1.16.0 (1.16.1 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  crypto 3.0.7 (3.0.8 available)
+  cryptography 2.8.1 (2.9.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  dbus 0.7.15 (0.8.0 available)
+  firebase_core 5.1.0 (5.2.0 available)
+  firebase_core_platform_interface 8.1.1 (8.2.0 available)
+  firebase_core_web 4.1.0 (4.2.0 available)
+  firebase_messaging 17.0.1 (17.1.0 available)
+  firebase_messaging_platform_interface 4.11.1 (4.12.0 available)
+  firebase_messaging_web 4.3.1 (4.4.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (23.0.3 available)
+  flutter_local_notifications_linux 4.0.1 (9.0.0 available)
+  flutter_local_notifications_platform_interface 7.2.0 (13.0.0 available)
+  flutter_secure_storage 10.3.4 (11.2.0 available)
+  flutter_secure_storage_darwin 0.3.2 (0.4.3 available)
+  flutter_secure_storage_windows 4.1.0 (4.2.2 available)
+  flutter_svg 2.3.0 (2.4.0 available)
+  google_mlkit_commons 0.13.0 (1.0.3 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.3 available)
+  hooks 2.0.2 (2.2.0 available)
+  image 4.12.0 (4.13.1 available)
+  image_picker_ios 0.8.13+13 (0.8.13+15 available)
+  jni 1.1.0 (1.1.2 available)
+  lints 3.0.0 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  mobile_scanner 7.4.2 (7.5.0 available)
+  native_toolchain_c 0.19.2 (0.19.6 available)
+  objective_c 9.5.0 (9.6.4 available)
+  package_config 2.2.0 (3.0.0 available)
+  permission_handler 12.0.3 (13.0.2 available)
+  permission_handler_android 13.0.1 (14.1.1 available)
+  permission_handler_apple 9.6.4 (9.6.5 available)
+  permission_handler_windows 0.2.2 (0.2.4 available)
+  petitparser 7.0.2 (7.1.0 available)
+  qr 3.0.2 (4.0.1 available)
+  record_use 0.6.0 (1.1.1 available)
+  share_plus 12.0.2 (13.3.1 available)
+  share_plus_platform_interface 6.1.0 (7.2.0 available)
+  sqflite_common 2.5.14 (2.5.17 available)
+  sqflite_common_ffi 2.4.5 (2.4.7 available)
+  sqlite3 3.5.2 (3.9.1 available)
+  synchronized 3.5.0 (3.6.1+1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  timezone 0.9.4 (0.11.2 available)
+  vector_graphics 1.2.4 (1.3.1 available)
+  vector_graphics_codec 1.1.13 (1.2.0 available)
+  vector_graphics_compiler 1.3.2 (1.3.6 available)
+  vector_math 2.4.0 (2.4.4 available)
+  win32 5.15.0 (6.4.0 available)
+  xml 7.0.1 (7.1.0 available)
+Got dependencies!
+65 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/notification/device_token_coordinator_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/notification/device_token_coordinator_test.dart: refresh sends previous token atomically; late old-installation event cannot register for B
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/core/notification/family_push_service_test.dart: typed reminder push cannot collide with legacy notification ID and stays generic
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/core/notification/device_token_coordinator_test.dart: delayed PUT settles before logout DELETE with old bearer; late refresh ignored
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/core/notification/family_push_service_test.dart: optional Firebase configuration missing native configuration disables push without failing startup
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/core/notification/family_push_service_test.dart: optional Firebase configuration missing native configuration disables push without failing startup
+Chưa có cấu hình Firebase Android; tắt thông báo push.
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC1: returns deterministic IDs matching Python test vectors
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC1: returns deterministic IDs matching Python test vectors
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC1: returns deterministic IDs matching Python test vectors
+00:00 +8: D:/Captone/DrugTime/frontend/mobile/test/core/notification/device_token_coordinator_test.dart: 409 rotates the old installation without claiming token or recursive DELETE
+00:00 +9: D:/Captone/DrugTime/frontend/mobile/test/core/notification/family_push_service_test.dart: positive int64 boundary and malformed payload
+00:00 +10: D:/Captone/DrugTime/frontend/mobile/test/core/notification/device_token_coordinator_test.dart: deleteToken failure survives restart and blocks a new user PUT
+00:00 +11: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC2: produces distinct IDs for different schedules or times
+00:00 +12: D:/Captone/DrugTime/frontend/mobile/test/core/notification/family_push_service_test.dart: foreground only displays valid ID; stale callback ignored after logout
+00:00 +13: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs
+00:00 +14: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs
+00:00 +15: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs
+00:00 +16: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs
+00:00 +17: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC3: produces IDs strictly in [0, 2^31 - 1] across 10000 random inputs
+00:00 +18: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: notificationIdFor (AC1..AC4) AC4: throws ArgumentError for non-UTC scheduledAt
+00:00 +19: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: NotificationPayload (AC5) round-trips valid data correctly
+00:00 +20: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: NotificationPayload (AC5) throws ArgumentError if constructed with non-UTC scheduledAt
+00:00 +21: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: NotificationPayload (AC5) returns null for corrupt, empty, or invalid input safely
+00:00 +22: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: detectIdCollisions (AC6) returns occurrences unchanged when no ID collisions
+00:00 +23: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_id_test.dart: detectIdCollisions (AC6) detects duplicate ID, logs warning, skips duplicate, keeps original scheduledAt
+00:00 +24: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: received reminder taps, cold start IDs and clears use a separate namespace
+00:00 +25: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: family namespace handles taps and clears family without replacing reminder handler
+00:00 +26: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.requestNotificationsPermission (M1) forwards to a platform that can request the permission
+00:00 +27: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.requestNotificationsPermission (M1) returns true when the platform has no permission API
+00:00 +28: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.init (AC7 & AC8) AC7: initializes Asia/Ho_Chi_Minh and configures Android & Darwin channels
+00:00 +29: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService.init (AC7 & AC8) AC8: is idempotent when called repeatedly
+00:00 +30: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService actions (AC9) AC9: forwards parsed NotificationPayload when action is received
+00:00 +31: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: NotificationService actions (AC9) AC9: ignores corrupt or invalid payload safely without throwing
+00:00 +32: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +33: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +34: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +35: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +36: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +37: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +38: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +39: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: deleteNotificationChannel reaches the Android plugin__AC6
+00:00 +40: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_accuracy_benchmark_test.dart: NFR04/05 Notification Timing Accuracy Benchmark Simulation 300 samples with 99.0% compliance meets NFR requirement (<= 2000ms)
+00:00 +41: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: Static source code checks (AC10) AC10: notification files do not reference forbidden APIs
+00:00 +42: D:/Captone/DrugTime/frontend/mobile/test/core/notification/notification_service_test.dart: Static source code checks (AC10) AC10: notification files do not reference forbidden APIs
+00:01 +43: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 65: Uống thuốc sớm trước giờ cữ Khi uống sớm (trước giờ cữ 30 phút), gọi cancelOccurrence
+00:02 +44: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 65: Uống thuốc sớm trước giờ cữ Khi xác nhận qua confirmDose() sớm, cũng gọi cancelOccurrence
+00:02 +45: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 65: Uống thuốc sớm trước giờ cữ Khi uống đúng giờ hoặc sau giờ cữ, KHÔNG gọi cancelOccurrence
+00:02 +46: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationController.save() với reminder_enabled == false gọi cancelAllForSchedule
+00:02 +47: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationController.save() giữ reminder_enabled == true KHÔNG hủy thông báo
+00:02 +48: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +49: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +50: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +51: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +52: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +53: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +54: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +55: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +56: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +57: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +58: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +59: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +60: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +61: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +62: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +63: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +64: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +65: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +66: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +67: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +68: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +69: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +70: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +71: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +72: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +73: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +74: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +75: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +76: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:02 +77: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +78: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +79: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +80: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +81: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +82: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +83: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +84: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +85: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +86: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +87: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +88: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +89: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +90: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +91: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +92: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +93: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +94: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +95: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +96: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +97: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +98: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +99: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +100: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +101: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +102: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +103: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +104: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:03 +105: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +106: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +107: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +108: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +109: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +110: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +111: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +112: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +113: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +114: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +115: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +116: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +117: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +118: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +119: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +120: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +121: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +122: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +123: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +124: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:04 +125: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +126: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +127: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +128: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +129: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +130: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +131: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +132: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +133: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+00:05 +134: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: [202]
+  Actual: []
+   Which: at location [0] is [] which shorter than expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure>.<anonymous closure> (file:///D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart:281:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart line 281
+The test description was:
+  EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +134 -1: D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule [E]
+  Test failed. See exception logs above.
+  The test description was: EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
+  
+00:05 +134 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: tapping a sound selects it and keeps it on reopen__AC1
+00:06 +135 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: preview A then B stops A; B again stops__AC2
+00:07 +136 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: invalid file shows its message and saves nothing__AC4
+00:07 +137 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: cancelling the picker shows nothing__AC15
+00:07 +138 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: ten customs lock adding; deleting one after confirm unlocks__AC5 AC6
+00:08 +139 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: missing selected custom shows the fallback notice__AC7
+00:08 +140 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: volume row opens system sound settings, no slider__AC11
+00:08 +141 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: leaving the screen stops the preview
+00:08 +142 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: iOS hides custom sounds and opens without errors__AC12
+00:08 +143 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: Android 9 shows built-in sounds without the custom group__AC12
+00:08 +144 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: no overflow at 320 px, text scale 1.0
+00:09 +145 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: no overflow at 320 px, text scale 2.0
+00:09 +146 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: no overflow at 375 px, text scale 1.0
+00:10 +147 -1: D:/Captone/DrugTime/frontend/mobile/test/features/profile/reminder_sound_screen_test.dart: no overflow at 375 px, text scale 2.0
+00:10 +148 -1: Some tests failed.
+
+Failing tests:
+  D:/Captone/DrugTime/frontend/mobile/test/core/notification/reminder_edge_cases_test.dart: Task 2.08: Reminder Edge Cases — Hủy thông báo Subtask 67: Tắt nhắc nhở (reminder_enabled = false) EditMedicationScreen: Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule
