@@ -1,0 +1,549 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "RSOUND",
+      "name": "Âm thanh nhắc nhở",
+      "sheet": "Âm thanh nhắc nhở",
+      "description": "Màn S08-4a: chọn và nghe thử âm nhắc thuốc, thêm tối đa 10 âm từ máy (Android 10+), âm lượng theo cài đặt hệ thống, quay về chuông mặc định khi file mất",
+      "created_by": "Ngọc Việt",
+      "created_date": "2026-11-20",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "Toàn bộ test tự động pass (flutter test, evidence/test-mobile-full.log). Các test case Pending cần máy Android 10+ thật để nghe âm khi đến giờ nhắc và kiểm MediaStore.",
+      "ep": [
+        {
+          "field": "Định dạng file",
+          "valid": [
+            "mp3 (ID3 hoặc frame sync)",
+            "m4a",
+            "aac (ADTS)",
+            "ogg",
+            "wav"
+          ],
+          "invalid": [
+            "pdf đổi đuôi .mp3",
+            "byte lạ / file rỗng"
+          ]
+        },
+        {
+          "field": "Kích thước file",
+          "valid": [
+            "≤ 2 MB (2097152 byte)"
+          ],
+          "invalid": [
+            "> 2 MB"
+          ]
+        },
+        {
+          "field": "Thời lượng",
+          "valid": [
+            "1000–30000 ms"
+          ],
+          "invalid": [
+            "< 1000 ms",
+            "> 30000 ms",
+            "không giải mã được"
+          ]
+        },
+        {
+          "field": "Số âm tự thêm",
+          "valid": [
+            "0–9 (được thêm)"
+          ],
+          "invalid": [
+            "10 (khóa nút thêm)"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "Âm dùng cho lượt nhắc kế tiếp",
+          "conditions": [
+            {
+              "name": "Âm đã chọn là âm tự thêm?",
+              "values": [
+                "No",
+                "No",
+                "Yes",
+                "Yes"
+              ]
+            },
+            {
+              "name": "Id âm có trong danh mục / file còn đọc được?",
+              "values": [
+                "Yes",
+                "No",
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Dùng channel của âm đã chọn",
+              "rules": [
+                1,
+                3
+              ]
+            },
+            {
+              "name": "Về Chuông mặc định + hiện thông báo quay về",
+              "rules": [
+                2,
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-RSOUND-01",
+          "description": "Chọn âm có sẵn và giữ lựa chọn khi mở lại màn",
+          "precondition": "Android 10+, đang dùng Chuông mặc định, đã đăng nhập",
+          "steps": [
+            "Mở Hồ sơ → Cài đặt thông báo → Âm thanh nhắc nhở",
+            "Nhấn dòng \"Nhẹ nhàng\"",
+            "Thoát rồi mở lại màn"
+          ],
+          "data": "Âm: Nhẹ nhàng (gentle)",
+          "expected": "Dòng \"Nhẹ nhàng\" có radio đã chọn; lựa chọn lưu local; channel drugtime_reminder_gentle_v1 được tạo; các lượt nhắc chưa tới giờ được lên lịch lại",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC1 · tapping a sound selects it and keeps it on reopen__AC1; select saves, creates the channel and reschedules__AC1",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-02",
+          "description": "Lên lịch nhắc và snooze bằng channel của âm đã chọn",
+          "precondition": "Đã chọn âm Khẩn cấp; có lịch uống thuốc trong 24 giờ tới",
+          "steps": [
+            "Đồng bộ lịch nhắc",
+            "Bấm Nhắc lại sau 10 phút trên một thông báo"
+          ],
+          "data": "Âm: urgent",
+          "expected": "Cả lượt nhắc và lượt snooze dùng channel drugtime_reminder_urgent_v1",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC1, AC9 · occurrences and snooze use the selected channel__AC1 AC9",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-03",
+          "description": "Giữ nguyên cách hiển thị báo thức với mọi âm",
+          "precondition": "Lần lượt chọn từng âm trong 6 âm có sẵn",
+          "steps": [
+            "Lên lịch nhắc với từng âm",
+            "Kiểm chi tiết thông báo Android"
+          ],
+          "data": "6 âm: chime, gentle, friendly, urgent, system, silent",
+          "expected": "Importance.max, Priority.high, fullScreenIntent, category alarm, màu, tiêu đề và nội dung không đổi; chỉ channel thay đổi",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC10 · every sound keeps the alarm presentation unchanged__AC10",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-04",
+          "description": "Nghe thử âm A rồi âm B, nhấn lại B để dừng",
+          "precondition": "Đang ở màn Âm thanh nhắc nhở",
+          "steps": [
+            "Nhấn nút nghe thử của Chuông mặc định",
+            "Nhấn nút nghe thử của Khẩn cấp",
+            "Nhấn lại nút của Khẩn cấp"
+          ],
+          "data": "A = chime, B = urgent",
+          "expected": "A dừng khi B phát; nút của B đổi sang Dừng; nhấn lại thì B dừng, không còn âm nào phát",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC2 · preview A then B stops A; B again stops__AC2",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-05",
+          "description": "Rời màn khi đang nghe thử",
+          "precondition": "Đang nghe thử Nhẹ nhàng",
+          "steps": [
+            "Nhấn nút quay lại"
+          ],
+          "data": "Âm: gentle",
+          "expected": "Âm nghe thử dừng ngay",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC2 · leaving the screen stops the preview",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-06",
+          "description": "Thêm file mp3 hợp lệ từ máy",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm, các số 1 và 3 đã dùng",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Chọn file mp3"
+          ],
+          "data": "mp3 15 giây, 1 MB (1048576 byte)",
+          "expected": "Có dòng mới \"DrugTime nhắc nhở 2\" trong \"Âm thanh của bạn\"; file lưu với id custom_<16 hex>; channel riêng được tạo; lựa chọn hiện tại không đổi",
+          "actual": "Đúng như kỳ vọng (test tự động pass, native giả lập)",
+          "status": "Pass",
+          "comments": "AC3, AC14 · EP (1,6,7,8) · adding a valid file commits a neutral name and a channel__AC3 AC14",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-07",
+          "description": "Kiểm bản MediaStore của âm vừa thêm trên máy thật",
+          "precondition": "Đã thêm 1 file mp3 hợp lệ trên máy Android 10+ thật",
+          "steps": [
+            "Mở Cài đặt → Âm thanh → Âm thông báo mặc định của máy",
+            "Tìm âm của DrugTime"
+          ],
+          "data": "File gốc tên \"thuoc_huyet_ap_cua_me.mp3\"",
+          "expected": "Có âm tên \"DrugTime nhắc nhở 1\" trong Notifications/DrugTime; không chứa tên file gốc hay tên thuốc",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC3, AC14 · manual (cần thiết bị thật)"
+        },
+        {
+          "id": "TC-RSOUND-08",
+          "description": "Thêm file pdf đổi đuôi thành .mp3",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Chọn file"
+          ],
+          "data": "file.mp3 có 4 byte đầu %PDF, 900 byte",
+          "expected": "Hiện \"Định dạng không hỗ trợ\" ngay trên nút thêm; không lưu gì; file tạm bị xóa",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · EP (9,10) · invalid file shows its message and saves nothing__AC4; rejects a pdf renamed to .mp3; unknown bytes are unsupported; empty file is unsupported",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-BVA-01",
+          "description": "Thêm file đúng 2 MB",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Chọn file"
+          ],
+          "data": "mp3 2097152 byte, 15 giây",
+          "expected": "Được chấp nhận về kích thước",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · BVA (max) · 2 MB exactly is accepted",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-BVA-02",
+          "description": "Thêm file 2 MB + 1 byte",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Chọn file"
+          ],
+          "data": "mp3 2097153 byte",
+          "expected": "Hiện \"File quá lớn (tối đa 2 MB)\"; không lưu gì",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · BVA (max+1) · EP (11) · 2 MB + 1 byte is too large",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-BVA-03",
+          "description": "Thêm file dài 0,999 giây và đúng 1 giây",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Thêm file 999 ms",
+            "Thêm file 1000 ms"
+          ],
+          "data": "999 ms; 1000 ms",
+          "expected": "999 ms: \"Âm thanh phải dài từ 1 đến 30 giây\"; 1000 ms: được chấp nhận",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · BVA (min-1, min) · EP (12) · 1 s and 30 s boundaries are accepted; just outside the boundaries is rejected",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-BVA-04",
+          "description": "Thêm file dài đúng 30 giây và 30,001 giây",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Thêm file 30000 ms",
+            "Thêm file 30001 ms"
+          ],
+          "data": "30000 ms; 30001 ms",
+          "expected": "30000 ms: được chấp nhận; 30001 ms: \"Âm thanh phải dài từ 1 đến 30 giây\", không lưu gì",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · BVA (max, max+1) · EP (13) · just outside the boundaries is rejected; group invalid files are not saved__AC4",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-09",
+          "description": "Thêm file hỏng không giải mã được",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Chọn file"
+          ],
+          "data": "mp3 có header hợp lệ nhưng không phát được",
+          "expected": "Hiện \"Không phát được file này\"; không lưu gì",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · EP (14) · Không phát được file này (invalid files are not saved__AC4)",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-25",
+          "description": "Nhận diện định dạng m4a, aac, ogg, wav theo byte đầu file",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Lần lượt thêm 4 file hợp lệ, mỗi file 15 giây, dưới 2 MB"
+          ],
+          "data": "m4a (ftyp), aac (ADTS), ogg (OggS), wav (RIFF/WAVE)",
+          "expected": "Cả 4 file được chấp nhận về định dạng và lưu đúng đuôi",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC4 · EP (2,3,4,5) · accepts $format by magic bytes; accepts mp3 frame sync without ID3",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-10",
+          "description": "Hủy trình chọn file",
+          "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
+          "steps": [
+            "Nhấn \"+ Thêm âm thanh từ máy\"",
+            "Bấm quay lại trong trình chọn file"
+          ],
+          "data": "(blank)",
+          "expected": "Không có gì thay đổi, không hiện lỗi",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC15 · cancelling the picker shows nothing__AC15; cancelling the picker changes nothing__AC15",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-BVA-05",
+          "description": "Mở màn khi đã có đủ 10 âm tự thêm",
+          "precondition": "Android 10+, đã có 10 âm tự thêm",
+          "steps": [
+            "Mở màn Âm thanh nhắc nhở",
+            "Cuộn tới nút thêm"
+          ],
+          "data": "10 âm tự thêm",
+          "expected": "Nút \"+ Thêm âm thanh từ máy\" bị khóa và hiện \"Đã đủ 10 âm thanh. Xóa một âm thanh để thêm mới.\"",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC5 · BVA (max) · EP (15) · ten customs lock adding; deleting one after confirm unlocks__AC5 AC6",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-11",
+          "description": "Xóa âm tự thêm đang được chọn",
+          "precondition": "Có 10 âm tự thêm, đang chọn DrugTime nhắc nhở 3",
+          "steps": [
+            "Nhấn biểu tượng xóa của DrugTime nhắc nhở 3",
+            "Nhấn Hủy",
+            "Nhấn lại biểu tượng xóa",
+            "Nhấn Xóa"
+          ],
+          "data": "custom_3",
+          "expected": "Hủy: không xóa. Xóa: còn 9 âm, lựa chọn về Chuông mặc định, nhắc chưa tới giờ được lên lịch lại, channel/file/MediaStore của âm bị xóa, nút thêm mở lại",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC5, AC6 · BVA (max-1) · ten customs lock adding; deleting one after confirm unlocks__AC5 AC6; deleting the selected custom falls back to chime and cleans up__AC6",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-12",
+          "description": "Mở app khi file âm đã chọn bị xóa từ ngoài app",
+          "precondition": "Đang chọn âm tự thêm; file riêng của âm không còn",
+          "steps": [
+            "Mở app",
+            "Mở màn Âm thanh nhắc nhở",
+            "Nhấn Đóng trên thông báo"
+          ],
+          "data": "custom_1, file mất",
+          "expected": "Lựa chọn về Chuông mặc định (không phải Im lặng); hiện \"Âm thanh bạn chọn không còn, đã chuyển về chuông mặc định\"; đóng thì không hiện lại",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC7, AC8 · Decision Table (R4) · missing selected custom shows the fallback notice__AC7; missing custom file falls back to chime with a notice__AC7 AC8",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-13",
+          "description": "Id âm lưu trữ không còn trong danh mục",
+          "precondition": "Dữ liệu local lưu selectedId không tồn tại",
+          "steps": [
+            "Mở app"
+          ],
+          "data": "selectedId = deleted_long_ago",
+          "expected": "Về Chuông mặc định, không bao giờ về Im lặng, có thông báo quay về",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC8 · Decision Table (R2) · unknown stored id falls back to chime, never silent__AC8",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-14",
+          "description": "Kiểm âm trước mỗi lần lên lịch nhắc",
+          "precondition": "Đang chọn âm tự thêm hợp lệ, rồi file bị xóa giữa hai lần đồng bộ",
+          "steps": [
+            "Kích hoạt đồng bộ lịch nhắc"
+          ],
+          "data": "Hook beforeSchedule",
+          "expected": "Hook chạy trước khi lên lịch, nhắc được lên lịch trên channel Chuông mặc định; hook lỗi thì ghi log và vẫn lên lịch",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC7 · Decision Table (R1, R3, R4) · beforeSchedule runs before scheduling and its fallback applies__AC7; a failing beforeSchedule is logged and reminders are still scheduled__AC7",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-15",
+          "description": "Chọn Im lặng (chỉ rung)",
+          "precondition": "Đang ở màn Âm thanh nhắc nhở",
+          "steps": [
+            "Nhấn dòng \"Im lặng (chỉ rung)\""
+          ],
+          "data": "Âm: silent",
+          "expected": "Channel không phát âm, có rung; dòng Im lặng không có nút nghe thử",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC8 · silent keeps vibration and plays no sound__AC8; silent channel has no sound but vibrates__AC8",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-16",
+          "description": "Nhấn dòng Âm lượng nhắc nhở",
+          "precondition": "Đang ở màn Âm thanh nhắc nhở",
+          "steps": [
+            "Nhấn \"Âm lượng nhắc nhở\""
+          ],
+          "data": "(blank)",
+          "expected": "Mở cài đặt âm thanh của hệ thống; màn không còn thanh trượt âm lượng",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC11 · volume row opens system sound settings, no slider__AC11",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-17",
+          "description": "Mở màn trên iOS",
+          "precondition": "Chạy trên iOS",
+          "steps": [
+            "Mở màn Âm thanh nhắc nhở"
+          ],
+          "data": "TargetPlatform.iOS",
+          "expected": "Không có nhóm \"Âm thanh của bạn\" và nút thêm; hiện \"Chọn và nghe thử âm thanh chưa khả dụng.\"; không lỗi",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC12 · iOS hides custom sounds and opens without errors__AC12",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-18",
+          "description": "Mở màn trên Android 9",
+          "precondition": "Android 9 (API 28)",
+          "steps": [
+            "Mở màn Âm thanh nhắc nhở"
+          ],
+          "data": "sdkInt = 28",
+          "expected": "6 âm có sẵn dùng được; không có nhóm \"Âm thanh của bạn\"",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "AC12 · Android 9 shows built-in sounds without the custom group__AC12; custom sounds need Android 10+__AC12 Q2",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-19",
+          "description": "Hiển thị màn ở màn hình hẹp và chữ lớn",
+          "precondition": "10 âm tự thêm, có thông báo quay về",
+          "steps": [
+            "Mở màn ở chiều rộng 320 px và 375 px",
+            "Đặt cỡ chữ 1.0 và 2.0",
+            "Cuộn hết màn"
+          ],
+          "data": "320/375 px × text scale 1.0/2.0",
+          "expected": "Không tràn bố cục ở mọi tổ hợp",
+          "actual": "Đúng như kỳ vọng (test tự động pass)",
+          "status": "Pass",
+          "comments": "Đoán lỗi · no overflow at 320/375 px, text scale 1.0/2.0",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-20",
+          "description": "Đăng xuất xóa các âm tự thêm",
+          "precondition": "Có 2 âm tự thêm, đang chọn một âm",
+          "steps": [
+            "Đăng xuất"
+          ],
+          "data": "custom_1, custom_2",
+          "expected": "Mọi âm tự thêm, channel và bản MediaStore bị xóa; lựa chọn về Chuông mặc định",
+          "actual": "Đúng như kỳ vọng ở mức controller (test tự động pass)",
+          "status": "Pass",
+          "comments": "Q1 · clearAll removes every custom and resets to chime__Q1",
+          "evidence": "evidence/test-mobile-full.log"
+        },
+        {
+          "id": "TC-RSOUND-21",
+          "description": "Bản release vẫn đóng gói 4 âm có sẵn",
+          "precondition": "Build bằng flutter build apk --release",
+          "steps": [
+            "Build APK release",
+            "Liệt kê res/raw trong APK"
+          ],
+          "data": "keep.xml",
+          "expected": "APK chứa reminder_chime, reminder_gentle, reminder_friendly, reminder_urgent",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC13 (h) · bị chặn: flutter build apk --release fail ở R8 \"Missing class com.google.mlkit.vision.text.chinese...\" (plugin OCR google_mlkit_text_recognition, có sẵn, không thuộc task) · evidence/test-release-build.log"
+        },
+        {
+          "id": "TC-RSOUND-22",
+          "description": "Nghe đúng âm khi đến giờ nhắc trên máy thật",
+          "precondition": "Máy Android 10+ thật, có lịch uống thuốc",
+          "steps": [
+            "Lần lượt chọn từng âm có sẵn và một âm tự thêm",
+            "Chờ đến giờ nhắc (và màn hình khóa)",
+            "Bấm Nhắc lại sau 10 phút"
+          ],
+          "data": "6 âm có sẵn + 1 âm tự thêm",
+          "expected": "Nghe đúng âm đã chọn ở lượt nhắc và lượt snooze; Im lặng chỉ rung",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC9, AC13 (a, c, e, f) · manual (cần thiết bị thật)"
+        },
+        {
+          "id": "TC-RSOUND-23",
+          "description": "Xóa file âm tự thêm bằng app quản lý file rồi mở app",
+          "precondition": "Máy Android 10+ thật, đang chọn âm tự thêm",
+          "steps": [
+            "Xóa file trong Notifications/DrugTime bằng app quản lý file",
+            "Mở app DrugTime",
+            "Chờ lượt nhắc kế tiếp"
+          ],
+          "data": "DrugTime nhắc nhở 1",
+          "expected": "Màn hiện thông báo quay về; lượt nhắc kế tiếp kêu Chuông mặc định",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC7, AC13 (d) · manual (cần thiết bị thật)"
+        },
+        {
+          "id": "TC-RSOUND-24",
+          "description": "Đăng xuất trên máy thật xóa bản MediaStore",
+          "precondition": "Máy Android 10+ thật, có âm tự thêm",
+          "steps": [
+            "Đăng xuất",
+            "Mở danh sách âm thông báo của hệ thống"
+          ],
+          "data": "DrugTime nhắc nhở 1",
+          "expected": "Không còn âm DrugTime nhắc nhở nào",
+          "actual": "",
+          "status": "Pending",
+          "comments": "Q1, AC13 (g) · manual (cần thiết bị thật)"
+        }
+      ]
+    }
+  ]
+}
