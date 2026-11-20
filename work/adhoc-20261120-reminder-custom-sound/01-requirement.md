@@ -8,8 +8,8 @@ contract_change: no
 affected: [frontend]
 status: approved
 approved_by: Ngọc Việt
-approved_at: 2026-11-20 00:31 +0700
-content_hash: sha256:0d751fb5dbc8c598
+approved_at: 2026-11-20 11:21 +0700
+content_hash: sha256:15b8320b1a1fec90
 ---
 
 # adhoc-20261120-reminder-custom-sound · Âm thanh nhắc nhở S08-4a
@@ -26,7 +26,7 @@ Patient chọn được âm thanh cho thông báo nhắc uống thuốc trên An
   - Chọn một trong các âm có sẵn: Chuông mặc định, Nhẹ nhàng, Âm cha hữu ơi, Khẩn cấp, Chuông điện thoại mặc định, Im lặng (chỉ rung).
   - Nghe thử từng âm; chỉ một âm phát tại một thời điểm.
   - Nhóm "Âm thanh của bạn": thêm file âm thanh từ máy, nghe thử, chọn, xóa.
-- Kiểm tra file khi thêm: định dạng (mp3, m4a/aac, ogg, wav; xét cả byte đầu file), dung lượng ≤ 2 MB, thời lượng 1–30 giây, giải mã được.
+- Kiểm tra file khi thêm: định dạng (mp3, m4a/aac, ogg, wav; xét cả byte đầu file), dung lượng ≤ 10 MB, thời lượng 1–30 giây, giải mã được.
 - Giới hạn 10 âm thanh tự thêm. Đủ 10 thì khóa nút thêm và hiện hướng dẫn xóa bớt.
 - Lưu file vào thư mục riêng của app và một bản vào MediaStore (mục Notifications), tên trung tính `DrugTime nhắc nhở <n>`.
 - Mỗi âm thanh một Android notification channel. Đổi lựa chọn thì lên lịch lại các nhắc chưa tới giờ theo luồng hiện có (`ReminderSyncCoordinator.refresh`).
@@ -103,7 +103,7 @@ QD-26 (hàng 2, hộp thư 30 ngày), QD-21, QD-22, QD-23 và mục 6.2 đã đ�
 | AC1 | Given đang dùng "Chuông mặc định", When chọn "Nhẹ nhàng", Then lựa chọn được lưu local, dòng "Nhẹ nhàng" hiện đã chọn sau khi mở lại màn, và các lượt nhắc chưa tới giờ được lên lịch lại trên channel của "Nhẹ nhàng" | unit |
 | AC2 | Given đang ở S08-4a, When nhấn nghe thử âm A rồi âm B, Then A dừng, B phát; nhấn lại B thì B dừng | unit (widget, player giả) |
 | AC3 | Given có ít hơn 10 âm tự thêm, When chọn file mp3 hợp lệ 15 giây 1 MB, Then file được copy vào thư mục riêng của app, có bản MediaStore tên `DrugTime nhắc nhở <n>`, có channel riêng, và hiện một dòng mới trong "Âm thanh của bạn" | unit + manual |
-| AC4 | Given chọn file không hợp lệ, When thêm, Then không lưu gì và hiện đúng thông báo: file .pdf đổi đuôi .mp3 → "Định dạng không hỗ trợ"; 2 MB + 1 byte → "File quá lớn (tối đa 2 MB)"; 0,9 giây hoặc 30,1 giây → "Âm thanh phải dài từ 1 đến 30 giây"; file hỏng → "Không phát được file này". Biên hợp lệ: đúng 2 MB, đúng 1 giây, đúng 30 giây được nhận | unit |
+| AC4 | Given chọn file không hợp lệ, When thêm, Then không lưu gì và hiện đúng thông báo: file .pdf đổi đuôi .mp3 → "Định dạng không hỗ trợ"; 10 MB + 1 byte (10485761 byte) → "File quá lớn (tối đa 10 MB)"; 0,9 giây hoặc 30,1 giây → "Âm thanh phải dài từ 1 đến 30 giây"; file hỏng → "Không phát được file này". Biên hợp lệ: đúng 10 MB (10485760 byte), đúng 1 giây, đúng 30 giây được nhận | unit |
 | AC5 | Given đã có 10 âm tự thêm, When mở S08-4a, Then nút "+ Thêm âm thanh từ máy" bị khóa và hiện "Đã đủ 10 âm thanh. Xóa một âm thanh để thêm mới."; xóa một âm thì nút mở lại | unit (widget) |
 | AC6 | Given âm tự thêm X đang được chọn, When xóa X, Then lựa chọn chuyển về "Chuông mặc định", nhắc chưa tới giờ được lên lịch lại, channel của X bị xóa, file riêng và bản MediaStore của X bị xóa | unit |
 | AC7 | Given âm đã chọn không còn đọc được (file hoặc bản MediaStore bị xóa từ ngoài app), When mở app hoặc trước khi lên lịch nhắc, Then lựa chọn chuyển về "Chuông mặc định", nhắc được lên lịch trên channel mặc định, và S08-4a hiện "Âm thanh bạn chọn không còn, đã chuyển về chuông mặc định" | unit |
@@ -159,6 +159,7 @@ Q4 [không chặn] Dòng âm lượng: bỏ slider và mở cài đặt âm than
 
 ## Bước tiếp theo
 
-- Đang chờ: người dùng xác nhận Q1–Q4 (hoặc chấp nhận giả định mặc định), rồi người duyệt.
-- Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound requirement`, sau đó lập kế hoạch bằng `wf-plan`.
-- Cập nhật lần cuối: 2026-11-20 00:55, Claude Code
+- Đang chờ: người duyệt.
+- Thay đổi vòng này (2026-11-20, sau khi thử trên máy thật): giới hạn dung lượng âm tự thêm tăng từ 2 MB lên 10 MB (10485760 byte) ở mục Phạm vi và AC4. Hệ quả: tối đa 10 âm × 10 MB ≈ 100 MB trên máy.
+- Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound requirement`; sau đó reopen và cập nhật lần lượt plan (03), implement (04: validator, thông báo, test biên), test (05, testcases.json, file Excel tổng).
+- Cập nhật lần cuối: 2026-11-20, Claude Code

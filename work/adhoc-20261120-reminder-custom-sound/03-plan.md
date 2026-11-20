@@ -3,10 +3,10 @@ task: adhoc-20261120-reminder-custom-sound
 stage: plan
 status: approved
 approved_by: Ngọc Việt
-approved_at: 2026-11-20 09:04 +0700
-content_hash: sha256:0f448eed59ca405c
+approved_at: 2026-11-20 11:25 +0700
+content_hash: sha256:25a87794550cc628
 inputs:
-  01-requirement.md: sha256:0d751fb5dbc8c598
+  01-requirement.md: sha256:15b8320b1a1fec90
 ---
 
 # adhoc-20261120-reminder-custom-sound · Plan
@@ -49,14 +49,14 @@ ReminderSyncCoordinator.refresh
    Âm tự thêm: id `custom_<uuid v4>`, channel `drugtime_reminder_custom_<uuid>`, âm `UriAndroidNotificationSound(<content uri MediaStore>)`. Mọi channel nhắc giữ `Importance.max` như kênh cũ. Uuid mới cho mỗi lần thêm, không tái dùng id channel (Android khôi phục cài đặt cũ khi tạo lại channel cùng id đã xóa).
 
 2. **Validator (`reminder_sound_validator.dart`)**, thứ tự kiểm và thông báo nguyên văn của AC4:
-   - `size > 2 097 152` byte → "File quá lớn (tối đa 2 MB)". Đúng 2 097 152 hợp lệ.
+   - `size > 10 485 760` byte → "File quá lớn (tối đa 10 MB)". Đúng 10 485 760 hợp lệ.
    - Byte đầu không khớp mp3 (`ID3` hoặc frame sync `FF Fx`), m4a (`ftyp` ở offset 4), aac ADTS (`FF F1`/`FF F9`), ogg (`OggS`), wav (`RIFF`…`WAVE`) → "Định dạng không hỗ trợ". Không tin đuôi file.
    - Native báo không giải mã được → "Không phát được file này".
    - `durationMs < 1000` hoặc `> 30000` → "Âm thanh phải dài từ 1 đến 30 giây". 1000 và 30000 hợp lệ.
 
 3. **Native Android (`ReminderSoundChannel.kt`, đăng ký trong `MainActivity.configureFlutterEngine` cạnh kênh keyguard)**:
    - `sdkInt` → `Build.VERSION.SDK_INT`.
-   - `pick` → `ACTION_OPEN_DOCUMENT`, `audio/*`; copy luồng vào `cacheDir/reminder_pick.tmp`, ngừng đọc khi vượt 2 MB + 1 byte; trả `{path, size, head(16 byte)}` hoặc `null` khi hủy (AC15).
+   - `pick` → `ACTION_OPEN_DOCUMENT`, `audio/*`; copy luồng vào `cacheDir/reminder_pick.tmp`, ngừng đọc khi vượt 10 MB + 1 byte (`MAX_BYTES` trong `ReminderSoundChannel.kt`); trả `{path, size, head(16 byte)}` hoặc `null` khi hủy (AC15).
    - `probe(path)` → `MediaMetadataRetriever` lấy thời lượng + `MediaPlayer.prepare()` để xác nhận giải mã; lỗi trả `decode_failed`.
    - `commit(path, id, number)` → chuyển file vào `filesDir/reminder_sounds/<id>.<ext>`, chèn MediaStore Audio với `IS_NOTIFICATION=1`, `RELATIVE_PATH=Notifications/DrugTime`, `DISPLAY_NAME="DrugTime nhắc nhở <number>"`; trả content uri. Lỗi giữa chừng thì xóa phần đã ghi.
    - `delete(path, uri)`, `exists(uri)` (mở được `openFileDescriptor` hay không), `play(uri | rawName)` / `stop()` (một `MediaPlayer` duy nhất, `USAGE_NOTIFICATION`), `openSoundSettings` (`Settings.ACTION_SOUND_SETTINGS`).
@@ -174,7 +174,7 @@ Không đổi `pubspec.yaml`, `pubspec.lock`, `AndroidManifest.xml`.
 | Test dự kiến | AC | Submodule |
 |---|---|---|
 | `reminder_sound_catalog_test`: 6 âm có sẵn đúng id/nhãn/channel; `system` dùng `drugtime_reminder_channel`; `silent` `playSound false` + rung; custom dùng `UriAndroidNotificationSound`; mọi channel `Importance.max` | AC1, AC8, AC10 | frontend |
-| `reminder_sound_validator_test`: chấp nhận mp3 (ID3, frame sync), m4a, aac ADTS, ogg, wav; từ chối pdf đổi đuôi `.mp3` → "Định dạng không hỗ trợ"; 2 097 152 nhận, 2 097 153 → "File quá lớn (tối đa 2 MB)"; 999/30001 ms → "Âm thanh phải dài từ 1 đến 30 giây", 1000/30000 nhận; decode_failed → "Không phát được file này"; file rỗng | AC4 | frontend |
+| `reminder_sound_validator_test`: chấp nhận mp3 (ID3, frame sync), m4a, aac ADTS, ogg, wav; từ chối pdf đổi đuôi `.mp3` → "Định dạng không hỗ trợ"; 10 485 760 nhận, 10 485 761 → "File quá lớn (tối đa 10 MB)"; 999/30001 ms → "Âm thanh phải dài từ 1 đến 30 giây", 1000/30000 nhận; decode_failed → "Không phát được file này"; file rỗng | AC4 | frontend |
 | `reminder_sound_store_test`: round-trip; JSON hỏng → mặc định `chime`; dữ liệu lưu không chứa tên file gốc | AC1, AC14 | frontend |
 | `reminder_sound_controller_test`: select lưu + tạo channel + gọi `onSoundChanged` | AC1 | frontend |
 | `reminder_sound_controller_test`: preview A rồi B → stop A, play B; bấm lại B → stop | AC2 | frontend |
@@ -246,5 +246,6 @@ Không có.
 ## Bước tiếp theo
 
 - Đang chờ: người duyệt.
-- Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound plan`; sau đó agent làm giai đoạn implement (`wf-implement`) từ P1.
+- Thay đổi vòng này (2026-11-20, theo AC4 mới của `01`): giới hạn dung lượng 2 MB → 10 MB (10 485 760 byte) ở validator Dart (mục 2), `MAX_BYTES` native (mục 3) và test biên (danh sách test). Không thêm file, không đổi bước.
+- Việc cần làm: người duyệt chạy `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound plan`; sau đó reopen implement và sửa `reminder_sound_validator.dart`, `ReminderSoundChannel.kt`, `reminder_sound_screen.dart` (dòng mô tả "tối đa 10 MB") cùng test liên quan.
 - Cập nhật lần cuối: 2026-11-20, Claude Code

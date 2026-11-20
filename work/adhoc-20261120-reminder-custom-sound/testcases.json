@@ -30,10 +30,10 @@
         {
           "field": "Kích thước file",
           "valid": [
-            "≤ 2 MB (2097152 byte)"
+            "≤ 10 MB (10485760 byte)"
           ],
           "invalid": [
-            "> 2 MB"
+            "> 10 MB"
           ]
         },
         {
@@ -221,32 +221,32 @@
         },
         {
           "id": "TC-RSOUND-BVA-01",
-          "description": "Thêm file đúng 2 MB",
+          "description": "Thêm file đúng 10 MB",
           "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
           "steps": [
             "Nhấn \"+ Thêm âm thanh từ máy\"",
             "Chọn file"
           ],
-          "data": "mp3 2097152 byte, 15 giây",
+          "data": "mp3 10485760 byte, 15 giây",
           "expected": "Được chấp nhận về kích thước",
           "actual": "Đúng như kỳ vọng (test tự động pass)",
           "status": "Pass",
-          "comments": "AC4 · BVA (max) · 2 MB exactly is accepted",
+          "comments": "AC4 · BVA (max) · 10 MB exactly is accepted",
           "evidence": "evidence/test-mobile-full.log"
         },
         {
           "id": "TC-RSOUND-BVA-02",
-          "description": "Thêm file 2 MB + 1 byte",
+          "description": "Thêm file 10 MB + 1 byte",
           "precondition": "Android 10+, có ít hơn 10 âm tự thêm",
           "steps": [
             "Nhấn \"+ Thêm âm thanh từ máy\"",
             "Chọn file"
           ],
-          "data": "mp3 2097153 byte",
-          "expected": "Hiện \"File quá lớn (tối đa 2 MB)\"; không lưu gì",
+          "data": "mp3 10485761 byte",
+          "expected": "Hiện \"File quá lớn (tối đa 10 MB)\"; không lưu gì",
           "actual": "Đúng như kỳ vọng (test tự động pass)",
           "status": "Pass",
-          "comments": "AC4 · BVA (max+1) · EP (11) · 2 MB + 1 byte is too large",
+          "comments": "AC4 · BVA (max+1) · EP (11) · 10 MB + 1 byte is too large",
           "evidence": "evidence/test-mobile-full.log"
         },
         {

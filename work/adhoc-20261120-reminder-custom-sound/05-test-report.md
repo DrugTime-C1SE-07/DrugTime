@@ -3,12 +3,12 @@ task: adhoc-20261120-reminder-custom-sound
 stage: test
 status: approved
 approved_by: Ngọc Việt
-approved_at: 2026-11-20 10:18 +0700
-content_hash: sha256:1bb2aec62c959ea6
+approved_at: 2026-11-20 11:30 +0700
+content_hash: sha256:0549c0affe27acb2
 inputs:
-  01-requirement.md: sha256:0d751fb5dbc8c598
-  03-plan.md: sha256:0f448eed59ca405c
-  04-impl-notes.md: sha256:3ac2f8e47e35dab4
+  01-requirement.md: sha256:15b8320b1a1fec90
+  03-plan.md: sha256:25a87794550cc628
+  04-impl-notes.md: sha256:e548a41b50ab03fc
 ---
 
 # adhoc-20261120-reminder-custom-sound · Test tích hợp
@@ -28,7 +28,7 @@ Mọi test tự động dưới đây chạy trong lần `flutter test` toàn mo
 | AC1 | `select saves, creates the channel and reschedules__AC1`; `tapping a sound selects it and keeps it on reopen__AC1`; `occurrences and snooze use the selected channel__AC1 AC9`; `changing the selection applies to the next schedule__AC1`; store `round-trips selection…__AC1` | pass |
 | AC2 | `preview A then B stops A and plays B; B again stops__AC2`; `preview done from native clears the playing state__AC2`; widget `preview A then B stops A; B again stops__AC2`; `leaving the screen stops the preview` | pass |
 | AC3 | `adding a valid file commits a neutral name and a channel__AC3 AC14` (native giả lập) | pass; phần MediaStore thật: Pending (TC-RSOUND-07) |
-| AC4 | group `invalid files are not saved__AC4` (4 thông báo); validator `formatOf__AC4`, `checkFile__AC4` (2097152 nhận, 2097153 từ chối), `checkDuration__AC4` (1000/30000 nhận, 999/30001 từ chối); widget `invalid file shows its message and saves nothing__AC4`; `commit failure shows a retry message…` | pass |
+| AC4 | group `invalid files are not saved__AC4` (4 thông báo); validator `formatOf__AC4`, `checkFile__AC4` (10485760 nhận, 10485761 từ chối; giới hạn 10 MB từ vòng sửa 2026-11-20), `checkDuration__AC4` (1000/30000 nhận, 999/30001 từ chối); widget `invalid file shows its message and saves nothing__AC4`; `commit failure shows a retry message…` | pass |
 | AC5 | `ten customs lock adding until one is deleted__AC5`; widget `ten customs lock adding; deleting one after confirm unlocks__AC5 AC6` | pass |
 | AC6 | `deleting the selected custom falls back to chime and cleans up__AC6`; `deleteNotificationChannel reaches the Android plugin__AC6`; widget AC5 AC6 | pass |
 | AC7 | `missing custom file falls back to chime with a notice__AC7 AC8`; `beforeSchedule runs before scheduling and its fallback applies__AC7`; `a failing beforeSchedule is logged and reminders are still scheduled__AC7`; widget `missing selected custom shows the fallback notice__AC7` | pass; trên máy thật: Pending (TC-RSOUND-23) |
@@ -95,6 +95,7 @@ Không có lỗi của task. Lỗi có sẵn ngoài task ở mục 7.
 
 ## Bước tiếp theo
 
+- Vòng sửa 2026-11-20 (AC4: 2 MB → 10 MB): cập nhật test case biên TC-RSOUND (10485760 nhận, 10485761 "File quá lớn (tối đa 10 MB)"), kết quả lấy từ `evidence/implement-10mb.log` (+148 −1, fail có sẵn trong baseline). validate/build/merge Excel exit 0: `evidence/testcase-xlsx-10mb.log` (30 test case: 25 Pass, 0 Fail, 5 Pending).
 - Đang chờ: người duyệt.
 - Việc cần làm: xem Phát sinh 2 (scope báo ngoài phạm vi do cách script tính ở giai đoạn test); nếu đồng ý, duyệt bằng `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound test`. Sau đó review (`wf-review`, nên chạy phiên mới). Song song: chạy 5 test case Pending trên máy thật và cập nhật file tổng.
 - Cập nhật lần cuối: 2026-11-20, Claude Code

@@ -5,11 +5,11 @@ owner: Ngọc Việt
 started_at: 2026-11-20 09:06
 status: approved
 approved_by: Ngọc Việt
-approved_at: 2026-11-20 10:07 +0700
-content_hash: sha256:3ac2f8e47e35dab4
+approved_at: 2026-11-20 11:28 +0700
+content_hash: sha256:e548a41b50ab03fc
 inputs:
-  01-requirement.md: sha256:0d751fb5dbc8c598
-  03-plan.md: sha256:0f448eed59ca405c
+  01-requirement.md: sha256:15b8320b1a1fec90
+  03-plan.md: sha256:25a87794550cc628
 ---
 
 # adhoc-20261120-reminder-custom-sound · Implement
@@ -120,6 +120,7 @@ Bốn âm có sẵn do team tự tổng hợp bằng numpy (sóng sin có envelo
 
 ## Bước tiếp theo
 
+- Vòng sửa 2026-11-20 (AC4 mới, 2 MB → 10 MB): `ReminderSoundValidator.maxBytes` và thông báo "File quá lớn (tối đa 10 MB)" (`lib/core/notification/reminder_sound_validator.dart`); `MAX_BYTES = 10L * 1024 * 1024` (`android/.../ReminderSoundChannel.kt`); dòng mô tả "tối đa 10 MB" (`reminder_sound_screen.dart`); test biên 10485760 nhận / 10485761 từ chối (`reminder_sound_validator_test.dart`, `reminder_sound_controller_test.dart`). Chạy `flutter test test/core/notification/ test/features/profile/reminder_sound_screen_test.dart`: +148 −1; fail duy nhất "Gạt tắt nhắc nhở và Lưu gọi cancelAllForSchedule" (`reminder_edge_cases_test.dart`) có sẵn trong baseline `evidence/test-mobile-failed-list.log`. Log `evidence/implement-10mb.log`. `flutter build apk --debug` thành công, cài lên máy thật: `evidence/implement-10mb-build.log`.
 - Đang chờ: người duyệt.
 - Việc cần làm: duyệt implement bằng `python .agents/scripts/gate.py approve adhoc-20261120-reminder-custom-sound implement`, sau đó chạy giai đoạn test (`wf-test`, gồm bộ test case Excel và AC13 thủ công).
 - Cập nhật lần cuối: 2026-11-20, Claude Code
