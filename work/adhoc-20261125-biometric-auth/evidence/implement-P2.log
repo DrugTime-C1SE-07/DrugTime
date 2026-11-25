@@ -1,0 +1,13 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: persists enabled across instances and clears back to disabled
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: treats a corrupted value as disabled
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: allows the device passcode and shows a Vietnamese reason
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: returns false when the user fails or cancels
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps noCredentialsSet to false instead of throwing
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps biometricLockout to false instead of throwing
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps noBiometricHardware to false instead of throwing
+00:00 +8: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps userCanceled to false instead of throwing
+00:00 +9: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: platform errors make the device count as unsupported
+00:00 +10: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: reports device support from the platform
+00:00 +11: All tests passed!

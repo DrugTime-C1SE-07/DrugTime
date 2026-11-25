@@ -1,0 +1,38 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart
+00:00 +0: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: enable / disable saves enabled only after successful authentication
+00:00 +1: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: enable / disable stays disabled when authentication fails or is cancelled
+00:00 +2: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: enable / disable disable clears the setting and unlocks
+00:00 +3: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: cold start locks when enabled and signed in
+00:00 +4: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: cold start does not lock when disabled or signed out
+00:00 +5: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: Android lifecycle locks immediately when the user left the app
+00:00 +6: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: Android lifecycle does not lock after app-opened activities (picker, permission)
+00:00 +7: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: Android lifecycle inactive only (notification shade) does not ask native or lock
+00:00 +8: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: Android lifecycle consumes the native flag even while disabled
+00:00 +9: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: iOS lifecycle inactive then resumed (Face ID, alerts) does not lock
+00:00 +10: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: iOS lifecycle paused then resumed locks without asking native
+00:00 +11: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: privacy cover inactive obscures when enabled
+00:00 +12: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_controller_test.dart: privacy cover inactive does nothing when disabled
+00:00 +13: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +14: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +15: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +16: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +17: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +18: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: defaults to disabled
+00:00 +19: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: persists enabled across instances and clears back to disabled
+00:00 +20: D:/Captone/DrugTime/frontend/mobile/test/core/security/app_lock_settings_store_test.dart: treats a corrupted value as disabled
+00:00 +21: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: allows the device passcode and shows a Vietnamese reason
+00:00 +22: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: returns false when the user fails or cancels
+00:00 +23: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps noCredentialsSet to false instead of throwing
+00:00 +24: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps biometricLockout to false instead of throwing
+00:00 +25: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps noBiometricHardware to false instead of throwing
+00:00 +26: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: maps userCanceled to false instead of throwing
+00:00 +27: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: platform errors make the device count as unsupported
+00:00 +28: D:/Captone/DrugTime/frontend/mobile/test/core/security/device_authenticator_test.dart: reports device support from the platform
+00:00 +29: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultKeyguardPlatform isKeyguardLocked calls native channel and returns boolean
+00:00 +30: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultKeyguardPlatform isKeyguardLocked returns false on platform exception
+00:00 +31: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultKeyguardPlatform requestDismissKeyguard calls native channel and returns result
+00:00 +32: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultKeyguardPlatform requestDismissKeyguard returns false on platform exception
+00:00 +33: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultAppLeavePlatform consumeUserLeftApp returns the native flag
+00:00 +34: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultAppLeavePlatform consumeUserLeftApp fails closed (locks) on platform errors
+00:00 +35: D:/Captone/DrugTime/frontend/mobile/test/core/platform/keyguard_service_test.dart: DefaultAppLeavePlatform setRecentsPrivacy forwards the flag and never throws
+00:00 +36: All tests passed!
