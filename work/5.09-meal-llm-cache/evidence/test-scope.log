@@ -1,0 +1,16 @@
+Phạm vi giai đoạn 'test' của 5.09-meal-llm-cache:
+  [OK]        backend/tests/integration/test_meal_suggestions_api.py
+  [OK]        backend/tests/integration/test_meal_suggestions_cache.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/adapters/inbound/http.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/adapters/outbound/redis_meal_cache.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/adapters/outbound/sql_meal_suggestions.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/application/ports.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/application/suggest_meals.py
+  [NGOÀI]     backend/src/drugtime/modules/ai_meal/domain/cache_key.py
+  [NGOÀI]     backend/src/drugtime/shared/config.py
+  [NGOÀI]     backend/tests/unit/test_ai_meal_cache_key.py
+  [NGOÀI]     backend/tests/unit/test_ai_meal_config_log.py
+  [NGOÀI]     backend/tests/unit/test_ai_meal_http.py
+  [NGOÀI]     backend/tests/unit/test_ai_meal_redis_cache.py
+  [NGOÀI]     backend/tests/unit/test_ai_meal_suggest_use_case.py
+CHẶN: 12 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

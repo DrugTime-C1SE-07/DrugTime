@@ -1,0 +1,16 @@
+Phạm vi giai đoạn 'implement' của 5.09-meal-llm-cache:
+  [OK]        backend/src/drugtime/modules/ai_meal/adapters/inbound/http.py
+  [OK]        backend/src/drugtime/modules/ai_meal/adapters/outbound/redis_meal_cache.py
+  [OK]        backend/src/drugtime/modules/ai_meal/adapters/outbound/sql_meal_suggestions.py
+  [OK]        backend/src/drugtime/modules/ai_meal/application/ports.py
+  [OK]        backend/src/drugtime/modules/ai_meal/application/suggest_meals.py
+  [OK]        backend/src/drugtime/modules/ai_meal/domain/cache_key.py
+  [OK]        backend/src/drugtime/shared/config.py
+  [OK]        backend/tests/unit/test_ai_meal_cache_key.py
+  [OK]        backend/tests/unit/test_ai_meal_config_log.py
+  [OK]        backend/tests/unit/test_ai_meal_http.py
+  [OK]        backend/tests/unit/test_ai_meal_redis_cache.py
+  [OK]        backend/tests/unit/test_ai_meal_suggest_use_case.py
+  [NGOÀI]     backend/tests/integration/test_meal_suggestions_api.py
+  [NGOÀI]     backend/tests/integration/test_meal_suggestions_cache.py
+CHẶN: 2 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

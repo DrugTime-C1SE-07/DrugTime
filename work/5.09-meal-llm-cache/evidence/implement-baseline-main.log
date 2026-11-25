@@ -1,0 +1,695 @@
+...F....FFFFFF.FFF..FF..FF..................FFF.F..F.FFFFFFF...........F [ 81%]
+.FFF.F....F..FFF                                                         [100%]
+================================== FAILURES ===================================
+________________ test_pending_deletion_queue_matches_contract _________________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_pending_deletion_queue_matches_contract(specs):
+        contract, app = specs
+        path = "/admin/deletion-requests"
+>       c_op, a_op = (spec["paths"][path]["get"] for spec in specs)
+        ^^^^^^^^^^
+
+tests\unit\test_contract_consent.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <tuple_iterator object at 0x00000211F0411E40>
+
+>   c_op, a_op = (spec["paths"][path]["get"] for spec in specs)
+                  ^^^^^^^^^^^^^^^^^^^
+E   KeyError: '/admin/deletion-requests'
+
+tests\unit\test_contract_consent.py:54: KeyError
+__ test_token_operations_match_approved_contract[put-registerMyDeviceToken] ___
+
+method = 'put', operation = 'registerMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+_ test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken] _
+
+method = 'delete', operation = 'unregisterMyDeviceToken'
+
+    @pytest.mark.parametrize(
+        "method,operation", [("put", "registerMyDeviceToken"), ("delete", "unregisterMyDeviceToken")]
+    )
+    def test_token_operations_match_approved_contract(method, operation):
+        contract, app = json.loads(CONTRACT.read_text(encoding="utf-8")), create_app().openapi()
+>       expected = contract["paths"]["/me/device-tokens"][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/me/device-tokens'
+
+tests\unit\test_contract_device_tokens.py:14: KeyError
+______________ test_operations_match_contract[get-/medications] _______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+            assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+        for code in ("200", "201"):
+            if code in c_op["responses"]:
+>               assert _shape(contract, _response(contract, c_op, code)) == _shape(
+                    app, _response(app, a_op, code)
+                ), (method, path, code)
+E               AssertionError: ('get', '/medications', '200')
+E               assert (['items'], [... None, ...})}) == (['items'], [... None, ...})})
+E                 
+E                 At index 2 diff: {'items': (['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'], ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'], {'doses_per_day': None, 'dosing_mode': None, 'ended_at': None, 'has_interaction_data': None, 'id': None, 'intake_timing': None, 'medication': (['active_ingredient', 'dosage_form', 'id', 'name', 'strength_text']...
+E                 
+E                 ...Full output truncated, use '-vv' to show
+
+tests\unit\test_contract_medication.py:93: AssertionError
+______________ test_operations_match_contract[post-/medications] ______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'post', path = '/medications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+>           assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+E           AssertionError: assert (['client_uui...': None, ...}) == (['client_uui...': None, ...})
+E             
+E             At index 0 diff: ['client_uuid', 'days_of_week', 'dosing_mode', 'intake_times', 'intake_timing', 'max_doses_per_day', 'medication_id', 'quantity_per_dose', 'stock_quantity'] != ['client_uuid', 'days_of_week', 'dosing_mode', 'intake_times', 'intake_timing', 'max_doses_per_day', 'medication_id', 'pill_color', 'pill_shape', 'quantity_per_dose', 'stock_quantity']
+E             Use -v to get more diff
+
+tests\unit\test_contract_medication.py:90: AssertionError
+____________ test_operations_match_contract[get-/medications/{id}] ____________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+            assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+        for code in ("200", "201"):
+            if code in c_op["responses"]:
+>               assert _shape(contract, _response(contract, c_op, code)) == _shape(
+                    app, _response(app, a_op, code)
+                ), (method, path, code)
+E               AssertionError: ('get', '/medications/{id}', '200')
+E               assert (['doses_per_...': None, ...}) == (['doses_per_...': None, ...})
+E                 
+E                 At index 0 diff: ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'] != ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'pill_color', 'pill_shape', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity']
+E                 Use -v to get more diff
+
+tests\unit\test_contract_medication.py:93: AssertionError
+___________ test_operations_match_contract[patch-/medications/{id}] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/medications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+>           assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+E           AssertionError: assert (['days_of_we...': None, ...}) == (['days_of_we...': None, ...})
+E             
+E             At index 0 diff: ['days_of_week', 'dosing_mode', 'intake_times', 'intake_timing', 'max_doses_per_day', 'quantity_per_dose', 'stock_quantity', 'stopped'] != ['days_of_week', 'dosing_mode', 'intake_times', 'intake_timing', 'max_doses_per_day', 'pill_color', 'pill_shape', 'quantity_per_dose', 'stock_quantity', 'stopped']
+E             Use -v to get more diff
+
+tests\unit\test_contract_medication.py:90: AssertionError
+______ test_operations_match_contract[post-/medications/{id}/schedules] _______
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'post', path = '/medications/{id}/schedules'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+            assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+        for code in ("200", "201"):
+            if code in c_op["responses"]:
+>               assert _shape(contract, _response(contract, c_op, code)) == _shape(
+                    app, _response(app, a_op, code)
+                ), (method, path, code)
+E               AssertionError: ('post', '/medications/{id}/schedules', '201')
+E               assert (['doses_per_...': None, ...}) == (['doses_per_...': None, ...})
+E                 
+E                 At index 0 diff: ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'] != ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'pill_color', 'pill_shape', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity']
+E                 Use -v to get more diff
+
+tests\unit\test_contract_medication.py:93: AssertionError
+_ test_operations_match_contract[patch-/medications/{id}/schedules/{schedule_id}] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/medications/{id}/schedules/{schedule_id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+            assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+        for code in ("200", "201"):
+            if code in c_op["responses"]:
+>               assert _shape(contract, _response(contract, c_op, code)) == _shape(
+                    app, _response(app, a_op, code)
+                ), (method, path, code)
+E               AssertionError: ('patch', '/medications/{id}/schedules/{schedule_id}', '200')
+E               assert (['doses_per_...': None, ...}) == (['doses_per_...': None, ...})
+E                 
+E                 At index 0 diff: ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'] != ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'pill_color', 'pill_shape', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity']
+E                 Use -v to get more diff
+
+tests\unit\test_contract_medication.py:93: AssertionError
+_ test_operations_match_contract[delete-/medications/{id}/schedules/{schedule_id}] _
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'delete', path = '/medications/{id}/schedules/{schedule_id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+        c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+    
+        assert set(c_op["responses"]) <= set(a_op["responses"]), path
+        if "requestBody" in c_op:
+            assert _shape(contract, _request(contract, c_op)) == _shape(app, _request(app, a_op))
+        for code in ("200", "201"):
+            if code in c_op["responses"]:
+>               assert _shape(contract, _response(contract, c_op, code)) == _shape(
+                    app, _response(app, a_op, code)
+                ), (method, path, code)
+E               AssertionError: ('delete', '/medications/{id}/schedules/{schedule_id}', '200')
+E               assert (['doses_per_...': None, ...}) == (['doses_per_...': None, ...})
+E                 
+E                 At index 0 diff: ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity'] != ['doses_per_day', 'dosing_mode', 'ended_at', 'has_interaction_data', 'id', 'intake_timing', 'medication', 'pill_color', 'pill_shape', 'quantity_per_dose', 'schedules', 'status', 'stock_quantity']
+E                 Use -v to get more diff
+
+tests\unit\test_contract_medication.py:93: AssertionError
+________ test_operations_match_contract[get-/catalog/medications/{id}] ________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/catalog/medications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/catalog/medications/{id}'
+
+tests\unit\test_contract_medication.py:86: KeyError
+___________ test_operations_match_contract[get-/medications/search] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/medications/search'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:86: KeyError
+____ test_catalog_search_query_params_match_contract[/medications/search] _____
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+path = '/medications/search'
+
+    @pytest.mark.parametrize("path", ["/catalog/medications", "/medications/search"])
+    def test_catalog_search_query_params_match_contract(specs, path):
+        contract, app = specs
+>       assert _query_params(contract["paths"][path]["get"]) == _query_params(app["paths"][path]["get"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:120: KeyError
+______________ test_catalog_search_operation_ids_match_contract _______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_catalog_search_operation_ids_match_contract(specs):
+        contract, app = specs
+        paths = ("/catalog/medications", "/medications/search")
+        actual = [app["paths"][path]["get"]["operationId"] for path in paths]
+>       assert actual == [contract["paths"][path]["get"]["operationId"] for path in paths]
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/medications/search'
+
+tests\unit\test_contract_medication.py:127: KeyError
+_____________ test_operations_match_contract[get-/notifications] ______________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:30: KeyError
+___________ test_operations_match_contract[get-/notifications/{id}] ___________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'get', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+__________ test_operations_match_contract[patch-/notifications/{id}] __________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+method = 'patch', path = '/notifications/{id}'
+
+    @pytest.mark.parametrize("method, path", OPERATIONS)
+    def test_operations_match_contract(specs, method, path):
+        contract, app = specs
+>       c_op, a_op = contract["paths"][path][method], app["paths"][path][method]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications/{id}'
+
+tests\unit\test_contract_notification.py:30: KeyError
+________________ test_notification_query_params_match_contract ________________
+
+specs = ({'openapi': '3.1.0', 'info': {'title': 'DrugTime API', 'version': '0.1.0', 'description': 'H\u1ee3p \u0111\u1ed3ng API gi\u1eefa Backend ...t', ...], ...}, ...}, 'securitySchemes': {'bearerAuth': {'type': 'http', 'scheme': 'bearer', 'bearerFormat': 'JWT'}}}})
+
+    def test_notification_query_params_match_contract(specs):
+        contract, app = specs
+>       c_params = {p["name"]: p for p in contract["paths"]["/notifications"]["get"]["parameters"]}
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/notifications'
+
+tests\unit\test_contract_notification.py:52: KeyError
+______ test_interaction_contract_keeps_composition_versions_scale_and_q1 ______
+
+    def test_interaction_contract_keeps_composition_versions_scale_and_q1():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        create = schemas["DrugInteractionCreate"]
+        assert len(create["oneOf"]) == 2
+        assert create["oneOf"][0]["required"] == ["ingredient_b_id"]
+        assert create["oneOf"][1]["required"] == ["ingredient_b_external_name"]
+        assert create["additionalProperties"] is False
+        assert "verification_status" not in create["properties"]
+    
+        update = schemas["DrugInteractionUpdate"]
+        assert update["minProperties"] == 2
+        assert update["properties"]["expected_version"]["minimum"] == 1
+        severity = schemas["InteractionSeverity"]
+        assert (severity["minimum"], severity["maximum"]) == (1, 4)
+        for label in (
+            "c\u1ea7n theo d\xf5i",
+            "c\u1ea7n th\u1eadn tr\u1ecdng",
+            "c\xe2n nh\u1eafc l\u1ee3i \xedch/nguy c\u01a1",
+            "ph\u1ed1i h\u1ee3p nguy hi\u1ec3m",
+        ):
+            assert label in severity["description"]
+    
+        for path in ("/admin/drug-interactions", "/admin/drug-food-interactions"):
+            description = _operation(contract, "post", path)["description"].lower()
+            assert "hi\u1ec7u l\u1ef1c ngay" in description
+>           assert "kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t" in description
+E           AssertionError: assert 'kh\xf4ng c\xf3 b\u01b0\u1edbc duy\u1ec7t' in 't\u1ea1o quy t\u1eafc m\u1edbi \u1edf phi\xean b\u1ea3n 1, c\xf3 hi\u1ec7u l\u1ef1c ngay. th\u1ee9 t\u1ef1 ki\u1ec3m: body sai c\u1ea5u tr\xfac (422) \u2192 ho\u1ea1t ch\u1ea5t kh\xf4ng t\u1ed3n t\u1ea1i (422 ... superseded`). n\u1ed9i dung phi\xean b\u1ea3n \u0111\xe3 t\u1ea1o kh\xf4ng bao gi\u1edd \u0111\u1ed5i. c\xe1c request ghi tr\xean c\xf9ng m\u1ed9t quy t\u1eafc \u0111\u01b0\u1ee3c x\u1eed l\xfd l\u1ea7n l\u01b0\u1ee3t.'
+
+tests\unit\test_contract_openapi_semantics.py:200: AssertionError
+_ test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics _
+
+    def test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics():
+        contract = _read_contract()
+        schemas = contract["components"]["schemas"]
+        profile_get = _operation(contract, "get", "/profile")
+        cache_control = profile_get["responses"]["200"]["headers"]["Cache-Control"]["schema"]
+        assert cache_control.get("const", cache_control.get("enum")) in ("no-store", ["no-store"])
+        profile = schemas["HealthProfileResponse"]
+>       assert set(profile["required"]) == {"full_name", "date_of_birth", "gender", "conditions"}
+E       AssertionError: assert {'conditions'...phone_number'} == {'conditions'...me', 'gender'}
+E         
+E         Extra items in the left set:
+E         'email'
+E         'phone_number'
+E         Use -v to get more diff
+
+tests\unit\test_contract_openapi_semantics.py:245: AssertionError
+_ test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/medications-get] _
+
+path = '/patients/{patient_id}/medications', method = 'get'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/patients/{patient_id}/medications'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+_ test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/dose-reminders-post] _
+
+path = '/patients/{patient_id}/dose-reminders', method = 'post'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/patients/{patient_id}/dose-reminders'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+_ test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/dose-reminders/status-get] _
+
+path = '/patients/{patient_id}/dose-reminders/status', method = 'get'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/patients/{patient_id}/dose-reminders/status'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+_ test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received-get] _
+
+path = '/dose-reminders/received', method = 'get'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/dose-reminders/received'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+_ test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received/{id}-get] _
+
+path = '/dose-reminders/received/{id}', method = 'get'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/dose-reminders/received/{id}'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+_ test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received/{id}-patch] _
+
+path = '/dose-reminders/received/{id}', method = 'patch'
+
+    @pytest.mark.parametrize("path,method", PATHS)
+    def test_new_operations_match_canonical_security_and_statuses(path, method):
+        spec = create_app().openapi()
+        actual = spec["paths"][path][method]
+>       expected = CANONICAL["paths"][path][method]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: '/dose-reminders/received/{id}'
+
+tests\unit\test_contract_patient_switcher.py:34: KeyError
+__ test_request_and_success_response_shapes_match_contract[/profile-get-200] __
+
+path = '/profile', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+        expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+        assert actual["security"] == expected["security"]
+        runtime_bearer = runtime["components"]["securitySchemes"]["bearerAuth"]
+        contract_bearer = contract["components"]["securitySchemes"]["bearerAuth"]
+        for field in ("type", "scheme", "bearerFormat"):
+            assert runtime_bearer[field] == contract_bearer[field]
+        if "requestBody" in expected:
+            assert _shape(
+                contract, expected["requestBody"]["content"]["application/json"]["schema"]
+            ) == (_shape(runtime, actual["requestBody"]["content"]["application/json"]["schema"]))
+        if success != 204:
+            e = _resolve(contract, expected["responses"][str(success)])
+            a = _resolve(runtime, actual["responses"][str(success)])
+>           assert _shape(contract, e["content"]["application/json"]["schema"]) == (
+                _shape(runtime, a["content"]["application/json"]["schema"])
+            )
+E           AssertionError: assert {'type': 'obj...mail'}], ...}} == {'type': 'obj...mail'}], ...}}
+E             
+E             Omitting 3 identical items, use -vv to show
+E             Differing items:
+E             {'properties': {'full_name': [{'type': 'null'}, {'type': 'string'}], 'date_of_birth': [{'type': 'null'}, {'type': 'str...ll'}, {'type': 'string'}], 'email': [{'type': 'null', 'format': 'email'}, {'type': 'string', 'format': 'email'}], ...}} != {'properties': {'full_name': [{'type': 'null'}, {'type': 'string'}], 'date_of_birth': [{'type': 'null'}, {'type': 'str...ll'}, {'type': 'string'}], 'email': [{'type': 'null', 'format': 'email'}, {'type': 'string', 'format': 'email'}], ...}}
+E             Use -v to get more diff
+
+tests\unit\test_contract_profile.py:109: AssertionError
+_ test_request_and_success_response_shapes_match_contract[/conditions-get-200] _
+
+path = '/conditions', method = 'get', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+        expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+        assert actual["security"] == expected["security"]
+        runtime_bearer = runtime["components"]["securitySchemes"]["bearerAuth"]
+        contract_bearer = contract["components"]["securitySchemes"]["bearerAuth"]
+        for field in ("type", "scheme", "bearerFormat"):
+            assert runtime_bearer[field] == contract_bearer[field]
+        if "requestBody" in expected:
+            assert _shape(
+                contract, expected["requestBody"]["content"]["application/json"]["schema"]
+            ) == (_shape(runtime, actual["requestBody"]["content"]["application/json"]["schema"]))
+        if success != 204:
+            e = _resolve(contract, expected["responses"][str(success)])
+            a = _resolve(runtime, actual["responses"][str(success)])
+>           assert _shape(contract, e["content"]["application/json"]["schema"]) == (
+                _shape(runtime, a["content"]["application/json"]["schema"])
+            )
+E           AssertionError: assert {'type': 'obj...nimum': 0.0}}} == {'type': 'obj...nimum': 0.0}}}
+E             
+E             Omitting 3 identical items, use -vv to show
+E             Differing items:
+E             {'properties': {'items': {'type': 'array', 'items': {'type': 'object', 'additionalProperties': False, 'required': ['id...: 0.0}, 'limit': {'type': 'integer', 'minimum': 1.0, 'maximum': 100.0}, 'offset': {'type': 'integer', 'minimum': 0.0}}} != {'properties': {'items': {'type': 'array', 'items': {'type': 'object', 'additionalProperties': False, 'required': ['ca...: 0.0}, 'limit': {'type': 'integer', 'minimum': 1.0, 'maximum': 100.0}, 'offset': {'type': 'integer', 'minimum': 0.0}}}
+E             Use -v to get more diff
+
+tests\unit\test_contract_profile.py:109: AssertionError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201] _
+
+path = '/profile/conditions', method = 'post', success = 201
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+        expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+        assert actual["security"] == expected["security"]
+        runtime_bearer = runtime["components"]["securitySchemes"]["bearerAuth"]
+        contract_bearer = contract["components"]["securitySchemes"]["bearerAuth"]
+        for field in ("type", "scheme", "bearerFormat"):
+            assert runtime_bearer[field] == contract_bearer[field]
+        if "requestBody" in expected:
+            assert _shape(
+                contract, expected["requestBody"]["content"]["application/json"]["schema"]
+            ) == (_shape(runtime, actual["requestBody"]["content"]["application/json"]["schema"]))
+        if success != 204:
+            e = _resolve(contract, expected["responses"][str(success)])
+            a = _resolve(runtime, actual["responses"][str(success)])
+>           assert _shape(contract, e["content"]["application/json"]["schema"]) == (
+                _shape(runtime, a["content"]["application/json"]["schema"])
+            )
+E           AssertionError: assert {'type': 'obj...ring'}], ...}} == {'type': 'obj...ring'}], ...}}
+E             
+E             Omitting 2 identical items, use -vv to show
+E             Differing items:
+E             {'required': ['condition_id', 'condition_name', 'id', 'stage', 'subtype']} != {'required': ['category', 'condition_id', 'condition_name', 'id', 'stage', 'subtype']}
+E             {'properties': {'id': {'type': 'integer', 'format': 'int64', 'minimum': 1.0, 'maximum': 9.223372036854776e+18}, 'condi... 9.223372036854776e+18}, 'condition_name': {'type': 'string'}, 'subtype': [{'type': 'null'}, {'type': 'string'}], ...}} != {'properties': {'id': {'type': 'integer', 'format': 'int64', 'minimum': 1.0, 'maximum': 9.223372036854776e+18...
+E             
+E             ...Full output truncated, use '-vv' to show
+
+tests\unit\test_contract_profile.py:109: AssertionError
+_ test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200] _
+
+path = '/profile/conditions/{id}', method = 'patch', success = 200
+
+    @pytest.mark.parametrize("path,method,success", OPERATIONS)
+    def test_request_and_success_response_shapes_match_contract(path, method, success):
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+        expected, actual = contract["paths"][path][method], runtime["paths"][path][method]
+        assert actual["security"] == expected["security"]
+        runtime_bearer = runtime["components"]["securitySchemes"]["bearerAuth"]
+        contract_bearer = contract["components"]["securitySchemes"]["bearerAuth"]
+        for field in ("type", "scheme", "bearerFormat"):
+            assert runtime_bearer[field] == contract_bearer[field]
+        if "requestBody" in expected:
+            assert _shape(
+                contract, expected["requestBody"]["content"]["application/json"]["schema"]
+            ) == (_shape(runtime, actual["requestBody"]["content"]["application/json"]["schema"]))
+        if success != 204:
+            e = _resolve(contract, expected["responses"][str(success)])
+            a = _resolve(runtime, actual["responses"][str(success)])
+>           assert _shape(contract, e["content"]["application/json"]["schema"]) == (
+                _shape(runtime, a["content"]["application/json"]["schema"])
+            )
+E           AssertionError: assert {'type': 'obj...ring'}], ...}} == {'type': 'obj...ring'}], ...}}
+E             
+E             Omitting 2 identical items, use -vv to show
+E             Differing items:
+E             {'required': ['condition_id', 'condition_name', 'id', 'stage', 'subtype']} != {'required': ['category', 'condition_id', 'condition_name', 'id', 'stage', 'subtype']}
+E             {'properties': {'id': {'type': 'integer', 'format': 'int64', 'minimum': 1.0, 'maximum': 9.223372036854776e+18}, 'condi... 9.223372036854776e+18}, 'condition_name': {'type': 'string'}, 'subtype': [{'type': 'null'}, {'type': 'string'}], ...}} != {'properties': {'id': {'type': 'integer', 'format': 'int64', 'minimum': 1.0, 'maximum': 9.223372036854776e+18...
+E             
+E             ...Full output truncated, use '-vv' to show
+
+tests\unit\test_contract_profile.py:109: AssertionError
+_________ test_health_setup_physiological_step_matches_contract__AC25 _________
+
+    def test_health_setup_physiological_step_matches_contract__AC25():
+        contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+        runtime = create_app().openapi()
+        path = "/profile/health-setup"
+        c_get = _resolve(contract, contract["paths"][path]["get"]["responses"]["200"])
+        r_get = _resolve(runtime, runtime["paths"][path]["get"]["responses"]["200"])
+        c_resp = _resolve(contract, c_get["content"]["application/json"]["schema"])
+        r_resp = _resolve(runtime, r_get["content"]["application/json"]["schema"])
+>       assert (
+            set(c_resp["required"])
+            == set(r_resp["required"])
+            == {
+                "revision",
+                "allergies",
+                "conditions",
+                "physiological_states",
+            }
+        )
+E       AssertionError: assert {'allergies',...', 'revision'} == {'allergies',...', 'revision'}
+E         
+E         Extra items in the right set:
+E         'physiological_states'
+E         Use -v to get more diff
+
+tests\unit\test_contract_profile.py:126: AssertionError
+_____________ test_openapi_operations_match_the_approved_contract _____________
+
+    def test_openapi_operations_match_the_approved_contract():
+        path = Path(__file__).resolve().parents[3] / "api_contract/openapi.json"
+        if not path.is_file():
+            pytest.skip("API contract checkout is unavailable")
+        contract = json.loads(path.read_text(encoding="utf8"))
+        generated = create_app().openapi()
+        for method, path in (
+            ("post", BASE),
+            ("post", BASE + "/otp"),
+            ("post", BASE + "/otp/verify"),
+            ("get", BASE + "/current"),
+            ("post", BASE + "/current/cancel"),
+        ):
+>           expected = contract["paths"][path][method]
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: '/data-deletion-requests/otp/verify'
+
+tests\unit\test_deletion_creation_http.py:88: KeyError
+___________ test_verify_has_no_side_effect_until_final_confirmation ___________
+
+    def test_verify_has_no_side_effect_until_final_confirmation():
+        s = Scenario()
+        challenge, otp = s.issue()
+>       s.service.confirm(s.uid, challenge, otp, verify_only=True)
+E       TypeError: DeletionCreation.confirm() got an unexpected keyword argument 'verify_only'
+
+tests\unit\test_deletion_lifecycle.py:12: TypeError
+__ test_cancel_retries_do_not_recreate_links_consents_or_allow_consumed_otp ___
+
+    def test_cancel_retries_do_not_recreate_links_consents_or_allow_consumed_otp():
+        s = Scenario()
+        proof = s.issue()
+>       saved, _ = s.service.confirm(s.uid, *proof)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: DeletionCreation.confirm() takes 3 positional arguments but 4 were given
+
+tests\unit\test_deletion_lifecycle.py:21: TypeError
+_____________ test_deadline_is_exclusive_and_lookup_never_cancels _____________
+
+    def test_deadline_is_exclusive_and_lookup_never_cancels():
+        s = Scenario()
+>       saved, _ = s.service.confirm(s.uid, *s.issue())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: DeletionCreation.confirm() takes 3 positional arguments but 4 were given
+
+tests\unit\test_deletion_lifecycle.py:34: TypeError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\Captone\DrugTime\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_contract_consent.py::test_pending_deletion_queue_matches_contract
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[put-registerMyDeviceToken]
+FAILED tests/unit/test_contract_device_tokens.py::test_token_operations_match_approved_contract[delete-unregisterMyDeviceToken]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[post-/medications]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/{id}]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[patch-/medications/{id}]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[post-/medications/{id}/schedules]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[patch-/medications/{id}/schedules/{schedule_id}]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[delete-/medications/{id}/schedules/{schedule_id}]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/catalog/medications/{id}]
+FAILED tests/unit/test_contract_medication.py::test_operations_match_contract[get-/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_query_params_match_contract[/medications/search]
+FAILED tests/unit/test_contract_medication.py::test_catalog_search_operation_ids_match_contract
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[get-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_operations_match_contract[patch-/notifications/{id}]
+FAILED tests/unit/test_contract_notification.py::test_notification_query_params_match_contract
+FAILED tests/unit/test_contract_openapi_semantics.py::test_interaction_contract_keeps_composition_versions_scale_and_q1
+FAILED tests/unit/test_contract_openapi_semantics.py::test_profile_condition_contract_keeps_self_only_no_store_and_error_semantics
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/medications-get]
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/dose-reminders-post]
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/patients/{patient_id}/dose-reminders/status-get]
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received-get]
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received/{id}-get]
+FAILED tests/unit/test_contract_patient_switcher.py::test_new_operations_match_canonical_security_and_statuses[/dose-reminders/received/{id}-patch]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/conditions-get-200]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions-post-201]
+FAILED tests/unit/test_contract_profile.py::test_request_and_success_response_shapes_match_contract[/profile/conditions/{id}-patch-200]
+FAILED tests/unit/test_contract_profile.py::test_health_setup_physiological_step_matches_contract__AC25
+FAILED tests/unit/test_deletion_creation_http.py::test_openapi_operations_match_the_approved_contract
+FAILED tests/unit/test_deletion_lifecycle.py::test_verify_has_no_side_effect_until_final_confirmation
+FAILED tests/unit/test_deletion_lifecycle.py::test_cancel_retries_do_not_recreate_links_consents_or_allow_consumed_otp
+FAILED tests/unit/test_deletion_lifecycle.py::test_deadline_is_exclusive_and_lookup_never_cancels
+35 failed, 53 passed, 1 warning in 19.50s
