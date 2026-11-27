@@ -1,9 +1,15 @@
 ---
 task: adhoc-20261127-my-meds-redesign
 stage: implement
-status: draft
 owner: Ngọc Việt
 started_at: 2026-11-27 09:25
+status: approved
+approved_by: Ngọc Việt
+approved_at: 2026-11-27 09:37 +0700
+content_hash: sha256:c8bfe74d6380e84f
+inputs:
+  01-requirement.md: sha256:9cd317fdd99ae70b
+  03-plan.md: sha256:42cf2a0c69c802c9
 ---
 
 # adhoc-20261127-my-meds-redesign · Implement
