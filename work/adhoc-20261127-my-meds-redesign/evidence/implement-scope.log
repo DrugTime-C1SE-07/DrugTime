@@ -1,0 +1,12 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261127-my-meds-redesign:
+  [OK]        frontend/mobile/lib/app/theme/app_theme.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/screens/my_medications_screen.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/widgets/medication_card.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/widgets/medication_filter_bar.dart
+  [OK]        frontend/mobile/lib/features/medication/presentation/widgets/medication_notices.dart
+  [OK]        frontend/mobile/test/features/medication/medication_filter_bar_test.dart
+  [OK]        frontend/mobile/test/features/medication/medication_screens_test.dart
+  [OK]        frontend/mobile/test/features/medication/pill_appearance_display_test.dart
+  [NGOÀI]     .agents/core.md
+  [NGOÀI]     AGENTS.md
+CHẶN: 2 file ngoài phạm vi. Ghi vào mục 'Phát sinh' và hỏi người dùng.

@@ -1,0 +1,455 @@
+{
+  "project": "DrugTime",
+  "functions": [
+    {
+      "code": "OCRUI",
+      "name": "Hoàn thiện màn hình quét vỉ thuốc & kết quả OCR",
+      "sheet": "Quét vỉ & kết quả OCR",
+      "description": "Hoàn thiện giao diện camera quét vỉ thuốc (S07-O1), đang nhận diện (S07-O2), kết quả nhận diện (S07-O2r) và màn lỗi/thử lại (S07-O3e) trên Mobile theo Figma và QD-39.",
+      "created_by": "Duc1445",
+      "created_date": "2026-11-26",
+      "reviewed_by": "",
+      "reviewed_date": "",
+      "priority": "High",
+      "remarks": "20/22 test case tự động Pass qua flutter test (117 pass, 0 fail, 1 skip !kIsWeb); 2 test case thủ công trên thiết bị Android thật (AC10) ở trạng thái Pending chờ kiểm thử vật lý.",
+      "ep": [
+        {
+          "field": "status / kết quả nhận diện (OCR)",
+          "valid": [
+            "matched (ứng viên đủ tin cậy)",
+            "low_confidence (tin cậy thấp cần đối chiếu)"
+          ],
+          "invalid": [
+            "no_match / noText (không khớp danh mục hoặc không đọc được chữ)",
+            "Lỗi tạm thời có thể thử lại (network/server/unavailable/recognition)",
+            "Lỗi ảnh không thử lại được (blurred/dark/invalidImage/textTooLong/validation/unsupported)",
+            "Lỗi khóa fail-closed (unauthorized 401/cleanup/rút consent)"
+          ]
+        },
+        {
+          "field": "camera_permission",
+          "valid": [
+            "granted (đã cấp quyền camera)"
+          ],
+          "invalid": [
+            "denied (từ chối tạm thời)",
+            "permanentlyDenied (từ chối vĩnh viễn)",
+            "Lỗi phần cứng/khởi tạo camera (camera.error)"
+          ]
+        },
+        {
+          "field": "candidate.score",
+          "valid": [
+            "0 < score <= 1 (hiển thị XX% khớp)",
+            "score == 0 (ẩn phần trăm khớp)"
+          ],
+          "invalid": [
+            "score < 0 hoặc score > 1 / không hữu hạn (từ chối badResponse)"
+          ]
+        }
+      ],
+      "decision_tables": [
+        {
+          "title": "DT1: Thanh hành động màn lỗi (S07-O3e)",
+          "conditions": [
+            {
+              "name": "Bị khóa phiên/dọn ảnh (isLockedFailure)?",
+              "values": ["Yes", "Yes", "No", "No", "No"]
+            },
+            {
+              "name": "Đang chờ dọn ảnh (cleanupPending)?",
+              "values": ["No", "Yes", "No", "No", "No"]
+            },
+            {
+              "name": "Lỗi tạm còn hạn thử lại (ocr.canRetry)?",
+              "values": ["-", "-", "Yes", "No", "No"]
+            },
+            {
+              "name": "Ảnh quá hạn 24h (expiredImage)?",
+              "values": ["-", "-", "No", "Yes", "No"]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Chỉ hiện nút 'Đóng' (ẩn Thử lại/Tìm thủ công/Chọn ảnh khác/Chụp lại)",
+              "rules": [1]
+            },
+            {
+              "name": "Chỉ hiện nút 'Thử dọn lại' (fail-closed)",
+              "rules": [2]
+            },
+            {
+              "name": "Hiện 'Thử lại' + 'Tìm thuốc thủ công' + 'Chọn ảnh khác' + 'Chụp lại'",
+              "rules": [3]
+            },
+            {
+              "name": "Xóa RAM, báo 'Ảnh đã hết hạn', ẩn 'Thử lại', giữ 'Chụp lại'/tìm tay/chọn ảnh",
+              "rules": [4]
+            },
+            {
+              "name": "Ẩn 'Thử lại', hiện 'Tìm thuốc thủ công' + 'Chọn ảnh khác' + 'Chụp lại'",
+              "rules": [5]
+            }
+          ]
+        },
+        {
+          "title": "DT2: Hiển thị kết quả nhận diện (S07-O2r)",
+          "conditions": [
+            {
+              "name": "status == matched?",
+              "values": ["Yes", "Yes", "No", "No"]
+            },
+            {
+              "name": "status == low_confidence?",
+              "values": ["No", "No", "Yes", "No"]
+            },
+            {
+              "name": "reasons chứa strength_unverified?",
+              "values": ["No", "Yes", "-", "-"]
+            }
+          ],
+          "actions": [
+            {
+              "name": "Pill xanh lá 'Đã nhận diện · XX% khớp', không có banner cảnh báo",
+              "rules": [1]
+            },
+            {
+              "name": "Pill xanh lá 'Đã nhận diện...' + banner 'Hãy xem số mg trên vỏ hộp'",
+              "rules": [2]
+            },
+            {
+              "name": "Pill hổ phách 'Cần đối chiếu...' (#92400E) + banner 'Hãy đối chiếu tên và số mg với vỏ hộp'",
+              "rules": [3]
+            },
+            {
+              "name": "Chuyển màn lỗi S07-O3e 'Chưa thấy tên thuốc', không hiện thẻ thuốc",
+              "rules": [4]
+            }
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "id": "TC-OCRUI-01",
+          "description": "Hiển thị màn hình camera S07-O1 có lớp phủ tối scrim 4 phía, pill hướng dẫn dưới khung và không overflow trên màn hình nhỏ phóng chữ 1.3x",
+          "precondition": "Người dùng đã đăng nhập, cấp quyền camera (granted), thiết bị 360x640, TextScaler = 1.3.",
+          "steps": [
+            "Mở màn hình ScanMedicationScreen.",
+            "Quan sát lớp phủ tối quanh khung quét, 4 góc khung 28px và vị trí pill hướng dẫn.",
+            "Kiểm tra kích thước vùng chạm các nút Thư viện, Nhập tay và không có ngoại lệ tràn bố cục."
+          ],
+          "data": "viewport = 360x640, textScaler = 1.3, permission = granted",
+          "expected": "Hiển thị Key('scan-scrim') màu AppColors.cameraScrim khoét đúng khung cắt, Key('scan-hint') ('Đặt tên thuốc vào trong khung') nằm dưới đáy khung góc không đè khung, nút Thư viện/Nhập tay cao >= 48dp, có dòng 'Ảnh chỉ xử lý trên điện thoại của bạn', không overflow.",
+          "actual": "Pass: scan_medication_screen_test.dart ('camera renders 4-side cameraScrim aligned with crop frame, guide pill below frame, no overflow at 360x640 1.3x (AC1)') xác nhận Key('scan-scrim') màu AppColors.cameraScrim, pillRect.top >= cornersRect.bottom, nút >= 48dp, takeException() == null (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC1 · EP (3) · BVA (360x640, 1.3x) · camera renders 4-side cameraScrim aligned with crop frame (AC1)"
+        },
+        {
+          "id": "TC-OCRUI-02",
+          "description": "Kiểm tra tia quét lặp đảo chiều và đứng yên giữa khung khi bật giảm chuyển động hệ thống",
+          "precondition": "Màn hình ScanMedicationScreen mở ở trạng thái camera.",
+          "steps": [
+            "Mở màn hình camera với disableAnimations = false, theo dõi tọa độ y của Key('scan-beam') sau mỗi 700ms.",
+            "Mở lại màn hình camera với disableAnimations = true, kiểm tra tọa độ y của Key('scan-beam') tại 0ms và 700ms."
+          ],
+          "data": "disableAnimations = false / true; chu kỳ ScanBeam.period = 1400ms",
+          "expected": "Khi disableAnimations = false, tia quét chạy từ -1 xuống +1 rồi đảo chiều lên -1; khi disableAnimations = true, tia quét đứng yên tại y = 0.0 và dừng sạch khi rời camera.",
+          "actual": "Pass: scan_medication_screen_test.dart ('scan beam sweeps down to bottom...' và 'scan beam stays still when disableAnimations is true...') đạt (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC1 · EP (3) · BVA (disableAnimations) · scan beam sweeps down / stays still when disableAnimations is true"
+        },
+        {
+          "id": "TC-OCRUI-03",
+          "description": "Truyền vùng cắt khớp khung khi chụp camera và không cắt khi chọn ảnh từ Thư viện",
+          "precondition": "Màn hình ScanMedicationScreen mở trên kích thước 375x812, camera sẵn sàng và Thư viện có ảnh hợp lệ.",
+          "steps": [
+            "Bấm nút 'Chụp ảnh' trên màn camera.",
+            "Kiểm tra CaptureCropRect truyền vào CaptureProcessor.process.",
+            "Bấm 'Chụp lại', sau đó bấm nút 'Thư viện' để chọn ảnh."
+          ],
+          "data": "viewport = 375x812, ảnh PNG 64x48",
+          "expected": "Chụp camera truyền CaptureCropRect chuẩn hóa trong khoảng (0, 1) có viewportAspectRatio > 0; chọn từ Thư viện truyền crop = null.",
+          "actual": "Pass: scan_medication_screen_test.dart ('camera capture passes scan frame crop while gallery pick passes null crop') xác nhận processor.crops[0] nằm trong (0,1), processor.crops[1] == null (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC1 · State Transition · camera capture passes scan frame crop while gallery pick passes null crop"
+        },
+        {
+          "id": "TC-OCRUI-04",
+          "description": "Hiển thị thẻ hướng dẫn thân thiện và ẩn overlay khi quyền camera bị từ chối tạm thời (denied)",
+          "precondition": "Người dùng từ chối quyền camera tạm thời (CapturePermission.denied).",
+          "steps": [
+            "Mở màn hình ScanMedicationScreen.",
+            "Quan sát khu vực camera và các nút hiển thị."
+          ],
+          "data": "permission = CapturePermission.denied",
+          "expected": "Tự xin quyền khi mở (statusRequests = [true]), hiển thị Key('scan-camera-issue') với dòng 'Bạn vẫn có thể chọn ảnh từ Thư viện hoặc Nhập tay ở bên dưới.', ẩn Key('scan-scrim'), không có nút 'Cho phép camera' và không có nút 'Mở cài đặt'.",
+          "actual": "Pass: scan_medication_screen_test.dart ('denied, permanentlyDenied, and camera error show elderly guidance and hide overlay without allow button (AC2)') xác nhận hiển thị scan-camera-issue, ẩn scan-scrim, không có 'Cho phép camera'/'Mở cài đặt' (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC2 · EP (10) · denied, permanentlyDenied, and camera error show elderly guidance (AC2)"
+        },
+        {
+          "id": "TC-OCRUI-05",
+          "description": "Hiển thị nút 'Mở cài đặt' duy nhất và gọi openSettings khi quyền camera bị từ chối vĩnh viễn",
+          "precondition": "Quyền camera ở trạng thái CapturePermission.permanentlyDenied.",
+          "steps": [
+            "Mở màn hình ScanMedicationScreen.",
+            "Kiểm tra sự xuất hiện của Key('scan-camera-issue') và nút 'Mở cài đặt'.",
+            "Bấm nút 'Mở cài đặt'."
+          ],
+          "data": "permission = CapturePermission.permanentlyDenied",
+          "expected": "Ẩn Key('scan-scrim'), hiển thị duy nhất 1 nút 'Mở cài đặt' (không có 'Cho phép camera'); bấm gọi openSettings() đúng 1 lần.",
+          "actual": "Pass: scan_medication_screen_test.dart ('permanent camera denial opens app settings...' và 'denied, permanentlyDenied, and camera error...') xác nhận find.text('Mở cài đặt') findsOneWidget, settingsCalls == 1 (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC2 · EP (11) · permanent camera denial opens app settings / denied, permanentlyDenied, and camera error (AC2)"
+        },
+        {
+          "id": "TC-OCRUI-06",
+          "description": "Hiển thị thẻ thông báo lỗi camera và ẩn overlay khi phần cứng camera gặp lỗi khởi tạo",
+          "precondition": "Quyền camera đã cấp nhưng CaptureSource.initialize() ném CaptureFailure('Camera đang bận ở ứng dụng khác.').",
+          "steps": [
+            "Mở màn hình ScanMedicationScreen.",
+            "Kiểm tra thông báo hiển thị ở vùng camera."
+          ],
+          "data": "initialize() throws CaptureFailure('Camera đang bận ở ứng dụng khác.')",
+          "expected": "Hiển thị Key('scan-camera-issue') kèm nguyên văn thông báo lỗi và gợi ý dùng Thư viện/Nhập tay, ẩn Key('scan-scrim').",
+          "actual": "Pass: scan_medication_screen_test.dart ('denied, permanentlyDenied, and camera error...') xác nhận hiển thị 'Camera đang bận ở ứng dụng khác.' trong scan-camera-issue và ẩn scan-scrim (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC2 · EP (12) · Error Guessing · denied, permanentlyDenied, and camera error show elderly guidance (AC2)"
+        },
+        {
+          "id": "TC-OCRUI-07",
+          "description": "Hiển thị sheet đang nhận diện S07-O2 đúng token màu #01554F, chữ 17px, thanh tiến trình thật và banner 14px không overflow ở 360x640 1.3x",
+          "precondition": "Ảnh hợp lệ đã được chọn và đang chờ phản hồi POST /catalog/medications/match trên thiết bị 360x640, TextScaler = 1.3.",
+          "steps": [
+            "Chọn ảnh từ Thư viện khi matcher đang chờ (pending).",
+            "Kiểm tra kiểu chữ/màu của 3 bước RecognitionSteps ở trạng thái recognizing và matching.",
+            "Kiểm tra thanh tiến trình Key('scan-progress') và banner 'Ảnh chỉ xử lý trên máy, không gửi đi'."
+          ],
+          "data": "viewport = 360x640, textScaler = 1.3, stage = recognizing -> matching",
+          "expected": "Bước đang chạy dùng AppColors.brand (#01554F) Bold 17px, bước đã xong dùng AppColors.ink 17px, bước chờ dùng AppColors.inkMuted 17px; thanh tiến trình tăng 1/3 -> 2/3 màu AppColors.brand; banner bảo mật cỡ 14px w500; không overflow.",
+          "actual": "Pass: recognition_steps_test.dart (5 pass) và scan_medication_screen_test.dart ('recognizing sheet shows 14px privacy banner...') xác nhận màu #01554F, fontSize 17/14, takeException() == null (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC3 · State Transition · recognition_steps_test.dart & recognizing sheet shows 14px privacy banner (AC3)"
+        },
+        {
+          "id": "TC-OCRUI-08",
+          "description": "Chạm hủy giữa lúc đang nhận diện sau lần quét no_match trước đó sẽ dọn ảnh tạm, không dính tiêu đề cũ và bỏ qua phản hồi đến muộn",
+          "precondition": "Lần quét trước trả về no_match ('Chưa thấy tên thuốc'); người dùng bấm Chụp lại và đang ở sheet nhận diện lần 2.",
+          "steps": [
+            "Chạm vào Key('scan-recognizing') để hủy khi API chưa trả kết quả.",
+            "Kiểm tra màn hình lỗi hiển thị và các nút ở thanh đáy.",
+            "Hoàn tất Completer phản hồi muộn từ backend."
+          ],
+          "data": "Lần 1: status = no_match, suggested_query = 'paracetamol'; Lần 2: hủy giữa chừng",
+          "expected": "Hiển thị 'Chưa đọc được vỏ hộp' (không còn 'Chưa thấy tên thuốc'), giải phóng ảnh tạm (releases == 1), ẩn 'Thử lại', vẫn có 'Tìm thuốc thủ công', 'Chọn ảnh khác', 'Chụp lại'; phản hồi muộn không làm hiện thẻ thuốc.",
+          "actual": "Pass: scan_medication_screen_test.dart ('recognizing sheet ... and cancelling resets stale _nameMissed (AC3)') xác nhận tiêu đề 'Chưa đọc được vỏ hộp', ẩn 'Thử lại', đủ 3 nút đáy, phản hồi muộn bị bỏ qua (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC3 · DT1 (R5) · State Transition · recognizing sheet ... and cancelling resets stale _nameMissed (AC3)"
+        },
+        {
+          "id": "TC-OCRUI-09",
+          "description": "Hiển thị kết quả matched với pill xanh lá 'Đã nhận diện · 82% khớp', shadow, 3 dòng thông tin và xác nhận sang AddMedicationScreen",
+          "precondition": "POST /catalog/medications/match trả status = matched với items[0] (Glucophage 500 mg, score = 0.82).",
+          "steps": [
+            "Quét/chọn ảnh có kết quả matched.",
+            "Kiểm tra Key('ocr-status-pill'), 3 dòng Hàm lượng/Dạng bào chế/Hoạt chất, bóng thẻ và 3 nút ghim đáy (trên cả 360x640 1.3x).",
+            "Bấm nút 'Đúng thuốc này'."
+          ],
+          "data": "status = matched, score = 0.82, name = 'Glucophage 500 mg', strength = '500mg', dosageForm = 'Viên nén bao phim'",
+          "expected": "Hiện 1 thẻ duy nhất có pill nền AppColors.safeBg chữ AppColors.safe 'Đã nhận diện · 82% khớp' (không lặp badge '82% khớp' cũ), boxShadow = AppShadows.cardElevation, không tự chuyển màn; chỉ sau khi bấm 'Đúng thuốc này' mới mở AddMedicationScreen bước Lịch uống (QD-39).",
+          "actual": "Pass: ocr_single_result_card_test.dart ('shows one medicine as label/value rows with matched pill & shadow (AC4)') và scan_medication_screen_test.dart ('matched shows one large medicine...', 'matched and low_confidence result sheets... 360x640 1.3x') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC4 · EP (1,4) · DT2 (R1) · ocr_single_result_card_test.dart & matched shows one large medicine"
+        },
+        {
+          "id": "TC-OCRUI-10",
+          "description": "Hiển thị pill 'Đã nhận diện' không kèm phần trăm khi score = 0 và giữ đủ 3 dòng 'Chưa có thông tin' khi thiếu dữ liệu",
+          "precondition": "Ứng viên trả về có score = 0 hoặc thiếu activeIngredient/strengthText/dosageForm.",
+          "steps": [
+            "Render OcrSingleResultCard với score = 0.",
+            "Render OcrSingleResultCard với activeIngredient = null, strengthText = ' ', dosageForm = null."
+          ],
+          "data": "Case 1: score = 0; Case 2: activeIngredient = null, strengthText = ' ', dosageForm = null",
+          "expected": "Case 1 hiển thị pill 'Đã nhận diện' (không có '0% khớp'); Case 2 giữ đủ 3 OcrInfoRow đều hiển thị 'Chưa có thông tin'.",
+          "actual": "Pass: ocr_single_result_card_test.dart ('matched with score 0 shows \"Đã nhận diện\" without percentage (AC4)' và 'missing fields keep their row and say so') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC4 · EP (1,5) · DT2 (R1) · BVA (score=0) · matched with score 0 / missing fields keep their row"
+        },
+        {
+          "id": "TC-OCRUI-11",
+          "description": "Hiển thị banner nhắc kiểm tra hàm lượng khi kết quả matched có reasons chứa strength_unverified",
+          "precondition": "POST /catalog/medications/match trả status = matched và reasons = ['strength_unverified'].",
+          "steps": [
+            "Quét/chọn ảnh trả về matched + strength_unverified.",
+            "Kiểm tra nội dung banner cảnh báo trên thẻ kết quả."
+          ],
+          "data": "status = matched, reasons = ['strength_unverified']",
+          "expected": "Hiển thị pill xanh lá 'Đã nhận diện...' kèm banner cảnh báo nguyên văn 'Hãy xem số mg trên vỏ hộp'.",
+          "actual": "Pass: ocr_single_result_card_test.dart ('strength_unverified asks to read the mg (AC4)') và scan_medication_screen_test.dart ('matched without a read strength reminds to check mg (AC1)') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC4 · EP (1,4) · DT2 (R2) · strength_unverified asks to read the mg & matched without a read strength"
+        },
+        {
+          "id": "TC-OCRUI-12",
+          "description": "Hiển thị kết quả low_confidence với 1 thẻ items[0], pill hổ phách (#92400E), cảnh báo đối chiếu và mở tìm thủ công khi bấm 'Không phải thuốc này'",
+          "precondition": "POST /catalog/medications/match trả status = low_confidence với 2 ứng viên (Metformin 500mg score 0.65, Thuốc khác 850mg score 0.45) và suggested_query = 'metformin'.",
+          "steps": [
+            "Quét/chọn ảnh trả low_confidence trên màn hình 360x640, TextScaler = 1.3.",
+            "Kiểm tra số thẻ hiển thị, màu pill và banner cảnh báo.",
+            "Bấm 'Không phải thuốc này' để mở tìm thủ công; lặp lại và bấm 'Đúng thuốc này' để kiểm tra chuyển AddMedicationScreen."
+          ],
+          "data": "status = low_confidence, items.length = 2, suggested_query = 'metformin', score = 0.65",
+          "expected": "Chỉ hiển thị items[0] (Metformin), không hiện 'Thuốc khác', không tự mở tìm thủ công; pill nền AppColors.cautionBg chữ AppColors.cautionText (#92400E) 'Cần đối chiếu · 65% khớp'; banner 'Hãy đối chiếu tên và số mg với vỏ hộp'; bấm 'Không phải thuốc này' điền sẵn 'metformin'; bấm 'Đúng thuốc này' sang AddMedicationScreen (chặn lưu nếu thiếu hàm lượng theo QD-39); không overflow.",
+          "actual": "Pass: ocr_single_result_card_test.dart ('low confidence shows caution pill with cautionText (#92400E)...'), scan_medication_screen_test.dart ('low confidence shows the first medicine...', 'low confidence \"not this medicine\"...', 'matched and low_confidence... 360x640 1.3x') và scanned_schedule_test.dart pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC5 · EP (2,4) · DT2 (R3) · low confidence shows the first medicine / cautionText (#92400E) / scanned_schedule_test.dart"
+        },
+        {
+          "id": "TC-OCRUI-13",
+          "description": "Hiển thị màn lỗi S07-O3e khi no_match hoặc noText với header màu #01554F, vòng 160x160, thẻ gợi ý icon 40x40 chữ 17px và không tự mở tìm thủ công",
+          "precondition": "API trả status = no_match (suggested_query = 'zyrtec' hoặc null) hoặc ML Kit đọc ra chuỗi trắng ' ', màn hình 360x640, TextScaler = 1.3.",
+          "steps": [
+            "Chọn ảnh cho kết quả no_match hoặc noText.",
+            "Kiểm tra màu chữ Key('scan-step-label'), kích thước Key('scan-failure-illus'), Key('tip-badge-light'), Key('tip-badge-frame') và cỡ chữ gợi ý.",
+            "Kiểm tra các nút trên thanh đáy và bấm 'Tìm thuốc thủ công'."
+          ],
+          "data": "Case 1: status = no_match, suggested_query = 'zyrtec'; Case 2: suggested_query = null; Case 3: OCR text = ' '",
+          "expected": "Header 'Bước 1/3 · Chưa đọc được' dùng AppColors.brand (#01554F), vòng tròn 160x160, 2 huy hiệu gợi ý 40x40, chữ gợi ý 17px, không hiện thẻ thuốc, không tự mở tìm thủ công; thanh đáy hiện 'Tìm thuốc thủ công' (điền sẵn 'zyrtec' hoặc rỗng), 'Chọn ảnh khác', 'Chụp lại', ẩn 'Thử lại'; 0 overflow.",
+          "actual": "Pass: scan_medication_screen_test.dart ('no_match failure uses AppColors.brand header...', 'no match asks to retake...', 'no match without a name...', 'no text twice in a row...') đều pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC6 · EP (6) · DT1 (R5), DT2 (R4) · no_match failure uses AppColors.brand header ... no overflow at 360x640 1.3x (AC6)"
+        },
+        {
+          "id": "TC-OCRUI-14",
+          "description": "Hiển thị lý do lỗi và đủ nút 'Tìm thuốc thủ công', 'Chọn ảnh khác', 'Chụp lại' (ẩn 'Thử lại') khi ảnh mờ hoặc ảnh hỏng",
+          "precondition": "CaptureProcessor trả CaptureWarning.blurred hoặc OcrTextReader ném OcrFailureKind.invalidImage.",
+          "steps": [
+            "Chọn ảnh bị mờ (blurred), kiểm tra thông báo lỗi và bộ nút đáy.",
+            "Chọn ảnh hỏng (invalidImage), kiểm tra tiêu đề 'Không mở được ảnh' và bộ nút đáy."
+          ],
+          "data": "CaptureWarning.blurred; OcrFailureKind.invalidImage",
+          "expected": "Hiển thị đúng lý do lỗi, không gọi backend với ảnh mờ, thanh đáy hiển thị 'Tìm thuốc thủ công', 'Chọn ảnh khác', 'Chụp lại' và không hiển thị 'Thử lại'.",
+          "actual": "Pass: scan_medication_screen_test.dart ('blurred and invalidImage failures offer manual search, gallery, retake without Retry (AC7)') xác nhận đủ 3 nút và find.text('Thử lại') == findsNothing (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC7 · EP (8) · DT1 (R5) · Error Guessing · blurred and invalidImage failures without Retry (AC7)"
+        },
+        {
+          "id": "TC-OCRUI-15",
+          "description": "Hiển thị nút 'Thử lại' khi lỗi mạng hoặc lỗi đọc ảnh (canRetry) và đối chiếu lại thành công mà không cần chụp lại",
+          "precondition": "Ảnh mã hóa còn hạn 24h; lần gọi đầu thất bại với OcrFailureKind.network hoặc OcrFailureKind.recognition, lần gọi thứ hai thành công.",
+          "steps": [
+            "Chọn ảnh khi matcher ném OcrFailureKind.network; xác nhận nút 'Thử lại' xuất hiện.",
+            "Khôi phục mạng và bấm 'Thử lại'; kiểm tra số lần gọi reader và matcher.",
+            "Lặp lại với reader ném OcrFailureKind.recognition rồi khôi phục và bấm 'Thử lại'."
+          ],
+          "data": "Case 1: OcrFailureKind.network -> matched; Case 2: OcrFailureKind.recognition -> matched",
+          "expected": "Case 1 (network): bấm 'Thử lại' tái sử dụng văn bản OCR (reader.calls == 1, matcher.calls == 2) và hiện thẻ thuốc; Case 2 (recognition): bấm 'Thử lại' đọc lại từ ảnh mã hóa (reader.calls == 2, matcher.calls == 1) và hiện thẻ thuốc.",
+          "actual": "Pass: ocr_controller_test.dart ('canRetry is true for retryable failures while lease is valid (AC8)') và scan_medication_screen_test.dart ('network and recognition failures show Retry that re-runs OcrController.start() without retaking (AC8)') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC8 · EP (7) · DT1 (R3) · network and recognition failures show Retry (AC8)"
+        },
+        {
+          "id": "TC-OCRUI-16",
+          "description": "Tự động giải phóng ảnh tạm, xóa RAM và ẩn nút 'Thử lại' khi ảnh mã hóa hết hạn 24h trong lúc đang đứng ở màn lỗi",
+          "precondition": "Đang ở màn lỗi S07-O3e sau lỗi mạng (có nút 'Thử lại'), lease ảnh tạm sắp chạm mốc hết hạn TTL (24h, mô phỏng 80ms trong test).",
+          "steps": [
+            "Chờ quá mốc hết hạn của ảnh mã hóa trong khi vẫn ở màn hình lỗi.",
+            "Kiểm tra trạng thái giải phóng ảnh, tiêu đề màn hình và các nút còn lại."
+          ],
+          "data": "lease TTL = 80ms (mô phỏng mốc biên 24h+1s), OcrFailureKind.network",
+          "expected": "OcrController.canRetry chuyển false, ảnh tạm được giải phóng (releases == 1), buffer RAM bị xóa, màn hình tự cập nhật tiêu đề 'Ảnh đã hết hạn', ẩn nút 'Thử lại' và giữ 'Chụp lại'.",
+          "actual": "Pass: ocr_controller_test.dart ('canRetry is false when expired...') và scan_medication_screen_test.dart ('expiring encrypted image on failure screen hides Retry and shows expired message (AC8, AC9)') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC8, AC9 · EP (7) · BVA (24h TTL) · DT1 (R4) · expiring encrypted image on failure screen (AC8, AC9)"
+        },
+        {
+          "id": "TC-OCRUI-17",
+          "description": "Giải phóng ngay ảnh tạm và khóa fail-closed chỉ còn nút 'Đóng' khi API trả 401 unauthorized",
+          "precondition": "Phiên hết hạn khi gọi POST /catalog/medications/match (OcrFailureKind.unauthorized).",
+          "steps": [
+            "Chọn ảnh để chạy nhận diện khi matcher ném OcrFailureKind.unauthorized.",
+            "Kiểm tra số lần giải phóng ảnh tạm và các nút hiển thị ở thanh đáy."
+          ],
+          "data": "OcrFailureKind.unauthorized (401)",
+          "expected": "Giải phóng ngay ảnh tạm (releases == 1) và xóa RAM, hiển thị 'Phiên đăng nhập đã hết hạn', ẩn hoàn toàn 'Thử lại', 'Tìm thuốc thủ công', 'Chọn ảnh khác', 'Chụp lại', chỉ hiển thị nút 'Đóng'.",
+          "actual": "Pass: scan_medication_screen_test.dart ('unauthorized (401) and cleanup failure release/lock UI fail-closed...') xác nhận store.releases == 1, tiêu đề 'Phiên đăng nhập đã hết hạn', chỉ có nút 'Đóng' (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC9 · EP (9) · DT1 (R1) · Security · unauthorized (401) lock UI fail-closed (AC9)"
+        },
+        {
+          "id": "TC-OCRUI-18",
+          "description": "Giữ khóa fail-closed chỉ hiện 'Thử dọn lại' khi xóa ảnh tạm thất bại (cleanup) và chỉ thoát màn hình sau khi dọn thành công",
+          "precondition": "Ảnh tạm mã hóa đang được giữ; CaptureStore.release() ném lỗi khi người dùng hủy giữa lúc đang nhận diện.",
+          "steps": [
+            "Hủy giữa lúc đang nhận diện khi release() lỗi; kiểm tra tiêu đề, bộ nút đáy và trạng thái điều hướng.",
+            "Khôi phục release() thành công rồi bấm nút 'Thử dọn lại'."
+          ],
+          "data": "failRelease = true -> false",
+          "expected": "Khi dọn lỗi: hiển thị 'Chưa dọn được ảnh tạm', ẩn toàn bộ 'Thử lại'/'Tìm thuốc thủ công'/'Chọn ảnh khác'/'Chụp lại', chỉ hiện nút 'Thử dọn lại', chưa pop màn hình; sau khi khôi phục và bấm 'Thử dọn lại', giải phóng sạch (releases == 1) và pop màn hình.",
+          "actual": "Pass: scan_medication_screen_test.dart ('unauthorized (401) and cleanup failure release/lock UI fail-closed...') xác nhận giữ màn hình khi failRelease=true, chỉ hiện 'Thử dọn lại', và pop sau khi releases == 1 (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC9 · EP (9) · DT1 (R2) · Security · cleanup failure lock UI fail-closed (AC9)"
+        },
+        {
+          "id": "TC-OCRUI-19",
+          "description": "Giải phóng ngay ảnh tạm và hủy bỏ kết quả đến muộn khi rút consent dữ liệu sức khỏe giữa lúc đang nhận diện",
+          "precondition": "Người dùng đã cấp ConsentPurpose.healthData và đang chờ phản hồi POST /catalog/medications/match sau khi chụp ảnh.",
+          "steps": [
+            "Gọi consent.withdraw(ConsentPurpose.healthData) trong lúc API đang pending.",
+            "Hoàn tất Completer phản hồi muộn từ backend và kiểm tra trạng thái màn hình + ảnh tạm."
+          ],
+          "data": "ConsentPurpose.healthData withdrawn while matcher pending",
+          "expected": "Giải phóng ngay ảnh tạm mã hóa (store.releases == 1), xóa buffer RAM và bỏ qua hoàn toàn kết quả đến muộn (không hiển thị thẻ thuốc).",
+          "actual": "Pass: scan_medication_screen_test.dart ('revoking consent during recognition clears the pending result') xác nhận store.releases == 1 và find.text('Thuốc kiểm thử') == findsNothing (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC9 · EP (9) · Security · revoking consent during recognition clears the pending result"
+        },
+        {
+          "id": "TC-OCRUI-20",
+          "description": "Từ chối phản hồi OCR có score ngoài khoảng hợp lệ [0, 1] hoặc NaN/Infinity và văn bản OCR vượt biên 2000 ký tự",
+          "precondition": "Parser OcrMatchResult.fromJson và validateOcrText nhận giá trị ngoài khoảng hợp lệ.",
+          "steps": [
+            "Truyền JSON có items[0].score thuộc [-0.1, 1.1, NaN] vào OcrMatchResult.fromJson.",
+            "Truyền chuỗi OCR độ dài 2001 ký tự Unicode (và limit ngoài [1, 10]) vào validateOcrText."
+          ],
+          "data": "score in [-0.1, 1.1, NaN]; text length = 2001 runes; limit in [0, 11]",
+          "expected": "OcrMatchResult.fromJson ném OcrFailure(badResponse); validateOcrText ném OcrFailure(textTooLong / validation) và không gọi backend matching.",
+          "actual": "Pass: ocr_models_test.dart ('rejects malformed status, shape, score, preselection and reasons', 'validates Unicode code points and limits without changing text') và ocr_controller_test.dart ('no text and too-long text never invoke matching') pass (evidence/test-integration.log).",
+          "status": "Pass",
+          "comments": "AC4, AC7 · EP (13) · BVA (score < 0, > 1; text 2001; limit 0/11) · ocr_models_test.dart & ocr_controller_test.dart"
+        },
+        {
+          "id": "TC-OCRUI-21",
+          "description": "Quét vỉ thuốc thật trên điện thoại Android trong điều kiện ánh sáng thường và xác nhận chuyển sang bước lịch uống",
+          "precondition": "Cài bản build mobile mới nhất trên điện thoại Android thật có camera, đăng nhập tài khoản bệnh nhân hợp lệ và chuẩn bị vỉ thuốc có trong danh mục (ví dụ Paracetamol 500mg).",
+          "steps": [
+            "Từ Trang chủ bấm 'Thêm thuốc' để mở thẳng màn camera S07-O1.",
+            "Đặt tên thuốc trên vỉ vào trong khung quét, quan sát lớp phủ scrim 4 phía, tia quét và pill hướng dẫn.",
+            "Bấm nút Chụp ảnh, quan sát sheet S07-O2 (linh vật + 3 bước 17px) và thẻ kết quả S07-O2r.",
+            "Bấm 'Đúng thuốc này' để chuyển sang bước 2/3 Lịch uống."
+          ],
+          "data": "Thiết bị Android thật, ánh sáng phòng bình thường, vỉ Paracetamol 500mg",
+          "expected": "Khung quét rõ nét, ảnh cắt đúng vùng khung, chuyển mượt qua sheet đang nhận diện và thẻ kết quả có pill xanh lá 'Đã nhận diện · XX% khớp', không giật/tràn bố cục, xác nhận mở đúng bước Lịch uống.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC10 · manual (cần thiết bị Android thật và vỉ thuốc vật lý)"
+        },
+        {
+          "id": "TC-OCRUI-22",
+          "description": "Quét vỉ thuốc trong ánh sáng yếu/loá và kiểm tra màn lỗi S07-O3e + nút 'Thử lại' khi ngắt rồi bật lại mạng trên máy Android thật",
+          "precondition": "Cài bản build mobile trên điện thoại Android thật, bật cỡ chữ hệ thống phóng lớn (~130%), chuẩn bị vỉ thuốc bóng loá.",
+          "steps": [
+            "Chụp vỉ thuốc ở góc bóng loá/mờ để vào màn lỗi S07-O3e; kiểm tra độ dễ đọc header màu #01554F và thẻ gợi ý.",
+            "Tắt Wi-Fi/4G, chụp lại vỉ thuốc rõ nét để phát sinh lỗi mạng; xác nhận thanh đáy hiện nút 'Thử lại'.",
+            "Bật lại mạng và bấm 'Thử lại'."
+          ],
+          "data": "Thiết bị Android thật, cỡ chữ hệ thống 130%, tắt/bật mạng di động",
+          "expected": "Header 'Bước 1/3 · Chưa đọc được' rõ nét (tương phản cao trên nền sáng), thẻ gợi ý không tràn chữ; khi mất mạng có nút 'Thử lại', bật lại mạng bấm 'Thử lại' nhận diện thành công mà không cần chụp lại ảnh.",
+          "actual": "",
+          "status": "Pending",
+          "comments": "AC10 · manual (cần thiết bị Android thật, điều kiện ánh sáng yếu và mạng thật)"
+        }
+      ]
+    }
+  ]
+}
