@@ -1,0 +1,18 @@
+Analyzing mobile...                                             
+
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/widgets.dart'. Try removing the import directive - lib\core\security\app_lock_controller.dart:3:8 - unnecessary_import
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\adherence_history\presentation\screens\adherence_month_screen.dart:293:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\adherence_history\presentation\screens\adherence_month_screen.dart:294:15 - prefer_const_constructors
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive - lib\features\consent\presentation\screens\account_deletion_screen.dart:7:8 - unnecessary_import
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\consent\presentation\screens\account_deletion_screen.dart:1034:41 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\consent\presentation\screens\account_deletion_screen.dart:1036:47 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - lib\features\consent\presentation\screens\account_deletion_screen.dart:1037:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\adherence_history\reminder_scene_header_test.dart:47:29 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\adherence_history\reminder_scene_header_test.dart:48:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\adherence_history\reminder_scene_header_test.dart:49:15 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal - test\features\adherence_history\reminder_scene_header_test.dart:50:20 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\adherence_history\reminder_scene_header_test.dart:51:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation - test\features\home\home_greeting_cta_test.dart:177:9 - prefer_const_constructors
+warning - Unused import: 'package:drugtime_mobile/features/interaction_check/domain/entities/interaction_check_result.dart'. Try removing the import directive - test\features\interaction_check\interaction_history_screen_test.dart:3:8 - unused_import
+
+14 issues found. (ran in 101.0s)

@@ -1,0 +1,578 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  _flutterfire_internals 1.3.79 (1.4.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  app_links 6.4.1 (7.2.2 available)
+  app_links_linux 1.0.4 (1.0.5 available)
+  archive 4.5.2 (4.7.1 available)
+  camera_android_camerax 0.7.6+1 (0.7.6+2 available)
+  camera_platform_interface 2.15.0 (2.15.1 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  cli_util 0.6.0 (0.6.1 available)
+  code_assets 1.2.1 (2.2.0 available)
+  coverage 1.16.0 (1.16.2 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  crypto 3.0.7 (3.0.8 available)
+  cryptography 2.8.1 (2.9.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  dbus 0.7.15 (0.8.1 available)
+  firebase_core 5.1.0 (5.2.0 available)
+  firebase_core_platform_interface 8.1.1 (8.2.0 available)
+  firebase_core_web 4.1.0 (4.2.0 available)
+  firebase_messaging 17.0.1 (17.1.0 available)
+  firebase_messaging_platform_interface 4.11.1 (4.12.0 available)
+  firebase_messaging_web 4.3.1 (4.4.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (23.0.4 available)
+  flutter_local_notifications_linux 4.0.1 (9.0.0 available)
+  flutter_local_notifications_platform_interface 7.2.0 (13.0.0 available)
+  flutter_secure_storage 10.3.4 (11.2.0 available)
+  flutter_secure_storage_darwin 0.3.2 (0.4.3 available)
+  flutter_secure_storage_windows 4.1.0 (4.2.2 available)
+  flutter_svg 2.3.0 (2.5.0 available)
+  google_mlkit_commons 0.13.0 (1.0.3 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.3 available)
+  hooks 2.0.2 (2.2.0 available)
+  image 4.12.0 (4.13.1 available)
+  image_picker_ios 0.8.13+13 (0.8.13+16 available)
+  jni 1.1.0 (1.2.1 available)
+  jni_flutter 1.0.4+1 (1.1.0 available)
+  lints 3.0.0 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  mobile_scanner 7.4.2 (7.5.0 available)
+  native_toolchain_c 0.19.2 (0.19.6 available)
+  objective_c 9.5.0 (9.6.4 available)
+  package_config 2.2.0 (3.0.0 available)
+  permission_handler 12.0.3 (13.0.2 available)
+  permission_handler_android 13.0.1 (14.1.1 available)
+  permission_handler_apple 9.6.4 (9.6.5 available)
+  permission_handler_windows 0.2.2 (0.2.4 available)
+  petitparser 7.0.2 (7.1.0 available)
+  qr 3.0.2 (4.0.1 available)
+  record_use 0.6.0 (1.1.1 available)
+  share_plus 12.0.2 (13.3.1 available)
+  share_plus_platform_interface 6.1.0 (7.2.0 available)
+  sqflite_common 2.5.14 (2.5.17 available)
+  sqflite_common_ffi 2.4.5 (2.4.7 available)
+  sqlite3 3.5.2 (3.9.2 available)
+  synchronized 3.5.0 (3.6.1+1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  timezone 0.9.4 (0.11.2 available)
+  vector_graphics 1.2.4 (1.3.1 available)
+  vector_graphics_codec 1.1.13 (1.2.0 available)
+  vector_graphics_compiler 1.3.2 (1.3.7 available)
+  vector_math 2.4.0 (2.4.4 available)
+  win32 5.15.0 (6.4.0 available)
+  xml 7.0.1 (7.1.0 available)
+Got dependencies!
+68 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart
+00:00 +0: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+00:05 +0: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows food warning dialog when food interaction found, cancels on back, saves on proceed
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart:105:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AddMedicationScreen shows food warning dialog when food interaction found, cancels on back, saves
+  on proceed
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +0 -1: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+00:05 +0 -1: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows food warning dialog when food interaction found, cancels on back, saves on proceed [E]
+  Test failed. See exception logs above.
+  The test description was: AddMedicationScreen shows food warning dialog when food interaction found, cancels on back, saves on proceed
+  
+00:06 +1 -1: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+00:07 +1 -1: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows warning dialog when interaction found, cancels on cancel, saves on confirm
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart:150:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  shows warning dialog when interaction found, cancels on cancel, saves on confirm
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +1 -2: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+00:07 +1 -2: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows warning dialog when interaction found, cancels on cancel, saves on confirm [E]
+  Test failed. See exception logs above.
+  The test description was: shows warning dialog when interaction found, cancels on cancel, saves on confirm
+  
+00:07 +2 -2: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <0>
+  Actual: <1>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart:51:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart line 51
+The test description was:
+  bootstrap uses only the explicitly selected source, no external work
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:07 +2 -3: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:07 +2 -3: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work [E]
+  Test failed. See exception logs above.
+  The test description was: bootstrap uses only the explicitly selected source, no external work
+  
+00:07 +3 -3: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:08 +4 -3: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: S06 · Thuốc của tôi hiện danh sách, cảnh báo sắp hết và lọc theo trạng thái
+00:08 +5 -3: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows network error dialog when food check fails with exception
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart:245:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  AddMedicationScreen shows network error dialog when food check fails with exception
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +5 -4: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication saves directly without dialog when no interaction found
+00:09 +5 -4: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows network error dialog when food check fails with exception [E]
+  Test failed. See exception logs above.
+  The test description was: AddMedicationScreen shows network error dialog when food check fails with exception
+  
+00:09 +5 -4: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication saves directly without dialog when no interaction found
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart:231:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  saves directly without dialog when no interaction found
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +5 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:09 +5 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication saves directly without dialog when no interaction found [E]
+  Test failed. See exception logs above.
+  The test description was: saves directly without dialog when no interaction found
+  
+00:10 +6 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:10 +7 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +8 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +8 -5: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart: original artwork farewell blinks and articulates its hand
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than <0.4>
+  Actual: <1.0>
+   Which: is not a value less than <0.4>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart:58:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart line 58
+The test description was:
+  original artwork farewell blinks and articulates its hand
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +8 -6: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +8 -6: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart: original artwork farewell blinks and articulates its hand [E]
+  Test failed. See exception logs above.
+  The test description was: original artwork farewell blinks and articulates its hand
+  
+00:11 +9 -6: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +10 -6: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +10 -6: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart: original artwork thumbsUp blinks and articulates its hand
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than <0.4>
+  Actual: <1.0>
+   Which: is not a value less than <0.4>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart:58:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart line 58
+The test description was:
+  original artwork thumbsUp blinks and articulates its hand
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:11 +10 -7: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:11 +10 -7: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/shared/widgets/mascot/mascot_artwork_test.dart: original artwork thumbsUp blinks and articulates its hand [E]
+  Test failed. See exception logs above.
+  The test description was: original artwork thumbsUp blinks and articulates its hand
+  
+00:12 +10 -7: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:12 +10 -7: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows insufficient data dialog when candidate lacks active ingredients
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart:300:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  shows insufficient data dialog when candidate lacks active ingredients
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +10 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:12 +10 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows insufficient data dialog when candidate lacks active ingredients [E]
+  Test failed. See exception logs above.
+  The test description was: shows insufficient data dialog when candidate lacks active ingredients
+  
+00:12 +11 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:12 +12 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:13 +13 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:13 +13 -8: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows both interaction findings and insufficient data warnings on mixed response
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart:416:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  shows both interaction findings and insufficient data warnings on mixed response
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +13 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:13 +13 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows both interaction findings and insufficient data warnings on mixed response [E]
+  Test failed. See exception logs above.
+  The test description was: shows both interaction findings and insufficient data warnings on mixed response
+  
+00:13 +14 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:14 +15 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:14 +16 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:14 +17 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:14 +17 -9: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows network error dialog when interaction check throws, user can cancel or proceed
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart:498:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  shows network error dialog when interaction check throws, user can cancel or proceed
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +17 -10: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:14 +17 -10: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/interaction_check/interaction_flow_test.dart: Interaction Check Flow on Add Medication shows network error dialog when interaction check throws, user can cancel or proceed [E]
+  Test failed. See exception logs above.
+  The test description was: shows network error dialog when interaction check throws, user can cancel or proceed
+  
+00:15 +18 -10: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:15 +18 -10: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart: Figma metrics S08-1 field is 48 tall, phone read-only, only name/email typed
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly 2 matching candidates
+  Actual: _TypeWidgetFinder:<Found 3 widgets with type "TextFormField": [
+            TextFormField-[<'profile-name'>](dependencies: [InheritedCupertinoTheme,
+UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#31b2b]],
+state: _TextFormFieldState#af486),
+            TextFormField-[<'profile-phone'>](dependencies: [InheritedCupertinoTheme,
+UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#31b2b]],
+state: _TextFormFieldState#63dd5),
+            TextFormField-[<'profile-email'>](dependencies: [InheritedCupertinoTheme,
+UnmanagedRestorationScope, _FormScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#31b2b]],
+state: _TextFormFieldState#ab329),
+          ]>
+   Which: is too many
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart:288:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart line 288
+The test description was:
+  S08-1 field is 48 tall, phone read-only, only name/email typed
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:15 +18 -11: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:15 +18 -11: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart: Figma metrics S08-1 field is 48 tall, phone read-only, only name/email typed [E]
+  Test failed. See exception logs above.
+  The test description was: S08-1 field is 48 tall, phone read-only, only name/email typed
+  
+00:16 +19 -11: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:16 +20 -11: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:17 +20 -11: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart: Figma metrics unsupported Figma fields are explicit and cannot save
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Chưa khả dụng": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart:356:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart line 356
+The test description was:
+  unsupported Figma fields are explicit and cannot save
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:17 +20 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:17 +20 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/profile/profile_layout_test.dart: Figma metrics unsupported Figma fields are explicit and cannot save [E]
+  Test failed. See exception logs above.
+  The test description was: unsupported Figma fields are explicit and cannot save
+  
+00:17 +21 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:18 +22 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:18 +23 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:21 +23 -12: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 2 widgets with text "Thuốc": [
+  Text-[<'selected-nav-label-Thuốc'>]("Thuốc", inherit: true, color: Color(alpha: 1.0000, red:
+0.0431, green: 0.3529, blue: 0.5412, colorSpace: ColorSpace.sRGB), size: 14.0, weight: 700,
+softWrap: no wrapping except at line break characters, maxLines: 1, dependencies:
+[DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+  Text("Thuốc", inherit: true, color: Color(alpha: 1.0000, red: 0.0431, green: 0.3529, blue: 0.5412,
+colorSpace: ColorSpace.sRGB), size: 12.0, weight: 600, dependencies: [DefaultSelectionStyle,
+DefaultTextStyle, MediaQuery]),
+]" (used in a call to "tap()") ambiguously found multiple matching widgets. The "tap()" method needs
+a single target.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2100:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart:397:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:21 +23 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:21 +23 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: S07 · Thêm thuốc mới chọn thuốc, đổi tần suất, lưu và thấy trong danh sách [E]
+  Test failed. See exception logs above.
+  The test description was: chọn thuốc, đổi tần suất, lưu và thấy trong danh sách
+  
+00:22 +24 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:22 +25 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:23 +26 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:24 +27 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:24 +28 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:25 +29 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+00:26 +30 -13: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart:61:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  home full opens R1 before selecting a patient
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:26 +30 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/medication/medication_screens_test.dart: Nối API: lỗi, client_uuid, tối đa lần/ngày S06 không tải được: thẻ lỗi + Thử lại, không báo "Chưa có thuốc nào"
+00:26 +30 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home full opens R1 before selecting a patient [E]
+  Test failed. See exception logs above.
+  The test description was: home full opens R1 before selecting a patient
+  
+00:27 +31 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient
+00:27 +32 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient
+00:28 +33 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient
+00:28 +34 -14: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+pumpAndSettle timed out
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester.pumpAndSettle.<anonymous closure> (package:flutter_test/src/widget_tester.dart:717:11)
+<asynchronous suspension>
+#1      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#2      main.<anonymous closure> (file:///C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart:61:7)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  home empty opens R1 before selecting a patient
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:35 +34 -15: C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient [E]
+  Test failed. See exception logs above.
+  The test description was: home empty opens R1 before selecting a patient
+  
+00:35 +34 -15: Some tests failed.
+
+Failing tests:
+  C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/app/adherence_demo_bootstrap_test.dart: bootstrap uses only the explicitly selected source, no external work
+  C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows food warning dialog when food interaction found, cancels on back, saves on proceed
+  C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/drug_food_warning/food_warning_flow_test.dart: Food Warning Flow on Add/Edit Medication AddMedicationScreen shows network error dialog when food check fails with exception
+  C:/Users/VietD/AppData/Local/Temp/claude/98dc051df7801518/2c12d6f0-0cca-473d-9a11-13fbe92c7820/scratchpad/fe-base/mobile/test/features/family_link/patient_switcher_home_entry_test.dart: home empty opens R1 before selecting a patient
+  ... and 11 more

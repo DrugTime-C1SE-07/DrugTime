@@ -1,0 +1,26 @@
+Phạm vi giai đoạn 'implement' của adhoc-20261125-biometric-auth:
+  [OK]        frontend/mobile/android/app/src/main/kotlin/vn/drugtime/drugtime_mobile/MainActivity.kt
+  [OK]        frontend/mobile/android/app/src/main/res/values-night/styles.xml
+  [OK]        frontend/mobile/android/app/src/main/res/values/styles.xml
+  [OK]        frontend/mobile/ios/Runner/Info.plist
+  [OK]        frontend/mobile/lib/app/app.dart
+  [OK]        frontend/mobile/lib/core/platform/keyguard_service.dart
+  [OK]        frontend/mobile/lib/core/security/app_lock_controller.dart
+  [OK]        frontend/mobile/lib/core/security/app_lock_gate.dart
+  [OK]        frontend/mobile/lib/core/security/app_lock_screen.dart
+  [OK]        frontend/mobile/lib/core/security/app_lock_settings_store.dart
+  [OK]        frontend/mobile/lib/core/security/device_authenticator.dart
+  [OK]        frontend/mobile/lib/core/security/top_route_observer.dart
+  [OK]        frontend/mobile/lib/features/profile/presentation/screens/profile_settings_screen.dart
+  [OK]        frontend/mobile/lib/main.dart
+  [OK]        frontend/mobile/pubspec.lock
+  [OK]        frontend/mobile/pubspec.yaml
+  [OK]        frontend/mobile/test/core/platform/keyguard_service_test.dart
+  [OK]        frontend/mobile/test/core/security/app_lock_controller_test.dart
+  [OK]        frontend/mobile/test/core/security/app_lock_gate_test.dart
+  [OK]        frontend/mobile/test/core/security/app_lock_settings_store_test.dart
+  [OK]        frontend/mobile/test/core/security/app_lock_test_fakes.dart
+  [OK]        frontend/mobile/test/core/security/device_authenticator_test.dart
+  [OK]        frontend/mobile/test/features/profile/app_lock_settings_test.dart
+  [CHƯA SỬA]  docs/Team1_DTU/04_Quality_&_Testing/Test_Cases.xlsx  (có trong plan)
+OK: mọi thay đổi nằm trong phạm vi.

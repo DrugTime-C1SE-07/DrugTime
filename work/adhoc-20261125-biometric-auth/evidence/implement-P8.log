@@ -1,0 +1,7 @@
+00:00 +0: loading D:/Captone/DrugTime/frontend/mobile/test/features/profile/app_lock_settings_test.dart
+00:00 +0: no screen lock on device: switch disabled with guidance
+00:01 +1: turning on authenticates then saves
+00:01 +2: failed authentication keeps it off and explains why
+00:01 +3: turning off disables without a prompt
+00:01 +4: section is hidden when the app has no lock controller
+00:01 +5: All tests passed!
